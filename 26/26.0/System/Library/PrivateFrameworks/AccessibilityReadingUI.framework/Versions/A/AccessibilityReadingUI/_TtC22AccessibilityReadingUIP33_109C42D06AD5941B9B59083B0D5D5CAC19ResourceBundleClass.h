@@ -1,0 +1,3 @@
+@interface _TtC22AccessibilityReadingUIP33_109C42D06AD5941B9B59083B0D5D5CAC19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

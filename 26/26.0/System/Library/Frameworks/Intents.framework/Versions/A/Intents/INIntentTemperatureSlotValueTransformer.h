@@ -1,0 +1,12 @@
+@interface INIntentTemperatureSlotValueTransformer : NSValueTransformer
+
++ (Class)reverseTransformedValueClass;
++ (Class)transformedValueClass;
++ (BOOL)allowsReverseTransformation;
++ (Class)_intents_resolutionResultClass;
++ (long long)_intents_valueType;
+
+- (id)transformedValue:(id)a0;
+- (id)reverseTransformedValue:(id)a0;
+
+@end

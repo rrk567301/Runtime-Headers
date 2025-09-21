@@ -1,0 +1,3 @@
+@interface HomeKitDaemon.CleanEnergyAutomationConfigurationLogEventFactory : _TtCs12_SwiftObject
+
+@end

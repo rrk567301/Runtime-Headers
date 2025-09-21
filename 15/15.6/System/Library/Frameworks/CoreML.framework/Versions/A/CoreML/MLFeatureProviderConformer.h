@@ -1,0 +1,17 @@
+@class NSArray, NSDictionary;
+
+@interface MLFeatureProviderConformer : NSObject
+
+@property (readonly, copy, nonatomic) NSArray *featureDescriptions;
+@property (readonly, copy, nonatomic) NSDictionary *defaultValues;
+@property (readonly, nonatomic) char usingRank5Mapping;
+@property (readonly, copy, nonatomic) NSDictionary *optionalInputTypes;
+@property (readonly, nonatomic) char passthroughStateFeatures;
+
+- (void).cxx_destruct;
+- (id)_fabricateFeatureForDescription:(id)a0 error:(id *)a1;
+- (char)_sequenceConcatConsumesOptionalInputNamed:(id)a0;
+- (id)conformFeatures:(id)a0 error:(id *)a1;
+- (id)initWithFeatureDescriptions:(id)a0 defaultValues:(id)a1 usingRank5Mapping:(char)a2 optionalInputTypes:(id)a3 passthroughStateFeatures:(char)a4;
+
+@end

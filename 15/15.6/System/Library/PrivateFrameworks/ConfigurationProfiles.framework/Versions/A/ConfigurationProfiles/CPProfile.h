@@ -1,0 +1,105 @@
+@class NSString, NSDictionary, NSMutableDictionary, NSDate, NSArray;
+
+@interface CPProfile : NSObject <NSSecureCoding> {
+    NSMutableDictionary *internalData;
+    int verificationState;
+    unsigned long long indexOfFailedVerificationSigner;
+    NSString *signerName;
+    struct AuthorizationOpaqueRef { } *authorizationRef;
+}
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, retain) NSString *name;
+@property (readonly, retain) NSString *organization;
+@property (readonly, retain) NSString *configurationDescription;
+@property (retain) NSDate *installationDate;
+@property (readonly, retain) NSString *profileUUID;
+@property (readonly, retain) NSString *profileIdentifier;
+@property (readonly) char containsComputerItems;
+@property (readonly) unsigned long long profileVersion;
+@property (readonly) char removaldisallowed;
+@property (readonly, retain) NSString *profileType;
+@property (readonly, retain) NSString *profileScope;
+@property (readonly) long long targetDeviceType;
+@property (readonly, retain) NSDictionary *consentText;
+@property (readonly) char requiresAdministratorAuthorizationToInstall;
+@property (readonly) int verificationState;
+@property (readonly) char verificationStateCalculated;
+@property (readonly, retain) NSString *signerName;
+@property (retain) NSMutableDictionary *internalData;
+@property (readonly, retain) NSArray *configurationItems;
+@property (readonly, nonatomic) char wasEncrypted;
+@property (readonly, nonatomic) char payloadIsExpired;
+@property (readonly, nonatomic) NSDate *payloadExpirationDate;
+@property (readonly, nonatomic) NSDate *effectiveRemovalDate;
+@property (retain) NSString *assignedUserName;
+@property (retain) NSString *assignedUserGUID;
+@property (nonatomic) struct AuthorizationOpaqueRef { } *authorizationRef;
+
++ (id)buildCertificateListFromSigners:(id)a0 firstCertData:(id)a1;
++ (int)calculateVerificationStateForCertificatesInfo:(id)a0 indexOfFailedSigner:(unsigned long long *)a1;
++ (id)decodeProfileData:(id)a0 returningError:(id *)a1;
++ (id)profileFromArchivedData:(id)a0;
+
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (char)hidden;
+- (id)archivedData;
+- (id)initWithData:(id)a0 error:(id *)a1;
+- (void)setFrom:(id)a0;
+- (char)installedFromOD;
+- (id)userDataForKey:(id)a0;
+- (char)installFinished;
+- (char)isSystemProfile;
+- (char)_initFromDict:(id)a0 error:(id *)a1;
+- (int)accessBitFlagsForProfile;
+- (char)accountExistsInUserHome:(id)a0 payloadID:(id)a1 userGUID:(id)a2;
+- (char)accountExistsInUserHomeForAccountTypes:(id)a0 payloadID:(id)a1 userGUID:(id)a2;
+- (char)addAccountInfo:(id)a0 payloadID:(id)a1 accountType:(id)a2;
+- (char)addUserAccountData:(id)a0 payloadID:(id)a1 forAccount:(id)a2 forUser:(id)a3 error:(id *)a4;
+- (char)adminRemovalDisallowed;
+- (id)certificateReferencesFromPayload:(id)a0;
+- (id)configurationProfileDictionary;
+- (id)configurationProfileMutableDictionary;
+- (id)createAccountInfoDict:(id)a0 accountInfo:(id)a1;
+- (id)dictionaryForArchiver;
+- (id)firstInvalidSignerCertificateData;
+- (id)getAccountInfoForAccountType:(id)a0 payloadID:(id)a1;
+- (id)getAccountInfoForAccountTypes:(id)a0 payloadID:(id)a1;
+- (id)getTrustedAppsForPayloadKeychainItem:(id)a0;
+- (char)haveRemovalPassword;
+- (id)identityCertificateReferencesFromPayload:(id)a0;
+- (id)identityPrivateKeyReferencesFromPayload:(id)a0;
+- (id)initForProvisioningProfile:(id)a0;
+- (id)initWithConfigurationProfileDictionary:(id)a0 error:(id *)a1;
+- (char)installedByMDM;
+- (char)installedFromDEP;
+- (char)isFinalOTAProfile;
+- (char)isOTAProfile;
+- (id)keychainItemReferencesForTypes:(id)a0 payloadUUID:(id)a1 error:(id *)a2;
+- (id)pathToUserAccountsFile:(id)a0;
+- (char)payloadDisabled:(id)a0;
+- (id)prefsFileLocationFromGUID:(id)a0;
+- (void)priv_SetConfigurationItems:(id)a0;
+- (char)priv_ShouldBeHidden;
+- (char)profileHas8021XPayload;
+- (char)profileHasAccountsPayload;
+- (char)profileHasVPNPayload;
+- (id)readUserAccountArrayData:(id)a0 forUser:(id)a1;
+- (id)readUserAccountPayloadData:(id)a0 forAccount:(id)a1 userGUID:(id)a2;
+- (char)removalPasswordMatches:(id)a0;
+- (char)removeAccountInfo:(id)a0 payloadID:(id)a1 accountType:(id)a2;
+- (char)removeUserAccountPayloadData:(id)a0 forAccount:(id)a1 forUser:(id)a2;
+- (void)removeUserData:(id)a0 forKey:(id)a1;
+- (void)setAuthorizationFromData:(id)a0;
+- (void)setFromArchiverDictionary:(id)a0;
+- (void)setUserData:(id)a0 forKey:(id)a1;
+- (id)signerCertificates:(id)a0;
+- (id)signerCertificatesInfo;
+- (char)userInfoFromGUID:(id)a0 outUserName:(id *)a1 outUserUID:(unsigned int *)a2;
+- (char)validateKeys;
+- (char)writeUserAccountArrayData:(id)a0 forAccount:(id)a1 forUser:(id)a2 error:(id *)a3;
+
+@end

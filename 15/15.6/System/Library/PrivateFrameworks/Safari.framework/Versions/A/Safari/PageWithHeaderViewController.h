@@ -1,0 +1,84 @@
+@class NSTimer, NSAttributedString, NSURL, BrowserViewController, PageWithHeaderView, NSString, NSImage, NSMutableArray, ReaderViewController, WebViewController;
+
+@interface PageWithHeaderViewController : BrowserContainerViewController <PageWithHeaderViewDelegate> {
+    NSMutableArray *_historyOperations;
+    NSTimer *_createSnapshotForRubberBandingAreaTimer;
+}
+
+@property (nonatomic) char hasFooterBanner;
+@property (nonatomic) char suppressBannerUpdatesOnPropertyChanges;
+@property (retain) PageWithHeaderView *view;
+@property (readonly, nonatomic) BrowserViewController *browserViewController;
+@property (readonly, nonatomic) ReaderViewController *readerViewController;
+@property (readonly, nonatomic) WebViewController *activeWebViewController;
+@property (nonatomic) char canTakeSnapshotForRubberBandingArea;
+@property (nonatomic) struct Image { struct WKRetainPtr<const void *> { void *m_ptr; } m_webKit2Object; } snapshotForRubberBandingArea;
+@property (nonatomic) char didStopLoadingPage;
+@property (nonatomic) char canUseCredentialStorage;
+@property (readonly, nonatomic) NSURL *url;
+@property (readonly, nonatomic) NSImage *icon;
+@property (readonly, nonatomic) char hasDefaultSiteIcon;
+@property (readonly, nonatomic) NSAttributedString *itemTitle;
+@property (readonly, nonatomic) NSImage *footerBannerIcon;
+@property (readonly, nonatomic) char footerBannerHasDefaultSiteIcon;
+@property (readonly, nonatomic) NSAttributedString *footerBannerItemTitle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)close;
+- (id).cxx_construct;
+- (void)loadView;
+- (void)setIcon:(id)a0;
+- (void)didEnterBackground;
+- (void)_updateFooterBannerIconForPage:(const void *)a0;
+- (id)_browserWebView;
+- (void)_createFooterBannersIfNecessary;
+- (char)goBackFromAboutBlankIfNecessary;
+- (void)navigateToAboutBlankIfNecessary;
+- (struct Page { struct WKRetainPtr<const void *> { void *x0; } x0; })_browserPage;
+- (void)_cancelCreateSnapshotForRubberBandingAreaTimer;
+- (void)_clearHistoryOperations;
+- (void)_createFooterBannerLayersIfNecessary;
+- (void)_createReaderFooterBannerLayerIfNecessary;
+- (void)_createSnapshotForRubberBandingArea;
+- (id)_footerBannerLayerForWebView:(id)a0;
+- (char)_isWebViewClosed;
+- (id)_pageWithHeaderView;
+- (struct Page { struct WKRetainPtr<const void *> { void *x0; } x0; })_readerPage;
+- (id)_readerWebView;
+- (void)_removeFooterBanner;
+- (void)_updateFooterBannerIconDrawsDropShadowAndMaskForPage:(const void *)a0;
+- (void)_updateFooterBannerIconDrawsDropShadowAndMaskForWebView:(id)a0;
+- (void)_updateFooterBannerIconForWebView:(id)a0;
+- (void)_updateFooterBannerItemTitleForPage:(const void *)a0;
+- (void)_updateFooterBannerItemTitleForWebView:(id)a0;
+- (void)_updateFooterBannerPropertiesForPage:(const void *)a0;
+- (void)_updateFooterBannerPropertiesForWebView:(id)a0;
+- (void)activateReaderIfAvailable;
+- (void)addHistoryOperation:(id)a0;
+- (void)attachWebView;
+- (void)commitHistoryOperations;
+- (void)createSnapshotForRubberBandingAreaSoon;
+- (void)deactivateReaderIfActive;
+- (void)detachWebView;
+- (void)didEnterForeground;
+- (id)initWithContinuousReadingListPageItem:(id)a0 browserDocument:(id)a1;
+- (void)installReaderView:(id)a0;
+- (void)loadWebView;
+- (void)pageWithHeaderViewFrameSizeDidChange:(id)a0;
+- (id)readerContainerView;
+- (void)setFooterBannerHasDefaultSiteIcon:(char)a0;
+- (void)setFooterBannerIcon:(id)a0;
+- (void)setFooterBannerItemTitle:(id)a0;
+- (void)setHasDefaultSiteIcon:(char)a0;
+- (void)setItemTitle:(id)a0;
+- (void)setViewControllerForFooterBanner:(id)a0;
+- (void)stopLoadingWebView;
+- (id)tabDialogHostingView;
+- (void)uninstallReaderView:(id)a0;
+
+@end

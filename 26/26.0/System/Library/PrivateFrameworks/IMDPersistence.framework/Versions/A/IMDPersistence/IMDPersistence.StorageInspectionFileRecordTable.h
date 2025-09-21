@@ -1,0 +1,3 @@
+@interface IMDPersistence.StorageInspectionFileRecordTable : IMDPersistence.StorageInspectionDatabaseTable
+
+@end

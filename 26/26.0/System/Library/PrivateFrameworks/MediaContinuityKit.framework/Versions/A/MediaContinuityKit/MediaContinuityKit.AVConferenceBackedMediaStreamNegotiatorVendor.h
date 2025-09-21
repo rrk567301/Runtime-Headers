@@ -1,0 +1,3 @@
+@interface MediaContinuityKit.AVConferenceBackedMediaStreamNegotiatorVendor : _TtCs12_SwiftObject
+
+@end

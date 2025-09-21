@@ -1,0 +1,17 @@
+@interface SwiftUI.AppKitSecureTextField : NSSecureTextField {
+    void /* unknown type, empty encoding */ swiftUIDelegate;
+    void /* unknown type, empty encoding */ suggestionsBridge;
+    void /* unknown type, empty encoding */ delegateFocusEffect;
+    void /* unknown type, empty encoding */ customAcceptsFirstMouse;
+}
+
+- (void)viewWillMoveToWindow:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (id)accessibilitySharedFocusElements;
+- (id)designatedFocusRingView;
+- (BOOL)textView:(id)a0 doCommandBySelector:(SEL)a1;
+
+@end

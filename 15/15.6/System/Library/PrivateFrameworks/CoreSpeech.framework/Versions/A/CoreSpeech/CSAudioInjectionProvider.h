@@ -1,0 +1,85 @@
+@class NSUUID, NSHashTable, CSAudioInjectionEngine, CSAudioInjectionDevice, NSString, NSMutableDictionary, CSAudioRecordContext, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue;
+
+@interface CSAudioInjectionProvider : CSAudioRecorder <CSAudioInjectionEngineDelegate>
+
+@property (retain, nonatomic) NSHashTable *observers;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSUUID *uuid;
+@property (retain, nonatomic) NSMutableArray *connectedDevices;
+@property (retain, nonatomic) CSAudioInjectionDevice *builtInDevice;
+@property (retain, nonatomic) CSAudioInjectionDevice *bundleTvRemote;
+@property (retain, nonatomic) CSAudioInjectionEngine *builtInAudioInjectionEngine;
+@property (retain, nonatomic) NSMutableDictionary *audioInjectionEngines;
+@property (nonatomic) unsigned long long latestPluginStreamId;
+@property (nonatomic) unsigned long long activateStartTime;
+@property (nonatomic) unsigned long long activateEndTime;
+@property (nonatomic) unsigned long long deactivateStartTime;
+@property (nonatomic) unsigned long long deactivateEndTime;
+@property (retain, nonatomic) NSString *atvRemoteDeviceID;
+@property (retain, nonatomic) CSAudioRecordContext *audioRecordContext;
+@property (nonatomic) char allowZeroInjection;
+@property (nonatomic) char shouldSupportOnlyTVRemote;
+@property (nonatomic) float didStartDelayInSeconds;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)createSharedAudioSession;
++ (id)defaultInjectionProvider;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)start;
+- (void)stop;
+- (id)metrics;
+- (void)connectDevice:(id)a0;
+- (void)disconnectDevice:(id)a0;
+- (void)unregisterObserver:(id)a0;
+- (void)registerObserver:(id)a0;
+- (char)isNarrowBandWithStreamHandleId:(unsigned long long)a0;
+- (void)_connectPluginDevice:(id)a0;
+- (void)_createSpeechDetectionVADIfNeeded;
+- (void)_tearDownSpeechDetectionVADIfNeeded;
+- (char)activateAudioSessionWithReason:(unsigned long long)a0 streamHandleId:(unsigned long long)a1 error:(id *)a2;
+- (unsigned long long)alertStartTime;
+- (id)audioDeviceInfoWithStreamHandleId:(unsigned long long)a0 recordDeviceIndicator:(id)a1;
+- (void)audioEngineAudioChunkForTvAvailable:(id)a0 audioChunk:(id)a1;
+- (void)audioEngineBufferAvailable:(id)a0 audioStreamHandleId:(unsigned long long)a1 buffer:(id)a2 remoteVAD:(id)a3 atTime:(unsigned long long)a4 isFileLoadedBuffer:(char)a5;
+- (void)audioEngineDidStartRecord:(id)a0 audioStreamHandleId:(unsigned long long)a1 successfully:(char)a2 error:(id)a3;
+- (void)audioEngineDidStopRecord:(id)a0 audioStreamHandleId:(unsigned long long)a1 reason:(unsigned long long)a2;
+- (float)averagePowerForChannel:(unsigned long long)a0;
+- (void)configureAlertBehavior:(id)a0 audioStreamHandleId:(unsigned long long)a1;
+- (char)deactivateAudioSession:(unsigned long long)a0 error:(id *)a1;
+- (char)deactivateAudioSession:(unsigned long long)a0 streamHandleId:(unsigned long long)a1 error:(id *)a2;
+- (char)duckOthersOption;
+- (void)enableMiniDucking:(char)a0;
+- (id)fetchGibraltarVoiceTriggerInfoWithRecordDeviceIndicator:(id)a0;
+- (id)getPlaybackRouteForStreamID:(unsigned long long)a0;
+- (char)isRecordingWithRecordDeviceIndicator:(id)a0;
+- (char)isSessionCurrentlyActivated;
+- (float)peakPowerForChannel:(unsigned long long)a0;
+- (char)playAlertSoundForType:(long long)a0 recordDevideIndicator:(id)a1;
+- (char)playRecordStartingAlertAndResetEndpointerFromStream:(unsigned long long)a0 withAlertOverride:(long long)a1;
+- (char)prepareAudioStreamRecord:(id)a0 recordDeviceIndicator:(id)a1 error:(id *)a2;
+- (char)prewarmAudioSessionWithStreamHandleId:(unsigned long long)a0 error:(id *)a1;
+- (id)primaryInputDevice;
+- (id)recordDeviceInfoWithStreamHandleId:(unsigned long long)a0 recordDeviceIndicator:(id)a1;
+- (id)recordRouteWithRecordDeviceIndicator:(id)a0;
+- (id)recordSettingsWithStreamHandleId:(unsigned long long)a0;
+- (float)recordingSampleRateWithStreamHandleId:(unsigned long long)a0;
+- (char)setAlertSoundFromURL:(id)a0 forType:(long long)a1 force:(char)a2;
+- (void)setAudioSessionEventDelegate:(id)a0;
+- (void)setContext:(id)a0 completion:(id /* block */)a1;
+- (char)setCurrentContext:(id)a0 streamHandleId:(unsigned long long)a1 error:(id *)a2;
+- (void)setDuckOthersOption:(char)a0;
+- (void)setMeteringEnabled:(char)a0;
+- (char)setRecordMode:(long long)a0 streamHandleId:(unsigned long long)a1 error:(id *)a2;
+- (char)startAudioStreamWithOption:(id)a0 recordDeviceIndicator:(id)a1 error:(id *)a2;
+- (char)stopAudioStreamWithRecordDeviceIndicator:(id)a0 error:(id *)a1;
+- (void)updateMeters;
+- (void)willDestroy;
+
+@end

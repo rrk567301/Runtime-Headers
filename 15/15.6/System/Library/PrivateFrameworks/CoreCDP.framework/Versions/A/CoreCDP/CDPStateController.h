@@ -1,0 +1,49 @@
+@interface CDPStateController : CDPController
+
+- (id)init;
+- (char)isManateeAvailable:(id *)a0;
+- (void)handleCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)repairCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)startCircleApplicationApprovalServer:(id /* block */)a0;
+- (void)localSecretChangedTo:(id)a0 secretType:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)fetchEDPTokenWithCompletion:(id /* block */)a0;
+- (void)_handleCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)attemptToEscrowPreRecord:(id)a0 completion:(id /* block */)a1;
+- (void)attemptToEscrowPreRecord:(id)a0 preRecordUUID:(id)a1 secretType:(unsigned long long)a2 completion:(id /* block */)a3;
+- (void)authenticateAndDeleteRecoveryKeyWithCompletion:(id /* block */)a0;
+- (void)authenticateAndGenerateNewRecoveryKeyWithCompletion:(id /* block */)a0;
+- (id)createEDPLivenessDictionaryWithContext:(id)a0 error:(id *)a1;
+- (void)deleteRecoveryKey:(id /* block */)a0;
+- (char)deleteRecoveryKeyWithError:(id *)a0;
+- (void)deviceEscrowRecordRecoverableWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)fetchEscrowRecordDevicesWithContext:(id)a0 usingCache:(char)a1 completion:(id /* block */)a2;
+- (void)finishCyrusFlowAfterTermsAgreementWithContext:(id /* block */)a0;
+- (void)finishOfflineLocalSecretChangeWithCompletion:(id /* block */)a0;
+- (void)generateEscrowRecordReportUsingCache:(char)a0 completion:(id /* block */)a1;
+- (void)generateNewRecoveryKey:(id /* block */)a0;
+- (id)generateRandomRecoveryKey:(id *)a0;
+- (void)handleURLActionWithInfo:(id)a0;
+- (void)handleURLActionWithInfo:(id)a0 completion:(id /* block */)a1;
+- (char)isDeviceEscrowRecordRecoverable:(id *)a0;
+- (void)isRecoveryKeyAvailableWithCompletion:(id /* block */)a0;
+- (char)isRecoveryKeyAvailableWithError:(id *)a0;
+- (void)isWalrusRecoveryKeyAvailableWithCompletion:(id /* block */)a0;
+- (char)isWalrusRecoveryKeyAvailableWithError:(id *)a0;
+- (void)performSilentEscrowRecordRepairWithCompletion:(id /* block */)a0;
+- (void)recoverAndSynchronizeWithSquirrel:(id /* block */)a0;
+- (void)recoverWithSquirrel:(id /* block */)a0;
+- (void)repairEDPStateWithCompletion:(id /* block */)a0;
+- (void)setKeyChainSyncCompatibilityState:(unsigned long long)a0 withAltDSID:(id)a1;
+- (char)shouldPerformAuthenticatedRepairWithOptionForceFetch:(char)a0 error:(id *)a1;
+- (void)shouldPerformRepairWithOptionForceFetch:(char)a0 completion:(id /* block */)a1;
+- (char)shouldPerformRepairWithOptionForceFetch:(char)a0 error:(id *)a1;
+- (void)shouldPerformSilentEscrowRecordRepairUsingCache:(char)a0 completion:(id /* block */)a1;
+- (char)shouldPerformSilentEscrowRecordRepairUsingCache:(char)a0 error:(id *)a1;
+- (void)startCircleApplicationApprovalServerSkipEscrowFetches:(id /* block */)a0;
+- (void)startSilentEscrowRecordRepairWithCompletion:(id /* block */)a0;
+- (char)updateLastSilentEscrowRecordRepairAttemptDate:(id)a0 error:(id *)a1;
+- (void)validateEDPIdentitiesWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)verifyRecoveryKey:(id /* block */)a0;
+- (char)verifyRecoveryKeyObservingSystemsHaveMatchingStateWithError:(id *)a0;
+
+@end

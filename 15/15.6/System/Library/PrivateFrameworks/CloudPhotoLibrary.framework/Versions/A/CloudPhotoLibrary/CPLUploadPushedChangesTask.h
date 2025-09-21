@@ -1,0 +1,108 @@
+@class NSMutableDictionary, CPLEngineScope, CPLRecordTargetMapping, NSDate, NSObject, CPLEngineScheduler, CPLEngineTransport, NSMutableArray, NSString, CPLBatchExtractionStrategy, CPLDerivativesFilter, CPLEngineStoreTransaction, CPLTransportScopeMapping, NSArray, CPLChangeBatch, CPLEngineScopeStorage, CPLEnginePushRepository, CPLBeforeUploadCheckItems;
+@protocol CPLEngineTransportFetchRecordsTask, CPLEngineAcquireReschedulerTask, CPLEngineTransportGroup, CPLEngineTransportUploadBatchTask, CPLUploadPushedChangesTaskDelegate, OS_dispatch_queue, CPLBatchExtractionStrategyStorage;
+
+@interface CPLUploadPushedChangesTask : CPLEngineScopedTask <CPLBeforeUploadCheckItemsProvider> {
+    NSObject<OS_dispatch_queue> *_lock;
+    NSString *_scopeIdentifier;
+    CPLEngineScopeStorage *_scopes;
+    CPLEngineTransport *_transport;
+    CPLEngineScheduler *_scheduler;
+    id<CPLBatchExtractionStrategyStorage> _batchStorage;
+    CPLBatchExtractionStrategy *_currentStrategy;
+    CPLChangeBatch *_diffedBatch;
+    CPLChangeBatch *_batchToCommit;
+    char _mustConsiderOtherPriorities;
+    CPLDerivativesFilter *_derivativesFilter;
+    NSArray *_uploadResourceTasks;
+    NSMutableDictionary *_cloudScopedIdentifiersToUploadResourceTaskErrors;
+    CPLBeforeUploadCheckItems *_checkItems;
+    CPLEngineStoreTransaction *_transactionDuringItemsPreparation;
+    NSMutableArray *_preparedUploadResourceTasks;
+    CPLRecordTargetMapping *_targetMapping;
+    NSMutableDictionary *_invalidTransportScopes;
+    id<CPLEngineTransportFetchRecordsTask> _fetchRecordsTask;
+    id<CPLEngineAcquireReschedulerTask> _acquireReschedulerTask;
+    id<CPLEngineTransportUploadBatchTask> _uploadTask;
+    unsigned long long _lastReportedProgress;
+    unsigned long long _countOfPushedChanges;
+    double _startOfIteration;
+    double _startOfDerivativesGeneration;
+    char _deferredCancel;
+    char _hasCachedShouldCheckResourcesAhead;
+    char _shouldCheckResourcesAhead;
+    char _shouldSetupEstimatedSize;
+    id<CPLEngineTransportGroup> _transportGroup;
+    long long _taskItem;
+    char _hasPushedSomeChanges;
+    char _isUsingOverQuotaStrategy;
+    char _resetStrategy;
+    NSString *_currentTaskKey;
+    NSDate *_taskStartDate;
+    unsigned long long _recordCount;
+    char _didExtractOneBatch;
+    char _wasBusy;
+    char _hasUploadedOneBatch;
+    char _shouldCheckAssetsWithServerWhenOverQuota;
+}
+
+@property (class, nonatomic) char disableOverQuotaRule;
+
+@property (retain) id<CPLUploadPushedChangesTaskDelegate> delegate;
+@property (readonly, nonatomic) id<CPLEngineTransportGroup> storedTransportGroup;
+@property (readonly, nonatomic) CPLEngineScope *sharedScope;
+@property (readonly, nonatomic) CPLTransportScopeMapping *transportScopeMapping;
+@property (readonly, nonatomic) long long ruleGroup;
+@property (readonly, nonatomic) char highPriority;
+@property (readonly, nonatomic) unsigned long long maxBatchSize;
+@property (readonly, nonatomic) unsigned long long pushRepositoryPriority;
+@property (readonly, nonatomic) CPLEnginePushRepository *pushRepository;
+@property (readonly, nonatomic) char didUseOverQuotaStrategy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)resetDisabledOverQuotaRule;
+
+- (void).cxx_destruct;
+- (void)cancel;
+- (void)launch;
+- (void)cancel:(char)a0;
+- (id)taskIdentifier;
+- (void)_checkPrioritiesWithFetchCache:(id)a0;
+- (char)checkScopeIsValidInTransaction:(id)a0;
+- (char)_copyResourceChangeFromChange:(id)a0 toChange:(id)a1 fingerprintScheme:(id)a2 error:(id *)a3;
+- (char)_canUseOverQuotaRule;
+- (void)_checkForRecordExistence;
+- (void)_clearUploadBatch;
+- (void)_deleteGeneratedResourcesAfterError:(id)a0;
+- (void)_didFinishTaskWithKey:(id)a0 error:(char)a1 cancelled:(char)a2;
+- (void)_didStartTaskWithKey:(id)a0 recordCount:(unsigned long long)a1;
+- (char)_discardUploadedExtractedBatch:(id)a0 error:(id *)a1;
+- (void)_excludeScopeFromMingling;
+- (void)_extractAndUploadOneBatch;
+- (void)_extractBatchWithTransaction:(id)a0 andStore:(id)a1;
+- (void)_generateDerivativesForNextRecord:(id)a0 usingDerivativesCache:(id)a1 fetchCache:(id)a2 fingerprintContext:(id)a3;
+- (void)_generateNeededDerivativesWithFetchCache:(id)a0 fingerprintContext:(id)a1;
+- (char)_markUploadedTasksDidFinishWithError:(id)a0 transaction:(id)a1 error:(id *)a2;
+- (void)_noteSuccessfulUpdateInTransaction:(id)a0;
+- (void)_popNextBatchAndContinue;
+- (void)_prepareTransportGroupForOneBatch;
+- (void)_prepareUploadBatch;
+- (char)_reenqueueExtractedBatchWithRejectedRecords:(id)a0 extractedBatch:(id)a1 error:(id *)a2;
+- (char)_shouldNotTrustCloudCacheAfterError:(id)a0;
+- (char)_shouldUploadBatchesWithDropReason:(id *)a0 shouldQuarantineRecords:(char *)a1 inTransaction:(id)a2;
+- (void)_updateQuotaStrategyAfterSuccessInTransaction:(id)a0;
+- (void)_uploadBatchWithFetchCache:(id)a0;
+- (void)_uploadTaskDidFinishWithError:(id)a0;
+- (char)_willNeedToAccessScopeWithIdentifier:(id)a0 error:(id *)a1;
+- (char)_willNeedToAccessScopeWithIdentifier:(id)a0 primaryScope:(char)a1 error:(id *)a2;
+- (id)availableResourceTypesToUploadForChange:(id)a0;
+- (id)initWithEngineLibrary:(id)a0 session:(id)a1 clientCacheIdentifier:(id)a2 scope:(id)a3 transportScope:(id)a4 storedTransportGroup:(id)a5 sharedScope:(id)a6 transportScopeMapping:(id)a7 ruleGroup:(long long)a8 highPriority:(char)a9 maxBatchSize:(unsigned long long)a10 pushRepositoryPriority:(unsigned long long)a11 pushRepository:(id)a12;
+- (char)isCloudRecordWithScopedIdentifierShared:(id)a0;
+- (char)isResourceDynamic:(id)a0;
+- (id)knownCloudRecordWithScopedIdentifier:(id)a0;
+- (char)willNeedToAccessRecordWithScopedIdentifier:(id)a0 error:(id *)a1;
+- (id)willUploadCloudResource:(id)a0 localResource:(id)a1 error:(id *)a2;
+
+@end

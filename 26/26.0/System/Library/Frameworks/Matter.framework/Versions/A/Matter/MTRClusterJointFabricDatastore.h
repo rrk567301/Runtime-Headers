@@ -1,0 +1,43 @@
+@interface MTRClusterJointFabricDatastore : MTRGenericCluster
+
+- (void)addACLToNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addAdminWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addBindingToEndpointForNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addGroupIDToEndpointForNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addGroupWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addKeySetWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)addPendingNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (id)readAttributeAcceptedCommandListWithParams:(id)a0;
+- (id)readAttributeAdminListWithParams:(id)a0;
+- (id)readAttributeAnchorNodeIDWithParams:(id)a0;
+- (id)readAttributeAnchorRootCAWithParams:(id)a0;
+- (id)readAttributeAnchorVendorIDWithParams:(id)a0;
+- (id)readAttributeAttributeListWithParams:(id)a0;
+- (id)readAttributeClusterRevisionWithParams:(id)a0;
+- (id)readAttributeEndpointBindingListWithParams:(id)a0;
+- (id)readAttributeEndpointGroupIDListWithParams:(id)a0;
+- (id)readAttributeFeatureMapWithParams:(id)a0;
+- (id)readAttributeFriendlyNameWithParams:(id)a0;
+- (id)readAttributeGeneratedCommandListWithParams:(id)a0;
+- (id)readAttributeGroupKeySetListWithParams:(id)a0;
+- (id)readAttributeGroupListWithParams:(id)a0;
+- (id)readAttributeNodeACLListWithParams:(id)a0;
+- (id)readAttributeNodeEndpointListWithParams:(id)a0;
+- (id)readAttributeNodeKeySetListWithParams:(id)a0;
+- (id)readAttributeNodeListWithParams:(id)a0;
+- (id)readAttributeStatusWithParams:(id)a0;
+- (void)refreshNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeACLFromNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeAdminWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeBindingFromEndpointForNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeGroupIDFromEndpointForNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeGroupWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeKeySetWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)removeNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)updateAdminWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)updateEndpointForNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)updateGroupWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)updateKeySetWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)updateNodeWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+
+@end

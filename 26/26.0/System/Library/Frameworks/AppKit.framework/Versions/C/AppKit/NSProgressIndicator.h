@@ -1,0 +1,96 @@
+@class NSObject, NSString, NSProgress, NSProgressIndicatorConfiguration, NSFont, NSColor;
+@protocol NSProgressIndicatorVisualProvider, NSObject;
+
+@interface NSProgressIndicator : NSView <NSAccessibilityProgressIndicator> {
+    double _minimum;
+    double _maximum;
+    double _value;
+    double _animationDelay;
+    NSProgress *_observedProgress;
+    NSFont *_font;
+    id<NSObject> _systemColorsChangedNotificationToken;
+    NSObject<NSProgressIndicatorVisualProvider> *_visualProvider;
+    struct { unsigned char isSpinning : 1; unsigned char hideWhenStopped : 1; unsigned char controlTint : 3; unsigned char spinningTint : 2; unsigned char isHidden : 1; unsigned char isBezeled : 1; } _progressIndicatorFlags;
+    NSProgressIndicatorConfiguration *_configuration;
+}
+
+@property (getter=isBezeled) BOOL bezeled;
+@property unsigned long long controlTint;
+@property (readonly, nonatomic, getter=_isAnimating) BOOL _animating;
+@property (readonly, nonatomic, getter=_isEffectivelyHidden) BOOL _effectivelyHidden;
+@property (retain, nonatomic) NSColor *roundDeterminateColor;
+@property (retain) NSFont *font;
+@property long long spinningTint;
+@property (getter=isIndeterminate) BOOL indeterminate;
+@property unsigned long long controlSize;
+@property double doubleValue;
+@property double minValue;
+@property double maxValue;
+@property (retain) NSProgress *observedProgress;
+@property BOOL usesThreadedAnimation;
+@property unsigned long long style;
+@property (getter=isDisplayedWhenStopped) BOOL displayedWhenStopped;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (Class)_visualProviderClassForStyle:(unsigned long long)a0;
++ (id)defaultAnimationForKey:(id)a0;
+
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (struct { double x0; double x1; })_baselineOffsetsAtSize:(struct CGSize { double x0; double x1; })a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)baselineOffsetFromBottom;
+- (BOOL)isOpaque;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (void)updateLayer;
+- (void)stopAnimation:(id)a0;
+- (BOOL)allowsVibrancy;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isFlipped;
+- (double)firstBaselineOffsetFromTop;
+- (id)accessibilityValue;
+- (void)startAnimation:(id)a0;
+- (void)viewDidMoveToWindow;
+- (id)initWithCoder:(id)a0;
+- (void)viewDidMoveToSuperview;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)sizeToFit;
+- (void).cxx_destruct;
+- (id)_visualProvider;
+- (Class)_animatorClass;
+- (Class)_classToCheckForWantsUpdateLayer;
+- (void)_refreshVisualProvider;
+- (long long)_scrollPocketElementStyle;
+- (void)_setBackgroundStyleForSubtree:(long long)a0;
+- (void)_setVisualProvider:(id)a0;
+- (void)_stopAnimationAndRedisplay:(BOOL)a0;
+- (void)_updateNormalizedValue;
+- (void)_updateStateFromObservedProgress;
+- (int)_vibrancyBlendMode;
+- (void)_windowChangedKeyState;
+- (id)accessibilityAttributeNames;
+- (BOOL)accessibilityIsIgnored;
+- (BOOL)accessibilityIsMaxValueAttributeSettable;
+- (BOOL)accessibilityIsMinValueAttributeSettable;
+- (BOOL)accessibilityIsOrientationAttributeSettable;
+- (BOOL)accessibilityIsValueAttributeSettable;
+- (id)accessibilityMaxValueAttribute;
+- (id)accessibilityMinValueAttribute;
+- (id)accessibilityOrientationAttribute;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilityValueAttribute;
+- (void)animate:(id)a0;
+- (double)animationDelay;
+- (void)incrementBy:(double)a0;
+- (id)ns_widgetType;
+- (void)setAnimationDelay:(double)a0;
+- (BOOL)wantsUpdateLayer;
+
+@end

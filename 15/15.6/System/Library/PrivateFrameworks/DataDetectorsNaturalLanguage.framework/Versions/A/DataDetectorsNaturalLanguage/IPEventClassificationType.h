@@ -1,0 +1,86 @@
+@class NSString, NSMutableDictionary, NSMutableArray;
+
+@interface IPEventClassificationType : NSObject
+
+@property (retain, nonatomic) NSString *identifier;
+@property (retain, nonatomic) NSString *defaultTitle;
+@property (retain, nonatomic) NSString *titleSenderTemplate;
+@property (nonatomic) unsigned long long classificationDepth;
+@property (nonatomic) int defaultStartingTimeHour;
+@property (nonatomic) int defaultStartingTimeMinutes;
+@property (nonatomic) int defaultCumulativeMinutes;
+@property (nonatomic) double defaultDuration;
+@property (nonatomic) unsigned long long preferedMeridian;
+@property (retain, nonatomic) NSString *language;
+@property (nonatomic, getter=isAllDayAllowed) char allDayAllowed;
+@property (nonatomic) char useForTimeAdjustement;
+@property (nonatomic) double minutesBeforeDefaultStartingTime;
+@property (nonatomic) double minutesAfterDefaultStartingTime;
+@property (retain, nonatomic) NSMutableArray *patternKeywords;
+@property (retain, nonatomic) NSMutableArray *genericPatternKeywords;
+@property (retain, nonatomic) NSMutableArray *titleKeywords;
+@property (retain, nonatomic) NSMutableArray *subjectKeywords;
+@property (weak, nonatomic) IPEventClassificationType *parent;
+@property (retain, nonatomic) NSMutableArray *children;
+@property (retain, nonatomic) NSMutableDictionary *upperPriorityEventTypesIdentifiers;
+@property (nonatomic, getter=isHighPriority) char highPriority;
+@property (nonatomic, getter=isLowPriority) char lowPriority;
+@property (readonly, nonatomic) char prefersTitleSenderDecoration;
+@property (readonly, nonatomic, getter=isMovieRelated) char movieRelated;
+@property (readonly, nonatomic, getter=isCultureRelated) char cultureRelated;
+@property (readonly, nonatomic, getter=isSportRelated) char sportRelated;
+@property (readonly, nonatomic, getter=isMealRelated) char mealRelated;
+@property (readonly, nonatomic, getter=isFairlyGeneric) char fairlyGeneric;
+@property (readonly, nonatomic, getter=isAppointment) char isAppointment;
+
++ (id)eventTypeForSportAndLanguageID:(id)a0;
++ (id)eventTypeForMealsAndLanguageID:(id)a0;
++ (double)_averageDistanceBetweenFeatureKeyword:(id)a0 featureDates:(id)a1 subjectLength:(unsigned long long)a2 inSubject:(char)a3;
++ (id)_dateComponentsFromTaxonomyHHMMString:(id)a0;
++ (id)_identifierForCluster:(unsigned long long)a0;
++ (id)_identifiersForClusters:(id)a0;
++ (id)_loadTaxonomyForLanguageID:(id)a0 clusterIdentifier:(id)a1 error:(id *)a2;
++ (id)_parentFromIdentifier:(id)a0;
++ (double)_scoreForKeywordsInSubject:(char)a0 distanceToDates:(double)a1 polarity:(unsigned long long)a2 matchedRatio:(double)a3 keywordType:(unsigned long long)a4;
++ (id)allClusterIdentifiers;
++ (id)cleanSubject:(id)a0;
++ (id)eventClassificationTypeFromMessageUnit:(id)a0 detectedStartDate:(id)a1;
++ (id)eventClassificationTypeFromMessageUnit:(id)a0 features:(id)a1;
++ (id)eventClassificationTypeFromMessageUnit:(id)a0 features:(id)a1 datafeatures:(id)a2;
++ (id)eventClassificationTypeFromMessageUnit:(id)a0 keywordFeatures:(id)a1 datafeatures:(id)a2;
++ (id)eventTypeForCultureAndLanguageID:(id)a0;
++ (id)eventTypeForEntertainmentAndLanguageID:(id)a0;
++ (id)eventTypeForGenericEventAndLanguageID:(id)a0;
++ (id)eventTypeForMoviesAndLanguageID:(id)a0;
++ (id)fallbackEventTitleForMessageUnits:(id)a0 subject:(id)a1 checkForDateInSubject:(char)a2;
++ (id)humanReadableClusterType:(unsigned long long)a0;
++ (id)morePreciseEventClassificationTypeBetweenType:(id)a0 and:(id)a1;
++ (id)taxonomyForLanguageID:(id)a0 clusterIdentifier:(id)a1;
++ (id)taxonomyForLanguageID:(id)a0 clusterType:(unsigned long long)a1;
++ (id)titleGenerationModelPredictionForMessageUnits:(id)a0;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_addParent:(id)a0;
+- (id)decoratedTitleFromTitle:(id)a0 participantName:(id)a1 isTitleSenderDecorated:(char *)a2;
+- (void)_addChild:(id)a0;
+- (void)_addUpperPriorityEventTypeIdentifier:(id)a0 weight:(id)a1;
+- (double)_hasPriorityOverEventType:(id)a0;
+- (char)_isAParentOf:(id)a0;
+- (id)_mealClassificationTypeUsingStartDate:(id)a0;
+- (void)addEventPatterns:(id)a0;
+- (id)adjustedEventClassificationTypeWithStartDate:(id)a0;
+- (id)adjustedEventTitleForMessageUnits:(id)a0;
+- (id)adjustedEventTitleForMessageUnits:(id)a0 subject:(id)a1 dateInSubject:(id)a2 eventStartDate:(id)a3 isGeneratedFromSubject:(char *)a4;
+- (id)adjustedEventTitleForMessageUnits:(id)a0 subject:(id)a1 dateInSubject:(id)a2 eventStartDate:(id)a3 useTitleGenerationModel:(char)a4 isGeneratedFromSubject:(char *)a5;
+- (id)adjustedEventTitleForMessageUnits:(id)a0 subject:(id)a1 dateInSubject:(id)a2 eventStartDate:(id)a3 useTitleGenerationModel:(char)a4 isGeneratedFromSubject:(char *)a5 isGeneratedFromTitleGenerationModel:(char *)a6;
+- (id)adjustedEventTitleForMessageUnits:(id)a0 subject:(id)a1 isDateInSubject:(char)a2;
+- (char)allowGenericKeywordsForLanguage:(id)a0;
+- (id)dateWithoutTime:(id)a0;
+- (id)initWithIdentifier:(id)a0 language:(id)a1 patternKeywords:(id)a2 titleKeywords:(id)a3 subjectKeywords:(id)a4 defaultTitle:(id)a5 titleSenderTemplate:(id)a6 defaultStartingTimeHour:(int)a7 defaultStartingTimeMinutes:(int)a8 defaultDuration:(double)a9 preferedMeridian:(unsigned long long)a10 parent:(id)a11 children:(id)a12 useForTimeAdjustement:(char)a13 minutesBeforeDefaultStartingTime:(double)a14 minutesAfterDefaultStartingTime:(double)a15 allDayAllowed:(char)a16 useGenericPatternsInClassification:(char)a17 movieRelated:(char)a18 mealRelated:(char)a19 cultureRelated:(char)a20 sportRelated:(char)a21 fairlyGeneric:(char)a22 appointmentRelated:(char)a23;
+- (char)isDateWithinRange:(id)a0;
+- (id)properCasedTitleForTitle:(id)a0 locale:(id)a1;
+- (char)questionMarkInString:(id)a0;
+
+@end

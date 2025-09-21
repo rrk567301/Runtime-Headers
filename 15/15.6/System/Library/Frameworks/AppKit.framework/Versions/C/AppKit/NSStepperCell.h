@@ -1,0 +1,95 @@
+@class NSString;
+@protocol NSStepperVisualProvider;
+
+@interface NSStepperCell : NSActionCell <_NSStepperTrackable> {
+    id<NSStepperVisualProvider> _visualProvider;
+    double _value;
+    double _minValue;
+    double _maxValue;
+    double _increment;
+    struct { unsigned char valueWraps : 1; unsigned char autorepeat : 1; unsigned char drawing : 1; unsigned char isTrackingWithPressure : 1; unsigned char subclassOverridesDrawing : 1; unsigned char controlViewIsStepper : 1; } _stFlags;
+}
+
+@property (retain, setter=_setVisualProvider:) id<NSStepperVisualProvider> _visualProvider;
+@property double minValue;
+@property double maxValue;
+@property double increment;
+@property char valueWraps;
+@property char autorepeat;
+@property (getter=isHighlighted) char highlighted;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (char)prefersTrackingUntilMouseUp;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (double)doubleValue;
+- (float)floatValue;
+- (int)intValue;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (long long)integerValue;
+- (void)setEnabled:(char)a0;
+- (id)stringValue;
+- (void)setStringValue:(id)a0;
+- (void)setObjectValue:(id)a0;
+- (id)objectValue;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)setControlSize:(unsigned long long)a0;
+- (void)setControlView:(id)a0;
+- (void)setDoubleValue:(double)a0;
+- (char)continueTrackingGesture:(id)a0 inView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_accessibilityArrowScreenRect:(char)a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })_alignmentRectInsetsInView:(id)a0;
+- (void)_controlViewDidChangeEffectiveSemanticContext:(id)a0;
+- (void)_doSingleStep:(char)a0 inView:(id)a1;
+- (id)_pressureConfigurationIfNeeded;
+- (char)_sendActionFrom:(id)a0;
+- (char)_shouldHighlightCellWhenSelected;
+- (void)_updateVisualProviderState;
+- (int)_vibrancyBlendModeForControlView:(id)a0;
+- (id)accessibilityActionNames;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityChildrenAttribute;
+- (id)accessibilityChildrenInNavigationOrderAttribute;
+- (id)accessibilityDecrementButtonAttribute;
+- (id)accessibilityHelpStringForChild:(id)a0;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)accessibilityIncrementButtonAttribute;
+- (char)accessibilityIsChildFocusable:(id)a0;
+- (char)accessibilityIsChildrenAttributeSettable;
+- (char)accessibilityIsDecrementButtonAttributeSettable;
+- (char)accessibilityIsIncrementButtonAttributeSettable;
+- (char)accessibilityIsMaxValueAttributeSettable;
+- (char)accessibilityIsMinValueAttributeSettable;
+- (char)accessibilityIsValueAttributeSettable;
+- (id)accessibilityLinkedUIElements;
+- (id)accessibilityMaxValueAttribute;
+- (id)accessibilityMinValueAttribute;
+- (void)accessibilityPerformAction:(id)a0;
+- (id)accessibilityPositionOfChild:(id)a0;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilitySizeOfChild:(id)a0;
+- (id)accessibilityValueAttribute;
+- (struct CGSize { double x0; double x1; })cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (char)continueTracking:(struct CGPoint { double x0; double x1; })a0 at:(struct CGPoint { double x0; double x1; })a1 inView:(id)a2;
+- (void)continueTrackingPeriodicEvent:(id)a0 inView:(id)a1;
+- (void)drawFocusRingMaskWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)drawInteriorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })focusRingMaskBoundsForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)getPeriodicDelay:(float *)a0 interval:(float *)a1;
+- (unsigned long long)hitTestForEvent:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2;
+- (long long)hitTestForPoint:(struct CGPoint { double x0; double x1; })a0 inTrackingRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inReferenceView:(id)a2;
+- (void)setFloatValue:(float)a0;
+- (void)setIntValue:(int)a0;
+- (void)setIntegerValue:(long long)a0;
+- (char)startTrackingAt:(struct CGPoint { double x0; double x1; })a0 inView:(id)a1;
+- (void)stopTracking:(struct CGPoint { double x0; double x1; })a0 at:(struct CGPoint { double x0; double x1; })a1 inView:(id)a2 mouseIsUp:(char)a3;
+- (char)trackMouse:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2 untilMouseUp:(char)a3;
+- (void)updateTrackingAreaWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+
+@end

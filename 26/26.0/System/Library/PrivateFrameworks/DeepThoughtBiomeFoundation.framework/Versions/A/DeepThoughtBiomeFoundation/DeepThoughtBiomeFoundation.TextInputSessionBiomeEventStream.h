@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.TextInputSessionBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

@@ -1,0 +1,22 @@
+@class NSNumber, NSData;
+
+@interface CTSMSDataType : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (nonatomic) NSNumber *transport;
+@property (nonatomic) NSNumber *ctFormat;
+@property (nonatomic) char parseSMSC;
+@property (nonatomic) char waitForAck;
+@property (retain, nonatomic) NSData *hexPdu;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (char)isEqualToCTSMSDataType:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCFFC12AppAnalytics7Tracker11whenSessionFT5blockFTCS_13AccessTrackerCS_13ActiveSession_T__T_U_FT_T_L_5Token : _TtCs12_SwiftObject
+
+@end

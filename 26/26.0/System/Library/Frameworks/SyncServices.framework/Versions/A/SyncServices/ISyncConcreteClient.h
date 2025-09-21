@@ -1,0 +1,87 @@
+@class NSString, ISyncManager, ISyncSession, ISDClient;
+
+@interface ISyncConcreteClient : ISyncClient <NSKeyedUnarchiverDelegate> {
+    ISDClient *_client;
+    ISyncManager *_syncManager;
+    ISyncSession *_syncSession;
+    BOOL _isInvalid;
+    BOOL _closureComputationIsDisabled;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)syncManager;
+- (void)finalize;
+- (id)initWithClient:(id)a0;
+- (id)filters;
+- (Class)unarchiver:(id)a0 cannotDecodeObjectOfClassName:(id)a1 originalClasses:(id)a2;
+- (id)lastSyncDate;
+- (void)dealloc;
+- (id)objectForKey:(id)a0;
+- (id)clientIdentifier;
+- (id)imagePath;
+- (void)invalidate;
+- (void)setImagePath:(id)a0;
+- (id)displayName;
+- (void)setSyncManager:(id)a0;
+- (void)setDisplayName:(id)a0;
+- (void)setFilters:(id)a0;
+- (BOOL)isInvalid;
+- (id)clientType;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (id)_client;
+- (int)idNumber;
+- (id)syncSession;
+- (id)_addRelatedEntitiesFilterIfNecessary:(id)a0;
+- (void)_setSyncStatesAfterSyncSession:(id)a0;
+- (id)_dataDirectoryPath;
+- (id)descriptionFile;
+- (BOOL)_closureComputationIsDisabled;
+- (BOOL)_compareAnchors:(id)a0 forEntityNames:(id)a1 entitiesToRefreshSync:(id *)a2 entitiesToSlowSync:(id *)a3;
+- (void)setSyncSession:(id)a0;
+- (id)_filters:(BOOL)a0;
+- (id)_logDirectoryPath;
+- (id)_reduceAnchorMapping:(id)a0;
+- (void)_saveAnchors:(id)a0;
+- (void)_setClosureComputationIsDisabled:(BOOL)a0;
+- (BOOL)_shouldReplaceOldFilters:(id)a0 withFilters:(id)a1 entityNamesToRefilter:(id *)a2;
+- (id)_syncStateForEntityName:(id)a0;
+- (id)_syncStates;
+- (BOOL)allowUnknownEntitiesAndUnresolvedReferences;
+- (BOOL)canPullChangesForEntityName:(id)a0;
+- (BOOL)canPushChangesForEntityName:(id)a0;
+- (id)enabledEntityNames;
+- (BOOL)formatsRelationships;
+- (BOOL)isClientFastSyncingAllEntitiesWithNames:(id)a0;
+- (BOOL)isEnabledForEntityName:(id)a0;
+- (id)lastSyncDateForEntityName:(id)a0;
+- (unsigned int)lastSyncGeneration:(id)a0;
+- (int)lastSyncStatusForEntityName:(id)a0;
+- (BOOL)neverFormatsRelationships;
+- (void)setEnabled:(BOOL)a0 forEntityNames:(id)a1;
+- (void)setFormatsRelationships:(BOOL)a0;
+- (void)setImageBundleId:(id)a0 bundleRelativePath:(id)a1;
+- (void)setNeverFormatsRelationships:(BOOL)a0;
+- (void)setShouldReplaceClientRecords:(BOOL)a0 forEntityNames:(id)a1;
+- (void)setShouldSynchronize:(BOOL)a0 withClientsOfType:(id)a1;
+- (void)setSyncAlertHandler:(id)a0 selector:(SEL)a1;
+- (void)setSyncAlertToolBundleId:(id)a0 bundleRelativePath:(id)a1;
+- (void)setSyncAlertToolPath:(id)a0;
+- (void)setSyncsAfterClients:(BOOL)a0;
+- (void)setTrackRecordModificationTimes:(BOOL)a0;
+- (void)setUseLocalIdsForGUIDs:(BOOL)a0;
+- (BOOL)shouldPushTruthOnNextSyncForEntityName:(id)a0;
+- (BOOL)shouldReplaceClientRecordsForEntityName:(id)a0;
+- (BOOL)shouldSynchronizeWithClientsOfType:(id)a0;
+- (BOOL)shouldTrackRecordModificationTimes;
+- (id)supportedEntityNames;
+- (id)syncAlertToolPath;
+- (BOOL)synchronizesAllEntities;
+- (BOOL)syncsAfterClients;
+- (unsigned long long)trackRecordModificationTimes;
+- (BOOL)useLocalIdsForGUIDs;
+
+@end

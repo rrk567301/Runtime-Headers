@@ -1,0 +1,3 @@
+@interface _TtC18CoreIDVRGBLivenessP33_BB55D8AACCD0024F29A75CFD8922981511BundleToken : _TtCs12_SwiftObject
+
+@end

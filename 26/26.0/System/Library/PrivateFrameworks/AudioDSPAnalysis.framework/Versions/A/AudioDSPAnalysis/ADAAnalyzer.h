@@ -1,0 +1,3 @@
+@interface ADAAnalyzer : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC18ReplicatorServices8Database24PairingRelationshipStore : _TtCC18ReplicatorServices8Database16DatabaseAccessor
+
+@end

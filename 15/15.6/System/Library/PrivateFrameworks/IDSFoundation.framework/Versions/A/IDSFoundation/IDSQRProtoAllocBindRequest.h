@@ -1,0 +1,90 @@
+@class IDSQRProtoAllocBindTestOption, NSString, NSData, IDSQRProtoMaterial, NSMutableArray;
+
+@interface IDSQRProtoAllocBindRequest : PBRequest <NSCopying> {
+    struct { unsigned int *list; unsigned long long count; unsigned long long size; } _publishedStreamIds;
+    struct { unsigned char capabilities : 1; unsigned char channelBindingInfo : 1; unsigned char maxConcurrentStreams : 1; unsigned char maxEmbeddedStatsResponseDelay : 1; unsigned char reason : 1; unsigned char serviceId : 1; unsigned char stateFlags : 1; unsigned char allWildcardSubscription : 1; } _has;
+}
+
+@property (nonatomic) char hasServiceId;
+@property (nonatomic) unsigned int serviceId;
+@property (readonly, nonatomic) char hasClientOsVersion;
+@property (retain, nonatomic) NSString *clientOsVersion;
+@property (readonly, nonatomic) char hasClientHwVersion;
+@property (retain, nonatomic) NSString *clientHwVersion;
+@property (nonatomic) char hasCapabilities;
+@property (nonatomic) unsigned long long capabilities;
+@property (readonly, nonatomic) unsigned long long publishedStreamIdsCount;
+@property (readonly, nonatomic) unsigned int *publishedStreamIds;
+@property (retain, nonatomic) NSMutableArray *subscribedStreams;
+@property (nonatomic) char hasAllWildcardSubscription;
+@property (nonatomic) char allWildcardSubscription;
+@property (nonatomic) char hasMaxConcurrentStreams;
+@property (nonatomic) unsigned int maxConcurrentStreams;
+@property (nonatomic) char hasChannelBindingInfo;
+@property (nonatomic) unsigned int channelBindingInfo;
+@property (nonatomic) char hasMaxEmbeddedStatsResponseDelay;
+@property (nonatomic) unsigned int maxEmbeddedStatsResponseDelay;
+@property (retain, nonatomic) NSMutableArray *quicConnectionInfos;
+@property (nonatomic) char hasStateFlags;
+@property (nonatomic) unsigned int stateFlags;
+@property (readonly, nonatomic) char hasClientContextBlob;
+@property (retain, nonatomic) IDSQRProtoMaterial *clientContextBlob;
+@property (nonatomic) char hasReason;
+@property (nonatomic) int reason;
+@property (readonly, nonatomic) char hasRandomSalt;
+@property (retain, nonatomic) NSData *randomSalt;
+@property (readonly, nonatomic) char hasAccessToken;
+@property (retain, nonatomic) NSData *accessToken;
+@property (readonly, nonatomic) char hasServerBlob;
+@property (retain, nonatomic) NSData *serverBlob;
+@property (readonly, nonatomic) char hasTestOption;
+@property (retain, nonatomic) IDSQRProtoAllocBindTestOption *testOption;
+@property (retain, nonatomic) NSMutableArray *sessionExperiments;
+@property (retain, nonatomic) NSMutableArray *materials;
+@property (retain, nonatomic) NSMutableArray *staleLinks;
+
++ (Class)materialsType;
++ (Class)quicConnectionInfoType;
++ (Class)sessionExperimentsType;
++ (Class)staleLinksType;
++ (Class)subscribedStreamsType;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearStaleLinks;
+- (unsigned long long)staleLinksCount;
+- (int)StringAsReason:(id)a0;
+- (id)reasonAsString:(int)a0;
+- (void)addMaterials:(id)a0;
+- (void)addPublishedStreamIds:(unsigned int)a0;
+- (void)addQuicConnectionInfo:(id)a0;
+- (void)addSessionExperiments:(id)a0;
+- (void)addStaleLinks:(id)a0;
+- (void)addSubscribedStreams:(id)a0;
+- (void)clearMaterials;
+- (void)clearPublishedStreamIds;
+- (void)clearQuicConnectionInfos;
+- (void)clearSessionExperiments;
+- (void)clearSubscribedStreams;
+- (id)materialsAtIndex:(unsigned long long)a0;
+- (unsigned long long)materialsCount;
+- (unsigned int)publishedStreamIdsAtIndex:(unsigned long long)a0;
+- (id)quicConnectionInfoAtIndex:(unsigned long long)a0;
+- (unsigned long long)quicConnectionInfosCount;
+- (id)sessionExperimentsAtIndex:(unsigned long long)a0;
+- (unsigned long long)sessionExperimentsCount;
+- (void)setPublishedStreamIds:(unsigned int *)a0 count:(unsigned long long)a1;
+- (id)staleLinksAtIndex:(unsigned long long)a0;
+- (id)subscribedStreamsAtIndex:(unsigned long long)a0;
+- (unsigned long long)subscribedStreamsCount;
+
+@end

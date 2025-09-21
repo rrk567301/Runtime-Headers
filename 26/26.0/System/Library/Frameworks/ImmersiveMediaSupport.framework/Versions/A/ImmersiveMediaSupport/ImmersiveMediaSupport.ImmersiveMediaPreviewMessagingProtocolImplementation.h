@@ -1,0 +1,3 @@
+@interface ImmersiveMediaSupport.ImmersiveMediaPreviewMessagingProtocolImplementation : _TtCs12_SwiftObject
+
+@end

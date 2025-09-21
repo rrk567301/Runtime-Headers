@@ -1,0 +1,3 @@
+@interface _TtC19SpotlightUIServicesP33_B9242EE0326CE2E5BC2ED7E386F9CA6919ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

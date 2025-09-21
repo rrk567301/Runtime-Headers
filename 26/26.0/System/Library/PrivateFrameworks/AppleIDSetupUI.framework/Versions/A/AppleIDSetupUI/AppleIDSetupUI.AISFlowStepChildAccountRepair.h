@@ -1,0 +1,12 @@
+@interface AppleIDSetupUI.AISFlowStepChildAccountRepair : AppleIDSetupUI.AISFlowStepBase {
+    void /* unknown type, empty encoding */ stepLoadTask;
+    void /* unknown type, empty encoding */ guardianAuthResponse;
+    void /* unknown type, empty encoding */ childAuthResults;
+    void /* unknown type, empty encoding */ locationServicesEnabled;
+    void /* unknown type, empty encoding */ settings;
+    void /* unknown type, empty encoding */ error;
+    void /* unknown type, empty encoding */ featureManager;
+    void /* unknown type, empty encoding */ currentDeviceInfoProvider;
+}
+
+@end

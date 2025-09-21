@@ -1,0 +1,3 @@
+@interface _TtC14IconFoundationP33_CBA7BF7C95B4605334D14479939EF73319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

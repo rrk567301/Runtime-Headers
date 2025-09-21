@@ -1,0 +1,20 @@
+@class NSArray, CCToolKitToolTypeInstance;
+
+@interface CCToolKitToolTypeInstanceConstrained : CCItemMessage
+
+@property (readonly, nonatomic) CCToolKitToolTypeInstance *instance;
+@property (readonly, nonatomic) NSArray *context;
+
++ (unsigned short)itemType;
++ (id)descriptionForTypeIdentifier:(unsigned short)a0;
++ (Class)contentMessageClass;
++ (Class)metaContentMessageClass;
+
+- (id)jsonDictionary;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (void)enumerateFieldsUsingBlock:(id /* block */)a0 parentFieldType:(unsigned short)a1;
+- (BOOL)initializeFieldValuesFromData:(id)a0 error:(id *)a1;
+- (id)initWithInstance:(id)a0 context:(id)a1 error:(id *)a2;
+
+@end

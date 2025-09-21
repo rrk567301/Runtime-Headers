@@ -1,0 +1,88 @@
+@class TSDConnectionLineInfo, TSUBezierPath, TSDInfoGeometry, TSDLayout, TSDConnectionLinePathSource, NSObject;
+@protocol TSDInfo;
+
+@interface TSDConnectionLineAbstractLayout : TSDShapeLayout {
+    TSUBezierPath *mClippedBezierPath;
+    TSDConnectionLinePathSource *mOriginalPathSource;
+    TSDConnectionLinePathSource *mConnectedPathSource;
+    TSDInfoGeometry *mConnectedInfoGeometry;
+    TSUBezierPath *mCachedFromWrapPath;
+    TSUBezierPath *mCachedToWrapPath;
+    double mCachedFromOutset;
+    double mCachedToOutset;
+    TSUBezierPath *mCachedFromOutsetWrapPath;
+    TSUBezierPath *mCachedToOutsetWrapPath;
+    TSDLayout *mOldConnectedFrom;
+    TSDLayout *mOldConnectedTo;
+    char mValidConnections;
+    char mVisibleLine;
+    struct CGPoint { double x; double y; } mLooseEndPosition;
+    struct CGPoint { double x; double y; } mAcumulatedDrag;
+    char mUseResizePoints[3];
+    struct CGPoint { double x; double y; } mResizeControlPoints[3];
+}
+
+@property (weak, nonatomic) TSDLayout *connectedFrom;
+@property (weak, nonatomic) TSDLayout *connectedTo;
+@property (weak, nonatomic) NSObject<TSDInfo> *connectedFromInfo;
+@property (weak, nonatomic) NSObject<TSDInfo> *connectedToInfo;
+@property (readonly, nonatomic) char validLine;
+@property (readonly, nonatomic) TSDConnectionLinePathSource *connectedPathSource;
+@property (nonatomic) unsigned long long dynamicOutsetType;
+@property (nonatomic) char useDynamicOutsets;
+@property (nonatomic) double dynamicOutsetFrom;
+@property (nonatomic) double dynamicOutsetTo;
+@property (readonly, nonatomic) double outsetFrom;
+@property (readonly, nonatomic) double outsetTo;
+@property (readonly, nonatomic) TSDConnectionLineInfo *connectionLineInfo;
+@property (readonly, nonatomic, getter=isStraightLine) char straightLine;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)path;
+- (struct CGSize { double x0; double x1; })minimumSize;
+- (void)invalidatePath;
+- (char)isDraggable;
+- (void)invalidateConnections;
+- (int)wrapType;
+- (char)isInvisible;
+- (void)parentDidChange;
+- (void)invalidatePosition;
+- (void)invalidateSize;
+- (void)processChangedProperty:(int)a0;
+- (char)shouldDisplayGuides;
+- (id)additionalLayoutsForRepCreation;
+- (id)reliedOnLayouts;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsForStandardKnobs;
+- (char)canBeIntersected;
+- (char)canEndpointsCoincide;
+- (char)canResetTextAndObjectHandles;
+- (void)checkConnections;
+- (id)clipPath:(id)a0 onLayout:(id)a1 outset:(double)a2 reversed:(char)a3 isValid:(char *)a4;
+- (void)connectedLayoutInvalidated:(id)a0;
+- (struct CGPoint { double x0; double x1; })controlPointForPointA:(struct CGPoint { double x0; double x1; })a0 pointB:(struct CGPoint { double x0; double x1; })a1 andOriginalA:(struct CGPoint { double x0; double x1; })a2 originalB:(struct CGPoint { double x0; double x1; })a3;
+- (id)createConnectedPathFrom:(id)a0 to:(id)a1 withControlPoints:(struct CGPoint { double x0; double x1; }[3])a2;
+- (struct CGPoint { double x0; double x1; })getControlKnobPosition:(unsigned long long)a0;
+- (id)layoutInfoGeometry;
+- (id)p_infoForConnectingToInfo:(id)a0;
+- (char)p_isConnectedToLockedObjects;
+- (char)pathIsLineSegment;
+- (char)pathIsOpen;
+- (id)pathSource;
+- (void)removeConnections;
+- (char)shouldValidate;
+- (char)supportsFlipping;
+- (char)supportsRotation;
+- (struct CGPoint { double x0; double x1; })unclippedHeadPoint;
+- (struct CGPoint { double x0; double x1; })unclippedTailPoint;
+- (void)updateConnectedPath;
+- (char)p_isInfoAKeynoteTemplateObject:(id)a0;
+- (void)connectedLayoutDisconnected:(id)a0;
+- (void)i_setVisibleLine:(char)a0;
+- (char)i_visibleLine;
+- (void)i_willValidateLayout;
+- (void)invalidateAndCleanupConnectedLayouts;
+- (char)p_connectedInfoInDocument:(id)a0;
+- (char)shouldAdjustForStrokeWidthForCollabCursor;
+
+@end

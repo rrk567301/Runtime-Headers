@@ -1,0 +1,84 @@
+@class AXDispatchTimer, NSString, NSArray, AXLanguageTag, AXLanguageTaggedContent, AVSpeechUtterance, AVSpeechSynthesizer, NSMutableArray;
+@protocol AXOratorDelegate;
+
+@interface AXOrator : NSObject <AVSpeechSynthesizerDelegate> {
+    AVSpeechUtterance *_statusUtterance;
+    char _contentIsSpeakable;
+    AXDispatchTimer *_audioSessionTimer;
+}
+
+@property (retain, nonatomic) AXLanguageTaggedContent *selectedContent;
+@property (retain, nonatomic) AXLanguageTaggedContent *speakingContent;
+@property (retain, nonatomic) NSArray *speakingContentTokenRanges;
+@property (nonatomic) unsigned long long numberOfTokensToSkip;
+@property (retain, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
+@property (retain, nonatomic) NSMutableArray *speechSequenceItems;
+@property (retain, nonatomic) NSString *lastUtteranceLanguageCode;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } lastUtteranceSubstringRange;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } lastSpokenSubstringRange;
+@property (retain, nonatomic) AVSpeechUtterance *lastUtterance;
+@property (retain, nonatomic) AXLanguageTag *lastUtteranceLanguageTag;
+@property (nonatomic) char shouldSpeakNextItemOnResume;
+@property (retain, nonatomic) NSString *currentLanguageCode;
+@property (nonatomic) char preferredLanguageWasSpecified;
+@property (nonatomic) char isProcessingContentForSpeech;
+@property (nonatomic) char isFetchingAdditionalContent;
+@property (retain, nonatomic) NSMutableArray *additionalContentToProcess;
+@property (weak, nonatomic) id<AXOratorDelegate> delegate;
+@property (copy, nonatomic) NSString *content;
+@property (nonatomic) long long speakingContext;
+@property (nonatomic) char spellOutContent;
+@property (nonatomic) double audioSessionInactiveTimeout;
+@property (readonly, nonatomic) NSString *currentVoiceIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (char)isPaused;
+- (char)isSpeaking;
+- (char)stopSpeaking:(id *)a0;
+- (char)speakFaster;
+- (char)speakSlower;
+- (float)speechRate;
+- (void)speechSynthesizer:(id)a0 didCancelSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didContinueSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didFinishSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didPauseSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didStartSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 willSpeakRangeOfSpeechString:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 utterance:(id)a2;
+- (char)pauseSpeaking:(id *)a0;
+- (char)setSpeakingRate:(double)a0;
+- (char)resumeSpeaking:(id *)a0;
+- (char)resumeSpeakingAfterDelay:(double)a0 error:(id *)a1;
+- (char)_canSpeakTaggedContent:(id)a0;
+- (char)_changeSpeakingSpeed:(double)a0;
+- (void)_clearAllContentState;
+- (long long)_currentTokenIndex:(char)a0;
+- (id)_getLangCodeForItem:(id)a0;
+- (void)_processAdditionalContentInPreparationForSpeech;
+- (void)_respeakUtteranceIfNeeded;
+- (char)_skipByUnit:(char)a0 boundary:(unsigned long long)a1;
+- (void)_speakNextItemInSequence;
+- (void)_speakNextTokenFromCurrentTokenIndex:(long long)a0 forward:(char)a1 boundary:(unsigned long long)a2;
+- (id)_speechSequenceItemsStartingAtContentLocation:(unsigned long long)a0;
+- (void)_startSpeakingSequence;
+- (char)_successWithCode:(long long)a0 error:(id *)a1;
+- (void)_tokenizeContentIfNeeded;
+- (void)_updateAudioSessionCategory;
+- (void)_updateSequenceForSpellOutBehavior;
+- (void)addAdditionalContentToSpeechQueue:(id)a0;
+- (char)canResumeWithContent:(id)a0;
+- (void)clearSelectedContent;
+- (char)contentIsSpeakable;
+- (double)currentSpeechRateForAdjustment;
+- (id)currentVoiceSelection;
+- (char)fastForwardWithBoundary:(unsigned long long)a0;
+- (char)rewindWithBoundary:(unsigned long long)a0;
+- (void)speakStatusWithLanguage:(id)a0 rate:(id)a1;
+- (char)startSpeakingWithPreferredLanguage:(id)a0 delayBeforeStart:(double)a1 error:(id *)a2;
+- (char)startSpeakingWithPreferredLanguage:(id)a0 error:(id *)a1;
+
+@end

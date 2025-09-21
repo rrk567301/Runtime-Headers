@@ -1,0 +1,3 @@
+@interface _TtC18PhotosSpatialMediaP33_9C9F25CF0B504FBEE47CDBB52E1DA21519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

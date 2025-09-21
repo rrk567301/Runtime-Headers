@@ -1,0 +1,93 @@
+@class NSString, GSAddition, NSURL, NSPersonNameComponents, NSDate;
+@protocol NSCoding;
+
+@interface NSFileVersion : NSObject {
+    NSURL *_fileURL;
+    GSAddition *_addition;
+    id _deadVersionIdentifier;
+    id _nonLocalVersion;
+    NSURL *_contentsURL;
+    NSString *_localizedName;
+    NSString *_localizedComputerName;
+    NSDate *_modificationDate;
+    NSString *_name;
+    char _isBackup;
+    char _isResolved;
+    char _contentsURLIsAccessed;
+}
+
+@property (readonly) unsigned long long size;
+@property (readonly, getter=isUbiquitous) char ubiquitous;
+@property (readonly, copy) NSString *originatorName;
+@property (readonly, copy) NSString *originalPOSIXName;
+@property (readonly, copy) NSString *etag;
+@property (readonly, getter=_isBackup) char _isBackup;
+@property (readonly, copy) NSURL *URL;
+@property (readonly, copy) NSString *localizedName;
+@property (readonly, copy) NSString *localizedNameOfSavingComputer;
+@property (readonly, copy) NSPersonNameComponents *originatorNameComponents;
+@property (readonly, copy) NSDate *modificationDate;
+@property (readonly, retain) id<NSCoding> persistentIdentifier;
+@property (readonly, getter=isConflict) char conflict;
+@property (getter=isResolved) char resolved;
+@property (getter=isDiscardable) char discardable;
+@property (readonly) char hasLocalContents;
+@property (readonly) char hasThumbnail;
+
++ (id)_makeTemporaryStorageIdentifier;
++ (void)getNonlocalVersionsOfItemFromBRAtURL:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
++ (void *)_addConflictObserverForItemAtURL:(id)a0 statusChangedHandler:(id /* block */)a1;
++ (id)_addVersionOfItemAtURL:(id)a0 withContentsOfURL:(id)a1 options:(unsigned long long)a2 temporaryStorageIdentifier:(id *)a3 error:(id *)a4;
++ (void)_removeTemporaryDirectoryAtURL:(id)a0;
++ (void)getNonlocalVersionsOfItemFromFPAtURL:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
++ (id)_addVersionOfItemAtURL:(id)a0 withContentsOfURL:(id)a1 options:(unsigned long long)a2 userInfo:(id)a3 temporaryStorageIdentifier:(id *)a4 error:(id *)a5;
++ (id)_autosaveDirectoryURLCreateIfNecessary:(char)a0;
++ (char)_conflictsExistForItemAtURL:(id)a0;
++ (id)_existingLibraryForURL:(id)a0 temporaryStorageIdentifier:(id)a1;
++ (char)_isTemporaryStorageRequiredForGSError:(id)a0 andURL:(id)a1;
++ (id)_libraryForURL:(id)a0 temporaryStorageIdentifier:(id *)a1;
++ (id)_makePermanentStorageLibraryForURL:(id)a0 temporaryStorageRequired:(char *)a1 error:(id *)a2;
++ (void)_markConflicts:(id)a0 asHandledForItemAtURL:(id)a1;
++ (id)_otherNonpurgeableVersionsOfItemAtURL:(id)a0 temporaryStorageIdentifier:(id)a1;
++ (id)_otherVersionsOfItemAtURL:(id)a0 temporaryStorageIdentifier:(id)a1;
++ (id)_otherVersionsOfItemAtURL:(id)a0 temporaryStorageIdentifier:(id)a1 withoutOptions:(unsigned long long)a2;
++ (char)_permanentVersionStorageSupportedForURL:(id)a0 temporaryStorageIdentifier:(id *)a1 error:(id *)a2;
++ (void)_removeConflictObserver:(void *)a0;
++ (char)_removeOtherVersionsOfItemAtURL:(id)a0 temporaryStorageIdentifier:(id)a1 error:(id *)a2;
++ (id)_supportedGenerationalStorageClientIDs;
++ (id)_temporaryDirectoryURLForNewVersionOfItemAtURL:(id)a0 temporaryStorageIdentifier:(id)a1;
++ (id)_temporaryStorageLocationForIdentifier:(id)a0;
++ (id)_versionOfItemAtURL:(id)a0 forClientID:(id)a1 name:(id)a2 temporaryStorageIdentifier:(id)a3 evenIfDeleted:(char)a4;
++ (id)_versionOfItemAtURL:(id)a0 forPersistentIdentifier:(id)a1 temporaryStorageIdentifier:(id)a2;
++ (id)addVersionOfItemAtURL:(id)a0 withContentsOfURL:(id)a1 options:(unsigned long long)a2 error:(id *)a3;
++ (id)currentVersionOfItemAtURL:(id)a0;
++ (void)discoverUbiquitousVersionsOfItemAtURL:(id)a0 completionHandler:(id /* block */)a1;
++ (void)getNonlocalVersionsOfItemAtURL:(id)a0 completionHandler:(id /* block */)a1;
++ (void)getNonlocalVersionsOfItemAtURL:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
++ (id)keyPathsForValuesAffectingValueForKey:(id)a0;
++ (id)otherVersionsOfItemAtURL:(id)a0;
++ (char)removeOtherVersionsOfItemAtURL:(id)a0 error:(id *)a1;
++ (id)temporaryDirectoryURLForNewVersionOfItemAtURL:(id)a0;
++ (id)unresolvedConflictVersionsOfItemAtURL:(id)a0;
++ (char)unresolvedConflictsExistForItemAtURL:(id)a0;
++ (id)versionOfItemAtURL:(id)a0 forPersistentIdentifier:(id)a1;
++ (id)versionsOfItemAtURL:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (char)_preserveConflictVersionLocally;
+- (id)replaceItemAtURL:(id)a0 options:(unsigned long long)a1 error:(id *)a2;
+- (id)_documentInfo;
+- (id)_initWithAddition:(id)a0;
+- (id)_initWithFileURL:(id)a0 fileVersion:(id)a1;
+- (id)_initWithFileURL:(id)a0 library:(id)a1 clientID:(id)a2 name:(id)a3 contentsURL:(id)a4 isBackup:(char)a5 revision:(id)a6;
+- (id)_initWithFileURL:(id)a0 nonLocalVersion:(id)a1;
+- (void)_overrideModificationDateWithDate:(id)a0;
+- (char)_setDocumentInfo:(id)a0;
+- (char)removeAndReturnError:(id *)a0;
+- (id)restoreOverItemAtURL:(id)a0 error:(id *)a1;
+
+@end

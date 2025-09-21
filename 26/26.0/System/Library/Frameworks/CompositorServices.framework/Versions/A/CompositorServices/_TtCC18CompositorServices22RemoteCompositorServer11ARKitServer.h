@@ -1,0 +1,3 @@
+@interface _TtCC18CompositorServices22RemoteCompositorServer11ARKitServer : _TtCs12_SwiftObject
+
+@end

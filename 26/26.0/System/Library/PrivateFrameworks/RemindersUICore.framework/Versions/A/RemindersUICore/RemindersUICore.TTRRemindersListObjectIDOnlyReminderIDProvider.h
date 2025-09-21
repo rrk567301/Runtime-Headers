@@ -1,0 +1,3 @@
+@interface RemindersUICore.TTRRemindersListObjectIDOnlyReminderIDProvider : _TtCs12_SwiftObject
+
+@end

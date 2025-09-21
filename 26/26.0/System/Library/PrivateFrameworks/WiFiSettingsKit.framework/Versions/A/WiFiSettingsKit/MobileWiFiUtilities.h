@@ -1,0 +1,3 @@
+@interface MobileWiFiUtilities : NSObject
+
+@end

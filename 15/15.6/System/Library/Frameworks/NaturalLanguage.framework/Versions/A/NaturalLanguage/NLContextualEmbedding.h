@@ -1,0 +1,96 @@
+@class NLTagger, NSString, NSArray, NSDictionary, NLE5Embedding, NLSentenceEmbeddingHead;
+
+@interface NLContextualEmbedding : NSObject {
+    char _isE5Enabled;
+    char _useANE;
+    NSString *_identifier;
+    NSString *_modelIdentifier;
+    NSString *_adapterIdentifier;
+    NSDictionary *_catalogEntry;
+    NLTagger *_tagger;
+    NLE5Embedding *_embeddingE5;
+    void *_embedding;
+    NLSentenceEmbeddingHead *_sentenceEmbeddingHead;
+}
+
+@property (readonly, copy) NSString *modelIdentifier;
+@property (readonly, copy) NSArray *languages;
+@property (readonly, copy) NSArray *scripts;
+@property (readonly) unsigned long long revision;
+@property (readonly) unsigned long long dimension;
+@property (readonly) unsigned long long maximumSequenceLength;
+@property (readonly) char hasAvailableAssets;
+
++ (id)contextualEmbeddingForLanguage:(id)a0;
++ (id)contextualEmbeddingsWithValues:(id)a0;
++ (id)contextualEmbeddingCatalog;
++ (id)contextualEmbeddingConfigurationCatalog;
++ (id)contextualEmbeddingForScript:(id)a0;
++ (id)contextualEmbeddingWithIdentifier:(id)a0;
++ (id)contextualEmbeddingWithIdentifier:(id)a0 andOptions:(id)a1;
++ (id)contextualEmbeddingWithLanguage:(id)a0;
++ (id)contextualEmbeddingWithModelIdentifier:(id)a0;
++ (id)contextualEmbeddingWithScript:(id)a0;
++ (id)contextualEmbeddingsForValues:(id)a0;
++ (unsigned long long)systemVersionForLanguage:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (char)load;
+- (void).cxx_destruct;
+- (id)identifier;
+- (id)bundleName;
+- (id)bundlePath;
+- (id)initWithOptions:(id)a0;
+- (char)isLoaded;
+- (void)unload;
+- (unsigned long long)maximumBatchSize;
+- (char)loadWithError:(id *)a0;
+- (char)assetsAvailable;
+- (char)loadSentenceEmbeddingWithError:(id *)a0;
+- (id)_tokenRangesForString:(id)a0 language:(id)a1;
+- (id)_concatenatedEmbeddingDataForInputEmbeddingData:(id)a0 tokenizedSentences:(id)a1 batchComponentsCountArray:(id)a2 batchComponentRangesArray:(id)a3 maxTokens:(unsigned long long)a4;
+- (id)_getSentenceEmbeddingForString:(id)a0 error:(id *)a1;
+- (id)_paddedEmbeddingDataForInputEmbeddingData:(id)a0 tokenizedSentences:(id)a1 batchComponentsCountArray:(id)a2 batchComponentRangesArray:(id)a3 maxTokens:(unsigned long long)a4;
+- (id)_taggerForString:(id)a0 language:(id)a1;
+- (id)_tokensForString:(id)a0 tokenRanges:(id)a1;
+- (id)adapterIdentifier;
+- (id)adapters;
+- (id)assetLocale;
+- (id)assetLocaleIdentifier;
+- (char)compileWithError:(id *)a0;
+- (id)embeddingResultForString:(id)a0 language:(id)a1 error:(id *)a2;
+- (char)enumerateTokensForString:(id)a0 language:(id)a1 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 error:(id *)a3 usingBlock:(id /* block */)a4;
+- (long long)getCompilationState;
+- (id)initWithIdentifier:(id)a0 andOptions:(id)a1;
+- (char)isE5Enabled;
+- (char)loadSentenceEmbedding;
+- (char)loadSentenceEmbeddingWithOptions:(id)a0 error:(id *)a1;
+- (char)loadWithOptions:(id)a0 error:(id *)a1;
+- (unsigned long long)modelSystemVersion;
+- (void)requestAssetsWithCompletionHandler:(id /* block */)a0;
+- (id)requestBackgroundBatchEmbeddingResultsForStrings:(id)a0 language:(id)a1 error:(id *)a2;
+- (id)requestBackgroundEmbeddingResultForString:(id)a0 language:(id)a1 error:(id *)a2;
+- (char)requestBackgroundModelLoadingWithTimeout:(double)a0 error:(id *)a1;
+- (char)requestBackgroundModelLoadingWithWithError:(id *)a0;
+- (void)requestBatchEmbeddingResultsForStrings:(id)a0 language:(id)a1 completionHandler:(id /* block */)a2;
+- (void)requestEmbeddingAssetsWithCompletionHandler:(id /* block */)a0;
+- (void)requestEmbeddingResultForString:(id)a0 language:(id)a1 completionHandler:(id /* block */)a2;
+- (void)requestModelCompilationWithCompletionHandler:(id /* block */)a0;
+- (void)requestModelLoadingWithCompletionHandler:(id /* block */)a0;
+- (void)requestModelUnloading;
+- (void)requestSentenceEmbeddingVectorForString:(id)a0 language:(id)a1 completionHandler:(id /* block */)a2;
+- (char)requiresCompilation;
+- (id)sentenceEmbeddingVectorDataForString:(id)a0 language:(id)a1 error:(id *)a2;
+- (id)sentenceEmbeddingVectorForString:(id)a0 language:(id)a1 error:(id *)a2;
+- (unsigned long long)sentenceVectorDimension;
+- (id)subRangesWithinToken:(id)a0 componentRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 offset:(unsigned long long)a2;
+- (id)subRangesWithinToken:(id)a0 offset:(unsigned long long)a1;
+- (id)tokenDictionariesForString:(id)a0 tokens:(id)a1 tokenRanges:(id)a2;
+- (id)tokenDictionariesForString:(id)a0 tokens:(id)a1 tokenRanges:(id)a2 componentRanges:(id)a3 componentsCount:(unsigned long long)a4;
+- (unsigned long long)tokenVectorDimension;
+- (void)unloadSentenceEmbedding;
+- (char)useANE;
+- (id)vectorsForTokenizedSentences:(id)a0 untokenizedSentences:(id)a1 maxTokens:(unsigned long long)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface NSPopUpIndicatorView : NSButtonImageView
+
+@end

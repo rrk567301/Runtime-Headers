@@ -1,0 +1,108 @@
+@class NSURL, NSMutableDictionary, NSCache, NSDictionary, NSObject, NSMutableArray, WBSSiteMetadataImageCache, WBSTemplateIconMonogramConfiguration, NSImage, NSString, NSMutableSet, WBSTouchIconCacheSettingsSQLiteStore, NSColor;
+@protocol OS_dispatch_queue, WBSSiteMetadataProviderDelegate;
+
+@interface WBSTouchIconCache : NSObject <WBSSiteMetadataImageCacheDelegate, WBSWebViewMetadataFetchOperationDelegate, WBSSiteMetadataProvider> {
+    NSObject<OS_dispatch_queue> *_internalQueue;
+    struct atomic<bool> { struct __cxx_atomic_impl<bool, std::__cxx_atomic_base_impl<bool>> { _Atomic BOOL __a_value; } __a_; } _didLoadSettings;
+    WBSSiteMetadataImageCache *_imageCache;
+    NSMutableDictionary *_hostsToRequestSets;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _touchIconsDataForHostsAccessLock;
+    NSMutableDictionary *_touchIconsDataForHosts;
+    NSCache *_requestsToResponses;
+    NSMutableDictionary *_requestsToDelayedResponses;
+    NSMutableArray *_pendingSaveTouchIconToDiskBlocks;
+    NSMutableSet *_pendingTouchIconRequestHosts;
+    WBSTouchIconCacheSettingsSQLiteStore *_cacheSettingsStore;
+}
+
+@property (class, readonly, nonatomic) NSColor *defaultBackgroundColor;
+@property (class, readonly, nonatomic) NSColor *defaultGlyphColor;
+@property (class, readonly, nonatomic) NSImage *_generateDefaultFavoritesIcon;
+@property (class, readonly, nonatomic) WBSTemplateIconMonogramConfiguration *_monogramConfiguration;
+
+@property (readonly, nonatomic) NSURL *imageDirectoryURL;
+@property (readonly, nonatomic) NSURL *cacheDirectoryURL;
+@property (readonly, nonatomic, getter=isReadOnly) char readOnly;
+@property (readonly, nonatomic) long long protectionType;
+@property (readonly, nonatomic) long long fileMappingStyle;
+@property (readonly, nonatomic) char allowFetchingOverCellularNetwork;
+@property (readonly, copy, nonatomic) NSDictionary *uuidStringToHost;
+@property (readonly, nonatomic) char canFetchOutsideOfUserLoadedWebpage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak) id<WBSSiteMetadataProviderDelegate> providerDelegate;
+@property (readonly, nonatomic) char providesFavicons;
+
++ (id)generateFavoritesIconForTitle:(id)a0 url:(id)a1 backgroundColor:(id)a2 shouldRemoveGrammaticalArticles:(char)a3 fontWeight:(long long)a4 fontDesign:(long long)a5 fontSize:(double)a6;
++ (id)_generateFavoritesIconForRequest:(id)a0 withBackgroundColor:(id)a1;
++ (id)generateFavoritesIconForTitle:(id)a0 url:(id)a1 backgroundColor:(id)a2;
++ (id)generateFavoritesIconForTitle:(id)a0 url:(id)a1 backgroundColor:(id)a2 shouldRemoveGrammaticalArticles:(char)a3;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (char)canHandleRequest:(id)a0;
+- (void)savePendingChangesBeforeTermination;
+- (void)emptyCaches;
+- (id)_didGenerateResponse:(id)a0 forRequest:(id)a1;
+- (id)_operationWithRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (void)cacheFirstAvailableTouchIcon:(id)a0 forURL:(id)a1;
+- (id)initWithCacheDirectoryURL:(id)a0;
+- (void)performMaintenanceWork;
+- (void)prepareResponseForRequest:(id)a0 allowDelayedResponse:(char)a1;
+- (void)purgeUnneededCacheEntries;
+- (void)releaseTouchIconForURLString:(id)a0;
+- (void)releaseTouchIconsForHosts:(id)a0;
+- (id)responseForRequest:(id)a0 willProvideUpdates:(char *)a1;
+- (void)retainTouchIconForHost:(id)a0;
+- (void)retainTouchIconForURLString:(id)a0;
+- (char)shouldRequestTouchIconForURL:(id)a0 inUserLoadedWebpage:(char)a1;
+- (id)siteMetadataImageCache:(id)a0 customFileNameForKeyString:(id)a1;
+- (void)siteMetadataImageCache:(id)a0 didFinishLoadingImage:(id)a1 forKeyString:(id)a2;
+- (void)siteMetadataImageCache:(id)a0 didRemoveImageFromCacheForKeyString:(id)a1;
+- (void)siteMetadataImageCacheDidEmptyCache:(id)a0;
+- (void)siteMetadataImageCacheDidFinishLoadingSettings:(id)a0;
+- (void)stopWatchingUpdatesForRequest:(id)a0;
+- (id)_touchIconForURL:(id)a0 getImageState:(long long *)a1;
+- (id /* block */)_blockOperationForRequest:(id)a0 knownImageState:(long long)a1;
+- (char)_canFetchTouchIconForURL:(id)a0 inUserLoadedWebpage:(char)a1;
+- (void)_didLoadTouchIcon:(id)a0 withCacheSettingsEntry:(id)a1;
+- (void)_ensureCacheDirectory;
+- (void)_enumerateRequestsForHost:(id)a0 usingBlock:(id /* block */)a1;
+- (id)_imageCacheSettingsDatabaseURL;
+- (double)_maximumScreenScale;
+- (void)_notifyImageWasLoaded:(id)a0 forHost:(id)a1;
+- (void)_openCacheSettingsDatabaseIfNeeded;
+- (void)_removeTouchIconsDataForHost:(id)a0;
+- (void)_removeTouchIconsDataForHost:(id)a0 ifIconIsInCache:(char)a1;
+- (id)_resizedImage:(id)a0 forHost:(id)a1;
+- (id)_responseForRequest:(id)a0 withTouchIcon:(id)a1;
+- (id)_responseForTouchIconRequestWithNoHost:(id)a0;
+- (void)_saveTouchIconToDisk:(id)a0 forHost:(id)a1 requestDidSucceed:(char)a2 statusCode:(long long)a3 isUserLoadedWebpageRequest:(char)a4 higherPriorityIconDownloadFailedDueToNetworkError:(char)a5;
+- (void)_saveTouchIconToDiskWithResult:(id)a0 forRequest:(id)a1 knownImageState:(long long)a2;
+- (void)_setUpAndReturnDelayedResponseForRequest:(id)a0;
+- (void)_setUpAndReturnPreparedResponseForRequest:(id)a0 withImage:(id)a1 imageState:(long long)a2 didReceiveNewData:(char)a3;
+- (void)_setUpImageCacheSettingsSQLiteStore;
+- (char)_shouldGenerateTouchIconFromTouchIcon:(id)a0 forRequest:(id)a1;
+- (char)_shouldRequestTouchIconForURL:(id)a0 inUserLoadedWebpage:(char)a1 initiatedFromBookmarkInteraction:(char)a2;
+- (char)_shouldRequestTouchIconForURL:(id)a0 inUserLoadedWebpage:(char)a1 initiatedFromBookmarkInteraction:(char)a2 knownImageState:(long long)a3;
+- (char)_shouldRequestTouchIconForURL:(id)a0 inUserLoadedWebpage:(char)a1 initiatedFromBookmarkInteraction:(char)a2 shouldCheckImageState:(char *)a3;
+- (char)_shouldRequestTouchIconWithTimeoutForURL:(id)a0 inUserLoadedWebpage:(char)a1 initiatedFromBookmarkInteraction:(char)a2;
+- (long long)_transparencyAnalysisResultForImage:(id)a0;
+- (void)_updateTouchIconsDataForHost:(id)a0 image:(id)a1 requestDidSucceed:(char)a2 statusCode:(long long)a3 isUserLoadedWebpageRequest:(char)a4 higherPriorityIconDownloadFailedDueToNetworkError:(char)a5 UUIDString:(id)a6;
+- (void)_willSaveTouchIcon:(id)a0 withCacheSettingsEntry:(id)a1;
+- (char)hasDeterminedIconAvailabilityForURL:(id)a0;
+- (id)initWithCacheDirectoryURL:(id)a0 isReadOnly:(char)a1;
+- (id)initWithCacheDirectoryURL:(id)a0 isReadOnly:(char)a1 protectionType:(long long)a2 allowFetchingOverCellularNetwork:(char)a3 fileMappingStyle:(long long)a4 canFetchOutsideOfUserLoadedWebpage:(char)a5;
+- (void)releaseTouchIconForHost:(id)a0;
+- (void)removeTouchIconMetadataForHosts:(id)a0 completionHandler:(id /* block */)a1;
+- (void)retainTouchIconsForHosts:(id)a0;
+- (void)saveTouchIconSettings:(id)a0 touchIcon:(id)a1;
+- (char)shouldRequestTouchIconForWebPageNavigationFromBookmarkInteractionForURL:(id)a0;
+- (void)webViewMetadataFetchOperation:(id)a0 didFinishUsingWebView:(id)a1;
+- (void)webViewMetadataFetchOperation:(id)a0 getWebViewOfSize:(struct CGSize { double x0; double x1; })a1 withConfiguration:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

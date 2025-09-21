@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface SymptomToAnalyticsHandler : NSObject <ConfigurableObjectProtocol, SymptomAdditionalProtocol>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)configureClass:(id)a0;
+
+- (int)configureInstance:(id)a0;
+- (BOOL)noteSymptom:(id)a0;
+- (void)noteIPAddressAcquisitionFailed:(BOOL)a0 forEvent:(id)a1;
+
+@end

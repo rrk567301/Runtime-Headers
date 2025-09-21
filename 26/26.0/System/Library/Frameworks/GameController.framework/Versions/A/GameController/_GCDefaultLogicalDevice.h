@@ -1,0 +1,83 @@
+@class GCSystemButtonServer, NSString, _GCDeviceConfiguration, NSArray, NSSet, GCDeviceBattery, GCDeviceLight, NSMapTable, GCSystemGesturesState;
+@protocol _GCDeviceBatteryComponent, NSObject, _GCDeviceLightComponent, _GCDefaultLogicalDeviceDelegate, _GCDeviceSystemGestureComponent, _GCPhysicalDevice, _GCDeviceManager, _GCDevicePlayerIndexIndicatorComponent, GCSSettingsStoreService, _GCDeviceAdaptiveTriggersComponent, GCUserDefaults, _GCDeviceSettingsComponent, _GCDeviceMotionComponent, NSCopying, NSSecureCoding;
+
+@interface _GCDefaultLogicalDevice : NSObject <_GCDriverClientHapticInterfaceProvider, _GCDeviceSyntheticControllerProviding, _GCDeviceSettingsComponent, _GCDeviceControllerProviding, GCPlayerIndicatorXPCProxyServerEndpointDelegate, GCLightXPCProxyServerEndpointDelegate, GCAdaptiveTriggersXPCProxyServerEndpointDelegate, GCMotionXPCProxyServerEndpointDelegate, GCBatteryXPCProxyServerEndpointDelegate, GCSettingsXPCProxyServerEndpointDelegate, GCSystemGestureXPCProxyServerEndpointDelegate, GCApplicationStateObserver, _GCLogicalDevice> {
+    NSMapTable *_clients;
+    id<_GCDevicePlayerIndexIndicatorComponent> _devicePlayerIndicatorComponent;
+    long long _indicatedPlayerIndex;
+    NSMapTable *_clientPlayerIndicatorEndpoints;
+    id<_GCDeviceAdaptiveTriggersComponent> _deviceAdaptiveTriggersComponent;
+    NSArray *_adaptiveTriggerStatuses;
+    NSMapTable *_pidToAdaptiveTriggersComponent;
+    NSMapTable *_clientAdaptiveTriggersEndpoints;
+    id<_GCDeviceLightComponent> _deviceLightComponent;
+    GCDeviceLight *_light;
+    BOOL _lightClientOverrideEnabled;
+    BOOL _lightUserOverrideEnabled;
+    NSMapTable *_clientLightEndpoints;
+    id<_GCDeviceMotionComponent> _deviceMotionComponent;
+    BOOL _motionSensorsActive;
+    NSMapTable *_clientMotionEndpoints;
+    id<_GCDeviceBatteryComponent> _deviceBatteryComponent;
+    GCDeviceBattery *_battery;
+    NSMapTable *_clientBatteryEndpoints;
+    id<GCSSettingsStoreService> _settingsStore;
+    id<_GCDeviceSettingsComponent> _deviceSettingsComponent;
+    NSMapTable *_clientSettingsEndpoints;
+    id<_GCDeviceSystemGestureComponent> _deviceSystemGestureComponent;
+    id _deviceSystemGestureButtonHandle;
+    id _systemShellLauncherService;
+    GCSystemGesturesState *_activeSystemGesturesState;
+    NSMapTable *_clientToSystemGesturesState;
+    NSMapTable *_clientToSystemButtonResponderAssertion;
+    NSMapTable *_clientSystemGestureEndpoints;
+    GCSystemButtonServer *_systemButtonServer;
+    id<GCUserDefaults> _userDefaults;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) int activeApplicationPID;
+@property (weak, nonatomic) id<_GCDefaultLogicalDeviceDelegate> delegate;
+@property (readonly, nonatomic) _GCDeviceConfiguration *configuration;
+@property (readonly, nonatomic) id<_GCPhysicalDevice> underlyingDevice;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) NSSet *underlyingDevices;
+@property (readonly, copy) id<NSObject, NSCopying, NSSecureCoding> identifier;
+@property (readonly, weak) id<_GCDeviceManager> manager;
+@property (readonly) NSSet *components;
+
+- (void)dealloc;
+- (id)propertyForKey:(id)a0;
+- (id)init;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void).cxx_destruct;
+- (id)redactedDescription;
+- (BOOL)_addClient:(id)a0;
+- (void)activateLogical;
+- (id)persistentIdentifierForSettings;
+- (id)_makeControllerGamepadEventSource;
+- (void)_removeClient:(id)a0;
+- (void)adaptiveTriggersXPCProxyServerEndpoint:(id)a0 didReceiveAdaptiveTriggersChange:(id)a1 forIndex:(int)a2;
+- (void)applicationBackgrounded:(int)a0;
+- (void)applicationForegrounded:(int)a0;
+- (void)deactivateLogical;
+- (id)hapticDriver;
+- (id)initWithPhysicalDevice:(id)a0 configuration:(id)a1 manager:(id)a2;
+- (void)lightXPCProxyServerEndpoint:(id)a0 didReceiveLightChange:(id)a1;
+- (id)makeControllerForClient:(id)a0;
+- (id)makeSyntheticController;
+- (void)motionXPCProxyServerEndpoint:(id)a0 didReceiveSensorsActiveChange:(BOOL)a1;
+- (void)playerIndicatorXPCProxyServerEndpoint:(id)a0 didReceivePlayerIndexChange:(long long)a1;
+- (void)settingsDidChange;
+- (void)stopObservingClientStateChanges:(id)a0;
+- (void)stopObservingClientStateChangesForAllClients;
+- (void)systemGestureXPCProxyServerEndpoint:(id)a0 disableSystemGestureForInput:(id)a1;
+- (void)systemGestureXPCProxyServerEndpoint:(id)a0 enableSystemGestureForInput:(id)a1;
+
+@end

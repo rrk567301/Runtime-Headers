@@ -1,0 +1,88 @@
+@class NSArray, NSDictionary, NSString, SSDisplayConfiguration, NSData;
+
+@interface SSConnectionOptions : NSObject
+
+@property (nonatomic) char screenQualitySet;
+@property long long minimumEncryptionLevel;
+@property char shouldGetUserInfo;
+@property long long controlType;
+@property long long sessionSelectionAction;
+@property long long panningMode;
+@property long long screenQualityMode;
+@property struct CGSize { double width; double height; } maxSize;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } restoreWindowFrame;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } restoreContentFrame;
+@property unsigned long long selectedScreen;
+@property long long scalingMode;
+@property char shouldCurtainScreen;
+@property char shouldSharePasteboard;
+@property char shouldFallbackToObserve;
+@property long long authMethod;
+@property (copy) NSDictionary *hints;
+@property (copy) NSArray *videoEncodings;
+@property char skipAddressPresentation;
+@property char shouldReturnToAddressBox;
+@property long long recoveryAction;
+@property char openInFullScreen;
+@property char showConnectionProgress;
+@property char skipUserPassDialogIfPossible;
+@property char noReconnect;
+@property char connectingToIOSdevice;
+@property (retain) NSString *idsDestination;
+@property (retain) NSString *deviceID;
+@property (retain) NSString *displayName;
+@property long long appleIDInviteMethod;
+@property (nonatomic) char isFTSS;
+@property (retain) NSString *callUUID;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } sourceAppWindowRect;
+@property long long windowAlignment;
+@property (retain, nonatomic) SSDisplayConfiguration *displayConfiguration;
+@property (nonatomic) char hdr;
+@property (nonatomic) long long numVirtualDisplays;
+@property (retain, nonatomic) NSData *managedCredentialPersistentRef;
+@property (retain, nonatomic) NSString *savedConnectionID;
+@property (retain, nonatomic) NSString *connectionGroupID;
+@property (nonatomic, getter=isVirtualDisplay1HDREnabled) char virtualDisplay1HDREnabled;
+@property (nonatomic, getter=isVirtualDisplay2HDREnabled) char virtualDisplay2HDREnabled;
+@property (nonatomic) unsigned int displayID;
+@property (nonatomic) char inviterAppIsMessages;
+@property (nonatomic) char idsDeviceAudioStreamPausedAtStart;
+@property char shouldScaleScreen;
+
++ (id)defaultOptions;
++ (id)connectionOptionsWithURLOptions:(id)a0;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (void)option_control:(id)a0;
+- (void)option_panning:(id)a0;
+- (void)option_encrypt:(id)a0;
+- (void)option_quality:(id)a0;
+- (void)applyURLOptions:(id)a0;
+- (void)option_auth:(id)a0;
+- (void)option_connectionID:(id)a0;
+- (void)option_deviceID:(id)a0;
+- (void)option_disableReconnect:(id)a0;
+- (void)option_displayID:(id)a0;
+- (void)option_displayName:(id)a0;
+- (void)option_fallBackToObserve:(id)a0;
+- (void)option_hdr:(id)a0;
+- (void)option_idsDestination:(id)a0;
+- (void)option_invitationType:(id)a0;
+- (void)option_inviterApp:(id)a0;
+- (void)option_inviterName:(id)a0;
+- (void)option_iosInvite:(id)a0;
+- (void)option_isFTSS:(id)a0;
+- (void)option_isPerson:(id)a0;
+- (void)option_numVirtualDisplays:(id)a0;
+- (void)option_openInFullScreen:(id)a0;
+- (void)option_otherUserOnConsole:(id)a0;
+- (void)option_scaled:(id)a0;
+- (void)option_selectedDisplay:(id)a0;
+- (void)option_sharePasteboard:(id)a0;
+- (void)option_showConnectionProgress:(id)a0;
+- (void)option_sourceApplicationWindowRect:(id)a0;
+- (void)option_windowAlignment:(id)a0;
+
+@end

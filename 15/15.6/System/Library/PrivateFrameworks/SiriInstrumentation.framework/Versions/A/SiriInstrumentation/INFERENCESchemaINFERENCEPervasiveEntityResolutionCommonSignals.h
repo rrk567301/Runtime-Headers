@@ -1,0 +1,83 @@
+@class NSString, SISchemaVersion, SISchemaUUID, NSData;
+
+@interface INFERENCESchemaINFERENCEPervasiveEntityResolutionCommonSignals : SISchemaInstrumentationMessage {
+    struct { unsigned char choicesCount : 1; unsigned char timestampSec : 1; unsigned char rawLanguage : 1; unsigned char rawLocale : 1; unsigned char rawStateOrProvince : 1; unsigned char rawCountry : 1; unsigned char rawRequestDeviceCategory : 1; unsigned char calendarHourOfDay : 1; unsigned char calendarDayOfWeek : 1; unsigned char calendarWeekOfMonth : 1; unsigned char calendarMonthOfYear : 1; unsigned char isClientDaylight : 1; unsigned char isDeviceLockStatus : 1; unsigned char deviceMotionState : 1; unsigned char isClientNavigating : 1; unsigned char isCarPlay : 1; unsigned char historicalDataCount : 1; unsigned char disambiguationReason : 1; } _has;
+}
+
+@property (copy, nonatomic) NSString *usecase;
+@property (nonatomic) char hasUsecase;
+@property (nonatomic) int choicesCount;
+@property (nonatomic) char hasChoicesCount;
+@property (nonatomic) long long timestampSec;
+@property (nonatomic) char hasTimestampSec;
+@property (nonatomic) int rawLanguage;
+@property (nonatomic) char hasRawLanguage;
+@property (nonatomic) int rawLocale;
+@property (nonatomic) char hasRawLocale;
+@property (nonatomic) int rawStateOrProvince;
+@property (nonatomic) char hasRawStateOrProvince;
+@property (nonatomic) int rawCountry;
+@property (nonatomic) char hasRawCountry;
+@property (nonatomic) int rawRequestDeviceCategory;
+@property (nonatomic) char hasRawRequestDeviceCategory;
+@property (nonatomic) int calendarHourOfDay;
+@property (nonatomic) char hasCalendarHourOfDay;
+@property (nonatomic) int calendarDayOfWeek;
+@property (nonatomic) char hasCalendarDayOfWeek;
+@property (nonatomic) int calendarWeekOfMonth;
+@property (nonatomic) char hasCalendarWeekOfMonth;
+@property (nonatomic) int calendarMonthOfYear;
+@property (nonatomic) char hasCalendarMonthOfYear;
+@property (nonatomic) int isClientDaylight;
+@property (nonatomic) char hasIsClientDaylight;
+@property (nonatomic) int isDeviceLockStatus;
+@property (nonatomic) char hasIsDeviceLockStatus;
+@property (nonatomic) int deviceMotionState;
+@property (nonatomic) char hasDeviceMotionState;
+@property (nonatomic) int isClientNavigating;
+@property (nonatomic) char hasIsClientNavigating;
+@property (nonatomic) int isCarPlay;
+@property (nonatomic) char hasIsCarPlay;
+@property (nonatomic) int historicalDataCount;
+@property (nonatomic) char hasHistoricalDataCount;
+@property (nonatomic) int disambiguationReason;
+@property (nonatomic) char hasDisambiguationReason;
+@property (retain, nonatomic) SISchemaVersion *modelVersion;
+@property (nonatomic) char hasModelVersion;
+@property (retain, nonatomic) SISchemaUUID *trialTreatmentId;
+@property (nonatomic) char hasTrialTreatmentId;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteIsCarPlay;
+- (void)deleteRawLocale;
+- (void)deleteCalendarDayOfWeek;
+- (void)deleteCalendarHourOfDay;
+- (void)deleteCalendarMonthOfYear;
+- (void)deleteCalendarWeekOfMonth;
+- (void)deleteChoicesCount;
+- (void)deleteDeviceMotionState;
+- (void)deleteDisambiguationReason;
+- (void)deleteHistoricalDataCount;
+- (void)deleteIsClientDaylight;
+- (void)deleteIsClientNavigating;
+- (void)deleteIsDeviceLockStatus;
+- (void)deleteModelVersion;
+- (void)deleteRawCountry;
+- (void)deleteRawLanguage;
+- (void)deleteRawRequestDeviceCategory;
+- (void)deleteRawStateOrProvince;
+- (void)deleteTimestampSec;
+- (void)deleteTrialTreatmentId;
+- (void)deleteUsecase;
+- (id)suppressMessageUnderConditions;
+
+@end

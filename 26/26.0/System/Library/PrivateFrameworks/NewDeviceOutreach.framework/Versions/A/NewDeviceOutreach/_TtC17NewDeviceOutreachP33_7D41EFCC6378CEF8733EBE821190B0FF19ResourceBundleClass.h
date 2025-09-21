@@ -1,0 +1,3 @@
+@interface _TtC17NewDeviceOutreachP33_7D41EFCC6378CEF8733EBE821190B0FF19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

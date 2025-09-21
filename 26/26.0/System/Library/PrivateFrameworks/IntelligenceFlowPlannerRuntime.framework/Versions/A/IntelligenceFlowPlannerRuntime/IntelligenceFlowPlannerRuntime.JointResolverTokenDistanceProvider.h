@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.JointResolverTokenDistanceProvider : _TtCs12_SwiftObject
+
+@end

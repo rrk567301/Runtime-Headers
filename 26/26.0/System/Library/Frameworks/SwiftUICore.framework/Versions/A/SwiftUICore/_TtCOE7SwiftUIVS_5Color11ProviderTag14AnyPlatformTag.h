@@ -1,0 +1,3 @@
+@interface _TtCOE7SwiftUIVS_5Color11ProviderTag14AnyPlatformTag : _TtCs12_SwiftObject
+
+@end

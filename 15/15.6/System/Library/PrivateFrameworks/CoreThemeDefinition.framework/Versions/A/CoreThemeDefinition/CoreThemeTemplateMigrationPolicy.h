@@ -1,0 +1,8 @@
+@interface CoreThemeTemplateMigrationPolicy : NSEntityMigrationPolicy
+
+- (char)beginEntityMapping:(id)a0 manager:(id)a1 error:(id *)a2;
+- (char)createDestinationInstancesForSourceInstance:(id)a0 entityMapping:(id)a1 manager:(id)a2 error:(id *)a3;
+- (char)createRelationshipsForDestinationInstance:(id)a0 entityMapping:(id)a1 manager:(id)a2 error:(id *)a3;
+- (char)performCustomValidationForEntityMapping:(id)a0 manager:(id)a1 error:(id *)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface MapsIntelligence.MapsIntelligenceStringSignal : MapsIntelligence.MapsIntelligenceBaseSignal
+
+@end

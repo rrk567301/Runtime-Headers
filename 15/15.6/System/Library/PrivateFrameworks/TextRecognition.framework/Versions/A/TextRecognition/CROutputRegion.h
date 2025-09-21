@@ -1,0 +1,98 @@
+@class NSUUID, NSString, NSArray, CRRegionGeometryInfo, CRNormalizedQuad, CRVCQuad, NSNumber, CRNormalizedPolyline;
+
+@interface CROutputRegion : NSObject <CRCodable, CRGeometryProviding, NSSecureCoding, NSCopying, CRIdentifiable, CRDirectionalRegion, CRTrackableRegion>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly) CRVCQuad *vcImageSpaceQuad;
+@property (retain, nonatomic) NSArray *children;
+@property (retain, nonatomic) NSArray *candidates;
+@property (retain, nonatomic) NSArray *transcriptComponents;
+@property (retain) NSUUID *trackingID;
+@property char significantTranscriptChange;
+@property (retain, nonatomic) NSString *text;
+@property (retain, nonatomic) NSString *recognizedLocale;
+@property (nonatomic) unsigned long long confidence;
+@property (nonatomic) unsigned long long layoutDirection;
+@property (nonatomic) float visualTextAngle;
+@property (nonatomic) float rawConfidence;
+@property (nonatomic) double activationProbability;
+@property (retain, nonatomic) CRNormalizedQuad *boundingQuad;
+@property (retain, nonatomic) CRNormalizedPolyline *polygon;
+@property (nonatomic) double baselineAngle;
+@property (readonly, nonatomic) char computesBoundsFromChildren;
+@property (readonly, nonatomic) char computesTranscriptFromChildren;
+@property (readonly, nonatomic) char computesNumberOfLinesFromChildren;
+@property (readonly, nonatomic) NSArray *regionsSuitableForDataDetectorOutput;
+@property (nonatomic) long long numberOfLines;
+@property (nonatomic) unsigned long long textAlignment;
+@property (retain) CRNormalizedQuad *boundingQuadAfterOCR;
+@property (retain) CRNormalizedQuad *boundingQuadAtOCRDispatch;
+@property struct { void /* unknown type, empty encoding */ columns[3]; } boundingQuadHomographySinceOCRDispatch;
+@property (retain, nonatomic) CRNormalizedQuad *originalBoundingQuad;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[3]; } boundingQuadHomography;
+@property (retain, nonatomic) CRRegionGeometryInfo *geometryInfo;
+@property (nonatomic) char shouldComputeBoundsFromChildren;
+@property (nonatomic) char shouldComputeTranscriptFromChildren;
+@property (nonatomic) char shouldComputeParagraphsFromChildren;
+@property (retain, nonatomic) NSUUID *uuid;
+@property (retain, nonatomic) NSArray *dataDetectorRegions;
+@property (retain, nonatomic) NSArray *dataDetectorGroupRegions;
+@property (retain, nonatomic) NSArray *paragraphRegions;
+@property (retain, nonatomic) NSArray *listRegions;
+@property (retain, nonatomic) NSArray *tableRegions;
+@property (retain, nonatomic) NSArray *formFieldRegions;
+@property (readonly) unsigned long long type;
+@property (retain) NSNumber *homographyGroupID;
+@property (readonly) NSArray *contentBaselines;
+@property (readonly) struct CGSize { double x0; double x1; } rectifiedSize;
+@property (readonly, nonatomic) long long wordCount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)decodableSubclasses;
++ (id)outputRegionFromTextRegion:(id)a0 confidenceThresholdProvider:(id)a1 injectSpaceCharacter:(char)a2;
++ (id)outputRegionWithCRCodableDataRepresentation:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)closestContentRegionOfType:(unsigned long long)a0 toNormalizedPoint:(struct CGPoint { double x0; double x1; })a1 maxPixelDistance:(long long)a2;
+- (id)contentRegionOfType:(unsigned long long)a0 containingTextAtIndex:(long long)a1;
+- (id)contentsWithTypes:(unsigned long long)a0;
+- (id)outputRegionWithContentsOfCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)quadForTextInCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeOfContentRegion:(id)a0;
+- (unsigned long long)textType;
+- (id)outputRegionWithContentsOfQuad:(id)a0;
+- (void)_computeGeometryInfo;
+- (void)_computeNumberOfLines;
+- (void)_invalidateTranscript;
+- (void)_invalidateTranscriptRecursivelyThrough:(Class)a0;
+- (void)_overrideSetBoundingQuad:(id)a0;
+- (void)applyHomographyTransform:(struct { void /* unknown type, empty encoding */ x0[3]; })a0 downscaleRate:(float)a1 shouldApply:(id /* block */)a2;
+- (char)contributesToDocumentHierarchy;
+- (id)copyIncludingChildrenOfTypes:(unsigned long long)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0 copyChildren:(char)a1 copyCandidates:(char)a2 deepCopy:(char)a3;
+- (id)crCodableDataRepresentation;
+- (void)enumerateContentsWithTypes:(unsigned long long)a0 usingBlock:(id /* block */)a1;
+- (id)initWithCRCodableDataRepresentation:(id)a0 version:(long long)a1 offset:(unsigned long long *)a2;
+- (id)initWithConfidence:(unsigned long long)a0 baselineAngle:(double)a1;
+- (id)joiningDelimiter;
+- (unsigned long long)nmsOutputScale;
+- (id)outputRegionByApplyingWarpTransform:(struct { void /* unknown type, empty encoding */ x0[3]; })a0 downscaleRate:(float)a1 shouldApply:(id /* block */)a2;
+- (id)outputRegionWithContentsBetweenStartPoint:(struct CGPoint { double x0; double x1; })a0 endPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)scaleBy:(struct CGPoint { double x0; double x1; })a0 normalizedOffset:(struct CGPoint { double x0; double x1; })a1;
+- (id)scriptCategoryResults;
+- (id)sequenceScriptOutputResult;
+- (char)shouldAlwaysAddDelimiter;
+- (void)updateBoundingQuadAfterOCR;
+- (void)updatePreviousAssociationQuad;
+- (long long)wordCountInCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCOE7SwiftUIVS_8Gradient11ProviderTag15CorePlatformTag : _TtCOE7SwiftUIVS_8Gradient11ProviderTag14AnyPlatformTag
+
+@end

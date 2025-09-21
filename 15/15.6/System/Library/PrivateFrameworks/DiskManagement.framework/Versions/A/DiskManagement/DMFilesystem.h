@@ -1,0 +1,73 @@
+@interface DMFilesystem : NSObject {
+    id _instPriv;
+}
+
++ (id)filesystemForType:(id)a0 considerDisk:(struct __DADisk { } *)a1;
++ (id)bootableFilesystems;
++ (void)ensureDatabaseAndForceRebuild:(char)a0;
++ (id)filesystemForIOContent:(id)a0;
++ (id)filesystemForLocalizedName:(id)a0;
++ (id)filesystemForPersonality:(id)a0;
++ (id)filesystems;
++ (char)isCanonicalPersonalityNameEqual:(id)a0 withInformalName:(id)a1;
+
+- (void)dealloc;
+- (id)description;
+- (char)isEqual:(id)a0;
+- (id)bundlePath;
+- (id)maximumSize;
+- (id)minimumSize;
+- (id)formatArguments;
+- (id)repairArguments;
+- (char)supportedByAPFS;
+- (id)verifyArguments;
+- (id)userVisibleName;
+- (void)awareNameSanitizer:(id)a0 allowToUpper:(char)a1 allowReplace:(char)a2 isValid:(char *)a3 correctedName:(id *)a4;
+- (char)bootable;
+- (char)canBeFormatted;
+- (char)canBeRepaired;
+- (char)canBeVerified;
+- (char)canFormatWholeDisk;
+- (char)canHavePermissionsOff;
+- (id)contentMask;
+- (id)correctedVolumeNameForName:(id)a0;
+- (id)encryptedUserVisibleName;
+- (char)fileObjectsAreCasePreserving;
+- (char)fileObjectsAreCaseSensitive;
+- (id)filesystemDictionary;
+- (id)filesystemPersonality;
+- (id)filesystemType;
+- (id)formatExecutable;
+- (void)hardcodedAttribute:(const char *)a0 available:(char *)a1 datum:(unsigned long long *)a2;
+- (id)initWithPersonality:(id)a0 majorType:(id)a1 locUsrVisName:(id)a2 locUsrVisCrpName:(id)a3 personalityDict:(id)a4 bundlePath:(id)a5;
+- (char)isValidName:(id)a0;
+- (char)isValidName:(id)a0 correctedName:(id *)a1;
+- (id)liveVerifyArguments;
+- (id)localizedVerifyRepairString:(id)a0;
+- (id)localizedVerifyRepairString:(id)a0 found:(char *)a1;
+- (char)nameSanitizer:(id)a0 correctedName:(id *)a1 doToUpper:(char)a2 illegalChars:(id)a3 replacementChar:(id)a4 leadingDotOK:(char)a5 controlCharsOK:(char)a6 minChars:(unsigned int)a7 maxChars:(unsigned int)a8 maxBytes:(unsigned int)a9 limitEncoding:(unsigned long long)a10;
+- (id)percentageVerifyArguments;
+- (id)repairExecutable;
+- (char)requiresBooterToBoot;
+- (char)requiresWholeDiskFormat;
+- (char)serverOnly;
+- (void)setVerifyRepairStringLocale:(id)a0;
+- (char)shouldBeUserFormattable;
+- (char)supportedAsFullyFeaturedMacOS;
+- (char)supportedAsFullyFeaturedMacOSHFS;
+- (char)supportedByCoreStorage;
+- (char)supportedByWindows;
+- (char)supportsJournaling;
+- (char)supportsLiveVerify;
+- (char)supportsPercentageVerifies;
+- (char)supportsResize;
+- (char)supportsXMLVerifies;
+- (id)unlocalizedEncryptedUserVisibleName;
+- (id)unlocalizedUserVisibleName;
+- (id)userVisibleNameForLanguage:(id)a0;
+- (id)verifyExecutable;
+- (id)verifyRepairOutputXMLArguments;
+- (char)volumeNameIsCasePreserving;
+- (char)volumeNameIsCaseSensitive;
+
+@end

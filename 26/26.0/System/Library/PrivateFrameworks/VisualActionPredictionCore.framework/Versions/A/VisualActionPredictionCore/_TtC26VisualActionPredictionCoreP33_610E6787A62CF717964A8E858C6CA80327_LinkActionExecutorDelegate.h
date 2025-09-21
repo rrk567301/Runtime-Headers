@@ -1,0 +1,13 @@
+@interface _TtC26VisualActionPredictionCoreP33_610E6787A62CF717964A8E858C6CA80327_LinkActionExecutorDelegate : NSObject <LNActionExecutorDelegate> {
+    void /* unknown type, empty encoding */ completedFlag;
+    void /* unknown type, empty encoding */ continuation;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)executor:(id)a0 needsValueWithRequest:(id)a1;
+- (void)executor:(id)a0 didCompleteExecutionWithResult:(id)a1 error:(id)a2;
+- (void)executor:(id)a0 needsConfirmationWithRequest:(id)a1;
+- (void)executor:(id)a0 needsDisambiguationWithRequest:(id)a1;
+
+@end

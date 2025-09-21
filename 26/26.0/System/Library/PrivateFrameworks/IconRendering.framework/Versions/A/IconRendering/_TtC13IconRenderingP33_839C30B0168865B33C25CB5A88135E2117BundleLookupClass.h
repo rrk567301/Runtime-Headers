@@ -1,0 +1,3 @@
+@interface _TtC13IconRenderingP33_839C30B0168865B33C25CB5A88135E2117BundleLookupClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmChineseNewYearsEve : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

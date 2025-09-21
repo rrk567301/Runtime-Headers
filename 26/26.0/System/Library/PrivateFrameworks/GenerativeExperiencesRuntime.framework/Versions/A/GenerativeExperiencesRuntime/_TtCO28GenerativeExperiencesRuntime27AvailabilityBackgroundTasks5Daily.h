@@ -1,0 +1,3 @@
+@interface _TtCO28GenerativeExperiencesRuntime27AvailabilityBackgroundTasks5Daily : _TtCs12_SwiftObject
+
+@end

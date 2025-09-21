@@ -1,0 +1,82 @@
+@class CKDPContactInformation, CKDPProtectionInfo, NSData, CKDPDate, CKDPIdentifier;
+
+@interface CKDPParticipant : PBCodable <NSCopying> {
+    struct { unsigned char acceptTimestamp : 1; unsigned char keyHealth : 1; unsigned char outOfNetworkKeyType : 1; unsigned char participantType : 1; unsigned char permission : 1; unsigned char publicKeyVersion : 1; unsigned char state : 1; unsigned char acceptedInProcess : 1; unsigned char createdInProcess : 1; unsigned char isAnonymousInvitedParticipant : 1; unsigned char isApprovedRequester : 1; unsigned char isInNetwork : 1; unsigned char isOrgUser : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasParticipantId;
+@property (retain, nonatomic) CKDPIdentifier *participantId;
+@property (readonly, nonatomic) char hasUserId;
+@property (retain, nonatomic) CKDPIdentifier *userId;
+@property (readonly, nonatomic) char hasContactInformation;
+@property (retain, nonatomic) CKDPContactInformation *contactInformation;
+@property (nonatomic) char hasState;
+@property (nonatomic) int state;
+@property (nonatomic) char hasParticipantType;
+@property (nonatomic) int participantType;
+@property (nonatomic) char hasPermission;
+@property (nonatomic) int permission;
+@property (readonly, nonatomic) char hasInviterId;
+@property (retain, nonatomic) CKDPIdentifier *inviterId;
+@property (nonatomic) char hasCreatedInProcess;
+@property (nonatomic) char createdInProcess;
+@property (readonly, nonatomic) char hasPublicKey;
+@property (retain, nonatomic) CKDPProtectionInfo *publicKey;
+@property (nonatomic) char hasAcceptTimestamp;
+@property (nonatomic) long long acceptTimestamp;
+@property (readonly, nonatomic) char hasProtectionInfo;
+@property (retain, nonatomic) CKDPProtectionInfo *protectionInfo;
+@property (readonly, nonatomic) char hasOutOfNetworkPrivateKey;
+@property (retain, nonatomic) NSData *outOfNetworkPrivateKey;
+@property (nonatomic) char hasOutOfNetworkKeyType;
+@property (nonatomic) int outOfNetworkKeyType;
+@property (nonatomic) char hasPublicKeyVersion;
+@property (nonatomic) int publicKeyVersion;
+@property (nonatomic) char hasAcceptedInProcess;
+@property (nonatomic) char acceptedInProcess;
+@property (nonatomic) char hasIsInNetwork;
+@property (nonatomic) char isInNetwork;
+@property (readonly, nonatomic) char hasAcceptedTimestampDate;
+@property (retain, nonatomic) CKDPDate *acceptedTimestampDate;
+@property (nonatomic) char hasIsOrgUser;
+@property (nonatomic) char isOrgUser;
+@property (readonly, nonatomic) char hasProtectionInfoPublicKey;
+@property (retain, nonatomic) NSData *protectionInfoPublicKey;
+@property (nonatomic) char hasKeyHealth;
+@property (nonatomic) int keyHealth;
+@property (readonly, nonatomic) char hasInviteTimestampDate;
+@property (retain, nonatomic) CKDPDate *inviteTimestampDate;
+@property (nonatomic) char hasIsAnonymousInvitedParticipant;
+@property (nonatomic) char isAnonymousInvitedParticipant;
+@property (nonatomic) char hasIsApprovedRequester;
+@property (nonatomic) char isApprovedRequester;
+@property (readonly, nonatomic) char hasEncryptedContactInformation;
+@property (retain, nonatomic) NSData *encryptedContactInformation;
+@property (readonly, nonatomic) char hasInviteNSSecTimestampDate;
+@property (retain, nonatomic) CKDPDate *inviteNSSecTimestampDate;
+@property (readonly, nonatomic) char hasAcceptedNSSecTimestampDate;
+@property (retain, nonatomic) CKDPDate *acceptedNSSecTimestampDate;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsState:(id)a0;
+- (id)stateAsString:(int)a0;
+- (int)StringAsKeyHealth:(id)a0;
+- (int)StringAsParticipantType:(id)a0;
+- (int)StringAsPermission:(id)a0;
+- (id)_participantTypeCKLogValue;
+- (id)_permissionCKLogValue;
+- (id)_stateCKLogValue;
+- (id)keyHealthAsString:(int)a0;
+- (id)participantTypeAsString:(int)a0;
+- (id)permissionAsString:(int)a0;
+
+@end

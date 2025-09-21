@@ -1,0 +1,3 @@
+@interface _TtC6TipKitP33_569B9861750F567421DA98E628AD6F4818ImpossibleExecutor : _TtCs12_SwiftObject
+
+@end

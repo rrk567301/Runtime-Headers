@@ -1,0 +1,82 @@
+@class NSURL, EMGeneratedSummary, EMCategory, NSDate, ECSubject, ECMessageFlags, NSString, EMFollowUp, EFFuture, NSIndexSet, NSArray, EMReadLater, EMObjectID;
+@protocol EMMessageListItem, EMCollectionItemID, NSCopying, NSObject;
+
+@interface _EMSectionedMessageListItem : NSObject <EFCacheable, EMSectionedMessageListItem>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<NSObject, NSCopying> sectionID;
+@property (readonly, nonatomic) id<EMMessageListItem> underlyingItem;
+@property (readonly) NSDate *date;
+@property (readonly) NSDate *displayDate;
+@property (readonly) EMCategory *category;
+@property (readonly) long long businessID;
+@property (readonly, copy) NSString *businessLogoID;
+@property (readonly) EMReadLater *readLater;
+@property (readonly) NSDate *sendLaterDate;
+@property (readonly) EMFollowUp *followUp;
+@property (readonly) ECSubject *subject;
+@property (readonly) NSArray *groupedSenderMessageListItems;
+@property (readonly, copy) NSString *summary;
+@property (readonly, copy) EMGeneratedSummary *generatedSummary;
+@property (readonly, copy) NSArray *senderList;
+@property (readonly, copy) NSArray *toList;
+@property (readonly, copy) NSArray *ccList;
+@property (readonly) ECMessageFlags *flags;
+@property (readonly) char hasUnflagged;
+@property (readonly, copy) NSIndexSet *flagColors;
+@property (readonly) char isVIP;
+@property (readonly) char isBlocked;
+@property (readonly) long long unsubscribeType;
+@property (readonly) char isToMe;
+@property (readonly) char isCCMe;
+@property (readonly) char hasAttachments;
+@property (readonly) char isAuthenticated;
+@property (readonly) char allowAuthenticationWarning;
+@property (readonly) long long conversationNotificationLevel;
+@property (readonly, nonatomic) NSURL *brandIndicatorLocation;
+@property (readonly) unsigned long long count;
+@property (readonly) long long conversationID;
+@property (readonly, copy) NSArray *mailboxObjectIDs;
+@property (readonly, copy) NSArray *mailboxes;
+@property (readonly, copy) NSArray *mailboxesIfAvailable;
+@property (readonly) id<EMCollectionItemID> displayMessageItemID;
+@property (readonly) EMObjectID *displayMessageObjectID;
+@property (readonly) EFFuture *displayMessage;
+@property (readonly) char deleteMovesToTrash;
+@property (readonly) char supportsArchiving;
+@property (readonly) char shouldArchiveByDefault;
+@property (readonly) char isEditable;
+@property (readonly) char isGroupedSender;
+@property (readonly) unsigned long long attachmentCount;
+@property (readonly) struct { unsigned char x0; unsigned char x1; unsigned char x2; } messageColor;
+@property (readonly) char messageColorIsHighlight;
+@property (readonly) long long priority;
+@property (readonly) char wasActedOnByExtension;
+@property (readonly) unsigned long long messageSize;
+@property (readonly, nonatomic) id<EMCollectionItemID> itemID;
+@property (readonly, copy, nonatomic) EMObjectID *objectID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSString *ef_publicDescription;
+@property (readonly, copy, nonatomic) NSString *ef_shortPublicDescription;
+
++ (char)supportsSecureCoding;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)forwardingTargetForSelector:(SEL)a0;
+- (char)isEqual:(id)a0;
+- (char)isKindOfClass:(Class)a0;
+- (char)respondsToSelector:(SEL)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)cachedSelf;
+- (id)changeFrom:(id)a0;
+- (id)initWithMessageListItem:(id)a0 sectionID:(id)a1;
+
+@end

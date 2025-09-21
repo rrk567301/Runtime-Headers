@@ -1,0 +1,3 @@
+@interface _TtCV10AppIntents18IntentChoiceOptionP33_F4265390D005A2206C35690A66FB38532__ : _TtCs12_SwiftObject
+
+@end

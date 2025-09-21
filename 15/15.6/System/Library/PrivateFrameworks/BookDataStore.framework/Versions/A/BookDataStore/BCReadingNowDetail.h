@@ -1,0 +1,33 @@
+@class NSString, NSData, NSDate, CKRecord;
+@protocol BCCloudDataPrivacyDelegate;
+
+@interface BCReadingNowDetail : BCCloudData <BCReadingNowDetail>
+
+@property (copy, nonatomic) NSString *assetID;
+@property (nonatomic) char isTrackedAsRecent;
+@property (copy, nonatomic) NSDate *lastEngagedDate;
+@property (copy, nonatomic) NSString *cloudAssetType;
+@property (readonly, nonatomic) char deletedFlag;
+@property (readonly, copy, nonatomic) NSDate *modificationDate;
+@property (readonly, nonatomic) long long editGeneration;
+@property (readonly, nonatomic) long long syncGeneration;
+@property (readonly, copy, nonatomic) CKRecord *systemFields;
+@property (readonly, copy, nonatomic) NSData *ckSystemFields;
+@property (weak, nonatomic) id<BCCloudDataPrivacyDelegate> privacyDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)propertyIDKey;
+
+- (id)mutableCopy;
+- (id)identifier;
+- (id)recordType;
+- (id)zoneName;
+- (void)_configureFromReadingNowDetail:(id)a0 withMergers:(id)a1;
+- (void)configureFromCloudData:(id)a0 withMergers:(id)a1;
+- (char)isEqualExceptForDate:(id)a0 ignoringEmptySalt:(char)a1;
+- (void)resolveConflictsFromRecord:(id)a0 withResolvers:(id)a1;
+
+@end

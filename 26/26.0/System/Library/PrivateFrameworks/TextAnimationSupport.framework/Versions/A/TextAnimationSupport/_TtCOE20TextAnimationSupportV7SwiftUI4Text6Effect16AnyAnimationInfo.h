@@ -1,0 +1,3 @@
+@interface _TtCOE20TextAnimationSupportV7SwiftUI4Text6Effect16AnyAnimationInfo : _TtCs12_SwiftObject
+
+@end

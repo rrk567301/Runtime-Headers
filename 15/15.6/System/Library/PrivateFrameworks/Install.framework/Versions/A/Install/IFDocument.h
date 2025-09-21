@@ -1,0 +1,83 @@
+@interface IFDocument : NSObject {
+    struct IFDocument_Private { id x0; id x1; id x2; id x3; id x4; long long x5; id x6; } *_private;
+}
+
+@property (readonly) char legacyDocument;
+
++ (id)localizedStringForKey:(id)a0;
++ (id)localizedFormattedStringForKey:(id)a0;
++ (id)localizedFormattedStringForKey:(id)a0 withArguments:(struct __va_list_tag { unsigned int x0; unsigned int x1; void *x2; void *x3; }[1])a1;
++ (id)softwareUpdateDocumentFromPath:(id)a0;
++ (id)_realRealPath:(id)a0;
++ (id)canonicalURLForPath:(id)a0;
++ (id)createXMLDataToInstallPackages:(id)a0 andTitle:(id)a1;
++ (id)distributionWithPackages:(id)a0 andTitle:(id)a1;
++ (id)distributionWithXML:(id)a0 withBundlePath:(id)a1;
++ (id)documentWithPath:(id)a0;
++ (id)fileURLForURL:(id)a0;
++ (id)softwareUpdateDocumentFromXML:(id)a0 withBundlePath:(id)a1;
+
+- (void)dealloc;
+- (id)init;
+- (id)path;
+- (id)title;
+- (id)versionString;
+- (id)localizedStringForKey:(id)a0;
+- (void)setMinimumRequiredTrustLevel:(int)a0;
+- (int)trustLevelReturningCertificateChain:(id *)a0;
+- (int)trustLevelReturningTrustRef:(struct __SecTrust **)a0;
+- (void)_setPath:(id)a0;
+- (id)locationURL;
+- (char)getData:(id *)a0 andMIMEType:(id *)a1 forResourceNamed:(id)a2 forLanguage:(id)a3 error:(id *)a4;
+- (id)_associatedURLs;
+- (char)isDomainInstall;
+- (id)_distributionScriptsPath;
+- (char)shouldCopyPackagesBeforeInstall;
+- (id)_fileHandleForPrimaryFileInDistribution;
+- (void)_setFileHandleForPrimaryFileInDistribution:(id)a0;
+- (void)addPackage:(id)a0;
+- (char)allURLsAccessibleAtRequestedAuthorizationLevel;
+- (int)availableInstallDomains;
+- (char)canChooseSubFolder;
+- (char)canLoadResourceNamed:(id)a0;
+- (id)certificateIdentity;
+- (void)clearInstallationCheckResults;
+- (char)containsChoicesWhichCanChooseSubFolder;
+- (char)containsResourceNamed:(id)a0;
+- (id)copyChoiceTreeWithScripts:(id *)a0 andChoiceList:(id *)a1 forTarget:(id)a2;
+- (id)defaultSubFolder;
+- (long long)documentFormat;
+- (int)enabledInstallDomains;
+- (id)errorForPackage:(id)a0 onTarget:(id)a1 withCustomizationController:(id)a2;
+- (char)evaluateAgainstPredicateFile:(id)a0 returningMatchDictionary:(id *)a1;
+- (char)evaluateTrust;
+- (char)getData:(id *)a0 andMIMEType:(id *)a1 forResourceNamed:(id)a2;
+- (char)getData:(id *)a0 andMIMEType:(id *)a1 forResourceNamed:(id)a2 forLanguage:(id)a3;
+- (char)hasInsecureChecks;
+- (id)installableCheckResults;
+- (id)installerSectionOrder;
+- (id)installerSectionPaths;
+- (char)installsOperatingSystem;
+- (char)isFNI;
+- (char)isForSoftwareUpdate;
+- (id)jobTitleForLocation:(id)a0;
+- (id)jobVersionForLocation:(id)a0;
+- (id)languagesAvailableForResource:(id)a0;
+- (int)minimumRequiredTrustLevel;
+- (id)objectForOptionNamed:(id)a0;
+- (id)packageForIdentifier:(id)a0 withVersion:(id)a1;
+- (id)packageForUniqueIdentifier:(id)a0;
+- (id)packageReps;
+- (id)packagesForIdentifier:(id)a0;
+- (id)packagesForLocation:(id)a0;
+- (id)packagesForLocation:(id)a0 fromSet:(id)a1;
+- (id)predicateEvaluationContext;
+- (char)readAndValidateDocumentReturningError:(id *)a0;
+- (id)receiptForPackage:(id)a0 onVolumeOrHomeDir:(id)a1;
+- (char)requiresRosettaTranslation;
+- (id)searchDefinitions;
+- (void)setDocumentFormat:(long long)a0;
+- (char)shouldCreateRecoverySystem;
+- (id)sortedPackageLocations;
+
+@end

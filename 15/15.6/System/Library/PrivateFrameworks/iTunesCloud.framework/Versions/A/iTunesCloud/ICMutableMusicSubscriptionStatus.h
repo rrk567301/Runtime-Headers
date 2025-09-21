@@ -1,0 +1,71 @@
+@class NSString, NSArray, NSDate;
+
+@interface ICMutableMusicSubscriptionStatus : ICMusicSubscriptionStatus
+
+@property (nonatomic, getter=isMinorAccountHolder) char minorAccountHolder;
+@property (copy, nonatomic) NSDate *studentExpirationDate;
+@property (copy, nonatomic) NSString *studentVerificationId;
+@property (copy, nonatomic) NSString *studentVerifier;
+@property (nonatomic) char hasFamily;
+@property (nonatomic) char hasFamilyGreaterThanOneMember;
+@property (nonatomic, getter=isHeadOfHousehold) char headOfHousehold;
+@property (nonatomic, getter=isMatchEnabled) char matchEnabled;
+@property (copy, nonatomic) NSDate *expirationDate;
+@property (copy, nonatomic) NSDate *initialPurchaseTimestamp;
+@property (copy, nonatomic) NSDate *serviceBeginsTimestamp;
+@property (nonatomic) char hasOfflineSlots;
+@property (nonatomic, getter=isAutoRenewEnabled) char autoRenewEnabled;
+@property (nonatomic, getter=isInFreePeriod) char inFreePeriod;
+@property (nonatomic, getter=isInFreeTrial) char inFreeTrial;
+@property (nonatomic, getter=isEligibleForFreeTrial) char eligibleForFreeTrial;
+@property (nonatomic, getter=isPurchaser) char purchaser;
+@property (nonatomic) long long carrierBundlingStatusType;
+@property (nonatomic) long long reasonType;
+@property (nonatomic) long long sourceType;
+@property (nonatomic) long long statusType;
+@property (nonatomic, getter=isAdministrator) char administrator;
+@property (nonatomic, getter=isDiscoveryModeEligible) char discoveryModeEligible;
+@property (nonatomic) long long statusCode;
+@property (copy, nonatomic) NSArray *termsStatusList;
+@property (copy, nonatomic) NSString *phoneNumber;
+@property (copy, nonatomic) NSString *cellularOperatorName;
+@property (copy, nonatomic) NSString *sessionIdentifier;
+@property (nonatomic) long long carrierBundlingErrorCode;
+@property (nonatomic, getter=isPartOfBundle) char partOfBundle;
+@property (nonatomic, getter=isBundleOnwer) char bundleOwner;
+@property (copy, nonatomic) NSArray *eligibleOffers;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setExpirationDate:(id)a0;
+- (void)setSessionIdentifier:(id)a0;
+- (void)setPhoneNumber:(id)a0;
+- (void)setAdministrator:(char)a0;
+- (void)setSourceType:(long long)a0;
+- (void)setStatusType:(long long)a0;
+- (void)setEligibleOffers:(id)a0;
+- (void)setAutoRenewEnabled:(char)a0;
+- (void)setInFreePeriod:(char)a0;
+- (void)setInitialPurchaseTimestamp:(id)a0;
+- (void)setPurchaser:(char)a0;
+- (void)setServiceBeginsTimestamp:(id)a0;
+- (void)setStudentExpirationDate:(id)a0;
+- (void)setBundleOwner:(char)a0;
+- (void)setInFreeTrial:(char)a0;
+- (void)setCarrierBundlingErrorCode:(long long)a0;
+- (void)setCarrierBundlingStatusType:(long long)a0;
+- (void)setCellularOperatorName:(id)a0;
+- (void)setDiscoveryModeEligible:(char)a0;
+- (void)setEligibleForFreeTrial:(char)a0;
+- (void)setHasFamily:(char)a0;
+- (void)setHasFamilyGreaterThanOneMember:(char)a0;
+- (void)setHasOfflineSlots:(char)a0;
+- (void)setHeadOfHousehold:(char)a0;
+- (void)setMatchEnabled:(char)a0;
+- (void)setMinorAccountHolder:(char)a0;
+- (void)setPartOfBundle:(char)a0;
+- (void)setReasonType:(long long)a0;
+- (void)setStudentVerificationId:(id)a0;
+- (void)setStudentVerifier:(id)a0;
+- (void)setTermsStatusList:(id)a0;
+
+@end

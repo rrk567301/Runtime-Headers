@@ -1,0 +1,83 @@
+@class NSString, NSArray, ICNote, ICAccount, ICCloudSyncingObject;
+
+@interface ICAuthenticationPrompt : NSObject
+
+@property (readonly, copy, nonatomic) NSString *customAccountName;
+@property (readonly, copy, nonatomic) NSString *deviceAccountName;
+@property (readonly, copy, nonatomic) NSString *cloudAccountName;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *reason;
+@property (copy, nonatomic) NSString *touchBarReason;
+@property (copy, nonatomic) NSString *fallbackButtonTitle;
+@property (nonatomic, getter=isInternetReachable) char internetReachable;
+@property (copy, nonatomic) NSArray *notes;
+@property (readonly, copy, nonatomic) NSArray *unauthenticatedNotes;
+@property (nonatomic, getter=isBiometricAuthenticationEnabled) char biometricAuthenticationEnabled;
+@property (nonatomic) long long biometricAuthenticationType;
+@property (nonatomic, getter=isKeychainAvailable) char keychainAvailable;
+@property (nonatomic) char hasKeychainItem;
+@property (nonatomic) char hasCloudAccount;
+@property (nonatomic) char hasDevicePassword;
+@property (nonatomic) unsigned long long authenticationAction;
+@property (nonatomic) unsigned long long authenticationMechanism;
+@property (copy, nonatomic) NSArray *successAlerts;
+@property (copy, nonatomic) NSArray *failureAlerts;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *reason;
+@property (copy, nonatomic) NSString *touchBarReason;
+@property (copy, nonatomic) NSString *fallbackButtonTitle;
+@property (readonly, nonatomic) unsigned long long intent;
+@property (nonatomic) short secondaryAuthenticationMode;
+@property (readonly, nonatomic) ICCloudSyncingObject *object;
+@property (readonly, nonatomic) ICAccount *account;
+@property (readonly, nonatomic) ICNote *note;
+@property (nonatomic) char usesSecondaryAuthenticationIfAvailable;
+@property (nonatomic) char usesAlternativeAuthenticationIfAvailable;
+@property (nonatomic) char usesBiometricAuthenticationIfAvailable;
+@property (nonatomic) char updatesUserRecordIfNeeded;
+@property (readonly, nonatomic) ICCloudSyncingObject *authenticationObject;
+@property (readonly, nonatomic) char allowsAuthentication;
+@property (readonly, nonatomic) char needsAuthentication;
+@property (readonly, nonatomic) char needsSecondaryAuthentication;
+@property (readonly, nonatomic) char needsUserRecordUpdate;
+@property (readonly, nonatomic) char allowsAlternativeAuthentication;
+@property (readonly, nonatomic) char allowsCustomPasswordAuthentication;
+@property (readonly, nonatomic) char allowsDevicePasswordAuthentication;
+@property (readonly, nonatomic) char allowsBiometricAuthentication;
+@property (readonly, nonatomic) char unlocksNotes;
+
++ (id)promptForChangingMode:(short)a0 account:(id)a1;
++ (id)promptForDeletingNotes:(id)a0;
++ (id)promptForIntent:(unsigned long long)a0 object:(id)a1;
+
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)update;
+- (void)updateStrings;
+- (char)forcesAlternativeAuthentication;
+- (char)forcesBiometricAuthentication;
+- (char)forcesSecondaryAuthentication;
+- (char)hasDivergedKey;
+- (char)hasPassphrase;
+- (id)initWithIntent:(unsigned long long)a0 object:(id)a1;
+- (char)needsCloudAccount;
+- (char)needsDevicePassword;
+- (char)needsKeychain;
+- (void)updateStringsForAddLock;
+- (void)updateStringsForChangeMode;
+- (void)updateStringsForChangeModeFrom;
+- (void)updateStringsForChangeModeTo;
+- (void)updateStringsForChangePassword;
+- (void)updateStringsForDeleteMixedNotes;
+- (void)updateStringsForDeleteMultipleNotes;
+- (void)updateStringsForDeleteNotes;
+- (void)updateStringsForDeleteSingleNote;
+- (void)updateStringsForRemoveLock;
+- (void)updateStringsForResetPassword;
+- (void)updateStringsForToggleBiometrics;
+- (void)updateStringsForViewAttachment;
+- (void)updateStringsForViewNote;
+
+@end

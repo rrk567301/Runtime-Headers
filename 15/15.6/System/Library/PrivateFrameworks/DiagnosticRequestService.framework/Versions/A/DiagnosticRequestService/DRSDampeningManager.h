@@ -1,0 +1,84 @@
+@class NSPersistentContainer, NSMutableDictionary, NSDictionary, DRSDampeningConfiguration, NSObject, DRSDampeningEnforcementSettings;
+@protocol OS_dispatch_queue;
+
+@interface DRSDampeningManager : NSObject
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (retain, nonatomic) DRSDampeningConfiguration *defaultSignatureConfiguration;
+@property (readonly, nonatomic) DRSDampeningEnforcementSettings *enforcementSettings;
+@property (nonatomic) unsigned long long totalCap;
+@property (readonly, nonatomic) NSMutableDictionary *teamDampeningConfigDict;
+@property (readonly, nonatomic) NSDictionary *resourceDampeningConfigDict;
+@property (retain, nonatomic) NSPersistentContainer *persistentContainer;
+
++ (id)_entityName;
++ (id)_appIntentsServicesTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (unsigned long long)defaultTotalCapForCurrentDevice;
++ (id)_ON_MOC_QUEUE_existingMOFromContext:(id)a0 errorOut:(id *)a1;
++ (id)_RMETeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_abcTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_coreAnimationTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_coreAudioTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_coreDuetPeopleSuggesterTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_defaultTailspinConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_drmTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_hangTracerTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_libtraceTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_mailTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_memoryToolsTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_nandGBBTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_nandTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_newsTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_nonWatchOShangTracerTeamConfiguration:(char)a0 isSeed:(char)a1;
++ (id)_pearlTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_ppsTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_rapidTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_sentryTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_skylightTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_softwareUpdateTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_spindumpTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_spotlightTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_watchOS_hangTracerTeamConfiguration:(char)a0 isSeed:(char)a1;
++ (id)_watchdogdTeamConfiguration:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)_workflowResponsivenessDampeningConfiguration:(char)a0;
++ (id)dampeningManagerFromPersistentContainer:(id)a0 deleteBadState:(char)a1 errorOut:(id *)a2;
++ (id)defaultResourceConfigurations:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)defaultResourceConfigurationsForCurrentDevice;
++ (id)defaultTeamConfigurationForTeam:(id)a0 isInternal:(char)a1 isSeed:(char)a2 isCarrier:(char)a3 platform:(unsigned char)a4;
++ (id)defaultTeamConfigurationForTeamForCurrentDevice:(id)a0 teamConfigurationDirectory:(id)a1;
++ (id)defaultTeamConfigurations:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
++ (id)defaultTeamConfigurations:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3 plistDirectoryPath:(id)a4 errorOut:(id *)a5;
++ (id)defaultTeamConfigurationsForCurrentDevice:(id)a0;
++ (unsigned long long)defaultTotalCapForIsInternal:(char)a0 isSeed:(char)a1 isCarrier:(char)a2;
++ (char)passesAcceptanceRate:(double)a0;
++ (char)removeExistingDampeningManagerStateFromManagedObjectContext:(id)a0 errorOut:(id *)a1;
+
+- (id)debugDescription;
+- (void).cxx_destruct;
+- (double)_24HoursHysteresis;
+- (id)_ON_MOC_QUEUE_initWith:(id)a0 persistentContainer:(id)a1;
+- (id)_ON_MOC_QUEUE_moRepresentationInContext:(id)a0;
+- (char)_hasRequestsRecordCountGreaterThanOrEqualToThreshold:(unsigned long long)a0 matchingPredicate:(id)a1 inContext:(id)a2 filterToObjectsMatchingClassOfRequest:(id)a3;
+- (char)_passesResourceCap:(id)a0 config:(id)a1 managedObjectContext:(id)a2;
+- (char)_passesResourceHysteresis:(id)a0 config:(id)a1 managedObjectContext:(id)a2;
+- (char)_passesResourceRandomDownsampling:(id)a0 config:(id)a1;
+- (char)_passesSignatureCap:(id)a0 config:(id)a1 managedObjectContext:(id)a2;
+- (char)_passesSignatureHysteresis:(id)a0 config:(id)a1 managedObjectContext:(id)a2;
+- (char)_passesSignatureRandomDownsampling:(id)a0 config:(id)a1;
+- (char)_passesTotalCap:(id)a0 managedObjectContext:(id)a1;
+- (id)_predicateForUndampenedRequestsMatchingSignatureOfRequest:(id)a0 afterDate:(id)a1;
+- (char)_request:(id)a0 passesHysteresis:(double)a1 countCap:(unsigned long long)a2 usesSignature:(char)a3 usesRequestClass:(char)a4 managedObjectContext:(id)a5;
+- (id)_resourceConfigurationForRequest:(id)a0;
+- (id)dampeningConfigurationForRequestSignature:(id)a0;
+- (id)dampeningConfigurationForResource:(id)a0;
+- (id)dampeningConfigurationForTeamID:(id)a0 issueCategory:(id)a1;
+- (unsigned long long)dampeningOutcomeForRequest:(id)a0;
+- (id)initWithIsInternal:(char)a0 isSeed:(char)a1 isCarrier:(char)a2 platform:(unsigned char)a3;
+- (id)initWithPersistentContainer:(id)a0 enforcementSettings:(id)a1 defaultSignatureConfiguration:(id)a2 totalCap:(unsigned long long)a3 teamDampeningConfigDict:(id)a4 resourceDampeningConfigDict:(id)a5;
+- (id)initWithPersistentContainer:(id)a0 teamConfigurationDirectory:(id)a1;
+- (char)isEqualToDampeningManager:(id)a0;
+- (id)jsonCompatibleDictRepresentation;
+- (char)saveToPersistentContainerWithErrorOut:(id *)a0;
+- (char)writeConfigurationPlistsToDirectory:(id)a0 createDirIfMissing:(char)a1 errorOut:(id *)a2;
+
+@end

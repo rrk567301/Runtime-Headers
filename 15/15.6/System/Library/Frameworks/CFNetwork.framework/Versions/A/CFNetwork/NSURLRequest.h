@@ -1,0 +1,104 @@
+@class NSString, NSDictionary, NSData, NSURL, NSInputStream, NSURLRequestInternal;
+
+@interface NSURLRequest : NSObject <_CFNWebKitSecureCoding, NSSecureCoding, NSCopying, NSMutableCopying> {
+    NSURLRequestInternal *_internal;
+}
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, copy) NSString *HTTPMethod;
+@property (readonly, copy) NSDictionary *allHTTPHeaderFields;
+@property (readonly, copy) NSData *HTTPBody;
+@property (readonly, retain) NSInputStream *HTTPBodyStream;
+@property (readonly) char HTTPShouldHandleCookies;
+@property (readonly) char HTTPShouldUsePipelining;
+@property (readonly) id HTTPPropertyList;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) void *_inner;
+@property (readonly, copy) NSURL *URL;
+@property (readonly) unsigned long long cachePolicy;
+@property (readonly) double timeoutInterval;
+@property (readonly, copy) NSURL *mainDocumentURL;
+@property (readonly) unsigned long long networkServiceType;
+@property (readonly) char allowsCellularAccess;
+@property (readonly) char allowsExpensiveNetworkAccess;
+@property (readonly) char allowsConstrainedNetworkAccess;
+@property (readonly) char assumesHTTP3Capable;
+@property (readonly) unsigned long long attribution;
+@property (readonly) char requiresDNSSECValidation;
+@property (readonly) char allowsPersistentDNS;
+@property (readonly, copy) NSString *cookiePartitionIdentifier;
+
++ (id)requestWithURL:(id)a0;
++ (id)requestWithURL:(id)a0 cachePolicy:(unsigned long long)a1 timeoutInterval:(double)a2;
++ (char)allowsAnyHTTPSCertificateForHost:(id)a0;
++ (id)allowsSpecificHTTPSCertificateForHost:(id)a0;
++ (double)defaultTimeoutInterval;
++ (void)setAllowsAnyHTTPSCertificate:(char)a0 forHost:(id)a1;
++ (void)setAllowsSpecificHTTPSCertificate:(id)a0 forHost:(id)a1;
++ (void)setDefaultTimeoutInterval:(double)a0;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithURL:(id)a0;
+- (id)cookiePartitionIdentifier;
+- (id)initWithURL:(id)a0 cachePolicy:(unsigned long long)a1 timeoutInterval:(double)a2;
+- (id)valueForHTTPHeaderField:(id)a0;
+- (id)HTTPExtraCookies;
+- (id)HTTPUserAgent;
+- (char)_isKnownTracker;
+- (char)_needsNetworkTrackingPrevention;
+- (id)HTTPContentType;
+- (id)HTTPReferrer;
+- (char)_requiresShortConnectionTimeout;
+- (id)_trackerContext;
+- (struct _CFURLRequest { } *)_CFURLRequest;
+- (char)_URLHasScheme:(id)a0;
+- (id)_allHTTPHeaderFieldsAsArrays;
+- (id)_allProtocolProperties;
+- (char)_allowOnlyPartitionedCookies;
+- (char)_allowPrivateAccessTokensForThirdParty;
+- (unsigned long long)_allowedProtocolTypes;
+- (char)_allowsUCA;
+- (char)_blockTrackers;
+- (id)_copyReplacingURLWithURL:(id)a0;
+- (char)_failInsecureLoadWithHTTPSDNSRecord;
+- (char)_ignoreHSTS;
+- (id)_initWithCFURLRequest:(struct _CFURLRequest { } *)a0;
+- (id)_initWithInternal:(id)a0;
+- (id)_initWithWebKitPropertyListData:(id)a0;
+- (char)_isIdempotent;
+- (char)_isNonAppInitiated;
+- (char)_isSafeRequestForBackgroundDownload;
+- (char)_isWebSearchContent;
+- (double)_payloadTransmissionTimeout;
+- (char)_preventHSTSStorage;
+- (char)_privacyProxyFailClosed;
+- (char)_privacyProxyFailClosedForUnreachableHosts;
+- (char)_privacyProxyFailClosedForUnreachableNonMainHosts;
+- (char)_prohibitPrivacyProxy;
+- (id)_propertyForKey:(id)a0;
+- (void)_removePropertyForKey:(id)a0;
+- (char)_schemeWasUpgradedDueToDynamicHSTS;
+- (void)_setProperty:(id)a0 forKey:(id)a1;
+- (id)_startTimeoutDate;
+- (double)_timeWindowDelay;
+- (double)_timeWindowDuration;
+- (char)_useEnhancedPrivacyMode;
+- (id)_webKitPropertyListData;
+- (id)boundInterfaceIdentifier;
+- (struct __CFURL { } *)cfURL;
+- (id)contentDispositionEncodingFallbackArray;
+- (unsigned long long)expectedWorkload;
+- (id)initWithHTTPPropertyList:(id)a0;
+- (char)preventsIdleSystemSleep;
+
+@end

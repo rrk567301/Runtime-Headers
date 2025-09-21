@@ -1,0 +1,84 @@
+@class NSDate, NSArray, NSString, CBPacketLoggerClient, CBDevice, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface CBHIDPerformanceMonitor : NSObject <CBActivatable> {
+    BOOL _activateCalled;
+    BOOL _invalidateCalled;
+    BOOL _invalidateDone;
+    BOOL _finishWait;
+    struct IOHIDDeviceInterface **_hidInterface;
+    struct __IOHIDManager { } *_hidManager;
+    BOOL _hidOpen;
+    struct IOCFPlugInInterfaceStruct **_hidPluginInterface;
+    unsigned int _hidProductID;
+    unsigned int _hidService;
+    BOOL _hidStartedErrorRateMode;
+    CBPacketLoggerClient *_packetLoggerClient;
+    BOOL _startWait;
+    CBDevice *_targetDevice;
+    NSString *_targetBTAddrData;
+    NSString *_targetBTAddrKey;
+    unsigned long long _targetDeviceIndex;
+    NSArray *_targetDevices;
+    double _testSecondsActual;
+    NSObject<OS_dispatch_source> *_timeoutTimer;
+    char _statsLastRSSI;
+    unsigned short _statsLastConnectionHandle;
+    unsigned long long _statsPacketMicsStart;
+    unsigned long long _statsPacketMicsEnd;
+    unsigned long long _statsPacketMicsStartInterim;
+    unsigned long long _statsPacketMicsPrevious;
+    unsigned long long _statsPacketCountActual;
+    unsigned long long _statsPacketCountExpected;
+    unsigned long long _statsPacketCountInterim;
+    unsigned long long _statsPacketIntervalMicsExpected;
+    unsigned long long _statsPacketIntervalMicsMax;
+    double _statsPacketP50Max;
+    double _statsPacketP75Max;
+    double _statsPacketP90Max;
+    double _statsPacketP95Max;
+    double _statsPacketP99Max;
+    NSMutableArray *_statsPacketDeltaMics;
+    NSMutableArray *_intrmPacketDeltaMics;
+    unsigned long long _statsPacketExcessiveInterval;
+    NSDate *_slidingWindowDate;
+}
+
+@property (copy, nonatomic) NSArray *devices;
+@property (copy, nonatomic) id /* block */ excessiveIntervalHandler;
+@property (nonatomic) double excessiveMs;
+@property (nonatomic) double intervalMs;
+@property (nonatomic) double slideWindowSec;
+@property (copy, nonatomic) id /* block */ summaryHandler;
+@property (nonatomic) double testSeconds;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (copy, nonatomic) id /* block */ invalidationHandler;
+
+- (void)_activateWithCompletion:(id /* block */)a0;
+- (void)invalidate;
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)_invalidated;
+- (void)_invalidate;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_packetLoggerProcessPacketData:(id)a0;
+- (double)_calculatePercentile:(id)a0 percentile:(double)a1;
+- (BOOL)_findDevicesAndReturnError:(id *)a0;
+- (BOOL)_hidSetFeatureWithReportID:(unsigned char)a0 value:(unsigned char)a1 error:(id *)a2;
+- (BOOL)_hidStartAndReturnError:(id *)a0;
+- (BOOL)_hidStartPERAndRetunError:(id *)a0;
+- (void)_hidStop;
+- (BOOL)_hidStopPERAndRetunError:(id *)a0;
+- (BOOL)_isAppleOldHIDs:(unsigned int)a0;
+- (BOOL)_isMac;
+- (void)_packetLoggerStart;
+- (void)_packetLoggerStop;
+- (void)_rssiAndHandleRead;
+- (void)_showSummaryResult:(id)a0 isFinal:(BOOL)a1 packetMics:(unsigned long long)a2 statsDelta:(id)a3 deltaMics:(unsigned long long)a4 countActual:(unsigned long long)a5;
+- (void)_testEnd;
+- (void)_testEnded;
+- (void)_testStart;
+- (void)_timerStart;
+
+@end

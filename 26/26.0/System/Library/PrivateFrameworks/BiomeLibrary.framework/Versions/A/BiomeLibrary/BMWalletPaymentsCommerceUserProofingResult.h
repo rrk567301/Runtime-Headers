@@ -1,0 +1,96 @@
+@class NSString, NSArray;
+
+@interface BMWalletPaymentsCommerceUserProofingResult : BMEventBase <BMStoreData>
+
+@property (class, readonly, nonatomic) unsigned int latestDataVersion;
+
+@property (readonly, nonatomic) NSString *livenessAssessment;
+@property (readonly, nonatomic) NSString *gestureAssessment;
+@property (readonly, nonatomic) NSString *facVersion;
+@property (readonly, nonatomic) NSString *facePoseVersion;
+@property (readonly, nonatomic) NSString *padtoolVersion;
+@property (readonly, nonatomic) NSString *prdVersion;
+@property (readonly, nonatomic) NSString *passiveGestureAssessment;
+@property (readonly, nonatomic) NSString *passiveLivenessAssessment;
+@property (readonly, nonatomic) NSString *passiveLivenessFacVersion;
+@property (readonly, nonatomic) NSString *passiveLivenessFacePoseVersion;
+@property (readonly, nonatomic) NSString *passiveLivenessPadtoolVersion;
+@property (readonly, nonatomic) NSString *passiveLivenessPrdVersion;
+@property (readonly, nonatomic) NSString *livenessShadowLabel;
+@property (readonly, nonatomic) NSString *livenessShadowFacVersion;
+@property (readonly, nonatomic) NSString *livenessShadowFacePoseVersion;
+@property (readonly, nonatomic) NSString *livenessShadowPrdVersion;
+@property (readonly, nonatomic) NSString *livenessShadowPadtoolVersion;
+@property (readonly, nonatomic) NSString *livenessShadowLivenessAssessment;
+@property (readonly, nonatomic) NSString *livenessShadowGestureAssessment;
+@property (readonly, nonatomic) NSString *livenessShadowLivenessType;
+@property (readonly, nonatomic) NSString *faceMatchingAssessment;
+@property (readonly, nonatomic) NSString *faceMatchingModelVersion;
+@property (readonly, nonatomic) NSString *faceMatchingDetectorModelVersion;
+@property (readonly, nonatomic) NSString *faceMatchingShadowAssessment;
+@property (readonly, nonatomic) NSString *faceMatchingShadowModelVersion;
+@property (readonly, nonatomic) NSString *faceMatchingShadowDetectorModelVersion;
+@property (readonly, nonatomic) NSString *age;
+@property (readonly, nonatomic) NSString *gender;
+@property (readonly, nonatomic) NSString *skinTone;
+@property (readonly, nonatomic) NSString *ethnicity;
+@property (readonly, nonatomic) NSString *deviceLanguage;
+@property (readonly, nonatomic) NSString *proofingDecision;
+@property (readonly, nonatomic) NSString *issuer;
+@property (readonly, nonatomic) NSString *alAssessment;
+@property (readonly, nonatomic) NSString *alGestureAssessment;
+@property (readonly, nonatomic) NSArray *axSettings;
+@property (readonly, nonatomic) NSString *alFacVersion;
+@property (readonly, nonatomic) NSString *alFacePoseVersion;
+@property (readonly, nonatomic) NSString *alPadtoolVersion;
+@property (readonly, nonatomic) NSString *alPrdVersion;
+@property (readonly, nonatomic) BOOL didStepUp;
+@property (nonatomic) BOOL hasDidStepUp;
+@property (readonly, nonatomic) NSString *plGestureAssessment;
+@property (readonly, nonatomic) NSString *plAssessment;
+@property (readonly, nonatomic) NSString *plFacVersion;
+@property (readonly, nonatomic) NSString *plFacePoseVersion;
+@property (readonly, nonatomic) NSString *plPadtoolVersion;
+@property (readonly, nonatomic) NSString *plPrdVersion;
+@property (readonly, nonatomic) NSString *shadowLabel;
+@property (readonly, nonatomic) NSString *smFacVersion;
+@property (readonly, nonatomic) NSString *smFacePoseVersion;
+@property (readonly, nonatomic) NSString *smPrdVersion;
+@property (readonly, nonatomic) NSString *smPadtoolVersion;
+@property (readonly, nonatomic) NSString *smLivenessAssessment;
+@property (readonly, nonatomic) NSString *smGestureAssessment;
+@property (readonly, nonatomic) NSString *smLivenessType;
+@property (readonly, nonatomic) NSString *fmAssessment;
+@property (readonly, nonatomic) NSString *fmModelVersion;
+@property (readonly, nonatomic) NSString *fmDetectorModelVersion;
+@property (readonly, nonatomic) NSString *fmSMAssessment;
+@property (readonly, nonatomic) NSString *fmSMModelVersion;
+@property (readonly, nonatomic) NSString *fmSMDetectorModelVersion;
+@property (readonly, nonatomic) NSString *identityType;
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)columns;
++ (id)protoFields;
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
++ (id)validKeyPaths;
+
+- (id)jsonDictionary;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (id)serialize;
+- (id)initByReadFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)_axSettingsJSONArray;
+- (id)initWithAbsoluteTimestamp:(id)a0 age:(id)a1 gender:(id)a2 skinTone:(id)a3 ethnicity:(id)a4 deviceLanguage:(id)a5 proofingDecision:(id)a6 issuer:(id)a7 alAssessment:(id)a8 alGestureAssessment:(id)a9 axSettings:(id)a10 alFacVersion:(id)a11 alFacePoseVersion:(id)a12 alPadtoolVersion:(id)a13 alPrdVersion:(id)a14 didStepUp:(id)a15 plGestureAssessment:(id)a16 plAssessment:(id)a17 plFacVersion:(id)a18 plFacePoseVersion:(id)a19 plPadtoolVersion:(id)a20 plPrdVersion:(id)a21 shadowLabel:(id)a22 smFacVersion:(id)a23 smFacePoseVersion:(id)a24 smPrdVersion:(id)a25 smPadtoolVersion:(id)a26 smLivenessAssessment:(id)a27 smGestureAssessment:(id)a28 smLivenessType:(id)a29 fmAssessment:(id)a30 fmModelVersion:(id)a31 fmDetectorModelVersion:(id)a32 fmSMAssessment:(id)a33 fmSMModelVersion:(id)a34 fmSMDetectorModelVersion:(id)a35 identityType:(id)a36;
+- (id)initWithAbsoluteTimestamp:(id)a0 age:(id)a1 gender:(id)a2 skinTone:(id)a3 ethnicity:(id)a4 deviceLanguage:(id)a5 proofingDecision:(id)a6 issuer:(id)a7 livenessAssessment:(id)a8 gestureAssessment:(id)a9 axSettings:(id)a10;
+- (id)initWithAbsoluteTimestamp:(id)a0 age:(id)a1 gender:(id)a2 skinTone:(id)a3 ethnicity:(id)a4 deviceLanguage:(id)a5 proofingDecision:(id)a6 issuer:(id)a7 livenessAssessment:(id)a8 gestureAssessment:(id)a9 axSettings:(id)a10 facVersion:(id)a11 facePoseVersion:(id)a12 padtoolVersion:(id)a13 prdVersion:(id)a14;
+- (id)initWithAbsoluteTimestamp:(id)a0 age:(id)a1 gender:(id)a2 skinTone:(id)a3 ethnicity:(id)a4 deviceLanguage:(id)a5 proofingDecision:(id)a6 issuer:(id)a7 livenessAssessment:(id)a8 gestureAssessment:(id)a9 axSettings:(id)a10 facVersion:(id)a11 facePoseVersion:(id)a12 padtoolVersion:(id)a13 prdVersion:(id)a14 didStepUp:(id)a15 passiveGestureAssessment:(id)a16 passiveLivenessAssessment:(id)a17 passiveLivenessFacVersion:(id)a18 passiveLivenessFacePoseVersion:(id)a19 passiveLivenessPadtoolVersion:(id)a20 passiveLivenessPrdVersion:(id)a21;
+- (id)initWithAbsoluteTimestamp:(id)a0 age:(id)a1 gender:(id)a2 skinTone:(id)a3 ethnicity:(id)a4 deviceLanguage:(id)a5 proofingDecision:(id)a6 issuer:(id)a7 livenessAssessment:(id)a8 gestureAssessment:(id)a9 axSettings:(id)a10 facVersion:(id)a11 facePoseVersion:(id)a12 padtoolVersion:(id)a13 prdVersion:(id)a14 didStepUp:(id)a15 passiveGestureAssessment:(id)a16 passiveLivenessAssessment:(id)a17 passiveLivenessFacVersion:(id)a18 passiveLivenessFacePoseVersion:(id)a19 passiveLivenessPadtoolVersion:(id)a20 passiveLivenessPrdVersion:(id)a21 livenessShadowLabel:(id)a22 livenessShadowFacVersion:(id)a23 livenessShadowFacePoseVersion:(id)a24 livenessShadowPrdVersion:(id)a25 livenessShadowPadtoolVersion:(id)a26 livenessShadowLivenessAssessment:(id)a27 livenessShadowGestureAssessment:(id)a28 livenessShadowLivenessType:(id)a29 faceMatchingAssessment:(id)a30 faceMatchingModelVersion:(id)a31 faceMatchingDetectorModelVersion:(id)a32 faceMatchingShadowAssessment:(id)a33 faceMatchingShadowModelVersion:(id)a34 faceMatchingShadowDetectorModelVersion:(id)a35 identityType:(id)a36;
+- (id)initWithAge:(id)a0 gender:(id)a1 skinTone:(id)a2 ethnicity:(id)a3 deviceLanguage:(id)a4 proofingDecision:(id)a5 issuer:(id)a6 alAssessment:(id)a7 alGestureAssessment:(id)a8 axSettings:(id)a9 alFacVersion:(id)a10 alFacePoseVersion:(id)a11 alPadtoolVersion:(id)a12 alPrdVersion:(id)a13 didStepUp:(id)a14 plGestureAssessment:(id)a15 plAssessment:(id)a16 plFacVersion:(id)a17 plFacePoseVersion:(id)a18 plPadtoolVersion:(id)a19 plPrdVersion:(id)a20 shadowLabel:(id)a21 smFacVersion:(id)a22 smFacePoseVersion:(id)a23 smPrdVersion:(id)a24 smPadtoolVersion:(id)a25 smLivenessAssessment:(id)a26 smGestureAssessment:(id)a27 smLivenessType:(id)a28 fmAssessment:(id)a29 fmModelVersion:(id)a30 fmDetectorModelVersion:(id)a31 fmSMAssessment:(id)a32 fmSMModelVersion:(id)a33 fmSMDetectorModelVersion:(id)a34 identityType:(id)a35;
+
+@end

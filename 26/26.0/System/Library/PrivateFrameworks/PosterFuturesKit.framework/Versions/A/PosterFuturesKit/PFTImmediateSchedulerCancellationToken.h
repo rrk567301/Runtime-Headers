@@ -1,0 +1,3 @@
+@interface PFTImmediateSchedulerCancellationToken : PFTCancellationToken
+
+@end

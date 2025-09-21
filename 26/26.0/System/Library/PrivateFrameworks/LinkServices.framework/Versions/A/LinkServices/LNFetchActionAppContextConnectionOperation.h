@@ -1,0 +1,14 @@
+@class LNFocusConfigurationAppContext, LNAction;
+
+@interface LNFetchActionAppContextConnectionOperation : LNInterfaceConnectionOperation
+
+@property (copy, nonatomic) LNAction *action;
+@property (copy, nonatomic) LNFocusConfigurationAppContext *result;
+@property (copy, nonatomic) id /* block */ completionHandler;
+
+- (void)start;
+- (void)finishWithError:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithConnectionInterface:(id)a0 action:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

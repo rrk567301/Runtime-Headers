@@ -1,0 +1,86 @@
+@class NSDrawer, NSWindow;
+
+@interface NSDrawerWindow : NSWindow {
+    NSDrawer *_drawer;
+    NSWindow *_drawerParentWindow;
+}
+
++ (Class)frameViewClassForStyleMask:(unsigned long long)a0;
+
+- (double)_drawerDefaultLeftLeadingOffset;
+- (struct CGSize { double x0; double x1; })maxSize;
+- (struct CGSize { double x0; double x1; })minSize;
+- (void)resignKeyWindow;
+- (void)runToolbarCustomizationPalette:(id)a0;
+- (void)becomeKeyWindow;
+- (void)_adjustWindowToScreen;
+- (void)_changeDrawerFirstResponder;
+- (void)_changeDrawerKeyState;
+- (void)_changeDrawerMainState;
+- (void)_changeKeyAndMainLimitedOK:(char)a0;
+- (void)_cycleDrawersReversed:(char)a0;
+- (double)_drawerBottomOffset;
+- (double)_drawerCloseThreshold;
+- (double)_drawerDefaultBottomTrailingOffset;
+- (double)_drawerDefaultRightTrailingOffset;
+- (double)_drawerDefaultTopLeadingOffset;
+- (double)_drawerDepthInset;
+- (double)_drawerDepthOffset;
+- (double)_drawerHorizontalOpenOffset;
+- (double)_drawerLeftOffset;
+- (double)_drawerRightOffset;
+- (void)_drawerTakeFocus;
+- (double)_drawerTopOffset;
+- (double)_drawerVerticalOpenOffset;
+- (id)_getUndoManager:(char)a0;
+- (char)_hasActiveControls;
+- (char)_ignoredForScripting;
+- (char)_isVertical;
+- (id)_newFirstResponderAfterResigning;
+- (id)_oldFirstResponderBeforeBecoming;
+- (id)_parentWindow;
+- (struct CGSize { double x0; double x1; })_potentialMaxSize;
+- (struct CGSize { double x0; double x1; })_potentialMinSize;
+- (void)_resetDrawerFirstResponder;
+- (void)_resetFirstResponder;
+- (void)_selectFirstKeyView;
+- (void)_setDrawerVisibleWithoutLogin;
+- (void)_setForceActiveControls:(char)a0;
+- (void)_setParentWindow:(id)a0;
+- (id)accessibilityAttributeNames;
+- (char)accessibilityIsPositionAttributeSettable;
+- (char)accessibilityIsSizeAttributeSettable;
+- (char)accessibilityIsWindowAttributeSettable;
+- (id)accessibilityParentAttribute;
+- (id)accessibilityRoleAttribute;
+- (void)accessibilitySetSizeAttribute:(id)a0;
+- (id)accessibilityWindowAttribute;
+- (void)becomeMainWindow;
+- (char)canBecomeKeyWindow;
+- (char)canBecomeMainWindow;
+- (id)fieldEditor:(char)a0 forObject:(id)a1;
+- (char)hasKeyAppearance;
+- (char)hasShadow;
+- (void)hideToolbar:(id)a0;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 backing:(unsigned long long)a2 defer:(char)a3 drawer:(id)a4;
+- (char)isExcludedFromWindowsMenu;
+- (char)isKeyWindow;
+- (char)isMainWindow;
+- (char)isMovable;
+- (char)isMovableByWindowBackground;
+- (char)makeFirstResponder:(id)a0;
+- (void)makeKeyWindow;
+- (void)makeMainWindow;
+- (void)orderOut:(id)a0;
+- (void)performClose:(id)a0;
+- (char)performKeyEquivalent:(id)a0;
+- (void)performMiniaturize:(id)a0;
+- (void)performZoom:(id)a0;
+- (void)resignMainWindow;
+- (void)resizeWithDelta:(struct CGPoint { double x0; double x1; })a0 fromFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 beginOperation:(char)a2 endOperation:(char)a3;
+- (void)showToolbar:(id)a0;
+- (void)toggleToolbarShown:(id)a0;
+- (char)validateMenuItem:(id)a0;
+- (char)worksWhenModal;
+
+@end

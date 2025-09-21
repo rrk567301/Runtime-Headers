@@ -1,0 +1,38 @@
+@class AVConferenceXPCClient, NSDictionary, AVCMediaStreamConfig, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface AVCTextStream : NSObject {
+    AVConferenceXPCClient *_connection;
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (retain, nonatomic) NSDictionary *capabilities;
+@property (retain, nonatomic) AVCMediaStreamConfig *configuration;
+@property (nonatomic) long long direction;
+@property (nonatomic, getter=isRTCPEnabled) char rtcpEnabled;
+@property (nonatomic, getter=isRTPTimeOutEnabled) char rtpTimeOutEnabled;
+@property (nonatomic, getter=isRTCPTimeOutEnabled) char rtcpTimeOutEnabled;
+@property (nonatomic) double rtpTimeOutIntervalSec;
+@property (nonatomic) double rtcpTimeOutIntervalSec;
+@property (nonatomic) double rtcpSendIntervalSec;
+@property (readonly, nonatomic) long long streamToken;
+@property (nonatomic) id delegate;
+
+- (void)dealloc;
+- (void)resume;
+- (void)pause;
+- (void)start;
+- (void)stop;
+- (char)configure:(id)a0 error:(id *)a1;
+- (id)initWithNetworkSockets:(id)a0 callID:(id)a1 error:(id *)a2;
+- (void)deregisterBlocksForDelegateNotifications;
+- (id)initWithRTPNWConnectionClientID:(id)a0 rtcpNWConnectionClientID:(id)a1 options:(id)a2 error:(id *)a3;
+- (char)initializeServerWithNetworkSockets:(id)a0 callID:(id)a1 error:(id *)a2;
+- (id)newNSErrorWithErrorDictionary:(id)a0;
+- (void)refreshLoggingParameters;
+- (void)registerBlocksForDelegateNotifications;
+- (char)setupTextStreamOutOfProcessWithClientArgs:(id)a0 error:(id *)a1;
+- (id)validateInitializeConnectionResult:(id)a0;
+- (char)validateResultsDictionary:(id)a0 error:(id *)a1;
+
+@end

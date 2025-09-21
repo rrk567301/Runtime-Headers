@@ -1,0 +1,24 @@
+@class NSString, NSData, SISchemaUUID;
+
+@interface SISchemaABExperimentServerFeatureTriggered : SISchemaInstrumentationMessage
+
+@property (retain, nonatomic) SISchemaUUID *turnId;
+@property (nonatomic) BOOL hasTurnId;
+@property (copy, nonatomic) NSString *experimentId;
+@property (nonatomic) BOOL hasExperimentId;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)initWithDictionary:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (id)dictionaryRepresentation;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)deleteExperimentId;
+- (void)deleteTurnId;
+
+@end

@@ -1,0 +1,96 @@
+@class EKEventStore, NSArray, NSSet, NSString, CUIKEditingManager, CUIKEditingContextGroup, NSError;
+@protocol CUIKDecisionDelegate, CUIKEditingContextObserver, CUIKUndoDelegate, CUIKCommitDelegate;
+
+@interface CUIKEditingContext : NSObject <EKChangeListenerDelegate> {
+    NSArray *_objectsBeingEdited;
+    EKEventStore *_eventStore;
+}
+
+@property unsigned long long interfaceType;
+@property (retain) NSArray *objectsBeingEdited;
+@property (retain) NSSet *originalIdentifiersForObjectsBeingEdited;
+@property (retain) NSSet *originalEventOccurrenceIDsForObjectsBeingEdited;
+@property (weak) id<CUIKEditingContextObserver> observer;
+@property char isActive;
+@property char isOpen;
+@property (retain) NSArray *pendingObserverUpdates;
+@property (retain) NSArray *pendingGroupUpdates;
+@property (weak) CUIKEditingContextGroup *group;
+@property (weak) CUIKEditingManager *editingManager;
+@property (weak) id<CUIKDecisionDelegate> decisionDelegate;
+@property (weak) id<CUIKUndoDelegate> undoDelegate;
+@property (weak) id<CUIKCommitDelegate> commitDelegate;
+@property (retain) NSError *error;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)postLiveEditNotificationForObject:(id)a0;
++ (unsigned long long)spanDecisionFromSpan:(long long)a0;
++ (long long)spanFromSpanDecision:(unsigned long long)a0;
+
+- (void)notifyObservers;
+- (void).cxx_destruct;
+- (void)revert:(char)a0;
+- (void)hide;
+- (void)unhide;
+- (id)_eventStore;
+- (char)hasUpdatePriority;
+- (void)revert;
+- (id)trackedObjects;
+- (void)trackedObjectsDidRevert:(id)a0;
+- (void)trackedObjectsDidUpdate:(id)a0;
+- (unsigned long long)_currentSpanDecision;
+- (void)createAutoBugCapture;
+- (char)deleteAllObjects;
+- (char)saveCompleteChange;
+- (char)saveCompleteChange:(id *)a0;
+- (char)saveCompleteChangeWithImpliedCommitDecision:(id *)a0;
+- (char)savePartialChange;
+- (void)_markAsInactive;
+- (void)_revert;
+- (unsigned long long)_actionToCommit;
+- (char)_doManualDelete;
+- (char)_allObjectsAreCalendars;
+- (char)_allObjectsAreEvents;
+- (char)_allObjectsAreItems;
+- (void)_cancelCurrentSave;
+- (void)_clearLiveChanges;
+- (long long)_currentSpan;
+- (char)_deleteIsUndoable;
+- (id)_diffSummarySinceLastSave;
+- (unsigned long long)_earlyCommitDecision;
+- (char)_earlyCommitDecisionSpecified;
+- (char)_editingObjectsNeverCommitted;
+- (char)_hasChangesRequiringSpanAllAndSpanIsThis;
+- (char)_hasChangesToSave;
+- (void)_markAsActive;
+- (void)_markAsClosed;
+- (void)_markAsOpen;
+- (char)_prepareForCommitWithDecision:(unsigned long long)a0 shouldClose:(char *)a1;
+- (unsigned long long)_requestCommitDecisionIfNeededForAction:(unsigned long long)a0;
+- (char)_requestEarlyCommitDecisionAtSaveTimeForAction:(unsigned long long)a0;
+- (char)_requestSaveAndSpanDecisionIfNeededForAction:(unsigned long long)a0;
+- (char)_requestSaveDecisionIfNeededForAction:(unsigned long long)a0 diffSummary:(id)a1 delegate:(id)a2;
+- (char)_requestSpanDecisionIfNeededForAction:(unsigned long long)a0 diffSummary:(id)a1 delegate:(id)a2;
+- (char)_saveActionIsDecline;
+- (char)_savePartialChangeAndPostNotification:(char)a0;
+- (void)_setAllObjectsToDontNotify;
+- (char)_shouldSilentlyTransitionToSpanAllAfterSave;
+- (char)_spanDecisionSpecified;
+- (void)_specifyEarlyCommitDecision:(unsigned long long)a0;
+- (void)_specifySpanDecision:(unsigned long long)a0;
+- (void)_unspecifyEarlyCommitDecision;
+- (void)_unspecifySpanDecision;
+- (char)addAllObjects;
+- (void)addOriginalIdentifiersForObjectsBeingEdited:(id)a0;
+- (id)changeUserInfoForObjects:(id)a0;
+- (id)initWithObjects:(id)a0 interfaceType:(unsigned long long)a1 observer:(id)a2;
+- (char)performUndoableOperation:(id)a0;
+- (void)postLiveEditNotificationForEditedObjects;
+- (char)saveCompleteChangeAndClose:(char)a0 error:(id *)a1;
+- (char)saveCompleteChangeWithImpliedCommitDecisionAndClose:(char)a0 error:(id *)a1;
+- (char)shouldResetUndoStack;
+
+@end

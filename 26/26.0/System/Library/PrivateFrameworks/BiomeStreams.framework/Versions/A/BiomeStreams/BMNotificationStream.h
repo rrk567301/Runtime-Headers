@@ -1,0 +1,16 @@
+@class BMStoreStream;
+
+@interface BMNotificationStream : NSObject {
+    BMStoreStream *_storeStream;
+}
+
+- (id)publisherWithStartTime:(id)a0 endTime:(id)a1 maxEvents:(id)a2 reversed:(BOOL)a3;
+- (id)publisherWithStartTime:(id)a0 endTime:(id)a1 maxEvents:(id)a2 lastN:(id)a3 reversed:(BOOL)a4;
+- (id)publisherFromStartTime:(double)a0;
+- (id)identifier;
+- (id)publisher;
+- (id)init;
+- (void).cxx_destruct;
+- (id)source;
+
+@end

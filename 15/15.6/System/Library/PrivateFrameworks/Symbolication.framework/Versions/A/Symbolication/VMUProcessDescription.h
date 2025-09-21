@@ -1,0 +1,94 @@
+@class NSMutableDictionary, NSString, NSDictionary, VMUTaskMemoryCache, NSArray, NSMutableArray, NSDate;
+
+@interface VMUProcessDescription : NSObject {
+    VMUTaskMemoryCache *_memoryCache;
+    int _pid;
+    unsigned long long _taskType;
+    char _taskIsTranslated;
+    NSString *_hardwareModel;
+    NSString *_processName;
+    char _processNameNeedsCorrection;
+    NSString *_executablePath;
+    struct _CSTypeRef { unsigned long long _opaque_1; unsigned long long _opaque_2; } _symbolicator;
+    char _executablePathNeedsCorrection;
+    unsigned long long _executableLoadAddress;
+    int _cpuType;
+    unsigned int _platform;
+    char _is64Bit;
+    struct timeval { long long tv_sec; int tv_usec; } _proc_starttime;
+    NSDictionary *_lsApplicationInformation;
+    NSMutableArray *_binaryImages;
+    NSArray *_sortedBinaryImages;
+    NSDictionary *_binaryImageHints;
+    NSArray *_unreadableBinaryImagePaths;
+    char _binaryImagePostProcessingComplete;
+    NSDictionary *_buildVersionDictionary;
+    NSDictionary *_osVersionDictionary;
+    NSString *_parentProcessName;
+    NSString *_parentExecutablePath;
+    int _ppid;
+    NSDate *_date;
+    NSMutableDictionary *_environment;
+}
+
+@property (readonly, nonatomic) unsigned long long physicalFootprint;
+@property (readonly, nonatomic) unsigned long long physicalFootprintPeak;
+@property (readonly, nonatomic) unsigned int idleExitStatus;
+
++ (id)parseBinaryImagesDescription:(id)a0;
++ (struct _CSTypeRef { unsigned long long x0; unsigned long long x1; })symbolicatorFromBinaryImagesDescription:(id)a0;
++ (struct _CSTypeRef { unsigned long long x0; unsigned long long x1; })symbolicatorFromBinaryImagesDescription:(id)a0 withArchitecture:(struct _CSArchitecture { int x0; int x1; })a1;
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (id)date;
+- (int)pid;
+- (id)bundleIdentifier;
+- (id)displayName;
+- (id)executablePath;
+- (id)processIdentifier;
+- (char)isTranslated;
+- (id)processName;
+- (unsigned int)task;
+- (int)cpuType;
+- (id)processVersion;
+- (char)is64Bit;
+- (id)valueForEnvVar:(id)a0;
+- (void)_libraryLoaded:(struct _CSTypeRef { unsigned long long x0; unsigned long long x1; })a0;
+- (id)_binaryImagesDescriptionForRanges:(id)a0;
+- (id)_buildInfoDescription;
+- (id)_buildVersionDictionary;
+- (id)_bundleLock;
+- (id)_cpuTypeDescription;
+- (id)_extractInfoPlistFromSymbolOwner:(struct _CSTypeRef { unsigned long long x0; unsigned long long x1; })a0 withMemory:(id)a1;
+- (id)_osVersionDictionary;
+- (id)_rangesOfBinaryImages:(id)a0 forBacktraces:(id)a1;
+- (id)_readDataFromMemory:(id)a0 atAddress:(unsigned long long)a1 size:(unsigned long long)a2;
+- (id)_sanitizeVersion:(id)a0;
+- (id)_systemVersionDescription;
+- (id)analysisToolDescription;
+- (id)binaryImageDictionaryForAddress:(unsigned long long)a0;
+- (id)binaryImages;
+- (id)binaryImagesDescription;
+- (id)binaryImagesDescriptionForBacktraces:(id)a0;
+- (void)cleansePathsIncludingBinaryImageList:(char)a0;
+- (void)clearCrashReporterInfo;
+- (id)dateAndVersionDescription;
+- (char)initFromCorpseOrCore;
+- (void)initFromLiveProcess;
+- (id)initWithPid:(int)a0 orTask:(unsigned int)a1;
+- (id)initWithTask:(unsigned int)a0 getBinariesList:(char)a1;
+- (id)initWithVMUTaskMemoryCache:(id)a0 getBinariesList:(char)a1;
+- (char)isAppleApplication;
+- (id)launchTime;
+- (int)parentPid;
+- (id)parentProcessName;
+- (id)parentProcessPath;
+- (id)processDescriptionHeader;
+- (id)processStatisticsDescription;
+- (id)processVersionDictionary;
+- (void)setCrashReporterInfo;
+- (char)taskIsCorpse;
+
+@end

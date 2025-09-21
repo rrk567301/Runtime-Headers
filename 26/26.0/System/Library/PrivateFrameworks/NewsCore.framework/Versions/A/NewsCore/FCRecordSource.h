@@ -1,0 +1,91 @@
+@class FCCachePolicy, NSString, NSArray, NFUnfairLock, FCKeyValueStore, FCCacheCoordinator, NSDictionary, FCFetchCoordinator, FCThreadSafeMutableDictionary, FCCKContentDatabase;
+@protocol FCAppActivityMonitor, FCBackgroundTaskable;
+
+@interface FCRecordSource : NSObject <FCCacheCoordinatorDelegate, FCFetchCoordinatorDelegate, FCCacheFlushing, FCJSONEncodableObjectProviding> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _derivedKeysLock;
+    NFUnfairLock *_initializationLock;
+    FCCKContentDatabase *_contentDatabase;
+    NSString *_contentDirectory;
+    FCCachePolicy *_defaultCachePolicy;
+    id<FCAppActivityMonitor> _appActivityMonitor;
+    id<FCBackgroundTaskable> _backgroundTaskable;
+    FCKeyValueStore *_localStore;
+    FCCacheCoordinator *_cacheCoordinator;
+    FCFetchCoordinator *_fetchCoordinator;
+}
+
+@property (readonly, nonatomic) FCThreadSafeMutableDictionary *fetchErrorsByKey;
+@property (readonly, nonatomic) NSString *experimentalizableFieldsPostfix;
+@property (readonly, nonatomic) NSString *activeTreatmentID;
+@property (readonly, nonatomic) NSArray *nonLocalizableKeys;
+@property (readonly, nonatomic) NSArray *localizableKeys;
+@property (readonly, nonatomic) NSArray *alwaysLocalizedKeys;
+@property (readonly, nonatomic) NSArray *experimentalizableKeys;
+@property (readonly, nonatomic) NSArray *localizableExperimentalizableKeys;
+@property (readonly, nonatomic) NSArray *localizableLanguageSpecificKeys;
+@property (readonly, nonatomic) NSDictionary *localizedKeysByOriginalKey;
+@property (readonly, nonatomic) NSDictionary *experimentalizedKeysByOriginalKey;
+@property (readonly, nonatomic) NSDictionary *localizedExperimentalizedKeysByOriginalKey;
+@property (readonly, nonatomic) NSDictionary *localizedLanguageSpecificKeysByOriginalKey;
+@property (readonly, nonatomic) NSArray *desiredKeys;
+@property (readonly, nonatomic) long long storageSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)canaryRecordName;
++ (BOOL)supportsDeletions;
++ (id)identifierFromCKRecord:(id)a0;
++ (id)modificationDateFromCKRecord:(id)a0;
++ (id)changeTagFromCKRecord:(id)a0;
++ (BOOL)recognizesRecordID:(id)a0 inRecordIDPrefixes:(id)a1;
+
+- (void)prewarm;
+- (id)convertRecords:(id)a0;
+- (unsigned long long)lowThresholdDataSizeLimit;
+- (void)enableFlushingWithFlushingThreshold:(unsigned long long)a0;
+- (unsigned long long)highThresholdDataSizeLimit;
+- (unsigned long long)storeVersion;
+- (void)save;
+- (id)recordFromCKRecord:(id)a0 base:(id)a1;
+- (int)pbRecordType;
+- (id)storeFilename;
+- (id)recordIDPrefixes;
+- (id)initWithContentDatabase:(id)a0 contentDirectory:(id)a1 appActivityMonitor:(id)a2 backgroundTaskable:(id)a3 defaultTTL:(double)a4 experimentalizableFieldsPostfix:(id)a5 activeTreatmentID:(id)a6;
+- (id)init;
+- (void)cacheCoordinator:(id)a0 flushKeysWithWriteLock:(id)a1;
+- (id)recordType;
+- (id)jsonEncodableObject;
+- (id)keyValueRepresentationOfRecord:(id)a0;
+- (unsigned long long)cacheCoordinatorCurrentSizeWithReadLock:(id)a0;
+- (void).cxx_destruct;
+- (id)_experimentalizedKeysByOriginalKeyForExperimentPostfix:(id)a0;
+- (id)_localizedExperimentalizedKeysByOriginalKeyForContentStoreFrontID:(id)a0 experimentPostfix:(id)a1;
+- (id)_localizedKeysByOriginalKeyForContentStoreFrontID:(id)a0;
+- (void)addCacheObserver:(id)a0;
+- (id)cachedRecordWithID:(id)a0;
+- (id)cachedRecordsWithIDs:(id)a0;
+- (id)convertRecord:(id)a0;
+- (id)deleteRecordsWithIDs:(id)a0;
+- (void)fetchCoordinator:(id)a0 addFetchOperation:(id)a1 context:(id)a2;
+- (id)fetchCoordinator:(id)a0 fetchOperationForKeys:(id)a1 context:(id)a2 qualityOfService:(long long)a3 relativePriority:(long long)a4;
+- (void)fetchCoordinator:(id)a0 filterKeysToFetch:(id)a1 isFirstAttempt:(BOOL)a2 context:(id)a3;
+- (id)fetchOperationForRecordsWithIDs:(id)a0;
+- (id)fetchOperationForRecordsWithIDs:(id)a0 ignoreCacheForRecordIDs:(id)a1;
+- (void)forceRefreshDesiredKeys;
+- (id)initWithContentDatabase:(id)a0 contentDirectory:(id)a1 appActivityMonitor:(id)a2 backgroundTaskable:(id)a3;
+- (id)initWithContentDatabase:(id)a0 contentDirectory:(id)a1 appActivityMonitor:(id)a2 backgroundTaskable:(id)a3 defaultTTL:(double)a4;
+- (id)interestTokenForRecordIDs:(id)a0;
+- (BOOL)isRecordStale:(id)a0 withCachePolicy:(id)a1;
+- (BOOL)recognizesRecordID:(id)a0;
+- (id)recordFromCKRecord:(id)a0;
+- (id)resolveLocalizableExperimentalizableFieldforKey:(id)a0 inRecord:(id)a1 activeExperimentIDKey:(id)a2;
+- (id)savePBRecords:(id)a0;
+- (id)saveRecords:(id)a0;
+- (void)t_startOverridingExperimentalizableFieldsPostfix:(id)a0 treatmentID:(id)a1;
+- (void)t_stopOverridingExperimentalizableFieldsPostfixAndTreatmentID;
+- (void)updateFetchDateForRecordIDs:(id)a0;
+- (id)valueFromCKRecord:(id)a0 baseKey:(id)a1 localizedKeys:(id)a2 localizedLanguageSpecificKeys:(id)a3;
+
+@end

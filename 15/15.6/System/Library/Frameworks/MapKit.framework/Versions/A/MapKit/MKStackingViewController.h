@@ -1,0 +1,81 @@
+@class NSView, NSString, NSScrollView, NSArray, _MKStackingContentView, NSHashTable, _MKStackView, NSLayoutConstraint, NSMapTable;
+@protocol MKStackingViewControllerDelegate;
+
+@interface MKStackingViewController : _MKUIViewController <_MKStackViewDelegate, _MKAnimationStackViewDelegate, MKScrollableStacking> {
+    _MKStackView *_stackView;
+    _MKStackingContentView *_contentView;
+    NSLayoutConstraint *_heightCompressionResistanceConstraint;
+    NSLayoutConstraint *_heightHuggingConstraint;
+    NSLayoutConstraint *_widthConstraint;
+    NSLayoutConstraint *_stackViewWidthConstraint;
+    char _isScrollDisabled;
+    unsigned long long _countOfCurrentLayoutInvocations;
+    NSScrollView *_scrollView;
+    NSLayoutConstraint *_titleViewLeadingConstraint;
+    char _hasRegisteredForPreferredScrollerStyleNotifications;
+    char _currentlyScrolling;
+    NSMapTable *_viewsToViewControllers;
+    NSArray *_titleViewConstraints;
+    char _willRelayoutForPreferredContentSizeChange;
+    char _isSettingStackedViews;
+    char _contentViewConstraintsAdded;
+    NSHashTable *_minimallyVisibleViews;
+    char _needsToPerformLayout;
+    NSView *_overlayView;
+    double _overlayViewOriginY;
+    char _mayWantSpearators;
+    char _needToCallViewControllerLayoutDelegate;
+}
+
+@property (copy, nonatomic) NSArray *viewControllers;
+@property (weak, nonatomic) id<MKStackingViewControllerDelegate> stackingDelegate;
+@property (nonatomic, getter=isScrollEnabled) char scrollEnabled;
+@property (retain, nonatomic) NSView *titleView;
+@property (retain, nonatomic) NSLayoutConstraint *titleViewLeadingConstraint;
+@property (readonly, nonatomic) double verticalScrollerInset;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)loadView;
+- (void)updateViewConstraints;
+- (void)viewDidLoad;
+- (void)_setScrollEnabled:(char)a0 forcedUpdate:(char)a1;
+- (void)_tearDownExitingViewController:(id)a0;
+- (void)viewWillAppear:(char)a0;
+- (void)_addPreferredHeightConstraintForViewControllerIfNeeded:(id)a0;
+- (void)_addTitleViewToHierarchyIfPossible;
+- (void)_callViewControllersLayoutDelegateIfNeeded;
+- (void)_didScroll;
+- (void)_didScrollFromBoundsDidChangeNotification:(id)a0;
+- (double)_fittingHeightForView:(id)a0;
+- (char)_isSafeToPerformLayout;
+- (void)_preferredScrollerStyleDidChange;
+- (void)_removePreferredHeightConstraintFromViewController:(id)a0;
+- (void)_scrollViewDidEndScroll:(id)a0;
+- (void)_scrollViewWillStartScroll:(id)a0;
+- (void)_setOverlayViewFrame;
+- (void)_setUpEnteringViewController:(id)a0;
+- (double)_titleHeight;
+- (void)_updateFixedHeightAwareControllers;
+- (void)_updateScrollerInsetFromFrameChange;
+- (void)_updateScrollerInsetWithPhase:(long long)a0;
+- (void)_updateStackViewSubviewsAndChildVCsEntering:(id)a0 exiting:(id)a1;
+- (void)_updateViewControllerVisibilityAfterPositionChange;
+- (double)currentHeight;
+- (char)isViewVisbile:(id)a0 percentageTreshold:(double)a1;
+- (void)removeOverlayViewAnimated:(char)a0;
+- (void)scrollToTopAnimated:(char)a0;
+- (void)setOverlayView:(id)a0 withOriginY:(double)a1;
+- (void)setVerticalScrollerInset:(double)a0;
+- (void)setWidthConstraintConstant:(double)a0;
+- (double)stackView:(id)a0 distanceBetweenUpperView:(id)a1 andLowerView:(id)a2;
+- (void)stackViewNeedsLayout:(id)a0;
+- (void)viewDidAppear:(char)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
+
+@end

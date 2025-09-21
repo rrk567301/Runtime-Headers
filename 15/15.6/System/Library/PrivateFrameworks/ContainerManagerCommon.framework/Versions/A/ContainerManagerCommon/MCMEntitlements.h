@@ -1,0 +1,91 @@
+@class NSDictionary, NSString, NSSet;
+@protocol MCMContainerClassIterator;
+
+@interface MCMEntitlements : NSObject <MCMEntitlements> {
+    NSDictionary *_sanitizedLookup;
+    NSSet *_sanitizedWipe;
+    char _isSimulatorTestClient;
+}
+
+@property (retain, nonatomic) NSDictionary *rawEntitlements;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSDictionary *lookup;
+@property (readonly, nonatomic) id<MCMContainerClassIterator> classIterator;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) char privileged;
+@property (readonly, nonatomic) char proxyAllowed;
+@property (readonly, nonatomic) char testabilityAllowed;
+@property (readonly, nonatomic) char hasSystemContainer;
+@property (readonly, nonatomic) char allowed;
+@property (readonly, nonatomic) char otherIDLookup;
+@property (readonly, nonatomic) char canDelete;
+@property (readonly, nonatomic) char canManageUserManagedAssets;
+@property (readonly, nonatomic) char canControlCaches;
+@property (readonly, nonatomic) char canRepair;
+@property (readonly, nonatomic) char canStageSharedContent;
+@property (readonly, nonatomic) char canPerformDataMigration;
+@property (readonly, nonatomic) char canDeleteContainerContent;
+@property (readonly, nonatomic) char requestsNoContainer;
+@property (readonly, nonatomic) char canReadReferences;
+@property (readonly, nonatomic) char canReadWriteReferences;
+@property (readonly, nonatomic) char hasDaemonContainer;
+
++ (id)appGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)copyGroupEntitlementForIdentifier:(id)a0 entitlements:(id)a1 groupKey:(id)a2;
++ (id)noReferenceAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)protectedAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)publicAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)publicEntitlementForGroupContainerClass:(unsigned long long)a0;
++ (id)systemGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
+
+- (void).cxx_destruct;
+- (void)prune;
+- (char)isAllowedToWipeAnyDataContainer;
+- (int)_dataProtectionClassFromString:(id)a0;
+- (char)isAllowedToTest;
+- (id)_arrayOfStringsFromArray:(id)a0;
+- (id)_setOfStringsFromArray:(id)a0;
+- (id)appGroupIdentifiers;
+- (id)containerRequiredIdentifier;
+- (id)copyEntitlementsDictionaryByAddingGroupContainerOfClass:(unsigned long long)a0 groupIdentifier:(id)a1;
+- (id)copyEntitlementsDictionaryByRemovingAppGroupContainerWithIdentifier:(id)a0;
+- (id)copyEntitlementsDictionaryByRemovingGroupContainerOfClass:(unsigned long long)a0 groupIdentifier:(id)a1;
+- (id)copyEntitlementsDictionaryByRemovingSystemGroupContainerWithIdentifier:(id)a0;
+- (int)dataProtectionClassIfAvailable;
+- (id)initForPrivilegedAnonymous;
+- (id)initWithEntitlements:(id)a0 clientIdentifier:(id)a1 classIterator:(id)a2;
+- (int)intendedDataProtectionClass;
+- (char)isAllowedToAccessCodesignMapping;
+- (char)isAllowedToAccessInfoMetadata;
+- (char)isAllowedToAccessUserAssets;
+- (char)isAllowedToChangeReferences;
+- (char)isAllowedToControlCaches;
+- (char)isAllowedToDelete;
+- (char)isAllowedToLookupAllContainersOfClass:(unsigned long long)a0;
+- (char)isAllowedToLookupContainerIdentity:(id)a0;
+- (char)isAllowedToLookupGroupContainersOfClass:(unsigned long long)a0 ownedByIdentifiers:(id)a1;
+- (char)isAllowedToLookupViaPrivateEntitlementWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (char)isAllowedToReadReferences;
+- (char)isAllowedToRecreateContainerStructure;
+- (char)isAllowedToRegenerateDirectoryUUIDs;
+- (char)isAllowedToReplaceContainers;
+- (char)isAllowedToRestoreContainer;
+- (char)isAllowedToSetDataProtection;
+- (char)isAllowedToStageSharedContent;
+- (char)isAllowedToStartDataMigration;
+- (char)isAllowedToStartUserDataMigration;
+- (char)isAllowedToWipePlugInDataContainerWithIdentifier:(id)a0;
+- (char)isEntitledForLookupWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (char)isOwnerOfContainerWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (char)isOwnerOfProtectedAppGroupContainerWithIdentifier:(id)a0;
+- (id)lookupForContainerClass:(unsigned long long)a0;
+- (char)negatesReferenceToAppGroupIdentifier:(id)a0;
+- (id)noReferenceAppGroupIdentifiers;
+- (id)protectedAppGroupIdentifiers;
+- (id)publicAppGroupIdentifiers;
+- (id)systemGroupIdentifiers;
+
+@end

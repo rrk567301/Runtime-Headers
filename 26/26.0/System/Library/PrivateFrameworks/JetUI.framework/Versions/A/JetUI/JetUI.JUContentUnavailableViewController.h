@@ -1,0 +1,14 @@
+@interface JetUI.JUContentUnavailableViewController : NSViewController {
+    void /* unknown type, empty encoding */ error;
+    void /* unknown type, empty encoding */ presentationContext;
+    void /* unknown type, empty encoding */ retry;
+}
+
+- (void)viewDidLoad;
+- (void)loadView;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

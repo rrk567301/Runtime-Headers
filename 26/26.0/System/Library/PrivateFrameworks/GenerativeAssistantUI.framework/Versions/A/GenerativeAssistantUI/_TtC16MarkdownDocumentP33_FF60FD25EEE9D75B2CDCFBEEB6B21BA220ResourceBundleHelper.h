@@ -1,0 +1,3 @@
+@interface _TtC16MarkdownDocumentP33_FF60FD25EEE9D75B2CDCFBEEB6B21BA220ResourceBundleHelper : _TtCs12_SwiftObject
+
+@end

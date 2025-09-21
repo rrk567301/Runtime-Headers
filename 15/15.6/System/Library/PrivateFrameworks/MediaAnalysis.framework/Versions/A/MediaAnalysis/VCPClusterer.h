@@ -1,0 +1,97 @@
+@class NSURL, NSMutableDictionary, NSDate, VNCanceller, VCPPhotosFaceProcessingContext, NSObject, VNClustererBuilder, NSMutableArray, NSString, VCPPhotosPersistenceDelegate, NSSet, NSMutableSet, PHPhotoLibrary, NSNumber, VCPSuggestionRequest, NSLock;
+@protocol OS_dispatch_queue, OS_dispatch_group;
+
+@interface VCPClusterer : NSObject {
+    PHPhotoLibrary *_photoLibrary;
+    VCPPhotosPersistenceDelegate *_persistenceDelegate;
+    NSObject<OS_dispatch_queue> *_processingQueue;
+    NSObject<OS_dispatch_group> *_processingGroup;
+    struct atomic<bool> { struct __cxx_atomic_impl<bool, std::__cxx_atomic_base_impl<bool>> { _Atomic BOOL __a_value; } __a_; } _canceled;
+    VCPPhotosFaceProcessingContext *_context;
+    NSURL *_cacheDirUrl;
+    NSURL *_cacheFileUrl;
+    NSString *_clusteringType;
+    NSNumber *_threshold;
+    NSSet *_faceCSNsInClusterCache;
+    unsigned long long _nextSeqNum;
+    NSMutableSet *_faceIdStrsToAdd;
+    NSMutableSet *_faceCSNsToRemove;
+    unsigned long long _accumulatedChangesCount;
+    unsigned long long _nextClusterTriggeringAccumulatedChangesCount;
+    VNCanceller *_visionCanceler;
+    VNClustererBuilder *_clusterBuilder;
+    char _rebuildClusterer;
+    NSMutableArray *_outstandingSuggestionRequests;
+    VCPSuggestionRequest *_currentSuggestionRequest;
+    NSLock *_suggestionLock;
+    NSLock *_currentStatusSnapshotLock;
+    struct { unsigned long long countOfEligibleFaces; unsigned long long countOfFacesPendingToAdd; char isClustering; char rebuildRequired; } _currentStatusSnapshot;
+    char _currentStatusSnapshotIsValid;
+    NSLock *_propertyDictionaryLock;
+    NSMutableDictionary *_propertyDictionary;
+    NSDate *_timestampOfLastClusterComparison;
+    struct mach_timebase_info { unsigned int numer; unsigned int denom; } _timebase;
+}
+
+@property (readonly, nonatomic) char needsFullSync;
+@property (readonly, nonatomic) char needsUpdate;
+@property (readonly, nonatomic, getter=isReady) char ready;
+@property (nonatomic) unsigned long long clustererBringUpState;
+@property (readonly, nonatomic) unsigned long long clustererState;
+
++ (char)removeClusteringStateCacheWithURL:(id)a0 error:(id *)a1;
+
+- (void).cxx_destruct;
+- (id)status;
+- (void)terminate;
+- (unsigned long long)clusterCount;
+- (id)_visionClusterMemmapFileInCacheDirectoryURL:(id)a0 clusterState:(id)a1 error:(id *)a2;
+- (id)_bringUpStateDescription:(unsigned long long)a0;
+- (void)_cancelClusteringAndRestoreClusterCache:(char)a0;
+- (id)_faceTorsoprintsFromFaceCSNs:(id)a0;
+- (id)_faceTorsoprintsFromFaceIdentifiers:(id)a0 assignClusterSeqNumberIfNeeded:(char)a1 updatedFaces:(id)a2 groupingIdentifiers:(id)a3;
+- (id)_faceTorsoprintsFromFaces:(id)a0 assignClusterSeqNumberIfNeeded:(char)a1 updatedFaces:(id)a2;
+- (char)_performAndPersistClustersWithFaceTorsoprintsToAdd:(id)a0 groupingIdentifiersToAdd:(id)a1 faceTorsoprintsToRemove:(id)a2 updatedFaces:(id)a3 cancelOrExtendTimeoutBlock:(id /* block */)a4 error:(id *)a5;
+- (void)_processingQueueDetermineNextClusterTriggeringAccumulatedChangesCountIfNecessary;
+- (char)_processingQueueGetFaceClusterSequenceNumbersInClusterCache:(id *)a0 lastClusterSequenceNumber:(unsigned long long *)a1 error:(id *)a2;
+- (char)_processingQueueGetVisionClusters:(id)a0 minimumClusterSize:(unsigned long long)a1 returnClusterAsCountedSet:(char)a2 excludedL0ClustersByL1ClusterId:(id *)a3 cancelOrExtendTimeoutBlock:(id /* block */)a4 error:(id *)a5;
+- (char)_processingQueuePerformForcedFaceClustering:(char)a0 cancelOrExtendTimeoutBlock:(id /* block */)a1;
+- (void)_processingQueueQuickSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)a0 visionClusters:(id *)a1 cancelOrExtendTimeoutBlock:(id /* block */)a2;
+- (char)_processingQueueResetClusterCache:(id *)a0;
+- (char)_processingQueueRestoreClusterCacheAndSyncWithLibrary:(char)a0 cancelOrExtendTimeoutBlock:(id /* block */)a1 error:(id *)a2;
+- (char)_processingQueueRestoreClusteringCacheWithCacheDirectoryURL:(id)a0 clusterState:(id)a1 threshold:(id)a2 error:(id *)a3;
+- (char)_processingQueueRestoreFromClusterSnapshotFileAtURL:(id)a0 error:(id *)a1;
+- (char)_processingQueueSaveClusterCache:(id *)a0;
+- (void)_processingQueueSyncClustererWithPhotoLibraryUsingFacesInClusterCache:(id)a0 cancelOrExtendTimeoutBlock:(id /* block */)a1;
+- (id)_propertyDictionaryFileURL;
+- (void)_readPropertyDictionary;
+- (void)_recordClusterRebuildRequired:(char)a0;
+- (void)_recordClusteringState:(char)a0;
+- (void)_recordCountOfPendingFacesToAdd:(unsigned long long)a0;
+- (void)_recordCurrentStatus:(struct { unsigned long long x0; unsigned long long x1; char x2; char x3; })a0;
+- (void)_recordIncrementCountOfPendingFacesToAdd:(unsigned long long)a0;
+- (void)_removeEmptyGroups;
+- (void)_removeVisionClusterCacheFilesNotReferencedByVisionClusterState:(id)a0;
+- (id)_resolveConflictingL0ClustersFromVNClusters:(id)a0 excludedL0ClustersByL1ClusterId:(id *)a1 cancelOrExtendTimeoutBlock:(id /* block */)a2;
+- (void)_setPropertyDictionaryValue:(id)a0 forKey:(id)a1;
+- (id)_visionClusterStateDataBlobFromClusterSnapshotFileAtURL:(id)a0 error:(id *)a1;
+- (void)cancelAllSuggestionRequests;
+- (void)cancelClustering;
+- (void)cancelSuggestionRequest:(id)a0;
+- (void)clusterAndWaitWithCancelOrExtendTimeoutBlock:(id /* block */)a0;
+- (void)clusterIfNecessaryAndWaitWithCancelOrExtendTimeoutBlock:(id /* block */)a0;
+- (unsigned long long)clusteredFaceCount;
+- (id)differencesBetweenClusterCacheAndLibrary:(id *)a0 excludedL0ClustersByL1ClusterId:(id *)a1 cancelOrExtendTimeoutBlock:(id /* block */)a2;
+- (id)distanceBetweenLevel0ClusterIdentifiedByFaceCSN:(unsigned long long)a0 andLevel0ClusterIdentifiedByFaceCSN:(unsigned long long)a1 error:(id *)a2;
+- (id)distancesFromClustersIdentifiedByFaceCSNs:(id)a0 toClustersIdentifiedByFaceCSNs:(id)a1 error:(id *)a2;
+- (char)getClusters:(id *)a0 threshold:(double *)a1 utilizingGPU:(char *)a2 cancelOrExtendTimeoutBlock:(id /* block */)a3 error:(id *)a4;
+- (id)initWithPhotoLibrary:(id)a0 andContext:(id)a1;
+- (char)isReadyToReturnSuggestions;
+- (id)level0ClusterAsFaceCSNsByLevel0KeyFaceCSNForClusterIdentifiedByFaceCSN:(unsigned long long)a0 error:(id *)a1;
+- (unsigned long long)numberOfAccumulatedClusterChanges;
+- (id)requestSuggestionsForFaceClusterSequenceNumbers:(id)a0 withClusteringFlags:(id)a1 updateHandler:(id /* block */)a2 error:(id *)a3;
+- (unsigned long long)restoreClusterCacheAndSyncWithLibrary:(char)a0 cancelOrExtendTimeoutBlock:(id /* block */)a1 error:(id *)a2;
+- (void)scheduleClusteringAfterRemovingFaceCSNs:(id)a0 addingFaceIdStrs:(id)a1;
+- (id)suggestedFaceClusterSequenceNumbersForFaceClusterSequenceNumbersRepresentingClusters:(id)a0 error:(id *)a1;
+
+@end

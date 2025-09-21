@@ -1,0 +1,13 @@
+@class NSDictionary;
+
+@interface CRKDumpASMCredentialsResultObject : CATTaskResultObject
+
+@property (copy, nonatomic) NSDictionary *credentials;
+
++ (char)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

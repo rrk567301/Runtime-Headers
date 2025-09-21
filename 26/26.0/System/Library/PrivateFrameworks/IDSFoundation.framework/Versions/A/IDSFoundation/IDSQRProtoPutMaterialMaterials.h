@@ -1,0 +1,24 @@
+@class NSMutableArray;
+
+@interface IDSQRProtoPutMaterialMaterials : PBCodable <NSCopying>
+
+@property (retain, nonatomic) NSMutableArray *materials;
+
++ (Class)materialsType;
+
+- (void)clearMaterials;
+- (void)copyTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (unsigned long long)materialsCount;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)addMaterials:(id)a0;
+- (id)materialsAtIndex:(unsigned long long)a0;
+
+@end

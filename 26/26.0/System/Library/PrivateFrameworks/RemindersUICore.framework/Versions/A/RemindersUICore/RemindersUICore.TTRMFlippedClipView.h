@@ -1,0 +1,11 @@
+@interface RemindersUICore.TTRMFlippedClipView : NSClipView
+
+@property (nonatomic, readonly) BOOL flipped;
+@property (nonatomic, readonly) BOOL opaque;
+
+- (BOOL)isOpaque;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isFlipped;
+- (id)initWithCoder:(id)a0;
+
+@end

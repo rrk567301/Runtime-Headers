@@ -1,0 +1,23 @@
+@class NSString, NSArray;
+
+@interface CTRoadsideProvider : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (nonatomic) long long providerId;
+@property (retain, nonatomic) NSString *providerName;
+@property (retain, nonatomic) NSString *bizId;
+@property (nonatomic) char supportsPayPerUse;
+@property (nonatomic) char isActive;
+@property (nonatomic) char isCarrierProvider;
+@property (retain, nonatomic) NSArray *associatedPhoneNumbers;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (char)isEqualToProvider:(id)a0;
+
+@end

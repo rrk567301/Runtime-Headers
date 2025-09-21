@@ -1,0 +1,82 @@
+@class AWDWiFiMetricExtendedTrapInfo, NSString, NSData, AWDWiFiMetricJoinTimeout;
+
+@interface AWDWiFiMetricsManagerWatchdogEvent : PBCodable <NSCopying> {
+    struct { unsigned long long *list; unsigned long long count; unsigned long long size; } _backTraces;
+    struct { unsigned char linkRegister : 1; unsigned char programCounter : 1; unsigned char timestamp : 1; unsigned char available : 1; unsigned char deviceIdentifierMap : 1; unsigned char eventId : 1; unsigned char flags : 1; unsigned char lineNumber : 1; unsigned char minorReason : 1; unsigned char reason : 1; unsigned char recoveryLatency : 1; unsigned char subreason : 1; unsigned char version : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) char hasVersion;
+@property (nonatomic) unsigned int version;
+@property (nonatomic) char hasFlags;
+@property (nonatomic) unsigned int flags;
+@property (nonatomic) char hasAvailable;
+@property (nonatomic) int available;
+@property (nonatomic) char hasReason;
+@property (nonatomic) int reason;
+@property (nonatomic) char hasSubreason;
+@property (nonatomic) unsigned int subreason;
+@property (nonatomic) char hasDeviceIdentifierMap;
+@property (nonatomic) unsigned int deviceIdentifierMap;
+@property (nonatomic) char hasEventId;
+@property (nonatomic) unsigned int eventId;
+@property (nonatomic) char hasMinorReason;
+@property (nonatomic) unsigned int minorReason;
+@property (readonly, nonatomic) char hasReasonString;
+@property (retain, nonatomic) NSString *reasonString;
+@property (nonatomic) char hasProgramCounter;
+@property (nonatomic) unsigned long long programCounter;
+@property (nonatomic) char hasLinkRegister;
+@property (nonatomic) unsigned long long linkRegister;
+@property (readonly, nonatomic) unsigned long long backTracesCount;
+@property (readonly, nonatomic) unsigned long long *backTraces;
+@property (readonly, nonatomic) char hasFileName;
+@property (retain, nonatomic) NSString *fileName;
+@property (readonly, nonatomic) char hasFunction;
+@property (retain, nonatomic) NSString *function;
+@property (nonatomic) char hasLineNumber;
+@property (nonatomic) unsigned int lineNumber;
+@property (readonly, nonatomic) char hasTrapInfo;
+@property (retain, nonatomic) AWDWiFiMetricExtendedTrapInfo *trapInfo;
+@property (readonly, nonatomic) char hasJoinTimeoutInfo;
+@property (retain, nonatomic) AWDWiFiMetricJoinTimeout *joinTimeoutInfo;
+@property (readonly, nonatomic) char hasWpsResponseType;
+@property (retain, nonatomic) NSString *wpsResponseType;
+@property (readonly, nonatomic) char hasWpsManufacturerElement;
+@property (retain, nonatomic) NSString *wpsManufacturerElement;
+@property (readonly, nonatomic) char hasWpsModelName;
+@property (retain, nonatomic) NSString *wpsModelName;
+@property (readonly, nonatomic) char hasWpsModelNumber;
+@property (retain, nonatomic) NSString *wpsModelNumber;
+@property (readonly, nonatomic) char hasWpsPrimaryDeviceTypeCategory;
+@property (retain, nonatomic) NSString *wpsPrimaryDeviceTypeCategory;
+@property (readonly, nonatomic) char hasWpsPrimaryDeviceTypeSubCategory;
+@property (retain, nonatomic) NSString *wpsPrimaryDeviceTypeSubCategory;
+@property (readonly, nonatomic) char hasWpsDeviceNameElement;
+@property (retain, nonatomic) NSString *wpsDeviceNameElement;
+@property (readonly, nonatomic) char hasWpsDeviceNameData;
+@property (retain, nonatomic) NSString *wpsDeviceNameData;
+@property (readonly, nonatomic) char hasWpsConfigMethods;
+@property (retain, nonatomic) NSString *wpsConfigMethods;
+@property (nonatomic) char hasRecoveryLatency;
+@property (nonatomic) unsigned int recoveryLatency;
+@property (readonly, nonatomic) char hasOui;
+@property (retain, nonatomic) NSData *oui;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearBackTraces;
+- (void)addBackTrace:(unsigned long long)a0;
+- (unsigned long long)backTraceAtIndex:(unsigned long long)a0;
+- (void)setBackTraces:(unsigned long long *)a0 count:(unsigned long long)a1;
+
+@end

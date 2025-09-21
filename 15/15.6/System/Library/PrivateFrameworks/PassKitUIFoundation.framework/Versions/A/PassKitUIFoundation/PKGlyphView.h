@@ -1,0 +1,93 @@
+@class NSString, PKMicaLayer, LAUICheckmarkLayer, CALayer, PKPhoneGlyphLayer, NSColor, PKFingerprintGlyphView, NSObject, NSMutableArray;
+@protocol PKGlyphViewDelegate, OS_dispatch_group;
+
+@interface PKGlyphView : NSView <PKFingerprintGlyphViewDelegate> {
+    long long _style;
+    BOOL _isPad;
+    unsigned long long _transitionIndex;
+    char _transitioning;
+    char _transitioningAnimated;
+    long long _priorState;
+    NSMutableArray *_transitionCompletionHandlers;
+    NSObject<OS_dispatch_group> *_lastAnimationGroup;
+    double _lastAnimationWillFinish;
+    char _phoneWiggling;
+    NSString *_phoneWiggleAnimationKey;
+    struct { unsigned char showingPhone : 1; unsigned char phoneRotated : 1; unsigned char showingUserIntentPhone : 1; unsigned char showingUserIntentArrow : 1; } _layoutFlags;
+    PKFingerprintGlyphView *_fingerprintView;
+    PKPhoneGlyphLayer *_phoneLayer;
+    double _checkScale;
+    LAUICheckmarkLayer *_checkLayer;
+    CALayer *_userIntentLayer;
+    PKMicaLayer *_userIntentArrowLayer;
+    PKMicaLayer *_userIntentDeviceLayer;
+    double _phoneAspectRatio;
+    CALayer *_customImageLayer;
+    NSColor *_secondaryColor;
+    NSColor *_primaryHighlightColor;
+    NSColor *_intentPrimaryHighlightColor;
+    NSColor *_secondaryHighlightColor;
+}
+
+@property (readonly, nonatomic) long long colorMode;
+@property (readonly, copy, nonatomic) NSColor *primaryColor;
+@property (nonatomic) char fadeOnRecognized;
+@property (readonly, nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } customImageAlignmentEdgeInsets;
+@property (readonly, nonatomic) struct CGImage { } *customImage;
+@property (readonly, nonatomic) long long state;
+@property (readonly, nonatomic) unsigned int userIntentEdge;
+@property (weak, nonatomic) id<PKGlyphViewDelegate> delegate;
+@property (nonatomic) char showQRCode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)invokeSuccessFeedback;
++ (char)automaticallyNotifiesObserversOfState;
++ (id)sharedStaticResources;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)setState:(long long)a0;
+- (void)layout;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initWithStyle:(long long)a0;
+- (void)viewDidChangeBackingProperties;
+- (void)viewDidMoveToWindow;
+- (void)setState:(long long)a0 animated:(char)a1 completionHandler:(id /* block */)a2;
+- (void)_endPhoneWiggle;
+- (void)_applyColorMode:(char)a0;
+- (void)_applyEffectiveHighlightColorsToLayersAnimated:(char)a0;
+- (void)_applyEffectivePrimaryColorToLayersAnimated:(char)a0;
+- (void)_executeAfterMinimumAnimationDurationForStateTransition:(id /* block */)a0;
+- (void)_executeAfterMinimumAnimationDurationForStateTransitionWithDelayRatio:(double)a0 handler:(id /* block */)a1;
+- (void)_executeTransitionCompletionHandlers:(char)a0;
+- (void)_finishTransitionForIndex:(unsigned long long)a0 cancelled:(char)a1;
+- (void)_layoutContentLayer:(id)a0;
+- (void)_performTransitionWithTransitionIndex:(unsigned long long)a0 animated:(char)a1;
+- (struct CGPoint { double x0; double x1; })_phonePositionDeltaWhileShownFromRotationPercentage:(double)a0 toPercentage:(double)a1;
+- (struct CGPoint { double x0; double x1; })_phonePositionWhileShownWithRotationPercentage:(double)a0;
+- (struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })_phoneTransformDeltaWhileShownFromRotationPercentage:(double)a0 toPercentage:(double)a1;
+- (id)_primaryColorForStyle:(long long)a0 mode:(long long)a1;
+- (id)_secondaryColorForStyle:(long long)a0 mode:(long long)a1;
+- (void)_setPrimaryColor:(id)a0 animated:(char)a1;
+- (void)_setRecognizedIfNecessaryWithTransitionIndex:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)_setSecondaryColor:(id)a0 animated:(char)a1;
+- (void)_startPhoneWiggle;
+- (void)_updateCheckViewStateAnimated:(char)a0 withCompletion:(id /* block */)a1;
+- (void)_updateCustomImageLayerOpacityAnimated:(char)a0;
+- (void)_updateLastAnimationTimeWithAnimationOfDuration:(double)a0;
+- (void)_updatePhoneLayoutWithTransitionIndex:(unsigned long long)a0 animated:(char)a1;
+- (void)_updatePhoneWiggleIfNecessary;
+- (void)_updateUserIntentLayerRotation;
+- (void)_updateUserIntentLayoutAnimated:(char)a0;
+- (id)createCustomImageLayer;
+- (void)fingerprintGlyphView:(id)a0 didLayoutContentLayer:(id)a1;
+- (void)setColorMode:(long long)a0 animated:(char)a1;
+- (void)setCustomImage:(struct CGImage { } *)a0 withAlignmentEdgeInsets:(struct NSEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (void)updateRasterizationScale:(double)a0;
+- (void)updateRotation;
+
+@end

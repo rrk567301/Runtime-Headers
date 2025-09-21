@@ -1,0 +1,3 @@
+@interface _TtCFIZvV10SwiftMedia2v18SMLoggerV2os6LoggeriU_FT_S2_L_10BundleName : _TtCs12_SwiftObject
+
+@end

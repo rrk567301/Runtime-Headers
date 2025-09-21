@@ -1,0 +1,81 @@
+@class NSString, MIBUNANPublisher, NSMutableDictionary, MIBUMulticastSocket, NSMutableSet, NSObject, MIBUNWClientListener, NSNumber;
+@protocol MIBUNWServerControllerDelegate, OS_dispatch_source, OS_dispatch_queue, MIBUPacketProvidable;
+
+@interface MIBUNWServerController : NSObject <MIBUNWClientListenerDelegate, MIBUNWClientDeviceDelegate, MIBUMulticastSocketDelegate, MIBUNANPublisherDelegate> {
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSObject<OS_dispatch_source> *_bandwidthTimer;
+    id<MIBUNWServerControllerDelegate> _controllerDelegate;
+    id<MIBUPacketProvidable> _packetProvider;
+    MIBUNWClientListener *_nanListener;
+    MIBUNWClientListener *_tcpListener;
+    MIBUMulticastSocket *_multicastSocket;
+    MIBUNANPublisher *_nanPublisher;
+    NSMutableSet *_nanDevices;
+    NSMutableSet *_tcpDevices;
+    unsigned long long _checkedInClients;
+    unsigned long long _fetchIssued;
+    unsigned long long _packetFetched;
+    unsigned long long _packetSent;
+    unsigned long long _packetDropped;
+    NSMutableDictionary *_packetDropBreakdown;
+    NSString *_serviceName;
+    unsigned long long _originalBatchSize;
+    NSString *_nanHostPort;
+    NSString *_tcpHostAddr;
+    NSString *_tcpHostPort;
+    NSString *_groupAddr;
+    NSString *_groupPort;
+    NSString *_interfaceName;
+    NSNumber *_pingInterval;
+    NSNumber *_pingTimeout;
+    NSString *_countryCode;
+    unsigned long long _channelName;
+    unsigned long long _band;
+    unsigned long long _bandwidth;
+    BOOL _enableRA;
+}
+
+@property (nonatomic) unsigned long long clientCount;
+@property (nonatomic) unsigned long long batchSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_start;
+- (void)start;
+- (void)stop;
+- (void).cxx_destruct;
+- (void)_startMulticast;
+- (void)_adjustBatchSizeWithPacketDroppedInLastInterval:(unsigned long long)a0;
+- (void)_calculateEffectiveBandwidth;
+- (void)_fetchOneBatchOfPacketsFromProvider;
+- (void)_handleFetchCompletionWithResult:(BOOL)a0 atEOF:(BOOL)a1 packets:(id)a2;
+- (id)_packetDropSummary;
+- (void)_sendPackets:(id)a0 withCompletion:(id /* block */)a1;
+- (void)_setupFileSenderLoop;
+- (void)_startNANService;
+- (void)_startTCPListener;
+- (void)_stopMulticast;
+- (void)_stopWithReason:(id)a0;
+- (void)_tearDownFileSenderLoop;
+- (void)_updatePacketDropBreakdown:(id)a0;
+- (void)clientDevice:(id)a0 didCheckOutWithError:(id)a1 withSummary:(id)a2;
+- (void)clientDevice:(id)a0 didPingWithPayload:(id)a1;
+- (void)clientDeviceDidCheckIn:(id)a0;
+- (void)clientDeviceDidConnect:(id)a0;
+- (void)clientDeviceDidDisconnect:(id)a0;
+- (void)clientListener:(id)a0 didReceiveNewClientDevice:(id)a1;
+- (void)clientListenerDidStart:(id)a0;
+- (void)clientListenerDidStop:(id)a0 withError:(id)a1;
+- (id)initWithPacketProvider:(id)a0 hostAddress:(id)a1 hostPort:(id)a2 nanPort:(id)a3 groupAddress:(id)a4 groupPort:(id)a5 interfaceName:(id)a6 serviceName:(id)a7 countryCode:(id)a8 channelName:(unsigned long long)a9 band:(unsigned long long)a10 bandwidth:(unsigned long long)a11 enableRateAdapter:(BOOL)a12 controllerDelegate:(id)a13;
+- (void)multicastSocketDidStart:(id)a0;
+- (void)multicastSocketDidStop:(id)a0 withError:(id)a1;
+- (void)nanPublisher:(id)a0 didCreateDataSessionWithPeer:(id)a1 usingInterface:(id)a2;
+- (void)nanPublisher:(id)a0 didDestoryDataSessionWithPeer:(id)a1;
+- (void)nanPublisher:(id)a0 didReceiveData:(id)a1 fromPeer:(id)a2;
+- (void)nanPublisherDidStart:(id)a0 forRetry:(BOOL)a1;
+- (void)nanPublisherDidStop:(id)a0 withError:(id)a1 willRetry:(BOOL)a2;
+- (void)updateClientStatus:(id)a0 forDevice:(id)a1;
+
+@end

@@ -1,0 +1,84 @@
+@class PLStateTrackingComposition, PLTimer, NSDictionary, PLEntryNotificationOperatorComposition, NSDate, NSMutableDictionary, NSNumber;
+
+@interface PLSMCAgent : PLAgent
+
+@property (retain) PLEntryNotificationOperatorComposition *sbc;
+@property (retain) PLEntryNotificationOperatorComposition *screenStateNotification;
+@property (retain) PLStateTrackingComposition *stateTracker;
+@property (retain) NSDictionary *lastAccumlatedKeysSample;
+@property (retain) NSDictionary *lastAccumlatedKeysSampleCA;
+@property (retain) NSDictionary *lastDisplayAccumlatedSample;
+@property (retain) NSDate *lastDisplayAccumulatedSampleEndDate;
+@property (retain) PLEntryNotificationOperatorComposition *focalAppSwitch;
+@property (retain) NSDate *lastFocalSampleDate;
+@property (retain) PLTimer *focalSwitchFilterTimer;
+@property (retain) PLTimer *thermalAggregationTimer;
+@property (retain) NSMutableDictionary *lastAccumValueDict;
+@property (retain) NSMutableDictionary *lastAccumCycleCountDict;
+@property struct { unsigned int x0; BOOL x1; struct SMCAccumPlatformInfo *x2; struct { unsigned int x0; struct { int x0; int x1; union { struct { int x0; BOOL x1; unsigned short x2; unsigned char x3; } x0; char x1[5]; } x2; unsigned int x3; } x1; union { unsigned long long x0; long long x1; double x2; } x2; union { unsigned long long x0; long long x1; double x2; } x3; union { unsigned long long x0; long long x1; double x2; } x4; } x3[4]; struct { unsigned int x0; struct { int x0; int x1; union { struct { int x0; BOOL x1; unsigned short x2; unsigned char x3; } x0; char x1[5]; } x2; unsigned int x3; } x1; union { unsigned long long x0; long long x1; double x2; } x2; union { unsigned long long x0; long long x1; double x2; } x3; union { unsigned long long x0; long long x1; double x2; } x4; } x4[4]; unsigned char x5; unsigned char x6; BOOL x7; BOOL x8; BOOL x9; struct { unsigned int x0[4]; unsigned int x1[4]; unsigned char x2; unsigned char x3; } x10; BOOL x11; BOOL x12; } *smcConnection;
+@property (retain) PLEntryNotificationOperatorComposition *luxEntryNotification;
+@property (retain) NSNumber *currentLux;
+
++ (void)load;
++ (id)entryAggregateDefinitions;
++ (id)entryEventBackwardDefinitions;
++ (id)entryEventForwardDefinitions;
++ (id)entryEventIntervalDefinitions;
++ (id)entryEventNoneDefinitions;
++ (id)entryEventPointDefinitions;
++ (id)parsePMUEvents:(unsigned long long)a0;
++ (id)channelValueDiffKey:(id)a0;
++ (id)channelValueKey:(id)a0;
++ (id)cycleCountKey:(id)a0;
++ (id)entryEventBackwardDefinitionAccumulatedKeys;
++ (id)entryEventBackwardDefinitionDisplayPowerKeys;
++ (id)entryEventBackwardDefinitionPowerAccumulatedKeys;
++ (id)entryEventNoneDefinitionColdBoot;
++ (id)entryEventNoneDefinitionDRAMVendorKey;
++ (id)entryEventNoneDefinitionPowerDeliveryKeys;
++ (id)entryEventPointDefinitionMetricMonitorInstantKeys;
++ (id)entryEventPointDefinitionThermalInstantKeys;
++ (id)entryEventPointDefinitionThermalKeys;
++ (void)reportPMUEventsToCA:(id)a0;
++ (char)shouldModelDisplayPowerFromSMC;
++ (char)supportsBasicSMC;
++ (char)supportsThermalSMC;
++ (id)variantKey:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)log;
+- (void)initOperatorDependancies;
+- (const struct SMCAccumChannelInfo { } *)getChannelInfo:(unsigned int)a0;
+- (id)DRAMVendorKey;
+- (BOOL)SMCKeyExists:(id)a0;
+- (id)accumulatedKeys;
+- (void)logDisplayPower;
+- (char)accumSupported;
+- (id)displayAccumulatedKeys;
+- (id)getAccumEntryFromSample:(id)a0 lastSample:(id)a1 withEntryKey:(id)a2 withDate:(id)a3;
+- (id)getPowerEntryFromSample:(id)a0 lastSample:(id)a1 withEntryKey:(id)a2;
+- (void)handleStateChangeForSMCStats;
+- (void)logAccumKeysToCA:(id)a0 withLastSample:(id)a1 andDate:(id)a2;
+- (void)logAccumulatedKeysToPowerlog:(char)a0 ToCoreAnalytics:(char)a1 withDate:(id)a2 isWake:(char)a3;
+- (void)logColdBoot;
+- (void)logDRAMVendorKey;
+- (void)logEventPointMetricMonitorInstantKeys;
+- (void)logEventPointThermalKeys;
+- (void)logPowerDeliveryKeys;
+- (void)logThermalAggregationKeysToCA;
+- (id)metricMonitorInstantKeys;
+- (id)powerDeliveryKeys;
+- (id)powerDeliveryResetKeys;
+- (id)readKey:(id)a0;
+- (BOOL)readKeyViaOSAccum:(id)a0 toOutput:(struct { double x0; unsigned int x1; unsigned char x2; } *)a1;
+- (id)resetAccumulatedKeys:(id)a0;
+- (id)sampleAccumulatedKeys:(id)a0;
+- (BOOL)sampleKey:(struct { double x0; unsigned int x1; unsigned char x2; } *)a0 forKey:(unsigned int)a1;
+- (id)thermalAggregationKeys;
+- (id)thermalInstantKeys;
+- (id)thermalKeys;
+- (char)writeKeyNumeric:(id)a0 withValue:(unsigned long long)a1;
+
+@end

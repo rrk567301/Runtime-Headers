@@ -1,0 +1,12 @@
+*** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[__NSSetM removeObject:]: object cannot be nil'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x0000000197640770 __exceptionPreprocess + 176
+	1   libobjc.A.dylib                     0x000000019711e418 objc_exception_throw + 88
+	2   CoreFoundation                      0x000000019772b3fc -[__NSSetM removeObject:] + 864
+	3   classdumpctl-mac                    0x00000001009df37c -[CDClassModel _forwardDeclarableClassReferences] + 336
+	4   classdumpctl-mac                    0x00000001009ddc14 -[CDClassModel semanticLinesWithOptions:] + 88
+	5   classdumpctl-mac                    0x00000001009d86f0 main + 4924
+	6   dyld                                0x0000000197191d54 start + 7184
+)
+libc++abi: terminating due to uncaught exception of type NSException

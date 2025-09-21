@@ -1,0 +1,3 @@
+@interface TUCallTranslationStopRequest : TUCallTranslationRequest
+
+@end

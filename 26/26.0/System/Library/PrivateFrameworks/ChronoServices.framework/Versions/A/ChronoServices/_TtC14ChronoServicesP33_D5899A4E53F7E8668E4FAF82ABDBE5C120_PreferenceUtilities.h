@@ -1,0 +1,3 @@
+@interface _TtC14ChronoServicesP33_D5899A4E53F7E8668E4FAF82ABDBE5C120_PreferenceUtilities : _TtCs12_SwiftObject
+
+@end

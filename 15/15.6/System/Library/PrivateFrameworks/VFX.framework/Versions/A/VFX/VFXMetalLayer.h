@@ -1,0 +1,94 @@
+@class VFXWorld, NSString, AVAudioEnvironmentNode, VFXRenderer, VFXJitterer, VFXRenderGraph, VFXDisplayLink, AVAudioEngine, MTLRenderPassDescriptor, VFXNode;
+@protocol MTLRenderCommandEncoder, MTLDevice, VFXWorldRendererDelegate, MTLCommandQueue;
+
+@interface VFXMetalLayer : CAMetalLayer <VFXWorldRenderer> {
+    VFXJitterer *_jitterer;
+    VFXRenderer *_renderer;
+    VFXWorld *_world;
+    VFXDisplayLink *_displayLink;
+    long long _preferredFramePerSeconds;
+    double _lastUpdate;
+    double _lastRenderedTime;
+    char _drawForJittering;
+    char _rendersIntoMaterial;
+}
+
+@property (retain, nonatomic) VFXWorld *world;
+@property (nonatomic) char syncTimeWithCoreAnimation;
+@property (weak, nonatomic) id<VFXWorldRendererDelegate> delegate;
+@property (retain, nonatomic) VFXNode *pointOfView;
+@property (nonatomic) char autoenablesDefaultLighting;
+@property (nonatomic) unsigned long long antialiasingMode;
+@property (nonatomic, getter=isJitteringEnabled) char jitteringEnabled;
+@property (nonatomic, getter=isTemporalAntialiasingEnabled) char temporalAntialiasingEnabled;
+@property (nonatomic) char additiveWritesToAlpha;
+@property (nonatomic) char showsStatistics;
+@property (nonatomic) unsigned long long debugOptions;
+@property (readonly, nonatomic) id<MTLRenderCommandEncoder> currentRenderCommandEncoder;
+@property (readonly, nonatomic) MTLRenderPassDescriptor *currentRenderPassDescriptor;
+@property (readonly, nonatomic) id<MTLDevice> device;
+@property (readonly, nonatomic) unsigned long long colorPixelFormat;
+@property (readonly, nonatomic) unsigned long long depthPixelFormat;
+@property (readonly, nonatomic) unsigned long long stencilPixelFormat;
+@property (readonly, nonatomic) id<MTLCommandQueue> commandQueue;
+@property (readonly, nonatomic) AVAudioEngine *audioEngine;
+@property (readonly, nonatomic) AVAudioEnvironmentNode *audioEnvironmentNode;
+@property (retain, nonatomic) VFXNode *audioListener;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } currentViewport;
+@property (readonly, nonatomic) struct CGColorSpace { } *workingColorSpace;
+@property (retain, nonatomic) VFXRenderGraph *renderGraph;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (char)automaticallyNotifiesObserversForKey:(id)a0;
++ (id)keyPathsForValuesAffectingValueForKey:(id)a0;
++ (id)_kvoKeysForwardedToRenderer;
+
+- (void)dealloc;
+- (id)init;
+- (void)display;
+- (void)setNeedsDisplay;
+- (char)canDrawConcurrently;
+- (void)commonInit;
+- (id)contentLayer;
+- (id)initWithLayer:(id)a0;
+- (id)layer;
+- (long long)preferredFramesPerSecond;
+- (id)renderer;
+- (void)setBackgroundColor:(struct CGColor { } *)a0;
+- (void)setContentsGravity:(id)a0;
+- (void)setPreferredFramesPerSecond:(long long)a0;
+- (void)setRenderer:(id)a0;
+- (id)displayLink;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 options:(id)a1;
+- (char)_canJitter;
+- (id)rendererOptions;
+- (void)_systemTimeAnimationStarted:(id)a0;
+- (char)rendersIntoMaterial;
+- (void)setRendersIntoMaterial:(char)a0;
+- (char)prepareObject:(id)a0 shouldAbortBlock:(id /* block */)a1;
+- (id)_authoringEnvironment;
+- (void /* unknown type, empty encoding */)unprojectPoint:(SEL)a0;
+- (char)_checkAndUpdateDisplayLinkStateIfNeeded;
+- (void)_drawAtTime:(double)a0;
+- (char)_showsAuthoringEnvironment;
+- (void /* unknown type, empty encoding */)_viewport;
+- (id)hitTestWithSegmentFromPoint:(id)a0 toPoint:(SEL)a1 options:(id)a2;
+- (char)isNodeInsideFrustum:(id)a0 withPointOfView:(id)a1;
+- (id)nodesInsideFrustumWithPointOfView:(id)a0;
+- (void)pauseDisplayLink;
+- (id)pointOfCulling;
+- (void)prepareObjects:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void /* unknown type, empty encoding */)projectPoint:(SEL)a0;
+- (void)projectPoints:(void *)a0 count:(unsigned long long)a1;
+- (void)resumeDisplayLink;
+- (void)setPointOfCulling:(id)a0;
+- (void)_jitterRedisplay;
+- (void)VFX_displayLinkCallback:(double)a0;
+- (void)_worldDidUpdate:(id)a0;
+- (id)vfx_backingLayer;
+- (char)vfx_inLiveResize;
+
+@end

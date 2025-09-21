@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore23MutableReloadStateStore : _TtCC9ChronoKit19ChronoMetadataStore16ReloadStateStore
+
+@end

@@ -1,0 +1,95 @@
+@class TSDImageDataHelper, NSString, NSArray, TSSPropertySetChangeDetails, TSDInfoGeometry, NSObject, TSWPStorage, TSDImageAdjustments, TSPData, TSPObject;
+@protocol TSDInfo, TSDOwningAttachment, OS_dispatch_queue;
+
+@interface TSAGalleryItem : TSPObject <TSDContainerInfo, TSWPStorageParent, TSDChangeableInfo, TSKDocumentObject, TSPCopying> {
+    TSWPStorage *_captionStorage;
+    double _scale;
+    char _definedOffset;
+    char _definedScale;
+    char _definedThumbnailImageData;
+    char _definedImageAdjustments;
+    char _definedAdjustedImageData;
+    char _definedThumbnailAdjustedImageData;
+    char _definedAccessibilityDescription;
+    TSDImageDataHelper *_imageDataHelper;
+    TSDImageDataHelper *_adjustedImageDataHelper;
+    NSObject<OS_dispatch_queue> *_naturalSizeQueue;
+    TSSPropertySetChangeDetails *_changes;
+}
+
+@property (nonatomic) struct CGPoint { double x; double y; } offset;
+@property (nonatomic) double scale;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } naturalSize;
+@property (retain, nonatomic) TSPData *imageData;
+@property (retain, nonatomic) TSPData *thumbnailImageData;
+@property (readonly, nonatomic) char needsDownload;
+@property (readonly, nonatomic) char canCopyData;
+@property (copy, nonatomic) TSDImageAdjustments *imageAdjustments;
+@property (retain, nonatomic) TSPData *adjustedImageData;
+@property (retain, nonatomic) TSPData *thumbnailAdjustedImageData;
+@property (readonly, nonatomic) TSWPStorage *captionStorage;
+@property (readonly, nonatomic) NSString *displayName;
+@property (copy, nonatomic) NSString *accessibilityDescription;
+@property (readonly, nonatomic) unsigned long long itemIndex;
+@property (readonly, copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) char isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) char floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) char anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) char inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) char inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) char attachedToBodyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) char matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) char autoListRecognition;
+@property (readonly, nonatomic) char autoListTermination;
+@property (readonly, nonatomic) char textIsLinked;
+@property (readonly, nonatomic) char preventsComments;
+@property (readonly, nonatomic) char preventsChangeTracking;
+@property (readonly, nonatomic) char supportsMultipleColumns;
+@property (readonly, nonatomic) long long contentWritingDirection;
+@property (readonly, nonatomic) char storageChangesInvalidateWrap;
+@property (readonly, nonatomic) char supportsVerticalTextLayoutInChildStorages;
+@property (readonly, nonatomic) char supportsDropCapsInChildStorages;
+
++ (char)needsObjectUUID;
+
+- (void).cxx_destruct;
+- (void)commonInit;
+- (char)isSelectable;
+- (void)acceptVisitor:(id)a0;
+- (id)copyWithContext:(id)a0;
+- (Class)layoutClass;
+- (id)childEnumerator;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)a0;
+- (char)isThemeContent;
+- (Class)repClass;
+- (void)adoptStylesheet:(id)a0 withMapper:(id)a1;
+- (void)beginCollectingChanges;
+- (id)endCollectingChanges;
+- (char)textIsVerticalAtCharIndex:(unsigned long long)a0;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)willChangeProperty:(int)a0;
+- (void)saveToArchiver:(id)a0;
+- (void)didInitFromSOS;
+- (void)loadFromUnarchiver:(id)a0;
+- (id)objectUUIDPath;
+- (void)saveToMessage:(void *)a0 archiver:(id)a1;
+- (void)setPrimitiveGeometry:(id)a0;
+- (id)initWithContext:(id)a0 imageData:(id)a1;
+- (id)initWithContext:(id)a0 imageData:(id)a1 thumbnailImageData:(id)a2;
+- (void)loadFromMessage:(const void *)a0 unarchiver:(id)a1;
+- (char)p_canCopy:(id)a0;
+- (void)p_willModifyImageData;
+- (void)setCaptionStorage:(id)a0;
+
+@end

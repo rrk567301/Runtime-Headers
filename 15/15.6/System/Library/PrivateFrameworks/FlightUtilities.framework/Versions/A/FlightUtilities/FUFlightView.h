@@ -1,0 +1,86 @@
+@class NSView, MKMapView, NSArray, FUDotIndicator, FULabel, NSString, FUFLightTrack, FUFlightPageController, NSMutableArray, NSLayoutConstraint, NSButton, FUPlaneTrackerAnnotationView;
+@protocol FUFlightViewDelegate;
+
+@interface FUFlightView : NSView <NSPageControllerDelegate, FUFlightInfoViewProtocol> {
+    FUPlaneTrackerAnnotationView *_planeTracker;
+    NSMutableArray *_tracks;
+    FUFLightTrack *_currentTrack;
+    NSMutableArray *_controllers;
+    FUFlightPageController *_pageViewController;
+    NSLayoutConstraint *_pageControllerHeightConstraint;
+    NSArray *_allLegs;
+}
+
+@property (nonatomic) long long currentFocus;
+@property (weak, nonatomic) MKMapView *mapView;
+@property (retain, nonatomic) NSView *mapContainer;
+@property (retain, nonatomic) NSView *infoView;
+@property (retain, nonatomic) FULabel *loadingMapLabel;
+@property (retain, nonatomic) NSLayoutConstraint *bottomInfoConstraint;
+@property (retain, nonatomic) NSView *flightPaginationContainer;
+@property (retain, nonatomic) NSLayoutConstraint *bottomPaginationContainerConstraint;
+@property (retain, nonatomic) FUDotIndicator *flightSelector;
+@property (retain, nonatomic) NSButton *previousFlightButton;
+@property (retain, nonatomic) NSButton *nextFlightButton;
+@property (retain, nonatomic) NSArray *flights;
+@property (nonatomic) long long selectedFlight;
+@property (nonatomic) long long selectedLeg;
+@property (nonatomic) char highlightCurrentFlightLeg;
+@property (nonatomic) char showInfoPanel;
+@property (weak) id<FUFlightViewDelegate> delegate;
+@property (weak) NSLayoutConstraint *topMapMargin;
+@property (weak) NSLayoutConstraint *bottomMapMargin;
+@property (weak) NSLayoutConstraint *leftMapMargin;
+@property (weak) NSLayoutConstraint *rightMapMargin;
+@property (weak) NSLayoutConstraint *mapWidth;
+@property (weak) NSLayoutConstraint *mapHeight;
+@property (nonatomic) long long style;
+@property (nonatomic) unsigned long long displayStyle;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } mapInsets;
+@property (nonatomic) char ignoreMapUpdate;
+@property (nonatomic) char landscape;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)awakeFromNib;
+- (void)pageController:(id)a0 didTransitionToObject:(id)a1;
+- (id)pageController:(id)a0 identifierForObject:(id)a1;
+- (void)pageController:(id)a0 prepareViewController:(id)a1 withObject:(id)a2;
+- (id)pageController:(id)a0 viewControllerForIdentifier:(id)a1;
+- (void)pageControllerDidEndLiveTransition:(id)a0;
+- (void)pageControllerWillStartLiveTransition:(id)a0;
+- (void)setBackgroundStyle:(long long)a0;
+- (id)mapView:(id)a0 rendererForOverlay:(id)a1;
+- (id)mapView:(id)a0 viewForAnnotation:(id)a1;
+- (void)mapViewDidFinishRenderingMap:(id)a0 fullyRendered:(char)a1;
+- (id)departureCamera;
+- (void)updateMapCamera;
+- (id)allLegs;
+- (void)fitMap:(char)a0;
+- (unsigned long long)absoluteLegIndex;
+- (void)addTrack:(id)a0;
+- (id)arrivalCamera;
+- (void)cleanupView;
+- (id)currentFlight;
+- (id)currentLeg;
+- (id)flightCamera;
+- (id)flightForLeg:(id)a0;
+- (void)flightInfoView:(id)a0 didUpdateFocus:(long long)a1;
+- (void)flightSelectionChange:(id)a0;
+- (char)hasFollowupContent:(id)a0;
+- (id)infoViewControllerCreate;
+- (void)saveRawResponse:(id)a0;
+- (void)setAbsoluteIndex:(unsigned long long)a0 animated:(char)a1;
+- (char)setFlights:(id)a0 selectedFlight:(long long)a1 selectedLeg:(long long)a2;
+- (void)setupStyles;
+- (void)updateBackForwardButtons:(char)a0 animated:(char)a1;
+- (void)updateMapAppearance;
+- (void)updateMapArcs;
+- (void)updateMargins;
+
+@end

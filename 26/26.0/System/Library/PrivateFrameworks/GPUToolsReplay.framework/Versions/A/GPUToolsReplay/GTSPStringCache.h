@@ -1,0 +1,3 @@
+@interface GTSPStringCache : GTShaderProfilerStringCache
+
+@end

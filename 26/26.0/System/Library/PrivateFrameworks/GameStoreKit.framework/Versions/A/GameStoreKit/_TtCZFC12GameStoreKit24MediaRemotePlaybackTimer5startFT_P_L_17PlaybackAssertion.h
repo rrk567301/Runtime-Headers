@@ -1,0 +1,3 @@
+@interface _TtCZFC12GameStoreKit24MediaRemotePlaybackTimer5startFT_P_L_17PlaybackAssertion : _TtCs12_SwiftObject
+
+@end

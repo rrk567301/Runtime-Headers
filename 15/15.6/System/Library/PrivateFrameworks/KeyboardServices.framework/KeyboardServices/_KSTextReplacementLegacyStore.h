@@ -1,0 +1,98 @@
+@class NSString, NSPersistentStore, NSPersistentStoreCoordinator, NSURL, NSDate, NSObject, NSManagedObjectContext;
+@protocol OS_dispatch_queue, OS_os_transaction;
+
+@interface _KSTextReplacementLegacyStore : NSObject <NSManagedObjectContextFaultingDelegate, _KSTextReplacementSyncProtocol> {
+    NSObject<OS_os_transaction> *_uptimeTransaction;
+}
+
+@property (retain, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (retain, nonatomic) NSPersistentStore *persistentStore;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic) char suspendedForAccountChange;
+@property (nonatomic) char forceMaintenance;
+@property (retain, nonatomic) NSDate *lastMaintenanceDate;
+@property (nonatomic) long long importedSinceMaintenance;
+@property (nonatomic) char pendingSampleShortcutImport;
+@property (retain, nonatomic) NSURL *baseURL;
+@property (nonatomic) char minimumUptimeDidExpire;
+@property (retain, nonatomic) NSDate *persistentStoreDidLoadTime;
+@property (nonatomic) char didScheduleCacheUpdate;
+@property (nonatomic) char shouldUpdateTheCache;
+@property (nonatomic) char ubiquityStoreLoaded;
+@property (retain, nonatomic) NSDate *ubiquityStoreLoadStartTime;
+@property (nonatomic) char shouldDisableCaching;
+@property (copy, nonatomic) NSString *cacheFilePath;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)cachedStorePath;
++ (id)legacyStorePath;
++ (id)basePersistentStoreURL;
++ (id)legacyImportFilePaths;
++ (id)legacyImportWordKeyPairsFromFiles:(id)a0;
++ (id)textReplacementEntriesFromManagedObjects:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)cleanup;
+- (char)save;
+- (id)initWithBaseURL:(id)a0;
+- (long long)context:(id)a0 shouldHandleInaccessibleFault:(id)a1 forObjectID:(id)a2 andTrigger:(id)a3;
+- (id)entityDescription;
+- (void)removeAllEntries;
+- (void)requestSyncWithCompletionBlock:(id /* block */)a0;
+- (void)_deleteDuplicatesOfShortcut:(id)a0 phrase:(id)a1 count:(long long)a2 withContext:(id)a3;
+- (id)_deleteTransaction:(id)a0;
+- (char)_mergeShortcut:(id)a0 phrase:(id)a1 fromContext:(id)a2;
+- (char)_shouldMergeShortcut:(id)a0 phrase:(id)a1 intoContext:(id)a2;
+- (void)addEntries:(id)a0 removeEntries:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (id)currentStoreIndentity;
+- (char)detectAndCleanDuplicatesWithContext:(id)a0;
+- (void)didMaintenance;
+- (void)didMergeEntriesForNewUbiquityIdentity:(id)a0;
+- (void)didMergeEntriesForOtherLocalPeers:(id)a0;
+- (void)endMinimumUptime;
+- (id)entriesFromCache:(id *)a0;
+- (id)entriesMatchingPredicate:(id)a0;
+- (id)entriesMatchingPredicate:(id)a0 sortDescriptors:(id)a1;
+- (id)entriesUsingSortDescriptors:(id)a0;
+- (void)iCloudAccountDidChange:(id)a0;
+- (void)importLegacyEntries;
+- (void)importSampleShortcutsIfNecessary;
+- (void)insertEntryWithValue:(id)a0;
+- (void)loadMaintenancePreferencesIfNecessary;
+- (void)loadPersistentStoreIfNecessary;
+- (id)managedObjectModelURL;
+- (char)mergeEntriesForUbiquityIdentityChangeFromURL:(id)a0 firstDelete:(char)a1;
+- (char)mergeEntriesForUbiquityIdentityChangeIfNecessary;
+- (char)mergeEntriesFromAllStoresIncludeLocalVariations:(char)a0;
+- (id)mergeShortcutsFromContext:(id)a0;
+- (char)migrateEntriesFromStoreAtURL:(id)a0 error:(id *)a1;
+- (void)migrateSundanceData;
+- (void)migrateTellurideData;
+- (double)minimumUptimeRemaining;
+- (char)needsMaintenance;
+- (void)performMaintenanceIfNecessary;
+- (void)persistentStoreCoordinatorStoresDidChange:(id)a0;
+- (void)persistentStoreCoordinatorStoresWillChange:(id)a0;
+- (void)persistentStoreDidImportUbiquitousContentChanges:(id)a0;
+- (void)prepareForMigration;
+- (void)queryTextReplacementsWithCallback:(id /* block */)a0;
+- (void)queryTextReplacementsWithPredicate:(id)a0 callback:(id /* block */)a1;
+- (id)removeEntriesWithPredicate:(id)a0;
+- (void)requestMinimumUptime;
+- (void)requestSync:(unsigned long long)a0 withCompletionBlock:(id /* block */)a1;
+- (void)retirePersistentStoreAtURL:(id)a0;
+- (void)runLegacyMigration;
+- (void)runMaintenanceIncludeLocalVariations:(char)a0;
+- (void)scheduleCacheUpdate:(id)a0;
+- (id)storeURLForMergeAfterUbiquityIdentityChangeFromToken:(id)a0 toToken:(id)a1 withLastKnownToken:(id)a2 shouldDeleteFirst:(char *)a3;
+- (id)textReplacementEntries;
+- (void)unloadPersistentStore;
+- (char)writeEntriesToCache:(id)a0;
+
+@end

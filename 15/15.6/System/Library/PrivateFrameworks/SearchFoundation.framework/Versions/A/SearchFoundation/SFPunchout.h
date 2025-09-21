@@ -1,0 +1,41 @@
+@class NSString, NSArray, NSURL, SFUserActivityData, NSDictionary, NSData;
+
+@interface SFPunchout : NSObject <SFPunchout, NSSecureCoding, NSCopying> {
+    struct { unsigned char isRunnableInBackground : 1; unsigned char hasClip : 1; unsigned char forceOpenInBrowser : 1; } _has;
+}
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, nonatomic) NSURL *preferredOpenableURL;
+@property (retain, nonatomic) NSURL *cachedOpenableURL;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *bundleIdentifier;
+@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSArray *urls;
+@property (retain, nonatomic) SFUserActivityData *userActivityData;
+@property (copy, nonatomic) NSString *actionTarget;
+@property (nonatomic) char isRunnableInBackground;
+@property (nonatomic) char hasClip;
+@property (nonatomic) char forceOpenInBrowser;
+@property (readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)punchoutWithURL:(id)a0;
++ (id)punchoutWithURLs:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (char)canOpenURL:(id)a0;
+- (id)initWithProtobuf:(id)a0;
+- (char)hasForceOpenInBrowser;
+- (char)hasHasClip;
+- (char)hasIsRunnableInBackground;
+
+@end

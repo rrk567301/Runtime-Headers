@@ -1,0 +1,78 @@
+@interface AWDWASymptomsDnsStats : PBCodable <NSCopying> {
+    struct { unsigned char symptomsDnsTimeSincePreviousTriggerMinutes : 1; unsigned char configType : 1; unsigned char impactedServersAtStudyEnd : 1; unsigned char impactedServersAtStudyStart : 1; unsigned char lanHealthAfterDecision : 1; unsigned char lanHealthBeforeDecision : 1; unsigned char netscoreAtStudyEnd : 1; unsigned char netscoreAtStudyStart : 1; unsigned char netscoreHealthAfterDecision : 1; unsigned char netscoreHealthBeforeDecision : 1; unsigned char numIpv4DnsServers : 1; unsigned char numIpv6DnsServers : 1; unsigned char numLocalDnsServers : 1; unsigned char numRemoteDnsServers : 1; unsigned char stallscoreAtStudyEnd : 1; unsigned char stallscoreAtStudyStart : 1; unsigned char stallscoreHealthAfterDecision : 1; unsigned char stallscoreHealthBeforeDecision : 1; unsigned char suppressedReason : 1; unsigned char symptomsDnsRecommendation : 1; unsigned char totalDnsServers : 1; unsigned char wanHealthAfterDecision : 1; unsigned char wanHealthBeforeDecision : 1; unsigned char dpsNotificationReceivedDuringStudy : 1; unsigned char isCaptiveServerIPResolved : 1; unsigned char isPingEnqueueFailing : 1; unsigned char slowWiFiNotificationReceivedDuringStudy : 1; unsigned char symptomsDnsscreenStateOn : 1; } _has;
+}
+
+@property (nonatomic) char hasTotalDnsServers;
+@property (nonatomic) unsigned int totalDnsServers;
+@property (nonatomic) char hasNumIpv4DnsServers;
+@property (nonatomic) unsigned int numIpv4DnsServers;
+@property (nonatomic) char hasNumIpv6DnsServers;
+@property (nonatomic) unsigned int numIpv6DnsServers;
+@property (nonatomic) char hasNumLocalDnsServers;
+@property (nonatomic) unsigned int numLocalDnsServers;
+@property (nonatomic) char hasNumRemoteDnsServers;
+@property (nonatomic) unsigned int numRemoteDnsServers;
+@property (nonatomic) char hasConfigType;
+@property (nonatomic) int configType;
+@property (nonatomic) char hasNetscoreAtStudyStart;
+@property (nonatomic) unsigned int netscoreAtStudyStart;
+@property (nonatomic) char hasStallscoreAtStudyStart;
+@property (nonatomic) unsigned int stallscoreAtStudyStart;
+@property (nonatomic) char hasImpactedServersAtStudyStart;
+@property (nonatomic) unsigned int impactedServersAtStudyStart;
+@property (nonatomic) char hasNetscoreHealthBeforeDecision;
+@property (nonatomic) unsigned int netscoreHealthBeforeDecision;
+@property (nonatomic) char hasStallscoreHealthBeforeDecision;
+@property (nonatomic) unsigned int stallscoreHealthBeforeDecision;
+@property (nonatomic) char hasLanHealthBeforeDecision;
+@property (nonatomic) unsigned int lanHealthBeforeDecision;
+@property (nonatomic) char hasWanHealthBeforeDecision;
+@property (nonatomic) unsigned int wanHealthBeforeDecision;
+@property (nonatomic) char hasIsCaptiveServerIPResolved;
+@property (nonatomic) char isCaptiveServerIPResolved;
+@property (nonatomic) char hasSymptomsDnsscreenStateOn;
+@property (nonatomic) char symptomsDnsscreenStateOn;
+@property (nonatomic) char hasSymptomsDnsRecommendation;
+@property (nonatomic) int symptomsDnsRecommendation;
+@property (nonatomic) char hasSuppressedReason;
+@property (nonatomic) int suppressedReason;
+@property (nonatomic) char hasNetscoreAtStudyEnd;
+@property (nonatomic) unsigned int netscoreAtStudyEnd;
+@property (nonatomic) char hasStallscoreAtStudyEnd;
+@property (nonatomic) unsigned int stallscoreAtStudyEnd;
+@property (nonatomic) char hasImpactedServersAtStudyEnd;
+@property (nonatomic) unsigned int impactedServersAtStudyEnd;
+@property (nonatomic) char hasNetscoreHealthAfterDecision;
+@property (nonatomic) unsigned int netscoreHealthAfterDecision;
+@property (nonatomic) char hasStallscoreHealthAfterDecision;
+@property (nonatomic) unsigned int stallscoreHealthAfterDecision;
+@property (nonatomic) char hasLanHealthAfterDecision;
+@property (nonatomic) unsigned int lanHealthAfterDecision;
+@property (nonatomic) char hasWanHealthAfterDecision;
+@property (nonatomic) unsigned int wanHealthAfterDecision;
+@property (nonatomic) char hasSymptomsDnsTimeSincePreviousTriggerMinutes;
+@property (nonatomic) unsigned long long symptomsDnsTimeSincePreviousTriggerMinutes;
+@property (nonatomic) char hasDpsNotificationReceivedDuringStudy;
+@property (nonatomic) char dpsNotificationReceivedDuringStudy;
+@property (nonatomic) char hasSlowWiFiNotificationReceivedDuringStudy;
+@property (nonatomic) char slowWiFiNotificationReceivedDuringStudy;
+@property (nonatomic) char hasIsPingEnqueueFailing;
+@property (nonatomic) char isPingEnqueueFailing;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsConfigType:(id)a0;
+- (int)StringAsSuppressedReason:(id)a0;
+- (int)StringAsSymptomsDnsRecommendation:(id)a0;
+- (id)configTypeAsString:(int)a0;
+- (id)suppressedReasonAsString:(int)a0;
+- (id)symptomsDnsRecommendationAsString:(int)a0;
+
+@end

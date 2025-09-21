@@ -1,0 +1,91 @@
+@class TSDInfoGeometry, NSArray, TSWPStorage, NSString, TSPObject, NSObject, TSDMediaStyle;
+@protocol TSDInfo, TSDOwningAttachment;
+
+@interface TSAGalleryInfo : TSDDrawableInfo <TSWPStorageParent, TSDContainerInfo, TSDModelContainer, TSDReducibleImageContainer, TSDCompatibilityAwareMediaContainer, TSDSelectableHintMediaContainer, TSDMixing, TSDDrawableInfoCustomUnarchivingSubclassProviding, TSDSelectionStatisticsContributor> {
+    long long _captionMode;
+    TSWPStorage *_captionStorage;
+    char _isInDocument;
+    TSDMediaStyle *_archivedImageStyle;
+}
+
+@property (copy, nonatomic) NSArray *items;
+@property (nonatomic) long long captionMode;
+@property (readonly, nonatomic) TSWPStorage *captionStorage;
+@property (readonly, nonatomic) char autoListRecognition;
+@property (readonly, nonatomic) char autoListTermination;
+@property (readonly, nonatomic) char textIsLinked;
+@property (readonly, nonatomic) char preventsComments;
+@property (readonly, nonatomic) char preventsChangeTracking;
+@property (readonly, nonatomic) char supportsMultipleColumns;
+@property (readonly, nonatomic) long long contentWritingDirection;
+@property (readonly, nonatomic) char storageChangesInvalidateWrap;
+@property (readonly, nonatomic) char supportsVerticalTextLayoutInChildStorages;
+@property (readonly, nonatomic) char supportsDropCapsInChildStorages;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) char isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) char floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) char anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) char inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) char inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) char attachedToBodyText;
+@property (nonatomic) char matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) NSArray *containedModels;
+
++ (Class)drawableInfoSubclassForClass:(Class)a0 unarchiver:(id)a1;
++ (id)i_newCaptionStorageWithContext:(id)a0;
++ (id)defaultGalleryCaptionParagraphStyleInStylesheet:(id)a0;
++ (void)i_configureCaptionStorage:(id)a0;
++ (id)p_overrideCaptionParagraphStyleIdentifier;
++ (id)p_paragraphStyleWithLocalizedNameKey:(id)a0 inStylesheet:(id)a1;
++ (char)p_stylesAreEqualForOutgoingStorage:(id)a0 incomingStorage:(id)a1;
+
+- (void).cxx_destruct;
+- (unsigned int)elementKind;
+- (char)isSelectable;
+- (id)typeName;
+- (void)acceptVisitor:(id)a0;
+- (char)needsDownload;
+- (Class)layoutClass;
+- (id)childEnumerator;
+- (id)initWithContext:(id)a0 geometry:(id)a1;
+- (Class)repClass;
+- (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)a0 byGlyphStyle:(int)a1 animationFilter:(id)a2;
+- (void)adoptStylesheet:(id)a0 withMapper:(id)a1;
+- (id)animationFilters;
+- (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)a0 animationFilter:(id)a1;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (void)processSelectedStoragesWithStatisticsController:(id)a0;
+- (char)supportsHyperlinks;
+- (char)supportsParentRotation;
+- (struct CGSize { double x0; double x1; })targetSizeForImageData:(id)a0 associatedHint:(id)a1;
+- (char)textIsVerticalAtCharIndex:(unsigned long long)a0;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (char)allowsCaption;
+- (char)allowsTitle;
+- (id)childEnumeratorForUserSearch;
+- (void)insertContainedModel:(id)a0 atIndex:(unsigned long long)a1;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)loadFromUnarchiver:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (void)moveModel:(id)a0 toIndex:(unsigned long long)a1;
+- (void)removeContainedModel:(id)a0;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (char)canCopyData;
+- (id)captionTextStoragesContainingUserText;
+- (id)initWithContext:(id)a0 geometry:(id)a1 captionStorage:(id)a2;
+- (void)setCaptionStorage:(id)a0;
+- (char)wantsCounterRotationWhenNotSupportingParentRotationInRotatedParent;
+
+@end

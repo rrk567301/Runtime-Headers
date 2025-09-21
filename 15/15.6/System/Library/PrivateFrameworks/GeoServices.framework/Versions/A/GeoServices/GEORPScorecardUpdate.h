@@ -1,0 +1,33 @@
+@class GEORPScorecard;
+
+@interface GEORPScorecardUpdate : PBCodable <NSCopying> {
+    GEORPScorecard *_scorecard;
+    int _action;
+    struct { unsigned char has_action : 1; } _flags;
+}
+
+@property (readonly, nonatomic) char hasScorecard;
+@property (retain, nonatomic) GEORPScorecard *scorecard;
+@property (nonatomic) char hasAction;
+@property (nonatomic) int action;
+
++ (char)isValid:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (id)actionAsString:(int)a0;
+- (void)copyTo:(id)a0;
+- (int)StringAsAction:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)jsonRepresentation;
+- (void)readAll:(char)a0;
+
+@end

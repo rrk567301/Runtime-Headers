@@ -1,0 +1,3 @@
+@interface _TtC19HeadphoneSettingsUIP33_08152C5189CDA34C36BC89526A6BE9B819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

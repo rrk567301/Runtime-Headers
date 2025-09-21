@@ -1,0 +1,97 @@
+@class NSMutableDictionary, NSMutableSet;
+
+@interface VCHardwareSettings : NSObject {
+    int _supportHEVC;
+    char _supportVCPEncoderInitialized;
+    char _supportVCPEncoder;
+    char _isSiriVoiceTapSupported;
+    char _isSiriVoicePlayoutSupported;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *hardwareUsageModeSettings;
+@property (readonly, nonatomic) char supportHEVC;
+@property (readonly, nonatomic) char vcpSupportsHEVCEncoder;
+@property (readonly, nonatomic) char isVideoRenderingSupported;
+@property (readonly, nonatomic) NSMutableSet *pixelFormatCollections;
+@property (readonly, nonatomic) char isSiriVoiceTapSupported;
+@property (readonly, nonatomic) char isSiriVoicePlayoutSupported;
+@property (readonly, nonatomic) char isMLEnhanceOneToOneSupported;
+
++ (id)sharedInstance;
++ (long long)deviceClass;
++ (char)isAppleSilicon;
++ (unsigned int)screenHeight;
++ (unsigned int)screenWidth;
++ (char)supportsHEIFEncoding;
++ (unsigned int)builtinMicCount;
++ (char)isVoiceProcessingAt24KSupported;
++ (char)allowScreenShareResolutionModuloAdjustment;
++ (char)disableMLScalarDuringSharing;
++ (char)disableViewPointCorrectionForSharing;
++ (id)featureListStringForPayload:(int)a0 hardwareSettingsMode:(unsigned char)a1 version:(long long)a2;
++ (char)isCaptionsSupported;
++ (char)isCaptureSIFRPreferred;
++ (char)isCellularTappingSupported;
++ (char)isDataCollectionSupported;
++ (char)isDeviceLargeScreen;
++ (char)isDisplayPortrait;
++ (char)isExternalCameraSupported;
++ (char)isHEVCDecodeSupportedForHardwareSettingsMode:(unsigned char)a0;
++ (char)isHEVCEncodeSupportedForHardwareSettingsMode:(unsigned char)a0;
++ (char)isMLEnhanceOneToOneSupported;
++ (char)isMediaRecordingSupported;
++ (char)isRemoteCameraSenderSupported;
++ (char)isSiriVoicePlayoutSupported;
++ (char)isSiriVoiceTapSupported;
++ (char)isSpatialAudioSupported;
++ (char)isVideoRenderingSupported;
++ (char)isViewPointCorrectionSupported;
++ (char)limitCameraDownlinkBitrateDuringSharing;
++ (unsigned int)maxActiveScreenEncoders;
++ (unsigned int)maxActiveVideoDecoders;
++ (unsigned int)maxActiveVideoEncoders;
++ (unsigned int)maxFpsCameraCaptureDuringSharing;
++ (unsigned int)maxFrameRateSupportedBackgroundBlur;
++ (unsigned int)maxFrameRateSupportedScreenShare;
++ (unsigned int)maxHighTierMLEnhanceParticipants;
++ (unsigned int)maxMultiwayFramerateSupported;
++ (unsigned int)maxOneToOneFramerateSupported;
++ (unsigned int)maxRemoteParticipants30fps;
++ (unsigned long long)maxScreenEncodingSizeSupported;
++ (unsigned int)maxVCPSupportedTemporalLayers;
++ (char)preferPresentationTimestamp;
++ (double)previewPreferredAspectRatio;
++ (char)retainPixelBufferForMediaRecordingEnabled;
++ (unsigned int)screenHeightForDisplayID:(unsigned int)a0;
++ (long long)screenShareCapabilities;
++ (unsigned int)screenWidthForDisplayID:(unsigned int)a0;
++ (char)shouldEnforceScreenFrameRateLimit;
++ (char)shouldOverrideGPUMuxing;
++ (id)supportedVideoPayloads;
++ (char)supportsCompressedPixelFormat;
++ (char)supportsDecodingSquareCameraVideo;
++ (char)supportsDedicatedSystemAudioStream;
++ (char)supportsFilteredScreenCapture;
++ (char)supportsFoveation;
++ (char)supportsHEVCDecoding;
++ (char)supportsHEVCEncoding;
++ (char)supportsMultiway1080pStream;
++ (char)supportsMultiway720pStream;
++ (char)supportsOptimizedHandoversForTelephony;
++ (char)supportsOutOfProcessAudioDecoding;
++ (char)supportsOutOfProcessVideoDecoding;
++ (char)supportsPSVoiceOnAP;
++ (char)supportsScreenCapture;
++ (char)supportsSystemAudioTap;
++ (char)supportsVideoPriority;
++ (unsigned int)tilesPerVideoFrameForHardwareSettingsMode:(unsigned char)a0;
++ (unsigned int)tilesPerVideoFrameForHardwareSettingsMode:(unsigned char)a0 hdrMode:(unsigned long long)a1;
++ (id)virtualHardwareSettings:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (id)featureListStringForPayload:(int)a0 hardwareSettingsMode:(unsigned char)a1 version:(long long)a2;
+- (unsigned int)maxNetworkBitrateMultiwayAudioOnWifi:(char)a0 isLowLatencyAudio:(char)a1;
+- (char)storeHardwareSettingsForAllOperatingModes;
+
+@end

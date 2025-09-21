@@ -1,0 +1,7 @@
+@interface SKGEntityEdges : SKGEdges
+
++ (id)labels;
++ (Class)nodeClass;
++ (Class)edgeClass;
+
+@end

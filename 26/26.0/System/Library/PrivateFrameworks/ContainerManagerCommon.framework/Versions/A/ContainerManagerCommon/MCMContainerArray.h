@@ -1,0 +1,20 @@
+@class NSString, NSMutableArray;
+
+@interface MCMContainerArray : NSObject <MCMContainerArray>
+
+@property (readonly, nonatomic) NSMutableArray *array;
+@property (readonly, nonatomic) unsigned long long generation;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setGeneration:(unsigned long long)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)countByEnumeratingWithState:(struct { unsigned long long x0; id *x1; unsigned long long *x2; unsigned long long x3[5]; } *)a0 objects:(id *)a1 count:(unsigned long long)a2;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)initWithGeneration:(unsigned long long)a0;
+- (id)initWithMutableArray:(id)a0 generation:(unsigned long long)a1;
+
+@end

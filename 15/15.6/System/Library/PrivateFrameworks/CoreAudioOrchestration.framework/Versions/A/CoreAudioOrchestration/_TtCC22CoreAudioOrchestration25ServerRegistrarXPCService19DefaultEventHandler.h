@@ -1,0 +1,3 @@
+@interface _TtCC22CoreAudioOrchestration25ServerRegistrarXPCService19DefaultEventHandler : _TtCs12_SwiftObject
+
+@end

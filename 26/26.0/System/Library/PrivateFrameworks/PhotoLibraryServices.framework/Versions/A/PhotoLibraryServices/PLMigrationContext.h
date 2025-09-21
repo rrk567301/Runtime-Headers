@@ -1,0 +1,24 @@
+@class PLGraphCache, NSPersistentStore, NSURL, PLCoreAnalyticsEventManager, PLPhotoLibraryPathManager, NSMutableDictionary, NSDictionary, NSPersistentStoreCoordinator, PLModelMigrationHistory, NSString, PLLazyObject;
+
+@interface PLMigrationContext : NSObject <PLModelMigrationContext> {
+    PLLazyObject *_lazyModelMigrationHistory;
+}
+
+@property (retain, nonatomic) NSPersistentStoreCoordinator *coordinator;
+@property (retain, nonatomic) NSURL *storeURL;
+@property (retain, nonatomic) NSDictionary *options;
+@property (retain, nonatomic) PLCoreAnalyticsEventManager *analyticsEventManager;
+@property (retain, nonatomic) PLPhotoLibraryPathManager *pathManager;
+@property (retain) PLGraphCache *graphCache;
+@property unsigned short previousStoreVersion;
+@property unsigned int policy;
+@property long long libraryIdentifier;
+@property (retain) NSMutableDictionary *userInfo;
+@property (retain, nonatomic) NSPersistentStore *store;
+@property (readonly) PLModelMigrationHistory *modelMigrationHistory;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+@end

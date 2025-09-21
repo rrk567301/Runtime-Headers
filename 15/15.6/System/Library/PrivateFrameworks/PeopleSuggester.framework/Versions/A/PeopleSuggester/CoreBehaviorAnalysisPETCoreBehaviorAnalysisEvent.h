@@ -1,0 +1,80 @@
+@class NSString;
+
+@interface CoreBehaviorAnalysisPETCoreBehaviorAnalysisEvent : PBCodable <NSCopying> {
+    struct { unsigned char topicContainingRuleCount : 1; unsigned char topicRulesCardinality : 1; unsigned char personAndAppMatched : 1; unsigned char personMatched : 1; unsigned char topicInContext : 1; unsigned char topicInRule : 1; unsigned char topicOverlap : 1; } _has;
+}
+
+@property (nonatomic) char contentUrlInContext;
+@property (nonatomic) unsigned int highConfidenceRuleCount;
+@property (nonatomic) unsigned int locationOfInterestContainingRuleCount;
+@property (nonatomic) unsigned int locationOfInterestRulesCardinality;
+@property (nonatomic) char lOIInContext;
+@property (nonatomic) unsigned int lowConfidenceRuleCount;
+@property (nonatomic) unsigned int mediumConfidenceRuleCount;
+@property (nonatomic) unsigned int photoContactContainingRuleCount;
+@property (nonatomic) unsigned int photoContactInContext;
+@property (nonatomic) unsigned int photoContactRulesCardinality;
+@property (nonatomic) unsigned int photoSceneContainingRuleCount;
+@property (nonatomic) unsigned int photoSceneInContext;
+@property (nonatomic) unsigned int photoSceneRulesCardinality;
+@property (nonatomic) unsigned int sourceBundleIdContainingRuleCount;
+@property (nonatomic) char sourceBundleIdInContext;
+@property (nonatomic) unsigned int sourceBundleIdRulesCardinality;
+@property (nonatomic) unsigned int targetBundleIdContainingRuleCount;
+@property (nonatomic) char targetBundleIdInContext;
+@property (nonatomic) unsigned int targetBundleIdRulesCardinality;
+@property (nonatomic) unsigned int totalMessagesRecieved;
+@property (nonatomic) unsigned int totalMessagesSent;
+@property (nonatomic) unsigned int totalShares;
+@property (retain, nonatomic) NSString *uniqueShareEventIdentifier;
+@property (nonatomic) char utiTypeInContext;
+@property (retain, nonatomic) NSString *confidence;
+@property (nonatomic) char contentUrlInRule;
+@property (nonatomic) char contentUrlOverlap;
+@property (nonatomic) char isWeekendInRule;
+@property (nonatomic) char isWeekendOverlap;
+@property (nonatomic) char lOIInRule;
+@property (nonatomic) char lOIOverlap;
+@property (nonatomic) char hasPersonAndAppMatched;
+@property (nonatomic) char personAndAppMatched;
+@property (nonatomic) char hasPersonMatched;
+@property (nonatomic) char personMatched;
+@property (nonatomic) unsigned int photoContactInRule;
+@property (nonatomic) unsigned int photoContactOverlap;
+@property (nonatomic) unsigned int photoSceneInRule;
+@property (nonatomic) unsigned int photoSceneOverlap;
+@property (nonatomic) char sourceBundleIdInRule;
+@property (nonatomic) char sourceBundleIdOverlap;
+@property (retain, nonatomic) NSString *support;
+@property (nonatomic) char targetBundleIDInConsequent;
+@property (nonatomic) char targetBundleIdInRule;
+@property (nonatomic) char targetBundleIdOverlap;
+@property (nonatomic) char timeOfDaySlotInRule;
+@property (nonatomic) char timeOfDaySlotOverlap;
+@property (nonatomic) char utiTypeInRule;
+@property (nonatomic) char utiTypeOverlap;
+@property (readonly, nonatomic) char hasSessionId;
+@property (retain, nonatomic) NSString *sessionId;
+@property (nonatomic) char hasTopicRulesCardinality;
+@property (nonatomic) unsigned int topicRulesCardinality;
+@property (nonatomic) char hasTopicContainingRuleCount;
+@property (nonatomic) unsigned int topicContainingRuleCount;
+@property (nonatomic) char hasTopicOverlap;
+@property (nonatomic) char topicOverlap;
+@property (nonatomic) char hasTopicInContext;
+@property (nonatomic) char topicInContext;
+@property (nonatomic) char hasTopicInRule;
+@property (nonatomic) char topicInRule;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

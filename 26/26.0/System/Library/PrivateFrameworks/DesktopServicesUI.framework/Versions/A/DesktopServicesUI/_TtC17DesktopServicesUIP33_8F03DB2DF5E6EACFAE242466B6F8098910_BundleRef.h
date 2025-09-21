@@ -1,0 +1,3 @@
+@interface _TtC17DesktopServicesUIP33_8F03DB2DF5E6EACFAE242466B6F8098910_BundleRef : _TtCs12_SwiftObject
+
+@end

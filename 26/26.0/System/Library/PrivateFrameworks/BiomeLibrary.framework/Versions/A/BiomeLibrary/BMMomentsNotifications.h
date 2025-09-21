@@ -1,0 +1,102 @@
+@class NSString, NSArray, NSDate;
+
+@interface BMMomentsNotifications : BMEventBase <BMStoreData> {
+    BOOL _hasRaw_reporterWritingDate;
+    double _raw_reporterWritingDate;
+    BOOL _hasRaw_maxAvailabilityProbabilityDate;
+    double _raw_maxAvailabilityProbabilityDate;
+    BOOL _hasRaw_proposedFireDate;
+    double _raw_proposedFireDate;
+    BOOL _hasRaw_realTimeCheckHandlerRetryDate;
+    double _raw_realTimeCheckHandlerRetryDate;
+    BOOL _hasRaw_fireAlarmDate;
+    double _raw_fireAlarmDate;
+    BOOL _hasRaw_eventTime;
+    double _raw_eventTime;
+}
+
+@property (class, readonly, nonatomic) unsigned int latestDataVersion;
+
+@property (readonly, nonatomic) NSString *reporterIdentification;
+@property (readonly, nonatomic) NSDate *reporterWritingDate;
+@property (readonly, nonatomic) BOOL isSignificantLocationEnabled;
+@property (nonatomic) BOOL hasIsSignificantLocationEnabled;
+@property (readonly, nonatomic) BOOL isSystemNotificationsEnabled;
+@property (nonatomic) BOOL hasIsSystemNotificationsEnabled;
+@property (readonly, nonatomic) BOOL isAppNotificationsEnabled;
+@property (nonatomic) BOOL hasIsAppNotificationsEnabled;
+@property (readonly, nonatomic) NSArray *predictionTuple;
+@property (readonly, nonatomic) double maxAvailabilityProbability;
+@property (nonatomic) BOOL hasMaxAvailabilityProbability;
+@property (readonly, nonatomic) NSDate *maxAvailabilityProbabilityDate;
+@property (readonly, nonatomic) NSDate *proposedFireDate;
+@property (readonly, nonatomic) int proposedFireDateSource;
+@property (readonly, nonatomic) NSDate *realTimeCheckHandlerRetryDate;
+@property (readonly, nonatomic) BOOL realTimeCheckHandlerFailure;
+@property (nonatomic) BOOL hasRealTimeCheckHandlerFailure;
+@property (readonly, nonatomic) NSString *realTimeCheckHandlerErrorDescription;
+@property (readonly, nonatomic) NSString *realTimeCheckHandlerErrorCode;
+@property (readonly, nonatomic) NSString *realTimeAlarmErrorDomain;
+@property (readonly, nonatomic) NSDate *fireAlarmDate;
+@property (readonly, nonatomic) NSString *fireTimerAlarmErrorDescription;
+@property (readonly, nonatomic) NSString *fireTimerAlarmErrorCode;
+@property (readonly, nonatomic) NSString *fireTimerAlarmErrorDomain;
+@property (readonly, nonatomic) BOOL realTimeCheckRejected;
+@property (nonatomic) BOOL hasRealTimeCheckRejected;
+@property (readonly, nonatomic) BOOL realTimeCheckIsTraveling;
+@property (nonatomic) BOOL hasRealTimeCheckIsTraveling;
+@property (readonly, nonatomic) BOOL realTimeCheckIsPlaceEligible;
+@property (nonatomic) BOOL hasRealTimeCheckIsPlaceEligible;
+@property (readonly, nonatomic) BOOL realTimeCheckIsInVisit;
+@property (nonatomic) BOOL hasRealTimeCheckIsInVisit;
+@property (readonly, nonatomic) BOOL realTimeCheckIsInWorkoutHealthKit;
+@property (nonatomic) BOOL hasRealTimeCheckIsInWorkoutHealthKit;
+@property (readonly, nonatomic) BOOL realTimeCheckIsInWorkoutMotion;
+@property (nonatomic) BOOL hasRealTimeCheckIsInWorkoutMotion;
+@property (readonly, nonatomic) BOOL realTimeCheckIsJournaling;
+@property (nonatomic) BOOL hasRealTimeCheckIsJournaling;
+@property (readonly, nonatomic) BOOL realTimeCheckIsAtHome;
+@property (nonatomic) BOOL hasRealTimeCheckIsAtHome;
+@property (readonly, nonatomic) int eventType;
+@property (readonly, nonatomic) NSDate *eventTime;
+@property (readonly, nonatomic) BOOL AttemptSuccessful;
+@property (nonatomic) BOOL hasAttemptSuccessful;
+@property (readonly, nonatomic) int contentType;
+@property (readonly, nonatomic) NSString *suggestionIdentifier;
+@property (readonly, nonatomic) int bundleInterfaceType;
+@property (readonly, nonatomic) double bundleGoodnessScore;
+@property (nonatomic) BOOL hasBundleGoodnessScore;
+@property (readonly, nonatomic) NSString *deviceId;
+@property (readonly, nonatomic) int deviceType;
+@property (readonly, nonatomic) BOOL isDevicePrimary;
+@property (nonatomic) BOOL hasIsDevicePrimary;
+@property (readonly, nonatomic) BOOL journalingAppFirstParty;
+@property (nonatomic) BOOL hasJournalingAppFirstParty;
+@property (readonly, nonatomic) int schedulingState;
+@property (readonly, nonatomic) int scheduleDeliverySetting;
+@property (readonly, nonatomic) BOOL isOnDefaultSchedule;
+@property (nonatomic) BOOL hasIsOnDefaultSchedule;
+@property (readonly, nonatomic) BOOL isDNUGated;
+@property (nonatomic) BOOL hasIsDNUGated;
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)columns;
++ (id)protoFields;
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
++ (id)validKeyPaths;
+
+- (id)jsonDictionary;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (id)serialize;
+- (id)initByReadFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)_predictionTupleJSONArray;
+- (id)initWithReporterIdentification:(id)a0 reporterWritingDate:(id)a1 isSignificantLocationEnabled:(id)a2 isSystemNotificationsEnabled:(id)a3 isAppNotificationsEnabled:(id)a4 predictionTuple:(id)a5 maxAvailabilityProbability:(id)a6 maxAvailabilityProbabilityDate:(id)a7 proposedFireDate:(id)a8 proposedFireDateSource:(int)a9 realTimeCheckHandlerRetryDate:(id)a10 realTimeCheckHandlerFailure:(id)a11 realTimeCheckHandlerErrorDescription:(id)a12 realTimeCheckHandlerErrorCode:(id)a13 realTimeAlarmErrorDomain:(id)a14 fireAlarmDate:(id)a15 fireTimerAlarmErrorDescription:(id)a16 fireTimerAlarmErrorCode:(id)a17 fireTimerAlarmErrorDomain:(id)a18 realTimeCheckRejected:(id)a19 realTimeCheckIsTraveling:(id)a20 realTimeCheckIsPlaceEligible:(id)a21 realTimeCheckIsInVisit:(id)a22 realTimeCheckIsInWorkoutHealthKit:(id)a23 realTimeCheckIsInWorkoutMotion:(id)a24 realTimeCheckIsJournaling:(id)a25 realTimeCheckIsAtHome:(id)a26 eventType:(int)a27 eventTime:(id)a28 AttemptSuccessful:(id)a29 contentType:(int)a30 suggestionIdentifier:(id)a31 bundleInterfaceType:(int)a32 bundleGoodnessScore:(id)a33 deviceId:(id)a34 deviceType:(int)a35 isDevicePrimary:(id)a36 journalingAppFirstParty:(id)a37 schedulingState:(int)a38 scheduleDeliverySetting:(int)a39 isOnDefaultSchedule:(id)a40 isDNUGated:(id)a41;
+
+@end

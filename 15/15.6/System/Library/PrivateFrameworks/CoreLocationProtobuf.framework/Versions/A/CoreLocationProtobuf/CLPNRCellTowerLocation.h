@@ -1,0 +1,92 @@
+@class NSString, CLPLocation, NSMutableArray, CLPCellNeighborsGroup;
+
+@interface CLPNRCellTowerLocation : PBCodable <NSCopying> {
+    struct { unsigned char cellLatitude : 1; unsigned char cellLongitude : 1; unsigned char ci : 1; unsigned char bandInfo : 1; unsigned char bandwidth : 1; unsigned char bwpSupport : 1; unsigned char downlinkBandwidth : 1; unsigned char ecn0 : 1; unsigned char gscn : 1; unsigned char latency : 1; unsigned char maxThroughput : 1; unsigned char mcc : 1; unsigned char mnc : 1; unsigned char nrarfcn : 1; unsigned char pid : 1; unsigned char pmax : 1; unsigned char rscp : 1; unsigned char rssi : 1; unsigned char scs : 1; unsigned char serverHash : 1; unsigned char tac : 1; unsigned char timingAdvance : 1; unsigned char hasWifiFallback : 1; unsigned char isLimitedService : 1; unsigned char isStalled : 1; unsigned char uniqueCount : 1; } _has;
+}
+
+@property (nonatomic) char hasMcc;
+@property (nonatomic) int mcc;
+@property (nonatomic) char hasMnc;
+@property (nonatomic) int mnc;
+@property (nonatomic) char hasTac;
+@property (nonatomic) int tac;
+@property (nonatomic) char hasCi;
+@property (nonatomic) long long ci;
+@property (nonatomic) char hasNrarfcn;
+@property (nonatomic) int nrarfcn;
+@property (nonatomic) char hasPid;
+@property (nonatomic) int pid;
+@property (nonatomic) char hasBandInfo;
+@property (nonatomic) int bandInfo;
+@property (readonly, nonatomic) char hasLocation;
+@property (retain, nonatomic) CLPLocation *location;
+@property (readonly, nonatomic) char hasAppBundleId;
+@property (retain, nonatomic) NSString *appBundleId;
+@property (readonly, nonatomic) char hasOperatorName;
+@property (retain, nonatomic) NSString *operatorName;
+@property (nonatomic) char hasCellLatitude;
+@property (nonatomic) double cellLatitude;
+@property (nonatomic) char hasCellLongitude;
+@property (nonatomic) double cellLongitude;
+@property (nonatomic) char hasServerHash;
+@property (nonatomic) int serverHash;
+@property (nonatomic) char hasEcn0;
+@property (nonatomic) int ecn0;
+@property (nonatomic) char hasRscp;
+@property (nonatomic) int rscp;
+@property (nonatomic) char hasRssi;
+@property (nonatomic) int rssi;
+@property (retain, nonatomic) NSMutableArray *neighbors;
+@property (readonly, nonatomic) char hasNeighborGroup;
+@property (retain, nonatomic) CLPCellNeighborsGroup *neighborGroup;
+@property (nonatomic) char hasBandwidth;
+@property (nonatomic) int bandwidth;
+@property (nonatomic) char hasIsLimitedService;
+@property (nonatomic) char isLimitedService;
+@property (readonly, nonatomic) char hasServiceProviderName;
+@property (retain, nonatomic) NSString *serviceProviderName;
+@property (nonatomic) char hasScs;
+@property (nonatomic) unsigned int scs;
+@property (nonatomic) char hasGscn;
+@property (nonatomic) unsigned int gscn;
+@property (nonatomic) char hasDownlinkBandwidth;
+@property (nonatomic) unsigned int downlinkBandwidth;
+@property (nonatomic) char hasIsStalled;
+@property (nonatomic) char isStalled;
+@property (nonatomic) char hasLatency;
+@property (nonatomic) unsigned int latency;
+@property (nonatomic) char hasPmax;
+@property (nonatomic) unsigned int pmax;
+@property (nonatomic) char hasMaxThroughput;
+@property (nonatomic) unsigned int maxThroughput;
+@property (nonatomic) char hasBwpSupport;
+@property (nonatomic) unsigned int bwpSupport;
+@property (nonatomic) char hasTimingAdvance;
+@property (nonatomic) int timingAdvance;
+@property (nonatomic) char hasUniqueCount;
+@property (nonatomic) char uniqueCount;
+@property (nonatomic) char hasHasWifiFallback;
+@property (nonatomic) char hasWifiFallback;
+@property (readonly, nonatomic) char hasNpnNwIdEf;
+@property (retain, nonatomic) NSString *npnNwIdEf;
+@property (readonly, nonatomic) char hasNpnCsgIdEf;
+@property (retain, nonatomic) NSString *npnCsgIdEf;
+
++ (Class)neighborType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)addNeighbor:(id)a0;
+- (id)neighborAtIndex:(unsigned long long)a0;
+- (void)clearNeighbors;
+- (unsigned long long)neighborsCount;
+
+@end

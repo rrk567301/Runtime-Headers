@@ -1,0 +1,8 @@
+@interface FaceTimeNotificationCore.ReleaseAssertionAction : FaceTimeNotificationCore.DownstreamAction
+
+@property (class, nonatomic, readonly) char supportsSecureCoding;
+
+- (id)init;
+- (id)initWithCoder:(id)a0;
+
+@end

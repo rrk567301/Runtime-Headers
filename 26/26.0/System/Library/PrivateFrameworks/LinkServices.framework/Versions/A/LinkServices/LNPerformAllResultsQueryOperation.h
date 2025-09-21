@@ -1,0 +1,15 @@
+@class NSString, LNQueryOutput;
+
+@interface LNPerformAllResultsQueryOperation : LNInterfaceConnectionOperation
+
+@property (copy, nonatomic) NSString *entityType;
+@property (copy, nonatomic) NSString *entityMangledTypeName;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (copy, nonatomic) LNQueryOutput *output;
+
+- (void)start;
+- (void)finishWithError:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithConnectionInterface:(id)a0 entityMangledTypeName:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

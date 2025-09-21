@@ -1,0 +1,86 @@
+@class CCContextDeviceGroup, CCSimpleRenderPass, CCDebugVisualizationServiceDescriptor, MTLRenderPassDescriptor, CCLane, __cap_, __end_;
+@protocol MTLTexture, MTLBuffer;
+
+@interface CCDebugVisualizationService : CCService {
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _missFrameGraphVisualizerPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _missFrameSpeedoMeterPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _badgeLogoMarkerVisualizerPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _gazeMarkerPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _displayCorrectionZoomBorderPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _gazeTrackZonePipline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _gazeVRRVisualizationPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _whiteScreenM2PFlashPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _fullScreenVisualizationPipeline;
+    struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } _fullScreenGridVisualizationPipeline;
+    struct DebugLayerServiceData { struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } imagePipelineStates; struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } wireframePipelineStates; struct realtime_vector<id<MTLRenderPipelineState>> { __end_ **__begin_; __cap_ **x0; id *x1; } pointsPipelineStates; id<MTLBuffer> cornerVertices; id<MTLBuffer> basisVertices; id<MTLBuffer> pointsModelViewProjectionBuffer; id<MTLBuffer> meshesModelViewProjectionBuffer; } _debugLayer;
+    CCContextDeviceGroup *_deviceGroup;
+    CCDebugVisualizationServiceDescriptor *_debugVisualizationServiceDescriptor;
+    CCSimpleRenderPass *_debugPass;
+    BOOL _deviceSupportsVRR;
+    id<MTLBuffer> _gazeMarkerMeshBuffer;
+    id<MTLBuffer> _gazeTrackingCircleBuffer;
+    id<MTLBuffer> _missFrameSpeedoMeterBuffer;
+    id<MTLBuffer> _missFrameGraphBuffer;
+    id<MTLBuffer> _quadMeshBuffer;
+    id<MTLBuffer> _quadOutlineMeshBuffer;
+    id<MTLBuffer> _quadOutlineIndexBuffer;
+    id<MTLBuffer> _zoomBorderMeshBuffer;
+    struct CCGazeRay { void /* unknown type, empty encoding */ gazeOrigin; void /* unknown type, empty encoding */ gazeDirection; struct { void /* unknown type, empty encoding */ columns[4]; } eyeOffset; } _gazeDataCenter;
+    struct CCGazeRay { void /* unknown type, empty encoding */ gazeOrigin; void /* unknown type, empty encoding */ gazeDirection; struct { void /* unknown type, empty encoding */ columns[4]; } eyeOffset; } _gazeDataEyeTracking;
+    struct CCGazeRay { void /* unknown type, empty encoding */ gazeOrigin; void /* unknown type, empty encoding */ gazeDirection; struct { void /* unknown type, empty encoding */ columns[4]; } eyeOffset; } _gazeRay;
+    MTLRenderPassDescriptor *_renderPassDescriptor;
+    struct { void /* unknown type, empty encoding */ vector; } _previousPose;
+    long long _lastCompositorMissFrameType;
+    long long _frameNumber;
+    long long _showCompositorMissedFrameNumber;
+    long long _showSystemCPUThrottlingFrameNumber;
+    long long _showGazeDropFrameNumber;
+    id<MTLTexture> _systemCPUThrottlingTexture;
+    id<MTLTexture> _thermalMitigationThrottlingTexture;
+    id<MTLTexture> _userOutsideEyeBoxTexture;
+    id<MTLTexture> _gazeDropIndicatorTexture;
+    id<MTLTexture> _clientFrameRateDropIndicatorTexture;
+    id<MTLTexture> _compositorFrameRateTextures[5];
+    int _clientsMissedFrameCount;
+    struct queue<long long, std::deque<long long>> { struct deque<long long, std::allocator<long long>> { struct __split_buffer<long long *, std::allocator<long long *>> { long long **__first_; long long **__begin_; long long **__end_; long long **__cap_; } __map_; unsigned long long __start_; unsigned long long __size_; } c; } _clientsMissedFrameQueue;
+    BOOL _clientsMissedFrameGraphValue[630];
+    void /* unknown type, empty encoding */ _colorPalette[7];
+    BOOL _isCIF10Enabled;
+    int _sustainedWhiteFlashState[2];
+    double _sustainedFlashStartTime[2];
+    CCLane *resourceDisplayTexture;
+    CCLane *resourceDisplayCameras;
+    CCLane *resourceVisualizationFlags;
+    CCLane *resourceXRInput;
+    CCLane *resourceXRInputIndexed[5];
+    CCLane *resourceDefaultOutputColorData;
+    CCLane *resourceHomogenousWarpComponent;
+    CCLane *resourceDisplayDistortionODC[2];
+    CCLane *resourceDisplayCorrectionData;
+    BOOL _enableLateLatching;
+    id<MTLBuffer> _lateUpdateUniformBuffer;
+    struct { BOOL x0[3]; void /* unknown type, empty encoding */ x1[2]; } *_lateUpdateUniforms;
+    unsigned long long _gazeMarkerMeshBufferLength;
+    unsigned long long _gazeTrackingCircleBufferLength;
+    unsigned long long _quadMeshBufferLength;
+    unsigned long long _quadOutlineIndexBufferLength;
+    unsigned long long _missFrameSpeedoMeterBufferLength;
+    unsigned long long _missFrameGraphBufferLength;
+    unsigned long long _zoomBorderMeshBufferLength;
+    struct CCRenderCommandEncoderMethods { Class _classId; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, id<MTLDepthStencilState>> { SEL _sel; void /* function */ *_function; } setDepthStencilState; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, unsigned int> { SEL _sel; void /* function */ *_function; } setStencilReferenceValue; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLViewport> { SEL _sel; void /* function */ *_function; } setViewport; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, const MTLViewport[], unsigned long> { SEL _sel; void /* function */ *_function; } setViewports; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, NSString *> { SEL _sel; void /* function */ *_function; } pushDebugGroup; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void> { SEL _sel; void /* function */ *_function; } popDebugGroup; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, id<MTLRenderPipelineState>> { SEL _sel; void /* function */ *_function; } setRenderPipelineState; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, id<MTLBuffer>, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } setVertexBufferAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, const void *, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } setVertexBytesAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } setVertexBufferOffsetAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, const void *, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } setFragmentBytesAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, id<MTLBuffer>, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } setFragmentBufferAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, id<MTLTexture>, unsigned long> { SEL _sel; void /* function */ *_function; } setFragmentTextureAtIndex; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLPrimitiveType, unsigned long, MTLIndexType, id<MTLBuffer>, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } drawIndexedPrimitivesIndexInstance; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLPrimitiveType, unsigned long, MTLIndexType, id<MTLBuffer>, unsigned long> { SEL _sel; void /* function */ *_function; } drawIndexedPrimitives; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLPrimitiveType, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } drawPrimitives; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLPrimitiveType, unsigned long, unsigned long, unsigned long> { SEL _sel; void /* function */ *_function; } drawPrimitivesInstanceCount; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLCullMode> { SEL _sel; void /* function */ *_function; } setCullMode; struct CCObjCMethodWrapper<CCRenderCommandEncoderMethods, void, MTLTriangleFillMode> { SEL _sel; void /* function */ *_function; } setTriangleFillMode; } _renderCommandEncoder;
+}
+
++ (id)new;
+
+- (BOOL)setDescriptor:(id)a0;
+- (id)init;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)addAllocations:(id)a0;
+- (BOOL)preBuildService;
+- (BOOL)buildWithDeviceGroup:(id)a0;
+- (BOOL)reallocateBuffersWithDeviceGroup:(id)a0;
+- (void)removeAllocations:(id)a0;
+- (BOOL)updateLanes:(id)a0;
+
+@end

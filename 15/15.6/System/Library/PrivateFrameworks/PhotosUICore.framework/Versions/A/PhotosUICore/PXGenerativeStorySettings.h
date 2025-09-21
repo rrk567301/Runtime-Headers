@@ -1,0 +1,82 @@
+@interface PXGenerativeStorySettings : PXSettings
+
+@property (class, nonatomic, readonly) long long defaultIntelligenceLightMode;
+@property (class, readonly, nonatomic) char isMemoryCreationEnabled;
+@property (class, readonly, nonatomic) char isMemoryCreationTimeEventDisambiguationEnabled;
+@property (class, readonly, nonatomic) char isMemoryCreationInWatchNextEnabled;
+
+@property (nonatomic) char preferInternalEvaluationUI;
+@property (nonatomic) char preferMockSuggestionsData;
+@property (nonatomic) char showFreeformMemoryCreationCellInMemoryShelf;
+@property (nonatomic) long long memoryCreationCellPositionInMemoryShelf;
+@property (nonatomic) char isMemoryCreationCellRepositioningEnabled;
+@property (nonatomic) char showFreeformMemoryCreationButtonInMemoryShelf;
+@property (nonatomic) char showFreeformMemoryCreationButtonInMemoryFeed;
+@property (nonatomic) char shouldLoadStoriesFromCache;
+@property (nonatomic) char internal_isMemoryCardInWatchNextEnabled;
+@property (nonatomic) char shouldShowSuggestionSourceBadge;
+@property (nonatomic) char simulateSlowFetchForPromptSuggestion;
+@property (nonatomic) double promptSuggestionCacheExpirationInMinutes;
+@property (nonatomic) double promptSuggestionRefetchCooldown;
+@property (nonatomic) long long entryPointBackgroundMode;
+@property (nonatomic) long long fullScreenBackgroundMode;
+@property (nonatomic) char showAllBackgroundAssets;
+@property (nonatomic) char simulateSlowFetchForBackgroundAssets;
+@property (nonatomic) double backgroundBlurRadius;
+@property (nonatomic) double playbackRateFactor;
+@property (nonatomic) char disableAnimation;
+@property (nonatomic) char simulateSlowPrewarmForLoadingAnimation;
+@property (nonatomic) char shouldUsePlaceholderAssetsForLoadingAnimation;
+@property (nonatomic) char shouldUseRetrievedAssetsForLoadingAnimation;
+@property (nonatomic) char shouldUseExtendedAssetsForLoadingAnimation;
+@property (nonatomic) char shouldUseGlobalTraitsForLoadingAnimation;
+@property (nonatomic) char shouldUsePersonalTraitsForLoadingAnimation;
+@property (nonatomic) char vfxQualityPostProcessingFXHighQuality;
+@property (nonatomic) long long vfxQualityResolution;
+@property (nonatomic) long long vfxQualityFrameRate;
+@property (nonatomic) char vfxQualityUseBestCrop;
+@property (nonatomic) char useSystemPromptInputTextField;
+@property (nonatomic) char replaceMemoryCreationWithMockData;
+@property (nonatomic) char simulateCreationError;
+@property (nonatomic) char simulateSlowCreation;
+@property (nonatomic) char showDebugUIGenerationProgress;
+@property (nonatomic) char showDebugErrorUI;
+@property (nonatomic) char ambiguousTokensPauseStoryGeneration;
+@property (nonatomic) char ambiguousTokensBlockStoryGeneration;
+@property (nonatomic) char showAssetGridForTimeEventDisambiguation;
+@property (nonatomic) char enableLocationDisambiguation;
+@property (nonatomic) char unresolvableAmbiguityShowsContinueButton;
+@property (nonatomic) char automaticallyRestartStoryGenerationAfterUserDisambiguation;
+@property (nonatomic) char automaticallyExpandDisambiguationMenu;
+@property (nonatomic) long long fullScreenTransitionType;
+@property (nonatomic) char showIntelligenceLightingInSuggestions;
+@property (nonatomic) long long intelligenceLightModeInPromptTextField;
+@property (nonatomic) long long centralizedFeedbackUI;
+@property (nonatomic) char shouldForceDiagnosticAsSeedOrFCS;
+@property (nonatomic) long long autocompleteSuggestionsMode;
+@property (nonatomic) char suggestionToolEnabled;
+@property (nonatomic) double numberOfSuggestions;
+@property (nonatomic) char shouldUseAvailabilityMonitor;
+@property (nonatomic) char shouldUseProcessingStatusInAvailabilityMonitor;
+@property (nonatomic) char shouldOverrideAvailabilityPollingInterval;
+@property (nonatomic) double availabilityPollingInterval;
+@property (nonatomic) char saveCurationInFolder;
+@property (nonatomic) char showVisualDiagnosticsOptionInTapToRadar;
+@property (nonatomic) char uploadVisualDiagnostics;
+@property (nonatomic) char allowRadarRequestAlerts;
+@property (nonatomic) char internal_isMemoryCreationEnabled;
+@property (nonatomic) char shouldForceFallbackMemoryGeneration;
+@property (nonatomic) char showChapterTitles;
+@property (nonatomic) char showPerformanceTTRIfGenerationSlowOrHanging;
+@property (nonatomic) char shouldCancelGenerationAfterMaxDuration;
+@property (nonatomic) double maxDurationForGeneration;
+
++ (id)sharedInstance;
++ (id)settingsControllerModule;
++ (id)internal_deleteGenerativeMemories;
+
+- (void)setDefaultValues;
+- (id)parentSettings;
+- (char)_isAppleInternal;
+
+@end

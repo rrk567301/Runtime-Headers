@@ -1,0 +1,3 @@
+@interface DISPHDRProcessing : ProcessingEngine
+
+@end

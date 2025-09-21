@@ -1,0 +1,3 @@
+@interface _TtCV26GenerativeModelsFoundation41ExternalPartnerCredentialStorageXPCClientP33_3964D7614E53485D642BEEEEB696C2FC8Delegate : _TtCs12_SwiftObject
+
+@end

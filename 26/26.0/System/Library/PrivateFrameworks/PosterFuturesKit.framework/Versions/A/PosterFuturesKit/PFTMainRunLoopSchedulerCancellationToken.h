@@ -1,0 +1,3 @@
+@interface PFTMainRunLoopSchedulerCancellationToken : PFTCancellationToken
+
+@end

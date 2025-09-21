@@ -1,0 +1,81 @@
+@class NSString;
+
+@interface SGM2NLEventInBanner : PBCodable <NSCopying> {
+    struct { unsigned char actionType : 1; unsigned char confidenceScore : 1; unsigned char dateAdj : 1; unsigned char daysFromStartDate : 1; unsigned char duraAdj : 1; unsigned char extractionLevel : 1; unsigned char interface : 1; unsigned char locationAdj : 1; unsigned char mailAppUsageLevel : 1; unsigned char messagesAppUsageLevel : 1; unsigned char participantCount : 1; unsigned char significantSender : 1; unsigned char titleAdj : 1; unsigned char titleSource : 1; unsigned char usedBubblesCount : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasKey;
+@property (retain, nonatomic) NSString *key;
+@property (nonatomic) char hasInterface;
+@property (nonatomic) int interface;
+@property (nonatomic) char hasActionType;
+@property (nonatomic) int actionType;
+@property (readonly, nonatomic) char hasEventType;
+@property (retain, nonatomic) NSString *eventType;
+@property (readonly, nonatomic) char hasLanguageID;
+@property (retain, nonatomic) NSString *languageID;
+@property (nonatomic) char hasDaysFromStartDate;
+@property (nonatomic) unsigned int daysFromStartDate;
+@property (nonatomic) char hasConfidenceScore;
+@property (nonatomic) unsigned int confidenceScore;
+@property (nonatomic) char hasSignificantSender;
+@property (nonatomic) int significantSender;
+@property (nonatomic) char hasParticipantCount;
+@property (nonatomic) unsigned int participantCount;
+@property (nonatomic) char hasExtractionLevel;
+@property (nonatomic) int extractionLevel;
+@property (nonatomic) char hasUsedBubblesCount;
+@property (nonatomic) unsigned int usedBubblesCount;
+@property (nonatomic) char hasTitleSource;
+@property (nonatomic) int titleSource;
+@property (nonatomic) char hasTitleAdj;
+@property (nonatomic) int titleAdj;
+@property (nonatomic) char hasDateAdj;
+@property (nonatomic) int dateAdj;
+@property (nonatomic) char hasDuraAdj;
+@property (nonatomic) int duraAdj;
+@property (nonatomic) char hasLocationAdj;
+@property (nonatomic) int locationAdj;
+@property (readonly, nonatomic) char hasAddedAttendeesCount;
+@property (retain, nonatomic) NSString *addedAttendeesCount;
+@property (readonly, nonatomic) char hasCalendarAppUsageLevel;
+@property (retain, nonatomic) NSString *calendarAppUsageLevel;
+@property (nonatomic) char hasMailAppUsageLevel;
+@property (nonatomic) int mailAppUsageLevel;
+@property (nonatomic) char hasMessagesAppUsageLevel;
+@property (nonatomic) int messagesAppUsageLevel;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsActionType:(id)a0;
+- (id)actionTypeAsString:(int)a0;
+- (int)StringAsDateAdj:(id)a0;
+- (int)StringAsDuraAdj:(id)a0;
+- (int)StringAsExtractionLevel:(id)a0;
+- (int)StringAsLocationAdj:(id)a0;
+- (int)StringAsMessagesAppUsageLevel:(id)a0;
+- (int)StringAsSignificantSender:(id)a0;
+- (int)StringAsTitleSource:(id)a0;
+- (int)StringAsInterface:(id)a0;
+- (int)StringAsMailAppUsageLevel:(id)a0;
+- (int)StringAsTitleAdj:(id)a0;
+- (id)dateAdjAsString:(int)a0;
+- (id)duraAdjAsString:(int)a0;
+- (id)extractionLevelAsString:(int)a0;
+- (id)interfaceAsString:(int)a0;
+- (id)locationAdjAsString:(int)a0;
+- (id)mailAppUsageLevelAsString:(int)a0;
+- (id)messagesAppUsageLevelAsString:(int)a0;
+- (id)significantSenderAsString:(int)a0;
+- (id)titleAdjAsString:(int)a0;
+- (id)titleSourceAsString:(int)a0;
+
+@end

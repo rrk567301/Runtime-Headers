@@ -1,0 +1,5 @@
+@interface GenericFailure : NSObject <AutocorrectionResultClassifier>
+
+- (char)doesMatchResult:(id)a0;
+
+@end

@@ -1,0 +1,35 @@
+@class NSString, NSArray, LNEntityIdentifier;
+
+@interface LNEntity : NSObject <NSSecureCoding, NSCopying, BSXPCSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *managedAccountIdentifier;
+@property (readonly, copy, nonatomic) NSString *prototypeMangledTypeName;
+@property (readonly, nonatomic, getter=isTransient) char transient;
+@property (readonly, copy, nonatomic) LNEntityIdentifier *identifier;
+@property (readonly, copy, nonatomic) NSArray *properties;
+@property (readonly, nonatomic, getter=isPersistentFileIdentifiable) char persistentFileIdentifiable;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (char)supportsBSXPCSecureCoding;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithIdentifier:(id)a0;
+- (void)encodeWithBSXPCCoder:(id)a0;
+- (id)initWithBSXPCCoder:(id)a0;
+- (id)initWithTransient:(char)a0 identifier:(id)a1 persistentFileIdentifiable:(char)a2 properties:(id)a3 managedAccountIdentifier:(id)a4;
+- (id)initWithTransient:(char)a0 identifier:(id)a1 properties:(id)a2 prototypeMangledTypeName:(id)a3 managedAccountIdentifier:(id)a4;
+- (id)initWithTransient:(char)a0 identifier:(id)a1 properties:(id)a2 managedAccountIdentifier:(id)a3;
+- (id)initWithIdentifier:(id)a0 managedAccountIdentifier:(id)a1;
+- (id)initWithIdentifier:(id)a0 properties:(id)a1;
+- (id)initWithIdentifier:(id)a0 properties:(id)a1 managedAccountIdentifier:(id)a2;
+
+@end

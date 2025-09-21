@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_03AF342AA286115256FF95C286FEA7E324CoreInteractionHelperBox : _TtCs12_SwiftObject
+
+@end

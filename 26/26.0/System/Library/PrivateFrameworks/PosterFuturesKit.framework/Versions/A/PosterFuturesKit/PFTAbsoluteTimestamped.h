@@ -1,0 +1,3 @@
+@interface PFTAbsoluteTimestamped : PFTimestamped
+
+@end

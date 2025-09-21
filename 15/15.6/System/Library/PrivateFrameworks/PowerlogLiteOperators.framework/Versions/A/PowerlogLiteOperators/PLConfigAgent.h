@@ -1,0 +1,80 @@
+@class PLIOKitOperatorComposition, PLCFNotificationOperatorComposition;
+
+@interface PLConfigAgent : PLAgent
+
+@property (retain) PLCFNotificationOperatorComposition *consoleModeListener;
+@property (readonly) PLIOKitOperatorComposition *iokitExpertDevice;
+@property (retain) PLCFNotificationOperatorComposition *sysdiagnoseStartListener;
+@property (retain) PLCFNotificationOperatorComposition *sysdiagnoseStopListener;
+
++ (void)load;
++ (id)defaults;
++ (id)railDefinitions;
++ (id)accountingGroupDefinitions;
++ (id)entryEventBackwardDefinitions;
++ (id)entryEventForwardDefinitions;
++ (id)entryEventNoneDefinitions;
++ (id)entryEventPointDefinitions;
++ (id)entryEventForwardDefinitionAmbientMode;
++ (id)entryEventForwardDefinitionContinuityCamera;
++ (id)entryEventForwardDefinitionFeatureFlag;
++ (id)entryEventForwardDefinitionKeyboardClicks;
++ (id)entryEventForwardDefinitionKeyboardHaptics;
++ (id)entryEventForwardDefinitionPhotoSharing;
++ (id)entryEventForwardDefintionRinger;
++ (id)entryEventNoneDefinitionAdapterInformation;
++ (id)entryEventNoneDefinitionConfig;
++ (id)entryEventNoneDefinitionPairedDeviceConfig;
++ (long long)getOSVersionNumber;
++ (void)resetRAPIDTaskingConfig;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)deviceName;
+- (void)log;
+- (id)bootArgs;
+- (void)initOperatorDependancies;
+- (id)seedGroup;
+- (void)logConfigEntry:(id)a0;
+- (unsigned long long)logInstallType:(id)a0;
+- (id)hwBoardRevision;
+- (long long)autolockTime;
+- (id)baseband;
+- (id)basebandFirmware;
+- (id)deviceShutdownReasons;
+- (char)disableCABlanking;
+- (int)getCoreCount:(int)a0;
+- (id)getDeviceSerialNumber;
+- (int)getDeviceType;
+- (unsigned long long)getEnclosureMaterial;
+- (char)getMDMStatus;
+- (unsigned long long)getMemorySize;
+- (int)getOSVariant;
+- (int)getPerfLevelsCount;
+- (id)getShutdownBootReason:(char)a0;
+- (id)getSplatVersionString;
+- (unsigned long long)getUpgradeType;
+- (id)hwConfig;
+- (id)logAndUpdateLastBuild:(id)a0;
+- (id)logAndUpdateLastUpgradeTime:(id)a0;
+- (void)logCPUCoreConfig;
+- (void)logConfigEntryToCA:(id)a0;
+- (void)logConfigToBGSQL:(id)a0;
+- (void)logDeviceCapability;
+- (double)logDeviceDiskSize;
+- (void)logEntryToCA:(id)a0;
+- (void)logEventForwardAmbientModeEnabled:(id)a0;
+- (void)logEventForwardSysdiagnoseEvent:(char)a0;
+- (void)logEventNoneBuddyData:(id)a0;
+- (void)logEventNoneConfig;
+- (void)logEventNonePairedDeviceConfig;
+- (void)logEventPointFeatureFlags:(id)a0;
+- (id)logLastBackupTime;
+- (id)logLastUpgradeSystemTimestamp;
+- (void)logToPPSBuild:(id)a0 atDate:(id)a1;
+- (char)noWatchdogs;
+- (unsigned long long)rootInstalled;
+- (unsigned long long)volumeFreespace:(id)a0;
+
+@end

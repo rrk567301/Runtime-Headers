@@ -1,0 +1,94 @@
+@class NSMutableArray, NSString, NSMutableDictionary, IMAPTaskManager, NSProgress, NSObject, NSMutableIndexSet, NSMutableOrderedSet;
+@protocol OS_os_log, IMAPMessageDataSource;
+
+@interface IMAPMailboxSyncTask : IMAPTask <EFSignpostable, IMAPPersistDeletedMessagesOperationDelegate, IMAPPersistFlagChangesOperationDelegate, IMAPPersistLabelChangesOperationDelegate, IMAPPersistMessagesOperationDelegate, IMAPSelectMailboxOperationDelegate, IMAPSyncSkeletonsOperationDelegate, IMAPSyncUIDsFlagsAndLabelsOperationDelegate, IMAPVerifyMailboxOperationDelegate> {
+    NSMutableIndexSet *_messageNumbersNeedingUIDs;
+    NSMutableIndexSet *_messageNumbersNeedingSkeletons;
+    NSMutableIndexSet *_uidsNeedingSkeletons;
+    NSMutableOrderedSet *_messagesToPersist;
+    NSMutableIndexSet *_uidsToDelete;
+    NSMutableDictionary *_flagChangesByServerMessage;
+    NSMutableDictionary *_labelChangesByServerMessage;
+    NSMutableArray *_messagesNeedingUIDs;
+    NSMutableIndexSet *_uidsAddedLocally;
+    char _userInitiated;
+}
+
+@property (class, readonly) NSObject<OS_os_log> *signpostLog;
+
+@property (readonly) IMAPTaskManager *taskManager;
+@property (nonatomic) unsigned long long serverModificationSequence;
+@property (nonatomic) unsigned long long lastSyncedModificationSequence;
+@property (nonatomic) char shouldVerifyLocalCount;
+@property (nonatomic) unsigned long long exists;
+@property (nonatomic) unsigned int uidNext;
+@property (nonatomic) unsigned int lastSyncedUIDNext;
+@property (nonatomic) unsigned int newUIDValidity;
+@property (readonly, nonatomic) char isGmail;
+@property (readonly, nonatomic) char dataSourceIsInboxOrAllMail;
+@property unsigned int localHighestUIDToCheck;
+@property (nonatomic) char hasUnseen;
+@property (nonatomic) char networkPriorityNeedsRecalculation;
+@property (nonatomic) char persistencePriorityNeedsRecalculation;
+@property (nonatomic) char wasReset;
+@property (nonatomic) char needsUpdate;
+@property (nonatomic) char isEnding;
+@property (readonly, nonatomic) NSProgress *checkProgress;
+@property (nonatomic) char foundNewUnreadInboxMessage;
+@property (nonatomic) long long verificationState;
+@property (readonly, nonatomic) id<IMAPMessageDataSource> dataSource;
+@property (nonatomic) char userInitiated;
+@property (readonly) unsigned long long signpostID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)reset;
+- (void)cancel;
+- (void)end;
+- (void)operationFinished:(id)a0;
+- (id)initWithMailboxName:(id)a0;
+- (void)_incrementFoundMessages:(unsigned long long)a0;
+- (void)_sendMailboxDidStartSyncTaskNotification;
+- (void)_setFoundNewUnreadMessageInInbox;
+- (id)nextNetworkOperation;
+- (id)nextPersistenceOperation;
+- (void)recalculatePriorities;
+- (id)_batchedUIDsNeedingSkeletonsOfSize:(unsigned long long)a0;
+- (void)_checkForOfflineExpungesIfNeeded;
+- (char)_checkForWorkWithIMAPMailbox:(id)a0 canTrustExists:(char)a1 canTrustUnseen:(char)a2 allowUpdate:(char)a3 forceUpdate:(char)a4;
+- (void)_finishCheckForMailProgressIfNecessary;
+- (id)_gmailLabelsForNames:(id)a0;
+- (void)_imapMailboxSyncTaskCommonInitWithDataSource:(id)a0 taskManager:(id)a1;
+- (id)_labelChangesFromLabels:(id)a0 toLabels:(id)a1;
+- (long long)_nextNetworkPriorityAndOperation:(id *)a0 reservedNetworkPriority:(long long *)a1;
+- (long long)_nextPersistencePriorityAndOperation:(id *)a0;
+- (char)_uidIsBeingPersisted:(unsigned int)a0 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)_updateLastSyncedModificationSequenceIfNeeded;
+- (void)_updateStateForFullSyncRecalculatingPrioritiesIfNecessary:(char)a0;
+- (void)_updateWithIMAPMailboxFromSelectForMailboxName:(id)a0;
+- (void)didAddMessagesWithUnknownUID:(id)a0;
+- (id)fetchAndCacheBodyDataForMessages:(id)a0 withServerInterface:(id)a1;
+- (void)fetchFlagsForMessageNumbers:(id)a0;
+- (char)handleExpungedMessageWithMessageNumber:(unsigned long long)a0 uid:(unsigned int)a1;
+- (char)handleVanishedMessageWithUID:(unsigned int)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (id)initWithDataSource:(id)a0 taskManager:(id)a1 exists:(unsigned long long)a2;
+- (id)initWithDataSource:(id)a0 taskManager:(id)a1 imapMailbox:(id)a2 fromStatus:(char)a3 forceFullSync:(char)a4;
+- (id)initWithDataSource:(id)a0 taskManager:(id)a1 messageNumbersNeedingFlags:(id)a2;
+- (id)mailboxNameWithoutPII;
+- (void)newUIDsAddedLocally:(id)a0;
+- (void)persistDeletedMessagesOperation:(id)a0 deletedUIDs:(id)a1;
+- (void)persistFlagChangesOperation:(id)a0 persistedFlagChangesForRemoteIDs:(id)a1;
+- (void)persistLabelChangesOperation:(id)a0 persistedLabelChangesForServerMessages:(id)a1;
+- (void)persistMessagesOperation:(id)a0 persistedMessages:(id)a1 andGotNewMessages:(id)a2;
+- (void)selectMailboxOperation:(id)a0 selectedMailbox:(id)a1;
+- (void)syncSkeletonsOperationFinished:(id)a0 withFetchResponses:(id)a1 serverInterface:(id)a2;
+- (void)syncUIDsIgnoringModificationSequence;
+- (void)syncUIDsOperationFinished:(id)a0 withFetchResponses:(id)a1 vanishedUIDs:(id)a2;
+- (char)uidIsBeingPersisted:(unsigned int)a0;
+- (void)updateWithExists:(unsigned long long)a0;
+- (void)verifyMailboxOperation:(id)a0 foundInconsistencies:(char)a1;
+
+@end

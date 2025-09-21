@@ -1,0 +1,75 @@
+@class HIDManager, NSMutableDictionary, NightModeControl, NSMutableArray, NSObject;
+@protocol OS_os_log, OS_dispatch_queue, OS_dispatch_source;
+
+@interface BLControl : NSObject {
+    NSObject<OS_os_log> *_logHandle;
+    struct __IOHIDEventSystemClient { } *_hidSystemClient;
+    NSMutableArray *_alsHIDServiceClients;
+    NightModeControl *_nightModeControl;
+    NSObject<OS_dispatch_queue> *_queue;
+    id /* block */ _callback;
+    NSMutableDictionary *_displayContainers;
+    NSObject<OS_dispatch_source> *_CDInitTimer;
+    char _CDReady;
+    NSMutableDictionary *_colorModules;
+    unsigned int _pmRootDomainService;
+    unsigned int _clamshellNotification;
+    struct IONotificationPort { } *_clamshellNotifyPort;
+    BOOL _clamshellOpened;
+    unsigned long long _userActiveNotificationHandle;
+    NSMutableDictionary *_keyboardContainers;
+    HIDManager *_keyboardBacklightHIDManager;
+    char _userActive;
+    char _nsPreset;
+}
+
+- (void)dealloc;
+- (id)init;
+- (BOOL)start;
+- (void)stop;
+- (void)clearDisplaySet;
+- (id)copyDisplayInfo;
+- (id)copyIdentifiers;
+- (void)hidEventCallbackWithEvent:(struct __IOHIDEvent { } *)a0 from:(struct __IOHIDServiceClient { } *)a1;
+- (void)initCoreDisplay;
+- (id)copyDisplayList;
+- (struct __CFDictionary { } *)copyPrimaryKeyDictionary:(unsigned int)a0 usage:(unsigned int)a1;
+- (void)handleCoreDisplayInitialisation;
+- (BOOL)initKeyboardBacklightHIDManager;
+- (void)addDFRService:(struct __IOHIDServiceClient { } *)a0;
+- (void)addHIDService:(struct __IOHIDServiceClient { } *)a0;
+- (void)callBlockWithProperty:(id)a0 value:(id)a1;
+- (void)clearColorModules;
+- (void)closeHidEventSystemClient;
+- (struct __CFDictionary { } *)copyDictWithUsagePairPage:(unsigned int)a0 usage:(unsigned int)a1;
+- (id)copyPropertyInternalForKey:(id)a0;
+- (id)copyPropertyWithKey:(id)a0 client:(id)a1;
+- (id)copyPropertyWithSimpleKey:(id)a0 client:(id)a1;
+- (id)copyStatusInfo;
+- (void)handleClamshellStateChange:(BOOL)a0;
+- (void)handleUserIsActiveStateChange:(BOOL)a0;
+- (void)hidServiceArrivalCallback:(struct __IOHIDServiceClient { } *)a0;
+- (void)hidServiceRemovalCallback:(struct __IOHIDServiceClient { } *)a0;
+- (void)initialiseColorModules;
+- (BOOL)initialiseHidEventSystemClient;
+- (void)keyboardBacklightHIDDeviceArrived:(id)a0;
+- (void)keyboardBacklightHIDDeviceRemoved:(id)a0;
+- (void)registerCoreDisplayNotifications;
+- (void)registerNotificationBlock:(id /* block */)a0;
+- (BOOL)registerWindowServerNotification;
+- (void)removeDFRService:(struct __IOHIDServiceClient { } *)a0;
+- (void)removeHIDService:(struct __IOHIDServiceClient { } *)a0;
+- (char)setInternalPropertyWithKey:(id)a0 property:(id)a1;
+- (BOOL)setPropertyWithKey:(id)a0 property:(id)a1 client:(id)a2;
+- (BOOL)setPropertyWithSimpleKey:(id)a0 property:(id)a1 client:(id)a2;
+- (void)startClamshellMonitoring;
+- (void)stopClamshellMonitoring;
+- (void)triggerDisplayStateReinitialisation;
+- (void)unregisterCoreDisplayNotifications;
+- (void)updateClamshellState:(BOOL)a0;
+- (void)updateDisplaySet:(id)a0;
+- (BOOL)updatePresetConfiguration;
+- (BOOL)userChange:(struct __CFString { } *)a0;
+- (void)windowServerDeathHandlerAsync;
+
+@end

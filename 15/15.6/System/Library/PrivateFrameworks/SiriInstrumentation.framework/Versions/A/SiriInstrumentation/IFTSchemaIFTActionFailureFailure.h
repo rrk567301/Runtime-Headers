@@ -1,0 +1,76 @@
+@class NSData, IFTSchemaIFTActionFailureDeveloperDefinedError;
+
+@interface IFTSchemaIFTActionFailureFailure : SISchemaInstrumentationMessage
+
+@property (nonatomic) char preflightCheckFailure;
+@property (nonatomic) char hasPreflightCheckFailure;
+@property (nonatomic) char preciseLocationDisabled;
+@property (nonatomic) char hasPreciseLocationDisabled;
+@property (nonatomic) char locationDisabled;
+@property (nonatomic) char hasLocationDisabled;
+@property (nonatomic) char wifiDisabled;
+@property (nonatomic) char hasWifiDisabled;
+@property (nonatomic) char bluetoothDisabled;
+@property (nonatomic) char hasBluetoothDisabled;
+@property (nonatomic) char networkFailure;
+@property (nonatomic) char hasNetworkFailure;
+@property (nonatomic) char partialFailure;
+@property (nonatomic) char hasPartialFailure;
+@property (nonatomic) char unsupportedOnDevice;
+@property (nonatomic) char hasUnsupportedOnDevice;
+@property (nonatomic) char featureCurrentlyRestricted;
+@property (nonatomic) char hasFeatureCurrentlyRestricted;
+@property (nonatomic) char entityNotFound;
+@property (nonatomic) char hasEntityNotFound;
+@property (nonatomic) char actionNotAllowed;
+@property (nonatomic) char hasActionNotAllowed;
+@property (nonatomic) char unableToUndo;
+@property (nonatomic) char hasUnableToUndo;
+@property (nonatomic) char actionCanceled;
+@property (nonatomic) char hasActionCanceled;
+@property (nonatomic) char valueDisambiguationRejected;
+@property (nonatomic) char hasValueDisambiguationRejected;
+@property (nonatomic) char noMatchingTool;
+@property (nonatomic) char hasNoMatchingTool;
+@property (nonatomic) char developerDefinedError;
+@property (nonatomic) char hasDeveloperDefinedError;
+@property (retain, nonatomic) IFTSchemaIFTActionFailureDeveloperDefinedError *actionFailureDeveloperDefinedError;
+@property (nonatomic) char hasActionFailureDeveloperDefinedError;
+@property (nonatomic) char unableToCancel;
+@property (nonatomic) char hasUnableToCancel;
+@property (nonatomic) char searchSucceededNoMatchingTool;
+@property (nonatomic) char hasSearchSucceededNoMatchingTool;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichOneof_Actionfailurefailure;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteActionCanceled;
+- (void)deleteActionFailureDeveloperDefinedError;
+- (void)deleteActionNotAllowed;
+- (void)deleteBluetoothDisabled;
+- (void)deleteDeveloperDefinedError;
+- (void)deleteEntityNotFound;
+- (void)deleteFeatureCurrentlyRestricted;
+- (void)deleteLocationDisabled;
+- (void)deleteNetworkFailure;
+- (void)deleteNoMatchingTool;
+- (void)deletePartialFailure;
+- (void)deletePreciseLocationDisabled;
+- (void)deletePreflightCheckFailure;
+- (void)deleteSearchSucceededNoMatchingTool;
+- (void)deleteUnableToCancel;
+- (void)deleteUnableToUndo;
+- (void)deleteUnsupportedOnDevice;
+- (void)deleteValueDisambiguationRejected;
+- (void)deleteWifiDisabled;
+- (id)suppressMessageUnderConditions;
+
+@end

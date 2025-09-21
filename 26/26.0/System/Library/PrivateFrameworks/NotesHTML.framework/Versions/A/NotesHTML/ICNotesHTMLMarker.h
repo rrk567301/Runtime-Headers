@@ -1,0 +1,3 @@
+@interface ICNotesHTMLMarker : NSObject
+
+@end

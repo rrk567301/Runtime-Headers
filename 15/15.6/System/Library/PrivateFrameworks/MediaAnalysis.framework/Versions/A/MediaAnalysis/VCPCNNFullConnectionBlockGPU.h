@@ -1,0 +1,3 @@
+@interface VCPCNNFullConnectionBlockGPU : VCPCNNFullConnectionBlock
+
+@end

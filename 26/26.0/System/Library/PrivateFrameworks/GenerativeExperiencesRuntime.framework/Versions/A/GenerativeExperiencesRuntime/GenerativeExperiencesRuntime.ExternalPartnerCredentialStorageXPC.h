@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.ExternalPartnerCredentialStorageXPC : _TtCs12_SwiftObject
+
+@end

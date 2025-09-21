@@ -1,0 +1,80 @@
+@class AFSiriAnnouncementRequestCapabilityManager, NSArray, NSString, UNCBiometricResource, UNCBulletinServerConnection, NSObject;
+@protocol OS_dispatch_queue, UNCBulletinDefaultsInterface;
+
+@interface UNCEffectiveSettings : NSObject <AFSiriAnnouncementRequestCapabilityObserving> {
+    id<UNCBulletinDefaultsInterface> _bulletinDefaults;
+    char _announceOnBuiltInSpeakerEnabled;
+    char _announceOnHearingAidsEnabled;
+    char _announceOnHearingAidsSupported;
+    char _siriEnabled;
+    char _siriAllowedWhenLocked;
+    AFSiriAnnouncementRequestCapabilityManager *_announcementCapabilityManagerForHeadphones;
+    AFSiriAnnouncementRequestCapabilityManager *_announcementCapabilityManagerForCarPlay;
+    UNCBiometricResource *_biometricResource;
+    UNCBulletinServerConnection *_bbServerConnection;
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (nonatomic, setter=setGlobalAnnounceSetting:) long long effectiveGlobalAnnounceSetting;
+@property (nonatomic, setter=setGlobalAnnounceHeadphoneSetting:) long long effectiveGlobalAnnounceHeadphoneSetting;
+@property (nonatomic, setter=setGlobalAnnounceCarPlaySetting:) long long effectiveGlobalAnnounceCarPlaySetting;
+@property (nonatomic, setter=setGlobalScheduledDeliverySetting:) long long effectiveGlobalScheduledDeliverySetting;
+@property (retain, nonatomic, setter=setGlobalScheduledDeliveryTimes:) NSArray *effectiveGlobalScheduledDeliveryTimes;
+@property (nonatomic, setter=setGlobalScheduledDeliveryShowNextSummarySetting:) long long effectiveGlobalScheduledDeliveryShowNextSummarySetting;
+@property (nonatomic, setter=setGlobalContentPreviewSetting:) long long effectiveGlobalContentPreviewSetting;
+@property (nonatomic, setter=setGlobalNotificationListDisplayStyleSetting:) long long effectiveGlobalNotificationListDisplayStyleSetting;
+@property (readonly, nonatomic) char hasPairedVehiclesForCarPlay;
+@property (readonly, nonatomic) char hasDestinationForRemoteNotifications;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)availableAnnouncementRequestTypesChanged:(unsigned long long)a0 onPlatform:(long long)a1;
+- (void)eligibleAnnouncementRequestTypesChanged:(unsigned long long)a0 onPlatform:(long long)a1;
+- (char)_supportsFaceID;
+- (void)_biometricResourceStateChanged;
+- (id)_encodedScheduledDeliveryTimesForDeliveryTimes:(id)a0;
+- (void)_fetchAllVehiclesForCarPlay;
+- (char)_isFaceIDEnrolled;
+- (void)_pairedVehiclesForCarPlayDidChange:(id)a0;
+- (void)_publishBiomeSignalEventForGlobalNotificationListDisplayStyleSettingChangeToSetting:(long long)a0;
+- (long long)_queue_defaultGlobalContentPreviewSetting;
+- (long long)_queue_effectiveGlobalAnnounceCarPlaySetting;
+- (long long)_queue_effectiveGlobalAnnounceHeadphoneSetting;
+- (long long)_queue_effectiveGlobalAnnounceSetting;
+- (long long)_queue_effectiveGlobalScheduledDeliveryShowNextSummarySetting;
+- (long long)_queue_globalAnnounceCarPlaySetting;
+- (long long)_queue_globalAnnounceHeadphonesSetting;
+- (long long)_queue_globalAnnounceSetting;
+- (long long)_queue_globalContentPreviewsSetting;
+- (long long)_queue_globalNotificationListDisplayStyleSetting;
+- (long long)_queue_globalScheduledDeliverySetting;
+- (id)_queue_globalScheduledDeliveryTimes;
+- (char)_queue_hasPairedVehiclesForCarPlay;
+- (char)_queue_isAnnounceSupportedForCarPlay;
+- (char)_queue_isAnnounceSupportedForHeadphones;
+- (void)_queue_loadCarPlayCapabilities;
+- (void)_queue_loadSiriCapabilities;
+- (void)_queue_setAnnounceSupportedForCarPlay:(char)a0;
+- (void)_queue_setAnnounceSupportedForHeadphones:(char)a0;
+- (void)_queue_setGlobalAnnounceCarPlaySetting:(long long)a0;
+- (void)_queue_setGlobalAnnounceHeadphonesSetting:(long long)a0;
+- (void)_queue_setGlobalAnnounceSetting:(long long)a0;
+- (void)_queue_setGlobalContentPreviewsSetting:(long long)a0;
+- (void)_queue_setGlobalScheduledDeliveryTimes:(id)a0;
+- (void)_queue_setPairedVehiclesForCarPlay:(char)a0;
+- (void)_queue_updateAllSectionInfos;
+- (void)_queue_updateAnnounceControlCenterModuleAvailability;
+- (void)_queue_updateAnnounceSettings;
+- (void)_queue_updateGlobalSettings;
+- (void)_queue_updateSiriPreferences;
+- (void)_saveGlobalAnnounceSettingEnabledEvent;
+- (id)_scheduledDeliveryTimesForEncodedDeliveryTimes:(id)a0;
+- (void)_siriPreferencesDidChange:(id)a0;
+- (id)initWithBulletinDefaults:(id)a0;
+- (id)initWithBulletinDefaults:(id)a0 biometricResource:(id)a1;
+
+@end

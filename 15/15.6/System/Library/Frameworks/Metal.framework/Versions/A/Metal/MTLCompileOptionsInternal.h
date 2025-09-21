@@ -1,0 +1,76 @@
+@class NSDictionary, NSString, NSArray;
+
+@interface MTLCompileOptionsInternal : MTLCompileOptions {
+    char _userSetLanguageVersion;
+    NSDictionary *_preprocessorMacros;
+    long long _mathMode;
+    long long _mathFloatingPointFunctions;
+    char _framebufferReadEnabled;
+    char _tracingEnabled;
+    char _debuggingEnabled;
+    unsigned long long _languageVersion;
+    char _compileTimeStatisticsEnabled;
+    NSString *_additionalCompilerArguments;
+    unsigned char _sourceLanguage;
+    long long _libraryType;
+    NSArray *_libraries;
+    NSString *_installName;
+    char _preserveInvariance;
+    long long _optimizationLevel;
+    long long _compileSymbolVisibility;
+    char _allowReferencingUndefinedSymbols;
+    unsigned long long _maxTotalThreadsPerThreadgroup;
+    char _enableLogging;
+}
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void)setAdditionalCompilerArguments:(id)a0;
+- (id)additionalCompilerArguments;
+- (id)formattedDescription:(unsigned long long)a0;
+- (id)installName;
+- (id)libraries;
+- (unsigned long long)maxTotalThreadsPerThreadgroup;
+- (void)setLibraries:(id)a0;
+- (void)setTracingEnabled:(char)a0;
+- (char)fastMathEnabled;
+- (unsigned long long)languageVersion;
+- (void)setLibraryType:(long long)a0;
+- (void)setInstallName:(id)a0;
+- (char)allowReferencingUndefinedSymbols;
+- (long long)compileSymbolVisibility;
+- (char)compileTimeStatisticsEnabled;
+- (char)debuggingEnabled;
+- (char)enableLogging;
+- (id)exportDictionary;
+- (char)framebufferReadEnabled;
+- (void)importDictionary:(id)a0;
+- (long long)libraryType;
+- (long long)mathFloatingPointFunctions;
+- (long long)mathMode;
+- (long long)optimizationLevel;
+- (id)preprocessorMacros;
+- (char)preserveInvariance;
+- (void)setAllowReferencingUndefinedSymbols:(char)a0;
+- (void)setCompileSymbolVisibility:(long long)a0;
+- (void)setCompileTimeStatisticsEnabled:(char)a0;
+- (void)setDebuggingEnabled:(char)a0;
+- (void)setEnableLogging:(char)a0;
+- (void)setFastMathEnabled:(char)a0;
+- (void)setFramebufferReadEnabled:(char)a0;
+- (void)setLanguageVersion:(unsigned long long)a0;
+- (void)setMathFloatingPointFunctions:(long long)a0;
+- (void)setMathMode:(long long)a0;
+- (void)setMaxTotalThreadsPerThreadgroup:(unsigned long long)a0;
+- (void)setOptimizationLevel:(long long)a0;
+- (void)setPreprocessorMacros:(id)a0;
+- (void)setPreserveInvariance:(char)a0;
+- (void)setSourceLanguage:(unsigned char)a0;
+- (unsigned char)sourceLanguage;
+- (char)tracingEnabled;
+
+@end

@@ -1,0 +1,73 @@
+@class IMKUICandidateLineLayout, IMKUICandidateArrowButton, IMKUICandidateItemLayout, IMKUICandidateLayoutTraits, IMKUICandidateListContainingView, IMKUICandidateBarListView;
+
+@interface IMKUIExpandableCandidateWindowController : IMKUICandidateWindowController
+
+@property (retain, nonatomic) IMKUICandidateArrowButton *arrowButton;
+@property (retain, nonatomic) IMKUICandidateItemLayout *collapsedItemLayout;
+@property (retain, nonatomic) IMKUICandidateLayoutTraits *expandedLayoutTraits;
+@property (readonly, nonatomic) BOOL isOneLine;
+@property (nonatomic) long long layoutState;
+@property (retain, nonatomic) IMKUICandidateLineLayout *lineLayout;
+@property (retain, nonatomic) IMKUICandidateBarListView *listView;
+@property (retain, nonatomic) IMKUICandidateListContainingView *listContainerView;
+@property (nonatomic) BOOL windowIsExpanded;
+
+- (void)updateLayout;
+- (void)loadWindow;
+- (void)keyDown:(id)a0;
+- (void)setSelectedIndex:(unsigned long long)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (long long)accessibilityOrientation;
+- (void)collapse;
+- (void)expand;
+- (void)hide;
+- (id)parentView;
+- (void)setItemLayout:(id)a0;
+- (void)setSelectedCandidate:(id)a0;
+- (void)updateVisualElements;
+- (id)visibleCandidates;
+- (void)keyPressed:(id)a0;
+- (void)moveInArrowButtonWithAnimation:(BOOL)a0;
+- (void)updateWindowSize:(struct CGSize { double x0; double x1; })a0 withAnimation:(BOOL)a1;
+- (void)moveElementsInLine:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 delta:(struct CGPoint { double x0; double x1; })a2;
+- (void)moveToBeginning;
+- (id)multiLineLayout;
+- (void)addSortingBar;
+- (id)appearanceView;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })arrowButtonFrameWithExpansion:(BOOL)a0;
+- (void)arrowPressed:(id)a0;
+- (id)candidateItemForCandidate:(id)a0 layout:(id)a1;
+- (id)candidatesSelectableByKeyboard;
+- (void)changeFramesForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 sourceLine:(id)a1 targetLine:(id)a2;
+- (struct CGSize { double x0; double x1; })expandedWindowSize;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForAccessibilityElement:(id)a0;
+- (double)lengthOfCandidateItems:(id)a0 layout:(id)a1;
+- (unsigned long long)lineIndexForSelectedCandidate;
+- (void)moveAccessibilityElementToVisibleArea:(id)a0;
+- (void)moveBackwardOneElement;
+- (void)moveBackwardOneLine;
+- (void)moveBackwardOnePage;
+- (void)moveForwardOneElement;
+- (void)moveForwardOneLine;
+- (void)moveForwardOnePage;
+- (void)moveInArrowButton;
+- (void)moveOutArrowButton;
+- (void)moveToEnd;
+- (id)oneLineLayout;
+- (struct CGSize { double x0; double x1; })preferredSizeForItem:(id)a0 layout:(id)a1;
+- (void)selectNextSortingMode;
+- (void)selectPreviousSortingMode;
+- (BOOL)selectedLineIsInVisibleRange:(long long)a0;
+- (void)setCandidateGroups:(id)a0;
+- (void)setTopVisibleLine:(unsigned long long)a0;
+- (BOOL)shouldShowSortingBar;
+- (id)stringIdentifiersForVisibleItemsInFirstLine;
+- (unsigned long long)topVisibleLine;
+- (void)updateArrowButtonVisibility;
+- (void)updateLayoutTraits;
+- (void)updatePanelMaskForSize:(struct CGSize { double x0; double x1; })a0 finalSize:(struct CGSize { double x0; double x1; })a1;
+- (void)updateWindowShape;
+- (id)visibleSelectionKeys;
+
+@end

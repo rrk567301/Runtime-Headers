@@ -1,0 +1,96 @@
+@class NSString, NSMutableArray;
+
+@interface AeroMLTracerSpanEvent : PBCodable <NSCopying> {
+    struct { unsigned char endMemoryLevelInKB : 1; unsigned char errorCode : 1; unsigned char intervalInMilliSeconds : 1; unsigned char memoryLevelDeltaInKB : 1; unsigned char privatizedEndTime : 1; unsigned char privatizedStartTime : 1; unsigned char startMemoryLevelInKB : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasDeviceIdentifier;
+@property (retain, nonatomic) NSString *deviceIdentifier;
+@property (readonly, nonatomic) char hasTestKey;
+@property (retain, nonatomic) NSString *testKey;
+@property (readonly, nonatomic) char hasVersion;
+@property (retain, nonatomic) NSString *version;
+@property (readonly, nonatomic) char hasName;
+@property (retain, nonatomic) NSString *name;
+@property (readonly, nonatomic) char hasTrialDeploymentId;
+@property (retain, nonatomic) NSString *trialDeploymentId;
+@property (readonly, nonatomic) char hasTrialExperimentId;
+@property (retain, nonatomic) NSString *trialExperimentId;
+@property (readonly, nonatomic) char hasTrialTreatmentId;
+@property (retain, nonatomic) NSString *trialTreatmentId;
+@property (readonly, nonatomic) char hasTraceId;
+@property (retain, nonatomic) NSString *traceId;
+@property (readonly, nonatomic) char hasParentSpanId;
+@property (retain, nonatomic) NSString *parentSpanId;
+@property (readonly, nonatomic) char hasSpanId;
+@property (retain, nonatomic) NSString *spanId;
+@property (nonatomic) char hasPrivatizedStartTime;
+@property (nonatomic) unsigned int privatizedStartTime;
+@property (nonatomic) char hasPrivatizedEndTime;
+@property (nonatomic) unsigned int privatizedEndTime;
+@property (nonatomic) char hasIntervalInMilliSeconds;
+@property (nonatomic) unsigned int intervalInMilliSeconds;
+@property (readonly, nonatomic) char hasErrorString;
+@property (retain, nonatomic) NSString *errorString;
+@property (nonatomic) char hasErrorCode;
+@property (nonatomic) unsigned int errorCode;
+@property (nonatomic) char hasStartMemoryLevelInKB;
+@property (nonatomic) unsigned int startMemoryLevelInKB;
+@property (nonatomic) char hasEndMemoryLevelInKB;
+@property (nonatomic) unsigned int endMemoryLevelInKB;
+@property (nonatomic) char hasMemoryLevelDeltaInKB;
+@property (nonatomic) unsigned int memoryLevelDeltaInKB;
+@property (readonly, nonatomic) char hasProcessName;
+@property (retain, nonatomic) NSString *processName;
+@property (readonly, nonatomic) char hasGcdQueueName;
+@property (retain, nonatomic) NSString *gcdQueueName;
+@property (readonly, nonatomic) char hasQosClassName;
+@property (retain, nonatomic) NSString *qosClassName;
+@property (readonly, nonatomic) char hasRelativePriority;
+@property (retain, nonatomic) NSString *relativePriority;
+@property (readonly, nonatomic) char hasProjectName;
+@property (retain, nonatomic) NSString *projectName;
+@property (retain, nonatomic) NSMutableArray *attributes;
+@property (retain, nonatomic) NSMutableArray *infoEvents;
+@property (retain, nonatomic) NSMutableArray *warningEvents;
+@property (retain, nonatomic) NSMutableArray *debugEvents;
+@property (retain, nonatomic) NSMutableArray *errorEvents;
+
++ (Class)debugEventsType;
++ (Class)errorEventsType;
++ (Class)attributesType;
++ (Class)infoEventsType;
++ (Class)warningEventsType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (unsigned long long)attributesCount;
+- (void)clearAttributes;
+- (void)addAttributes:(id)a0;
+- (id)attributesAtIndex:(unsigned long long)a0;
+- (void)addErrorEvents:(id)a0;
+- (void)clearInfoEvents;
+- (unsigned long long)infoEventsCount;
+- (void)addDebugEvents:(id)a0;
+- (void)addInfoEvents:(id)a0;
+- (void)addWarningEvents:(id)a0;
+- (void)clearDebugEvents;
+- (void)clearErrorEvents;
+- (void)clearWarningEvents;
+- (id)debugEventsAtIndex:(unsigned long long)a0;
+- (unsigned long long)debugEventsCount;
+- (id)errorEventsAtIndex:(unsigned long long)a0;
+- (unsigned long long)errorEventsCount;
+- (id)infoEventsAtIndex:(unsigned long long)a0;
+- (id)warningEventsAtIndex:(unsigned long long)a0;
+- (unsigned long long)warningEventsCount;
+
+@end

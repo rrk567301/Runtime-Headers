@@ -1,0 +1,86 @@
+@class NSDate, NSString, CHRecentCall, CHHandle, NSSet, NSURL, NSUUID, CHManagedHandle, NSNumber;
+
+@interface CallRecord : NSManagedObject
+
+@property (nonatomic) unsigned int chCallStatus;
+@property (readonly, nonatomic) long long chHandleType;
+@property (readonly, nonatomic) CHRecentCall *chRecentCall;
+@property (readonly, copy, nonatomic) NSSet *chRemoteParticipantHandles;
+@property (readonly, copy, nonatomic) NSSet *chEmergencyMediaItems;
+@property (readonly, copy, nonatomic) CHHandle *chInitiator;
+@property (readonly, nonatomic) char supportsCallCategory;
+@property (readonly, nonatomic) char supportsHandleType;
+@property (readonly, nonatomic) char supportsImageURL;
+@property (readonly, nonatomic) char supportsBlockedBy;
+@property (readonly, nonatomic) char supportsBlockedByName;
+@property (readonly, nonatomic) char supportsIdentityExtension;
+@property (readonly, nonatomic) char supportsLocalParticipantUUID;
+@property (readonly, nonatomic) char supportsOutgoingLocalParticipantUUID;
+@property (readonly, nonatomic) char supportsParticipantGroupUUID;
+@property (readonly, nonatomic) char supportsRemoteParticipantHandles;
+@property (readonly, nonatomic) char supportsServiceProvider;
+@property (readonly, nonatomic) char supportsVerificationStatus;
+@property (readonly, nonatomic) char supportsHasMessage;
+@property (readonly, nonatomic) char supportsJunkIdentificationCategory;
+@property (readonly, nonatomic) char supportsAutoAnsweredReason;
+@property (readonly, nonatomic) char supportsEmergencyMedia;
+@property (readonly, nonatomic) char supportsCallDirectoryIdentityType;
+@property (readonly, nonatomic) char supportsScreenSharingType;
+@property (readonly, nonatomic) char supportsInitiator;
+@property (copy, nonatomic) NSString *address;
+@property (copy, nonatomic) NSNumber *answered;
+@property (copy, nonatomic) NSNumber *call_category;
+@property (copy, nonatomic) NSNumber *calltype;
+@property (copy, nonatomic) NSDate *date;
+@property (copy, nonatomic) NSNumber *disconnected_cause;
+@property (copy, nonatomic) NSNumber *duration;
+@property (copy, nonatomic) NSNumber *face_time_data;
+@property (copy, nonatomic) NSNumber *filtered_out_reason;
+@property (copy, nonatomic) NSNumber *handle_type;
+@property (copy, nonatomic) NSURL *imageURL;
+@property (copy, nonatomic) NSString *iso_country_code;
+@property (copy, nonatomic) NSNumber *junkConfidence;
+@property (copy, nonatomic) NSString *junkIdentificationCategory;
+@property (copy, nonatomic) NSUUID *localParticipantUUID;
+@property (copy, nonatomic) NSString *location;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSNumber *number_availability;
+@property (copy, nonatomic) NSNumber *originated;
+@property (copy, nonatomic) NSUUID *outgoingLocalParticipantUUID;
+@property (copy, nonatomic) NSUUID *participantGroupUUID;
+@property (copy, nonatomic) NSNumber *read;
+@property (copy, nonatomic) NSString *service_provider;
+@property (copy, nonatomic) NSString *unique_id;
+@property (copy, nonatomic) NSNumber *verificationStatus;
+@property (copy, nonatomic) NSNumber *hasMessage;
+@property (retain, nonatomic) NSSet *remoteParticipantHandles;
+@property (copy, nonatomic) NSUUID *conversationID;
+@property (copy, nonatomic) NSNumber *autoAnsweredReason;
+@property (retain, nonatomic) NSSet *emergencyMediaItems;
+@property (nonatomic) char usedEmergencyVideoStreaming;
+@property (nonatomic) char wasEmergencyCall;
+@property (copy, nonatomic) NSString *blockedByExtension;
+@property (copy, nonatomic) NSString *blockedByExtensionName;
+@property (copy, nonatomic) NSString *identityExtension;
+@property (copy, nonatomic) NSNumber *callDirectoryIdentityType;
+@property (copy, nonatomic) NSNumber *screenSharingType;
+@property (retain, nonatomic) CHManagedHandle *initiator;
+
++ (id)fetchRequest;
+
+- (char)addEmergencyMediaItem:(id)a0;
+- (id)compositeCallCategoryForContext:(id)a0;
+- (id)compositeCallDirectoryIdentityType:(id)a0;
+- (id)compositeEmergencyMediaItemsForContext:(id)a0;
+- (id)compositeHandleTypeForContext:(id)a0;
+- (id)compositeInitiatorHandleForContext:(id)a0;
+- (id)compositeJunkConfidenceForContext:(id)a0;
+- (id)compositeLocalParticipantUUIDForContext:(id)a0;
+- (id)compositeOutgoingLocalParticipantUUIDForContext:(id)a0;
+- (id)compositeParticipantGroupUUIDForContext:(id)a0;
+- (id)compositeRemoteParticipantHandlesForContext:(id)a0;
+- (id)compositeServiceProviderForContext:(id)a0;
+- (id)compositeVerificationStatusForContext:(id)a0;
+- (char)supportsJunkConfidence;
+
+@end

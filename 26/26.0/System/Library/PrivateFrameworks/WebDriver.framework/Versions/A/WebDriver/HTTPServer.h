@@ -1,0 +1,90 @@
+@class NSMutableArray, NSString, NSNetService, NSDictionary, NSLock, NSObject, GCDAsyncSocket;
+@protocol OS_dispatch_queue;
+
+@interface HTTPServer : NSObject <NSNetServiceDelegate> {
+    GCDAsyncSocket *asyncSocket;
+    NSObject<OS_dispatch_queue> *serverQueue;
+    NSObject<OS_dispatch_queue> *connectionQueue;
+    void *IsOnServerQueueKey;
+    void *IsOnConnectionQueueKey;
+    NSString *documentRoot;
+    Class connectionClass;
+    NSString *interface;
+    unsigned short port;
+    NSNetService *netService;
+    NSString *domain;
+    NSString *type;
+    NSString *name;
+    NSString *publishedName;
+    NSDictionary *txtRecordDictionary;
+    NSMutableArray *connections;
+    NSMutableArray *webSockets;
+    NSMutableArray *upgrades;
+    NSLock *connectionsLock;
+    NSLock *webSocketsLock;
+    NSLock *upgradesLock;
+    int IPv4Socket;
+    int IPv6Socket;
+    int unixSocket;
+    BOOL isRunning;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)bonjourThread;
++ (void)executeBonjourBlock:(id /* block */)a0;
++ (void)performBonjourBlock:(id /* block */)a0;
++ (void)startBonjourThreadIfNeeded;
+
+- (void)setInterface:(id)a0;
+- (id)config;
+- (id)domain;
+- (void)dealloc;
+- (void)stop;
+- (void)setPort:(unsigned short)a0;
+- (void)setName:(id)a0;
+- (id)type;
+- (id)init;
+- (BOOL)isRunning;
+- (void)setType:(id)a0;
+- (id)name;
+- (void)setDomain:(id)a0;
+- (id)interface;
+- (void)stop:(BOOL)a0;
+- (unsigned short)port;
+- (void).cxx_destruct;
+- (BOOL)start:(id *)a0;
+- (void)netService:(id)a0 didNotPublish:(id)a1;
+- (void)netServiceDidPublish:(id)a0;
+- (unsigned short)listeningPort;
+- (id)documentRoot;
+- (void)setDocumentRoot:(id)a0;
+- (Class)connectionClass;
+- (id)TXTRecordDictionary;
+- (void)connectionDidDie:(id)a0;
+- (id)listeningAddresses;
+- (int)listeningIPv4Socket;
+- (int)listeningIPv6Socket;
+- (int)listeningUnixSocket;
+- (unsigned long long)numberOfHTTPConnections;
+- (void)publishBonjour;
+- (id)publishedName;
+- (void)republishBonjour;
+- (void)setConnectionClass:(Class)a0;
+- (void)setListeningIPv4Socket:(int)a0;
+- (void)setListeningIPv6Socket:(int)a0;
+- (void)setListeningUnixSocket:(int)a0;
+- (void)setTXTRecordDictionary:(id)a0;
+- (void)socket:(id)a0 didAcceptNewSocket:(id)a1;
+- (void)unpublishBonjour;
+- (void)addUpgrade:(id)a0;
+- (void)addWebSocket:(id)a0;
+- (unsigned long long)numberOfUpgradeConnections;
+- (unsigned long long)numberOfWebSocketConnections;
+- (void)upgradeDidDie:(id)a0;
+- (void)webSocketDidDie:(id)a0;
+
+@end

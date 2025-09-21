@@ -1,0 +1,5 @@
+@interface SUDocAssetsUI.ElementActionDispatch : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ subscribers;
+}
+
+@end

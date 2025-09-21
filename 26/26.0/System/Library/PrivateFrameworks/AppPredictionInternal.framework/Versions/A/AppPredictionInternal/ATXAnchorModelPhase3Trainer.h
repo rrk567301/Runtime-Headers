@@ -1,0 +1,25 @@
+@class NSString, ATXAnchor, ATXAnchorModelHyperParameters;
+@protocol ATXBackgroundActivityProtocol, ATXAnchorModelDataStoreWrapperProtocol;
+
+@interface ATXAnchorModelPhase3Trainer : NSObject <ATXAnchorModelPhase3TrainerProtocol> {
+    ATXAnchor *_anchor;
+    id<ATXAnchorModelDataStoreWrapperProtocol> _storeWrapper;
+    ATXAnchorModelHyperParameters *_hyperParameters;
+}
+
+@property (retain) id<ATXBackgroundActivityProtocol> runningTask;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (double)endSecondsAfterAnchorGivenHistoricalOffsets:(id)a0;
+- (double)endSecondsAfterAnchorGivenHistoricalOffsets:(id)a0 startSecondsAfterAnchor:(double)a1;
+- (unsigned long long)indexOfPercentile:(double)a0 array:(id)a1;
+- (id)initForAnchor:(id)a0;
+- (id)initForAnchor:(id)a0 anchorModelDataStoreWrapper:(id)a1;
+- (double)startSecondsAfterAnchorGivenHistoricalOffsets:(id)a0;
+- (id)trainPhase3ForCandidate:(id)a0;
+
+@end

@@ -1,0 +1,46 @@
+@interface RBMutableProcessState : RBProcessState
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setTerminationResistance:(unsigned char)a0;
+- (void)setRole:(unsigned char)a0;
+- (void)addTag:(id)a0;
+- (void)addInheritance:(id)a0;
+- (void)addRBAssertion:(id)a0;
+- (void)setAppNapPreventLowPriorityCPU:(char)a0;
+- (void)setCarPlayMode:(char)a0;
+- (void)setMemoryLimit:(int)a0;
+- (void)addEndowmentInfo:(id)a0;
+- (void)addLegacyAssertion:(id)a0;
+- (void)addPreventIdleSleepIdentifier:(id)a0;
+- (void)removeAllEndowmentInfos;
+- (void)removeAllInheritances;
+- (void)removeAllPreventIdleSleepIdentifiers;
+- (void)removeEndowmentInfo:(id)a0;
+- (void)removeInheritance:(id)a0;
+- (void)removePreventIdleSleepIdentifier:(id)a0;
+- (void)setAppNapEnabled:(char)a0;
+- (void)setAppNapInactive:(char)a0;
+- (void)setAppNapPreventBackgroundSockets:(char)a0;
+- (void)setAppNapPreventDiskThrottle:(char)a0;
+- (void)setAppNapPreventSuppressedCPU:(char)a0;
+- (void)setAppNapPreventTimerThrottle:(unsigned char)a0;
+- (void)setCoalitionLevel:(unsigned long long)a0;
+- (void)setExplicitJetsamBand:(unsigned long long)a0;
+- (void)setForceRoleManage:(char)a0;
+- (void)setGPURole:(unsigned char)a0;
+- (void)setGuaranteedRunning:(char)a0;
+- (void)setIsBeingDebugged:(char)a0;
+- (void)setJetsamLenientMode:(char)a0;
+- (void)setLegacyFinishTaskReason:(unsigned long long)a0;
+- (void)setMaxCPUUsageLimits:(id)a0 forRole:(unsigned char)a1;
+- (void)setMemoryLimitCategory:(id)a0;
+- (void)setMemoryLimitStrength:(unsigned char)a0;
+- (void)setMinCPUUsageLimits:(id)a0 forRole:(unsigned char)a1;
+- (void)setPreventBaseMemoryLimitReduction:(char)a0;
+- (void)setPreventIdleSleep:(char)a0;
+- (void)setPreventSuspend:(char)a0;
+- (void)setTargetedBySuspendableAssertion:(char)a0;
+- (void)setThrottleBestEffortNetworking:(char)a0;
+- (void)unionState:(id)a0;
+
+@end

@@ -1,0 +1,45 @@
+@interface SCRWebAreaNoEchoTextField : SCRTextField
+
+- (id)value;
+- (id)typeDescription;
+- (char)isEditable;
+- (id)selectedTextRange;
+- (char)isTextSelectable;
+- (char)hasKeyboardFocus;
+- (id)helpDescription;
+- (void)setSelectedTextRange:(id)a0;
+- (unsigned long long)numberOfCharacters;
+- (unsigned long long)cachedNumberOfCharacters;
+- (void)setKeyboardFocus:(char)a0;
+- (char)interactRightWithEvent:(id)a0 request:(id)a1;
+- (id)_staticTextSupportingTextMarkerRangeSelectRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 withStartingIndexOffset:(unsigned long long)a1 textArea:(id)a2;
+- (id)_staticText_textMarkerRange_selectRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 textArea:(id)a1;
+- (id)_textArea;
+- (void)_updateCachedValue;
+- (void)appendSelectedStatusDescription:(id)a0;
+- (char)canHandleEchoContentChange;
+- (char)canHandleTextSelectionChange;
+- (char)canHandleTextValueChange;
+- (char)canHandleValueChange;
+- (char)canNavigateToChildren;
+- (id)captionDescriptionContainsUserLabel:(char *)a0 containsAncestorLabel:(char *)a1;
+- (id)convertTextMarkerRange:(id)a0 toTextArea:(id)a1;
+- (id)descriptionForContextualHelp;
+- (char)handleReadContentsCallbackForEvent:(id)a0 request:(id)a1 visibleOnly:(char)a2;
+- (char)hasAutofillMenuAvailable;
+- (char)interactLeftWithEvent:(id)a0 request:(id)a1;
+- (char)isSelectionSettable;
+- (char)moveToNextParagraphWithOutputRequest:(id)a0 event:(id)a1;
+- (char)moveToNextSentenceWithOutputRequest:(id)a0 event:(id)a1;
+- (char)moveToNextWordWithOutputRequest:(id)a0 event:(id)a1;
+- (char)moveToPreviousParagraphWithOutputRequest:(id)a0 event:(id)a1;
+- (char)moveToPreviousSentenceWithOutputRequest:(id)a0 event:(id)a1;
+- (char)moveToPreviousWordWithOutputRequest:(id)a0 event:(id)a1;
+- (void)readCurrentLine:(id)a0;
+- (id)shortInstruction;
+- (char)shouldOutputClickableState;
+- (char)supportsCaretBrowsing;
+- (void)synchKeyboardCursorToPosition:(id)a0;
+- (id)voiceOverCursorTextRange;
+
+@end

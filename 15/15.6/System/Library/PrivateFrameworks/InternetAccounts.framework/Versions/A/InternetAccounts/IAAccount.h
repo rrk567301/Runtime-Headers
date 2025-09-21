@@ -1,0 +1,93 @@
+@class NSString, NSMutableDictionary;
+
+@interface IAAccount : NSObject {
+    NSMutableDictionary *_attrs;
+    id _private;
+}
+
+@property (retain) NSString *uid;
+@property (retain) NSString *parentUID;
+@property (readonly) NSString *provider;
+@property (readonly) NSString *loginName;
+@property (retain) NSString *fullName;
+@property (retain) NSString *accountDescription;
+@property (retain) NSString *accountType;
+@property (retain) NSString *password;
+@property (retain) NSString *acAccountID;
+@property (retain) NSString *acAccountTypeID;
+@property char persistentStorage;
+
++ (id)accountIdentifierForSettings:(id)a0;
++ (id)_hostLabelForServerAddress:(id)a0;
++ (char)_isSocialProvider:(id)a0;
++ (id)_pluginForSettings:(id)a0;
++ (id)_pluginIDForChatAccountType:(id)a0 server:(id)a1 emailHost:(id)a2;
++ (id)aListPluginIDForSettings:(id)a0;
++ (id)accountFromXPCRepresentation:(id)a0;
++ (id)accountWithProviderType:(id)a0 loginName:(id)a1;
++ (char)appleIDIsCastle:(id)a0;
++ (id)brandIconForAccountSettings:(id)a0;
++ (id)brandNameForAccountSettings:(id)a0;
++ (id)defaultDescriptionForAccountSettings:(id)a0;
++ (id)imageForPluginID:(id)a0 imageType:(long long)a1;
++ (id)ldapLoginNameForSettings:(id)a0;
++ (id)protectedSocialProfileServicesForPluginID:(id)a0;
++ (id)standardizedLoginName:(id)a0;
++ (id)supportURLForAccountSettings:(id)a0;
+
+- (id)debugDescription;
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (char)isPlaceholder;
+- (id)attributes;
+- (id)dictionaryRepresentation;
+- (id)storedValueForKey:(id)a0;
+- (id)attributeForKey:(id)a0;
+- (id)accountIdentifier;
+- (void)setAttribute:(id)a0 forKey:(id)a1;
+- (void)setIsPlaceholder:(char)a0;
+- (id)initWithProviderType:(id)a0 loginName:(id)a1;
+- (char)isAList;
+- (void)mergeStoredData;
+- (char)_aimAccountIsEqual:(id)a0;
+- (char)_imapIsEqual:(id)a0;
+- (char)_ldapIsEqual:(id)a0;
+- (id)_standardizedAccountType;
+- (char)accountIsEnabled;
+- (void)addChildAccount:(id)a0;
+- (id)allChildAccounts;
+- (id)allChildAppAccounts;
+- (id)childAccountWithProviderID:(id)a0;
+- (id)childAccountWithUID:(id)a0;
+- (id)enabledApplications:(char)a0;
+- (char)enabledForApplication:(id)a0;
+- (char)isCalDAVParent;
+- (char)isExchange;
+- (char)isMailAndNotesParent;
+- (char)isSocial;
+- (id)loginNamePlusProvider;
+- (void)mergePropertiesWithSettingDictionary:(id)a0 replaceExisting:(char)a1;
+- (void)mergeWithAccount:(id)a0;
+- (char)parentAcceptsChildWithUID:(id)a0;
+- (id)primaryHost;
+- (id)providerAttributeForKey:(id)a0;
+- (id)providerAttributes;
+- (void)removeAttributeForKey:(id)a0;
+- (void)removeChildAccountWithProviderID:(id)a0;
+- (void)removeChildAccountWithUID:(id)a0;
+- (void)removeProviderAttributeForKey:(id)a0;
+- (void)removeStoredData;
+- (void)replacePropertiesWithSettingDictionary:(id)a0;
+- (void)saveToPersistentStore;
+- (void)setAccountEnabled:(char)a0;
+- (void)setProviderAttribute:(id)a0 forKey:(id)a1;
+- (void)setVolatileAttribute:(id)a0 forKey:(id)a1;
+- (void)storeValue:(id)a0 forKey:(id)a1;
+- (void)updateWithKnownSettingsFromDictionary:(id)a0;
+- (void)updateWithKnownSettingsFromDictionary:(id)a0 excludingKeys:(id)a1;
+- (void)updateWithSettingsDict:(id)a0 keys:(id)a1;
+- (id)volatileAttributeForKey:(id)a0;
+- (id)xpcRepresentation;
+
+@end

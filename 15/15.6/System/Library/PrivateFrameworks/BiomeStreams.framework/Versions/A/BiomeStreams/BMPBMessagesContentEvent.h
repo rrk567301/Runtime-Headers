@@ -1,0 +1,96 @@
+@class NSString, BMPBContentAttachment, NSMutableArray, BMPBNamedHandle;
+
+@interface BMPBMessagesContentEvent : PBCodable <NSCopying> {
+    struct { unsigned char absoluteTimestamp : 1; unsigned char tapbackType : 1; unsigned char messageEffect : 1; unsigned char isBusinessChat : 1; unsigned char isFromMe : 1; unsigned char isGroupThread : 1; unsigned char isJunk : 1; unsigned char isKnownSender : 1; unsigned char isNew : 1; unsigned char isPinned : 1; unsigned char isRead : 1; unsigned char isTwoFactorCode : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasUniqueId;
+@property (retain, nonatomic) NSString *uniqueId;
+@property (readonly, nonatomic) char hasDomainId;
+@property (retain, nonatomic) NSString *domainId;
+@property (nonatomic) char hasAbsoluteTimestamp;
+@property (nonatomic) double absoluteTimestamp;
+@property (readonly, nonatomic) char hasConversationId;
+@property (retain, nonatomic) NSString *conversationId;
+@property (readonly, nonatomic) char hasAuthor;
+@property (retain, nonatomic) NSString *author;
+@property (readonly, nonatomic) char hasSuggestedNickname;
+@property (retain, nonatomic) NSString *suggestedNickname;
+@property (readonly, nonatomic) char hasSuggestedPhotoPath;
+@property (retain, nonatomic) NSString *suggestedPhotoPath;
+@property (readonly, nonatomic) char hasRecipients;
+@property (retain, nonatomic) NSString *recipients;
+@property (readonly, nonatomic) char hasAttachmentURL;
+@property (retain, nonatomic) NSString *attachmentURL;
+@property (readonly, nonatomic) char hasContent;
+@property (retain, nonatomic) NSString *content;
+@property (readonly, nonatomic) char hasFromHandle;
+@property (retain, nonatomic) BMPBNamedHandle *fromHandle;
+@property (retain, nonatomic) NSMutableArray *toHandles;
+@property (readonly, nonatomic) char hasAccountIdentifier;
+@property (retain, nonatomic) NSString *accountIdentifier;
+@property (readonly, nonatomic) char hasAccountType;
+@property (retain, nonatomic) NSString *accountType;
+@property (retain, nonatomic) NSMutableArray *accountHandles;
+@property (readonly, nonatomic) char hasAttachment;
+@property (retain, nonatomic) BMPBContentAttachment *attachment;
+@property (readonly, nonatomic) char hasUrl;
+@property (retain, nonatomic) NSString *url;
+@property (readonly, nonatomic) char hasContentProtection;
+@property (retain, nonatomic) NSString *contentProtection;
+@property (readonly, nonatomic) char hasPersonaId;
+@property (retain, nonatomic) NSString *personaId;
+@property (nonatomic) char hasIsNew;
+@property (nonatomic) char isNew;
+@property (nonatomic) char hasIsTwoFactorCode;
+@property (nonatomic) char isTwoFactorCode;
+@property (nonatomic) char hasIsFromMe;
+@property (nonatomic) char isFromMe;
+@property (nonatomic) char hasIsGroupThread;
+@property (nonatomic) char isGroupThread;
+@property (nonatomic) char hasIsJunk;
+@property (nonatomic) char isJunk;
+@property (nonatomic) char hasIsRead;
+@property (nonatomic) char isRead;
+@property (nonatomic) char hasIsPinned;
+@property (nonatomic) char isPinned;
+@property (nonatomic) char hasIsBusinessChat;
+@property (nonatomic) char isBusinessChat;
+@property (readonly, nonatomic) char hasTapbackAssociatedMessageID;
+@property (retain, nonatomic) NSString *tapbackAssociatedMessageID;
+@property (nonatomic) char hasTapbackType;
+@property (nonatomic) long long tapbackType;
+@property (readonly, nonatomic) char hasMessageType;
+@property (retain, nonatomic) NSString *messageType;
+@property (readonly, nonatomic) char hasMessagesService;
+@property (retain, nonatomic) NSString *messagesService;
+@property (nonatomic) char hasMessageEffect;
+@property (nonatomic) int messageEffect;
+@property (nonatomic) char hasIsKnownSender;
+@property (nonatomic) char isKnownSender;
+@property (readonly, nonatomic) char hasConversationUUID;
+@property (retain, nonatomic) NSString *conversationUUID;
+
++ (Class)accountHandlesType;
++ (Class)toHandlesType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)accountHandlesAtIndex:(unsigned long long)a0;
+- (unsigned long long)accountHandlesCount;
+- (void)addAccountHandles:(id)a0;
+- (void)addToHandles:(id)a0;
+- (void)clearAccountHandles;
+- (void)clearToHandles;
+- (id)toHandlesAtIndex:(unsigned long long)a0;
+- (unsigned long long)toHandlesCount;
+
+@end

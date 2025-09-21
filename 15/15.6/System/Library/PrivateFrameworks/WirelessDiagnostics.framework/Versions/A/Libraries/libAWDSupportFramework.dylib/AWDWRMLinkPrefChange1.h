@@ -1,0 +1,74 @@
+@interface AWDWRMLinkPrefChange1 : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char count : 1; unsigned char nCallActive : 1; unsigned char nCallIdle : 1; unsigned char nCellularGood : 1; unsigned char nData : 1; unsigned char nNegativeStatusUpdate : 1; unsigned char nPositiveStatusUpdate : 1; unsigned char nRunning : 1; unsigned char nStationary : 1; unsigned char nStatusUpdateDelayBin1 : 1; unsigned char nStatusUpdateDelayBin2 : 1; unsigned char nStatusUpdateDelayBin3 : 1; unsigned char nStatusUpdateDelayBin4 : 1; unsigned char nStatusUpdateDelayBin5 : 1; unsigned char nStatusUpdateDelayBin6 : 1; unsigned char nUnknownStatusUpdat : 1; unsigned char nVehicular : 1; unsigned char nVoice : 1; unsigned char nWalking : 1; unsigned char nWifiBadBcn : 1; unsigned char nWifiBadLoad : 1; unsigned char nWifiBadPER : 1; unsigned char nWifiBadRSSI : 1; unsigned char nWifiBadSNR : 1; unsigned char nWifiBadTransportRTP : 1; unsigned char nWifiBadTransportSymptom : 1; unsigned char nWifiNotInit : 1; unsigned char nWifiNotReady : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) char hasCount;
+@property (nonatomic) unsigned int count;
+@property (nonatomic) char hasNCallIdle;
+@property (nonatomic) unsigned int nCallIdle;
+@property (nonatomic) char hasNCallActive;
+@property (nonatomic) unsigned int nCallActive;
+@property (nonatomic) char hasNData;
+@property (nonatomic) unsigned int nData;
+@property (nonatomic) char hasNVoice;
+@property (nonatomic) unsigned int nVoice;
+@property (nonatomic) char hasNStationary;
+@property (nonatomic) unsigned int nStationary;
+@property (nonatomic) char hasNWalking;
+@property (nonatomic) unsigned int nWalking;
+@property (nonatomic) char hasNRunning;
+@property (nonatomic) unsigned int nRunning;
+@property (nonatomic) char hasNVehicular;
+@property (nonatomic) unsigned int nVehicular;
+@property (nonatomic) char hasNWifiNotInit;
+@property (nonatomic) unsigned int nWifiNotInit;
+@property (nonatomic) char hasNWifiNotReady;
+@property (nonatomic) unsigned int nWifiNotReady;
+@property (nonatomic) char hasNWifiBadSNR;
+@property (nonatomic) unsigned int nWifiBadSNR;
+@property (nonatomic) char hasNWifiBadRSSI;
+@property (nonatomic) unsigned int nWifiBadRSSI;
+@property (nonatomic) char hasNWifiBadPER;
+@property (nonatomic) unsigned int nWifiBadPER;
+@property (nonatomic) char hasNWifiBadTransportSymptom;
+@property (nonatomic) unsigned int nWifiBadTransportSymptom;
+@property (nonatomic) char hasNWifiBadTransportRTP;
+@property (nonatomic) unsigned int nWifiBadTransportRTP;
+@property (nonatomic) char hasNWifiBadLoad;
+@property (nonatomic) unsigned int nWifiBadLoad;
+@property (nonatomic) char hasNWifiBadBcn;
+@property (nonatomic) unsigned int nWifiBadBcn;
+@property (nonatomic) char hasNCellularGood;
+@property (nonatomic) unsigned int nCellularGood;
+@property (nonatomic) char hasNPositiveStatusUpdate;
+@property (nonatomic) unsigned int nPositiveStatusUpdate;
+@property (nonatomic) char hasNNegativeStatusUpdate;
+@property (nonatomic) unsigned int nNegativeStatusUpdate;
+@property (nonatomic) char hasNUnknownStatusUpdat;
+@property (nonatomic) unsigned int nUnknownStatusUpdat;
+@property (nonatomic) char hasNStatusUpdateDelayBin1;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin1;
+@property (nonatomic) char hasNStatusUpdateDelayBin2;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin2;
+@property (nonatomic) char hasNStatusUpdateDelayBin3;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin3;
+@property (nonatomic) char hasNStatusUpdateDelayBin4;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin4;
+@property (nonatomic) char hasNStatusUpdateDelayBin5;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin5;
+@property (nonatomic) char hasNStatusUpdateDelayBin6;
+@property (nonatomic) unsigned int nStatusUpdateDelayBin6;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

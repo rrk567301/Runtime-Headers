@@ -1,0 +1,3 @@
+@interface MapsIntelligence.MapsIntelligencePassThruTransformer : MapsIntelligence.MapsIntelligenceBaseTransformer
+
+@end

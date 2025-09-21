@@ -1,0 +1,14 @@
+@class NSNumber;
+
+@interface MTRJointFabricAdministratorClusterICACResponseParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *statusCode;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithResponseValue:(id)a0 error:(id *)a1;
+- (struct ChipError { unsigned int x0; char *x1; unsigned int x2; })_setFieldsFromDecodableStruct:(const struct DecodableType { unsigned char x0; } *)a0;
+
+@end

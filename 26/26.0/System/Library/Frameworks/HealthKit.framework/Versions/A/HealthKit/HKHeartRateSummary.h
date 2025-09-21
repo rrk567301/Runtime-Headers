@@ -1,0 +1,26 @@
+@class HKQuantity, NSArray, NSDateInterval, HKHeartRateSummaryStatistics, HKHeartRateSummarySleepStatistics;
+
+@interface HKHeartRateSummary : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) long long activityCacheIndex;
+@property (retain, nonatomic) NSDateInterval *heartRateDateInterval;
+@property (retain, nonatomic) HKQuantity *restingHeartRate;
+@property (retain, nonatomic) HKQuantity *walkingAverageHeartRate;
+@property (retain, nonatomic) HKHeartRateSummaryStatistics *allDayStatistics;
+@property (retain, nonatomic) NSArray *workoutStatistics;
+@property (retain, nonatomic) NSArray *workoutRecoveryStatistics;
+@property (retain, nonatomic) NSArray *breatheStatistics;
+@property (retain, nonatomic) HKHeartRateSummarySleepStatistics *sleepStatistics;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)deepCopy;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithActivityCacheIndex:(long long)a0 heartRateDateInterval:(id)a1 restingHeartRate:(id)a2 walkingAverageHeartRate:(id)a3 allDayStatistics:(id)a4 workoutStatistics:(id)a5 workoutRecoveryStatistics:(id)a6 breatheStatistics:(id)a7 sleepStatistics:(id)a8;
+
+@end

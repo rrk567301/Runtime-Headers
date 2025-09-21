@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.TurnOnAirPurifierHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

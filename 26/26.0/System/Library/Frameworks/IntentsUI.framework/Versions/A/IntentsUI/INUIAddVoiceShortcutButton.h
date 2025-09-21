@@ -1,0 +1,71 @@
+@class NSImageView, NSTextField, CAFilter, INVoiceShortcut, NSLayoutConstraint, INShortcut;
+@protocol INUIAddVoiceShortcutButtonDelegate;
+
+@interface INUIAddVoiceShortcutButton : NSButton
+
+@property (retain, nonatomic) INVoiceShortcut *voiceShortcut;
+@property (retain, nonatomic) CAFilter *highlightFilter;
+@property (weak, nonatomic) NSImageView *sphiriImageView;
+@property (weak, nonatomic) NSImageView *checkmarkImageView;
+@property (weak, nonatomic) NSTextField *addToSiriLabel;
+@property (weak, nonatomic) NSTextField *phraseLabel;
+@property (retain, nonatomic) NSLayoutConstraint *checkmarkHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *addToSiriLeadingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *addedToSiriLeadingConstraint;
+@property (nonatomic) unsigned long long style;
+@property (weak, nonatomic) id<INUIAddVoiceShortcutButtonDelegate> delegate;
+@property (retain, nonatomic) INShortcut *shortcut;
+@property (nonatomic) double cornerRadius;
+
+- (void)setHighlighted:(BOOL)a0;
+- (id)initWithStyle:(unsigned long long)a0;
+- (void)mouseDown:(id)a0;
+- (id)accessibilityLabel;
+- (void)mouseUp:(id)a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)updateLayer;
+- (void)mouseDragged:(id)a0;
+- (void)dealloc;
+- (void)keyDown:(id)a0;
+- (void)layout;
+- (double)_cornerRadius;
+- (id)initWithCoder:(id)a0;
+- (void)_updateColors;
+- (void)sizeToFit;
+- (void).cxx_destruct;
+- (void)_updateContent;
+- (void)drawFocusRingMask;
+- (void)keyUp:(id)a0;
+- (void)prepareForInterfaceBuilder;
+- (void)_createHighlightFilterIfNecessary;
+- (id)_checkmarkImage;
+- (void)_configureWithStyle:(unsigned long long)a0;
+- (double)INUIAddVoiceShortcutDefaultCornerRadius;
+- (double)INUIAddVoiceShortcutDefaultHorizontalMargin;
+- (double)INUIAddVoiceShortcutIconWidthHeight;
+- (double)INUIAddVoiceShortcutDefaultHeight;
+- (double)INUIAddVoiceShortcutDefaultHorizontalPadding;
+- (id)_addToSiriFont;
+- (id)_addToSiriText;
+- (id)_addedToSiriText;
+- (id)_backgroundColorForStyle:(unsigned long long)a0;
+- (void)_checkAndUpdateForShortcut;
+- (id)_darkSphiriImage;
+- (void)_didTapButton;
+- (id)_dynamicBlackColor;
+- (id)_dynamicDarkSphiriImage;
+- (id)_dynamicLightSphiriImage;
+- (id)_dynamicWhiteColor;
+- (void)_handleVoiceShortcutUpdateNotification:(id)a0;
+- (id)_lightSphiriImage;
+- (id)_phraseFont;
+- (id)_phraseText;
+- (BOOL)_shouldUseLargerFont;
+- (id)_sphiriImageForStyle:(unsigned long long)a0;
+- (id)_strokeColorForStyle:(unsigned long long)a0;
+- (double)_strokeWidthForStyle:(unsigned long long)a0;
+- (id)_textColorForStyle:(unsigned long long)a0;
+- (void)_updatePhraseVisibility;
+- (double)metricsScale;
+
+@end

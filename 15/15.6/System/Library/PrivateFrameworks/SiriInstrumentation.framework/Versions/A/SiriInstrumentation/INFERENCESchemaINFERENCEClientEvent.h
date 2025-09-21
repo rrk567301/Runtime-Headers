@@ -1,0 +1,83 @@
+@class INFERENCESchemaINFERENCEResolutionQueryInfoGenerated, INFERENCESchemaINFERENCEContactCandidatesInfoGenerated, INFERENCESchemaINFERENCESimpleTaskInfoGenerated, INFERENCESchemaINFERENCEQueryUserPromptSelectedInfoGenerated, INFERENCESchemaINFERENCEABModelResultTriggered, SISchemaInstrumentationMessage, INFERENCESchemaINFERENCEVideoPlayOnThirdPartyAppGroundTruthGenerated, INFERENCESchemaINFERENCEMusicAppSelectionGroundTruthGenerated, INFERENCESchemaINFERENCEResolutionRequestContext, INFERENCESchemaINFERENCEClientEventMetadata, INFERENCESchemaINFERENCEWorkoutsAppSelectionGroundTruthGenerated, INFERENCESchemaINFERENCENotebookAppSelectionGroundTruthGenerated, INFERENCESchemaINFERENCECommsAppSelectionGroundTruthGenerated, INFERENCESchemaINFERENCECRRTrainingSampleCollected, INFERENCESchemaINFERENCEPervasiveEntityResolutionGroundTruthGenerated, INFERENCESchemaINFERENCESmartEnoughAppSelectionExecutionPathReported, INFERENCESchemaINFERENCEAsrEuclidEmbedding, NSData, INFERENCESchemaINFERENCEVideoSmartAppSelectionDisambiguationSignalsGenerated, INFERENCESchemaINFERENCEABModelEvaluated;
+
+@interface INFERENCESchemaINFERENCEClientEvent : SISchemaTopLevelUnionType <SISchemaInnerEventContainer>
+
+@property (readonly, nonatomic) SISchemaInstrumentationMessage *innerEvent;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEClientEventMetadata *eventMetadata;
+@property (nonatomic) char hasEventMetadata;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEMusicAppSelectionGroundTruthGenerated *musicAppSelectionGroundTruthGenerated;
+@property (nonatomic) char hasMusicAppSelectionGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEVideoPlayOnThirdPartyAppGroundTruthGenerated *videoPlayOnThirdPartyAppGroundTruthGenerated;
+@property (nonatomic) char hasVideoPlayOnThirdPartyAppGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEVideoSmartAppSelectionDisambiguationSignalsGenerated *videoSmartAppSelectionDisambiguation;
+@property (nonatomic) char hasVideoSmartAppSelectionDisambiguation;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEResolutionRequestContext *resolutionRequestContext;
+@property (nonatomic) char hasResolutionRequestContext;
+@property (retain, nonatomic) INFERENCESchemaINFERENCESimpleTaskInfoGenerated *simpleTaskInfoGenerated;
+@property (nonatomic) char hasSimpleTaskInfoGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEResolutionQueryInfoGenerated *resolutionQueryInfoGenerated;
+@property (nonatomic) char hasResolutionQueryInfoGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEQueryUserPromptSelectedInfoGenerated *userPromptSelectedInfoGenerated;
+@property (nonatomic) char hasUserPromptSelectedInfoGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEContactCandidatesInfoGenerated *contactCandidatesInfoGenerated;
+@property (nonatomic) char hasContactCandidatesInfoGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCECRRTrainingSampleCollected *crrTrainingSampleCollected;
+@property (nonatomic) char hasCrrTrainingSampleCollected;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEABModelEvaluated *abModelEvaluated;
+@property (nonatomic) char hasAbModelEvaluated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEABModelResultTriggered *abModelResultTriggered;
+@property (nonatomic) char hasAbModelResultTriggered;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEWorkoutsAppSelectionGroundTruthGenerated *workoutsAppSelectionGroundTruthGenerated;
+@property (nonatomic) char hasWorkoutsAppSelectionGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCENotebookAppSelectionGroundTruthGenerated *notebookAppSelectionGroundTruthGenerated;
+@property (nonatomic) char hasNotebookAppSelectionGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCECommsAppSelectionGroundTruthGenerated *commsAppSelectionGroundTruthGenerated;
+@property (nonatomic) char hasCommsAppSelectionGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEPervasiveEntityResolutionGroundTruthGenerated *pervasiveEntityResolutionGroundTruthGenerated;
+@property (nonatomic) char hasPervasiveEntityResolutionGroundTruthGenerated;
+@property (retain, nonatomic) INFERENCESchemaINFERENCESmartEnoughAppSelectionExecutionPathReported *seasExecutionPathReported;
+@property (nonatomic) char hasSeasExecutionPathReported;
+@property (retain, nonatomic) INFERENCESchemaINFERENCEAsrEuclidEmbedding *asrEuclidEmbedding;
+@property (nonatomic) char hasAsrEuclidEmbedding;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichEvent_Type;
+
++ (id)getInnerTypeStringByTag:(unsigned long long)a0;
++ (int)joinability;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (int)componentName;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteSeasExecutionPathReported;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (int)getAnyEventType;
+- (int)clockIsolationLevel;
+- (void)deleteAbModelEvaluated;
+- (void)deleteAbModelResultTriggered;
+- (void)deleteAsrEuclidEmbedding;
+- (void)deleteCommsAppSelectionGroundTruthGenerated;
+- (void)deleteContactCandidatesInfoGenerated;
+- (void)deleteCrrTrainingSampleCollected;
+- (void)deleteEventMetadata;
+- (void)deleteMusicAppSelectionGroundTruthGenerated;
+- (void)deleteNotebookAppSelectionGroundTruthGenerated;
+- (void)deletePervasiveEntityResolutionGroundTruthGenerated;
+- (void)deleteResolutionQueryInfoGenerated;
+- (void)deleteResolutionRequestContext;
+- (void)deleteSimpleTaskInfoGenerated;
+- (void)deleteUserPromptSelectedInfoGenerated;
+- (void)deleteVideoPlayOnThirdPartyAppGroundTruthGenerated;
+- (void)deleteVideoSmartAppSelectionDisambiguation;
+- (void)deleteWorkoutsAppSelectionGroundTruthGenerated;
+- (id)getComponentId;
+- (id)qualifiedMessageName;
+- (id)suppressMessageUnderConditions;
+- (unsigned long long)whichInnerEventType;
+
+@end

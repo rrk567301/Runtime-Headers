@@ -1,0 +1,43 @@
+@class GEOLatLng, PBUnknownFields;
+
+@interface GEOTrafficCameraInfo : PBCodable <NSCopying> {
+    PBUnknownFields *_unknownFields;
+    double _fraction;
+    GEOLatLng *_position;
+    double _speedThresholdMps;
+    int _type;
+    struct { unsigned char has_fraction : 1; unsigned char has_speedThresholdMps : 1; unsigned char has_type : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasType;
+@property (nonatomic) int type;
+@property (nonatomic) BOOL hasFraction;
+@property (nonatomic) double fraction;
+@property (nonatomic) BOOL hasSpeedThresholdMps;
+@property (nonatomic) double speedThresholdMps;
+@property (readonly, nonatomic) BOOL hasPosition;
+@property (retain, nonatomic) GEOLatLng *position;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
+
+- (id)typeAsString:(int)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (void)copyTo:(id)a0;
+- (int)StringAsType:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)jsonRepresentation;
+- (id)dictionaryRepresentation;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (id)initWithJSON:(id)a0;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (void)readAll:(BOOL)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.StringResponseSanitizerOverridesRuntime : _TtCs12_SwiftObject
+
+@end

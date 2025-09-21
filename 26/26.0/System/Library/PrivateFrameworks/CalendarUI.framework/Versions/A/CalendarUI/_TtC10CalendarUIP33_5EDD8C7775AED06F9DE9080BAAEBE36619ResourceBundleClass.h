@@ -1,0 +1,3 @@
+@interface _TtC10CalendarUIP33_5EDD8C7775AED06F9DE9080BAAEBE36619ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,82 @@
+@class NSIndexSet, NSString, NSDictionary, IDSSockAddrWrapper;
+@protocol IDSLinkDelegate;
+
+@interface IDSUDPLink : NSObject <IDSLink> {
+    int _addressFamily;
+    IDSSockAddrWrapper *_localAddress;
+    IDSSockAddrWrapper *_destinationAddress;
+    char _hasFixedDestination;
+    NSDictionary *_destinationAddressToDeviceIDMap;
+    char _wantsAWDL;
+    char _wantsWiFi;
+    char _wantsCellular;
+    char _needToConnect;
+    char _hasTemporaryError;
+    unsigned long long _totalBytesSent;
+    unsigned long long _totalPacketsSent;
+    unsigned long long _totalBytesReceived;
+    unsigned long long _totalPacketsReceived;
+    unsigned long long _previousBytesSent;
+    unsigned long long _previousPacketsSent;
+    unsigned long long _previousBytesReceived;
+    unsigned long long _previousPacketsReceived;
+    double _previousReportTime;
+}
+
+@property (nonatomic) unsigned short port;
+@property (nonatomic) unsigned short cellularPort;
+@property (readonly, nonatomic) int socket;
+@property (readonly, nonatomic) int cellularSocket;
+@property (nonatomic) char useDefaultInterfaceOnly;
+@property (readonly, nonatomic) char isInvalidated;
+@property (nonatomic) double lastDestinationSent;
+@property (readonly, nonatomic) double lastDestinationReceived;
+@property (nonatomic) char allowsLinkLocal;
+@property (nonatomic) char skipTransportThread;
+@property (retain, nonatomic) NSIndexSet *cellularInterfaceIndices;
+@property (nonatomic) char wifiAssistEnabled;
+@property (retain) NSString *cbuuid;
+@property (retain) NSString *deviceUniqueID;
+@property (readonly, getter=linkTypeString) NSString *linkTypeString;
+@property (readonly) unsigned long long state;
+@property (readonly) unsigned long long headerOverhead;
+@property (weak) id<IDSLinkDelegate> delegate;
+@property (weak) id<IDSLinkDelegate> alternateDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (char)setTrafficClass:(int)a0;
+- (void)_processIncomingPacketOnSocket:(int)a0;
+- (id)_createNetworkInterfaceArrayWithIPVersion:(unsigned long long)a0 wantsAWDL:(char)a1 wantsWiFi:(char)a2 wantsCellular:(char)a3 allowsLinkLocal:(char)a4 useDefaultInterfaceOnly:(char)a5 defaultPairedDevice:(char)a6;
+- (int)_createNewUDPSocketWithIPVersion:(unsigned long long)a0 localPort:(unsigned short *)a1 wantsAWDL:(char)a2 clientUUID:(unsigned char[16])a3;
+- (int)_findSocketForInterfaceIndex:(int)a0;
+- (char)_isInterfaceIndexCellular:(int)a0;
+- (void)_processIncomingCellularPacket;
+- (void)_processIncomingPacket;
+- (unsigned long long)_sendBytes:(const void *)a0 length:(unsigned long long)a1;
+- (unsigned long long)_sendBytes:(const void *)a0 length:(unsigned long long)a1 destinationAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a2;
+- (unsigned long long)_sendBytesArray:(const void **)a0 lengthArray:(unsigned long long *)a1 arraySize:(int)a2 localInterfaceIndex:(int)a3 localAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a4 destinationAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a5 trafficClass:(unsigned short)a6 DSCP:(unsigned char)a7;
+- (char)_setTrafficClassOnSocket:(int)a0 trafficClassValue:(int)a1;
+- (id)copyCurrentNetworkInterfaces;
+- (id)copyLinkStatsDict;
+- (id)generateLinkReport:(double)a0 isCurrentLink:(char)a1;
+- (id)initWithDeviceUniqueID:(id)a0 cbuuid:(id)a1;
+- (id)newSocketWithIPVersion:(unsigned long long)a0 wantsAWDL:(char)a1 wantsWiFi:(char)a2 wantsCellular:(char)a3;
+- (id)newSocketWithIPVersion:(unsigned long long)a0 wantsAWDL:(char)a1 wantsWiFi:(char)a2 wantsCellular:(char)a3 clientUUID:(unsigned char[16])a4;
+- (void)reconnectWithLocalAddress:(id)a0;
+- (void)removeSocket;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; unsigned char x5; char x6; char x7; char x8; char x9; char x10; char x11; char x12; char x13; char x14; char x15; char x16; unsigned int x17; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x18; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x19; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x20; unsigned short x21; unsigned char x22; int x23; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; unsigned long long x4; unsigned char x5; unsigned short x6; unsigned char x7; char x8; char x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; char x12; char x13; int x14; unsigned short x15[4]; unsigned char x16; char x17; char x18; char x19; unsigned int x20; } x24[8]; char x25; char x26; int x27; double x28; unsigned char x29[16]; unsigned long long x30; unsigned long long x31; id x32; int x33; unsigned int x34; unsigned short x35; unsigned long long x36; char x37; unsigned char x38[0]; } *)a0 destination:(id)a1 toDeviceID:(id)a2;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; unsigned char x5; char x6; char x7; char x8; char x9; char x10; char x11; char x12; char x13; char x14; char x15; char x16; unsigned int x17; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x18; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x19; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x20; unsigned short x21; unsigned char x22; int x23; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; unsigned long long x4; unsigned char x5; unsigned short x6; unsigned char x7; char x8; char x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; char x12; char x13; int x14; unsigned short x15[4]; unsigned char x16; char x17; char x18; char x19; unsigned int x20; } x24[8]; char x25; char x26; int x27; double x28; unsigned char x29[16]; unsigned long long x30; unsigned long long x31; id x32; int x33; unsigned int x34; unsigned short x35; unsigned long long x36; char x37; unsigned char x38[0]; } *)a0 sourceInterface:(id)a1 destination:(id)a2 toDeviceID:(id)a3;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; unsigned char x5; char x6; char x7; char x8; char x9; char x10; char x11; char x12; char x13; char x14; char x15; char x16; unsigned int x17; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x18; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x19; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x20; unsigned short x21; unsigned char x22; int x23; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; unsigned long long x4; unsigned char x5; unsigned short x6; unsigned char x7; char x8; char x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; char x12; char x13; int x14; unsigned short x15[4]; unsigned char x16; char x17; char x18; char x19; unsigned int x20; } x24[8]; char x25; char x26; int x27; double x28; unsigned char x29[16]; unsigned long long x30; unsigned long long x31; id x32; int x33; unsigned int x34; unsigned short x35; unsigned long long x36; char x37; unsigned char x38[0]; } *)a0 toDeviceUniqueID:(id)a1 cbuuid:(id)a2;
+- (unsigned long long)sendPacketBufferArray:(struct **)a0 arraySize:(int)a1 toDeviceUniqueID:(id)a2 cbuuid:(id)a3;
+- (char)setDestinationAddress:(id)a0 isFixedDestination:(char)a1 fromAddress:(id)a2;
+- (char)setDestinationAddress:(id)a0 localIfIndex:(unsigned int)a1 isFixedDestination:(char)a2 fromAddress:(id)a3;
+- (char)setDestinationAddressToDeviceIDMap:(id)a0;
+- (void)setWiFiAssistState:(char)a0;
+
+@end

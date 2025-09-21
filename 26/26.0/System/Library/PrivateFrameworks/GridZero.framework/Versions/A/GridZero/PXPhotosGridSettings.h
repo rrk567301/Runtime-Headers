@@ -1,0 +1,75 @@
+@interface PXPhotosGridSettings : NSObject
+
+@property (class, readonly, nonatomic) PXPhotosGridSettings *sharedInstance;
+
+@property (nonatomic) double maximumBlurRadius;
+@property (nonatomic) double maximumBlurDimmingFraction;
+@property (nonatomic) double blurFadeDistance;
+@property (nonatomic) double maximumCommonFocus;
+@property (nonatomic) double scrollSnapMaximumDecelerationFactor;
+@property (nonatomic) double scrollSnapMaximumAccelerationFactor;
+@property (nonatomic) BOOL enableShowMoreButtonsInEditorialLens;
+@property (nonatomic) BOOL emulatesEmptyLibrary;
+@property (nonatomic) BOOL forceFooterVisible;
+@property (nonatomic) double simulatedLoadDelay;
+@property (nonatomic) double defaultAnimationDuration;
+@property (nonatomic) double matchMoveAnimationDuration;
+@property (nonatomic) BOOL enableInCMM;
+@property (nonatomic) BOOL enableSuperzoom;
+@property (nonatomic) BOOL enablePreviewKeyAssetFetching;
+@property (nonatomic) BOOL enableInvisibleNavBars;
+@property (nonatomic) BOOL enableSortAction;
+@property (nonatomic) BOOL enableMultiSelectMenu;
+@property (nonatomic) BOOL enableNewActionMenu;
+@property (nonatomic) BOOL enableContentFiltering;
+@property (nonatomic) BOOL enableAspectFitToggle;
+@property (nonatomic) BOOL enableAspectFitButton;
+@property (nonatomic) BOOL enableZoomInOutButton;
+@property (nonatomic) BOOL enableDetailsMenuAction;
+@property (nonatomic) BOOL exposeMoviePresentationAction;
+@property (nonatomic) BOOL enableFilterDropDownButton;
+@property (nonatomic) BOOL enableFilterViewControllerAnchoringToSender;
+@property (nonatomic) BOOL enableTitleLegibilityDimmingFilter;
+@property (nonatomic) BOOL backdropStyleForPlacesAndImports;
+@property (nonatomic) BOOL colorNavbarArea;
+@property (nonatomic) double headerTitleTopSpacing;
+@property (nonatomic) double headerTitleBottomSpacing;
+@property (nonatomic) BOOL useGradientSectionHeaders;
+@property (nonatomic) double sectionHeaderGradientOverhang;
+@property (nonatomic) double sectionHeaderGradientAlpha;
+@property (nonatomic) double headerGradientHeight;
+@property (nonatomic) double headerGradientAlpha;
+@property (nonatomic) double behindContentBackgroundGradientAlpha;
+@property (nonatomic) BOOL forceDarkDetailsView;
+@property (nonatomic) BOOL showLivePhotoFilter;
+@property (nonatomic) BOOL showPortraitFilter;
+@property (nonatomic) BOOL showInUserAlbumFilter;
+@property (nonatomic) BOOL showCollectionKindInPreviewHeaderToggleAction;
+@property (nonatomic) BOOL shouldCurateEditorialLens;
+@property (nonatomic) BOOL gridBadgesOnlyShowGlyph;
+@property (nonatomic) BOOL gridBadgesPortraitEnabled;
+@property (nonatomic) BOOL gridBadgesForAllMediaTypes;
+@property (nonatomic) BOOL enableStacksReviewUI;
+@property (nonatomic) double playingRecordsUpdateRateLimit;
+@property (nonatomic) double playbackVisibleRectEdgeInset;
+@property (nonatomic) long long maxNumberOfPlayingItems;
+@property (nonatomic) BOOL forcePlayback;
+@property (nonatomic) double minAutoplaySuggestionScore;
+@property (nonatomic) BOOL playBestTimeRange;
+@property (nonatomic) double floatingHeaderFadeThresholdBetweenHeaderTopAndBodyBottom;
+@property (nonatomic) double floatingHeaderFadeOverDistance;
+@property (nonatomic) double floatingHeaderButtonsFadeThresholdBetweenHeaderTopAndNextBodyTop;
+@property (nonatomic) double floatingHeaderButtonsFadeOverDistance;
+@property (nonatomic) long long allPhotosAspectFitFocusAnimationStyle;
+@property (nonatomic) double allPhotosAspectFitFocusPadding;
+@property (nonatomic) long long allPhotosAspectFillFocusAnimationStyle;
+@property (nonatomic) double allPhotosAspectFillFocusPadding;
+@property (nonatomic) long long pressedAnimationStyle;
+@property (nonatomic) double pressedAnimationPadding;
+@property (nonatomic) BOOL forceBadgesOnAllAssets;
+@property (nonatomic) double sidebarPadding;
+
+- (void)setDefaultValues;
+- (id)init;
+
+@end

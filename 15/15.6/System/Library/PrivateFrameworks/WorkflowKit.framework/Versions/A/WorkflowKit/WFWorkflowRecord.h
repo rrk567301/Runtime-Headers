@@ -1,0 +1,81 @@
+@class NSDate, NSString, NSArray, WFWorkflowIcon, NSSet, NSData, NSDictionary, WFWorkflowQuarantine;
+
+@interface WFWorkflowRecord : WFRecord <WFNaming>
+
+@property (readonly, copy, nonatomic) NSString *wfName;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *legacyName;
+@property (retain, nonatomic) WFWorkflowIcon *icon;
+@property (retain, nonatomic) NSDate *creationDate;
+@property (retain, nonatomic) NSDate *modificationDate;
+@property (copy, nonatomic) NSString *workflowSubtitle;
+@property (copy, nonatomic) NSString *actionsDescription;
+@property (copy, nonatomic) NSString *associatedAppBundleIdentifier;
+@property (nonatomic) char shouldAutoUpdateAssociatedAppBundleIdentifier;
+@property (copy, nonatomic) NSString *galleryIdentifier;
+@property (copy, nonatomic) NSString *source;
+@property (retain, nonatomic) WFWorkflowQuarantine *quarantine;
+@property (copy, nonatomic) NSArray *workflowTypes;
+@property (copy, nonatomic) NSArray *quickActionSurfacesForSharing;
+@property (copy, nonatomic) NSArray *inputClasses;
+@property (copy, nonatomic) NSDictionary *noInputBehavior;
+@property (copy, nonatomic) NSArray *outputClasses;
+@property (nonatomic) char hasShortcutInputVariables;
+@property (nonatomic) char hasOutputFallback;
+@property (nonatomic) char disabledOnLockScreen;
+@property (copy, nonatomic) NSArray *actions;
+@property (nonatomic) long long actionCount;
+@property (copy, nonatomic) NSArray *importQuestions;
+@property (copy, nonatomic) NSString *minimumClientVersion;
+@property (nonatomic) char hiddenInComplication;
+@property (nonatomic) char hiddenFromLibraryAndSync;
+@property (nonatomic, getter=isDeleted) char deleted;
+@property (copy, nonatomic) NSString *lastMigratedClientVersion;
+@property (nonatomic) long long lastSyncedHash;
+@property (copy, nonatomic) NSString *lastSavedOnDeviceName;
+@property (nonatomic) long long lastSyncedEncryptedSchemaVersion;
+@property (nonatomic) long long wantedEncryptedSchemaVersion;
+@property (readonly, nonatomic) unsigned long long estimatedSize;
+@property (copy, nonatomic) NSSet *accessResourcePerWorkflowStates;
+@property (copy, nonatomic) NSSet *smartPromptPerWorkflowStates;
+@property (nonatomic) long long remoteQuarantineStatus;
+@property (retain, nonatomic) NSData *remoteQuarantineHash;
+@property (readonly, nonatomic, getter=isConflictOfOtherWorkflow) char conflictOfOtherWorkflow;
+@property (copy, nonatomic) NSData *cloudKitRecordMetadata;
+@property (nonatomic) long long syncHash;
+
++ (id)defaultIcon;
++ (id)defaultActions;
++ (id)defaultAccessResourcePerWorkflowStates;
++ (long long)defaultActionCount;
++ (id)defaultCreationDate;
++ (char)defaultDeleted;
++ (char)defaultDisabledOnLockScreen;
++ (char)defaultHasOutputFallback;
++ (char)defaultHasShortcutInputVariables;
++ (id)defaultImportQuestions;
++ (id)defaultInputClasses;
++ (id)defaultLastMigratedClientVersion;
++ (id)defaultLastSavedOnDeviceName;
++ (id)defaultModificationDate;
++ (id)defaultOutputClasses;
++ (id)defaultQuickActionSurfacesForSharing;
++ (char)defaultShouldAutoUpdateAssociatedAppBundleIdentifier;
++ (id)defaultSmartPromptPerWorkflowStates;
++ (id)defaultWorkflowTypes;
++ (id)workflowSubtitleForActionCount:(unsigned long long)a0 savedSubtitle:(id)a1;
+
+- (void).cxx_destruct;
+- (id)fileRepresentation;
+- (char)addWatchWorkflowTypeIfEligible;
+- (char)isEquivalentForSyncTo:(id)a0;
+- (void)addWatchWorkflowType;
+- (char)addWatchWorkflowTypeIfEligibleWithIneligibleActionIdentifiers:(id)a0;
+- (id)initWithPeaceCloudKitRecord:(id)a0 error:(id *)a1;
+- (id)initWithPeaceCoreDataModel:(id)a0 error:(id *)a1;
+- (char)isEligibleForWatch;
+- (char)isEligibleForWatchWithIneligibleActionIdentifiers:(id)a0;
+- (char)loadFromPeaceData:(id)a0 keyImageData:(id)a1 error:(id *)a2;
+- (char)saveChangesToStorage:(id)a0 error:(id *)a1;
+
+@end

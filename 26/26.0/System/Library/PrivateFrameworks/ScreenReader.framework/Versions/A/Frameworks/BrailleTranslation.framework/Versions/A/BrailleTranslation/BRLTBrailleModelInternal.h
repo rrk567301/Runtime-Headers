@@ -1,0 +1,96 @@
+@class NSString, BRLTEditStringInternal;
+@protocol BRLTBrailleModelDelegate;
+
+@interface BRLTBrailleModelInternal : NSObject {
+    void /* unknown type, empty encoding */ outputTranslator;
+    void /* unknown type, empty encoding */ inputTranslator;
+    void /* unknown type, empty encoding */ candidateManager;
+    void /* unknown type, empty encoding */ backTranslateLocally;
+    void /* unknown type, empty encoding */ editScript;
+    void /* unknown type, empty encoding */ brailleUIModel;
+    void /* unknown type, empty encoding */ script;
+    void /* unknown type, empty encoding */ braille;
+    void /* unknown type, empty encoding */ clientSetSelection;
+    void /* unknown type, empty encoding */ scriptHistory;
+    void /* unknown type, empty encoding */ lastScriptOutputTime;
+    void /* unknown type, empty encoding */ translationResult;
+    void /* unknown type, empty encoding */ brailleSelectionDirty;
+    void /* unknown type, empty encoding */ editingScriptRange;
+    void /* unknown type, empty encoding */ editingBrailleRange;
+    void /* unknown type, empty encoding */ contentLock;
+    void /* unknown type, empty encoding */ stageRange;
+    void /* unknown type, empty encoding */ showingAlert;
+    void /* unknown type, empty encoding */ alertScript;
+    void /* unknown type, empty encoding */ alertBraille;
+    void /* unknown type, empty encoding */ showingTerminalOutput;
+    void /* unknown type, empty encoding */ candidateSelectionLanguage;
+    void /* unknown type, empty encoding */ brailleCache;
+    void /* unknown type, empty encoding */ wordDescriptionManager;
+}
+
+@property (class, nonatomic, readonly) BRLTBrailleModelInternal *shared;
+
+@property (nonatomic, retain) id<BRLTBrailleModelDelegate> delegate;
+@property (nonatomic) BOOL backTranslateByCell;
+@property (nonatomic) BOOL technicalMode;
+@property (nonatomic) BOOL isShowingSecureToken;
+@property (nonatomic) BOOL isSingleKeyQuickNav;
+@property (nonatomic) BOOL brailleUIActive;
+@property (nonatomic, readonly) NSString *uiBraille;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x0; unsigned long long x1; } nsUISelection;
+@property (nonatomic) BOOL handleReturnInternally;
+@property (nonatomic) BOOL clearAtNextDotPress;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x0; unsigned long long x1; } uiDisplayRange;
+@property (nonatomic) BOOL editable;
+@property (nonatomic) BOOL brailleStringDirty;
+@property (nonatomic, readonly) BOOL isCandidateSelectionActive;
+@property (nonatomic, readonly) BRLTEditStringInternal *displayedScript;
+@property (nonatomic, readonly) BRLTEditStringInternal *displayedBraille;
+@property (nonatomic, readonly) NSString *bufferBrailleString;
+@property (nonatomic) BOOL isWordDescriptionActive;
+
+- (void)showPreviousCandidate;
+- (void)setAlert:(id)a0;
+- (void)setScript:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)handleEscape;
+- (BOOL)handleReturn;
+- (BOOL)handleBrailleSelectionWithUpTo:(long long)a0;
+- (void)uiAppendNewLine;
+- (BOOL)uiPreviousFind:(id)a0;
+- (void)selectCandidate;
+- (BOOL)uiFind:(id)a0;
+- (void)uiSelectCharacterWithIsForward:(BOOL)a0;
+- (void)_resetForTest;
+- (void)forceTranslate;
+- (void)handleBrailleDotPress:(id)a0;
+- (BOOL)handleBrailleSelectionWithNSSelection:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (BOOL)handleDeleteWithSilently:(BOOL)a0;
+- (void)handleWordDescriptionCommand;
+- (long long)scriptLocationForBrailleLocation:(long long)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })scriptRangeOfBrailleCellRepresentingCharacterAt:(long long)a0;
+- (void)setInputTableIdentifier:(id)a0 manager:(id)a1;
+- (void)setOutputTableIdentifier:(id)a0 manager:(id)a1;
+- (void)setTerminalOutput:(id)a0;
+- (void)setUIBraille:(id)a0 truncateAtPanBoundary:(BOOL)a1;
+- (void)showFirstLine;
+- (void)showLastLine;
+- (void)showNextCandidate;
+- (void)showNextLine;
+- (void)showNextWordDescription;
+- (void)showPreviousLine;
+- (void)showPreviousWordDescription;
+- (void)uiInsertBraille:(id)a0;
+- (void)uiMoveFocusTo:(long long)a0;
+- (void)uiMoveToNextCharacter;
+- (void)uiMoveToPreviousCharacter;
+- (void)uiRedo;
+- (void)uiReplaceLastLineWith:(id)a0;
+- (void)uiSelectAll;
+- (void)uiSelectBoundary;
+- (void)uiSelectLineWithIsForward:(BOOL)a0;
+- (void)uiSelectWordWithIsForward:(BOOL)a0;
+- (void)uiUndo;
+
+@end

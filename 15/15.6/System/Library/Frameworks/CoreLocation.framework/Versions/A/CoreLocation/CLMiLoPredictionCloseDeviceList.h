@@ -1,0 +1,15 @@
+@class NSArray;
+
+@interface CLMiLoPredictionCloseDeviceList : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, nonatomic) NSArray *devices;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithCloseDeviceList:(id)a0;
+
+@end

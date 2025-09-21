@@ -1,0 +1,3 @@
+@interface _TtC8TipsCoreP33_B9DC0364531FDCE3618B842D8BF0CE2B19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

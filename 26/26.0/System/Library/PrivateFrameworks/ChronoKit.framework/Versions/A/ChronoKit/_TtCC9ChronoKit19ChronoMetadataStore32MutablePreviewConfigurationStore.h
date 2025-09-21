@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore32MutablePreviewConfigurationStore : _TtCC9ChronoKit19ChronoMetadataStore25PreviewConfigurationStore
+
+@end

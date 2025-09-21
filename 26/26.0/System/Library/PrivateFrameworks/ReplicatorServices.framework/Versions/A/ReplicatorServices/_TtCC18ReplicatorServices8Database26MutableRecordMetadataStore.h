@@ -1,0 +1,3 @@
+@interface _TtCC18ReplicatorServices8Database26MutableRecordMetadataStore : _TtCC18ReplicatorServices8Database19RecordMetadataStore
+
+@end

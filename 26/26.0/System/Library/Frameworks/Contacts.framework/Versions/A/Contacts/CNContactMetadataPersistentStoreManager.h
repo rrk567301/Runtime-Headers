@@ -1,0 +1,3 @@
+@interface CNContactMetadataPersistentStoreManager : CNContactPosterDataPersistentStoreManager
+
+@end

@@ -1,0 +1,93 @@
+@class NSDate, NSManagedObjectContext, NSString, CKRecordID, NSArray, NSManagedObjectID, CKRecord, CSSearchableItemAttributeSet, ICAccount;
+
+@interface ICHashtag : ICCloudSyncingObject <ICSearchIndexable, ICCloudObject>
+
+@property (class, readonly, nonatomic) char supportsUserSpecificRecords;
+@property (class, readonly, copy, nonatomic) NSString *localizedSectionTitle;
+
+@property (readonly, copy, nonatomic) CKRecordID *recordID;
+@property (readonly, copy, nonatomic) NSString *recordType;
+@property (readonly, nonatomic) char needsToSaveUserSpecificRecord;
+@property (readonly, nonatomic) char wantsUserSpecificRecord;
+@property (readonly, copy, nonatomic) NSString *userSpecificRecordType;
+@property (readonly, copy, nonatomic) CKRecordID *userSpecificRecordID;
+@property (readonly, retain, nonatomic) CKRecord *userSpecificServerRecord;
+@property (readonly, nonatomic) char needsToBeDeletedFromCloud;
+@property (readonly, nonatomic) char needsToBePushedToCloud;
+@property (readonly, nonatomic) char needsToBeFetchedFromCloud;
+@property (readonly, nonatomic) char isInICloudAccount;
+@property (readonly, nonatomic) char isValidObject;
+@property (readonly, copy, nonatomic) NSString *loggingDescription;
+@property (readonly, nonatomic) NSManagedObjectID *objectID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) long long databaseScope;
+@property (readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, nonatomic) NSManagedObjectID *objectID;
+@property (readonly, nonatomic) long long visibilityTestingType;
+@property (readonly, copy, nonatomic) NSString *searchIndexingIdentifier;
+@property (readonly, copy, nonatomic) NSString *contentIdentifier;
+@property (readonly, copy, nonatomic) NSDate *creationDate;
+@property (readonly, copy, nonatomic) NSDate *modificationDate;
+@property (readonly, nonatomic) unsigned long long searchResultsSection;
+@property (readonly, nonatomic) unsigned long long searchResultType;
+@property (readonly, nonatomic) char searchResultCanBeDeletedFromNoteContext;
+@property (readonly, nonatomic) char isHiddenFromIndexing;
+@property (readonly, nonatomic) char isHiddenFromSearch;
+@property (readonly, nonatomic) char isMovable;
+@property (readonly, nonatomic) char isDeletable;
+@property (readonly, nonatomic) NSArray *authorsExcludingCurrentUser;
+@property (readonly, copy, nonatomic) NSString *dataSourceIdentifier;
+@property (readonly, copy, nonatomic) NSString *searchDomainIdentifier;
+@property (readonly, nonatomic) CSSearchableItemAttributeSet *searchableItemAttributeSet;
+@property (readonly, nonatomic) CSSearchableItemAttributeSet *userActivityContentAttributeSet;
+@property (readonly) CSSearchableItemAttributeSet *searchableItemViewAttributeSet;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) ICAccount *account;
+@property (copy, nonatomic) NSDate *creationDate;
+@property (copy, nonatomic) NSString *displayText;
+@property (copy, nonatomic) NSString *standardizedContent;
+
++ (void)enumerateHashtagsInContext:(id)a0 batchSize:(unsigned long long)a1 saveAfterBatch:(char)a2 usingBlock:(id /* block */)a3;
++ (id)predicateForHashtagWithStandardizedContent:(id)a0 onlyVisible:(char)a1 account:(id)a2;
++ (id)allVisibleHashtagsForAccount:(id)a0;
++ (id)allVisibleHashtagsInContext:(id)a0;
++ (id)canonicalHashtagsInContext:(id)a0;
++ (void)dedupeHashtagsInAccount:(id)a0;
++ (void)dedupeHashtagsInAccount:(id)a0 atomicityExploitationCallback:(id /* block */)a1;
++ (id)existingCloudObjectForRecordID:(id)a0 accountID:(id)a1 context:(id)a2;
++ (id)hashtagObjectIDWithStandardizedContent:(id)a0 context:(id)a1;
++ (id)hashtagObjectIDsWithStandardizedContents:(id)a0 context:(id)a1;
++ (id)hashtagWithDisplayText:(id)a0 account:(id)a1 createIfNecessary:(char)a2;
++ (id)hashtagWithIdentifier:(id)a0 context:(id)a1;
++ (id)hashtagWithStandardizedContent:(id)a0 account:(id)a1;
++ (id)hashtagWithStandardizedContent:(id)a0 onlyVisible:(char)a1 account:(id)a2;
++ (id)hashtagsWithStandardizedContent:(id)a0 context:(id)a1;
++ (id)hashtagsWithStandardizedContent:(id)a0 onlyVisible:(char)a1 account:(id)a2 context:(id)a3;
++ (id)newCloudObjectForRecord:(id)a0 accountID:(id)a1 context:(id)a2;
++ (id)newHashtagWithIdentifier:(id)a0 displayText:(id)a1 account:(id)a2;
++ (void)purgeHashtag:(id)a0;
++ (char)regenerateStandardizedContentForAllHashtagsInContext:(id)a0 hasChanges:(char *)a1;
++ (id)renameHashtagsWithStandardizedContent:(id)a0 newDisplayText:(id)a1 context:(id)a2;
++ (id)standardizedHashtagRepresentationForDisplayText:(id)a0;
+
+- (id)recordZoneName;
+- (char)supportsDeletionByTTL;
+- (id)cloudAccount;
+- (char)canRenameTagWithNewDisplayText:(id)a0;
+- (void)associateAppEntityWithSearchableItemAttributeSet:(id)a0;
+- (id)dataForTypeIdentifier:(id)a0;
+- (void)deleteFromLocalDatabase;
+- (id)fileURLForTypeIdentifier:(id)a0;
+- (id)ic_loggingValues;
+- (id)makeCloudKitRecordForApproach:(long long)a0 mergeableFieldState:(id)a1;
+- (char)mergeCloudKitRecord:(id)a0 accountID:(id)a1 approach:(long long)a2 mergeableFieldState:(id)a3;
+- (id)searchableTextContent;
+- (char)shouldSyncMinimumSupportedNotesVersion;
+
+@end

@@ -1,0 +1,45 @@
+@class MTLIndirectCommandBufferDescriptor;
+@protocol MTLIndirectCommandBuffer, MTLIndirectCommandBufferSPI;
+
+@interface MTLDebugIndirectRenderCommand : MTLToolsIndirectRenderCommand {
+    MTLIndirectCommandBufferDescriptor *_desc;
+    unsigned long long _index;
+    id<MTLIndirectCommandBufferSPI> _iCB;
+}
+
+@property (readonly) unsigned long long index;
+@property (readonly) id<MTLIndirectCommandBuffer> indirectCommandBuffer;
+
+- (void)dealloc;
+- (void)setViewport:(struct { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (id)initWithBaseObject:(id)a0 descriptor:(id)a1 indexCount:(unsigned long long)a2 indirectCommandBuffer:(id)a3;
+- (void)setObjectBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setScissorRect:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0;
+- (void)setVertexBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)clearBarrier;
+- (void)drawIndexedPatches:(unsigned long long)a0 patchStart:(unsigned long long)a1 patchCount:(unsigned long long)a2 patchIndexBuffer:(id)a3 patchIndexBufferOffset:(unsigned long long)a4 controlPointIndexBuffer:(id)a5 controlPointIndexBufferOffset:(unsigned long long)a6 instanceCount:(unsigned long long)a7 baseInstance:(unsigned long long)a8 tessellationFactorBuffer:(id)a9 tessellationFactorBufferOffset:(unsigned long long)a10 tessellationFactorBufferInstanceStride:(unsigned long long)a11;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5 baseVertex:(long long)a6 baseInstance:(unsigned long long)a7;
+- (void)drawMeshThreadgroups:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a0 threadsPerObjectThreadgroup:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a1 threadsPerMeshThreadgroup:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a2;
+- (void)drawMeshThreads:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a0 threadsPerObjectThreadgroup:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a1 threadsPerMeshThreadgroup:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a2;
+- (void)drawPatches:(unsigned long long)a0 patchStart:(unsigned long long)a1 patchCount:(unsigned long long)a2 patchIndexBuffer:(id)a3 patchIndexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5 baseInstance:(unsigned long long)a6 tessellationFactorBuffer:(id)a7 tessellationFactorBufferOffset:(unsigned long long)a8 tessellationFactorBufferInstanceStride:(unsigned long long)a9;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2 instanceCount:(unsigned long long)a3 baseInstance:(unsigned long long)a4;
+- (void)setBarrier;
+- (void)setBlendColorRed:(float)a0 green:(float)a1 blue:(float)a2 alpha:(float)a3;
+- (void)setCullMode:(unsigned long long)a0;
+- (void)setDepthBias:(float)a0 slopeScale:(float)a1 clamp:(float)a2;
+- (void)setDepthClipMode:(unsigned long long)a0;
+- (void)setDepthStencilState:(id)a0;
+- (void)setDepthTestMinBound:(float)a0 maxBound:(float)a1;
+- (void)setFragmentBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setFrontFacingWinding:(unsigned long long)a0;
+- (void)setMeshBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setObjectThreadgroupMemoryLength:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setRenderPipelineState:(id)a0;
+- (void)setScissorRects:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a0 count:(unsigned long long)a1;
+- (void)setStencilFrontReferenceValue:(unsigned int)a0 backReferenceValue:(unsigned int)a1;
+- (void)setStencilReferenceValue:(unsigned int)a0;
+- (void)setTriangleFillMode:(unsigned long long)a0;
+- (void)setVertexBuffer:(id)a0 offset:(unsigned long long)a1 attributeStride:(unsigned long long)a2 atIndex:(unsigned long long)a3;
+- (void)setViewports:(const struct { double x0; double x1; double x2; double x3; double x4; double x5; } *)a0 count:(unsigned long long)a1;
+
+@end

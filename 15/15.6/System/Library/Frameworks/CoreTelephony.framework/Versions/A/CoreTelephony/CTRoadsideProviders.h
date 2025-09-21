@@ -1,0 +1,17 @@
+@class NSDictionary;
+
+@interface CTRoadsideProviders : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (retain, nonatomic) NSDictionary *providers;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (char)isEqualToProviders:(id)a0;
+
+@end

@@ -1,0 +1,12 @@
+@interface PAMediaConversionServiceImageMetadataPolicy : NSObject <NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
++ (id)standardPolicy;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)processMetadata:(id)a0;
+- (char)metadataNeedsProcessing:(id)a0;
+
+@end

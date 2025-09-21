@@ -1,0 +1,3 @@
+@interface _TtCC18AppIntentsServices18BiometricKitHelper35DeviceLockStateNotificationObserver : AppIntentsServices.DarwinNotificationObserver
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC18CoreIDVRGBLivenessP33_DE9D501AFEACC526A03ACC665B553E2319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

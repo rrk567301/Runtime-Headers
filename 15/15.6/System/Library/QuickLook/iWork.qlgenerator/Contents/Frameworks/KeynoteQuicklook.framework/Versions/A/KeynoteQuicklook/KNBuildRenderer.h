@@ -1,0 +1,84 @@
+@class TSDDrawableInfo, KNAnimatedBuild, KNBuildChunk, TSDRep, CALayer, TSDTextureDescription, TSDTextureSet, NSString, NSMutableArray, NSMutableSet, NSMapTable, KNAnimationInfo;
+
+@interface KNBuildRenderer : KNAnimationRenderer <CAAnimationDelegate> {
+    long long _numberOfAnimationsStarted;
+    NSMapTable *_animatedLayers;
+    id _buildEndCallbackTarget;
+    SEL _buildEndCallbackSelector;
+    TSDTextureSet *_endOfBuildTextureSet;
+    TSDTextureSet *_textureSet;
+    TSDTextureSet *_finalAttributesTextureSet;
+    KNAnimationInfo *_animationInfo;
+    char _isPreview;
+    char _interrupted;
+    char _isAnimationForPlayback;
+    char _areAnimationsReadyToStart;
+    char _usingFinalTexture;
+    char _isTextureCachedAtEndOfBuild;
+    char _shouldUseMagicMoveTextures;
+    char _isNonCachedTextureValid;
+    char _animationWillBeginPerformed;
+    NSMutableSet *_texturesToTeardown;
+}
+
+@property (readonly, nonatomic) KNAnimatedBuild *animatedBuild;
+@property (readonly, nonatomic) NSMutableArray *animatedBuildsToStartAtEnd;
+@property (readonly, nonatomic) KNBuildChunk *buildStage;
+@property (readonly, nonatomic) TSDDrawableInfo *info;
+@property (retain, nonatomic) CALayer *parentLayer;
+@property (readonly, nonatomic) TSDRep *rep;
+@property (retain, nonatomic) TSDTextureDescription *textureDescription;
+@property (readonly, nonatomic) unsigned long long textureDeliveryStyle;
+@property (readonly, nonatomic) TSDTextureSet *textureSet;
+@property (readonly, nonatomic) long long textureStageIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)teardown;
+- (void)animationDidStop:(id)a0 finished:(char)a1;
+- (void)stopAnimations;
+- (void)animate;
+- (void)animationDidEnd;
+- (void)resumeAnimationsIfPausedAtTime:(double)a0;
+- (char)addAnimationsAtLayerTime:(double)a0;
+- (void)addBuildToStartAtEnd:(id)a0;
+- (id)animationWillBegin;
+- (void)fadeOutPreviousStageOn:(id)a0 atLayerTime:(double)a1;
+- (void)forceRemoveAnimations;
+- (void)generateTextures;
+- (id)initWithAnimatedBuild:(id)a0 info:(id)a1 buildStage:(id)a2 animatedSlideView:(id)a3;
+- (id)initializeTextureSetForEndOfBuild:(char)a0 endOfSlide:(char)a1 description:(id)a2 isRenderingToContext:(char)a3;
+- (id)loadPluginIfNeeded;
+- (id)p_filterForTextDelivery:(long long)a0 childRepTextDeliveryFilter:(id *)a1;
+- (id)p_initializeTextureSetForEndOfBuild:(char)a0 endOfSlide:(char)a1 description:(id)a2 isRenderingToContext:(char)a3;
+- (char)p_isDriftAnimation;
+- (char)p_isMovieInfo;
+- (char)p_isTextDrawable;
+- (id)p_keyForAnimation;
+- (void)p_removeAnimations;
+- (void)p_resetAnimations;
+- (id)p_textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(char)a2 shouldForceRebuild:(char)a3 shouldRender:(char)a4;
+- (void)p_updateTextureDescription:(id)a0 forStage:(long long)a1 isAtEndOfBuild:(char)a2;
+- (void)pauseAnimationsAtTime:(double)a0;
+- (void)registerForBuildEndCallback:(SEL)a0 target:(id)a1;
+- (void)removeAnimationsAndFinish:(char)a0;
+- (void)removeBuildToStartAtEnd:(id)a0;
+- (void)renderTextures;
+- (void)resetHighlightsBeforeAnimationOnTextureSet:(id)a0;
+- (void)resetPreviousStageToUnhighlightOnTextureSet:(id)a0;
+- (void)setEndOfBuildTextureSet:(id)a0;
+- (void)setGeometryAndActionAttributesOnTextureSet:(id)a0 isAtEndOfBuild:(char)a1 isAtEndOfSlide:(char)a2 isRenderingToContext:(char)a3;
+- (void)setLayerVisibility:(id)a0 isAtEndOfBuild:(char)a1;
+- (id)setupFinalTextureGivenCurrentTextureSet:(id)a0 isRenderingToContext:(char)a1;
+- (void)setupPluginContext;
+- (char)shouldPreGenerateTextures;
+- (id)textureDescriptionForStage:(long long)a0 isAtEndOfBuild:(char)a1;
+- (id)textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(char)a2 shouldForceRebuild:(char)a3 shouldRender:(char)a4;
+- (id)textureSetWithoutRenderedContents;
+- (void)updateAnimationsForLayerTime:(double)a0;
+- (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(char)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC13CoreIDVSharedP33_DAA9E24133F299A6C42C655681089A9A19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

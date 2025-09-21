@@ -1,0 +1,3 @@
+@interface _TtC13CDMFoundationP33_0D729100735C6E1E3EE09C1283E9436526NLRouterAutoBugCaptureImpl : _TtCs12_SwiftObject
+
+@end

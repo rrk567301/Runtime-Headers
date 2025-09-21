@@ -1,0 +1,3 @@
+@interface _TtC10ConsoleKitP33_99ACD96547F80D5997D0696E306AF7FD19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

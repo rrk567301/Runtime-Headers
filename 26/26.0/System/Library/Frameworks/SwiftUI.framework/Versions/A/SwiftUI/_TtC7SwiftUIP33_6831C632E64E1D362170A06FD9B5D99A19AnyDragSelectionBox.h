@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_6831C632E64E1D362170A06FD9B5D99A19AnyDragSelectionBox : _TtCs12_SwiftObject
+
+@end

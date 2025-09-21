@@ -1,0 +1,3 @@
+@interface TSUBundleFinder : NSObject
+
+@end

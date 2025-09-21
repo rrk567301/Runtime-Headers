@@ -1,0 +1,98 @@
+@class CKDPRecordType, CKDPRecordCryptoFeatureSet, CKDPRecordOneTimeStableUrlInfo, CKDPIdentifier, CKDPRecordStableUrl, NSMutableArray, CKDPStorageExpiration, CKDPProtectionInfo, CKDPShareIdentifier, NSString, CKDPRecordChainParent, CKDPShare, CKDPDate, NSData, CKDPRecordIdentifier, CKDPProtectionInfoKeysToRemove, CKDPDateStatistics;
+
+@interface CKDPRecord : PBCodable <NSCopying> {
+    struct { unsigned char permission : 1; unsigned char expired : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasEtag;
+@property (retain, nonatomic) NSString *etag;
+@property (readonly, nonatomic) char hasRecordIdentifier;
+@property (retain, nonatomic) CKDPRecordIdentifier *recordIdentifier;
+@property (readonly, nonatomic) char hasType;
+@property (retain, nonatomic) CKDPRecordType *type;
+@property (readonly, nonatomic) char hasCreatedBy;
+@property (retain, nonatomic) CKDPIdentifier *createdBy;
+@property (readonly, nonatomic) char hasTimeStatistics;
+@property (retain, nonatomic) CKDPDateStatistics *timeStatistics;
+@property (retain, nonatomic) NSMutableArray *fields;
+@property (readonly, nonatomic) char hasShareId;
+@property (retain, nonatomic) CKDPShareIdentifier *shareId;
+@property (readonly, nonatomic) char hasModifiedBy;
+@property (retain, nonatomic) CKDPIdentifier *modifiedBy;
+@property (retain, nonatomic) NSMutableArray *conflictLoserEtags;
+@property (readonly, nonatomic) char hasModifiedByDevice;
+@property (retain, nonatomic) NSString *modifiedByDevice;
+@property (retain, nonatomic) NSMutableArray *pluginFields;
+@property (readonly, nonatomic) char hasProtectionInfo;
+@property (retain, nonatomic) CKDPProtectionInfo *protectionInfo;
+@property (nonatomic) char hasPermission;
+@property (nonatomic) int permission;
+@property (readonly, nonatomic) char hasShareInfo;
+@property (retain, nonatomic) CKDPShare *shareInfo;
+@property (readonly, nonatomic) char hasChainPrivateKey;
+@property (retain, nonatomic) NSData *chainPrivateKey;
+@property (readonly, nonatomic) char hasChainProtectionInfo;
+@property (retain, nonatomic) CKDPProtectionInfo *chainProtectionInfo;
+@property (readonly, nonatomic) char hasChainParent;
+@property (retain, nonatomic) CKDPRecordChainParent *chainParent;
+@property (readonly, nonatomic) char hasStableUrl;
+@property (retain, nonatomic) CKDPRecordStableUrl *stableUrl;
+@property (retain, nonatomic) NSMutableArray *tombstonedPublicKeyIDs;
+@property (readonly, nonatomic) char hasZoneishPrimaryKeyId;
+@property (retain, nonatomic) NSData *zoneishPrimaryKeyId;
+@property (readonly, nonatomic) char hasStorageExpiration;
+@property (retain, nonatomic) CKDPStorageExpiration *storageExpiration;
+@property (nonatomic) char hasExpired;
+@property (nonatomic) char expired;
+@property (readonly, nonatomic) char hasExpirationTime;
+@property (retain, nonatomic) CKDPDate *expirationTime;
+@property (readonly, nonatomic) char hasAppliedCryptoFeatures;
+@property (retain, nonatomic) CKDPRecordCryptoFeatureSet *appliedCryptoFeatures;
+@property (readonly, nonatomic) char hasProtectionInfoKeysToRemove;
+@property (retain, nonatomic) CKDPProtectionInfoKeysToRemove *protectionInfoKeysToRemove;
+@property (readonly, nonatomic) char hasOneTimeStableUrlInfo;
+@property (retain, nonatomic) CKDPRecordOneTimeStableUrlInfo *oneTimeStableUrlInfo;
+@property (readonly, nonatomic) char hasChainProtectionInfoKeysToRemove;
+@property (retain, nonatomic) CKDPProtectionInfoKeysToRemove *chainProtectionInfoKeysToRemove;
+
++ (id)recordFromData:(id)a0;
++ (Class)conflictLoserEtagsType;
++ (Class)fieldsType;
++ (Class)pluginFieldsType;
++ (Class)tombstonedPublicKeyIDsType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dataRepresentation;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)fieldForKey:(id)a0;
+- (int)StringAsPermission:(id)a0;
+- (void)_inflateFieldsFromData:(id)a0;
+- (id)_permissionAsString;
+- (void)addConflictLoserEtags:(id)a0;
+- (void)addFields:(id)a0;
+- (void)addPluginFields:(id)a0;
+- (void)addTombstonedPublicKeyIDs:(id)a0;
+- (void)clearConflictLoserEtags;
+- (void)clearFields;
+- (void)clearPluginFields;
+- (void)clearTombstonedPublicKeyIDs;
+- (id)conflictLoserEtagsAtIndex:(unsigned long long)a0;
+- (unsigned long long)conflictLoserEtagsCount;
+- (id)fieldData;
+- (id)fieldsAtIndex:(unsigned long long)a0;
+- (unsigned long long)fieldsCount;
+- (id)permissionAsString:(int)a0;
+- (id)pluginFieldsAtIndex:(unsigned long long)a0;
+- (unsigned long long)pluginFieldsCount;
+- (id)tombstonedPublicKeyIDsAtIndex:(unsigned long long)a0;
+- (unsigned long long)tombstonedPublicKeyIDsCount;
+
+@end

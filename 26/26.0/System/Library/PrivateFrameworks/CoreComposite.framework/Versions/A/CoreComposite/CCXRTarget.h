@@ -1,0 +1,3 @@
+@interface CCXRTarget : NSObject
+
+@end

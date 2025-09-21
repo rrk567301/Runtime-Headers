@@ -1,0 +1,9 @@
+@interface GenerativeAssistantActions.UseDeviceAssistantTool : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ name;
+    void /* unknown type, empty encoding */ usageDescription;
+    void /* unknown type, empty encoding */ _invocation;
+    void /* unknown type, empty encoding */ _generativeTask;
+    void /* unknown type, empty encoding */ _$observationRegistrar;
+}
+
+@end

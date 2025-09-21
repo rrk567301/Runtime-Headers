@@ -1,0 +1,84 @@
+@class NSArray, NSString, CKPersona, CKUploadRequestConfiguration, NSDictionary, NSNumber, CKAccountOverrideInfo;
+@protocol CKTestDeviceReferenceProtocol, NSSecureCoding, CKSQLiteItem;
+
+@interface CKContainerOptions : NSObject <CKPropertiesDescription, CKSQLiteItem, NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long qualityOfService;
+@property BOOL returnPCSMetadata;
+@property (retain) CKUploadRequestConfiguration *uploadRequestConfiguration;
+@property (copy) NSString *personaIdentifier;
+@property (copy) CKPersona *persona;
+@property BOOL returnRequestOperationProto;
+@property BOOL isServiceManatee;
+@property (retain) id<NSSecureCoding, CKSQLiteItem> ckSessionConfiguration;
+@property (retain) id<NSSecureCoding, CKSQLiteItem> ckSessionAcquiredInfo;
+@property (readonly) BOOL isCloudCoreSession;
+@property (copy) NSDictionary *fakeEntitlements;
+@property BOOL holdAllOperations;
+@property (copy) NSNumber *immediateUseDatabaseScopeForTesting;
+@property (retain) id<CKTestDeviceReferenceProtocol> testDeviceReferenceProtocol;
+@property long long qualityOfService;
+@property BOOL returnPCSMetadata;
+@property (retain) CKUploadRequestConfiguration *uploadRequestConfiguration;
+@property (copy) NSString *personaIdentifier;
+@property (copy) CKPersona *persona;
+@property BOOL returnRequestOperationProto;
+@property BOOL isServiceManatee;
+@property (retain) id<NSSecureCoding, CKSQLiteItem> ckSessionConfiguration;
+@property (retain) id<NSSecureCoding, CKSQLiteItem> ckSessionAcquiredInfo;
+@property (readonly) BOOL isCloudCoreSession;
+@property (copy) NSDictionary *fakeEntitlements;
+@property BOOL holdAllOperations;
+@property (copy) NSNumber *immediateUseDatabaseScopeForTesting;
+@property (retain) id<CKTestDeviceReferenceProtocol> testDeviceReferenceProtocol;
+@property BOOL captureResponseHTTPHeaders;
+@property BOOL useZoneWidePCS;
+@property (readonly, copy) NSString *personaUniqueString;
+@property (copy) CKAccountOverrideInfo *accountOverrideInfo;
+@property (copy) CKAccountOverrideInfo *accountInfoOverride;
+@property unsigned long long mmcsEncryptionSupport;
+@property (copy) NSString *encryptionServiceName;
+@property BOOL bypassPCSEncryption;
+@property BOOL enforceNamedOperationGroups;
+@property BOOL forceEnableReadOnlyManatee;
+@property BOOL useClearAssetEncryption;
+@property BOOL accountInfoCacheIsDisabled;
+@property BOOL useAnonymousToServerShareParticipants;
+@property BOOL encryptMergeableValueMetadata;
+@property (copy) NSString *applicationBundleIdentifierOverrideForContainerAccess;
+@property (copy) NSString *applicationBundleIdentifierOverrideForNetworkAttribution;
+@property (copy) NSString *applicationBundleIdentifierOverrideForPushTopicGeneration;
+@property (copy) NSString *applicationBundleIdentifierOverrideForTCC;
+@property BOOL maintainRecordUploadOrder;
+@property BOOL addDatabaseScopeToZoneIDs;
+@property BOOL fetchChangesForMergeableValues;
+@property BOOL prefersHiddenAllowedSharingOptionsUI;
+@property BOOL acceptServerSignedRecords;
+@property (copy) NSArray *supportedDeviceCapabilities;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)CKShortDescriptionRedact:(BOOL)a0;
+- (BOOL)getPersona:(id *)a0 error:(id *)a1;
+- (void)CKDescribePropertiesUsing:(id)a0;
+- (id)sqliteRepresentation;
+- (id)initWithSqliteRepresentation:(id)a0;
+- (void)setUseMMCSEncryptionV2:(BOOL)a0;
+- (void)setApplicationBundleIdentifierOverride:(id)a0;
+- (void)ck_bindInStatement:(id)a0 atIndex:(unsigned long long)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (void)setUserPersona:(id)a0;
+- (void)swizzleClass;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)redactedDescription;
+- (void)setUserPersonaAttributes:(id)a0;
+
+@end

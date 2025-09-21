@@ -1,0 +1,26 @@
+@class NSString;
+
+@interface SMNWirelessConnectAction : SMNAction
+
+@property (retain) NSString *wirelessSSID;
+@property (retain) NSString *password;
+@property unsigned long long timeout;
+@property unsigned long long retryDelay;
+
++ (int)actionID;
++ (id)actionWithPayload:(id)a0;
+
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (char)success;
+- (id)resultData;
+- (id)requestPayload;
+- (char)expectsAResult;
+- (id)initWithSSID:(id)a0 password:(id)a1;
+- (id)setOfClassesToDecodeInTheResult;
+- (id)initWithSSID:(id)a0 password:(id)a1 timeout:(unsigned long long)a2 retryDelay:(unsigned long long)a3;
+- (char)returnsData;
+- (char)setResultFromDict:(id)a0;
+
+@end

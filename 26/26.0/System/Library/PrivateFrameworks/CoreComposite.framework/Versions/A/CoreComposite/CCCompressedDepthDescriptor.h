@@ -1,0 +1,3 @@
+@interface CCCompressedDepthDescriptor : CCMultiviewTextureDataDescriptor
+
+@end

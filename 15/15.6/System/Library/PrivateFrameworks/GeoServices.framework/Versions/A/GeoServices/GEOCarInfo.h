@@ -1,0 +1,98 @@
+@class PBDataReader, NSString, GEOScreenDimension, PBUnknownFields;
+
+@interface GEOCarInfo : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct { int *list; unsigned long long count; unsigned long long size; } _engineTypes;
+    struct { int *list; unsigned long long count; unsigned long long size; } _inputMethods;
+    struct GEOScreenResolution { double _height; double _width; struct { unsigned char height : 1; unsigned char width : 1; } _has; } _screenResolution;
+    NSString *_carName;
+    NSString *_manufacturer;
+    NSString *_model;
+    GEOScreenDimension *_screenDimension;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _brightness;
+    int _colorRange;
+    int _deviceConnection;
+    int _navAidedDrivingStatus;
+    char _destinationSharingEnabled;
+    char _isInstructionCardEnabled;
+    char _isInstrumentClusterEnabled;
+    char _isMapviewEnabled;
+    struct { unsigned char has_screenResolution : 1; unsigned char has_brightness : 1; unsigned char has_colorRange : 1; unsigned char has_deviceConnection : 1; unsigned char has_navAidedDrivingStatus : 1; unsigned char has_destinationSharingEnabled : 1; unsigned char has_isInstructionCardEnabled : 1; unsigned char has_isInstrumentClusterEnabled : 1; unsigned char has_isMapviewEnabled : 1; unsigned char read_unknownFields : 1; unsigned char read_engineTypes : 1; unsigned char read_inputMethods : 1; unsigned char read_carName : 1; unsigned char read_manufacturer : 1; unsigned char read_model : 1; unsigned char read_screenDimension : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) char hasManufacturer;
+@property (retain, nonatomic) NSString *manufacturer;
+@property (readonly, nonatomic) char hasModel;
+@property (retain, nonatomic) NSString *model;
+@property (nonatomic) char hasScreenResolution;
+@property (nonatomic) struct GEOScreenResolution { double x0; double x1; struct { unsigned char x0 : 1; unsigned char x1 : 1; } x2; } screenResolution;
+@property (nonatomic) char hasDeviceConnection;
+@property (nonatomic) int deviceConnection;
+@property (nonatomic) char hasDestinationSharingEnabled;
+@property (nonatomic) char destinationSharingEnabled;
+@property (nonatomic) char hasNavAidedDrivingStatus;
+@property (nonatomic) int navAidedDrivingStatus;
+@property (readonly, nonatomic) unsigned long long engineTypesCount;
+@property (readonly, nonatomic) int *engineTypes;
+@property (readonly, nonatomic) char hasCarName;
+@property (retain, nonatomic) NSString *carName;
+@property (readonly, nonatomic) char hasScreenDimension;
+@property (retain, nonatomic) GEOScreenDimension *screenDimension;
+@property (nonatomic) char hasColorRange;
+@property (nonatomic) int colorRange;
+@property (nonatomic) char hasBrightness;
+@property (nonatomic) int brightness;
+@property (readonly, nonatomic) unsigned long long inputMethodsCount;
+@property (readonly, nonatomic) int *inputMethods;
+@property (nonatomic) char hasIsInstrumentClusterEnabled;
+@property (nonatomic) char isInstrumentClusterEnabled;
+@property (nonatomic) char hasIsInstructionCardEnabled;
+@property (nonatomic) char isInstructionCardEnabled;
+@property (nonatomic) char hasIsMapviewEnabled;
+@property (nonatomic) char isMapviewEnabled;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (id)carInfoWithTraits:(id)a0;
++ (char)isValid:(id)a0;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsDeviceConnection:(id)a0;
+- (int)StringAsEngineTypes:(id)a0;
+- (int)StringAsInputMethods:(id)a0;
+- (int)StringAsNavAidedDrivingStatus:(id)a0;
+- (void)addInputMethod:(int)a0;
+- (id)initWithTraits:(id)a0;
+- (void)addEngineType:(int)a0;
+- (void)clearEngineTypes;
+- (void)clearInputMethods;
+- (void)clearUnknownFields:(char)a0;
+- (id)deviceConnectionAsString:(int)a0;
+- (int)engineTypeAtIndex:(unsigned long long)a0;
+- (id)engineTypesAsString:(int)a0;
+- (id)initWithJSON:(id)a0;
+- (int)inputMethodAtIndex:(unsigned long long)a0;
+- (id)inputMethodsAsString:(int)a0;
+- (id)jsonRepresentation;
+- (id)navAidedDrivingStatusAsString:(int)a0;
+- (void)readAll:(char)a0;
+- (void)setEngineTypes:(int *)a0 count:(unsigned long long)a1;
+- (void)setInputMethods:(int *)a0 count:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface SPAccessoryLayoutTemplate : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (nonatomic) unsigned char partIdentifier;
+@property (copy, nonatomic) NSString *partType;
+@property (copy, nonatomic) NSString *partName;
+@property (copy, nonatomic) NSString *partSymbol;
+@property (nonatomic) char isPrimary;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

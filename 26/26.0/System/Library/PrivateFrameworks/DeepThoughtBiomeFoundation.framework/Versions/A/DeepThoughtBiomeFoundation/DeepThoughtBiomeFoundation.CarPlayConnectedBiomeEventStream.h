@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.CarPlayConnectedBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

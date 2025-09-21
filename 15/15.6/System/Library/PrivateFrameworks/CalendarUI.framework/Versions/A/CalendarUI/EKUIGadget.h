@@ -1,0 +1,85 @@
+@class EKUIGadgetScrollView, NSView, EKViewController, NSString, NSLayoutConstraint;
+@protocol EKUILayoutItem;
+
+@interface EKUIGadget : NSObject <EKUILayoutItem>
+
+@property (weak) id<EKUILayoutItem> parentItem;
+@property (weak, nonatomic) NSView *firstKeyView;
+@property (weak, nonatomic) NSView *lastKeyView;
+@property (retain) EKUIGadgetScrollView *scrollView;
+@property (setter=setExpanded:) char isExpanded;
+@property (weak) EKViewController *viewController;
+@property (retain) NSString *uuid;
+@property char isVisible;
+@property char shouldScrollToTop;
+@property char constrainedForRequiredContentHeight;
+@property (retain) NSLayoutConstraint *scrollContentHeightConstraint;
+@property (retain) NSLayoutConstraint *scrollViewMaxHeightConstraint;
+@property char isScrolling;
+@property char scrollsOutsideMainScrollArea;
+@property (retain) NSView *gadgetView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)interestedChangeKeys;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)calendar;
+- (id)object;
+- (void)setObject:(id)a0;
+- (id)view;
+- (id)event;
+- (id)item;
+- (id)accessibilityIdentifier;
+- (char)hasContent;
+- (char)isEditable;
+- (char)needsExpansion;
+- (char)performDragOperation:(id)a0;
+- (double)preferredWidth;
+- (void)setNeedsUpdateConstraints:(char)a0;
+- (void)updateConstraints;
+- (char)isContainer;
+- (double)maxHeight;
+- (id)initWithViewController:(id)a0;
+- (void)scrollToTop;
+- (id)reminder;
+- (id)recurrenceDifferenceDescription;
+- (char)updateWithDiff:(id)a0;
+- (void)viewControllerViewWillDisappear;
+- (void)_scrollViewFrameDidChange:(id)a0;
+- (char)adjustConstraintsInResponseToLayout;
+- (void)animationDidFinish:(id)a0;
+- (id)claimedPboardTypes;
+- (id)enclosingGadgetContainer;
+- (void)inspectorWindowWillClose;
+- (char)isInProposedEventController;
+- (char)isInterestedInChanges:(id)a0;
+- (id)menuItemsForRecurrenceDifference;
+- (void)mouseDownInGadgetView;
+- (void)mouseEnteredGadgetView;
+- (void)mouseExitedGadgetView;
+- (void)mouseUpInGadgetView;
+- (unsigned long long)recurrenceDifferenceCount;
+- (id)recurrenceDifferenceTitle;
+- (void)resetToOriginalItem;
+- (void)saveCompleteChange;
+- (void)saveCompleteChangeWithoutPromptingUserAboutDecline;
+- (void)savePartialChange;
+- (void)savePendingChanges;
+- (void)saveResetToOriginalItemWithEvent:(id)a0;
+- (void)scrollToBottom;
+- (void)setGadgetScrollsOutsideMainScrollArea:(char)a0;
+- (char)shouldDisplay;
+- (id)subItems;
+- (id)timeZoneToDisplayIn;
+- (void)updateScrollState;
+- (void)updateWithChanges:(id)a0;
+- (void)viewControllerViewDidAppear;
+- (void)viewControllerViewDidDisappear;
+- (void)viewControllerViewWillAppear;
+- (char)wantsAnimationSuppression;
+
+@end

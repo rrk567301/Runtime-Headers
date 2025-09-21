@@ -1,0 +1,85 @@
+@class CNVSchemaCNVExecutionPrepareContext, SISchemaInstrumentationMessage, CNVSchemaCNVFlowPluginLoadContext, CNVSchemaCNVIntentEagerExecutionContext, CNVSchemaCNVFlowPluginExecutionContext, CNVSchemaCNVExecutionCommitContext, CNVSchemaCNVExecutionOverridesEvaluated, CNVSchemaCNVFindFlowContext, CNVSchemaCNVActionCandidatesCollated, CNVSchemaCNVFlowPluginInputContext, CNVSchemaCNVIntentReformationContext, CNVSchemaCNVDecisionEngineResponseReported, CNVSchemaCNVDisambiguationContext, NSData, CNVSchemaCNVPostFlowPrepareContext, CNVSchemaCNVActionCandidatesGenerated, CNVSchemaCNVPreFlowPrepareContext, CNVSchemaCNVActionCandidatesGeneratedTier1, CNVSchemaCNVClientEventMetadata, CNVSchemaCNVUsoGraphTier1, CNVSchemaCNVIntentFinalExecutionContext;
+
+@interface CNVSchemaCNVClientEvent : SISchemaTopLevelUnionType <SISchemaInnerEventContainer>
+
+@property (readonly, nonatomic) SISchemaInstrumentationMessage *innerEvent;
+@property (retain, nonatomic) CNVSchemaCNVClientEventMetadata *eventMetadata;
+@property (nonatomic) char hasEventMetadata;
+@property (retain, nonatomic) CNVSchemaCNVIntentReformationContext *intentReformationContext;
+@property (nonatomic) char hasIntentReformationContext;
+@property (retain, nonatomic) CNVSchemaCNVUsoGraphTier1 *cnvUsoGraphTier1;
+@property (nonatomic) char hasCnvUsoGraphTier1;
+@property (retain, nonatomic) CNVSchemaCNVIntentEagerExecutionContext *intentEagerExecutionContext;
+@property (nonatomic) char hasIntentEagerExecutionContext;
+@property (retain, nonatomic) CNVSchemaCNVIntentFinalExecutionContext *intentFinalExecutionContext;
+@property (nonatomic) char hasIntentFinalExecutionContext;
+@property (retain, nonatomic) CNVSchemaCNVActionCandidatesGenerated *actionCandidatesGenerated;
+@property (nonatomic) char hasActionCandidatesGenerated;
+@property (retain, nonatomic) CNVSchemaCNVActionCandidatesGeneratedTier1 *actionCandidatesGeneratedTier1;
+@property (nonatomic) char hasActionCandidatesGeneratedTier1;
+@property (retain, nonatomic) CNVSchemaCNVActionCandidatesCollated *actionCandidatesCollated;
+@property (nonatomic) char hasActionCandidatesCollated;
+@property (retain, nonatomic) CNVSchemaCNVDisambiguationContext *disambiguationContext;
+@property (nonatomic) char hasDisambiguationContext;
+@property (retain, nonatomic) CNVSchemaCNVExecutionOverridesEvaluated *executionOverridesEvaluated;
+@property (nonatomic) char hasExecutionOverridesEvaluated;
+@property (retain, nonatomic) CNVSchemaCNVExecutionPrepareContext *executionPrepareContext;
+@property (nonatomic) char hasExecutionPrepareContext;
+@property (retain, nonatomic) CNVSchemaCNVFlowPluginLoadContext *flowPluginLoadContext;
+@property (nonatomic) char hasFlowPluginLoadContext;
+@property (retain, nonatomic) CNVSchemaCNVFindFlowContext *findFlowContext;
+@property (nonatomic) char hasFindFlowContext;
+@property (retain, nonatomic) CNVSchemaCNVFlowPluginInputContext *flowPluginInputContext;
+@property (nonatomic) char hasFlowPluginInputContext;
+@property (retain, nonatomic) CNVSchemaCNVFlowPluginExecutionContext *flowPluginExecutionContext;
+@property (nonatomic) char hasFlowPluginExecutionContext;
+@property (retain, nonatomic) CNVSchemaCNVPreFlowPrepareContext *preFlowPrepareContext;
+@property (nonatomic) char hasPreFlowPrepareContext;
+@property (retain, nonatomic) CNVSchemaCNVPostFlowPrepareContext *postFlowPrepareContext;
+@property (nonatomic) char hasPostFlowPrepareContext;
+@property (retain, nonatomic) CNVSchemaCNVExecutionCommitContext *executionCommitContext;
+@property (nonatomic) char hasExecutionCommitContext;
+@property (retain, nonatomic) CNVSchemaCNVDecisionEngineResponseReported *decisionEngineResponseReported;
+@property (nonatomic) char hasDecisionEngineResponseReported;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichEvent_Type;
+
++ (id)getInnerTypeStringByTag:(unsigned long long)a0;
++ (int)joinability;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (int)componentName;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteActionCandidatesGenerated;
+- (int)getAnyEventType;
+- (void)deleteActionCandidatesCollated;
+- (void)deleteActionCandidatesGeneratedTier1;
+- (void)deleteCnvUsoGraphTier1;
+- (void)deleteDecisionEngineResponseReported;
+- (void)deleteDisambiguationContext;
+- (void)deleteEventMetadata;
+- (void)deleteExecutionCommitContext;
+- (void)deleteExecutionOverridesEvaluated;
+- (void)deleteExecutionPrepareContext;
+- (void)deleteFindFlowContext;
+- (void)deleteFlowPluginExecutionContext;
+- (void)deleteFlowPluginInputContext;
+- (void)deleteFlowPluginLoadContext;
+- (void)deleteIntentEagerExecutionContext;
+- (void)deleteIntentFinalExecutionContext;
+- (void)deleteIntentReformationContext;
+- (void)deletePostFlowPrepareContext;
+- (void)deletePreFlowPrepareContext;
+- (id)getComponentId;
+- (id)qualifiedMessageName;
+- (id)suppressMessageUnderConditions;
+- (unsigned long long)whichInnerEventType;
+
+@end

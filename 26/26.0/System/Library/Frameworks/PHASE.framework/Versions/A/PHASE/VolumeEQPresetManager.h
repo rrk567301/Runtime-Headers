@@ -1,0 +1,13 @@
+@interface VolumeEQPresetManager : NSObject {
+    struct unordered_map<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>, std::hash<unsigned int>, std::equal_to<unsigned int>, std::allocator<std::pair<const unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>>> { struct __hash_table<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, std::__unordered_map_hasher<unsigned int, std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, std::hash<unsigned int>, std::equal_to<unsigned int>>, std::__unordered_map_equal<unsigned int, std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, std::equal_to<unsigned int>, std::hash<unsigned int>>, std::allocator<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, void *> *> *>>> { void **__ptr_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, void *> *> *>> { unsigned long long __size_; } __deleter_; } __bucket_list_; struct __hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, std::unordered_map<PHASEExternalStreamVoiceBandwidthType, applesauce::CF::DictionaryRef>>, void *> *> { void *__next_; } __first_node_; unsigned long long __size_; float __max_load_factor_; } __table_; } _vEQPresets;
+    struct atomic<Phase::RouteChangeInfo> { struct __cxx_atomic_impl<Phase::RouteChangeInfo, std::__cxx_atomic_base_impl<Phase::RouteChangeInfo>> { _Atomic struct RouteChangeInfo __a_value; } __a_; } _currentRoute;
+}
+
+- (id).cxx_construct;
+- (id)init:(id)a0;
+- (void).cxx_destruct;
+- (void)setCurrentRoute:(struct RouteChangeInfo { unsigned int x0; unsigned int x1; unsigned int x2; })a0;
+- (struct DictionaryRef { struct ObjectRef<const __CFDictionary *> { struct __CFDictionary *x0; } x0; })getPreset:(long long)a0;
+- (void)loadVolumeBasedEQPresets:(id)a0;
+
+@end

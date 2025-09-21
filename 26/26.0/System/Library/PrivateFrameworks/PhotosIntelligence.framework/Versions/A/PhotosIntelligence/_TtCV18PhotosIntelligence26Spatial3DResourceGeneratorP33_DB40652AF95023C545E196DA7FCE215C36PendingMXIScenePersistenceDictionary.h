@@ -1,0 +1,3 @@
+@interface _TtCV18PhotosIntelligence26Spatial3DResourceGeneratorP33_DB40652AF95023C545E196DA7FCE215C36PendingMXIScenePersistenceDictionary : _TtCs12_SwiftObject
+
+@end

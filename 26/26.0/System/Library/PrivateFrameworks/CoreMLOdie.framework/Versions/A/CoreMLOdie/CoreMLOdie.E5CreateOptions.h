@@ -1,0 +1,5 @@
+@interface CoreMLOdie.E5CreateOptions : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ handle;
+}
+
+@end

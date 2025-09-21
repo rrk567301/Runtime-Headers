@@ -1,0 +1,19 @@
+@class NSUUID, NSData;
+
+@interface NEProcessIdentity : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) int pid;
+@property (readonly, nonatomic) int pidVersion;
+@property (readonly, nonatomic) NSUUID *uuid;
+@property (readonly, nonatomic) NSData *auditTokenData;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initFromXPCConnection:(id)a0;
+- (id)initFromXPCMessage:(id)a0;
+- (id)initWithPID:(int)a0 auditToken:(struct { unsigned int x0[8]; })a1;
+
+@end

@@ -1,0 +1,17 @@
+@interface PKStrokeSelectionImageConfig : NSObject <NSCopying>
+
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } strokeBounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } imageViewBounds;
+@property (readonly, nonatomic) double scale;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } imageSize;
+@property (readonly, nonatomic) char invertedColors;
+@property (readonly, nonatomic) char rotated;
+@property (readonly, nonatomic) char sixChannel;
+@property (readonly, nonatomic) char highlighted;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)initWithStrokeBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 imageViewBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 scale:(double)a2 imageSize:(struct CGSize { double x0; double x1; })a3 invertedColors:(char)a4 rotated:(char)a5 sixChannel:(char)a6 highlighted:(char)a7;
+
+@end

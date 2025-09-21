@@ -1,0 +1,10 @@
+@interface TSTUidCoordsForLevelAndType : NSObject {
+    struct unordered_map<TSCECategoryLevel, TSKUIDStructCoord, std::hash<TSCECategoryLevel>, std::equal_to<TSCECategoryLevel>, std::allocator<std::pair<const TSCECategoryLevel, TSKUIDStructCoord>>> { struct __hash_table<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, std::__unordered_map_hasher<TSCECategoryLevel, std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, std::hash<TSCECategoryLevel>, std::equal_to<TSCECategoryLevel>>, std::__unordered_map_equal<TSCECategoryLevel, std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, std::equal_to<TSCECategoryLevel>, std::hash<TSCECategoryLevel>>, std::allocator<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, void *> *> *>>> { void **__ptr_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, void *> *> *>> { unsigned long long __size_; } __deleter_; } __bucket_list_; struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSCECategoryLevel, TSKUIDStructCoord>, void *> *> { void *__next_; } __first_node_; unsigned long long __size_; float __max_load_factor_; } __table_; } _uidCoordsPerRunLevel;
+}
+
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)addUidCoord:(const struct TSKUIDStructCoord { struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; } *)a0 atRunningLevel:(unsigned char)a1;
+- (struct TSKUIDStructCoord { struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; })uuidCoordAtRunningLevel:(unsigned char)a0;
+
+@end

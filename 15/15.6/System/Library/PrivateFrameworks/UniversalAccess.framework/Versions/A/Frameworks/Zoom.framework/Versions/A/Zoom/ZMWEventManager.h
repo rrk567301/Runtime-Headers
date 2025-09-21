@@ -1,0 +1,96 @@
+@class NSString, NSDictionary;
+
+@interface ZMWEventManager : NSObject <AXEEventTapListener> {
+    char _arePoroKeysDown;
+    unsigned int _cgsConnection;
+    char _eventHandlerInstalled;
+    char _registeredHotKeys;
+    char _registeredUAHotKeys;
+    struct __CFMachPort { } *_eventTap;
+    struct __CGEventTapProxy { } *_eventTapProxy;
+    unsigned long long _eventTapReconnectCount;
+    double _eventTapLastReconnect;
+    struct __CFMachPort { } *_eventTapListenOnly;
+    struct __CGEventTapProxy { } *_eventTapListenOnlyProxy;
+    unsigned long long _eventTapListenOnlyReconnectCount;
+    double _eventTapListenOnlyLastReconnect;
+    char _shouldHideCursor;
+    char _canHideCursor;
+    double _lastUAFocusTime;
+    NSDictionary *_lastUAFocusInformation;
+    double _lastPotentialFocusTrigger;
+    double _onlyControlIsDownTime;
+    unsigned long long _lastSeenFlags;
+    struct __CGEventSource { } *_eventSource;
+}
+
+@property (nonatomic) struct CGPoint { double x; double y; } currentMouseLocation;
+@property (nonatomic) char isMouseDetached;
+@property (nonatomic, setter=_setTemporaryDetachKeysDown:) char _temporaryDetachKeysDown;
+@property (nonatomic) struct CGPoint { double x; double y; } _mouseDetachStartMouseLocation;
+@property (nonatomic) struct CGPoint { double x; double y; } _mouseDetachStartZoomOriginLocation;
+@property (nonatomic) char _mouseEventTapRegistered;
+@property (nonatomic) char shouldHideCursor;
+@property (nonatomic) char canHideCursor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (struct __CGEvent { } *)eventTapManager:(id)a0 activelyTappedMouseEvent:(id)a1 cgEvent:(struct __CGEvent { } *)a2 withProxy:(struct __CGEventTapProxy { } *)a3;
+- (void)_initializeModifierState;
+- (void)_updateEventTapRegistrationPrefsZoomFactor:(double)a0 nonSystemZoomFactor:(double)a1;
+- (void)installEventTap;
+- (char)_handleCGEvent:(struct __CGEvent { } *)a0;
+- (void)enableEventTap:(char)a0;
+- (void)registerHotKeys;
+- (void)_addHotKey:(unsigned long long)a0 symbolicKey:(unsigned int)a1;
+- (void)_adjustPoroZoomLevelByDelta:(double)a0;
+- (void)_adjustZoomLevelByDelta:(double)a0;
+- (void)_cgListenForEventMask:(unsigned int)a0 enable:(char)a1;
+- (char)_cgRegisterForEvents;
+- (void)_enableHotKey:(unsigned int)a0 enable:(char)a1;
+- (char)_handleCGFlagsChanged:(struct __CGEvent { } *)a0;
+- (struct __CGEvent { } *)_handleCGTap:(struct __CFMachPort { } *)a0 reconnectCount:(unsigned long long *)a1 lastReconnect:(double *)a2 event:(struct __CGEvent { } *)a3 type:(unsigned int)a4;
+- (struct __CGEvent { } *)_handleCGTapEvent:(struct __CGEvent { } *)a0 type:(unsigned int)a1 withProxy:(struct __CGEventTapProxy { } *)a2;
+- (char)_handleCGTapEventWithZoomKeys:(struct __CGEvent { } *)a0;
+- (void)_handleCGTapListenOnlyEvent:(struct __CGEvent { } *)a0 type:(unsigned int)a1 withProxy:(struct __CGEventTapProxy { } *)a2;
+- (char)_handleCGZoomEvent:(struct __CGEvent { } *)a0;
+- (char)_handleMouseMoved:(struct __CGEvent { } *)a0;
+- (void)_handlePossibleFocusTrigger;
+- (char)_handleZoomInHotKey:(char)a0;
+- (char)_handleZoomLevelToggleHotKey;
+- (char)_isZoomedIn;
+- (void)_moveZoomToFocusRect;
+- (void)_removeHotKey:(unsigned long long)a0;
+- (void)_repeatZoomInHotKey:(id)a0;
+- (void)_respondToFocusChangeOrFocusTrigger;
+- (void)_setDesiredZoomFactor:(double)a0;
+- (void)_setOnlyControlIsDownTime:(double)a0;
+- (void)_setPoroKeysDown:(char)a0;
+- (void)_stopAllSpeakingJobs;
+- (char)canHideCursor;
+- (void)focusOnRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)handlePossibleFocusTrigger;
+- (void)handleUAFocusChange:(id)a0;
+- (void)installEventTapListenOnly;
+- (void)listenForKeyboardEvents:(char)a0;
+- (void)listenForMouseMovementEvents:(char)a0;
+- (void)registerUAHotKeys;
+- (void)removeEventTap;
+- (void)removeEventTapListenOnly;
+- (void)setCanHideCursor:(char)a0;
+- (void)setShouldHideCursor:(char)a0;
+- (char)shouldHideCursor;
+- (void)unregisterHotKeys;
+- (void)unregisterUAHotKeys;
+- (void)updateCursorVisibility;
+- (void)updateUserSettings;
+
+@end

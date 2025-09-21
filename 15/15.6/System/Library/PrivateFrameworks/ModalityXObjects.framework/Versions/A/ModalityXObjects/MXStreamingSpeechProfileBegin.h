@@ -1,0 +1,23 @@
+@class NSString;
+
+@interface MXStreamingSpeechProfileBegin : PBCodable <NSCopying>
+
+@property (readonly, nonatomic) char hasRequestId;
+@property (retain, nonatomic) NSString *requestId;
+@property (readonly, nonatomic) char hasLocale;
+@property (retain, nonatomic) NSString *locale;
+@property (readonly, nonatomic) char hasPhoneSetVersion;
+@property (retain, nonatomic) NSString *phoneSetVersion;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

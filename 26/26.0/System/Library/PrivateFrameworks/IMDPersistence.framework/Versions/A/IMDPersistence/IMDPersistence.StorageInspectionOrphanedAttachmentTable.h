@@ -1,0 +1,3 @@
+@interface IMDPersistence.StorageInspectionOrphanedAttachmentTable : IMDPersistence.StorageInspectionDatabaseTable
+
+@end

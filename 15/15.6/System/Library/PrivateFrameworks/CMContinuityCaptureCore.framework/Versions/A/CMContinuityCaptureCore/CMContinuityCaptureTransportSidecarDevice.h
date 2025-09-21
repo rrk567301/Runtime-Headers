@@ -1,0 +1,88 @@
+@class NSUUID, CMContinuityCaptureMagicStateMonitor, NSString, NSArray, CMContinuityCaptureCapabilities, SidecarDevice, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CMContinuityCaptureTransportSidecarDevice : NSObject <ContinuityCaptureTransportDevice> {
+    SidecarDevice *_device;
+    unsigned long long _deviceMajorVersion;
+    unsigned long long _deviceMinorVersion;
+    CMContinuityCaptureCapabilities *_capabilities;
+    char _nearby;
+    char _allFeaturesSupported;
+    char _userDisconnected;
+    NSMutableDictionary *_activeStreams;
+    CMContinuityCaptureMagicStateMonitor *_magicStateMonitor;
+    NSObject<OS_dispatch_queue> *_queue;
+    char _remote;
+    char _active;
+    char _streamIntent;
+    char _terminationDeferred;
+    char _disconnectedWhileWired;
+    char _legacyRecovery;
+}
+
+@property (readonly, retain) SidecarDevice *device;
+@property (readonly, retain) NSUUID *deviceIdentifier;
+@property (readonly, retain) NSString *deviceName;
+@property (readonly) unsigned long long deviceStatus;
+@property (readonly, retain) NSString *deviceModel;
+@property (readonly) long long deviceModelType;
+@property (readonly) char usable;
+@property unsigned long long deviceMajorVersion;
+@property unsigned long long deviceMinorVersion;
+@property (retain) CMContinuityCaptureCapabilities *capabilities;
+@property char nearby;
+@property (readonly) char wired;
+@property (readonly) char allFeaturesSupported;
+@property char userDisconnected;
+@property (readonly) char wifiP2pActive;
+@property (readonly, retain) NSArray *activeStreams;
+@property (readonly) char active;
+@property (readonly, retain) CMContinuityCaptureMagicStateMonitor *magicStateMonitor;
+@property (readonly) char remote;
+@property (readonly) char guest;
+@property (nonatomic, getter=hasStreamIntent) char streamIntent;
+@property (nonatomic, getter=isPlacementStepSkipped) char placementStepSkipped;
+@property (readonly, retain) NSObject<OS_dispatch_queue> *queue;
+@property char terminationDeferred;
+@property (readonly) char canDeferTermination;
+@property (readonly) char canReconnect;
+@property (nonatomic) char legacyReconnectRecovery;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)resetDevice:(id)a0;
+- (void)activateStream:(id)a0;
+- (void)_setValueForControl:(id)a0 completion:(id /* block */)a1;
+- (void)_startStream:(id)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)teardownStreams;
+- (void)_didCaptureStillImage:(id)a0 entity:(long long)a1;
+- (void)_handleAVCNegotiation:(long long)a0 data:(id)a1;
+- (void)_postEvent:(id)a0 entity:(long long)a1 data:(id)a2;
+- (void)_stopStream:(long long)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)_synchronizeAudioClockWithSampleTime:(unsigned long long)a0 networkTime:(unsigned long long)a1 clockGrandMasterIdentifier:(unsigned long long)a2;
+- (void)captureStillImage:(id)a0 entity:(long long)a1 completion:(id /* block */)a2;
+- (void)connectionInterrupted:(id)a0 forDevice:(id)a1;
+- (void)didCaptureStillImage:(id)a0 entity:(long long)a1;
+- (char)disconnectedWhileWired;
+- (void)dispatchFrame:(struct opaqueCMSampleBuffer { } *)a0 entity:(long long)a1 completion:(id /* block */)a2;
+- (void)enqueueReactionEffect:(id)a0 entity:(long long)a1;
+- (void)handleAVCNegotiation:(long long)a0 data:(id)a1;
+- (void)handleSynchronizeAudioClockCompletion;
+- (id)initWithSidecarDevice:(id)a0 capabilities:(id)a1 remote:(char)a2;
+- (void)notifyDeviceStateChange;
+- (void)postEvent:(id)a0 entity:(long long)a1 data:(id)a2;
+- (void)postEvent:(id)a0 entity:(long long)a1 data:(id)a2 forTransport:(long long)a3;
+- (void)preLaunchShieldUIForTransport:(long long)a0 data:(id)a1;
+- (void)relaySkipPlacementStepForTranport:(long long)a0;
+- (void)relayUserDisconnectForTransport:(long long)a0 reason:(id)a1 shieldSessionID:(id)a2;
+- (void)setValueForControl:(id)a0 completion:(id /* block */)a1;
+- (void)startStream:(id)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)stopStream:(long long)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (id)streamForIdentifier:(id)a0;
+- (void)synchronizeAudioClockWithSampleTime:(unsigned long long)a0 networkTime:(unsigned long long)a1 clockGrandMasterIdentifier:(unsigned long long)a2;
+- (void)updateSystemState;
+
+@end

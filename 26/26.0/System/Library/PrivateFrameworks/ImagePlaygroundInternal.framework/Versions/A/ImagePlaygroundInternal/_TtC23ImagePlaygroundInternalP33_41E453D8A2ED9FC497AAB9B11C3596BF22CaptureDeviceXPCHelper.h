@@ -1,0 +1,3 @@
+@interface _TtC23ImagePlaygroundInternalP33_41E453D8A2ED9FC497AAB9B11C3596BF22CaptureDeviceXPCHelper : _TtCs12_SwiftObject
+
+@end

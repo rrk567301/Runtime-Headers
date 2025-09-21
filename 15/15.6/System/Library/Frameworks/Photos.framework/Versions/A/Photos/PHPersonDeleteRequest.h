@@ -1,0 +1,10 @@
+@interface PHPersonDeleteRequest : PHObjectDeleteRequest
+
+@property (nonatomic) char force;
+
+- (void)deleteManagedObject:(id)a0 photoLibrary:(id)a1;
+- (void)encodeToXPCDict:(id)a0;
+- (id)initWithXPCDict:(id)a0 request:(id)a1 clientAuthorization:(id)a2;
+- (char)validateForDeleteManagedObject:(id)a0 error:(id *)a1;
+
+@end

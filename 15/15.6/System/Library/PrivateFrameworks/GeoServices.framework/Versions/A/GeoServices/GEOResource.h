@@ -1,0 +1,93 @@
+@class PBDataReader, NSString, NSData, NSMutableArray, PBUnknownFields;
+
+@interface GEOResource : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct GEOTileSetRegion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; } *_regions;
+    unsigned long long _regionsCount;
+    unsigned long long _regionsSpace;
+    NSData *_checksum;
+    NSString *_filename;
+    NSMutableArray *_filters;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    unsigned int _alternateResourceURLIndex;
+    int _connectionType;
+    unsigned int _preferWiFiAllowedStaleThreshold;
+    int _resourceSource;
+    int _resourceType;
+    unsigned int _timeToLiveSeconds;
+    int _updateMethod;
+    int _validationMethod;
+    struct { unsigned char has_alternateResourceURLIndex : 1; unsigned char has_connectionType : 1; unsigned char has_preferWiFiAllowedStaleThreshold : 1; unsigned char has_resourceSource : 1; unsigned char has_resourceType : 1; unsigned char has_timeToLiveSeconds : 1; unsigned char has_updateMethod : 1; unsigned char has_validationMethod : 1; unsigned char read_unknownFields : 1; unsigned char read_regions : 1; unsigned char read_checksum : 1; unsigned char read_filename : 1; unsigned char read_filters : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) char hasResourceSource;
+@property (nonatomic) int resourceSource;
+@property (nonatomic) char hasResourceType;
+@property (nonatomic) int resourceType;
+@property (readonly, nonatomic) char hasFilename;
+@property (retain, nonatomic) NSString *filename;
+@property (readonly, nonatomic) char hasChecksum;
+@property (retain, nonatomic) NSData *checksum;
+@property (readonly, nonatomic) unsigned long long regionsCount;
+@property (readonly, nonatomic) struct GEOTileSetRegion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; } *regions;
+@property (retain, nonatomic) NSMutableArray *filters;
+@property (nonatomic) char hasConnectionType;
+@property (nonatomic) int connectionType;
+@property (nonatomic) char hasPreferWiFiAllowedStaleThreshold;
+@property (nonatomic) unsigned int preferWiFiAllowedStaleThreshold;
+@property (nonatomic) char hasValidationMethod;
+@property (nonatomic) int validationMethod;
+@property (nonatomic) char hasAlternateResourceURLIndex;
+@property (nonatomic) unsigned int alternateResourceURLIndex;
+@property (nonatomic) char hasUpdateMethod;
+@property (nonatomic) int updateMethod;
+@property (nonatomic) char hasTimeToLiveSeconds;
+@property (nonatomic) unsigned int timeToLiveSeconds;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (Class)filterType;
++ (char)isValid:(id)a0;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)addRegion:(struct GEOTileSetRegion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; })a0;
+- (int)StringAsResourceSource:(id)a0;
+- (int)StringAsUpdateMethod:(id)a0;
+- (int)StringAsValidationMethod:(id)a0;
+- (int)StringAsConnectionType:(id)a0;
+- (int)StringAsResourceType:(id)a0;
+- (char)_geo_isExplicit;
+- (char)_geo_isRelevantForScales:(id)a0 scenarios:(id)a1;
+- (void)addFilter:(id)a0;
+- (void)clearFilters;
+- (void)clearRegions;
+- (void)clearUnknownFields:(char)a0;
+- (id)connectionTypeAsString:(int)a0;
+- (id)filterAtIndex:(unsigned long long)a0;
+- (unsigned long long)filtersCount;
+- (id)initWithJSON:(id)a0;
+- (id)jsonRepresentation;
+- (void)readAll:(char)a0;
+- (struct GEOTileSetRegion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; })regionAtIndex:(unsigned long long)a0;
+- (id)resourceSourceAsString:(int)a0;
+- (id)resourceTypeAsString:(int)a0;
+- (void)setRegions:(struct GEOTileSetRegion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; } *)a0 count:(unsigned long long)a1;
+- (id)updateMethodAsString:(int)a0;
+- (id)validationMethodAsString:(int)a0;
+
+@end

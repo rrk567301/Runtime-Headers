@@ -1,0 +1,15 @@
+@interface POAnalytics : NSObject
+
++ (void)analyticsForLoginConfiguration:(id)a0;
++ (void)analyticsForLoginManager:(id)a0;
++ (void)analyticsForLoginType:(id)a0 result:(id)a1;
++ (void)analyticsForPasswordChange:(BOOL)a0 credentialNeeded:(BOOL)a1 result:(BOOL)a2;
++ (void)analyticsForRegistrationType:(id)a0 options:(long long)a1 result:(long long)a2;
++ (void)analyticsForTempSessionLoginType:(id)a0 result:(id)a1;
++ (void)analyticsForDeviceRegistrationInBuddy:(BOOL)a0;
++ (void)analyticsForSetupAssistantLoginType:(id)a0 result:(id)a1;
++ (void)analyticsForStatus;
++ (void)analyticsForTestMessages;
++ (void)analyticsForUserRegistrationInBuddy:(BOOL)a0;
+
+@end

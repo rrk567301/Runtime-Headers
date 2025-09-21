@@ -1,0 +1,3 @@
+@interface _TtCC11SessionCore16ActivityDatabase15PushBudgetStore : _TtCC11SessionCore16ActivityDatabase16DatabaseAccessor
+
+@end

@@ -1,0 +1,27 @@
+@class NSString;
+
+@interface _INPBCarHeadUnit : PBCodable <_INPBCarHeadUnit, NSSecureCoding, NSCopying> {
+    struct { } _has;
+}
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *bluetoothIdentifier;
+@property (readonly, nonatomic) char hasBluetoothIdentifier;
+@property (copy, nonatomic) NSString *iAP2Identifier;
+@property (readonly, nonatomic) char hasIAP2Identifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)dictionaryRepresentation;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

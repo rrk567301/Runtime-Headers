@@ -1,0 +1,25 @@
+@class SEMIndexSite, SEMLocalization, SEMVectorDatabaseWriter;
+
+@interface SEMVectorDatabaseUpdater : NSObject <SEMIndexUpdater> {
+    SEMIndexSite *_indexSite;
+    SEMVectorDatabaseWriter *_writer;
+    SEMLocalization *_localization;
+}
+
++ (id)indexName;
++ (id)indexDirectory:(id)a0;
++ (unsigned char)supportedDevicePlatformForSet:(id)a0;
++ (id)updaterForIndexSite:(id)a0 localization:(id)a1;
+
+- (BOOL)clear:(id *)a0;
+- (void).cxx_destruct;
+- (BOOL)cleanup:(id *)a0;
+- (BOOL)commitUpdates:(id *)a0 shouldRebuild:(BOOL *)a1;
+- (BOOL)indexUpdatesToSets:(id)a0 changeRegistry:(id)a1 shouldDefer:(id /* block */)a2 error:(id *)a3;
+- (id)initWithIndexSite:(id)a0 writer:(id)a1 localization:(id)a2;
+- (BOOL)isIndexEnabled;
+- (BOOL)isRebuildRequiredWithAllSets:(id)a0;
+- (void)refreshEnablementStatus:(id *)a0;
+- (BOOL)rollbackUpdates:(id *)a0;
+
+@end

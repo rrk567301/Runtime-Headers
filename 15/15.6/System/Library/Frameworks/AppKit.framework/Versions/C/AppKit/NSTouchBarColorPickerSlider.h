@@ -1,0 +1,97 @@
+@class NSTextField, NSString, NSArray, NSAttributedString, _NSTouchBarColorPickerSliderKnob, _NSTouchBarColorPickerSliderTrack, NSColor, NSPanGestureRecognizer, NSTouchBarColorPickerSliderArtworkProvider;
+@protocol NSTouchBarColorPickerSliderMinimizationDelegate;
+
+@interface NSTouchBarColorPickerSlider : NSControl <NSGestureRecognizerDelegate> {
+    NSTextField *_label;
+    _NSTouchBarColorPickerSliderTrack *_sliderTrack;
+    _NSTouchBarColorPickerSliderKnob *_sliderKnob;
+    double _doubleValue;
+    NSPanGestureRecognizer *_panRecognizer;
+    id _autounbinder;
+    char _highlighted;
+    char _labelIsVisible;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSAttributedString *valueLabel;
+@property char labelIsOnLeadingSideOfKnob;
+@property (readonly) double labelAlphaValue;
+@property (readonly) char knobIsPressed;
+@property char relativeTracking;
+@property long long labelTextEffect;
+@property (copy) NSColor *displayedColor;
+@property (copy) NSArray *allowedColorSpaces;
+@property char valueIsFlipped;
+@property (getter=isMinimized) char minimized;
+@property (getter=isActive) char active;
+@property id<NSTouchBarColorPickerSliderMinimizationDelegate> minimizationDelegate;
+@property (copy) NSTouchBarColorPickerSliderArtworkProvider *artworkProvider;
+
++ (char)accessibilityIsSingleCelled;
++ (id)keyPathsForValuesAffectingKnobIsPressed;
++ (id)keyPathsForValuesAffectingLabelAlphaValue;
++ (id)keyPathsForValuesAffectingValueLabel;
++ (id)keyPathsForValuesInvalidatingConstraints;
++ (char)requiresConstraintBasedLayout;
+
+- (oneway void)release;
+- (void)dealloc;
+- (double)doubleValue;
+- (float)floatValue;
+- (int)intValue;
+- (long long)integerValue;
+- (void)layout;
+- (void)setObjectValue:(id)a0;
+- (id)objectValue;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)setDoubleValue:(double)a0;
+- (void)accessibilitySetFocus:(id)a0 forChild:(id)a1;
+- (void)accessibilitySetValueAttribute:(id)a0;
+- (void)setHighlighted:(char)a0;
+- (id)_autounbinder;
+- (void)_beginUnminimizeGesture;
+- (void)_endUnminimizeGesture;
+- (void)_handlePan:(id)a0;
+- (void)_handlePress:(id)a0;
+- (double)_valueAtLocation:(double)a0;
+- (id)accessibilityActionNames;
+- (id)accessibilityActivationPointAttribute;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityChildrenAttribute;
+- (id)accessibilityExpandedAttribute;
+- (id)accessibilityHelpStringForChild:(id)a0;
+- (char)accessibilityIsActivationPointAttributeSettable;
+- (char)accessibilityIsAllowedValuesAttributeSettable;
+- (char)accessibilityIsChildFocusable:(id)a0;
+- (char)accessibilityIsChildrenAttributeSettable;
+- (char)accessibilityIsMaxValueAttributeSettable;
+- (char)accessibilityIsMinValueAttributeSettable;
+- (char)accessibilityIsOrientationAttributeSettable;
+- (char)accessibilityIsValueAttributeSettable;
+- (char)accessibilityIsValueIndicatorAttributeSettable;
+- (id)accessibilityMaxValueAttribute;
+- (id)accessibilityMinValueAttribute;
+- (id)accessibilityOrientationAttribute;
+- (void)accessibilityPerformAction:(id)a0;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilitySubroleAttribute;
+- (id)accessibilityValueAttribute;
+- (id)accessibilityValueIndicatorAttribute;
+- (id)declaredLayoutConstraints;
+- (void)flashLabel;
+- (char)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)hideLabel;
+- (void)hideLabelAnimated;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (char)isHighlighted;
+- (void)setFloatValue:(float)a0;
+- (void)setHideLabelTimer;
+- (void)setIntValue:(int)a0;
+- (void)setIntegerValue:(long long)a0;
+- (void)showLabel;
+- (void)viewDidMoveToWindow;
+
+@end

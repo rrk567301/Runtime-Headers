@@ -1,0 +1,77 @@
+@class NSUUID, NSString, SignpostSupportUniquePIDFilter, NSPredicate, SignpostSupportPIDFilter, SignpostSupportObjectFilter, SignpostSupportExactProcessNameFilter, OSLogEventLiveStream, NSObject, SignpostIntervalBuilder, SignpostSupportSubsystemCategoryFilter, SignpostSupportAnimationGraceTimeController;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface SignpostSupportObjectExtractor : NSObject <SignpostIntervalBuilderSource>
+
+@property (readonly, nonatomic) SignpostIntervalBuilder *intervalBuilder;
+@property (nonatomic) unsigned long long processedEventCount;
+@property (nonatomic) char buildSkyLightAnimationCompositeIntervalTimelines;
+@property (copy, nonatomic) id /* block */ timedOutBeginEventProcessingBlock;
+@property char _shouldStopProcessing;
+@property (readonly, nonatomic) NSObject<OS_dispatch_semaphore> *completionSemaphore;
+@property (readonly, nonatomic) NSObject<OS_dispatch_semaphore> *syncSem;
+@property (retain, nonatomic) NSUUID *currentBootUUID;
+@property (retain, nonatomic) NSPredicate *rawFilterPredicate;
+@property (nonatomic) unsigned long long _notificationTimeout;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *notificationProcessingQueue;
+@property (retain, nonatomic) OSLogEventLiveStream *_liveStream;
+@property (copy, nonatomic) id /* block */ _stopProcessingBlock;
+@property (copy, nonatomic) id /* block */ _intervalEndHandler;
+@property (nonatomic) char skipAnimationStateTrackingOptimization;
+@property (nonatomic) char disableGeneratorProcessing;
+@property (nonatomic) double cachedTimebaseRatio;
+@property (retain, nonatomic) SignpostSupportSubsystemCategoryFilter *subsystemCategoryFilter;
+@property (retain, nonatomic) SignpostSupportExactProcessNameFilter *processNameFilter;
+@property (retain, nonatomic) SignpostSupportPIDFilter *pidFilter;
+@property (retain, nonatomic) SignpostSupportUniquePIDFilter *uniquePidFilter;
+@property (retain, nonatomic) NSString *filterPredicateString;
+@property (retain, nonatomic) NSPredicate *filterPredicate;
+@property (retain, nonatomic) SignpostSupportObjectFilter *objectFilter;
+@property (nonatomic) char shouldComposeMetadataString;
+@property (nonatomic) char includeMetalAnalysis;
+@property (copy, nonatomic) id /* block */ beginEventProcessingBlock;
+@property (copy, nonatomic) id /* block */ endEventProcessingBlock;
+@property (copy, nonatomic) id /* block */ repeatedBeginEventProcessingBlock;
+@property (copy, nonatomic) id /* block */ unmatchedEndEventProcessingBlock;
+@property (copy, nonatomic) id /* block */ intervalReconstructionProcessingBlock;
+@property (copy, nonatomic) id /* block */ emitEventProcessingBlock;
+@property (copy, nonatomic) id /* block */ intervalCompletionProcessingBlock;
+@property (copy, nonatomic) id /* block */ animationIntervalCompletionProcessingBlock;
+@property (copy, nonatomic) id /* block */ logMessageProcessingBlock;
+@property (copy, nonatomic) id /* block */ deviceRebootProcessingBlock;
+@property (copy, nonatomic) id /* block */ processingCompletionBlock;
+@property (readonly, nonatomic) SignpostSupportAnimationGraceTimeController *animationFirstFrameGraceTimeController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)_checkProcessingConfiguration;
+- (char)_hasSignpostProcessingBlock;
+- (char)_isTrackingIntervals;
+- (id)_loggingSupportStreamPredicateFromFiltersWithForLiveStreaming:(char)a0;
+- (char)_processSignpostEvent:(id)a0 shouldReport:(char)a1;
+- (char)_processSignpostSupportLogMessage:(id)a0;
+- (void)_processingCompleted:(id)a0;
+- (char)_shouldBuildEventWithPid:(int)a0 uniquePid:(unsigned long long)a1 processName:(id)a2 subsystem:(id)a3 category:(id)a4 shouldReport:(char *)a5;
+- (void)finishProcessingSerializedData;
+- (char)processSerializedObjectsFromData:(id)a0 errorOut:(id *)a1;
+- (void)stopProcessing;
+- (char)_hasNonPredicateFirstPassFilter;
+- (id)_startDeserializationProcessing;
+- (id)_calculateRawFilterPredicate;
+- (char)_eventPassesFilters:(id)a0;
+- (char)_eventPassesWithPid:(int)a0 uniquePid:(unsigned long long)a1 processName:(id)a2 subsystem:(id)a3 category:(id)a4;
+- (char)_generateIntervalFromEnd:(id)a0 shouldReport:(char)a1;
+- (char)_hasNonObjectFilters;
+- (char)_hasProcessingBlock;
+- (char)_hasSupportedFilterConfiguration;
+- (char)_processInternalSignpostEvent:(id)a0 shouldReport:(char)a1;
+- (char)_shouldProcessEvent:(id)a0 shouldReport:(char *)a1;
+- (char)processInterval:(id)a0 isAnimation:(char)a1;
+- (char)processSerializedObjectsFromSignpostFile:(id)a0 errorOut:(id *)a1;
+
+@end

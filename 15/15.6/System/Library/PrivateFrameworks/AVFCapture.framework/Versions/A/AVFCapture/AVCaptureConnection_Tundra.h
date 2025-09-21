@@ -1,0 +1,94 @@
+@class NSArray, AVCaptureVideoPreviewLayer_Tundra, AVCaptureOutput_Tundra, AVCaptureConnectionInternal_Tundra;
+
+@interface AVCaptureConnection_Tundra : NSObject {
+    AVCaptureConnectionInternal_Tundra *_internal;
+}
+
+@property (readonly, nonatomic) NSArray *inputPorts;
+@property (readonly, nonatomic) AVCaptureOutput_Tundra *output;
+@property (readonly, nonatomic) AVCaptureVideoPreviewLayer_Tundra *videoPreviewLayer;
+@property (nonatomic, getter=isEnabled) char enabled;
+@property (readonly, nonatomic, getter=isActive) char active;
+@property (readonly, nonatomic) NSArray *audioChannels;
+@property (readonly, nonatomic, getter=isVideoMirroringSupported) char supportsVideoMirroring;
+@property (nonatomic, getter=isVideoMirrored) char videoMirrored;
+@property (nonatomic) char automaticallyAdjustsVideoMirroring;
+@property (nonatomic) double videoRotationAngle;
+@property (readonly, nonatomic, getter=isVideoOrientationSupported) char supportsVideoOrientation;
+@property (nonatomic) long long videoOrientation;
+@property (readonly, nonatomic, getter=isVideoFieldModeSupported) char supportsVideoFieldMode;
+@property (nonatomic) long long videoFieldMode;
+@property (readonly, nonatomic, getter=isVideoMinFrameDurationSupported) char supportsVideoMinFrameDuration;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } videoMinFrameDuration;
+@property (readonly, nonatomic, getter=isVideoMaxFrameDurationSupported) char supportsVideoMaxFrameDuration;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } videoMaxFrameDuration;
+@property (readonly, nonatomic) double videoMaxScaleAndCropFactor;
+@property (nonatomic) double videoScaleAndCropFactor;
+@property (nonatomic) long long preferredVideoStabilizationMode;
+@property (readonly, nonatomic) long long activeVideoStabilizationMode;
+@property (readonly, nonatomic, getter=isVideoStabilizationSupported) char supportsVideoStabilization;
+@property (readonly, nonatomic, getter=isVideoStabilizationEnabled) char videoStabilizationEnabled;
+@property (nonatomic) char enablesVideoStabilizationWhenAvailable;
+@property (readonly, nonatomic, getter=isCameraIntrinsicMatrixDeliverySupported) char cameraIntrinsicMatrixDeliverySupported;
+@property (nonatomic, getter=isCameraIntrinsicMatrixDeliveryEnabled) char cameraIntrinsicMatrixDeliveryEnabled;
+
++ (void)initialize;
++ (id)connectionWithInputPort:(id)a0 videoPreviewLayer:(id)a1;
++ (id)connectionWithInputPorts:(id)a0 output:(id)a1;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (void)setActive:(char)a0;
+- (id)mediaType;
+- (char)isLive;
+- (void)_applySplitterChannelMapFromAudioChannelsEnabled;
+- (void)_applyVolumeFromAudioChannel:(id)a0;
+- (char)_audioChannelsAreAllEnabled;
+- (id)_audioLevelsForPropertyID:(unsigned int)a0;
+- (void)_clearAudioPropertyListeners;
+- (struct opaqueCMFormatDescription { } *)_copyExpandedSourceSummaryAudioFormatDescription;
+- (struct opaqueCMFormatDescription { } *)_copySourceSummaryAudioFormatDescription;
+- (struct opaqueCMFormatDescription { } *)_copySourceSummaryAudioFormatDescriptionWithOptionalExpansion:(char)a0;
+- (char)_isVideoOrientationSupported;
+- (void)_mixerNodeFormatDescriptionDidChange;
+- (void)_rebuildEnabledAudioChannelsArray;
+- (void)_setVideoMirrored:(char)a0;
+- (void)_setVideoOrientation:(long long)a0;
+- (int *)_splitterAudioChannelMapWithSize:(unsigned long long *)a0;
+- (void)_splitterNodeFormatDescriptionDidChange;
+- (void)_updateAudioAvgLevelsArray;
+- (void)_updateAudioChannelsArrayCount;
+- (void)_updateAudioPeakLevelsArray;
+- (long long)_videoOrientation;
+- (id)applicationAnalytics;
+- (void)attachToSplitterNode:(int)a0 audioMixerNode:(int)a1;
+- (void *)copyClientSequenceID;
+- (struct opaqueCMFormatDescription { } *)copyPostSplitSummaryAudioFormatDescription;
+- (void)detachFromAudioSplitterAndMixerNodes;
+- (id)firstActiveInputPort;
+- (id)firstInputPort;
+- (float)getAvgAudioLevelForChannel:(id)a0;
+- (float)getPeakAudioLevelForChannel:(id)a0;
+- (void *)incrementClientSequenceIDAndRetain;
+- (void)initCommonStorage;
+- (id)initWithInputPort:(id)a0 videoPreviewLayer:(id)a1;
+- (id)initWithInputPorts:(id)a0 output:(id)a1;
+- (char)isVideoDeviceOrientationCorrectionEnabled;
+- (char)isVideoDeviceOrientationCorrectionSupported;
+- (char)isVideoRetainedBufferCountHintSupported;
+- (char)isVideoRotationAngleSupported:(double)a0;
+- (void *)mostRecentlySeenClientSequenceID;
+- (void)setEnabled:(char)a0 forChannel:(id)a1;
+- (void)setGraph:(struct OpaqueCMIOGraph { } *)a0 node:(int)a1 element:(unsigned int)a2 scope:(unsigned int)a3;
+- (void)setMostRecentlySeenClientSequenceID:(void *)a0;
+- (void)setVideoDeviceOrientationCorrectionEnabled:(char)a0;
+- (void)setVideoRetainedBufferCountHint:(int)a0;
+- (void)setVolume:(float)a0 forChannel:(id)a1;
+- (void)setWriterElement:(unsigned int)a0;
+- (id)sourceDevice;
+- (int *)splitterAudioChannelMapWithSize:(unsigned long long *)a0;
+- (int)videoRetainedBufferCountHint;
+- (unsigned int)writerElement;
+
+@end

@@ -1,0 +1,83 @@
+@class NSString, NSDictionary, ABCPreferences, NSNumber;
+
+@interface ABCConfigurationManager : NSObject <ABCConfigurationProtocol>
+
+@property (retain, nonatomic) ABCPreferences *preferences;
+@property (nonatomic) char apns_enable;
+@property (nonatomic) char apns_dev_environment;
+@property (retain, nonatomic) NSNumber *disable_internal_build;
+@property (retain, nonatomic) NSNumber *carrier_seed_flag;
+@property (retain, nonatomic) NSNumber *seed_flag;
+@property (retain, nonatomic) NSNumber *vendor_flag;
+@property (retain, nonatomic) NSNumber *npi_flag;
+@property (retain, nonatomic) NSDictionary *previousConfiguration;
+@property (readonly, nonatomic) char arbitratorDisableDampening;
+@property (readonly, nonatomic) char isDeviceUnderTest;
+@property (readonly, nonatomic) char isAutomatedDeviceGroup;
+@property (readonly, nonatomic) char hasAppleEmail;
+@property (readonly, nonatomic) char isCarryDevice;
+@property (readonly, nonatomic) unsigned long long dampenedIPSLimit;
+@property (readonly, nonatomic) unsigned long long maxUploadRetryCount;
+@property (readonly, nonatomic) unsigned long long arbitratorDailyCountLimit;
+@property (readonly, nonatomic) unsigned long long dampeningRestrictionFactor;
+@property (readonly, nonatomic) char disableAPIRateLimit;
+@property (readonly, nonatomic) double apiRateLimit;
+@property (readonly, nonatomic) double apiLimitWindow;
+@property (readonly, nonatomic) NSString *databaseContainerPath;
+@property (readonly, nonatomic) char cloudKitEnabled;
+@property (readonly, nonatomic) char cloudKitSandboxEnvironment;
+@property (readonly, nonatomic) NSString *cloudKitContainerIdentifier;
+@property (readonly, nonatomic) NSString *cloudKitInvernessService;
+@property (readonly, nonatomic) char cloudKitPrefersAnonymous;
+@property (readonly, nonatomic) double cloudKitTimeoutIntervalForResource;
+@property (readonly, nonatomic) double cloudKitTimeoutIntervalForRequest;
+@property (readonly, nonatomic) unsigned long long cloudKitFallbackMaximumLogCount;
+@property (readonly, nonatomic) unsigned long long maxCaseSummaryPerSubmission;
+@property (readonly, nonatomic) unsigned long long submittedCaseSummaryRetentionDays;
+@property (readonly, nonatomic) unsigned long long unsubmittedCaseSummaryRetentionDays;
+@property (readonly, nonatomic) char caseSummaryEnabled;
+@property (readonly, nonatomic) char submitToDiagnosticPipeline;
+@property (readonly, nonatomic) double diagnosticPipelineSubmissionRate;
+@property (readonly, nonatomic) char apnsEnabled;
+@property (readonly, nonatomic) char apnsSandboxEnvironment;
+@property (readonly, nonatomic) NSString *logArchivePath;
+@property (readonly, nonatomic) unsigned int logArchiveUID;
+@property (readonly, nonatomic) unsigned int logArchiveGID;
+@property (readonly, nonatomic) char autoBugCaptureEnabled;
+@property (readonly, nonatomic) char autoFeedbackAssistantEnable;
+@property (readonly, nonatomic) char autoBugCaptureAvailable;
+@property (readonly, nonatomic) char autoBugCaptureSignature;
+@property (readonly, nonatomic) char autoBugCaptureRegularPayloads;
+@property (readonly, nonatomic) char autoBugCaptureSensitivePayloads;
+@property (readonly, nonatomic) char autoBugCaptureUploadPreapproved;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)autoBugCapturePrefix;
++ (id)defaultLibraryDirectory;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (char)autoBugCaptureSupportedHardware;
+- (char)autoBugCaptureSensitivePayloads;
+- (char)autoBugCaptureUploadPreapproved;
+- (id)loadEmbeddedConfigurationPlist:(const char *)a0;
+- (char)autoBugCaptureAvailable;
+- (int)autoBugCaptureFeatures;
+- (char)autoBugCaptureRegularPayloads;
+- (char)autoBugCaptureSignature;
+- (char)autoFeedbackAssistantEnable;
+- (id)currentDiagnosticActions;
+- (id)databaseContainerPath;
+- (id)defaultDiagnosticActions;
+- (id)getAutoBugCaptureConfiguration;
+- (void)initializeOverrides;
+- (unsigned int)logArchiveGID;
+- (id)logArchivePath;
+- (unsigned int)logArchiveUID;
+
+@end

@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface NTPBPersonalizationInstanceHistory : PBCodable <NSCopying> {
+    struct { unsigned char lastChangeNumber : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasInstanceIdentifier;
+@property (retain, nonatomic) NSString *instanceIdentifier;
+@property (nonatomic) char hasLastChangeNumber;
+@property (nonatomic) unsigned long long lastChangeNumber;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

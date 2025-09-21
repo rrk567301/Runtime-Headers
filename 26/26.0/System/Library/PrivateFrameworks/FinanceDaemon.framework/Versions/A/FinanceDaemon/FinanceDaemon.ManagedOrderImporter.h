@@ -1,0 +1,10 @@
+@interface FinanceDaemon.ManagedOrderImporter : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _hasBeenOnboardedToOrders;
+    void /* unknown type, empty encoding */ _notificationsDisabled;
+    void /* unknown type, empty encoding */ walletPreferences;
+    void /* unknown type, empty encoding */ imageProcessingService;
+    void /* unknown type, empty encoding */ widgetRefresher;
+    void /* unknown type, empty encoding */ walletMessageUpdater;
+}
+
+@end

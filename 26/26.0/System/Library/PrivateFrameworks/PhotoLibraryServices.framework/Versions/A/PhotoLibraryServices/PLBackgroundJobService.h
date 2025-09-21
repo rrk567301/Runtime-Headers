@@ -1,0 +1,96 @@
+@class NSMutableDictionary, NSDate, PFStateCaptureHandler, PLBackgroundJobLibraryCoordinator, NSDictionary, NSObject, PFCoalescer, NSString, BGSystemTask, PFCameraViewfinderSessionWatcher, NSPointerArray, NSNumber, PLBackgroundJobCriteria, PLBackgroundJobStatusCenter;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface PLBackgroundJobService : NSObject <PFCameraViewfinderSessionWatcherDelegate, PFStateCaptureProvider, PLBackgroundJobLibraryCoordinatorDelegate> {
+    BGSystemTask *_runningTask;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _stateLock;
+    unsigned long long _stateLock_state;
+    PLBackgroundJobStatusCenter *_statusCenter;
+    PLBackgroundJobLibraryCoordinator *_libraryCoordinator;
+    PLBackgroundJobCriteria *_runningCriteria;
+    PLBackgroundJobCriteria *_pausedCriteria;
+    PFCoalescer *_submissionCoalescer;
+    PFCameraViewfinderSessionWatcher *_cameraWatcher;
+    NSDictionary *_libraryInvalidationCompletionHandlerByLibraryURL;
+    NSDictionary *_bundlesToProcessByCriteriaShortCode;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _bundlesToProcessByCriteriaShortCodeLock;
+    NSObject<OS_dispatch_queue> *_isolationQueue;
+    NSObject<OS_dispatch_source> *_runningTaskDeferTimer;
+    BOOL _deferringService;
+    NSNumber *_simulateDASDeferral;
+    BOOL _cameraForeground;
+    PFStateCaptureHandler *_stateCaptureHandler;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _watchdogTimerLock;
+    NSDate *_watchdogTimerLock_dateOfWatchdogTimerStart;
+    double _watchdogTimerLock_submissionCoalescerPushBackTimeInterval;
+    NSString *_watchdogTimerLock_watchdogTimerSourceDescription;
+    NSMutableDictionary *_throughputMetricsCache;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _throughputMetricsCacheLock;
+}
+
+@property (retain, nonatomic) NSPointerArray *observers;
+@property (readonly) NSDictionary *statusCenterDump;
+@property (readonly) unsigned long long serviceState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_removeAllBundlesFromUserDefaultsWithoutLocking;
++ (BOOL)verifyStateTransitionFromState:(unsigned long long)a0 toState:(unsigned long long)a1;
++ (BOOL)_stateIsReadyForSubmission:(unsigned long long)a0;
++ (BOOL)_stateIsReadyToRun:(unsigned long long)a0;
+
+- (void)_startPollingForTaskStatus;
+- (void)_inq_updateCameraForegroundState:(BOOL)a0;
+- (id)_getBundleRecordsFromProcessingSetForAllCriterias;
+- (void)_noteSignalNeededForCrashRecoveryOnBundle:(id)a0;
+- (void)_removeAllBundlesFromProcessingSetForCriteriaShortCode:(id)a0;
+- (id)stateCaptureDictionary;
+- (void)start;
+- (void)signalBackgroundProcessingNeededOnBundle:(id)a0;
+- (void)_inq_stopPollingForTaskStatus;
+- (void)_inq_stopRunningBackgroundJobs;
+- (void)cameraWatcherDidChangeState:(id)a0;
+- (void)invalidateLibraryBundle:(id)a0 completion:(id /* block */)a1;
+- (void)_inq_submitBackgroundProcessingNeededForBuffer:(id)a0 context:(id)a1;
+- (void)_submitTaskWithoutCoalescingIfNecessaryOnBundle:(id)a0;
+- (void)_startRunningBackgroundJobsWithCriteria:(id)a0;
+- (void)libraryCoordinatorFinishedJobsOnAllSubmittedBundles;
+- (void)_inq_setServiceState:(unsigned long long)a0;
+- (void)signalBackgroundProcessingNeededOnBundle:(id)a0 workerTypes:(id)a1;
+- (id)init;
+- (void)_reportProgressWithType:(unsigned long long)a0 itemCount:(unsigned long long)a1 category:(id)a2;
+- (id)initWithLibraryCoordinator:(id)a0;
+- (BOOL)_signalNeededOnBundle:(id)a0;
+- (id)_bundlesToProcessByCriteriaShortCodesAsPathStringsAlreadyLocked;
+- (void)_setServiceState:(unsigned long long)a0;
+- (void)_inq_submitPendingJobsIfNecessary:(id)a0;
+- (void)signalBackgroundProcessingNeededOnLibrary:(id)a0;
+- (void)_simulateBGSTShouldExpire:(BOOL)a0;
+- (void)startWatchdogTimerIfNeededWithSourceDescription:(id)a0;
+- (void)performCrashRecoveryIfNeededOnBundle:(id)a0;
+- (void)_removeBundleRecordFromProcessingSet:(id)a0 criteriaShortCode:(id)a1;
+- (void)_loadBundleRecordsDictionaryFromUserDefaults;
+- (void)_inq_submitTaskWithCriteria:(id)a0;
+- (void)libraryCoordinatorFinishedJobsOnSubmittedBundle:(id)a0 withCriteria:(id)a1;
+- (void)_inq_runTask:(id)a0 withCriteria:(id)a1;
+- (void)_inq_finishTaskIfNeededShouldConsiderDeferring:(BOOL)a0;
+- (id)_bundlesToProcessByCriteriaShortCodesAsPathStrings;
+- (void)_persistBundleRecordsDictionaryToUserDefaults;
+- (void)_fireWatchdogTimerWithStartTime:(id)a0 startingPushBackTimeInterval:(double)a1 sourceDescription:(id)a2;
+- (void)signalBackgroundProcessingNeededOnLibrary:(id)a0 workerTypes:(id)a1;
+- (id)_getBundleRecordsFromProcessingSetForCriteriaShortCode:(id)a0;
+- (void)_inq_startRunningBackgroundJobsWithCriteria:(id)a0;
+- (void)_setRunningCriteria:(id)a0;
+- (void)_inq_startPollingForTaskStatus;
+- (void)_finishTaskIfNeededShouldConsiderDeferring_enqueue:(BOOL)a0;
+- (void)_removeAllBundlesFromProcessingSet;
+- (void)_inq_shutdown;
+- (void)_closePendingThroughputReports;
+- (void)_appendBundleRecordsToProcessingSet:(id)a0 criteriaShortCode:(id)a1;
+- (void).cxx_destruct;
+- (void)_invalidateSignalNeededForCrashRecoveryOnBundle:(id)a0;
+- (id)initWithLibraryCoordinator:(id)a0 statusCenter:(id)a1;
+
+@end

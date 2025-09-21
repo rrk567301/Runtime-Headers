@@ -1,0 +1,29 @@
+@class NSString;
+
+@interface WFPBShowWidgetConfigurationEvent : PBCodable <NSCopying> {
+    struct { unsigned char isInteractive : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasKey;
+@property (retain, nonatomic) NSString *key;
+@property (readonly, nonatomic) BOOL hasAppBundleIdentifier;
+@property (retain, nonatomic) NSString *appBundleIdentifier;
+@property (readonly, nonatomic) BOOL hasIntentType;
+@property (retain, nonatomic) NSString *intentType;
+@property (readonly, nonatomic) BOOL hasSizeClass;
+@property (retain, nonatomic) NSString *sizeClass;
+@property (nonatomic) BOOL hasIsInteractive;
+@property (nonatomic) BOOL isInteractive;
+
+- (void)copyTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

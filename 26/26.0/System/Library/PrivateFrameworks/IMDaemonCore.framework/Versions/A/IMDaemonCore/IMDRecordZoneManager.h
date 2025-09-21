@@ -1,0 +1,83 @@
+@class IMDCKDatabaseManager, APSConnection, CKRecordZone, NSString, CKRecordZoneID;
+
+@interface IMDRecordZoneManager : NSObject <APSConnectionDelegate>
+
+@property (retain, nonatomic) IMDCKDatabaseManager *dataBaseManager;
+@property (retain, nonatomic) APSConnection *pushConnection;
+@property (readonly, nonatomic) CKRecordZoneID *chatRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *chatRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *chat1RecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *chat1RecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *attachmentRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *attachmentRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *messageRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *messageRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *updateRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *updateRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *analyticRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *analyticRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *deDupeSaltZoneID;
+@property (readonly, nonatomic) CKRecordZone *deDupeSaltRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *metricZoneID;
+@property (readonly, nonatomic) CKRecordZoneID *recoverableMessageRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *recoverableMessageRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *scheduledMessageRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *scheduledMessageRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *chatBotMessageRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *chatBotMessageRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *chatBotAttachmentRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *chatBotAttachmentRecordZone;
+@property (readonly, nonatomic) CKRecordZoneID *chatBotRecoverableMessageRecordZoneID;
+@property (readonly, nonatomic) CKRecordZone *chatBotRecoverableMessageRecordZone;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void)connection:(id)a0 didReceiveIncomingMessage:(id)a1;
+- (void)connection:(id)a0 didReceivePublicToken:(id)a1;
+- (void)deleteDeDupeSaltZone;
+- (void)createChatBotRecoverableMessageZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)_createSubscriptionForZoneID:(id)a0 subscriptionID:(id)a1 recordType:(id)a2 completionBlock:(id /* block */)a3;
+- (void)createUpdateZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)dealloc;
+- (void)_deleteZone:(id)a0;
+- (void)deleteChatBotAttachmentZone;
+- (void)createChatBotMessageZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)createMessageZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)deleteScheduledMessageZone;
+- (void)createChatBotAttachmentZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)createDeDupeSaltZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)deleteAnalyticZone;
+- (void)deleteChatZone;
+- (void)deleteChatBotRecoverableMessageZone;
+- (long long)derivedQualityOfService;
+- (void)deleteAllZones;
+- (id)init;
+- (void)createSubscriptionIfNeededOnDeDupeZoneForSubscription:(id)a0 recordType:(id)a1 completionBlock:(id /* block */)a2;
+- (void)_createRecordZoneIfNeeded:(id)a0 completionBlock:(id /* block */)a1;
+- (void)_deleteZone:(id)a0 forDatabase:(id)a1;
+- (void)deleteUpdateZone;
+- (id)ckUtilities;
+- (void)_createRecordZone:(id)a0 completionBlock:(id /* block */)a1;
+- (id)errorAnalyzer;
+- (void)_handleNotificationForZoneID:(id)a0 subscriptionID:(id)a1;
+- (void)_checkRecordZoneExists:(id)a0 completionBlock:(id /* block */)a1;
+- (void)createRecoverableMessageZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)_setUpPushConnection;
+- (void)createAttachmentZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)deleteChat1Zone;
+- (void)createChatZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)deleteChatBotMessageZone;
+- (void)deleteMessageZone;
+- (void)fetchChatZoneToCheckManateeStatus:(id /* block */)a0;
+- (void)_deleteAllZonesForDatabase:(id)a0;
+- (void)deleteAttachmentZone;
+- (void)createScheduledMessageZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+- (void)_createSubscriptionIfNeededForZoneID:(id)a0 subscriptionID:(id)a1 recordType:(id)a2 completionBlock:(id /* block */)a3;
+- (void)deleteRecoverableMessageZone;
+- (void)createAnalyticZoneIfNeededWithCompletionBlock:(id /* block */)a0;
+
+@end

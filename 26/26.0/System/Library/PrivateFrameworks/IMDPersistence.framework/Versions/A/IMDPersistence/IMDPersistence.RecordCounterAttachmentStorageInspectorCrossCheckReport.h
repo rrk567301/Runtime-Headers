@@ -1,0 +1,3 @@
+@interface IMDPersistence.RecordCounterAttachmentStorageInspectorCrossCheckReport : IMDPersistence.StorageInspectionCrossCheckReport
+
+@end

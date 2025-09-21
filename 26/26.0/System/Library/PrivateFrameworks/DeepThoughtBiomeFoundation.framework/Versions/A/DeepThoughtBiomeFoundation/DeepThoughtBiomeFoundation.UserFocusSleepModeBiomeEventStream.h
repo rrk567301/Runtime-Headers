@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.UserFocusSleepModeBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

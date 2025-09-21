@@ -1,0 +1,3 @@
+@interface _TtCV7Network18QUICStreamProtocol18QUICStreamInstance : Network.DefaultOneToOneProtocol
+
+@end

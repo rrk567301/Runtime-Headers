@@ -1,0 +1,83 @@
+@class PEGASUSSchemaPEGASUSMapsExecution, PEGASUSSchemaPEGASUSAudioExecution, NSData, PEGASUSSchemaPEGASUSIntent, PEGASUSSchemaPEGASUSAlternateQuerySuggestion, PEGASUSSchemaPEGASUSAlternateQuerySuggestionTier1, PEGASUSSchemaPEGASUSKGQAExecution, NSString, PEGASUSSchemaPEGASUSWebAnswerExecution, SISchemaUUID, PEGASUSSchemaPEGASUSVideoExecution, NSArray, PEGASUSSchemaPEGASUSSportsExecution, PEGASUSSchemaPEGASUSCrossIntentRankerResponse;
+
+@interface PEGASUSSchemaPEGASUSRequestEnded : SISchemaInstrumentationMessage {
+    struct { unsigned char exists : 1; unsigned char productArea : 1; unsigned char primaryProvider : 1; unsigned char queryConfidenceScore : 1; unsigned char isFollowupResponse : 1; unsigned char isHandOffExecution : 1; unsigned char isSnippetAnswerSeeking : 1; } _has;
+}
+
+@property (nonatomic) char exists;
+@property (nonatomic) char hasExists;
+@property (retain, nonatomic) SISchemaUUID *linkId;
+@property (nonatomic) char hasLinkId;
+@property (nonatomic) int productArea;
+@property (nonatomic) char hasProductArea;
+@property (nonatomic) int primaryProvider;
+@property (nonatomic) char hasPrimaryProvider;
+@property (copy, nonatomic) NSArray *otherProviders;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSIntent *intent;
+@property (nonatomic) char hasIntent;
+@property (nonatomic) float queryConfidenceScore;
+@property (nonatomic) char hasQueryConfidenceScore;
+@property (nonatomic) char isFollowupResponse;
+@property (nonatomic) char hasIsFollowupResponse;
+@property (nonatomic) char isHandOffExecution;
+@property (nonatomic) char hasIsHandOffExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSCrossIntentRankerResponse *crossIntentRankerResponse;
+@property (nonatomic) char hasCrossIntentRankerResponse;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSKGQAExecution *kgQAExecution;
+@property (nonatomic) char hasKgQAExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSWebAnswerExecution *webAnswerExecution;
+@property (nonatomic) char hasWebAnswerExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSSportsExecution *sportsExecution;
+@property (nonatomic) char hasSportsExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSMapsExecution *mapsExecution;
+@property (nonatomic) char hasMapsExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSAudioExecution *audioExecution;
+@property (nonatomic) char hasAudioExecution;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSVideoExecution *videoExecution;
+@property (nonatomic) char hasVideoExecution;
+@property (copy, nonatomic) NSString *edge;
+@property (nonatomic) char hasEdge;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSAlternateQuerySuggestion *alternateQuerySuggestion;
+@property (nonatomic) char hasAlternateQuerySuggestion;
+@property (nonatomic) char isSnippetAnswerSeeking;
+@property (nonatomic) char hasIsSnippetAnswerSeeking;
+@property (retain, nonatomic) PEGASUSSchemaPEGASUSAlternateQuerySuggestionTier1 *alternateQuerySuggestionTier1;
+@property (nonatomic) char hasAlternateQuerySuggestionTier1;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteCrossIntentRankerResponse;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)addOtherProviders:(int)a0;
+- (void)clearOtherProviders;
+- (void)deleteAlternateQuerySuggestion;
+- (void)deleteAlternateQuerySuggestionTier1;
+- (void)deleteAudioExecution;
+- (void)deleteEdge;
+- (void)deleteExists;
+- (void)deleteIntent;
+- (void)deleteIsFollowupResponse;
+- (void)deleteIsHandOffExecution;
+- (void)deleteIsSnippetAnswerSeeking;
+- (void)deleteKgQAExecution;
+- (void)deleteLinkId;
+- (void)deleteMapsExecution;
+- (void)deleteOtherProviders;
+- (void)deletePrimaryProvider;
+- (void)deleteProductArea;
+- (void)deleteQueryConfidenceScore;
+- (void)deleteSportsExecution;
+- (void)deleteVideoExecution;
+- (void)deleteWebAnswerExecution;
+- (int)otherProvidersAtIndex:(unsigned long long)a0;
+- (unsigned long long)otherProvidersCount;
+- (id)suppressMessageUnderConditions;
+
+@end

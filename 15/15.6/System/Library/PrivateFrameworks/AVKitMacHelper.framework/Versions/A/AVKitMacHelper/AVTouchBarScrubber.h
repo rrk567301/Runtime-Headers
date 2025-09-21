@@ -1,0 +1,97 @@
+@class NSView, NSString, AVTouchBarMediaSelectionViewController, AVTouchBarMediaSelectionButtonViewController, AVTouchBarScrubberController, NSStackView, NSColor, NSMutableArray, AVPlayerControllerTimeResolver, NSButton, NSLayoutConstraint, AVObservationController;
+@protocol AVTouchBarPlaybackControlsControllingInternal, AVTimeControlling, AVTouchBarPlaybackControlsControlling, AVTouchBarScrubberDelegate, AVTouchBarScrubberControlling, AVTouchBarMediaSelectionControlling, AVTouchBarTrackControlling;
+
+@interface AVTouchBarScrubber : NSView <CAAnimationDelegate, AVTouchBarMediaSelectionButtonViewControllerDelegate, AVTouchBarMediaSelectionViewControllerDelegate, NSStackViewDelegate> {
+    NSMutableArray *_bindingsInfos;
+    char _bindingsActive;
+    id<AVTouchBarPlaybackControlsControlling> _playbackControlsController;
+    char _collapsesIntoPlayButton;
+    char _drawsBackground;
+    char _collapsed;
+    long long _expandCollapseAnimationCount;
+    long long _appearAnimationCount;
+    long long _disappearAnimationCount;
+    NSView *_containerView;
+    NSStackView *_controlsContainerView;
+    NSView *_collapsedRepresentation;
+    NSButton *_pictureInPictureButton;
+    NSButton *_inlinePlayButton;
+    NSLayoutConstraint *_inlinePlayButtonWidthConstraint;
+    AVTouchBarScrubberController *_touchBarScrubberController;
+    NSView *_scrubberContainerView;
+    AVTouchBarMediaSelectionButtonViewController *_mediaSelectionButtonViewController;
+    AVTouchBarMediaSelectionViewController *_mediaSelectionViewController;
+    NSStackView *_liveStreamContainerView;
+    NSButton *_liveStreamPictureInPictureButton;
+    AVTouchBarMediaSelectionButtonViewController *_liveStreamMediaSelectionButtonViewController;
+    NSLayoutConstraint *_containerViewFixedWidthLayoutConstraint;
+    NSLayoutConstraint *_containerViewRightAnchorLayoutConstraint;
+    NSLayoutConstraint *_scrubberLeftAnchorLayoutConstraint;
+    AVObservationController *_keyValueObservationController;
+    id<AVTouchBarScrubberDelegate> _delegate;
+    struct { char touchBarScrubberExpandButtonTapped; char touchBarScrubber_presentMediaSelectionViewControllerInPopover; char touchBarScrubberDismissMediaSelectionPopover; } _delegateRespondsTo;
+}
+
+@property (retain) id<AVTouchBarMediaSelectionControlling, AVTouchBarPlaybackControlsControllingInternal, AVTouchBarScrubberControlling, AVTouchBarTrackControlling, AVTimeControlling> playerController;
+@property (retain) AVPlayerControllerTimeResolver *timeResolver;
+@property (readonly, nonatomic) char canShowScrubber;
+@property (readonly, nonatomic) char showsLiveStreamUI;
+@property (retain) id<AVTouchBarPlaybackControlsControlling> playbackControlsController;
+@property (weak) id<AVTouchBarScrubberDelegate> delegate;
+@property char drawsBackground;
+@property char showsInlinePlayButton;
+@property char canShowMediaSelectionButton;
+@property char canCollapse;
+@property char collapsesIntoPlayButton;
+@property (retain) NSColor *audioWaveformColor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)keyPathsForValuesAffectingCanShowScrubber;
++ (id)keyPathsForValuesAffectingShowsLiveStreamUI;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (char)isHidden;
+- (void)setHidden:(char)a0;
+- (void)_commonInit;
+- (void)animationDidStop:(id)a0 finished:(char)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)stackView:(id)a0 didReattachViews:(id)a1;
+- (void)stackView:(id)a0 willDetachViews:(id)a1;
+- (void)updateLayer;
+- (void)viewWillMoveToWindow:(id)a0;
+- (char)wantsUpdateLayer;
+- (id)_makePlayButton;
+- (void)_activateBindings;
+- (void)_animateAppearDisappearTransition:(char)a0 animationDuration:(double)a1;
+- (void)_animateExpandCollapseTransition:(char)a0 oldBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 newBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 animationDuration:(double)a3;
+- (void)_bindObject:(id)a0 withBinding:(id)a1 toObject:(id)a2 withKeyPath:(id)a3 options:(id)a4 setToNilWhenUnbinding:(char)a5;
+- (void)_deactivateBindings;
+- (id)_makeExpandButton;
+- (id)_makeMediaSelectionButtonViewController;
+- (id)_makeMediaSelectionViewController;
+- (id)_makePictureInPictureButton;
+- (struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })_makeScaleTransform:(double)a0 origin:(struct CGPoint { double x0; double x1; })a1;
+- (id)_makeSeparatorView;
+- (id)_makeSkipAheadButton;
+- (id)_makeSkipBackwardsButton;
+- (void)_unbindAllObjects;
+- (void)_unbindObject:(id)a0;
+- (void)_updateScrubberHasRoundedCorners;
+- (void)_updateScrubberHasRoundedCornersWithDetachedViews:(id)a0;
+- (void)_updateScrubberLeftAnchorLayoutConstraint;
+- (void)_updateTimeResolver;
+- (void)actionExpandButtonTapped:(id)a0;
+- (void)actionPictureInPictureButtonTapped:(id)a0;
+- (void)skipBackwardButtonPressed:(id)a0;
+- (void)touchBarMediaSelectionButtonViewControllerPresentMediaSelectionPopover:(id)a0;
+- (void)touchBarMediaSelectionViewController:(id)a0 didSelectAudioTouchBarMediaSelectionOption:(id)a1;
+- (void)touchBarMediaSelectionViewController:(id)a0 didSelectLegibleTouchBarMediaSelectionOption:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC18AppIntentsServices17DeviceStateHelper16LockStateMonitor : AppIntentsServices.DarwinNotificationObserver
+
+@end

@@ -1,0 +1,3 @@
+@interface ADMonocularStillsPipelineParameters : ADPipelineParameters
+
+@end

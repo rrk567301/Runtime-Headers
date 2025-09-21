@@ -1,0 +1,3 @@
+@interface _TtCE25LocalAuthenticationCoreUICSo8NSBundleP33_2F86A47774C652234E2D2ADBD88F1FCB8Sentinel : _TtCs12_SwiftObject
+
+@end

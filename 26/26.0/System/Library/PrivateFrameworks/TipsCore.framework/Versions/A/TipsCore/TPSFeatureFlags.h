@@ -1,0 +1,3 @@
+@interface TPSFeatureFlags : NSObject
+
+@end

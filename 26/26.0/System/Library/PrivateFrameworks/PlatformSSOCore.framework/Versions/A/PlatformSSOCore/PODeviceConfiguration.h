@@ -1,0 +1,85 @@
+@class NSString, NSArray, NSData, NSDate, NSNumber, NSDictionary;
+
+@interface PODeviceConfiguration : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSData *_deviceSigningKeyData;
+@property (retain, nonatomic) NSData *_deviceEncryptionKeyData;
+@property (nonatomic) BOOL _accessTokenTerminalIdentityKeySEP;
+@property (nonatomic) BOOL _accessTokenTerminalIdentityKeySystem;
+@property (retain, nonatomic) NSData *_accessTokenTerminalIdentityKeyData;
+@property (retain, nonatomic) NSData *_accessTokenTerminalIdentityCertData;
+@property (readonly) int version;
+@property (copy, nonatomic) NSString *accountDisplayName;
+@property (copy, nonatomic) NSNumber *loginFrequency;
+@property (nonatomic) struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *deviceSigningKey;
+@property (readonly, nonatomic) struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *deviceSigningPublicKey;
+@property (nonatomic) struct __SecCertificate { } *deviceSigningCertificate;
+@property (readonly) struct __SecIdentity { } *deviceSigningIdentity;
+@property (copy, nonatomic) NSNumber *signingAlgorithm;
+@property (copy, nonatomic) NSNumber *pendingSigningAlgorithm;
+@property (nonatomic) struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *deviceEncryptionKey;
+@property (readonly, nonatomic) struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *deviceEncryptionPublicKey;
+@property (nonatomic) struct __SecCertificate { } *deviceEncryptionCertificate;
+@property (readonly) struct __SecIdentity { } *deviceEncryptionIdentity;
+@property (copy, nonatomic) NSNumber *encryptionAlgorithm;
+@property (copy, nonatomic) NSNumber *pendingEncryptionAlgorithm;
+@property (copy, nonatomic) NSDate *lastEncryptionKeyChange;
+@property (copy, nonatomic) NSString *extensionIdentifier;
+@property BOOL registrationCompleted;
+@property unsigned long long loginType;
+@property BOOL sharedDeviceKeys;
+@property long long protocolVersion;
+@property (copy) NSNumber *sdkVersionString;
+@property BOOL createUsersEnabled;
+@property BOOL createFirstUserDuringSetupEnabled;
+@property (copy, nonatomic) NSArray *createUserLoginTypes;
+@property BOOL authorizationEnabled;
+@property (copy, nonatomic) NSString *defaultUserDomain;
+@property (copy, nonatomic) NSDictionary *tokenToUserMapping;
+@property long long newUserAuthorizationMode;
+@property long long userAuthorizationMode;
+@property (copy, nonatomic) NSArray *administratorGroups;
+@property (copy, nonatomic) NSArray *otherGroups;
+@property (copy, nonatomic) NSDictionary *authorizationGroups;
+@property (nonatomic) unsigned long long fileVaultPolicy;
+@property (nonatomic) unsigned long long loginPolicy;
+@property (nonatomic) unsigned long long unlockPolicy;
+@property (nonatomic) long long offlineGracePeriod;
+@property (nonatomic) long long requireAuthGracePeriod;
+@property (copy, nonatomic) NSDate *authGracePeriodStart;
+@property (copy, nonatomic) NSArray *nonPlatformSSOAccounts;
+@property (nonatomic) BOOL allowDeviceIdentifiersInAttestation;
+@property (copy) NSData *temporaryAccountCredential;
+@property struct __SecIdentity { } *accessTokenTerminalIdentity;
+@property BOOL allowAccessTokenExpressMode;
+@property (copy, nonatomic) NSData *accessTokenReaderGroupIdentifier;
+@property (copy, nonatomic) NSDate *lastCheckDate;
+@property BOOL synchronizeProfilePicture;
+@property BOOL temporarySessionQuickLogin;
+
+- (void)updateVersion;
+- (id)dataRepresentation;
+- (id)initWithData:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)init;
+- (id)description;
+- (BOOL)supportsAuthorization;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *)deviceEncryptionKeyWithContext:(id)a0;
+- (id)decryptTemporaryAccountCredential;
+- (struct __SecIdentity { } *)deviceEncryptionIdentity;
+- (struct __SecIdentity { } *)deviceSigningIdentity;
+- (struct __SecKey { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __SecKeyDescriptor *x1; void *x2; } *)deviceSigningKeyWithContext:(id)a0;
+- (BOOL)encryptAndSaveTemporaryAccountCredential:(id)a0;
+- (BOOL)hasTemporaryAccountCredential;
+- (BOOL)supportsCreateTemporaryUsers;
+- (BOOL)supportsTokenUnlock;
+- (id)dataRepresentationForDisplay:(BOOL)a0;
+- (BOOL)supportsAccessKey;
+- (BOOL)supportsCreateFirstUserDuringSetup;
+- (BOOL)supportsCreateNewUsers;
+
+@end

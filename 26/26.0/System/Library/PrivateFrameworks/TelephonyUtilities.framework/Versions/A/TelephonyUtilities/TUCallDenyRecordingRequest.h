@@ -1,0 +1,3 @@
+@interface TUCallDenyRecordingRequest : TUCallRecordingRunningRequest
+
+@end

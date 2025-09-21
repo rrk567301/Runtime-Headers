@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.AgenticActionResolutionService : _TtCs12_SwiftObject
+
+@end

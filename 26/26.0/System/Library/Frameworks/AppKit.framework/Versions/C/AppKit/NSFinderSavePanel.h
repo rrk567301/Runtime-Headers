@@ -1,0 +1,105 @@
+@class NSArray, NSMutableDictionary, NSString, NSXPCInterface, NSError, NSLayoutConstraint, NSWindow;
+
+@interface NSFinderSavePanel : NSFinderSavePanelBase <NSPreviewHostViewControllerDelegate> {
+    NSArray *allowedFileTypes;
+}
+
+@property (class, readonly) NSXPCInterface *hostControllerInterface;
+@property (class, readonly) NSXPCInterface *targetControllerInterface;
+
+@property BOOL completed;
+@property (copy) id /* block */ modelessCompletionHandler;
+@property (retain) NSMutableDictionary *sandboxExtensions;
+@property (weak) NSWindow *accessoryWindow;
+@property (retain) NSError *beginError;
+@property (weak) NSLayoutConstraint *constraintMinWidth;
+@property (weak) NSLayoutConstraint *constraintMaxWidth;
+@property (weak) NSLayoutConstraint *constraintMinHeight;
+@property (weak) NSLayoutConstraint *constraintMaxHeight;
+@property (readonly, getter=isExpanded) BOOL expanded;
+@property (copy) NSString *message;
+@property (copy) NSString *prompt;
+@property (copy) NSString *nameFieldLabel;
+@property (copy, setter=_setNewDocumentButtonTitle:) NSString *_newDocumentButtonTitle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (struct { unsigned int x0[8]; })_cachedAuditTokenForMovePanel;
++ (id)_containerURLsForRemoteProcessWithAuditToken:(struct { unsigned int x0[8]; } *)a0;
++ (BOOL)_defaultSettingForUbiquitousBehaviors;
++ (BOOL)_isDirectoryURL:(id)a0 treatFilePackagesAsDirectories:(BOOL)a1 fauxFilePackageTypes:(id)a2 enabledFileTypes:(id)a3;
++ (BOOL)_isFauxFilePackageURL:(id)a0 fauxFilePackageTypes:(id)a1 enabledFileTypes:(id)a2;
++ (id)objectExportedForController;
++ (id)savePanel;
++ (id)targetControllerClassName;
+
+- (id)directory;
+- (void)cancel:(id)a0;
+- (id)accessoryView;
+- (id)filename;
+- (void)setAllowedFileTypes:(id)a0;
+- (id)URL;
+- (id)identifier;
+- (BOOL)isKindOfClass:(Class)a0;
+- (void)setAccessoryView:(id)a0;
+- (id)allowedFileTypes;
+- (void)setDirectory:(id)a0;
+- (void)setTitle:(id)a0;
+- (void)setIdentifier:(id)a0;
+- (void)_prepareForReuse;
+- (void).cxx_destruct;
+- (void)beginSheetModalForWindow:(id)a0 completionHandler:(id /* block */)a1;
+- (long long)runModal;
+- (void)setAccessoryViewDisclosed:(BOOL)a0;
+- (void)validateVisibleColumns;
+- (id)_overwritingAlertSuppressionURL;
+- (void)ok:(id)a0;
+- (void)_setIsExpanded:(BOOL)a0;
+- (BOOL)_accessoryViewDisclosed;
+- (id)_alertInformativeMessage;
+- (id)_alertMessage;
+- (void)_configureForFilename:(id)a0;
+- (BOOL)_fauxToolbarShouldDragWindow;
+- (void)_hideWindowForTimeMachineMode:(BOOL)a0;
+- (BOOL)_okButtonDisabled;
+- (void)_orderRemoteWindow:(long long)a0 sender:(id)a1;
+- (id)_securityScopedURL;
+- (void)_setAccessoryViewDisclosed:(BOOL)a0;
+- (void)_setAlertInformativeMessage:(id)a0;
+- (void)_setAlertMessage:(id)a0;
+- (void)_setIsExpanded:(BOOL)a0 andStoreState:(BOOL)a1;
+- (void)_setOkButtonDisabled:(BOOL)a0;
+- (void)_setOverwritingAlertSuppressionURL:(id)a0;
+- (void)_setShouldRevertOriginalDocument:(BOOL)a0;
+- (void)_setShowNewDocumentButton:(BOOL)a0;
+- (void)_setShowsRevertOriginalDocumentButton:(BOOL)a0;
+- (void)_setTags:(id)a0;
+- (void)_setUseAlertStyle:(BOOL)a0;
+- (BOOL)_shouldRevertOriginalDocument;
+- (BOOL)_shouldSetTagsForClient;
+- (BOOL)_showNewDocumentButton;
+- (BOOL)_showsRevertOriginalDocumentButton;
+- (id)_tags;
+- (BOOL)_useAlertStyle;
+- (BOOL)adaptAccessoryViewForOpen;
+- (void)beganInvalidationOfPreviewHostViewController:(id)a0 invalidationKind:(unsigned char)a1;
+- (void)beginSheetForDirectory:(id)a0 file:(id)a1 modalForWindow:(id)a2 modalDelegate:(id)a3 didEndSelector:(SEL)a4 contextInfo:(void *)a5;
+- (void)beginWithCompletionHandler:(id /* block */)a0;
+- (void)considerTargetMinMaxSizes:(struct { struct CGSize { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 forController:(id)a1;
+- (void)considerTargetRequestForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 forController:(id)a1;
+- (unsigned long long)considerTargetRequestForWindowStyleMask:(unsigned long long)a0 forController:(id)a1;
+- (void)didEndSheet:(id)a0 returnCode:(long long)a1 contextInfo:(id /* block */)a2;
+- (BOOL)isAccessoryViewDisclosed;
+- (id)objectExportedForController:(id)a0;
+- (id)requiredFileType;
+- (long long)runModalForDirectory:(id)a0 file:(id)a1;
+- (void)selectText:(id)a0;
+- (void)setCanCreateDirectories:(BOOL)a0;
+- (void)setContentTypeNames:(id)a0;
+- (void)setCurrentContentType:(id)a0;
+- (void)setRequiredFileType:(id)a0;
+- (void)setSecurityScopedURLs:(id)a0;
+
+@end

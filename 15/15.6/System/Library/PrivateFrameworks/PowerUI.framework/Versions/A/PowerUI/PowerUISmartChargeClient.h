@@ -1,0 +1,82 @@
+@class NSString, NSObject, NSXPCConnection;
+@protocol OS_os_log;
+
+@interface PowerUISmartChargeClient : NSObject <PowerUISmartChargeClientManaging>
+
+@property (retain, nonatomic) NSString *clientName;
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (retain, nonatomic) NSObject<OS_os_log> *log;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)remoteInterface;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)status;
+- (id)initWithClientName:(id)a0;
+- (void)enableSmartChargingWithHandler:(id /* block */)a0;
+- (char)isDEoCSupported;
+- (char)setDesktopMode:(id)a0;
+- (char)setState:(unsigned long long)a0 error:(id *)a1;
+- (char)isOBCEngaged:(char *)a0 asDesktopDevice:(char *)a1 chargingOverrideAllowed:(char *)a2 withError:(id *)a3;
+- (unsigned long long)currentChargeLimit:(id *)a0;
+- (unsigned long long)currentRecommendedChargeLimitWithError:(id *)a0;
+- (void)currentRecommendedChargeLimitWithHandler:(id /* block */)a0;
+- (char)disableDEoC:(id *)a0;
+- (void)disableDEoCWithHandler:(id /* block */)a0;
+- (char)disableMCL:(id *)a0;
+- (void)disableMCLWithHandler:(id /* block */)a0;
+- (char)disableSmartCharging:(id *)a0;
+- (void)disableSmartChargingWithHandler:(id /* block */)a0;
+- (char)enableDEoC:(id *)a0;
+- (void)enableDEoCWithHandler:(id /* block */)a0;
+- (char)enableMCL:(id *)a0;
+- (void)enableMCLWithHandler:(id /* block */)a0;
+- (char)enableSmartCharging:(id *)a0;
+- (void)engageFrom:(id)a0 until:(id)a1 repeatUntil:(id)a2 overrideAllSignals:(char)a3;
+- (void)enterDevelopmentMode;
+- (id)fullChargeDeadline:(id *)a0;
+- (void)fullChargeDeadlineWithHandler:(id /* block */)a0;
+- (id)getDEoCPredictions:(id *)a0;
+- (unsigned char)getMCLLimitWithError:(id *)a0;
+- (void)getMCLLimitWithHandler:(id /* block */)a0;
+- (unsigned long long)isDEoCCurrentlyEnabled:(id *)a0;
+- (void)isDEoCCurrentlyEnabledWithHandler:(id /* block */)a0;
+- (void)isDEoCSupportedWithHandler:(id /* block */)a0;
+- (unsigned long long)isMCLCurrentlyEnabled:(id *)a0;
+- (void)isMCLCurrentlyEnabledWithHandler:(id /* block */)a0;
+- (char)isMCLSupported;
+- (void)isMCLSupportedWithHandler:(id /* block */)a0;
+- (char)isOBCEngaged:(id *)a0;
+- (char)isOBCEngaged:(char *)a0 chargeLimit:(unsigned long long *)a1 chargingOverrideAllowed:(char *)a2 withError:(id *)a3;
+- (char)isOBCEngaged:(char *)a0 isMaxChargeLimited:(char *)a1 chargingOverrideAllowed:(char *)a2 withError:(id *)a3;
+- (char)isOBCEngagedAsDesktopDevice:(char *)a0 chargingOverrideAllowed:(char *)a1 withError:(id *)a2;
+- (void)isOBCEngagedAsDesktopDeviceWithHandler:(id /* block */)a0;
+- (void)isOBCEngagedOrChargeLimitedWithHandler:(id /* block */)a0;
+- (char)isOBCSupported;
+- (void)isOBCSupportedWithHandler:(id /* block */)a0;
+- (unsigned long long)isSmartChargingCurrentlyEnabled:(id *)a0;
+- (void)isSmartChargingCurrentlyEnabledWithHandler:(id /* block */)a0;
+- (id)lastUsedLeewayWithError:(id *)a0;
+- (void)legacy_client_isOBCEngagedWithHandler:(id /* block */)a0;
+- (void)listMonitorSignals;
+- (id)powerLogStatus;
+- (void)resetDesktopMode;
+- (void)resetDevelopmentMode;
+- (void)resetEngagementOverride;
+- (char)setDEoCState:(unsigned long long)a0 error:(id *)a1;
+- (char)setMCLLimit:(unsigned char)a0 error:(id *)a1;
+- (void)setMCLLimit:(unsigned char)a0 withHandler:(id /* block */)a1;
+- (id)simulateCurrentOutputAsOfDate:(id)a0 overrideAllSignals:(char)a1 withError:(id *)a2;
+- (char)smartChargingUIState:(unsigned long long *)a0 chargeLimit:(unsigned long long *)a1 chargingOverrideAllowed:(char *)a2 withError:(id *)a3;
+- (char)temporarilyDisableMCL:(id *)a0;
+- (void)temporarilyDisableMCLWithHandler:(id /* block */)a0;
+- (char)temporarilyDisableSmartCharging:(id *)a0;
+- (void)temporarilyDisableSmartChargingWithHandler:(id /* block */)a0;
+- (char)temporarilyEnableCharging:(id *)a0;
+- (void)temporarilyEnableChargingWithHandler:(id /* block */)a0;
+
+@end

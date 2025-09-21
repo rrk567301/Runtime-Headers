@@ -1,0 +1,91 @@
+@class AVAudioEngine, MTLRenderPassDescriptor, VFXNode, CP_OBJECT_cp_layer_renderer, NSObject, VFXRenderGraph, AVAudioEnvironmentNode, VFXRenderOptions, VFXWorld, NSString, VFXRenderer, VFXTextureAttachmentDescriptor, NSArray;
+@protocol MTLTexture, MTLRenderCommandEncoder, MTLDevice, OS_dispatch_queue, VFXWorldRendererDelegate, VFXWorldProviderProtocol, MTLCommandQueue;
+
+@interface VFXCompositorRenderer : NSObject <VFXTextureAttachmentProvider, VFXWorldRenderer, VFXStatisticsProvider, VFXPointOfViewStrategyProtocol> {
+    CP_OBJECT_cp_layer_renderer *_layerRenderer;
+    VFXRenderer *_renderer;
+    VFXRenderOptions *_renderOptions;
+    VFXTextureAttachmentDescriptor *_colorAttachmentDescriptor;
+    NSObject<VFXWorldProviderProtocol> *_worldTrackingProvider;
+    unsigned long long _loadAction;
+    unsigned int _logicalWidth;
+    unsigned int _logicalHeight;
+    id<MTLTexture> _colorTexture;
+    id<MTLTexture> _depthTexture;
+    unsigned long long _sampleCount;
+    NSObject<OS_dispatch_queue> *_renderingQueue;
+}
+
+@property (retain, nonatomic) NSObject<VFXWorldProviderProtocol> *worldTrackingProvider;
+@property (retain, nonatomic) VFXNode *headTransformNode;
+@property (nonatomic) unsigned long long pointOfViewStrategy;
+@property (readonly, retain, nonatomic) VFXTextureAttachmentDescriptor *finalColorDescriptor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) VFXWorld *world;
+@property (weak, nonatomic) id<VFXWorldRendererDelegate> delegate;
+@property (retain, nonatomic) VFXNode *pointOfView;
+@property (nonatomic) BOOL autoenablesDefaultLighting;
+@property (nonatomic) unsigned long long antialiasingMode;
+@property (nonatomic, getter=isJitteringEnabled) BOOL jitteringEnabled;
+@property (nonatomic, getter=isTemporalAntialiasingEnabled) BOOL temporalAntialiasingEnabled;
+@property (nonatomic) BOOL additiveWritesToAlpha;
+@property (nonatomic) BOOL showsStatistics;
+@property (nonatomic) unsigned long long debugOptions;
+@property (readonly, nonatomic) id<MTLRenderCommandEncoder> currentRenderCommandEncoder;
+@property (readonly, nonatomic) MTLRenderPassDescriptor *currentRenderPassDescriptor;
+@property (readonly, nonatomic) id<MTLDevice> device;
+@property (readonly, nonatomic) id<MTLCommandQueue> commandQueue;
+@property (copy, nonatomic) NSArray *binaryArchives;
+@property (readonly, nonatomic) AVAudioEngine *audioEngine;
+@property (readonly, nonatomic) AVAudioEnvironmentNode *audioEnvironmentNode;
+@property (retain, nonatomic) VFXNode *audioListener;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } currentViewport;
+@property (readonly, nonatomic) struct CGColorSpace { } *workingColorSpace;
+@property (retain, nonatomic) VFXRenderGraph *renderGraph;
+
++ (unsigned char)frameBufferFeatures;
++ (id)layerConfigurationWithDefaultConfiguration:(id)a0 layerCapabilites:(id)a1;
++ (Class)rendererClass;
+
+- (id)statistics;
+- (void)dealloc;
+- (id)renderer;
+- (id)init;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 options:(id)a1;
+- (void *)__CFObject;
+- (void)_addGPUFramePresentedHandler:(id /* block */)a0;
+- (void)_allowGPUBackgroundExecution;
+- (BOOL)prepareObject:(id)a0 shouldAbortBlock:(id /* block */)a1;
+- (void)_addGPUFrameCompletedHandler:(id /* block */)a0;
+- (void)_addGPUFrameScheduledHandler:(id /* block */)a0;
+- (void)set_commandBufferStatusMonitor:(id)a0;
+- (void /* unknown type, empty encoding */)unprojectPoint:(SEL)a0;
+- (id)_commandBufferStatusMonitor;
+- (void)_discardPendingGPUFrameCompletedHandlers;
+- (void)_discardPendingGPUFramePresentedHandlers;
+- (void)_discardPendingGPUFrameScheduledHandlers;
+- (id)_resourceManagerMonitor;
+- (BOOL)isNodeInsideFrustum:(id)a0 withPointOfView:(id)a1;
+- (id)nodesInsideFrustumWithPointOfView:(id)a0;
+- (void)prepareObjects:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void /* unknown type, empty encoding */)projectPoint:(SEL)a0;
+- (void)set_resourceManagerMonitor:(id)a0;
+- (void)set_wantsWorldRendererDelegationMessages:(BOOL)a0;
+- (unsigned long long)loadActionForAttachment:(id)a0;
+- (id)textureForAttachment:(id)a0 withDescriptor:(id)a1;
+- (void)_beginCompositorFrame:(struct cp_frame { } *)a0 withDrawable:(struct cp_drawable { } *)a1;
+- (void)_compositorRenderLoop;
+- (void)_initRendererWithOptions:(id)a0;
+- (void)_rebuildTextures;
+- (id)_rendererForPrepare;
+- (void)_setAntialiasingMode:(unsigned long long)a0 forcingReset:(BOOL)a1;
+- (BOOL)_usesLayeredRendering;
+- (BOOL)_usesMultipleViewportRendering;
+- (BOOL)_wantsWorldRendererDelegationMessages;
+- (id)initWithLayerRenderer:(id)a0 options:(id)a1;
+- (struct { void /* unknown type, empty encoding */ x0[4]; })pointOfViewTransform;
+
+@end

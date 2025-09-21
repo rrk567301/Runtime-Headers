@@ -1,0 +1,13 @@
+@interface CLLocationSourceInformation : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, nonatomic) char isSimulatedBySoftware;
+@property (readonly, nonatomic) char isProducedByAccessory;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithSoftwareSimulationState:(char)a0 andExternalAccessoryState:(char)a1;
+
+@end

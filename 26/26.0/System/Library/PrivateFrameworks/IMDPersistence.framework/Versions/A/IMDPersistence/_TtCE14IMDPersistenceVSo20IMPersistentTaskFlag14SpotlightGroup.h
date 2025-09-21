@@ -1,0 +1,3 @@
+@interface _TtCE14IMDPersistenceVSo20IMPersistentTaskFlag14SpotlightGroup : _TtCE14IMDPersistenceVSo20IMPersistentTaskFlag5Group
+
+@end

@@ -1,0 +1,93 @@
+@class NSArray, NSString;
+
+@interface MFMessageCriterion : MFCriterion {
+    NSString *_originalGroupUniqueID;
+}
+
+@property (readonly, copy, nonatomic) NSArray *mf_mailboxURLStrings;
+@property (readonly, nonatomic) MFMessageCriterion *mf_firstSpotlightCriterion;
+@property (nonatomic) unsigned int ruleType;
+@property (readonly, copy) NSString *originalGroupUniqueID;
+@property long long specialMailboxTypeCode;
+@property (copy) NSString *groupUniqueID;
+@property (readonly, copy, nonatomic) NSArray *recursiveGroupUniqueIDs;
+@property (readonly, nonatomic) char hasQualifier;
+@property (readonly, nonatomic) MFMessageCriterion *criterionByExpandingSpecialMailboxCriterion;
+@property (readonly, copy, nonatomic) NSArray *emailAddressesForGroupCriterion;
+@property (readonly, copy, nonatomic) NSArray *emailAddressesForVIPCriterion;
+@property (readonly, nonatomic) char containsLastViewedDateCriterion;
+@property (readonly, nonatomic) char containsIncludeConversationsCriterion;
+
++ (void)initialize;
++ (void)_updateAddressDisplayNames:(id)a0;
++ (id)criterionIdentifierToTypeMapping;
++ (long long)criterionTypeForString:(id)a0;
++ (id)messagesInConversationCriterionWithConversationIDs:(id)a0;
++ (id)priorityCriterionForMailboxes:(id)a0;
++ (id)stringForCriterionType:(long long)a0;
+
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (char)isEquivalent:(id)a0;
+- (char)hasExpression;
+- (id)SQLExpressionWithContext:(struct { unsigned long long x0; unsigned long long x1; char x2; char x3; } *)a0 depth:(unsigned long long)a1 enclosingSmartMailboxes:(id)a2;
+- (char)_containsCriterion:(long long)a0;
+- (char)_doesGroup:(id)a0 containSender:(id)a1;
+- (char)_evaluateAccountCriterion:(id)a0;
+- (char)_evaluateAddressBookCriterion:(id)a0;
+- (char)_evaluateAddressHistoryCriterion:(id)a0 successfullyEvaluated:(char *)a1;
+- (char)_evaluateAttachmentCriterion:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2;
+- (char)_evaluateAttachmentTypeCriterion:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2;
+- (char)_evaluateBodyCriterion:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2;
+- (char)_evaluateCompoundCriterion:(id)a0;
+- (char)_evaluateDateCriterion:(id)a0;
+- (char)_evaluateFlagCriterion:(id)a0;
+- (char)_evaluateFlaggedStatusCriterion:(id)a0;
+- (char)_evaluateFullNameCriterion:(id)a0;
+- (char)_evaluateGmailLabelCriterion:(id)a0;
+- (char)_evaluateHeaderCriterion:(id)a0;
+- (char)_evaluateIsDigitallySignedCriterion:(id)a0;
+- (char)_evaluateIsEncryptedCriterion:(id)a0;
+- (char)_evaluateJunkMailCriterion:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2;
+- (char)_evaluateJunkMailHeaders:(id)a0;
+- (char)_evaluateMailboxCriterion:(id)a0;
+- (char)_evaluateMemberOfGroupCriterion:(id)a0;
+- (char)_evaluateMemberOfVIPSendersCriterion:(id)a0;
+- (char)_evaluateMessage:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2 successfullyEvaluated:(char *)a3;
+- (char)_evaluateMessageIsPriorityCriterion:(id)a0;
+- (char)_evaluateMessageTypeCriterion:(id)a0;
+- (char)_evaluatePriorityIsHighCriterion:(id)a0;
+- (char)_evaluatePriorityIsLowCriterion:(id)a0;
+- (char)_evaluatePriorityIsNormalCriterion:(id)a0;
+- (char)_evaluateSizeCriterion:(id)a0;
+- (char)_evaluateSpecialMailboxCriterion:(id)a0;
+- (id)_headersRequiredForEvaluation;
+- (char)_isSignatureVerificationOrDecryptionErrorCode:(long long)a0;
+- (char)_mailboxURLString:(id)a0 satisfiesQualifier:(long long)a1 forExpression:(id)a2;
+- (char)_messageHasPassBookAttachment:(id)a0;
+- (char)_messageIsSignedByMe:(id)a0;
+- (void)_updateDateExpressionToNow;
+- (void)addHeadersRequiredForRoutingToArray:(id)a0;
+- (char)allowsEmptyExpression;
+- (id)criterionByMergingSpotlightCriteria;
+- (id)dictionaryRepresentationIncludePII:(char)a0;
+- (char)doesMessageSatisfyRuleEvaluationCriterion:(id)a0 fetchBody:(char)a1 needsBody:(char *)a2 successfullyEvaluated:(char *)a3;
+- (char)evaluateMessage:(id)a0;
+- (id)fixOnceWithExpandedSmartMailboxes:(id)a0 forSpotlight:(char)a1;
+- (char)hasNumberCriterion;
+- (id)initWithDictionary:(id)a0 andRemoveRecognizedKeysIfMutable:(char)a1;
+- (char)isExpressibleInTigerSchema;
+- (char)isSatisfiedByMailboxURL:(id)a0;
+- (char)isValid:(id *)a0 options:(unsigned int)a1;
+- (id)mf_criterionMinusSpotlightCriterionParent:(id *)a0;
+- (id)mf_searchableIndexQueryExpressionWithActiveAccountIdentifiers:(id)a0;
+- (id)ruleExpression;
+- (id)ruleHeader;
+- (unsigned int)ruleQualifier;
+- (void)setCriterionIdentifier:(id)a0;
+- (void)setRuleExpression:(id)a0;
+- (void)setRuleHeader:(id)a0;
+- (void)setRuleQualifier:(unsigned int)a0;
+
+@end

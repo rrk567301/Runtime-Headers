@@ -1,0 +1,3 @@
+@interface HPDFeatureFlags : NSObject
+
+@end

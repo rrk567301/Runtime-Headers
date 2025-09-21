@@ -1,0 +1,3 @@
+@interface _TtCZFO11USDStageKit9PluginSPI17EnablePluginTestsFT_SbL_13StandardError : _TtCs12_SwiftObject
+
+@end

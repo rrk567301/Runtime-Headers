@@ -1,0 +1,3 @@
+@interface AdPlatformsCommon.DefaultStorefrontIDCountryCodeLUTDataSource : _TtCs12_SwiftObject
+
+@end

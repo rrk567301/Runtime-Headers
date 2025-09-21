@@ -1,0 +1,3 @@
+@interface QTMutableMetadataItem : QTMetadataItem
+
+@end

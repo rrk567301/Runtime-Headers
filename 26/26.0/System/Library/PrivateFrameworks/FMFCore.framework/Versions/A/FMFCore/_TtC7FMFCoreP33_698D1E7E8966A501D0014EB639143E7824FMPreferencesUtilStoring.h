@@ -1,0 +1,3 @@
+@interface _TtC7FMFCoreP33_698D1E7E8966A501D0014EB639143E7824FMPreferencesUtilStoring : _TtCs12_SwiftObject
+
+@end

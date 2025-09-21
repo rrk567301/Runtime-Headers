@@ -1,0 +1,3 @@
+@interface _TtC12CoreRepairUIP33_56EF531E941BA0F2CC1DCE0894C215EC19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

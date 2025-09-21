@@ -1,0 +1,32 @@
+@class PLPhotoLibraryBundle, PLSyndicationIngestMutex, PLLazyObject;
+
+@interface PLDatabaseContext : NSObject {
+    PLPhotoLibraryBundle *_libraryBundle;
+    PLLazyObject *_lazyMomentLibrary;
+}
+
+@property (readonly) PLSyndicationIngestMutex *syndicationIngestMutex;
+@property (readonly) long long wellKnownPhotoLibraryIdentifier;
+
++ (id)newShortLivedLibraryWithName:(const char *)a0 libraryRole:(unsigned long long)a1 bundle:(id)a2;
++ (id)newShortLivedLibraryWithName:(const char *)a0 bundle:(id)a1;
+
+- (id)newMomentLibrary;
+- (void)dealloc;
+- (void)invalidate;
+- (void)performTransactionSync:(id /* block */)a0 withName:(const char *)a1;
+- (id)newShortLivedMacOpenClientLibraryWithName:(const char *)a0;
+- (id)newShortLivedCplLibraryWithNameSuffix:(const char *)a0;
+- (void)performSync:(id /* block */)a0 withName:(const char *)a1;
+- (id)newShortLivedLibraryForOrderKeyManagerWithName:(const char *)a0;
+- (id)newShortLivedLibraryWithName:(const char *)a0 libraryRole:(unsigned long long)a1;
+- (id)initWithLibraryBundle:(id)a0;
+- (void)perform:(id /* block */)a0 withName:(const char *)a1;
+- (void)performTransaction:(id /* block */)a0 withName:(const char *)a1;
+- (id)newShortLivedComputeSyncApplyLibraryWithNameSuffix:(const char *)a0;
+- (id)newShortLivedLibraryForHistoryPersistenceReadingWithName:(const char *)a0;
+- (id)newShortLivedLibraryWithName:(const char *)a0;
+- (void).cxx_destruct;
+- (id)momentLibrary;
+
+@end

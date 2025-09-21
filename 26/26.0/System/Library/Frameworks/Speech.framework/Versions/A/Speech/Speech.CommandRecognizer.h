@@ -1,0 +1,14 @@
+@interface Speech.CommandRecognizer : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _results;
+    void /* unknown type, empty encoding */ transcriber;
+    void /* unknown type, empty encoding */ activeSet;
+    void /* unknown type, empty encoding */ wantsVolatile;
+    void /* unknown type, empty encoding */ wantsContextualized;
+    void /* unknown type, empty encoding */ dropAlternatives;
+    void /* unknown type, empty encoding */ wantsLoggableResults;
+    void /* unknown type, empty encoding */ assetConfig;
+    void /* unknown type, empty encoding */ _workerWithLocked;
+    void /* unknown type, empty encoding */ resultsBuilder;
+}
+
+@end

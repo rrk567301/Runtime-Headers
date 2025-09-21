@@ -1,0 +1,3 @@
+@interface PFTRelativeTimestamped : PFTimestamped
+
+@end

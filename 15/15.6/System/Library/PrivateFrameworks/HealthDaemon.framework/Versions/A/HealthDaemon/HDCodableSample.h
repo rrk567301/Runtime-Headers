@@ -1,0 +1,30 @@
+@class NSString, HDCodableHealthObject;
+
+@interface HDCodableSample : PBCodable <HDDecoding, NSCopying> {
+    struct { unsigned char dataType : 1; unsigned char endDate : 1; unsigned char startDate : 1; } _has;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) char hasObject;
+@property (retain, nonatomic) HDCodableHealthObject *object;
+@property (nonatomic) char hasDataType;
+@property (nonatomic) long long dataType;
+@property (nonatomic) char hasStartDate;
+@property (nonatomic) double startDate;
+@property (nonatomic) char hasEndDate;
+@property (nonatomic) double endDate;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (char)applyToObject:(id)a0;
+
+@end

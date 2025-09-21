@@ -1,0 +1,3 @@
+@interface _TtCC12VoiceActions16VATinyASRSpotter14VADOutputActor : _TtCs12_SwiftObject
+
+@end

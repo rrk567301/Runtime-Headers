@@ -1,0 +1,81 @@
+@class NSString;
+
+@interface WFPBDailyStatusEvent : PBCodable <NSCopying> {
+    struct { unsigned char appComplicationSlotsUsed : 1; unsigned char appSessionCount : 1; unsigned char averageShortcutCountPerFolder : 1; unsigned char folderCount : 1; unsigned char numberOfExtraLargeWidgets : 1; unsigned char numberOfLargeWidgets : 1; unsigned char numberOfLockScreenWidgets : 1; unsigned char numberOfMediumWidgets : 1; unsigned char numberOfPersonalAutomationsEnabled : 1; unsigned char numberOfPersonalAutomationsFromSuggestionsEnabled : 1; unsigned char numberOfRemoteWidgetsSetup : 1; unsigned char numberOfSmallMultiShortcutWidgets : 1; unsigned char numberOfSmallWidgets : 1; unsigned char numberOfSuggestedAutomationsGenerated : 1; unsigned char numberOfSuggestedAutomationsGeneratedUserAlreadyHas : 1; unsigned char numberOfWidgetsOnHomeScreen : 1; unsigned char numberOfWidgetsOnLoL : 1; unsigned char shortcutComplicationSlotsUsed : 1; unsigned char shortcutRunCount : 1; unsigned char shortcutsCount : 1; unsigned char sleepShortcutsCount : 1; unsigned char uncategorizedShortcutCount : 1; unsigned char watchShortcutCount : 1; unsigned char autoShortcutsSectionsViewed : 1; unsigned char homeAutomationsEnabled : 1; unsigned char installed : 1; unsigned char personalAutomationsEnabled : 1; unsigned char sharingEnabled : 1; unsigned char sleepEnabled : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasKey;
+@property (retain, nonatomic) NSString *key;
+@property (nonatomic) char hasInstalled;
+@property (nonatomic) char installed;
+@property (nonatomic) char hasSharingEnabled;
+@property (nonatomic) char sharingEnabled;
+@property (nonatomic) char hasPersonalAutomationsEnabled;
+@property (nonatomic) char personalAutomationsEnabled;
+@property (nonatomic) char hasHomeAutomationsEnabled;
+@property (nonatomic) char homeAutomationsEnabled;
+@property (nonatomic) char hasShortcutComplicationSlotsUsed;
+@property (nonatomic) unsigned int shortcutComplicationSlotsUsed;
+@property (nonatomic) char hasAppComplicationSlotsUsed;
+@property (nonatomic) unsigned int appComplicationSlotsUsed;
+@property (nonatomic) char hasSleepEnabled;
+@property (nonatomic) char sleepEnabled;
+@property (nonatomic) char hasShortcutsCount;
+@property (nonatomic) unsigned int shortcutsCount;
+@property (nonatomic) char hasFolderCount;
+@property (nonatomic) unsigned int folderCount;
+@property (nonatomic) char hasAverageShortcutCountPerFolder;
+@property (nonatomic) unsigned int averageShortcutCountPerFolder;
+@property (nonatomic) char hasUncategorizedShortcutCount;
+@property (nonatomic) unsigned int uncategorizedShortcutCount;
+@property (nonatomic) char hasShortcutRunCount;
+@property (nonatomic) unsigned int shortcutRunCount;
+@property (nonatomic) char hasAppSessionCount;
+@property (nonatomic) unsigned int appSessionCount;
+@property (nonatomic) char hasWatchShortcutCount;
+@property (nonatomic) unsigned int watchShortcutCount;
+@property (nonatomic) char hasSleepShortcutsCount;
+@property (nonatomic) unsigned int sleepShortcutsCount;
+@property (nonatomic) char hasNumberOfSmallWidgets;
+@property (nonatomic) unsigned int numberOfSmallWidgets;
+@property (nonatomic) char hasNumberOfMediumWidgets;
+@property (nonatomic) unsigned int numberOfMediumWidgets;
+@property (nonatomic) char hasNumberOfLargeWidgets;
+@property (nonatomic) unsigned int numberOfLargeWidgets;
+@property (nonatomic) char hasNumberOfWidgetsOnHomeScreen;
+@property (nonatomic) unsigned int numberOfWidgetsOnHomeScreen;
+@property (nonatomic) char hasNumberOfWidgetsOnLoL;
+@property (nonatomic) unsigned int numberOfWidgetsOnLoL;
+@property (nonatomic) char hasNumberOfPersonalAutomationsEnabled;
+@property (nonatomic) unsigned int numberOfPersonalAutomationsEnabled;
+@property (nonatomic) char hasNumberOfPersonalAutomationsFromSuggestionsEnabled;
+@property (nonatomic) unsigned int numberOfPersonalAutomationsFromSuggestionsEnabled;
+@property (nonatomic) char hasNumberOfSuggestedAutomationsGenerated;
+@property (nonatomic) unsigned int numberOfSuggestedAutomationsGenerated;
+@property (nonatomic) char hasNumberOfSuggestedAutomationsGeneratedUserAlreadyHas;
+@property (nonatomic) unsigned int numberOfSuggestedAutomationsGeneratedUserAlreadyHas;
+@property (readonly, nonatomic) char hasAutomationSuggestionsTrialIdentifier;
+@property (retain, nonatomic) NSString *automationSuggestionsTrialIdentifier;
+@property (nonatomic) char hasAutoShortcutsSectionsViewed;
+@property (nonatomic) char autoShortcutsSectionsViewed;
+@property (nonatomic) char hasNumberOfRemoteWidgetsSetup;
+@property (nonatomic) unsigned int numberOfRemoteWidgetsSetup;
+@property (nonatomic) char hasNumberOfLockScreenWidgets;
+@property (nonatomic) unsigned int numberOfLockScreenWidgets;
+@property (nonatomic) char hasNumberOfExtraLargeWidgets;
+@property (nonatomic) unsigned int numberOfExtraLargeWidgets;
+@property (nonatomic) char hasNumberOfSmallMultiShortcutWidgets;
+@property (nonatomic) unsigned int numberOfSmallMultiShortcutWidgets;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

@@ -1,0 +1,85 @@
+@class NSData;
+
+@interface AWDWiFiMetricsManagerRoamStatus : PBCodable <NSCopying> {
+    struct { unsigned char associatedDur : 1; unsigned char originBcnPer : 1; unsigned char originFwTxPer : 1; unsigned char originTxPer : 1; unsigned char timestamp : 1; unsigned char ccaInt : 1; unsigned char ccaOthers : 1; unsigned char ccaSelf : 1; unsigned char ccaTotal : 1; unsigned char flags : 1; unsigned char hostReason : 1; unsigned char latency : 1; unsigned char motionState : 1; unsigned char offChannelDt : 1; unsigned char originAKMs : 1; unsigned char originChannel : 1; unsigned char originEnhancedSecurityType : 1; unsigned char originPhyMode : 1; unsigned char originRssi : 1; unsigned char profileType : 1; unsigned char reason : 1; unsigned char roamScanDuration : 1; unsigned char securityType : 1; unsigned char status : 1; unsigned char targetAKMs : 1; unsigned char targetChannel : 1; unsigned char targetEnhancedSecurityType : 1; unsigned char targetPhyMode : 1; unsigned char targetRssi : 1; unsigned char lateRoam : 1; unsigned char voipActive : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) char hasLatency;
+@property (nonatomic) unsigned int latency;
+@property (nonatomic) char hasProfileType;
+@property (nonatomic) unsigned int profileType;
+@property (nonatomic) char hasSecurityType;
+@property (nonatomic) unsigned int securityType;
+@property (nonatomic) char hasStatus;
+@property (nonatomic) unsigned int status;
+@property (nonatomic) char hasReason;
+@property (nonatomic) unsigned int reason;
+@property (nonatomic) char hasOriginRssi;
+@property (nonatomic) int originRssi;
+@property (nonatomic) char hasTargetRssi;
+@property (nonatomic) int targetRssi;
+@property (readonly, nonatomic) char hasOriginOui;
+@property (retain, nonatomic) NSData *originOui;
+@property (readonly, nonatomic) char hasTargetOui;
+@property (retain, nonatomic) NSData *targetOui;
+@property (nonatomic) char hasFlags;
+@property (nonatomic) unsigned int flags;
+@property (nonatomic) char hasOriginChannel;
+@property (nonatomic) unsigned int originChannel;
+@property (nonatomic) char hasTargetChannel;
+@property (nonatomic) unsigned int targetChannel;
+@property (nonatomic) char hasCcaTotal;
+@property (nonatomic) unsigned int ccaTotal;
+@property (nonatomic) char hasCcaSelf;
+@property (nonatomic) unsigned int ccaSelf;
+@property (nonatomic) char hasCcaOthers;
+@property (nonatomic) unsigned int ccaOthers;
+@property (nonatomic) char hasCcaInt;
+@property (nonatomic) unsigned int ccaInt;
+@property (nonatomic) char hasOriginTxPer;
+@property (nonatomic) unsigned long long originTxPer;
+@property (nonatomic) char hasOffChannelDt;
+@property (nonatomic) unsigned int offChannelDt;
+@property (nonatomic) char hasRoamScanDuration;
+@property (nonatomic) unsigned int roamScanDuration;
+@property (nonatomic) char hasAssociatedDur;
+@property (nonatomic) unsigned long long associatedDur;
+@property (nonatomic) char hasHostReason;
+@property (nonatomic) unsigned int hostReason;
+@property (nonatomic) char hasMotionState;
+@property (nonatomic) unsigned int motionState;
+@property (nonatomic) char hasVoipActive;
+@property (nonatomic) char voipActive;
+@property (nonatomic) char hasLateRoam;
+@property (nonatomic) char lateRoam;
+@property (nonatomic) char hasOriginBcnPer;
+@property (nonatomic) unsigned long long originBcnPer;
+@property (nonatomic) char hasOriginFwTxPer;
+@property (nonatomic) unsigned long long originFwTxPer;
+@property (nonatomic) char hasOriginEnhancedSecurityType;
+@property (nonatomic) unsigned int originEnhancedSecurityType;
+@property (nonatomic) char hasTargetEnhancedSecurityType;
+@property (nonatomic) unsigned int targetEnhancedSecurityType;
+@property (nonatomic) char hasOriginAKMs;
+@property (nonatomic) unsigned int originAKMs;
+@property (nonatomic) char hasTargetAKMs;
+@property (nonatomic) unsigned int targetAKMs;
+@property (nonatomic) char hasOriginPhyMode;
+@property (nonatomic) unsigned int originPhyMode;
+@property (nonatomic) char hasTargetPhyMode;
+@property (nonatomic) unsigned int targetPhyMode;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

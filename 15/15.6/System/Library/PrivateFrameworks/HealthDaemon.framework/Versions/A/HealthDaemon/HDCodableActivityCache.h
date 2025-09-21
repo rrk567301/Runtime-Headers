@@ -1,0 +1,92 @@
+@class NSString, HDCodableSample, NSMutableArray;
+
+@interface HDCodableActivityCache : PBCodable <HDDecoding, NSCopying> {
+    struct { unsigned char activeHours : 1; unsigned char activeHoursGoal : 1; unsigned char activeHoursGoalDate : 1; unsigned char activityMoveMode : 1; unsigned char briskMinutes : 1; unsigned char briskMinutesGoal : 1; unsigned char briskMinutesGoalDate : 1; unsigned char cacheIndex : 1; unsigned char deepBreathingDuration : 1; unsigned char energyBurned : 1; unsigned char energyBurnedGoal : 1; unsigned char energyBurnedGoalDate : 1; unsigned char flightsClimbed : 1; unsigned char moveMinutes : 1; unsigned char moveMinutesGoal : 1; unsigned char moveMinutesGoalDate : 1; unsigned char pushCount : 1; unsigned char sequence : 1; unsigned char stepCount : 1; unsigned char version : 1; unsigned char walkingAndRunningDistance : 1; unsigned char wheelchairUse : 1; unsigned char paused : 1; } _has;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) char hasSample;
+@property (retain, nonatomic) HDCodableSample *sample;
+@property (nonatomic) char hasCacheIndex;
+@property (nonatomic) long long cacheIndex;
+@property (nonatomic) char hasEnergyBurned;
+@property (nonatomic) double energyBurned;
+@property (nonatomic) char hasBriskMinutes;
+@property (nonatomic) double briskMinutes;
+@property (nonatomic) char hasActiveHours;
+@property (nonatomic) double activeHours;
+@property (nonatomic) char hasStepCount;
+@property (nonatomic) long long stepCount;
+@property (nonatomic) char hasEnergyBurnedGoal;
+@property (nonatomic) double energyBurnedGoal;
+@property (nonatomic) char hasWalkingAndRunningDistance;
+@property (nonatomic) double walkingAndRunningDistance;
+@property (nonatomic) char hasEnergyBurnedGoalDate;
+@property (nonatomic) double energyBurnedGoalDate;
+@property (nonatomic) char hasDeepBreathingDuration;
+@property (nonatomic) double deepBreathingDuration;
+@property (nonatomic) char hasPushCount;
+@property (nonatomic) long long pushCount;
+@property (nonatomic) char hasFlightsClimbed;
+@property (nonatomic) long long flightsClimbed;
+@property (nonatomic) char hasWheelchairUse;
+@property (nonatomic) long long wheelchairUse;
+@property (retain, nonatomic) NSMutableArray *dailyEnergyBurnedStatistics;
+@property (retain, nonatomic) NSMutableArray *dailyBriskMinutesStatistics;
+@property (nonatomic) char hasSequence;
+@property (nonatomic) long long sequence;
+@property (nonatomic) char hasBriskMinutesGoal;
+@property (nonatomic) double briskMinutesGoal;
+@property (nonatomic) char hasActiveHoursGoal;
+@property (nonatomic) double activeHoursGoal;
+@property (nonatomic) char hasMoveMinutes;
+@property (nonatomic) double moveMinutes;
+@property (nonatomic) char hasMoveMinutesGoal;
+@property (nonatomic) double moveMinutesGoal;
+@property (nonatomic) char hasMoveMinutesGoalDate;
+@property (nonatomic) double moveMinutesGoalDate;
+@property (retain, nonatomic) NSMutableArray *dailyMoveMinutesStatistics;
+@property (nonatomic) char hasBriskMinutesGoalDate;
+@property (nonatomic) double briskMinutesGoalDate;
+@property (nonatomic) char hasActiveHoursGoalDate;
+@property (nonatomic) double activeHoursGoalDate;
+@property (nonatomic) char hasActivityMoveMode;
+@property (nonatomic) long long activityMoveMode;
+@property (nonatomic) char hasVersion;
+@property (nonatomic) long long version;
+@property (nonatomic) char hasPaused;
+@property (nonatomic) char paused;
+
++ (Class)dailyEnergyBurnedStatisticsType;
++ (Class)dailyBriskMinutesStatisticsType;
++ (Class)dailyMoveMinutesStatisticsType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)addDailyEnergyBurnedStatistics:(id)a0;
+- (void)addDailyBriskMinutesStatistics:(id)a0;
+- (void)clearDailyMoveMinutesStatistics;
+- (unsigned long long)dailyMoveMinutesStatisticsCount;
+- (id)decodedEnergyBurnedGoalQuantity;
+- (void)addDailyMoveMinutesStatistics:(id)a0;
+- (char)applyToObject:(id)a0;
+- (void)clearDailyBriskMinutesStatistics;
+- (void)clearDailyEnergyBurnedStatistics;
+- (id)dailyBriskMinutesStatisticsAtIndex:(unsigned long long)a0;
+- (unsigned long long)dailyBriskMinutesStatisticsCount;
+- (id)dailyEnergyBurnedStatisticsAtIndex:(unsigned long long)a0;
+- (unsigned long long)dailyEnergyBurnedStatisticsCount;
+- (id)dailyMoveMinutesStatisticsAtIndex:(unsigned long long)a0;
+- (id)decodedEnergyBurnedQuantity;
+- (id)decodedWalkingAndRunningDistanceQuantity;
+
+@end

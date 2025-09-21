@@ -1,0 +1,92 @@
+@class NSArray, CHLatexParseTree, NSString, NSSet, NSNumber;
+
+@interface CHTokenizedMathResult : CHTokenizedResult {
+    NSArray *_tokenColumns;
+    double _baseCharacterHeight;
+    char _didAttemptParsing;
+    CHLatexParseTree *_parseTree;
+    NSString *_correctedLatex;
+    NSNumber *_selectedTranscriptionPathIndex;
+    NSSet *_declaredVariablesWhileRecognized;
+}
+
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } bounds;
+@property (readonly, nonatomic) double baseCharacterHeight;
+@property (readonly, nonatomic) char hasLowConfidence;
+@property (readonly, nonatomic) double absoluteProbability;
+@property (readonly, nonatomic) NSArray *symbolStrokeIndexes;
+@property (readonly) NSArray *symbolBounds;
+@property (readonly, nonatomic) long long tokenColumnCount;
+@property (readonly, copy, nonatomic) NSArray *transcriptionPaths;
+@property (readonly, copy, nonatomic) NSArray *transcriptionPathScores;
+
++ (char)supportsSecureCoding;
++ (char)isPartialMathUnitConversionPatternForTextTranscription:(id)a0 locales:(id)a1;
++ (char)areTokenRowsEquivalent:(id)a0 otherRow:(id)a1;
++ (id)declaredVariableInLatexTranscription:(id)a0;
++ (char)doesLatexContainEvaluationTrigger:(id)a0;
++ (char)hasPartialRangeDataDetectorEntries:(id)a0;
++ (char)isMathUnitConversionPatternForTextTranscription:(id)a0 locales:(id)a1;
++ (char)isNonTextCandidateTextTranscription:(id)a0;
++ (char)isPatternedTextForTextTranscription:(id)a0 locales:(id)a1;
++ (char)isTextTranscriptionInMathAlphabet:(id)a0;
++ (char)isTranscriptionValidExpression:(id)a0 limitToCurrentLocale:(char)a1;
++ (char)isTranscriptionValidExpression:(id)a0 transcriptionPath:(id)a1 limitToCurrentLocale:(char)a2;
++ (char)isTrivialTextTranscriptionAvailableForLatex:(id)a0;
++ (char)isVerticalMathEntryWithUnitForTextTranscription:(id)a0 locales:(id)a1;
++ (id)mathResultWithMergedColumns:(id)a0 columnRangesToMerge:(id)a1;
++ (id)mathResultWithReindexedTokens:(id)a0 originalStrokeIdentifiersOrdering:(id)a1 newStrokeIdentifiersOrdering:(id)a2;
++ (long long)mergeTokenRow:(id)a0 intoUniqueRows:(id)a1;
++ (id)simplifiedTextTranscriptionForLatex:(id)a0;
++ (id)textTranscriptionForLatex:(id)a0;
++ (id)updateStrokeIndexOffsetForSubResults:(id)a0 fromResult:(id)a1;
+
+- (id)debugDescription;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (char)isValid;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (double)score;
+- (id)declaredVariable;
+- (id)parseTree;
+- (char)hasValidColumns;
+- (id)strokeIndexesForColumnsInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)alternativeCandidatesLog;
+- (double)averageTokenScoreForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)declaredVariablesWhileRecognized;
+- (void)enumerateTokensInPreferredTranscriptionPathWithBlock:(id /* block */)a0;
+- (void)enumerateTokensInTopTranscriptionPathWithBlock:(id /* block */)a0;
+- (void)enumerateTokensInTranscriptionPath:(id)a0 columnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 tokenProcessingBlock:(id /* block */)a2;
+- (id)evaluationWithVariables:(id)a0 caseSensitive:(char)a1;
+- (double)geometricMeanTokenScoreForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (double)geometricMeanTokenScoreForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 transcriptionPath:(id)a1;
+- (char)hasValidPaths;
+- (id)initWithBestPathTokens:(id)a0;
+- (id)initWithBestPathTokens:(id)a0 isMinimalDrawingResult:(char)a1;
+- (id)initWithSegmentedBestPathTokens:(id)a0;
+- (char)isEqualToTokenizedMathResult:(id)a0;
+- (char)isEquivalentToTokenizedMathResult:(id)a0;
+- (char)isEvaluationExpected;
+- (id)newResultWithScrubbedStrokes:(id)a0 scrubbedValueTokens:(id)a1 scrubbedValueStrokeIndexes:(id)a2 scrubbedValueDrawing:(id)a3;
+- (id)preferredTranscription;
+- (id)renderableLatexCandidatesForColumnIndex:(unsigned long long)a0;
+- (id)resultTransformedToOfficialNotationWithExplicitOperators:(char)a0;
+- (double)scoreForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (double)scoreForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 transcriptionPath:(id)a1;
+- (id)selectedTranscriptionPathIndex;
+- (void)setDeclaredVariablesWhileRecognized:(id)a0;
+- (void)setSelectedTranscriptionPathIndex:(id)a0;
+- (id)strokeIndexes;
+- (id)tokenAtLocation:(struct { long long x0; long long x1; long long x2; })a0;
+- (id)tokenColumns;
+- (id)tokenRowsAtColumnIndex:(long long)a0;
+- (id)tokenizedMathResultByAppendingTokenizedMathResult:(id)a0;
+- (id)tokensInTranscriptionPath:(id)a0 atColumnIndex:(long long)a1;
+- (id)topTranscription;
+- (id)transcriptionWithPath:(id)a0 columnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (char)transformNotationToInternal;
+
+@end

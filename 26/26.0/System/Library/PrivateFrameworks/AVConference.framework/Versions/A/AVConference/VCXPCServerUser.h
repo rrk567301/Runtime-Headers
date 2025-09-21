@@ -1,0 +1,14 @@
+@class NSObject;
+@protocol OS_dispatch_queue;
+
+@interface VCXPCServerUser : NSObject
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (copy, nonatomic) id /* block */ block;
+@property (copy, nonatomic) id /* block */ authorizationBlock;
+@property (nonatomic) int eventLogLevel;
+
+- (void)dealloc;
+- (id)init;
+
+@end

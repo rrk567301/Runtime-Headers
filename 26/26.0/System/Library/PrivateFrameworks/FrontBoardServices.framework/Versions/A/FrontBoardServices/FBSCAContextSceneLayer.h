@@ -1,0 +1,15 @@
+@class CAContext;
+
+@interface FBSCAContextSceneLayer : FBSSceneLayer
+
+@property (readonly, nonatomic) CAContext *CAContext;
+@property (readonly, nonatomic) unsigned int contextID;
+@property (readonly, nonatomic) unsigned long long renderID;
+
++ (id)layerWithCAContext:(id)a0;
+
+- (id)initWithCAContextID:(unsigned int)a0 renderID:(unsigned long long)a1 level:(double)a2;
+- (id)initWithCAContext:(id)a0;
+- (id)initWithCAContextID:(unsigned int)a0 level:(double)a1;
+
+@end

@@ -1,0 +1,72 @@
+@class NSDictionary, OAVReadState, OCPPackagePart;
+
+@interface OAVShapeManager : NSObject {
+    struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *mShape;
+    unsigned short mType;
+    OCPPackagePart *mPackagePart;
+    NSDictionary *mShapeStyle;
+    NSDictionary *mTextBoxStyle;
+    OAVReadState *mOAVState;
+}
+
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)shape;
+- (float)shadowAlpha;
+- (float)strokeWidth;
+- (id)shadowColor;
+- (id)points;
+- (unsigned short)type;
+- (id)path;
+- (BOOL)isImage;
+- (void).cxx_destruct;
+- (float)fillAngle;
+- (id)fillType;
+- (id)strokeJoinStyle;
+- (id)strokeDashStyle;
+- (BOOL)autoInsets;
+- (float)fillBgAlpha;
+- (id)fillBgColor;
+- (float)fillFgAlpha;
+- (id)fillFgColor;
+- (float)fillFocus;
+- (id)fillGradientColors;
+- (BOOL)fitShapeToText;
+- (id)imageFillId;
+- (id)imageFillTitle;
+- (id)imageRelId;
+- (id)initWithShape:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0 type:(unsigned short)a1 packagePart:(id)a2 state:(id)a3;
+- (BOOL)isFillOK;
+- (BOOL)isFilled;
+- (BOOL)isPolyline;
+- (BOOL)isShadowOK;
+- (BOOL)isShadowed;
+- (BOOL)isStrokeOK;
+- (BOOL)isStroked;
+- (BOOL)isWordArt;
+- (id)limo;
+- (id)movieRelId;
+- (id)oavState;
+- (id)packagePart;
+- (struct CGPoint { double x0; double x1; })shadowOffsets;
+- (id)shadowType;
+- (id)strokeBgColor;
+- (id)strokeCapStyle;
+- (id)strokeCompoundType;
+- (id)strokeEndArrowLength;
+- (id)strokeEndArrowType;
+- (id)strokeEndArrowWidth;
+- (float)strokeFgAlpha;
+- (id)strokeFgColor;
+- (id)strokeFillType;
+- (float)strokeMiterLimit;
+- (id)strokeStartArrowLength;
+- (id)strokeStartArrowType;
+- (id)strokeStartArrowWidth;
+- (id)textAltLayoutFlow;
+- (id)textAnchor;
+- (id)textBodyRects;
+- (struct OAVTextBoxInsets { float x0; float x1; float x2; float x3; })textInsets;
+- (id)textLayoutFlow;
+- (id)textRotation;
+- (id)textWrapStyle;
+
+@end

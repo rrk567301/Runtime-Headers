@@ -1,0 +1,82 @@
+@class NSString, NSMutableDictionary, NSMutableSet, NSSet, NSMutableOrderedSet;
+
+@interface VCMediaNegotiatorLocalConfiguration : NSObject <NSCopying> {
+    struct CGSize { double width; double height; } _mismatchedLandscapeAspectRatio;
+    int accessNetworkType;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *u1StreamConfigurations;
+@property (nonatomic) int preferredAudioCodec;
+@property (nonatomic) int deviceRole;
+@property (nonatomic) char allowRTCPFB;
+@property (nonatomic) char isCaller;
+@property (retain, nonatomic) NSString *basebandCodec;
+@property (nonatomic) unsigned int basebandCodecSampleRate;
+@property (retain, nonatomic) NSMutableSet *bandwidthConfigurations;
+@property (retain, nonatomic) NSSet *captionsSenderLanguages;
+@property (retain, nonatomic) NSSet *captionsReceiverLanguages;
+@property (nonatomic) void *callLogFile;
+@property (nonatomic) union tagNTP { unsigned long long wide; struct { unsigned int frac; unsigned int sec; } time; } creationTime;
+@property (nonatomic) unsigned char mediaControlInfoVersion;
+@property (retain, nonatomic) NSMutableOrderedSet *multiwayAudioStreams;
+@property (retain, nonatomic) NSMutableOrderedSet *multiwayVideoStreams;
+@property (retain, nonatomic) NSSet *mediaRecorderVideoCodecs;
+@property (retain, nonatomic) NSSet *mediaRecorderImageTypes;
+@property (nonatomic) char SIPDisabled;
+@property (nonatomic) char secureMessagingRequired;
+@property (nonatomic) unsigned int faceTimeSwitches;
+@property (nonatomic) unsigned int customVideoWidth;
+@property (nonatomic) unsigned int customVideoHeight;
+@property (nonatomic) char alwaysOnAudRedEnabled;
+@property (nonatomic) char alwaysOnAudioRedundancyEnabled;
+@property (nonatomic) char highFecEnabled;
+@property (nonatomic) char lowFpsVideoEnabled;
+@property (nonatomic) char vplrFecEnabled;
+@property (nonatomic) char rampDownBWDropEnabled;
+@property (nonatomic) char fastMediaDuplicationEnabled;
+@property (nonatomic) char iRATRtpEnabled;
+@property (nonatomic) char preWarmCellEnabled;
+@property (nonatomic) char duplicateImportantPktsEnabled;
+@property (nonatomic) unsigned int tilesPerVideoFrame;
+@property (nonatomic) char oneToOneModeSupported;
+@property (nonatomic) char ltrpEnabled;
+@property (retain, nonatomic) NSSet *pixelFormats;
+@property (nonatomic) unsigned char mediaControlInfoFECFeedbackVersion;
+@property (nonatomic) unsigned char linkProbingCapabilityVersion;
+@property (readonly, nonatomic) NSMutableSet *streamGroupConfigs;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } screenSize;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } aspectRatioLandscape;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } aspectRatioPortrait;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } orientationMismatchAspectRatioLandscape;
+@property (retain, nonatomic) NSSet *hdrModesSupported;
+@property (nonatomic) int accessNetworkType;
+@property (nonatomic) char fecEnabled;
+@property (nonatomic) char rtxEnabled;
+@property (nonatomic, getter=isOneToOneAuthTagEnabled) char oneToOneAuthTagEnabled;
+@property (nonatomic) char blackFrameOnClearScreenEnabledDefault;
+@property (nonatomic) char blackFrameOnClearScreenEnabled;
+@property (nonatomic) char foveationIsSupported;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (char)isEqualBandwidthConfigurations:(id)a0;
+- (id)mediaConfigurationForMediaType:(unsigned char)a0;
+- (char)isEqualMediaRecorderImageTypes:(id)a0;
+- (void)addBandwidthConfiguration:(id)a0;
+- (void)addMultiwayAudioStream:(id)a0;
+- (void)addMultiwayVideoStream:(id)a0;
+- (void)addStreamGroupConfig:(id)a0;
+- (id)initWithBitrateArbiter:(id)a0;
+- (char)isEqualFaceTimeSettings:(id)a0;
+- (char)isEqualMediaRecorderVideoCodecs:(id)a0;
+- (char)isEqualMultiwayAudioStreamSet:(id)a0;
+- (char)isEqualMultiwayVideoStreamSet:(id)a0;
+- (char)isEqualStreamGroupConfigs:(id)a0;
+- (void)resetStreamGroups;
+- (void)setMediaConfiguration:(id)a0 forMediaType:(unsigned char)a1;
+- (char)setupBandwidthConfigurationsWithArbiter:(id)a0;
+- (char)setupBandwidthExtensionConfiguration:(id)a0;
+
+@end

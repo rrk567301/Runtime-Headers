@@ -1,0 +1,77 @@
+@class GEOPDPlacecardEnrichmentResult, GEOPDReverseGeocodingResult, GEOPDPlaceDescriptorResolutionResult, GEOPDSearchResult, GEOPDWifiFingerprintResult, GEOPDExploreGuidesLookupResult, GEOPDPoiAtAddressLookupResult, GEOPDSearchCapabilitiesResult, GEOPDMapsIdentifierPlaceLookupResult, GEOPDCollectionSuggestionResult, GEOPDNearbySearchResult, GEOPDBatchPopularNearbySearchResult, GEOPDBatchMerchantLookupBrandResult, GEOPDExternalTransitLookupResult, GEOPDCanonicalLocationSearchResult, GEOPDMerchantLookupResult, GEOPDTransitScheduleLookupResult, GEOPDQueryUnderstandingResult, GEOPDMapsHomeResult, GEOPDFeatureIdGeocodingResult, GEOPDPlaceRefinementResult, GEOPDVendorSpecificPlaceRefinementResult, GEOPDAllGuidesLocationsViewResult, GEOPDPlaceGlobalCommonResult, GEOPDSiriSearchResult, GEOPDSearchBrowseCategorySuggestionResult, GEOPDGeocodingResult, GEOPDPublisherViewResult, GEOPDCategorySearchResult, GEOPDLocationDirectedSearchResult, GEOPDSearchZeroKeywordWithSearchResultsSuggestionResult, GEOPDAddressRecommendationResult, GEOPDMapsSearchHomeResult, GEOPDBrandLookupResult, GEOPDSearchZeroKeywordCategorySuggestionResult, GEOPDChildPlaceLookupByCategoryResult, PBUnknownFields, PBDataReader, GEOPDAllCollectionsViewResult, GEOPDExtendedGeoLookupResult, GEOPDAirportEntityPlaceLookupResult, GEOPDBatchSpatialLookupResult, GEOPDBatchReverseGeocodingResult, GEOPDAddressObjectGeocodingResult, GEOPDAutocompleteResult, GEOPDPlaceLookupResult, GEOPDPlaceCollectionLookupResult, GEOPDPopularNearbySearchResult, GEOPDSearchFieldPlaceholderResult, GEOPDBatchCategoryLookupResult, GEOPDTerritoryLookupResult, GEOPDGuidesHomeResult, GEOPDOfflineRegionNameResult, GEOPDIpGeoLookupResult, GEOPDGroundViewLabelResult;
+
+@interface GEOPDPlaceGlobalResult : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    GEOPDAddressObjectGeocodingResult *_addressObjectGeocodingResult;
+    GEOPDAddressRecommendationResult *_addressRecommendationResult;
+    GEOPDAirportEntityPlaceLookupResult *_airportEntityPlaceLookupResult;
+    GEOPDAllCollectionsViewResult *_allCollectionsViewResult;
+    GEOPDAllGuidesLocationsViewResult *_allGuidesLocationsViewresult;
+    GEOPDAutocompleteResult *_autocompleteResult;
+    GEOPDBatchCategoryLookupResult *_batchCategoryLookupResult;
+    GEOPDBatchMerchantLookupBrandResult *_batchMerchantLookupBrandResult;
+    GEOPDBatchPopularNearbySearchResult *_batchPopularNearbySearchResult;
+    GEOPDBatchReverseGeocodingResult *_batchReverseGeocodingResult;
+    GEOPDBatchSpatialLookupResult *_batchSpatialLookupResult;
+    GEOPDBrandLookupResult *_brandLookupResult;
+    GEOPDSearchBrowseCategorySuggestionResult *_browseCategorySuggestionResult;
+    GEOPDCanonicalLocationSearchResult *_canonicalSearchResult;
+    GEOPDCategorySearchResult *_categorySearchResult;
+    GEOPDChildPlaceLookupByCategoryResult *_childPlaceLookupByCategoryResult;
+    GEOPDCollectionSuggestionResult *_collectionSuggestionResult;
+    GEOPDExploreGuidesLookupResult *_exploreGuidesLookupResult;
+    GEOPDExtendedGeoLookupResult *_extendedGeoLookupResult;
+    GEOPDExternalTransitLookupResult *_externalTransitLookupResult;
+    GEOPDFeatureIdGeocodingResult *_featureIdGeocodingResult;
+    GEOPDGeocodingResult *_geocodingResult;
+    GEOPDGroundViewLabelResult *_groundViewLabelResult;
+    GEOPDGuidesHomeResult *_guidesHomeResult;
+    GEOPDIpGeoLookupResult *_ipGeoLookupResult;
+    GEOPDLocationDirectedSearchResult *_locationDirectedSearchResult;
+    GEOPDMapsHomeResult *_mapsHomeResult;
+    GEOPDMapsIdentifierPlaceLookupResult *_mapsIdentifierPlaceLookupResult;
+    GEOPDMapsSearchHomeResult *_mapsSearchHomeResult;
+    GEOPDMerchantLookupResult *_merchantLookupResult;
+    GEOPDNearbySearchResult *_nearbySearchResult;
+    GEOPDOfflineRegionNameResult *_offlineRegionNameResult;
+    GEOPDPlaceCollectionLookupResult *_placeCollectionLookupResult;
+    GEOPDPlaceDescriptorResolutionResult *_placeDescriptorResolutionResult;
+    GEOPDPlaceGlobalCommonResult *_placeGlobalCommonResult;
+    GEOPDPlaceLookupResult *_placeLookupResult;
+    GEOPDPlaceRefinementResult *_placeRefinementResult;
+    GEOPDPlacecardEnrichmentResult *_placecardEnrichmentResult;
+    GEOPDPoiAtAddressLookupResult *_poiAtAddressLookupResult;
+    GEOPDPopularNearbySearchResult *_popularNearbySearchResult;
+    GEOPDPublisherViewResult *_publisherViewResult;
+    GEOPDQueryUnderstandingResult *_queryUnderstandingResult;
+    GEOPDReverseGeocodingResult *_reverseGeocodingResult;
+    GEOPDSearchCapabilitiesResult *_searchCapabilitiesResult;
+    GEOPDSearchFieldPlaceholderResult *_searchFieldPlaceholderResult;
+    GEOPDSearchResult *_searchResult;
+    GEOPDSearchZeroKeywordCategorySuggestionResult *_searchZeroKeywordCategorySuggestionResult;
+    GEOPDSearchZeroKeywordWithSearchResultsSuggestionResult *_searchZeroKeywordWithSearchResultsSuggestionResult;
+    GEOPDSiriSearchResult *_siriSearchResult;
+    GEOPDTerritoryLookupResult *_territoryLookupResult;
+    GEOPDTransitScheduleLookupResult *_transitScheduleLookupResult;
+    GEOPDVendorSpecificPlaceRefinementResult *_vendorSpecificPlaceRefinementResult;
+    GEOPDWifiFingerprintResult *_wifiFingerprintResult;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    struct { unsigned char read_unknownFields : 1; unsigned char read_addressObjectGeocodingResult : 1; unsigned char read_addressRecommendationResult : 1; unsigned char read_airportEntityPlaceLookupResult : 1; unsigned char read_allCollectionsViewResult : 1; unsigned char read_allGuidesLocationsViewresult : 1; unsigned char read_autocompleteResult : 1; unsigned char read_batchCategoryLookupResult : 1; unsigned char read_batchMerchantLookupBrandResult : 1; unsigned char read_batchPopularNearbySearchResult : 1; unsigned char read_batchReverseGeocodingResult : 1; unsigned char read_batchSpatialLookupResult : 1; unsigned char read_brandLookupResult : 1; unsigned char read_browseCategorySuggestionResult : 1; unsigned char read_canonicalSearchResult : 1; unsigned char read_categorySearchResult : 1; unsigned char read_childPlaceLookupByCategoryResult : 1; unsigned char read_collectionSuggestionResult : 1; unsigned char read_exploreGuidesLookupResult : 1; unsigned char read_extendedGeoLookupResult : 1; unsigned char read_externalTransitLookupResult : 1; unsigned char read_featureIdGeocodingResult : 1; unsigned char read_geocodingResult : 1; unsigned char read_groundViewLabelResult : 1; unsigned char read_guidesHomeResult : 1; unsigned char read_ipGeoLookupResult : 1; unsigned char read_locationDirectedSearchResult : 1; unsigned char read_mapsHomeResult : 1; unsigned char read_mapsIdentifierPlaceLookupResult : 1; unsigned char read_mapsSearchHomeResult : 1; unsigned char read_merchantLookupResult : 1; unsigned char read_nearbySearchResult : 1; unsigned char read_offlineRegionNameResult : 1; unsigned char read_placeCollectionLookupResult : 1; unsigned char read_placeDescriptorResolutionResult : 1; unsigned char read_placeGlobalCommonResult : 1; unsigned char read_placeLookupResult : 1; unsigned char read_placeRefinementResult : 1; unsigned char read_placecardEnrichmentResult : 1; unsigned char read_poiAtAddressLookupResult : 1; unsigned char read_popularNearbySearchResult : 1; unsigned char read_publisherViewResult : 1; unsigned char read_queryUnderstandingResult : 1; unsigned char read_reverseGeocodingResult : 1; unsigned char read_searchCapabilitiesResult : 1; unsigned char read_searchFieldPlaceholderResult : 1; unsigned char read_searchResult : 1; unsigned char read_searchZeroKeywordCategorySuggestionResult : 1; unsigned char read_searchZeroKeywordWithSearchResultsSuggestionResult : 1; unsigned char read_siriSearchResult : 1; unsigned char read_territoryLookupResult : 1; unsigned char read_transitScheduleLookupResult : 1; unsigned char read_vendorSpecificPlaceRefinementResult : 1; unsigned char read_wifiFingerprintResult : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+- (id)initWithData:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)jsonRepresentation;
+- (id)dictionaryRepresentation;
+- (id)init;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

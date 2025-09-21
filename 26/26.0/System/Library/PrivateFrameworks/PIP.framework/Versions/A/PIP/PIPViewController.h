@@ -1,0 +1,81 @@
+@class PIPFenceHandle, NSString, PIPMutablePlaybackState, CAContext, NSViewController, NSLayoutConstraint, NSWindow, PIPPlaybackState, PIPPanel;
+@protocol PIPViewControllerDelegate;
+
+@interface PIPViewController : NSViewController <NSViewControllerPresentationAnimator> {
+    id<PIPViewControllerDelegate> _delegate;
+    id _replacementView;
+    id _customControlsViewController;
+    id /* block */ _dismissCompletion;
+    id /* block */ _presentCompletion;
+    long long _controlStyle;
+    PIPFenceHandle *_fence;
+    PIPMutablePlaybackState *_playbackState;
+    struct CGSize { double width; double height; } _aspectRatio;
+    struct CGSize { double width; double height; } _preferredMaximumSize;
+    struct CGSize { double width; double height; } _preferredMinimumSize;
+}
+
+@property (copy, nonatomic, setter=_setPlaybackState:) PIPPlaybackState *playbackState;
+@property (weak, nonatomic) NSViewController *customControlsViewController;
+@property (retain, nonatomic) PIPPanel *panel;
+@property (retain, nonatomic) CAContext *context;
+@property (retain, nonatomic) id accessibilityElement;
+@property (retain, nonatomic) NSLayoutConstraint *heightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *widthConstraint;
+@property (weak, nonatomic) NSWindow *replacementWindow;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } replacementRect;
+@property (weak, nonatomic) id<PIPViewControllerDelegate> delegate;
+@property (nonatomic) long long controlStyle;
+@property (nonatomic) struct CGSize { double x0; double x1; } preferredMaximumSize;
+@property (nonatomic) struct CGSize { double x0; double x1; } preferredMinimumSize;
+@property (nonatomic) struct CGSize { double x0; double x1; } aspectRatio;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (struct CGSize { double x0; double x1; })maxSize;
+- (struct CGSize { double x0; double x1; })minSize;
+- (void)setPlaying:(BOOL)a0;
+- (unsigned long long)controls;
+- (void)setMaxSize:(struct CGSize { double x0; double x1; })a0;
+- (void)loadView;
+- (void)dealloc;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)setControls:(unsigned long long)a0;
+- (void)setMinSize:(struct CGSize { double x0; double x1; })a0;
+- (id)init;
+- (void)setMuted:(BOOL)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)playing;
+- (void).cxx_destruct;
+- (void)setRepresentedObject:(id)a0;
+- (id)nibName;
+- (void)animateDismissalOfViewController:(id)a0 fromViewController:(id)a1;
+- (void)animatePresentationOfViewController:(id)a0 fromViewController:(id)a1;
+- (id)nibBundle;
+- (void)performWindowDragWithEvent:(id)a0;
+- (id)representedObject;
+- (BOOL)muted;
+- (void)presentViewControllerAsPictureInPicture:(id)a0;
+- (void)setUserCanResize:(BOOL)a0;
+- (void)updatePlaybackStateUsingBlock:(id /* block */)a0;
+- (void)dismissPictureInPictureByRestoringToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inWindow:(id)a1 completionHandler:(id /* block */)a2;
+- (void)dismissPictureInPictureWithCompletionHandler:(id /* block */)a0;
+- (void)presentViewControllerAsPictureInPicture:(id)a0 completionHandler:(id /* block */)a1;
+- (id)replacementView;
+- (void)_pipAction:(long long)a0;
+- (void)_pipActionSetMicrophoneMuted:(BOOL)a0;
+- (void)_pipActionSetPlaying:(BOOL)a0;
+- (void)_pipActionSkipInterval:(double)a0;
+- (void)_pipActionSkipToLive;
+- (void)_pipSetWindowContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 completion:(id /* block */)a1;
+- (void)_pipWillCloseWithCompletion:(id /* block */)a0;
+- (id)activeFenceHandle;
+- (unsigned int)copyActiveFencePort;
+- (void)dismissPictureInPictureByRestoringToView:(id)a0 completionHandler:(id /* block */)a1;
+- (void)dismissViewControllerWithFlyback:(id)a0;
+- (void)setReplacementView:(id)a0;
+- (BOOL)userCanResize;
+
+@end

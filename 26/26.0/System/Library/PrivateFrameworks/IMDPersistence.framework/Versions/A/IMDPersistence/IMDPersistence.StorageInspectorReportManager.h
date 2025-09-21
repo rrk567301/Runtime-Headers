@@ -1,0 +1,6 @@
+@interface IMDPersistence.StorageInspectorReportManager : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ $__lazy_storage_$_reportDirectoryURL;
+    void /* unknown type, empty encoding */ report;
+}
+
+@end

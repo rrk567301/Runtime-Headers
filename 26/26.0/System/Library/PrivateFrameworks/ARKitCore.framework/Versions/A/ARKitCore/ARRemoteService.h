@@ -1,0 +1,103 @@
+@class NSString, NSXPCConnection, NSXPCInterface, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_group, OS_os_activity, OS_channel_rt, OS_dispatch_queue, ARDaemonServiceBaseProtocol, ARRemoteServiceAnchorDelegate, OS_nw_endpoint, OS_channel_dispatch;
+
+@interface ARRemoteService : NSObject <ARNamedService, ARRemoteServiceBaseProtocol> {
+    NSMutableDictionary *_anchorsByIdentifier;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _anchorsLock;
+    NSObject<OS_dispatch_queue> *_asyncServiceQueue;
+    NSObject<OS_dispatch_group> *_connectionDispatchGroup;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _connectionDispatchGroupLock;
+    NSObject<OS_os_activity> *_remoteServiceActivity;
+    unsigned long long _traceIdentifier;
+    BOOL _isAnchorProviding;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _worldOrigin;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _worldOriginInverse;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _worldOriginLock;
+    void *_messageBuffer;
+    unsigned long long _dispatchDataSize;
+    BOOL _skipRemoteObjectErrorHandlers;
+    NSObject<OS_nw_endpoint> *_deviceEndpoint;
+    BOOL _dispatchChannelClosed;
+}
+
+@property (class, readonly, nonatomic) NSXPCInterface *remoteServiceInterface;
+@property (class, readonly, nonatomic) NSXPCInterface *daemonServiceInterface;
+@property (class, readonly, nonatomic) BOOL isSupported;
+
+@property (retain) NSXPCConnection *connection;
+@property (retain) id<ARDaemonServiceBaseProtocol> syncService;
+@property (readonly, nonatomic) id<ARDaemonServiceBaseProtocol> service;
+@property unsigned long long status;
+@property (getter=isDataAccessAllowed) BOOL dataAccessAllowed;
+@property BOOL isWorldOriginSet;
+@property (weak) id<ARRemoteServiceAnchorDelegate> anchorDelegate;
+@property (nonatomic) BOOL updateUnmodifiedAnchors;
+@property (copy, nonatomic) id /* block */ serviceDidInvalidateBlock;
+@property (copy, nonatomic) id /* block */ serviceDidConfigureBlock;
+@property (copy, nonatomic) id /* block */ serviceDidUpdateDataAccessBlock;
+@property (retain, nonatomic) NSObject<OS_channel_rt> *channel;
+@property (retain, nonatomic) NSObject<OS_channel_dispatch> *dispatchChannel;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchChannelQueue;
+@property (readonly, nonatomic) struct { void /* unknown type, empty encoding */ x0[4]; } originFromWorld_Internal;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)serviceName;
++ (BOOL)isSupportedWithError:(id *)a0;
++ (id)createDaemonServiceInterface:(id)a0;
++ (id)createRemoteServiceInterface:(id)a0;
+
+- (void)dealloc;
+- (id)initWithDaemon:(id)a0;
+- (void)invalidate;
+- (id)clientProcessName;
+- (void)_commonInit;
+- (void)_serverConnectionInvalidated;
+- (void)reconnect;
+- (id)init;
+- (id)initWithEndpoint:(id)a0;
+- (int)clientProcessIdentifier;
+- (void)_startService;
+- (void).cxx_destruct;
+- (id)initWithDaemon:(id)a0 startConnection:(BOOL)a1;
+- (id)_getAsyncServiceQueue;
+- (void)_setWorldOrigin:(struct { void /* unknown type, empty encoding */ x0[4]; })a0;
+- (void)_skipRemoteObjectProxyErrorHandlers;
+- (void)_startServiceSynchronous:(BOOL)a0;
+- (long long)_waitForDispatchGroup:(unsigned long long)a0;
+- (BOOL)_waitUntilStarted:(unsigned long long)a0;
+- (void)asyncServiceWithCallback:(id /* block */)a0;
+- (void)connectionDispatchGroupLeave;
+- (void)createDispatchChannelWithRequest:(id)a0 completion:(id /* block */)a1;
+- (void)createRTChannelWithRequest:(id)a0 completion:(id /* block */)a1;
+- (void)didSetWorldOrigin;
+- (BOOL)dispatchChannelClosed;
+- (void)handleDispatchChannelMessage:(void *)a0 size:(unsigned long long)a1 type:(unsigned int)a2;
+- (id)initWithDaemon:(id)a0 deviceEndpoint:(id)a1;
+- (id)initWithDaemon:(id)a0 dispatchChannelQueue:(id)a1;
+- (id)initWithDaemon:(id)a0 fixedPriorityQueueForXPC:(BOOL)a1;
+- (id)initWithDaemon:(id)a0 startConnection:(BOOL)a1 dispatchChannelQueue:(id)a2 fixedPriorityQueueForXPC:(BOOL)a3 deviceEndpoint:(id)a4;
+- (id)initWithDeviceEndpoint:(id)a0;
+- (id)initWithDispatchChannelQueue:(id)a0 fixedPriorityQueueForXPC:(BOOL)a1;
+- (id)initWithEndpoint:(id)a0 deviceEndpoint:(id)a1;
+- (id)initWithEndpoint:(id)a0 startConnection:(BOOL)a1 dispatchChannelQueue:(id)a2;
+- (id)initWithEndpoint:(id)a0 startConnection:(BOOL)a1 dispatchChannelQueue:(id)a2 fixedPriorityQueueForXPC:(BOOL)a3;
+- (id)initWithFixedPriorityQueueForXPC:(BOOL)a0;
+- (id)initWithMachServiceName:(id)a0 exportedInterface:(id)a1 remoteObjectInterface:(id)a2 dispatchChannelQueue:(id)a3 fixedPriorityQueueForXPC:(BOOL)a4;
+- (id)initWithMachServiceName:(id)a0 exportedInterface:(id)a1 remoteObjectInterface:(id)a2 endpoint:(id)a3;
+- (id)initWithMachServiceName:(id)a0 exportedInterface:(id)a1 remoteObjectInterface:(id)a2 endpoint:(id)a3 startConnection:(BOOL)a4 dispatchChannelQueue:(id)a5;
+- (id)initWithMachServiceName:(id)a0 exportedInterface:(id)a1 remoteObjectInterface:(id)a2 endpoint:(id)a3 startConnection:(BOOL)a4 dispatchChannelQueue:(id)a5 fixedPriorityQueueForXPC:(BOOL)a6 deviceEndpoint:(id)a7;
+- (void)serverConnectionInterrupted;
+- (void)serviceConfiguredWithCompletionHandler:(id /* block */)a0;
+- (void)serviceConfiguredWithError:(id)a0;
+- (void)serviceDidReconnect:(BOOL)a0;
+- (void)serviceFailedWithError:(id)a0;
+- (void)setRemoteWorldOrigin:(id)a0 reply:(id /* block */)a1;
+- (void)setService:(id)a0 syncService:(id)a1;
+- (void)setupCompleteForRTChannel;
+- (void)syncServiceWithTimeout:(unsigned long long)a0 callback:(id /* block */)a1;
+- (BOOL)waitUntilStarted:(unsigned long long)a0;
+
+@end

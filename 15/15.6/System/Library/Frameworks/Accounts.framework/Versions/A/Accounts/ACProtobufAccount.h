@@ -1,0 +1,94 @@
+@class ACProtobufAccountCredential, NSString, ACProtobufAccountType, ACProtobufURL, ACProtobufDate, NSDictionary, NSMutableArray;
+
+@interface ACProtobufAccount : PBCodable <NSCopying> {
+    struct { unsigned char warmingUp : 1; } _has;
+}
+
+@property (copy, nonatomic) NSDictionary *propertiesDictionary;
+@property (copy, nonatomic) NSDictionary *dataclassPropertiesDictionary;
+@property (retain, nonatomic) ACProtobufAccountType *accountType;
+@property (readonly, nonatomic) char hasCredential;
+@property (retain, nonatomic) ACProtobufAccountCredential *credential;
+@property (retain, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) char hasAccountDescription;
+@property (retain, nonatomic) NSString *accountDescription;
+@property (readonly, nonatomic) char hasUsername;
+@property (retain, nonatomic) NSString *username;
+@property (retain, nonatomic) NSMutableArray *properties;
+@property (nonatomic) char authenticated;
+@property (readonly, nonatomic) char hasLastCredentialRenewalRejectionDate;
+@property (retain, nonatomic) ACProtobufDate *lastCredentialRenewalRejectionDate;
+@property (nonatomic) char active;
+@property (nonatomic) char visible;
+@property (nonatomic) char supportsAuthentication;
+@property (retain, nonatomic) NSMutableArray *dataclassProperties;
+@property (readonly, nonatomic) char hasObjectID;
+@property (retain, nonatomic) ACProtobufURL *objectID;
+@property (readonly, nonatomic) char hasParentAccount;
+@property (retain, nonatomic) ACProtobufAccount *parentAccount;
+@property (retain, nonatomic) NSMutableArray *enabledDataclasses;
+@property (retain, nonatomic) NSMutableArray *provisionedDataclasses;
+@property (readonly, nonatomic) char hasAuthenticationType;
+@property (retain, nonatomic) NSString *authenticationType;
+@property (readonly, nonatomic) char hasCredentialType;
+@property (retain, nonatomic) NSString *credentialType;
+@property (readonly, nonatomic) char hasDate;
+@property (retain, nonatomic) ACProtobufDate *date;
+@property (readonly, nonatomic) char hasOwningBundleID;
+@property (retain, nonatomic) NSString *owningBundleID;
+@property (retain, nonatomic) NSMutableArray *dirtyProperties;
+@property (retain, nonatomic) NSMutableArray *dirtyAccountProperties;
+@property (retain, nonatomic) NSMutableArray *dirtyDataclassProperties;
+@property (nonatomic) char hasWarmingUp;
+@property (nonatomic) char warmingUp;
+@property (readonly, nonatomic) char hasModificationID;
+@property (retain, nonatomic) NSString *modificationID;
+
++ (Class)dataclassPropertiesType;
++ (Class)dirtyAccountPropertiesType;
++ (Class)dirtyDataclassPropertiesType;
++ (Class)dirtyPropertiesType;
++ (Class)enabledDataclassesType;
++ (Class)propertiesType;
++ (Class)provisionedDataclassesType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)clearProperties;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (unsigned long long)propertiesCount;
+- (void)addDataclassProperties:(id)a0;
+- (void)addDirtyAccountProperties:(id)a0;
+- (void)addDirtyDataclassProperties:(id)a0;
+- (void)addDirtyProperties:(id)a0;
+- (void)addEnabledDataclasses:(id)a0;
+- (void)addProperties:(id)a0;
+- (void)addProvisionedDataclasses:(id)a0;
+- (void)clearDataclassProperties;
+- (void)clearDirtyAccountProperties;
+- (void)clearDirtyDataclassProperties;
+- (void)clearDirtyProperties;
+- (void)clearEnabledDataclasses;
+- (void)clearProvisionedDataclasses;
+- (id)dataclassPropertiesAtIndex:(unsigned long long)a0;
+- (unsigned long long)dataclassPropertiesCount;
+- (id)dirtyAccountPropertiesAtIndex:(unsigned long long)a0;
+- (unsigned long long)dirtyAccountPropertiesCount;
+- (id)dirtyDataclassPropertiesAtIndex:(unsigned long long)a0;
+- (unsigned long long)dirtyDataclassPropertiesCount;
+- (id)dirtyPropertiesAtIndex:(unsigned long long)a0;
+- (unsigned long long)dirtyPropertiesCount;
+- (id)enabledDataclassesAtIndex:(unsigned long long)a0;
+- (unsigned long long)enabledDataclassesCount;
+- (id)propertiesAtIndex:(unsigned long long)a0;
+- (id)provisionedDataclassesAtIndex:(unsigned long long)a0;
+- (unsigned long long)provisionedDataclassesCount;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCV13DesignLibrary21GlassMaterialProvider14CustomFillBase : _TtCs12_SwiftObject
+
+@end

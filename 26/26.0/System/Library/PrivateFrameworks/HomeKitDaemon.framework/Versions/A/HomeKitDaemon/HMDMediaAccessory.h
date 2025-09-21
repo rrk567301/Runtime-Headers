@@ -1,0 +1,49 @@
+@class NSString, NSDictionary, NSNotificationCenter, HMDMediaAccessoryAdvertisement, HMDMediaProfile;
+
+@interface HMDMediaAccessory : HMDAccessory <HMFLogging>
+
+@property (readonly, copy) NSString *urlString;
+@property (readonly, copy) NSDictionary *assistantObject;
+@property (retain) NSNotificationCenter *notificationCenter;
+@property (readonly, copy) HMDMediaAccessoryAdvertisement *advertisement;
+@property (readonly) HMDMediaProfile *mediaProfile;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)supportsSecureCoding;
++ (id)messageBindingForDispatcher:(id)a0 message:(id)a1 receiver:(id)a2;
+
+- (id)dumpStateWithPrivacyLevel:(unsigned long long)a0;
+- (void)setAdvertisement:(id)a0;
+- (void)unconfigure;
+- (void)_registerForNotifications;
+- (void)transactionObjectUpdated:(id)a0 newValues:(id)a1 message:(id)a2;
+- (void)encodeWithCoder:(id)a0;
+- (id)init;
+- (id)name;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (long long)reachableTransports;
+- (id)dumpSimpleState;
+- (id)_createMediaProfile;
+- (BOOL)_shouldFilterAccessoryProfileForUnentitledClients:(id)a0;
+- (void)addAdvertisement:(id)a0;
+- (void)addHostedAccessory:(id)a0;
+- (void)handleRoomChanged:(id)a0;
+- (void)handleRoomNameChanged:(id)a0;
+- (void)handleUpdatedAdvertisement:(id)a0;
+- (void)handleUpdatedMinimumUserPrivilege:(long long)a0;
+- (void)handleUpdatedPassword:(id)a0;
+- (id)initWithTransaction:(id)a0 home:(id)a1;
+- (void)notifyConnectivityChangedWithReachabilityState:(BOOL)a0;
+- (BOOL)providesHashRouteID;
+- (void)removeAdvertisement:(id)a0;
+- (void)removeHostedAccessory:(id)a0;
+- (void)setRemotelyReachable:(BOOL)a0;
+- (unsigned long long)supportedTransports;
+- (id)transactionWithObjectChangeType:(unsigned long long)a0;
+- (id)transportReports;
+
+@end

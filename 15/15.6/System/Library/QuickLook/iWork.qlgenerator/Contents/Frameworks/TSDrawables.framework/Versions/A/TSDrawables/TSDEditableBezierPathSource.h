@@ -1,0 +1,94 @@
+@class NSArray, TSDBezierNode;
+
+@interface TSDEditableBezierPathSource : TSDPathSource <TSDRealignablePathSource, TSDMixing> {
+    char mHasLockedFlipTransform;
+    struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } mLockedFlipTransform;
+}
+
+@property (copy, nonatomic) NSArray *subpaths;
+@property (copy, nonatomic) NSArray *nodes;
+@property (retain, nonatomic) NSArray *nodeTypes;
+@property (readonly, nonatomic) TSDBezierNode *firstNode;
+@property (readonly, nonatomic) TSDBezierNode *lastNode;
+@property (nonatomic, getter=isClosed) char closed;
+@property (readonly, nonatomic) char isOpen;
+@property (readonly, nonatomic) char closeIfEndpointsAreEqual;
+@property (readonly, nonatomic) char hasSelectedNode;
+@property (readonly, nonatomic) char allNodesSelected;
+@property (readonly, nonatomic) char canDeleteSelectedNodes;
+@property (readonly, nonatomic) char deletingSelectedNodesWillDeleteShape;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } nodeBounds;
+@property (readonly, nonatomic) char isCompound;
+@property (readonly, nonatomic) struct CGPath { } *subpathForSelection;
+@property (nonatomic) unsigned long long activeSubpath;
+@property (readonly, nonatomic) struct CGPath { } *pathWithoutFlips;
+
++ (id)editableBezierPathSource;
++ (id)editableBezierPathSourceWithBezierPath:(id)a0;
++ (id)editableBezierPathSourceWithPathSource:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)closePath;
+- (void)curveToPoint:(struct CGPoint { double x0; double x1; })a0 controlPoint1:(struct CGPoint { double x0; double x1; })a1 controlPoint2:(struct CGPoint { double x0; double x1; })a2;
+- (char)isRectangular;
+- (void)lineToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)moveToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)transformUsingAffineTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)addNode:(id)a0;
+- (void)removeNode:(id)a0;
+- (void)setNaturalSize:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })naturalSize;
+- (id)initWithArchive:(const void *)a0;
+- (char)isCircular;
+- (void)saveToArchive:(void *)a0;
+- (void)setBezierPath:(id)a0;
+- (void)deselectAllNodes;
+- (void)selectAllNodes;
+- (void)sharpenAllNodes;
+- (void)alignToOrigin;
+- (id)bezierNodeUnderPoint:(struct CGPoint { double x0; double x1; })a0 withTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 andTolerance:(double)a2 returningType:(long long *)a3;
+- (id)bezierPathWithoutFlips;
+- (char)canCloseSelectedNodes;
+- (char)canConnectSelectedNodes;
+- (char)canCutAtSelectedNodes;
+- (void)closeSelectedNodes;
+- (void)connectSelectedNodes;
+- (void)convertToHobby;
+- (void)cutAtSelectedNodes;
+- (void)deleteSelectedEdges;
+- (void)deleteSelectedNodes;
+- (void)deleteSelectedNodesForced:(char)a0;
+- (double)distanceToPoint:(struct CGPoint { double x0; double x1; })a0 subpathIndex:(unsigned long long *)a1 elementIndex:(unsigned long long *)a2 tValue:(double *)a3 threshold:(double)a4;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (id)nodeAfterNode:(id)a0;
+- (id)nodePriorToNode:(id)a0;
+- (void)offsetSelectedEdgesByDelta:(struct CGPoint { double x0; double x1; })a0;
+- (void)offsetSelectedNodesByDelta:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })pathFlipTransform;
+- (void)removeLastNode;
+- (void)reverseDirection;
+- (void)selectSubpathForNode:(id)a0 toggle:(char)a1;
+- (void)setLockedFlipTransform:(char)a0;
+- (void)smoothAllNodes;
+- (void)smoothCurveToPoint:(struct CGPoint { double x0; double x1; })a0 controlPoint1:(struct CGPoint { double x0; double x1; })a1 controlPoint2:(struct CGPoint { double x0; double x1; })a2;
+- (void)smoothNode:(id)a0;
+- (id)splitEdge:(long long)a0 at:(double)a1 fromSubpath:(long long)a2;
+- (void)splitSelectedEdges;
+- (void)splitSelectedNodes;
+- (id)subpathsForConnectingUsingFirstSubpathFirstNode:(char *)a0 andSecondPathFirstNode:(char *)a1;
+- (void)toggleNode:(id)a0 toType:(int)a1 prevNode:(id)a2 nextNode:(id)a3;
+- (void)toggleSelectedNodesToType:(int)a0;
+- (char)isEqualWithStrictComparison:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (void)beginNewSubpath;
+- (void)cutAtSelectedNodesWithOffset:(char)a0;
+- (id)inferredAccessibilityDescription;
+- (struct CGPoint { double x0; double x1; })p_calculateNewStartPointLocationFromOffsetDistance:(double)a0 startPoint:(struct CGPoint { double x0; double x1; })a1 endPoint:(struct CGPoint { double x0; double x1; })a2;
+- (void)p_offsetSubpathsFromNodes:(id)a0 endNodeOne:(id)a1 startNodeTwo:(id)a2 endNodeTwo:(id)a3 offsetDistance:(double)a4;
+
+@end

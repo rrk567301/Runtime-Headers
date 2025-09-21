@@ -1,0 +1,3 @@
+@interface _TtC13JournalSharedP33_1CDE146141D0E048966C068BB8418D6915ForModuleLookup : _TtCs12_SwiftObject
+
+@end

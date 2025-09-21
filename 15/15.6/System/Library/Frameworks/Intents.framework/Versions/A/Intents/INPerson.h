@@ -1,0 +1,100 @@
+@class NSString, NSArray, INPersonHandle, NSPersonNameComponents, INImage;
+
+@interface INPerson : NSObject <INSpeakable, INImageProxyInjecting, INKeyImageProducing, INCodableAttributeRelationComparing, INCacheableContainer, INPersonExport, NSMutableCopying, NSCopying, NSSecureCoding> {
+    NSString *_displayName;
+    NSString *_userInput;
+}
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *firstName;
+@property (readonly, copy, nonatomic) NSString *lastName;
+@property (readonly, copy, nonatomic) NSString *userName;
+@property (readonly, copy, nonatomic) NSString *userIdentifier;
+@property (readonly, copy, nonatomic) NSString *userURIString;
+@property (readonly, copy, nonatomic) NSString *fullName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSArray *aliases;
+@property (readonly) long long suggestionType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) INImage *_keyImage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSArray *siriMatches;
+@property (readonly) char isMe;
+@property (readonly) NSString *spokenPhrase;
+@property (readonly) NSString *pronunciationHint;
+@property (readonly) NSString *vocabularyIdentifier;
+@property (readonly) NSArray *alternativeSpeakableMatches;
+@property (readonly) NSString *identifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy) INPersonHandle *personHandle;
+@property (copy) NSPersonNameComponents *nameComponents;
+@property (copy) NSString *displayName;
+@property (copy) INImage *image;
+@property (copy) NSString *contactIdentifier;
+@property (copy) NSString *customIdentifier;
+@property (copy) NSString *relationship;
+@property (copy) NSArray *aliases;
+@property long long suggestionType;
+@property char isMe;
+@property (copy) NSArray *alternatives;
+@property (copy) NSArray *scoredAlternatives;
+@property (copy) NSString *phonemeData;
+@property (copy) NSString *sourceAppBundleIdentifier;
+@property long long searchProvider;
+@property (readonly, copy) NSArray *alternativeSiriMatches;
+@property (readonly, getter=isContactSuggestion) char contactSuggestion;
+@property (copy) NSString *handle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)expectedCNContactKeys;
++ (id)toNilScoredPersons:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (char)isEqual:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)_displayName;
+- (void)_injectProxiesForImages:(id /* block */)a0 completion:(id /* block */)a1;
+- (id)_dictionaryRepresentation;
+- (id)initWithContact:(id)a0;
+- (char)_intents_compareValue:(id)a0 relation:(unsigned long long)a1;
+- (id)_intents_indexingRepresentation;
+- (id)_aliases;
+- (long long)_compareSubProducerOne:(id)a0 subProducerTwo:(id)a1;
+- (id)_initWithUserInput:(id)a0 personHandle:(id)a1 nameComponents:(id)a2 displayName:(id)a3 image:(id)a4 contactIdentifier:(id)a5 customIdentifier:(id)a6 relationship:(id)a7 aliases:(id)a8 suggestionType:(long long)a9 isMe:(char)a10 alternatives:(id)a11 sourceAppBundleIdentifier:(id)a12 phonemeData:(id)a13 isContactSuggestion:(char)a14;
+- (id)_initWithUserInput:(id)a0 personHandle:(id)a1 nameComponents:(id)a2 displayName:(id)a3 image:(id)a4 contactIdentifier:(id)a5 customIdentifier:(id)a6 relationship:(id)a7 aliases:(id)a8 suggestionType:(long long)a9 isMe:(char)a10 scoredAlternatives:(id)a11 sourceAppBundleIdentifier:(id)a12 phonemeData:(id)a13 isContactSuggestion:(char)a14 searchProvider:(long long)a15;
+- (id)_intents_cacheableObjects;
+- (id)_intents_readableTitleWithLocalizer:(id)a0 metadata:(id)a1;
+- (void)_intents_updateContainerWithCache:(id)a0;
+- (id)_userInput;
+- (id)descriptionAtIndent:(unsigned long long)a0;
+- (id)initWithHandle:(id)a0 displayName:(id)a1 contactIdentifier:(id)a2;
+- (id)initWithHandle:(id)a0 nameComponents:(id)a1 contactIdentifier:(id)a2;
+- (id)initWithHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 aliases:(id)a6 suggestionType:(long long)a7;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isContactSuggestion:(char)a6 suggestionType:(long long)a7;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isMe:(char)a6;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isMe:(char)a6 suggestionType:(long long)a7;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 relationship:(id)a6;
+- (id)spokenPhrases;
+
+@end

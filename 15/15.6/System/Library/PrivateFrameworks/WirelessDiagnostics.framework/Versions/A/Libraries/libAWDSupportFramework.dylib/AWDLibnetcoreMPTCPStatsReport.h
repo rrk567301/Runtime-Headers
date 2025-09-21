@@ -1,0 +1,76 @@
+@interface AWDLibnetcoreMPTCPStatsReport : PBCodable <NSCopying> {
+    struct { unsigned char mptcpAggregateAllBytes : 1; unsigned char mptcpAggregateAttempt : 1; unsigned char mptcpAggregateCellBytes : 1; unsigned char mptcpBackToWiFi : 1; unsigned char mptcpCellDenied : 1; unsigned char mptcpCellProxy : 1; unsigned char mptcpFirstPartyAggregateAttempt : 1; unsigned char mptcpFirstPartyHandoverAttempt : 1; unsigned char mptcpFirstPartyInteractiveAttempt : 1; unsigned char mptcpHandoverAllBytes : 1; unsigned char mptcpHandoverAttempts : 1; unsigned char mptcpHandoverCellBytes : 1; unsigned char mptcpHandoverCellSubflowFromWiFi : 1; unsigned char mptcpHandoverWiFiSubflowFromCell : 1; unsigned char mptcpHandshakeAggregateSuccess : 1; unsigned char mptcpHandshakeAggregateSuccessFirstParty : 1; unsigned char mptcpHandshakeHandoverSuccessCell : 1; unsigned char mptcpHandshakeHandoverSuccessCellFirstParty : 1; unsigned char mptcpHandshakeHandoverSuccessWiFi : 1; unsigned char mptcpHandshakeHandoverSuccessWiFiFirstParty : 1; unsigned char mptcpHandshakeInteractiveSuccess : 1; unsigned char mptcpHandshakeInteractiveSuccessFirstParty : 1; unsigned char mptcpHeuristicFallback : 1; unsigned char mptcpHeuristicFallbackFirstParty : 1; unsigned char mptcpInteractiveAllBytes : 1; unsigned char mptcpInteractiveAttempt : 1; unsigned char mptcpInteractiveCellBytes : 1; unsigned char mptcpInteractiveCellUsage : 1; unsigned char mptcpTriggeredCell : 1; unsigned char mptcpWiFiProxy : 1; } _has;
+}
+
+@property (nonatomic) char hasMptcpHandoverAttempts;
+@property (nonatomic) unsigned long long mptcpHandoverAttempts;
+@property (nonatomic) char hasMptcpInteractiveAttempt;
+@property (nonatomic) unsigned long long mptcpInteractiveAttempt;
+@property (nonatomic) char hasMptcpAggregateAttempt;
+@property (nonatomic) unsigned long long mptcpAggregateAttempt;
+@property (nonatomic) char hasMptcpFirstPartyHandoverAttempt;
+@property (nonatomic) unsigned long long mptcpFirstPartyHandoverAttempt;
+@property (nonatomic) char hasMptcpFirstPartyInteractiveAttempt;
+@property (nonatomic) unsigned long long mptcpFirstPartyInteractiveAttempt;
+@property (nonatomic) char hasMptcpFirstPartyAggregateAttempt;
+@property (nonatomic) unsigned long long mptcpFirstPartyAggregateAttempt;
+@property (nonatomic) char hasMptcpHeuristicFallback;
+@property (nonatomic) unsigned long long mptcpHeuristicFallback;
+@property (nonatomic) char hasMptcpHeuristicFallbackFirstParty;
+@property (nonatomic) unsigned long long mptcpHeuristicFallbackFirstParty;
+@property (nonatomic) char hasMptcpHandshakeHandoverSuccessWiFi;
+@property (nonatomic) unsigned long long mptcpHandshakeHandoverSuccessWiFi;
+@property (nonatomic) char hasMptcpHandshakeHandoverSuccessCell;
+@property (nonatomic) unsigned long long mptcpHandshakeHandoverSuccessCell;
+@property (nonatomic) char hasMptcpHandshakeInteractiveSuccess;
+@property (nonatomic) unsigned long long mptcpHandshakeInteractiveSuccess;
+@property (nonatomic) char hasMptcpHandshakeAggregateSuccess;
+@property (nonatomic) unsigned long long mptcpHandshakeAggregateSuccess;
+@property (nonatomic) char hasMptcpHandshakeHandoverSuccessWiFiFirstParty;
+@property (nonatomic) unsigned long long mptcpHandshakeHandoverSuccessWiFiFirstParty;
+@property (nonatomic) char hasMptcpHandshakeHandoverSuccessCellFirstParty;
+@property (nonatomic) unsigned long long mptcpHandshakeHandoverSuccessCellFirstParty;
+@property (nonatomic) char hasMptcpHandshakeInteractiveSuccessFirstParty;
+@property (nonatomic) unsigned long long mptcpHandshakeInteractiveSuccessFirstParty;
+@property (nonatomic) char hasMptcpHandshakeAggregateSuccessFirstParty;
+@property (nonatomic) unsigned long long mptcpHandshakeAggregateSuccessFirstParty;
+@property (nonatomic) char hasMptcpHandoverCellSubflowFromWiFi;
+@property (nonatomic) unsigned long long mptcpHandoverCellSubflowFromWiFi;
+@property (nonatomic) char hasMptcpHandoverWiFiSubflowFromCell;
+@property (nonatomic) unsigned long long mptcpHandoverWiFiSubflowFromCell;
+@property (nonatomic) char hasMptcpInteractiveCellUsage;
+@property (nonatomic) unsigned long long mptcpInteractiveCellUsage;
+@property (nonatomic) char hasMptcpHandoverCellBytes;
+@property (nonatomic) unsigned long long mptcpHandoverCellBytes;
+@property (nonatomic) char hasMptcpInteractiveCellBytes;
+@property (nonatomic) unsigned long long mptcpInteractiveCellBytes;
+@property (nonatomic) char hasMptcpAggregateCellBytes;
+@property (nonatomic) unsigned long long mptcpAggregateCellBytes;
+@property (nonatomic) char hasMptcpHandoverAllBytes;
+@property (nonatomic) unsigned long long mptcpHandoverAllBytes;
+@property (nonatomic) char hasMptcpInteractiveAllBytes;
+@property (nonatomic) unsigned long long mptcpInteractiveAllBytes;
+@property (nonatomic) char hasMptcpAggregateAllBytes;
+@property (nonatomic) unsigned long long mptcpAggregateAllBytes;
+@property (nonatomic) char hasMptcpBackToWiFi;
+@property (nonatomic) unsigned long long mptcpBackToWiFi;
+@property (nonatomic) char hasMptcpCellDenied;
+@property (nonatomic) unsigned long long mptcpCellDenied;
+@property (nonatomic) char hasMptcpCellProxy;
+@property (nonatomic) unsigned long long mptcpCellProxy;
+@property (nonatomic) char hasMptcpWiFiProxy;
+@property (nonatomic) unsigned long long mptcpWiFiProxy;
+@property (nonatomic) char hasMptcpTriggeredCell;
+@property (nonatomic) unsigned long long mptcpTriggeredCell;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

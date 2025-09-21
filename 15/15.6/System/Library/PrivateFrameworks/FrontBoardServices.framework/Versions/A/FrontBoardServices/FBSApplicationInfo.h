@@ -1,0 +1,92 @@
+@class LSApplicationIdentity, NSString, RBSProcessIdentity, NSURL, NSArray, NSSet, NSDictionary, NSNumber;
+
+@interface FBSApplicationInfo : FBSBundleInfo <BSDescriptionProviding> {
+    NSDictionary *_lazy_entitlements;
+    unsigned int _signatureVersion;
+    NSSet *_backgroundModes;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    char _initialized;
+}
+
+@property (readonly, nonatomic) unsigned int signatureVersion;
+@property (readonly, nonatomic) char isSignatureVersionSupported;
+@property (readonly, nonatomic) char isSignatureVersionSupportEndingSoon;
+@property (readonly, nonatomic, getter=wasBuiltWithTSAN) char builtWithTSAN;
+@property (readonly, copy, nonatomic) NSURL *advertisingAttributionReportEndpoint;
+@property (readonly, copy, nonatomic, getter=_appIDEntitlement) NSString *appIDEntitlement;
+@property (nonatomic, getter=_isInstalling, setter=_setInstalling:) char installing;
+@property (nonatomic, getter=_isUninstalling, setter=_setUninstalling:) char uninstalling;
+@property (nonatomic, getter=_isPendingUninstall, setter=_setPendingUninstall:) char pendingUninstall;
+@property (nonatomic, getter=_isTentativeUninstall, setter=_setTentativeUninstall:) char tentativeUninstall;
+@property (nonatomic) long long interfaceOrientation;
+@property (nonatomic) unsigned long long supportedInterfaceOrientations;
+@property (readonly, nonatomic, getter=isEnabled) char enabled;
+@property (readonly, nonatomic, getter=isBlocked) char blocked;
+@property (readonly, copy, nonatomic) LSApplicationIdentity *applicationIdentity;
+@property (readonly, copy, nonatomic) RBSProcessIdentity *processIdentity;
+@property (readonly, nonatomic) NSURL *executableURL;
+@property (readonly, nonatomic) NSURL *bundleContainerURL;
+@property (readonly, nonatomic) NSURL *dataContainerURL;
+@property (readonly, nonatomic) NSURL *sandboxURL;
+@property (readonly, nonatomic) double lastModifiedDate;
+@property (readonly, copy, nonatomic) NSString *preferenceDomain;
+@property (readonly, nonatomic) NSString *teamIdentifier;
+@property (readonly, copy, nonatomic) NSString *signerIdentity;
+@property (readonly, nonatomic) NSDictionary *environmentVariables;
+@property (readonly, nonatomic) NSDictionary *entitlements;
+@property (readonly, nonatomic) char hasViewServicesEntitlement;
+@property (readonly, nonatomic) NSArray *tags;
+@property (readonly, nonatomic) NSArray *customMachServices;
+@property (readonly, nonatomic) char supportsMultiwindow;
+@property (readonly, nonatomic, getter=isProvisioningProfileValidated) char provisioningProfileValidated;
+@property (readonly, nonatomic, getter=isUPPProvisioningProfileValidated) char UPPProvisioningProfileValidated;
+@property (readonly, nonatomic, getter=isFreeDeveloperProvisioningProfileValidated) char freeDeveloperProvisioningProfileValidated;
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic, getter=isRestricted) char restricted;
+@property (readonly, nonatomic) NSArray *requiredCapabilities;
+@property (readonly, nonatomic) NSArray *deviceFamilies;
+@property (readonly, copy, nonatomic) NSString *sdkVersion;
+@property (readonly, nonatomic, getter=isBeta) char beta;
+@property (readonly, copy, nonatomic) NSString *shortVersionString;
+@property (readonly, nonatomic, getter=isExitsOnSuspend) char exitsOnSuspend;
+@property (readonly, nonatomic) char requiresPersistentWiFi;
+@property (readonly, nonatomic) float minimumBrightnessLevel;
+@property (readonly, nonatomic) NSArray *externalAccessoryProtocols;
+@property (readonly, nonatomic) long long screenTimePolicy;
+@property (readonly, nonatomic, getter=isBlockedForScreenTimeExpiration) char blockedForScreenTimeExpiration;
+@property (readonly, nonatomic) long long ratingRank;
+@property (readonly, nonatomic) NSNumber *itemID;
+@property (readonly, nonatomic) NSNumber *purchaserDSID;
+@property (readonly, nonatomic) NSNumber *downloaderDSID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (unsigned long long)_applicationTypeForProxy:(id)a0;
++ (unsigned long long)_applicationTypeForRecord:(id)a0;
++ (id)_configureEnvironment:(id)a0 withInfo:(id)a1 isPreApex:(char)a2;
+
+- (void).cxx_destruct;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (void)_loadFromProxy:(id)a0;
+- (id)_initWithApplicationProxy:(id)a0 record:(id)a1 appIdentity:(id)a2 processIdentity:(id)a3 overrideURL:(id)a4;
+- (id)_initWithBundleIdentifier:(id)a0 url:(id)a1;
+- (id)_initWithBundleProxy:(id)a0 overrideURL:(id)a1;
+- (void)_loadFromRecord:(id)a0;
+- (void)_overrideTags:(id)a0;
+- (void)_synchronize:(id /* block */)a0;
+- (char)builtOnOrAfterSDKVersion:(id)a0;
+- (id)fallbackFolderName;
+- (id)folderNames;
+- (id)initWithApplicationProxy:(id)a0;
+- (id)initWithApplicationRecord:(id)a0;
+- (unsigned int)signatureVersion;
+- (char)supportsAllInterfaceOrientations;
+- (char)supportsBackgroundMode:(id)a0;
+- (char)supportsDeviceFamily:(unsigned long long)a0;
+- (char)supportsInterfaceOrientation:(long long)a0;
+- (unsigned long long)unauthoritativeTrustState;
+
+@end

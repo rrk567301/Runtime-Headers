@@ -1,0 +1,52 @@
+@interface PIPhotoEditHelper : NSObject
+
++ (void)initialize;
++ (id)geometryRequestWithComposition:(id)a0;
++ (id)adjustmentConstants;
++ (char)canInterpretDataWithFormatIdentifier:(id)a0 formatVersion:(id)a1;
++ (id)effectNameForFilterName:(id)a0;
++ (id)imageRenderRequestWithComposition:(id)a0 fillInSize:(struct CGSize { double x0; double x1; })a1 wideGamut:(char)a2;
++ (id)imageRenderRequestWithComposition:(id)a0 fitInSize:(struct CGSize { double x0; double x1; })a1 wideGamut:(char)a2;
++ (id)imageSourceWithCIImage:(id)a0 orientation:(long long)a1;
++ (id)imageSourceWithURL:(id)a0 type:(id)a1 proxyImage:(id)a2 orientation:(long long)a3 useEmbeddedPreview:(char)a4;
++ (id)imageSourceWithURL:(id)a0 type:(id)a1 useEmbeddedPreview:(char)a2;
++ (char)is3DEffect:(id)a0;
++ (id)livePhotoSourceWithPhotoSource:(id)a0 videoSource:(id)a1;
++ (struct CGImage { } *)newCGImageFromImageBuffer:(id)a0;
++ (id)newComposition;
++ (id)newCompositionControllerWithComposition:(id)a0;
++ (id)photosSchema;
++ (id)pipelineFiltersForCropping;
++ (id)pipelineFiltersForOriginalGeometry;
++ (id)stringForAutoLoopFlavor:(long long)a0;
++ (char)updateCropAdjustmentControllerFor:(id)a0 beforeCompositionController:(id)a1 error:(out id *)a2;
++ (id)validatedCompositionCopyForComposition:(id)a0 mediaType:(long long)a1;
++ (id)videoPropertiesRequestWithComposition:(id)a0;
++ (id)videoRenderRequestWithComposition:(id)a0 fitInSize:(struct CGSize { double x0; double x1; })a1;
++ (id)videoSourceWithURL:(id)a0;
++ (id)_imageRenderRequestWithComposition:(id)a0 wideGamut:(char)a1;
++ (char)areCPVAssetsEditable;
++ (id)assetIdentifierForURL:(id)a0 type:(id)a1 useEmbeddedPreview:(char)a2;
++ (id)compositionByRemovingVideoAndLivePhotoAdjustments:(id)a0;
++ (char)compositionHasAnyStageEffect:(id)a0;
++ (id)filterNameForEffectName:(id)a0;
++ (id)geometryBasedAdjustmentIdentifiers;
++ (void)handlePIGlobalSettings:(id)a0;
++ (id)imagePropertiesRequestWithComposition:(id)a0;
++ (char)isAVAssetEditable:(id)a0 reason:(long long *)a1;
++ (char)isPortraitEffect:(id)a0;
++ (char)isPortraitStageEffect:(id)a0;
++ (id)knownFormatsVersionsMap;
++ (id)newAdjustmentWithIdentifier:(id)a0;
++ (id)newAdjustmentWithName:(id)a0;
++ (id)pipelineFiltersForPostInpaintSegmentation;
++ (id)pipelineFiltersForPreInpaintSegmentation;
++ (id)pipelineFiltersForRAWShowingOriginalWithGeometry;
++ (id)pipelineFiltersForShowingOriginal;
++ (id)pipelineFiltersForShowingOriginalWithGeometry;
++ (void)preheatEditDependencies;
++ (id)priorityWithLevel:(long long)a0;
++ (id)rawAdjustmentWithRawImageProperties:(id)a0;
++ (id)videoSourceWithVideoData:(id)a0 orientation:(long long)a1;
+
+@end

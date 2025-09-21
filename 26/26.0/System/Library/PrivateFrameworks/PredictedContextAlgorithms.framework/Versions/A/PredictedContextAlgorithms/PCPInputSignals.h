@@ -1,0 +1,94 @@
+@class NSString, PCPMapsActiveNavigation, PCPParkedCar, NSMutableArray;
+
+@interface PCPInputSignals : PBCodable <NSCopying> {
+    struct { unsigned char currentTimeCFAbsolute : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasCurrentTimeCFAbsolute;
+@property (nonatomic) double currentTimeCFAbsolute;
+@property (retain, nonatomic) NSMutableArray *visits;
+@property (retain, nonatomic) NSMutableArray *transitions;
+@property (retain, nonatomic) NSMutableArray *locationOfInterests;
+@property (retain, nonatomic) NSMutableArray *locationHistorys;
+@property (retain, nonatomic) NSMutableArray *calendarEvents;
+@property (readonly, nonatomic) BOOL hasMapsActiveNavigation;
+@property (retain, nonatomic) PCPMapsActiveNavigation *mapsActiveNavigation;
+@property (retain, nonatomic) NSMutableArray *mapsHistoricalNavigations;
+@property (retain, nonatomic) NSMutableArray *mapsViewedPlaces;
+@property (readonly, nonatomic) BOOL hasParkedCar;
+@property (retain, nonatomic) PCPParkedCar *parkedCar;
+@property (retain, nonatomic) NSMutableArray *motionActivitys;
+@property (retain, nonatomic) NSMutableArray *homeKitHomes;
+@property (retain, nonatomic) NSMutableArray *workouts;
+@property (retain, nonatomic) NSMutableArray *propagatedLocations;
+@property (readonly, nonatomic) BOOL hasCurrentTimeZoneAbbreviation;
+@property (retain, nonatomic) NSString *currentTimeZoneAbbreviation;
+
++ (Class)motionActivityType;
++ (Class)workoutsType;
++ (Class)transitionsType;
++ (Class)calendarEventsType;
++ (Class)homeKitHomesType;
++ (Class)locationHistoryType;
++ (Class)locationOfInterestsType;
++ (Class)mapsHistoricalNavigationType;
++ (Class)mapsViewedPlacesType;
++ (Class)propagatedLocationsType;
++ (Class)visitType;
+
+- (void)copyTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)addMotionActivity:(id)a0;
+- (unsigned long long)visitsCount;
+- (void)clearVisits;
+- (void)addVisit:(id)a0;
+- (void)addWorkouts:(id)a0;
+- (void)clearWorkouts;
+- (id)workoutsAtIndex:(unsigned long long)a0;
+- (unsigned long long)workoutsCount;
+- (void)addTransitions:(id)a0;
+- (void)addCalendarEvents:(id)a0;
+- (void)addHomeKitHomes:(id)a0;
+- (void)addLocationHistory:(id)a0;
+- (void)addLocationOfInterests:(id)a0;
+- (void)addMapsHistoricalNavigation:(id)a0;
+- (void)addMapsViewedPlaces:(id)a0;
+- (void)addPropagatedLocations:(id)a0;
+- (id)calendarEventsAtIndex:(unsigned long long)a0;
+- (unsigned long long)calendarEventsCount;
+- (void)clearCalendarEvents;
+- (void)clearHomeKitHomes;
+- (void)clearLocationHistorys;
+- (void)clearLocationOfInterests;
+- (void)clearMapsHistoricalNavigations;
+- (void)clearMapsViewedPlaces;
+- (void)clearMotionActivitys;
+- (void)clearPropagatedLocations;
+- (void)clearTransitions;
+- (id)homeKitHomesAtIndex:(unsigned long long)a0;
+- (unsigned long long)homeKitHomesCount;
+- (id)locationHistoryAtIndex:(unsigned long long)a0;
+- (unsigned long long)locationHistorysCount;
+- (id)locationOfInterestsAtIndex:(unsigned long long)a0;
+- (unsigned long long)locationOfInterestsCount;
+- (id)mapsHistoricalNavigationAtIndex:(unsigned long long)a0;
+- (unsigned long long)mapsHistoricalNavigationsCount;
+- (id)mapsViewedPlacesAtIndex:(unsigned long long)a0;
+- (unsigned long long)mapsViewedPlacesCount;
+- (id)motionActivityAtIndex:(unsigned long long)a0;
+- (unsigned long long)motionActivitysCount;
+- (id)propagatedLocationsAtIndex:(unsigned long long)a0;
+- (unsigned long long)propagatedLocationsCount;
+- (id)transitionsAtIndex:(unsigned long long)a0;
+- (unsigned long long)transitionsCount;
+- (id)visitAtIndex:(unsigned long long)a0;
+
+@end

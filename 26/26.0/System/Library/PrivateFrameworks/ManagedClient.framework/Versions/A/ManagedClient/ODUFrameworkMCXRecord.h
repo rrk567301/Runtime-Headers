@@ -1,0 +1,86 @@
+@class ODRecord, NSMutableDictionary;
+
+@interface ODUFrameworkMCXRecord : NSObject {
+    ODRecord *mRecord;
+    NSMutableDictionary *mOverride;
+}
+
++ (id)mcxrecordWithOverride:(id)a0;
++ (id)mcxrecordWithRecord:(id)a0;
++ (id)mcxrecordWithRecord:(id)a0 withOverride:(id)a1;
+
+- (unsigned int)uid;
+- (id)uuidString;
+- (id)home;
+- (unsigned int)gid;
+- (id)bestName;
+- (void)dealloc;
+- (BOOL)isGroup;
+- (BOOL)setValue:(id)a0 forAttribute:(id)a1;
+- (id)recordType;
+- (id)record;
+- (id)recordName;
+- (BOOL)isExternal;
+- (BOOL)isLocal;
+- (id)nodeName;
+- (BOOL)isUser;
+- (BOOL)isAdmin;
+- (id)originalNodeName;
+- (id)picturePath;
+- (id)override;
+- (id)longName;
+- (BOOL)fromCache;
+- (id)cachedGroups;
+- (BOOL)boolForAttribute:(id)a0 withDefault:(BOOL)a1;
+- (id)firstValueForAttributeIfString:(id)a0;
+- (id)homeLoc;
+- (BOOL)isComputerGroup;
+- (id)originalHomeLoc;
+- (id)timestampString;
+- (id)uniqueStringValuesForAttribute:(id)a0;
+- (id)cachedLocalUserGroups;
+- (id)cachedParentGroups;
+- (id)cachedParents;
+- (id)cachedTrustInfoArray;
+- (id)dataValuesForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0 withClass:(Class)a1;
+- (id)firstValueForAttributeAsData:(id)a0;
+- (id)firstValueForAttributeIfXMLArray:(id)a0;
+- (id)firstValueForAttributeIfXMLDictionary:(id)a0;
+- (id)firstValueForAttributeIfXMLPList:(id)a0;
+- (void)generateUUIDandSID;
+- (id)gidString;
+- (BOOL)hasNetworkHome;
+- (BOOL)hasNetworkOriginalHome;
+- (id)initWithRecord:(id)a0 withOverride:(id)a1;
+- (BOOL)isComputer;
+- (BOOL)isComputerList;
+- (BOOL)isGroupWithMCXSettingsFlag;
+- (BOOL)isMobileComputerAccount;
+- (BOOL)isMobileRecord;
+- (BOOL)isMobileUserAccount;
+- (BOOL)isUserGroup;
+- (BOOL)isWorkgroup;
+- (BOOL)mcxBoolFlag:(id)a0 withDefault:(BOOL)a1;
+- (id)mcxFlags;
+- (id)mcxFlagsDictionary;
+- (id)mcxRecordArrayForXMLAttribute:(id)a0;
+- (id)mcxSettings;
+- (double)mcxTimestamp;
+- (id)originalHome;
+- (BOOL)preventSimultaneousLogin;
+- (BOOL)rawIsAdmin;
+- (BOOL)rawIsLocal;
+- (id)rawNodeName;
+- (id)rawUUIDString;
+- (id)recordDetailsForAttribute:(id)a0;
+- (id)recordDetailsForAttributes:(id)a0;
+- (BOOL)removeValuesForAttribute:(id)a0;
+- (BOOL)setMCXFlagsDictionary:(id)a0;
+- (BOOL)setValues:(id)a0 forAttribute:(id)a1;
+- (id)stringValuesForAttribute:(id)a0;
+- (id)uidString;
+- (id)valuesForAttribute:(id)a0;
+
+@end

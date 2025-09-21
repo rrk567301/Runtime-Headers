@@ -1,0 +1,11 @@
+@interface GameStoreKit.SearchHintsPresenter : GameStoreKit.BasePresenter {
+    void /* unknown type, empty encoding */ view;
+    void /* unknown type, empty encoding */ hints;
+    void /* unknown type, empty encoding */ precedingFetch;
+    void /* unknown type, empty encoding */ searchTextPresenter;
+    void /* unknown type, empty encoding */ searchBarCancelAction;
+    void /* unknown type, empty encoding */ searchFieldClearAction;
+    void /* unknown type, empty encoding */ term;
+}
+
+@end

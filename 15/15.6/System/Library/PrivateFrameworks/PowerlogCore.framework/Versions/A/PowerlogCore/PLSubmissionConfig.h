@@ -1,0 +1,92 @@
+@class NSString, NSDictionary, NSUUID, NSDate, NSNumber, NSArray;
+
+@interface PLSubmissionConfig : NSObject <NSCopying> {
+    unsigned long long _submittedFilesMask;
+}
+
+@property double dice;
+@property (retain) NSString *taskingBuild;
+@property (retain) NSString *taskingPopulation;
+@property (retain) NSString *taskingDeviceModels;
+@property (retain) NSDictionary *taskingPercentage;
+@property char isDRTasking;
+@property (retain) NSUUID *configUUID;
+@property (retain) NSDate *configDateReceived;
+@property (retain) NSDate *configDateApplied;
+@property (retain) NSString *request;
+@property (retain) NSString *ondemand;
+@property (retain) NSNumber *capSize;
+@property (retain) NSDictionary *plTaskingTables;
+@property (retain) NSDictionary *ppsTaskingTables;
+@property (retain) NSDictionary *hashEntries;
+@property (retain) NSArray *removeEntries;
+@property (retain) NSArray *trimmingQueries;
+@property (retain) NSString *taskingType;
+@property (retain) NSDictionary *defaultTaskingTypeParameters;
+@property (retain) NSDictionary *perModelTaskingTypeParameters;
+@property (retain) NSArray *taskingFiles;
+@property (readonly) char hasFileToSubmit;
+@property (readonly) char submitPLL;
+@property (readonly) char submitPLLUpgrade;
+@property (readonly) char submitMSS;
+@property (readonly) char submitSP;
+@property (readonly) char submitBDC;
+@property (readonly) char submitCE;
+@property (readonly) char submitXC;
+@property (readonly) char submitBG;
+@property (readonly) unsigned long long submittedFilesMask;
+@property char enableDPUpload;
+@property char signpostDisable;
+@property (retain) NSDictionary *signpostAllowlist;
+@property (retain) NSDate *startDate;
+@property (retain) NSDate *endDate;
+@property (retain) NSDate *lastBatteryTimestampSystem;
+@property (retain) NSNumber *cacheSize;
+@property short submitReasonType;
+@property (retain) NSString *tagUUID;
+@property char seed;
+@property char internal;
+@property (retain) NSArray *builds;
+@property (retain) NSString *deviceModel;
+@property (retain) NSString *filePath;
+@property (retain) NSDictionary *ckTagConfig;
+@property (retain) NSString *blobFailureReason;
+
++ (void)clearTaskingDefaults;
++ (id)getDateMarkerFromSystemDate:(id)a0;
++ (char)internalSubmissionBehavior;
++ (void)submitTaskingDefaultsCheckStateToCA:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)initWithPayload:(id)a0;
+- (id)contextDictionary;
+- (void)emitSubmitEvent;
+- (void)emitQueryEvent:(char)a0;
+- (char)conditionCheckForEnergy;
+- (char)conditionCheckForTaskingType:(id)a0;
+- (char)conditionCheckForXcodeUserActions;
+- (void)emitTaskingTypeSpecifiedEvent;
+- (id)getDateMarker;
+- (id)getDateMarkerLegacy;
+- (id)getSubmitReasonTypeToCAFieldValue;
+- (id)getSubmitReasonTypeToFlushReason;
+- (id)getSubmitReasonTypeToReasonLog;
+- (id)getSubmitReasonTypeToStorageEventOTAType;
+- (void)initTagInfoForReasonType:(short)a0 withStartDate:(id)a1 withEndDate:(id)a2;
+- (id)initWithReasonType:(short)a0;
+- (id)initWithReasonType:(short)a0 DRConfig:(id)a1;
+- (void)initializeFilesToBeSubmitted;
+- (char)isValidSubmissionFilesMask;
+- (char)isValidTaskingBlob;
+- (void)readTaskingDefaults;
+- (void)readTaskingPayloadOverride:(id)a0;
+- (void)setSubmittedFilesMask:(unsigned long long)a0;
+- (char)shouldStartTaskingToday;
+- (char)shouldSubmitToday;
+- (id)splitBySubmissionType;
+- (id)submissionCategory;
+- (id)submissionMaskToString;
+- (void)submitFileStatsToAnalytics;
+
+@end

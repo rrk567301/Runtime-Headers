@@ -1,0 +1,85 @@
+@class NSManagedObjectContext, NSString, NSCache, NSURL, NSLock, NSObject, NSPersistentContainer;
+@protocol SYDCoreDataStoreDelegate, OS_dispatch_queue;
+
+@interface SYDCoreDataStore : NSObject
+
+@property (weak) id<SYDCoreDataStoreDelegate> delegate;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *persistentContainerQueue;
+@property (retain, nonatomic) NSPersistentContainer *_persistentContainer;
+@property (retain, nonatomic) NSURL *URL;
+@property (retain, nonatomic) NSString *fileProtectionType;
+@property (retain, nonatomic) NSManagedObjectContext *transactionContext;
+@property (retain, nonatomic) NSCache *contexts;
+@property (retain, nonatomic) NSLock *contextsLock;
+@property (nonatomic) char shouldSendAnalytics;
+@property (nonatomic) char shouldLogValues;
+
++ (id)managedObjectModel;
++ (char)isCorruptionError:(id)a0;
++ (char)isInvalidTokenError:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithURL:(id)a0;
+- (id)allStoreIdentifiersWithError:(id *)a0;
+- (unsigned long long)fileSizeBytes;
+- (id)persistentContainerWithError:(id *)a0;
+- (void)destroyPersistentStore;
+- (void)clearContexts;
+- (id)initWithURL:(id)a0 fileProtectionType:(id)a1;
+- (id)_contextForStoreIdentifier:(id)a0 persistentContainer:(id)a1;
+- (id)_loadPersistentContainerWithError:(id *)a0;
+- (id)_persistentContainerWithError:(id *)a0;
+- (void)_queue_destroyPersistentStoreInPersistentStoreCoordinator:(id)a0;
+- (char)_queue_handleCorruptionIfNecessaryFromError:(id)a0 inPersistentStoreCoordinator:(id)a1;
+- (char)_saveKeyValue:(id)a0 inStoreWithIdentifier:(id)a1 excludeFromChangeTracking:(char)a2 enforceQuota:(char)a3 forceCreateNewRow:(char)a4 error:(id *)a5;
+- (char)_saveKeyValues:(id)a0 excludeFromChangeTracking:(char)a1 enforceQuota:(char)a2 forceCreateNewRow:(char)a3 error:(id *)a4;
+- (id)acAccountIdentifierWithError:(id *)a0;
+- (id)allRecordNamesInStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (id)changedKeysForStoreIdentifier:(id)a0 sinceChangeToken:(id)a1 error:(id *)a2;
+- (char)clearServerSystemFieldsRecordsForAllKeyValuesInStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (char)clearServerSystemFieldsRecordsForAllStoresWithError:(id *)a0;
+- (id)contextForStoreIdentifier:(id)a0 error:(id *)a1;
+- (id)currentChangeTokenForStoreIdentifier:(id)a0 error:(id *)a1;
+- (char)deleteDataForAllStoresWithError:(id *)a0;
+- (char)deleteDataForStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (char)deleteDataForStoresMatchingPredicate:(id)a0 context:(id)a1 error:(id *)a2;
+- (id)deprecatedSyncEngineMetadataWithError:(id *)a0;
+- (id)dictionaryRepresentationForStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (char)didMigrateFromPlistsWithError:(id *)a0;
+- (short)failedMigrationCountWithError:(id *)a0;
+- (void)handleCorruptionIfNecessaryFromError:(id)a0 inPersistentStoreCoordinator:(id)a1;
+- (char)hasPerformedOneTimeDataSeparatedLocalDataReset;
+- (id)initWithURL:(id)a0 fileProtectionType:(id)a1 persistentContainer:(id)a2 isTransactional:(char)a3;
+- (id)keyValueForKey:(id)a0 inStoreWithIdentifier:(id)a1 createIfNecessary:(char)a2 error:(id *)a3;
+- (id)keyValueForRecordName:(id)a0 inStoreWithIdentifier:(id)a1 error:(id *)a2;
+- (id)keyValueFromManagedKeyValue:(id)a0 inStoreWithIdentifier:(id)a1;
+- (id)keyValuesForKeyIDs:(id)a0 createIfNecessary:(char)a1 error:(id *)a2;
+- (id)managedDatabaseCreateIfNecessary:(char)a0 inContext:(id)a1 error:(id *)a2;
+- (id)managedKeyValueWithRecordName:(id)a0 inStoreWithIdentifier:(id)a1 inContext:(id)a2 error:(id *)a3;
+- (id)managedKeyValuesForKeyIDs:(id)a0 inContext:(id)a1 error:(id *)a2;
+- (id)managedKeyValuesMatchingPredicate:(id)a0 inContext:(id)a1 error:(id *)a2;
+- (id)managedStoreWithIdentifier:(id)a0 createIfNecessary:(char)a1 inContext:(id)a2 error:(id *)a3;
+- (unsigned long long)numberOfKeyValuesInStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (char)removeKeyValueForKey:(id)a0 inStoreWithIdentifier:(id)a1 excludeFromChangeTracking:(char)a2 error:(id *)a3;
+- (char)removeKeyValueForRecordName:(id)a0 inStoreWithIdentifier:(id)a1 error:(id *)a2;
+- (void)resetPersistentStore;
+- (char)saveContext:(id)a0 reason:(id)a1 includingTransactionContext:(char)a2 error:(id *)a3;
+- (char)saveDeprecatedSyncEngineMetadata:(id)a0 error:(id *)a1;
+- (char)saveKeyValue:(id)a0 inStoreWithIdentifier:(id)a1 error:(id *)a2;
+- (char)saveKeyValue:(id)a0 inStoreWithIdentifier:(id)a1 excludeFromChangeTracking:(char)a2 enforceQuota:(char)a3 error:(id *)a4;
+- (char)saveKeyValues:(id)a0 excludeFromChangeTracking:(char)a1 enforceQuota:(char)a2 error:(id *)a3;
+- (char)saveServerSyncAnchorSystemFieldsRecordData:(id)a0 forStoreWithIdentifier:(id)a1 error:(id *)a2;
+- (char)saveSyncEngineStateSerialization:(id)a0 error:(id *)a1;
+- (char)saveTransaction:(id *)a0;
+- (id)serverSyncAnchorSystemFieldsRecordDataForStoreWithIdentifier:(id)a0 error:(id *)a1;
+- (char)setACAccountIdentifier:(id)a0 error:(id *)a1;
+- (char)setDidMigrateFromPlists:(char)a0 error:(id *)a1;
+- (char)setFailedMigrationCount:(short)a0 error:(id *)a1;
+- (char)setHasPerformedOneTimeDataSeparatedLocalDataReset:(char)a0 error:(id *)a1;
+- (id)syncEngineStateSerializationWithError:(id *)a0;
+- (void)transactionStoreDidSave:(id)a0;
+- (id)transactionalStoreWithError:(id *)a0;
+
+@end

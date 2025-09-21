@@ -1,0 +1,21 @@
+@interface TSCHChartFeatureBubble : TSCHChartFeatureScatter
+
+- (char)supportsSharedAndSeparateX;
+- (int)representativeGridValueAxisType;
+- (char)supportsShowLabelsInFrontOption;
+- (id)defaultDataFileName;
+- (id)filteredStyleOwnersFromStyleOwners:(id)a0;
+- (id)genericToSpecificPropertyMap;
+- (unsigned long long)gridOffsetToSeriesForScatterFormat:(int)a0;
+- (id)initWithChartType:(id)a0;
+- (Class)presetImagerClass;
+- (unsigned long long)styleIndexForAxisID:(id)a0;
+- (id)supportedAxisScales;
+- (id)supportedSeriesTypes;
+- (char)supportsBubbleOptions;
+- (char)supportsConnectingLines;
+- (char)supportsEditingForAxisID:(id)a0;
+- (void)updateTitlesForExportingModel:(id)a0 info:(id)a1;
+- (Class)valueAxisClassForID:(id)a0 scale:(long long)a1;
+
+@end

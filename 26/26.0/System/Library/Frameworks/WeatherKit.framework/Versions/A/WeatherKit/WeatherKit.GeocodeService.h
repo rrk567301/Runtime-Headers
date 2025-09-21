@@ -1,0 +1,5 @@
+@interface WeatherKit.GeocodeService : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _auditToken;
+}
+
+@end

@@ -1,0 +1,103 @@
+@class VFXWorld, NSString, NSArray, VFXOrderedDictionary, VFXCoreEntityHandle, NSMutableDictionary, _TtC3VFX15VFXEntityObject, VFXNode;
+
+@interface VFXBehaviorGraph : NSObject <VFXWorldReference, VFXReferenceEnumerable, VFXCopyingRemappable, VFXParameterList_Private, VFXParameterList, VFXAnimatable, NSCopying, NSSecureCoding> {
+    VFXCoreEntityHandle *_coreHandle;
+    VFXWorld *_world;
+    unsigned char _isPresentationObject : 1;
+    NSString *_name;
+    NSMutableDictionary *_valueForKey;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _animationsLock;
+    VFXOrderedDictionary *_animations;
+    NSMutableDictionary *_bindings;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) _TtC3VFX15VFXEntityObject *entityObject;
+@property (readonly, nonatomic) id opaqueEntityHelper;
+@property (weak, nonatomic) VFXNode *ownerNode;
+@property (readonly, nonatomic) struct __CFXWorld { } *worldRef;
+@property (readonly, nonatomic) VFXWorld *world;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSArray *privateNames;
+@property (readonly, nonatomic) NSArray *names;
+@property (readonly) NSArray *animationKeys;
+@property (readonly) id presentationObject;
+
++ (id)behaviorGraphWithEntityHandle:(id)a0;
++ (id)behaviorGraphWithEntityObject:(id)a0;
++ (id)presentationBehaviorGraphWithEntityHandle:(id)a0;
+
+- (id)tag;
+- (id)bindings;
+- (long long)entity;
+- (id)objectForKeyedSubscript:(id)a0;
+- (id)identifier;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setName:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void)setObject:(id)a0 forKeyedSubscript:(id)a1;
+- (id)copy;
+- (id)init;
+- (id)valueForKeyPath:(id)a0;
+- (id)valueForUndefinedKey:(id)a0;
+- (void)setValue:(id)a0 forUndefinedKey:(id)a1;
+- (id)name;
+- (void)addAnimation:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setIdentifier:(id)a0;
+- (void)addAnimation:(id)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (void)removeAllAnimations;
+- (id)initWithTag:(id)a0;
+- (void)removeAnimationForKey:(id)a0;
+- (struct __CFXAnimationManager { } *)animationManager;
+- (void *)__CFObject;
+- (void)_syncObjCAnimations;
+- (BOOL)__removeAnimation:(id)a0 forKey:(id)a1;
+- (void)_copyAnimationsFrom:(id)a0;
+- (void)_pauseAnimation:(BOOL)a0 forKey:(id)a1 pausedByNode:(BOOL)a2;
+- (void)addAnimationPlayer:(id)a0 forKey:(id)a1;
+- (id)animationPlayerForKey:(id)a0;
+- (void)bindAnimatablePath:(id)a0 toObject:(id)a1 withKeyPath:(id)a2 options:(id)a3;
+- (id)copyAnimationChannelForKeyPath:(id)a0 animation:(id)a1;
+- (BOOL)isPausedOrPausedByInheritance;
+- (void)removeAllAnimationsWithBlendOutDuration:(float)a0;
+- (void)removeAllBindings;
+- (void)removeAnimationForKey:(id)a0 blendOutDuration:(float)a1;
+- (void)unbindAnimatablePath:(id)a0;
+- (void)setWorld:(id)a0;
+- (void)_vfxDeprecatedAddAnimation:(id)a0 forKey:(id)a1;
+- (id)entityManager;
+- (id)bindingValueForKey:(id)a0;
+- (id)parameterInfoForKey:(id)a0;
+- (BOOL)setBindingValue:(void *)a0 size:(unsigned long long)a1 forKey:(id)a2;
+- (id)unsafeParameterHandleForKey:(id)a0;
+- (void)_copyBindingsFrom:(id)a0;
+- (void)_setSourceObject:(id)a0 forBinding:(id)a1;
+- (void)_updateEntityModelFromPresentation;
+- (void)_updateEntityPresentationFromModel;
+- (void)_updateModelFromPresentation;
+- (void)_updatePresentationFromModel;
+- (id)_vfxAnimationForKey:(id)a0;
+- (id)_vfxBindings;
+- (void)addWorldReference:(id)a0;
+- (id)bindindValueForKey:(id)a0;
+- (void)copyTo:(id)a0 withContext:(id)a1;
+- (id)coreEntityHandle;
+- (struct __CFXCoreEntityHandle { struct __CFXEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __CFXWorld *x5; long long x6; } x0; struct __CFString *x1; struct __CFDictionary *x2; struct __CFArray *x3; int x4; BOOL x5; void *x6; } *)coreEntityHandleRef;
+- (void)enumerateAnimationReferencesUsingBlock:(id /* block */)a0;
+- (void)enumerateReferencesForOperation:(long long)a0 usingBlock:(id /* block */)a1;
+- (id)initPresentationBehaviorGraphWithCoreEntityHandle:(id)a0;
+- (id)initWithCoreEntityHandle:(id)a0;
+- (BOOL)isPresentationObject;
+- (void)makeUniqueID;
+- (id)presentationBehaviorGraph;
+- (void)removeWorldReference:(id)a0;
+- (void)resolveTag:(id)a0 remap:(id)a1;
+
+@end

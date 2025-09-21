@@ -1,0 +1,56 @@
+@interface AAPreferences : NSObject
+
++ (long long)customHealthCheckReachabilityIntervalMinutes;
++ (void)setCustodianInfo:(id)a0;
++ (BOOL)isMomentsDataclassEnabled;
++ (void)setCustomHealthCheckIntervalMinutes:(long long)a0;
++ (BOOL)isRunningInStoreDemoMode;
++ (BOOL)shouldSkipIdMSFinalizeCustodian;
++ (void)setCustomHealthCheckIntervalEnabled:(BOOL)a0;
++ (BOOL)_os_feature_enabled_Journal_iPadOS;
++ (void)setNeverSkipCustodianCheckEnabled:(BOOL)a0;
++ (BOOL)shouldSkipIdMSKeyUpdate;
++ (id)getCustodianInfo;
++ (BOOL)isNeverSkipCustodianCheckEnabled;
++ (BOOL)isSignInSecurityRedesignMacOSEnabled;
++ (void)setCustomMaintenanceIntervalMinutes:(long long)a0;
++ (BOOL)isRCInSettingsEnabled;
++ (BOOL)shouldEnableAccountUserNotifications;
++ (void)setDisableADPStateHealing:(BOOL)a0;
++ (void)setLCInviteAcceptanceEnabled:(BOOL)a0;
++ (BOOL)isMultipleFullAccountsEnabled;
++ (void)setHealthCheckTTREnabled:(BOOL)a0;
++ (BOOL)shouldUseUnifiedLoginEndpoint;
++ (BOOL)isCustomMaintenanceIntervalEnabled;
++ (long long)customMaintenanceIntervalMinutes;
++ (long long)customHealthCheckVersion;
++ (BOOL)shouldEnableFastSignIn;
++ (BOOL)shouldShowAccountContacts;
++ (id)getTrustedContactsPreflightInfo;
++ (BOOL)disableADPStateHealing;
++ (BOOL)isIdentityKitEnabled;
++ (BOOL)shouldSkipRecoveryInfoRecordStorage;
++ (BOOL)isLCMessageExtensionEnabled;
++ (void)setExperimentalModeEnabled:(BOOL)a0;
++ (BOOL)simulate2FAFA;
++ (BOOL)isCustomHealthCheckIntervalEnabled;
++ (void)setMultipleFullAccountsEnabled:(BOOL)a0;
++ (void)setCustomHealthFailureReachabilityIntervalMinutes:(long long)a0;
++ (void)setCustomHealthCheckVersion:(long long)a0;
++ (void)setShouldUseUnifiedLoginEndpoint:(BOOL)a0;
++ (void)setCustomMaintenanceIntervalEnabled:(BOOL)a0;
++ (void)setShouldShowAccountContacts:(BOOL)a0;
++ (BOOL)_os_feature_enabled_Journal_macOS;
++ (long long)customHealthCheckIntervalMinutes;
++ (BOOL)isSignInSecurityRedesignEnabled;
++ (void)setTrustedContactsPreflightInfo:(id)a0;
++ (BOOL)isRCUpsellEnabled;
++ (BOOL)shouldEnableUnifyRenewCredentials;
++ (BOOL)isYorktownEnabled;
++ (void)setSimulateUnhealthyCustodianEnabled:(BOOL)a0;
++ (BOOL)isHealthCheckTTREnabled;
++ (BOOL)isLCInviteAcceptanceEnabled;
++ (BOOL)isSimulateUnhealthyCustodianEnabled;
++ (BOOL)isExperimentalModeEnabled;
+
+@end

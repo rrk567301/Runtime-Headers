@@ -1,0 +1,3 @@
+@interface _TtC26GenerativePartnerServiceUIP33_BAE78A331391EABD896053135D3CFD1F19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

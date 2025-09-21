@@ -1,0 +1,82 @@
+@class NSMenu, NSString, NSArray, TSKMacNSPopover, TSTWPTokenAttachment, TSCEFunctionArgSpec, NSMenuItem;
+
+@interface TSTExpressionNode : TSPObject <TSTFormulaToken> {
+    NSArray *_children;
+    TSCEFunctionArgSpec *_argumentSpec;
+}
+
+@property (retain, nonatomic) NSArray *children;
+@property (nonatomic) TSTExpressionNode *parentNode;
+@property (nonatomic) TSCEFunctionArgSpec *argumentSpec;
+@property (readonly, nonatomic) char isOptional;
+@property (weak, nonatomic) TSTWPTokenAttachment *tokenAttachment;
+@property (nonatomic) unsigned long long firstIndex;
+@property (nonatomic) unsigned long long lastIndex;
+@property (retain, nonatomic) NSString *whitespaceBefore;
+@property (retain, nonatomic) NSString *whitespaceAfter;
+@property (readonly, nonatomic) char isFunctionNode;
+@property (readonly, nonatomic) char isFunctionEndNode;
+@property (readonly, nonatomic) char isReferenceNode;
+@property (readonly, nonatomic) char isColonNode;
+@property (readonly, nonatomic) char isContinuedLetNode;
+@property (readonly, nonatomic) char isArgumentPlaceholderNode;
+@property (readonly, nonatomic) char isEmptyNode;
+@property (readonly, nonatomic) char isIdentifierNode;
+@property (readonly, nonatomic) char isVariableNode;
+@property (readonly, nonatomic) char isListNode;
+@property (readonly, nonatomic) char isConstantNode;
+@property (readonly, nonatomic) char isArrayNode;
+@property (readonly, nonatomic) unsigned long long allowsNewIdentifier;
+@property (readonly, nonatomic) TSKMacNSPopover *popover;
+@property (readonly, nonatomic) NSMenu *menu;
+@property (readonly, nonatomic) NSMenuItem *initialMenuItem;
+@property (readonly, nonatomic) int tokenType;
+@property (readonly, nonatomic) NSString *string;
+
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithContext:(id)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })range;
+- (unsigned int)symbol;
+- (void)saveToArchiver:(id)a0;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (id)detokenizedText;
+- (char)hasMenu;
+- (void)addTSTCanvasReferencesToSet:(id)a0 inRangeContext:(unsigned char)a1 withColorHelper:(id)a2 preferringNodesFromStorage:(id)a3 showingSpillRanges:(char)a4 calcEngine:(id)a5 allVisitedNodes:(id)a6;
+- (void)buildASTNodeArray:(struct TSCEASTNodeArray { char *x0; unsigned long long x1; unsigned long long x2; BOOL x3; } *)a0 hostCell:(struct TSUCellCoord { unsigned int x0; unsigned short x1; char x2; char x3; })a1;
+- (void)buildASTNodeArray:(struct TSCEASTNodeArray { char *x0; unsigned long long x1; unsigned long long x2; BOOL x3; } *)a0 hostCell:(struct TSUCellCoord { unsigned int x0; unsigned short x1; char x2; char x3; })a1 symbolTable:(void *)a2;
+- (void)clearAllChildren;
+- (void)clearAndCollectAllChildren:(id)a0;
+- (long long)compareFirstLastIndices:(id)a0;
+- (id)convertEmptyArgumentsToPlaceholders;
+- (id)copyByResolvingIdentifiers:(id)a0 hostTable:(id)a1 baseHostCell:(struct TSUCellCoord { unsigned int x0; unsigned short x1; char x2; char x3; })a2 forceReferenceInterpretation:(char)a3 symbolTable:(void *)a4 oldToNewNodeMap:(id)a5;
+- (id)copyIntoContext:(id)a0 bakeModes:(char)a1 children:(id)a2;
+- (id)deepCopyIntoContext:(id)a0 bakeModes:(char)a1 withTokenDict:(id)a2;
+- (void)enumerateExpressionNodesUsingBlock:(id /* block */)a0;
+- (id)exportString;
+- (unsigned long long)firstIndexOfSubtree;
+- (void)fixStorageLanguage:(id)a0;
+- (char)forceReferenceInterpretationOfChildren;
+- (id)formulaPlainText;
+- (id)initAsCopyOf:(id)a0 intoContext:(id)a1 children:(id)a2;
+- (id)initWithContext:(id)a0 children:(id)a1 firstIndex:(unsigned long long)a2 lastIndex:(unsigned long long)a3;
+- (id)initWithContext:(id)a0 firstIndex:(unsigned long long)a1 lastIndex:(unsigned long long)a2;
+- (void)insertFormulaText:(id)a0 includeWhitespace:(char)a1;
+- (void)insertFormulaTextNonRecursive:(id)a0 includeWhitespace:(char)a1;
+- (void)insertFormulaTextNonRecursive:(id)a0 phase:(unsigned long long)a1 deferredWorkStack:(id)a2;
+- (char)isEqualToExpressionNode:(id)a0;
+- (unsigned long long)lastIndexOfSubtree;
+- (id)menuForEditor:(id)a0;
+- (id)mostSpecificNodeContainingIndex:(unsigned long long)a0 correspondingIndex:(unsigned long long)a1;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeEncompassingExpressionNodesInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeEncompassingExpressionNodesInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 outStartingNode:(id *)a1;
+- (struct TSTCSENodeData { unsigned long long x0; unsigned long long x1; })recordHashesForSubexpressions:(id)a0;
+- (void)resetParentNodes;
+- (char)subtreeContainsIndex:(unsigned long long)a0;
+- (id)transformToUseScopedVariables:(void *)a0;
+- (id)variableUsageErrorWithSymbolTable:(void *)a0;
+
+@end

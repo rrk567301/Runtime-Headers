@@ -1,0 +1,76 @@
+@class NSString, NSMutableDictionary, NSRecursiveLock;
+
+@interface IFDiskObject : NSObject {
+    NSString *_diskRepID;
+    NSString *_diskLogicalVolumeUUID;
+    NSRecursiveLock *_lock;
+    NSMutableDictionary *_cachedAttributes;
+    char _installWouldResultInUnsupportedConfig;
+}
+
+- (void)dealloc;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)UUID;
+- (id)protocol;
+- (unsigned long long)availableSpace;
+- (char)isLeaf;
+- (unsigned long long)totalSize;
+- (char)isSystemImage;
+- (id)volumeName;
+- (id)mountPoint;
+- (char)isWritable;
+- (char)isEjectable;
+- (id)fileSystemType;
+- (char)isJournaled;
+- (unsigned long long)freeSpace;
+- (void)purgeCache;
+- (unsigned long long)rawSize;
+- (id)initWithDADisk:(struct __DADisk { } *)a0;
+- (id)diskIdentifier;
+- (id)ioContent;
+- (char)isDiskImage;
+- (char)isRootVolume;
+- (char)isWhole;
+- (id)fileSystem;
+- (char)isPasswordLocked;
+- (struct __DADisk { } *)diskRep;
+- (char)isAppleRAIDDisk;
+- (char)isCDROM;
+- (long long)_DMPartitionTypeToMKSchemeID:(int)a0;
+- (char)isMountedVolume;
+- (id)_sortDisksByBSDName:(id)a0;
+- (id)backingDiskImageFile;
+- (id)childDADisks;
+- (char)childIsRecoveryCompatible:(id)a0;
+- (id)dm;
+- (id)fileSystemBundleType;
+- (char)filesystemIsLocked;
+- (id)initWithLogicalVolumeUUID:(id)a0;
+- (char)installWouldResultInUnsupportedConfig;
+- (char)isCoreStorage;
+- (char)isDVDROM;
+- (char)isMountable;
+- (char)isNetworkDisk;
+- (char)isOptical;
+- (char)isROSVSystemVolume;
+- (char)isSSDBacked;
+- (char)isSoftRAID;
+- (char)isUserDataVolume;
+- (id)logicalVolumeDictionary;
+- (id)logicalVolumeUUID;
+- (id)objectForKey:(id)a0 withContext:(id)a1;
+- (id)parentDisk;
+- (id)rawDeviceNode;
+- (void)setDiskLogicalVolumeUUID:(id)a0;
+- (void)setDiskRep:(struct __DADisk { } *)a0;
+- (void)setInstallWouldResultInUnsupportedConfig:(char)a0;
+- (void)setObject:(id)a0 forKey:(id)a1 withContext:(id)a2;
+- (void)setUserContextObject:(id)a0 forKey:(id)a1;
+- (id)systemRoot;
+- (id)userContextObjectForKey:(id)a0;
+- (id)userContextObjectForKey:(id)a0 createIfMissing:(char)a1;
+- (id)wholeDiskName;
+
+@end

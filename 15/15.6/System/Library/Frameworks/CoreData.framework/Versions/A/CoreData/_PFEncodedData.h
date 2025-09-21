@@ -1,0 +1,35 @@
+@class NSData;
+
+@interface _PFEncodedData : NSData {
+    NSData *_aData;
+    unsigned int _byteCount;
+    unsigned int _reserved;
+}
+
++ (Class)classForKeyedUnarchiver;
+
+- (char)_isDeallocating;
+- (oneway void)release;
+- (char)_tryRetain;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (id)mutableCopy;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)retain;
+- (unsigned long long)retainCount;
+- (unsigned long long)length;
+- (const void *)bytes;
+- (void)getBytes:(void *)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (Class)classForCoder;
+- (void)getBytes:(void *)a0 length:(unsigned long long)a1;
+- (id)initWithCoder:(id)a0;
+- (char)writeToURL:(id)a0 options:(unsigned long long)a1 error:(id *)a2;
+- (char)writeToFile:(id)a0 options:(unsigned long long)a1 error:(id *)a2;
+- (char)writeToFile:(id)a0 atomically:(char)a1;
+- (char)isEqualToData:(id)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeOfData:(id)a0 options:(unsigned long long)a1 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (id)subdataWithRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (char)writeToURL:(id)a0 atomically:(char)a1;
+
+@end

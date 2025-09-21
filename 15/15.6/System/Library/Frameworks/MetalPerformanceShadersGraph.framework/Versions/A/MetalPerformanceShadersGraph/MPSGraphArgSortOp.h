@@ -1,0 +1,8 @@
+@interface MPSGraphArgSortOp : MPSGraphOperation {
+    char _descending;
+}
+
+- (id)initWithGraph:(id)a0 inputTensors:(id)a1 controlDependencies:(id)a2 descending:(char)a3 name:(id)a4;
+- (void *)makeMLIROpWithBuilder:(void *)a0 symbolTable:(void *)a1 inputValues:(void *)a2 opInitialization:(char)a3 name:(id)a4;
+
+@end

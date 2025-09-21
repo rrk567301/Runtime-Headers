@@ -1,0 +1,83 @@
+@class NSBundle, NSDictionary, NSString, NSArray;
+
+@interface IMDService : NSObject <IMSystemMonitorListener> {
+    Class _sessionClass;
+    NSString *_internalName;
+    NSDictionary *_accountDefaults;
+    NSDictionary *_serviceDefaults;
+    NSDictionary *_cachedServiceDefaults;
+    NSDictionary *_cachedSetupServiceDefaults;
+    char _blockPrefWriting;
+}
+
+@property (retain, nonatomic) NSDictionary *serviceProperties;
+@property (readonly, weak, nonatomic) Class sessionClass;
+@property (readonly, weak, nonatomic) Class accountClass;
+@property (readonly, nonatomic) unsigned int idSensitivity;
+@property (readonly, nonatomic) char handleIDInsensitivityIsCarrierBased;
+@property (readonly, nonatomic) unsigned long long caseInsensitivityByHandleType;
+@property (readonly, nonatomic) NSBundle *bundle;
+@property (readonly, nonatomic) NSString *internalName;
+@property (readonly, nonatomic) NSString *serviceDomain;
+@property (readonly, nonatomic, getter=isIDSBased) char idsBased;
+@property (readonly, nonatomic, getter=isDiscontinued) char discontinued;
+@property (readonly, nonatomic) NSDictionary *serviceDefaults;
+@property (readonly, nonatomic) NSDictionary *serviceDefaultsForSetup;
+@property (readonly, nonatomic) NSDictionary *defaultAccountSettings;
+@property (readonly, nonatomic) char requiresSingleAccount;
+@property (readonly, nonatomic) char shouldCreateActiveAccounts;
+@property (readonly, nonatomic) char wantsNullHostReachability;
+@property (readonly, nonatomic) char ignoresNetworkConnectivity;
+@property (readonly, nonatomic) char shouldForceAccountsActive;
+@property (readonly, nonatomic) char shouldForceAccountsConnected;
+@property (readonly, nonatomic) char needsLogin;
+@property (readonly, nonatomic) char needsPassword;
+@property (readonly, nonatomic) char shouldBeAlwaysLoggedIn;
+@property (readonly, nonatomic) char requiresHost;
+@property (readonly, nonatomic) char supportsRegistration;
+@property (readonly, nonatomic) char supportsAuthorization;
+@property (readonly, nonatomic) char chatsIgnoreLoginStatus;
+@property (readonly, nonatomic) char groupsMergeDisplayNames;
+@property (readonly, nonatomic) char supportsOneSessionForAllAccounts;
+@property (readonly, nonatomic) char supportsDatabase;
+@property (readonly, nonatomic) char disallowDeactivation;
+@property (readonly, nonatomic) NSArray *replicationServices;
+@property (readonly, nonatomic) long long replicationSourceID;
+@property (readonly, nonatomic) long long replicationSourceIDForSending;
+@property (readonly, nonatomic) long long protocolVersion;
+@property (readonly, nonatomic) char supportsMutatingGroupMembers;
+@property (readonly, nonatomic) char demandsBroadcasting;
+@property (readonly, nonatomic) long long transcodeTarget;
+@property (readonly, nonatomic) NSArray *relayMessageDelegates;
+@property (readonly, nonatomic) char fallbackHashIsContentBased;
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithBundle:(id)a0;
+- (void)systemDidEnterMemoryPressure;
+- (void)systemDidStartBackup;
+- (void)accountRemoved:(id)a0;
+- (void)disableAccount:(id)a0;
+- (void)accountAdded:(id)a0;
+- (void)enableAccount:(id)a0;
+- (char)supportsRelay;
+- (char)supportsCapability:(id)a0;
+- (id)oldInternalName;
+- (id)_defaultDefaults;
+- (id)_oldServiceDomain;
+- (void)_reallyUnloadServiceBundle;
+- (id)_serviceDefaultsForDomain:(id)a0;
+- (id)_serviceDomain;
+- (id)_supportedCapabilities;
+- (char)clearOneTimeImportAccounts;
+- (id)createDiscontinuedAccount;
+- (void)delayedSaveSettings;
+- (void)loadServiceBundle;
+- (id)mainService;
+- (id)newAccountWithAccountDefaults:(id)a0 accountID:(id)a1;
+- (void)purgeMemoryCaches;
+- (void)saveSettings;
+- (void)synchronizeServiceDefaults;
+
+@end

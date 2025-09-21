@@ -1,0 +1,3 @@
+@interface _TtC13DesignLibraryP33_5A61B2DF3E609080010D8B038010657019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

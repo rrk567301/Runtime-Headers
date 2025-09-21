@@ -1,0 +1,86 @@
+@class IKPTImporterController, IKPTEditorController, IKViewController, IKPictureTaker, IKPictureTakerRecentPicture, IKPTSidebar, NSScrollView, NSString, NSArray, NSView, IKProfilePictureView, IKPTBorderView, IKPTEffectsController;
+
+@interface IKPTContentViewController : IKViewController <IKPictureTakerInterface, NSPopoverDelegate> {
+    IKPTImporterController *_importerController;
+    IKPTEditorController *_editorController;
+    IKPTEffectsController *_effectsController;
+    long long _currentMode;
+    IKPictureTaker *_pictureTaker;
+    IKPictureTakerRecentPicture *_currentPictureAsRecent;
+    NSView *_childControllerHostingView;
+    IKPTBorderView *_borderView;
+    IKPTSidebar *_sourceSelector;
+    NSScrollView *_sidebarScrollView;
+    long long _currentSourceTag;
+    IKViewController *_selectedViewController;
+    BOOL _contentDidChange;
+    BOOL _popoverWillCloseOnClickOutside;
+}
+
+@property long long initialSource;
+@property IKProfilePictureView *attachedView;
+@property (retain) NSArray *viewControllers;
+@property (retain) IKViewController *selectedViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)slider;
+- (BOOL)validateMenuItem:(id)a0;
+- (id)imageView;
+- (void)dealloc;
+- (void)paste:(id)a0;
+- (void)copy:(id)a0;
+- (void)cut:(id)a0;
+- (void)invalidateContents;
+- (id)cancelButton;
+- (long long)currentMode;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })cropRect;
+- (void)popoverDidShow:(id)a0;
+- (void)popoverDidClose:(id)a0;
+- (BOOL)popoverShouldClose:(id)a0;
+- (void)popoverWillClose:(id)a0;
+- (void)popoverWillShow:(id)a0;
+- (void)setupViews;
+- (BOOL)shouldShowSource:(long long)a0;
+- (id)titleForSource:(long long)a0;
+- (id)allPotentialSourceTitles;
+- (void)cacheCurrentPictureAsRecent;
+- (id)cameraButton;
+- (id)chooseButton;
+- (double)computedSidebarWidth;
+- (struct CGSize { double x0; double x1; })contentSizeForCropAreaSize:(struct CGSize { double x0; double x1; })a0;
+- (id)countdownTabView;
+- (id)countdownView;
+- (id)currentPictureAsRecent;
+- (id)currentPictureFromRecents;
+- (void)effectsController:(id)a0 didSelectComposition:(id)a1;
+- (void)effectsController:(id)a0 willSelectComposition:(id)a1;
+- (id)fxButton;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })gridSelectionScreenRect;
+- (id)initWithPictureTaker:(id)a0 initialSource:(long long)a1;
+- (BOOL)isInCameraMode;
+- (BOOL)isRunningCameraCountDown;
+- (id)largerButton;
+- (id)layerSuperview;
+- (void)noteContentDidChange;
+- (id)pictureTaker;
+- (id)pictureTakerViewBox;
+- (void)selectSource:(id)a0;
+- (id)setButton;
+- (void)setMode:(long long)a0 options:(id)a1;
+- (void)setupSourceSelector;
+- (void)setupSources;
+- (id)smallerButton;
+- (id)sourceSelector;
+- (void)switchToCamera;
+- (void)switchToCurrentPicture;
+- (void)switchToDefaults;
+- (void)updateChildViewControllersContentLayoutForCropAreaSize:(struct CGSize { double x0; double x1; })a0;
+- (void)updateContentLayoutForCropAreaSize:(struct CGSize { double x0; double x1; })a0 sideBarTopMargin:(double)a1;
+- (void)updateCustomSources;
+- (void)updateSourceSelector;
+- (BOOL)usesBlackStyle;
+
+@end

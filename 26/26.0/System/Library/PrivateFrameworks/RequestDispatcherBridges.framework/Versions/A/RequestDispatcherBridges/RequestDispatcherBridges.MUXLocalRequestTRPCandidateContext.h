@@ -1,0 +1,3 @@
+@interface RequestDispatcherBridges.MUXLocalRequestTRPCandidateContext : RequestDispatcherBridges.MUXTRPCandidateContext
+
+@end

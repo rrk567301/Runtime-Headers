@@ -1,0 +1,92 @@
+@class FPDProviderDescriptor, NSString, NSArray, NSURL, NSSet, FPDExtension, FPDServer, FPDExtensionManager, NSObject, NSDictionary, NSMutableDictionary;
+@protocol OS_dispatch_queue;
+
+@interface FPDProvider : NSObject {
+    NSObject<OS_dispatch_queue> *_domainQueue;
+}
+
+@property (retain, nonatomic) NSArray *requestedExtendedAttributes;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *presentersQueue;
+@property (readonly, nonatomic) FPDProviderDescriptor *descriptor;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSString *purposeIdentifier;
+@property (readonly, nonatomic) NSString *bundleVersion;
+@property (readonly, nonatomic) NSArray *extensionStorageURLs;
+@property (readonly, nonatomic) char supportsEnumeration;
+@property (readonly, nonatomic) char invalidated;
+@property (readonly, nonatomic) char supportsFPFS;
+@property (readonly, nonatomic) char testingProvider;
+@property (readonly, nonatomic) char isAppExtensionReachable;
+@property (readonly, nonatomic) FPDExtension *asAppExtensionBackedProvider;
+@property (readonly, nonatomic) char isKnownFolderSyncingAllowedByManagement;
+@property (copy, nonatomic) NSSet *blockedProcessNames;
+@property (readonly, nonatomic) NSURL *supportURL;
+@property (readonly, nonatomic) NSURL *providerPlistURL;
+@property (readonly, nonatomic) FPDServer *server;
+@property (readonly, nonatomic) FPDExtensionManager *manager;
+@property (readonly, nonatomic) NSDictionary *relevantDomainsByID;
+@property (readonly, nonatomic) NSDictionary *nsDomainsByID;
+@property (readonly, nonatomic) char shouldHideDomainDisplayName;
+@property (readonly, nonatomic) NSMutableDictionary *domainsByID;
+@property (readonly, nonatomic) NSMutableDictionary *domainsByRootPath;
+@property (readonly, nonatomic) NSArray *providedItemsURLs;
+
++ (void)_garbageCollectFoldersWithNoRelatedDomain:(id)a0 supportDir:(id)a1;
++ (id)defaultNSDomainForDescriptor:(id)a0;
++ (void)dumpXattrsForContentsOfDirectoryAtURL:(id)a0 dumper:(id)a1;
++ (void)dumpXattrsForItemAtURL:(id)a0 to:(id)a1;
++ (void)dumpXattrsForSyncRootDirectoryOfVolume:(id)a0 dumper:(id)a1;
++ (void)dumpXattrsForSystemDirectoryOfVolume:(id)a0 dumper:(id)a1;
++ (id)fpfsDomainURLIsRootOf:(id)a0;
++ (id)getXattr:(const char *)a0 at:(const char *)a1;
++ (id)onDiskProvidersForServer:(id)a0;
++ (id)parseDomainProperties:(id)a0 descriptor:(id)a1 volume:(id)a2 replicatedByDefault:(char)a3;
+
+- (id)description;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)providerDomainForDomain:(id)a0;
+- (void)invalidateWithReason:(id)a0;
+- (void)startWithCompletion:(id /* block */)a0;
+- (id)defaultNSDomain;
+- (id)_domainsWithFilter:(id)a0;
+- (id)_recreateDefaultDomainIfNeededOnVolume:(id)a0;
+- (void)_setEnabledOrHiddenByUser:(char)a0 forDomainIdentifier:(id)a1 newValue:(char)a2 request:(id)a3 completionHandler:(id /* block */)a4;
+- (void)_startOrClearDomain:(id)a0 userAllowedDBDrop:(char)a1 reason:(id)a2 completion:(id /* block */)a3;
+- (char)_supportsFPFS;
+- (void)_writeDomainPropertiesIntoLibrary:(id)a0 ifChangedFrom:(id)a1;
+- (void)addDomain:(id)a0 byImportingDirectoryAtURL:(id)a1 knownFolders:(id)a2 userAllowedDBDrop:(char)a3 unableToStartup:(char)a4 startupError:(id)a5 reloadDomain:(char)a6 request:(id)a7 completionHandler:(id /* block */)a8;
+- (void)addDomain:(id)a0 byImportingDirectoryAtURL:(id)a1 userAllowedDBDrop:(char)a2 knownFolders:(id)a3 request:(id)a4 completionHandler:(id /* block */)a5;
+- (void)checkTCCAccessForDomainID:(id)a0 auditToken:(struct { unsigned int x0[8]; })a1 completionHandler:(id /* block */)a2;
+- (id)domainForIdentifier:(id)a0 reason:(unsigned long long *)a1;
+- (id)domainForRealPathURLFast:(id)a0;
+- (id)domainForRealPathURLSlow:(id)a0;
+- (id)domainForURL:(id)a0;
+- (void)dumpAllDomains:(id)a0 domains:(id)a1 auditToken:(struct { unsigned int x0[8]; })a2 request:(id)a3 providerFilter:(id)a4 options:(unsigned long long)a5 completionHandler:(id /* block */)a6;
+- (void)dumpDomain:(id)a0 allowedToDump:(char)a1 dumper:(id)a2 options:(unsigned long long)a3 request:(id)a4 completionHandler:(id /* block */)a5;
+- (void)dumpStateTo:(id)a0 auditToken:(struct { unsigned int x0[8]; })a1 request:(id)a2 providerFilter:(id)a3 options:(unsigned long long)a4 completionHandler:(id /* block */)a5;
+- (void)dumpValue:(id)a0 forKey:(id)a1 to:(id)a2;
+- (void)dumpXattrsForDomains:(id)a0 dumper:(id)a1;
+- (void)enableAllDomainsIfNoUserElection;
+- (void)fetchTelemetryReportForAllDomains:(id)a0 resultDictionary:(id)a1 completionHandler:(id /* block */)a2;
+- (void)fetchTelemetryReportWithProviderFilter:(id)a0 completionHandler:(id /* block */)a1;
+- (id)importDomainsFromLibrary:(id)a0 updatePlist:(char)a1;
+- (id)initWithDescriptor:(id)a0 server:(id)a1;
+- (void)invalidateAllDomainsOnVolume:(id)a0 reason:(id)a1;
+- (void)invalidateSingleDomain:(id)a0 reason:(id)a1;
+- (id)loggerForDomainWithIdentifier:(id)a0;
+- (void)materializeRootForDomain:(id)a0;
+- (id)newDomainFromNSDomain:(id)a0 volume:(id)a1;
+- (void)reloadDomain:(id)a0 unableToStartup:(char)a1 startupError:(id)a2 completionHandler:(id /* block */)a3;
+- (void)removeAllDomainsForRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (void)removeDomain:(id)a0 mode:(unsigned long long)a1 request:(id)a2 completionHandler:(id /* block */)a3;
+- (void)setDomainUserInfo:(id)a0 forDomainIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setEjectable:(char)a0 forDomainIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setEnabled:(char)a0 forDomainIdentifier:(id)a1 request:(id)a2 completionHandler:(id /* block */)a3;
+- (void)setHiddenByUser:(char)a0 forDomainIdentifier:(id)a1 request:(id)a2 completionHandler:(id /* block */)a3;
+- (void)setReplicatedKnownFolders:(unsigned long long)a0 forDomainIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)startDomains:(id)a0 completion:(id /* block */)a1;
+- (void)writeAllDomainProperties;
+
+@end

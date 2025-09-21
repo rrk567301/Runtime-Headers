@@ -1,0 +1,98 @@
+@class NSDate, NSString, NSArray, NSURL, VUIExtrasInfo, NSDictionary, VUIContentMetadata, VUIRouterDataSource, NSNumber;
+
+@interface VUIVideosPlayable : NSObject {
+    NSDictionary *_videosPlayableDict;
+}
+
+@property (readonly, nonatomic) NSString *canonicalID;
+@property (readonly, nonatomic) NSString *referenceID;
+@property (readonly, nonatomic) NSString *showCanonicalID;
+@property (readonly, nonatomic) NSString *seasonCanonicalID;
+@property (readonly, nonatomic) NSString *adamID;
+@property (readonly, nonatomic) NSString *hlsProgramID;
+@property (readonly, nonatomic) NSString *showAdamID;
+@property (readonly, nonatomic) NSString *seasonAdamID;
+@property (readonly, nonatomic) char isRental;
+@property (readonly, nonatomic) NSNumber *rentalID;
+@property (readonly, nonatomic) NSString *bookmarkID;
+@property (readonly, nonatomic) char isSubscription;
+@property (readonly, nonatomic) NSString *externalID;
+@property (readonly, nonatomic) NSString *channelID;
+@property (readonly, nonatomic) NSString *channelName;
+@property (readonly, nonatomic) NSString *mediaType;
+@property (readonly, nonatomic) NSString *utsEntityType;
+@property (readonly, nonatomic) char isMovie;
+@property (readonly, nonatomic) char isFamilySharingContent;
+@property (readonly, nonatomic) NSURL *playbackURL;
+@property (retain, nonatomic) NSURL *hlsURL;
+@property (readonly, nonatomic) NSURL *downloadURL;
+@property (readonly, nonatomic) NSURL *fpsCertificateURL;
+@property (readonly, nonatomic) NSURL *fpsKeyServerURL;
+@property (readonly, nonatomic) NSDictionary *fpsAdditionalServerParams;
+@property (readonly, nonatomic) NSURL *fpsNonceURL;
+@property (readonly, nonatomic) NSURL *scrubVideoURL;
+@property (readonly, nonatomic) NSString *buyParams;
+@property (readonly, nonatomic) NSURL *previewArtwork;
+@property (readonly, nonatomic) NSNumber *resumeTime;
+@property (readonly, nonatomic) NSDate *resumeTimeTimestamp;
+@property (readonly, nonatomic) NSNumber *mainContentRelativeResumeTime;
+@property (readonly, nonatomic) NSDate *mainContentRelativeResumeTimeTimestamp;
+@property (retain, nonatomic) VUIContentMetadata *metadata;
+@property (retain, nonatomic) NSDictionary *vpafMetrics;
+@property (readonly, nonatomic) NSDictionary *mediaMetrics;
+@property (readonly, nonatomic) NSString *liveStreamServiceID;
+@property (readonly, nonatomic) NSString *externalServiceID;
+@property (readonly, nonatomic) char disableScrubbing;
+@property (readonly, nonatomic) NSString *rtcServiceIdentifier;
+@property (readonly, nonatomic) char sendLocationToPlaybackKeyServerWhenOptedIn;
+@property (readonly, nonatomic) char sendMescalHeaderToPlaybackKeyServer;
+@property (readonly, nonatomic) NSArray *playbackModes;
+@property (readonly, nonatomic) NSString *preferredPlaybackMode;
+@property (readonly, nonatomic) NSString *locale;
+@property (readonly, nonatomic) char playsFromStartOfLiveStream;
+@property (readonly, nonatomic) NSURL *artworkURL;
+@property (readonly, nonatomic) unsigned long long sourceRef;
+@property (readonly, nonatomic) unsigned long long playableType;
+@property (readonly, nonatomic) VUIExtrasInfo *extrasInfo;
+@property (readonly, nonatomic, getter=supportsStartOver) char supportsStartOver;
+@property (readonly, nonatomic) NSString *preferredAudioLanguageCode;
+@property (readonly, nonatomic) VUIRouterDataSource *upsellRouterDataSource;
+@property (readonly, nonatomic) NSURL *tvAppDeeplinkURL;
+@property (readonly, nonatomic) NSNumber *requiredAgeForPlayback;
+@property (readonly, nonatomic) NSNumber *frequencyOfAgeConfirmation;
+@property (readonly, nonatomic) char isiTunesPurchaseOrRental;
+@property (readonly, nonatomic) char isAmbientVideo;
+@property (readonly, nonatomic) NSNumber *repeatLoopCount;
+@property (readonly, nonatomic) NSURL *sharedWatchUrl;
+@property (readonly, nonatomic) NSString *sharedWatchId;
+@property (readonly, nonatomic) char useSharedPlayableForCowatching;
+@property (readonly, nonatomic) char isCowatchingProhibited;
+@property (readonly, nonatomic) NSString *cowatchingProhibitedReason;
+@property (readonly, nonatomic) NSString *groupActivityDay;
+@property (readonly, nonatomic) NSArray *startTimeInfos;
+@property (readonly, nonatomic) NSArray *knownAudioVariantIDs;
+@property (readonly, nonatomic) char fullscreenTransferEligible;
+@property (readonly, nonatomic) char isEligibleForMultiview;
+@property (readonly, nonatomic) NSString *playablePassThrough;
+@property (readonly, nonatomic) char isKeyPlayAvailable;
+@property (readonly, nonatomic) char makeAdditionalPlayerTabsRequest;
+@property (readonly, nonatomic) char containsEligiblePlaybackMode;
+@property (readonly, nonatomic) char reportVPAFWhenPlayingInBackground;
+@property (readonly, nonatomic) NSDictionary *liveSportsPostPlayShelfFetchPolicy;
+@property (readonly, nonatomic) NSNumber *autoExitOnBroadcastEndInSeconds;
+
++ (id)_sharedPlayableAllowList;
++ (char)isMediaCharacteristicAnAudioVariantID:(id)a0;
++ (id)knownAudioVariantIDs;
++ (id)videosPlayableFromSerializedData:(id)a0;
++ (id)videosPlayableFromSerializedSharedData:(id)a0;
++ (id)videosPlayablesFromDictionaries:(id)a0 andMetadataDictionary:(id)a1;
+
+- (void).cxx_destruct;
+- (id)serializedData;
+- (id)_allPlaybackModes;
+- (id)initWithDictionary:(id)a0 andMetadataDictionary:(id)a1;
+- (char)isMediaCharacteristicAnAudioVariantID:(id)a0;
+- (id)serializedSharedData;
+
+@end

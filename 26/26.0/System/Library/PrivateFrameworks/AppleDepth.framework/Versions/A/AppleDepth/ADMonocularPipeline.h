@@ -1,0 +1,19 @@
+@class ADNetworkProvider, ADMonocularPipelineParameters, ADEspressoMonocularInferenceDescriptor, ADImageDescriptor;
+
+@interface ADMonocularPipeline : NSObject {
+    long long _prioritization;
+    ADNetworkProvider *_networkProvider;
+    ADEspressoMonocularInferenceDescriptor *_inferenceDesc;
+    ADImageDescriptor *_processedDepthDesc;
+}
+
+@property (copy, nonatomic) ADMonocularPipelineParameters *pipelineParameters;
+@property (readonly, nonatomic) ADEspressoMonocularInferenceDescriptor *inferenceDescriptor;
+
+- (void).cxx_destruct;
+- (id)initWithInputPrioritization:(long long)a0;
+- (id)initWithInputPrioritization:(long long)a0 andParameters:(id)a1;
+- (long long)postProcessWithDepth:(struct __CVBuffer { } *)a0 depthOutput:(struct __CVBuffer { } *)a1;
+- (id)processedDepthOutputDescriptor;
+
+@end

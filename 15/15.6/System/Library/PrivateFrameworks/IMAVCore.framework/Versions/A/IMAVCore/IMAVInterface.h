@@ -1,0 +1,72 @@
+@interface IMAVInterface : NSObject
+
+@property (readonly, nonatomic) unsigned int overallChatState;
+@property (readonly, nonatomic) char supportsRelay;
+@property (weak, nonatomic) id delegate;
+@property (readonly, nonatomic) char supportsLayers;
+@property (readonly, nonatomic) char isAVInterfaceReady;
+@property (readonly, nonatomic) unsigned long long capabilities;
+@property (readonly, nonatomic) unsigned long long capabilitiesOfNetwork;
+@property (readonly, nonatomic) unsigned long long capabilitiesOfCPU;
+@property (readonly, nonatomic) id _controller;
+@property (nonatomic) unsigned int maxBitrate;
+@property (readonly, nonatomic) id controller;
+@property (readonly, nonatomic) char systemCanVideoChat;
+@property (readonly, nonatomic) char systemCanAudioChat;
+@property (readonly, nonatomic) char systemSupportsFrontFacingCamera;
+@property (readonly, nonatomic) char systemSupportsBackFacingCamera;
+@property (nonatomic) void *localVideoBackLayer;
+@property (nonatomic) void *localVideoLayer;
+@property (nonatomic) char shouldKeepCameraRunning;
+
++ (id)sharedInstance;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (char)stopPreview;
+- (void)persistentProperty:(id)a0 changedTo:(id)a1 from:(id)a2;
+- (void)_avChatDealloc:(id)a0;
+- (void)endAVConferenceWithChat:(id)a0 callID:(long long)a1;
+- (char)_submitEndCallMetric:(id)a0 forCallID:(long long)a1;
+- (void)avChat:(id)a0 setMute:(char)a1;
+- (void)initAVInterface;
+- (long long)_checkNetworkForChat:(id)a0 requiresWifi:(char)a1;
+- (void)_conferenceEnded:(id)a0;
+- (void)_conferenceWillStart:(id)a0;
+- (void)_notifyAboutPotentialCallForChat:(id)a0;
+- (long long)_runPingTestForChat:(id)a0;
+- (char)_submitLoggingInformation:(id)a0 forChat:(id)a1;
+- (id)avChat:(id)a0 IPAndPortDataWithCallerIP:(id)a1 callerSIPPort:(unsigned int)a2 shouldFindExternalIP:(char)a3;
+- (id)avChat:(id)a0 IPAndPortDataWithCallerIPAndPortData:(id)a1 shouldFindExternalIP:(char)a2;
+- (int)avChat:(id)a0 endConferenceForUserID:(id)a1;
+- (char)avChat:(id)a0 generateCallInfoForID:(id)a1 service:(id)a2 usingRelay:(char)a3 callInfo:(id)a4;
+- (void)avChat:(id)a0 prepareConnectionWithCallInfo:(id)a1;
+- (void)avChat:(id)a0 setLocalLandscapeAspectRatio:(struct CGSize { double x0; double x1; })a1 localPortraitAspectRatio:(struct CGSize { double x0; double x1; })a2;
+- (void)avChat:(id)a0 setPaused:(char)a1;
+- (void)avChat:(id)a0 setRemoteMute:(char)a1;
+- (void)avChat:(id)a0 setSendingAudio:(char)a1;
+- (void)avChat:(id)a0 setSendingVideo:(char)a1;
+- (void)avChat:(id)a0 setValidatedIdentity:(struct __SecIdentity { } *)a1;
+- (void)cancelConferenceForAVChat:(id)a0;
+- (void)chatRelayedStatusChanged:(id)a0;
+- (void)chatStateUpdated;
+- (void)cleanupAVInterface;
+- (int)endConferenceForAVChat:(id)a0;
+- (id)getNatIPFromICEData:(id)a0;
+- (void)handleRelayCancel:(id)a0 fromParticipant:(id)a1 callInfo:(id)a2;
+- (void)handleRelayInitate:(id)a0 fromParticipant:(id)a1 callInfo:(id)a2;
+- (void)handleRelayUpdate:(id)a0 fromParticipant:(id)a1 callInfo:(id)a2;
+- (char)isMuteForAVChat:(id)a0;
+- (char)isPausedForAVChat:(id)a0;
+- (char)isRemoteMuteForAVChat:(id)a0;
+- (char)isSendingAudioForAVChat:(id)a0;
+- (char)isSendingVideoForAVChat:(id)a0;
+- (id)natTypeForAVChat:(id)a0;
+- (void)processRemoteIPChanged:(id)a0 fromParticipant:(id)a1;
+- (void)setRemoteVideoPresentationSize:(struct CGSize { double x0; double x1; })a0 forChat:(id)a1;
+- (void)setRemoteVideoPresentationState:(unsigned int)a0 forChat:(id)a1;
+- (char)startPreviewWithError:(id *)a0;
+- (void)unsetDelegate:(id)a0;
+- (void)updateAVChat:(id)a0 withCallMetadata:(id)a1 isFinalUpdate:(char)a2;
+
+@end

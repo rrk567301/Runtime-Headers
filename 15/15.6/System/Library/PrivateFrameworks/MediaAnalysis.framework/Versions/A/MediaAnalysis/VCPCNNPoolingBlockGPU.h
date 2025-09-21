@@ -1,0 +1,3 @@
+@interface VCPCNNPoolingBlockGPU : VCPCNNPoolingBlock
+
+@end

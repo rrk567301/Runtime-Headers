@@ -1,0 +1,16 @@
+@class NSDictionary;
+
+@interface ATXMailContextResponse : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) int mailSenderImportance;
+@property (readonly, nonatomic) double importanceConfidenceScore;
+@property (readonly, nonatomic) NSDictionary *mailFeatureDictionary;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithMailSenderImportance:(int)a0 importanceConfidenceScore:(double)a1 mailFeatureDictionary:(id)a2;
+
+@end

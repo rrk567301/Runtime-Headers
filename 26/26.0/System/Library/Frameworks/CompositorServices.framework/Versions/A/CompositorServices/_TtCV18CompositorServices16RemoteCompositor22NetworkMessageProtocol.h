@@ -1,0 +1,3 @@
+@interface _TtCV18CompositorServices16RemoteCompositor22NetworkMessageProtocol : _TtCs12_SwiftObject
+
+@end

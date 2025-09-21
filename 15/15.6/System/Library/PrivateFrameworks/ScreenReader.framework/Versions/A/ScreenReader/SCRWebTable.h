@@ -1,0 +1,75 @@
+@interface SCRWebTable : SCRTable <SCRWebElementAutoDrillAndAnnounceNavigationProtocol> {
+    unsigned char _tableRequiresInteraction;
+}
+
+@property (nonatomic) unsigned long long _previousBrailleRowIndex;
+
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (unsigned long long)rowCount;
+- (id)statusDescription;
+- (char)requiresInteraction;
+- (char)interactRightWithEvent:(id)a0 request:(id)a1;
+- (void)_addRowColumnInfoForCell:(id)a0 request:(id)a1 includeColumnIndex:(char)a2;
+- (char)_handleColumnNavigation:(id)a0 request:(id)a1;
+- (char)_handleMovementWithEvent:(id)a0 inDirection:(long long)a1 request:(id)a2 lastElement:(id)a3 jumpToBookend:(char)a4;
+- (char)_moveFirstWithEvent:(id)a0 request:(id)a1 visibleOnly:(char)a2;
+- (char)_moveLastWithEvent:(id)a0 request:(id)a1 visibleOnly:(char)a2;
+- (id)_newWebTableDomainKey;
+- (void)_outputBorderDescriptionForRequest:(id)a0 direction:(long long)a1;
+- (char)_webTableRequiresInteraction;
+- (void)addBorderCrossedDescriptionToRequest:(id)a0 forDirection:(long long)a1;
+- (void)addDescendantsToArray:(id)a0 additionalToRetain:(id)a1 additionalToSkip:(id)a2;
+- (void)addEndBookendToRequest:(id)a0;
+- (void)addItemDescriptionForEndInteractionToRequest:(id)a0;
+- (void)addItemDescriptionForInteractionToRequest:(id)a0;
+- (void)addItemDescriptionForSearchToRequest:(id)a0;
+- (void)addItemDescriptionToRequest:(id)a0;
+- (void)addStartBookendToRequest:(id)a0;
+- (void)addWebColumnHeaderInfoToRequest:(id)a0 forCell:(id)a1 shouldSpeakRowColumnIndices:(char)a2;
+- (void)addWebColumnIndexToRequest:(id)a0 forCell:(id)a1;
+- (void)addWebRowChangeInfoToRequest:(id)a0 forCell:(id)a1;
+- (void)addWebRowHeaderInfoToRequest:(id)a0 forCell:(id)a1 shouldSpeakRowColumnIndices:(char)a2;
+- (char)allowDirectNavigationBetweenContentOfRows;
+- (char)allowFocusThroughSingleChild;
+- (char)allowMoveAttemptsPastBoundary:(char)a0 allowFullWrapping:(char)a1;
+- (char)allowStopInteractionIndependentOfGroupingMode;
+- (void)beginFocusFromElement:(id)a0 withEvent:(id)a1;
+- (char)canWrapWhileNavigating;
+- (char)chainEvent:(id)a0 request:(id)a1;
+- (Class)classForChildUIElement:(id)a0 parent:(id)a1;
+- (id)completeKeyboardChainToUIElement:(id)a0;
+- (id)emptyCellDescription;
+- (void)endFocus;
+- (char)focusInto:(id)a0 event:(id)a1;
+- (void)focusOntoAutoDrillAndAnnouceWebElement:(id)a0;
+- (id)focusOntoUIElement:(id)a0 withScrolling:(char)a1 withSelection:(char)a2;
+- (id)fullItemDescriptionForMenu;
+- (long long)groupBehavior;
+- (char)handleEvent:(id)a0 request:(id)a1;
+- (char)includeColumnIndices;
+- (char)includeRowIndices;
+- (id)initWithUIElement:(id)a0 parent:(id)a1;
+- (char)interactDownShiftWithEvent:(id)a0 request:(id)a1;
+- (char)interactDownWithEvent:(id)a0 request:(id)a1;
+- (char)interactLeftShiftWithEvent:(id)a0 request:(id)a1;
+- (char)interactLeftWithEvent:(id)a0 request:(id)a1;
+- (char)interactRightShiftWithEvent:(id)a0 request:(id)a1;
+- (char)interactUpShiftWithEvent:(id)a0 request:(id)a1;
+- (char)interactUpWithEvent:(id)a0 request:(id)a1;
+- (char)isDepthLevelElement;
+- (id)lastChildForFocusing;
+- (char)moveToBookmarkInDirection:(long long)a0 withEvent:(id)a1 request:(id)a2;
+- (char)needToRebuildChildren;
+- (void)setBrailleLineWithFocusedElement:(id)a0 forceRebuild:(char)a1;
+- (void)setFocusedChild:(id)a0;
+- (char)shouldSpeakItemCountWhenFocusingIn;
+- (char)shouldWrapNavigationForOrientation:(long long)a0;
+- (char)toggleWebTableInteractability:(id)a0 request:(id)a1;
+- (char)trackElementWithGestureEvent:(id)a0 request:(id)a1;
+- (char)webElementSuperInteractDownWithEvent:(id)a0 request:(id)a1;
+- (char)webElementSuperInteractLeftWithEvent:(id)a0 request:(id)a1;
+- (char)webElementSuperInteractRightWithEvent:(id)a0 request:(id)a1;
+- (char)webElementSuperInteractUpWithEvent:(id)a0 request:(id)a1;
+
+@end

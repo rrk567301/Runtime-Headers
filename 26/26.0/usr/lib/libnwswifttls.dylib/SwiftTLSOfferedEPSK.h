@@ -1,0 +1,3 @@
+@interface SwiftTLSOfferedEPSK : SecOfferedEPSK
+
+@end

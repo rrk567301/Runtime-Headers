@@ -1,0 +1,97 @@
+@class brc_task_tracker, NSString, BRCAccountSession, NSMutableSet, NSObject, BRCStagePersistedState;
+@protocol OS_dispatch_source, OS_dispatch_queue;
+
+@interface BRCStageRegistry : NSObject <BRCModule, BRCLowDiskDelegate, BRCDownloadStagingProtocol, BRCSyncUpStagingProtocol, BRCXattrStagingProtocol> {
+    BRCAccountSession *_session;
+    NSString *_stageDirectoryPath[8];
+    unsigned long long _stageDirectoryFileID[8];
+    NSMutableSet *_activeUploadStageIDs;
+    NSMutableSet *_activeDownloadStageIDs;
+    NSObject<OS_dispatch_source> *_lockedTestTimer;
+    NSObject<OS_dispatch_queue> *_flushingQueue;
+    BRCStagePersistedState *_persistedState;
+    char _lowDiskSpace;
+    NSObject<OS_dispatch_queue> *_queue;
+    brc_task_tracker *_tracker;
+}
+
+@property (readonly, nonatomic) int deviceID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) char isCancelled;
+
++ (void)migrateStageToVersion2_0WithSession:(id)a0;
+
+- (void).cxx_destruct;
+- (void)close;
+- (void)open;
+- (void)resume;
+- (void)cancel;
+- (long long)purgableSpace;
+- (int)_performInStageDirectory:(unsigned char)a0 block:(id /* block */)a1;
+- (id)pendingDeltaFetchRecordDirWithStartingChangeToken:(id)a0 recordZoneID:(id)a1;
+- (void)purgeAllUploads;
+- (id)_anchorNameForChangeToken:(id)a0 recordZoneID:(id)a1;
+- (id)_anchorNameForRecordID:(id)a0;
+- (id)_anchorNamePrefixForRecordZoneID:(id)a0;
+- (long long)_garbageCollectDeltaSyncDatabases;
+- (long long)_garbageCollectDownloads;
+- (long long)_garbageCollectItemsIncludingActiveItems:(char)a0 stageIndex:(unsigned char)a1 maxAge:(long long)a2 deletePredicate:(id /* block */)a3;
+- (long long)_garbageCollectLiveItemsIncludingActiveItems:(char)a0;
+- (long long)_garbageCollectPackages;
+- (long long)_garbageCollectQBSDatabases;
+- (long long)_garbageCollectSpace:(long long)a0;
+- (long long)_garbageCollectUnusedLiveItems;
+- (long long)_garbageCollectUploadThumbnailsIncludingActiveUploads:(char)a0;
+- (long long)_garbageCollectUploadsIncludingActiveUploads:(char)a0;
+- (char)_graveyardAt:(int)a0 path:(id)a1 forItemID:(id)a2;
+- (char)_hasActiveUploadWithStageID:(id)a0;
+- (char)_hasContentsInPath:(id)a0;
+- (id)_liveURLForliveStageFilename:(id)a0;
+- (char)_moveFromURLToTargetStageLocation:(id)a0 stageIndex:(unsigned char)a1 filename:(id)a2 error:(id *)a3;
+- (int)_openStageDirectory:(unsigned char)a0;
+- (id)_pathForDirIndex:(unsigned char)a0;
+- (id)_pathInStage:(unsigned long long)a0 index:(unsigned char *)a1 generationID:(unsigned int *)a2;
+- (unsigned long long)_processPendingListDatabaseObjects:(id /* block */)a0;
+- (long long)_purgeAllUploadsWithIncludeActiveItems:(char)a0;
+- (long long)_purgeSpaceUnderQueue:(long long)a0 withUrgency:(int)a1;
+- (long long)_removeUnusedXattrBlobs;
+- (void)_updatePersistedStateWithLatestGCStartTime:(long long)a0;
+- (void)associateSyncUpStageID:(id)a0 withOperation:(id)a1;
+- (void)cleanupStagedDownloadWithID:(id)a0 forItemID:(id)a1;
+- (void)cleanupStagedSyncUpWithID:(id)a0;
+- (void)cleanupStagedUploadWithID:(id)a0;
+- (id)cloneFileURL:(id)a0 toUploadStageID:(id)a1 liveStageFilename:(id)a2 error:(id *)a3;
+- (char)copyPackageFileWithPackageFd:(int)a0 toStageFd:(int)a1 relpath:(id)a2;
+- (id)createStageURLForThumbnailFromLiveStageFilename:(id)a0 error:(id *)a1;
+- (id)createStageURLFromLiveURLForItem:(id)a0 options:(unsigned long long)a1 error:(id *)a2;
+- (id)createURLForDownloadWithStageID:(id)a0 name:(id)a1;
+- (id)createURLForThumbnailUploadWithStageID:(id)a0;
+- (id)createURLForUploadWithStageID:(id)a0 name:(id)a1;
+- (void)disarmLockedTestTimer;
+- (id)downloadStageURLWithStageID:(id)a0;
+- (char)existsInStage:(unsigned long long)a0 generationID:(unsigned int *)a1;
+- (char)existsInUploadOrLiveItemsStage:(unsigned long long)a0 generationID:(unsigned int *)a1;
+- (long long)garbageCollectSpace:(long long)a0;
+- (id)initWithAccountSession:(id)a0;
+- (long long)liveItemsSpace;
+- (id)loadXattrBlobForSignature:(id)a0 error:(id *)a1;
+- (void)lowDiskStatusChangedForDevice:(int)a0 hasEnoughSpace:(char)a1;
+- (char)markUploadActiveForStageID:(id)a0;
+- (char)moveFromURLToLiveStage:(id)a0 liveStageFilename:(id)a1 error:(id *)a2;
+- (id)pendingListRecordDirWithStartingChangeToken:(id)a0;
+- (long long)purgeGraveyardSpace:(long long)a0 withUrgency:(int)a1;
+- (long long)purgeSpace:(long long)a0 withUrgency:(int)a1;
+- (void)removeDatabaseObjectsForZone:(id)a0;
+- (char)rescueUnuploadedFile:(unsigned long long)a0 error:(id *)a1;
+- (char)saveXattrAtURL:(id)a0 forSignature:(id)a1 error:(id *)a2;
+- (char)saveXattrBlob:(id)a0 forSignature:(id)a1 error:(id *)a2;
+- (char)saveXattrsForURL:(id)a0 withMaximumSize:(unsigned long long)a1 xattrSignature:(id *)a2 error:(id *)a3;
+- (long long)spaceForStageDirectoryIndex:(unsigned char)a0;
+- (void)unlinkLiveStageFilename:(id)a0;
+- (long long)uploadsSpace;
+- (id)urlForXattrSignature:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface VCPCNNConvBlockGPU : VCPCNNConvBlock
+
+@end

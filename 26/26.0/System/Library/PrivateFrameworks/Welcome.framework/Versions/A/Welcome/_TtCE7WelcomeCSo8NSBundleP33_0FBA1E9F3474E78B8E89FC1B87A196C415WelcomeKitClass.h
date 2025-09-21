@@ -1,0 +1,3 @@
+@interface _TtCE7WelcomeCSo8NSBundleP33_0FBA1E9F3474E78B8E89FC1B87A196C415WelcomeKitClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,90 @@
+@class NSDate, NSString, NSArray, NSDictionary, ICAuthServiceClientTokenProviderDebugConfiguration, NSNumber, NSUserDefaults;
+
+@interface ICDefaults : NSObject {
+    NSUserDefaults *_userDefaults;
+}
+
+@property (class, readonly, nonatomic) ICDefaults *standardDefaults;
+
+@property (readonly, nonatomic) NSUserDefaults *internalDefaults;
+@property (copy, nonatomic) NSNumber *cachedSharedControlsCapability;
+@property (nonatomic) char socialProfileSupported;
+@property (readonly, nonatomic) char shouldForceServerToUseDAAPDebugFeature;
+@property (readonly, nonatomic) char shouldForceServerToUseDAAPDebugFeatureAlwaysPerformResetSync;
+@property (readonly, nonatomic) char shouldForceServerToUseDAAPDebugFeatureAlwaysBackoff;
+@property (copy, nonatomic) NSArray *prefetchKeyIdentifiers;
+@property (copy, nonatomic) NSString *cloudMediaLibraryUID;
+@property (readonly, nonatomic) NSString *defaultStoreFront;
+@property (copy, nonatomic) NSDictionary *cachedSubscriptionStatus;
+@property (copy, nonatomic) NSDictionary *cachedMusicUserTokens;
+@property (copy, nonatomic) NSDictionary *pushNotificationState;
+@property (copy, nonatomic) NSDictionary *mediaLibraryAccessApplicationIdentifiersWithTCCAcceptanceDates;
+@property (copy, nonatomic) NSNumber *lastActiveAccountDSID;
+@property (copy, nonatomic) NSDictionary *lastCookieHeadersForRevokingMusicUserTokens;
+@property (copy, nonatomic) NSDate *lastAllowedInteractiveAuthenticationTime;
+@property (copy, nonatomic) NSDictionary *authServiceClientTokenCache;
+@property (nonatomic) double lastAuthenticationDialogResponseTime;
+@property (copy, nonatomic) NSDictionary *lastKnownLocalStoreAccountProperties;
+@property (copy, nonatomic) NSDictionary *lastKnownSubscriptionStatusBaseCacheKey;
+@property (copy, nonatomic) NSDictionary *accountNotificationsShowInLibraryDictionary;
+@property (copy, nonatomic) NSDictionary *accountNotificationsNewMusicDictionary;
+@property (copy, nonatomic) NSString *lastKnownHouseholdID;
+@property (nonatomic) char shouldForceStreamingOnlyKeysForPlayback;
+@property (nonatomic) char automaticDownloadsEnabled;
+@property (nonatomic) char cachedU18MinorAccountStatus;
+@property (copy, nonatomic) NSDictionary *cachedHomeProperties;
+@property (copy, nonatomic) NSDictionary *sagaPushNotificationTimes;
+@property (nonatomic) char ignoreExtendedCertificateValidation;
+@property (readonly, nonatomic) char bypassBagSanityChecks;
+@property (copy, nonatomic) NSString *deviceModelOverride;
+@property (copy, nonatomic) NSNumber *deviceClassOverride;
+@property (copy, nonatomic) NSNumber *fairPlayDeviceTypeOverride;
+@property (copy, nonatomic) NSString *productVersionOverride;
+@property (copy, nonatomic) NSString *hardwarePlatformOverride;
+@property (copy, nonatomic) NSString *productPlatformOverride;
+@property (copy, nonatomic) NSNumber *networkTypeOverride;
+@property (copy, nonatomic) NSNumber *networkLinkQualityOverride;
+@property (copy, nonatomic) NSNumber *chargingStateOverride;
+@property (copy, nonatomic) NSNumber *batteryLevelOverride;
+@property (readonly, nonatomic) char shouldForceiPhoneBehaviors;
+@property (readonly, copy, nonatomic) NSNumber *authServiceClientTokenTimeToLive;
+@property (readonly, copy, nonatomic) NSNumber *requestTimeoutOverride;
+@property (nonatomic) char shouldRunAgeVerification;
+@property (copy, nonatomic) NSDate *ageVerificationExpirationDate;
+@property (nonatomic, getter=isExplicitContentAllowedForCurrentYear) char explicitContentAllowedForCurrentYear;
+@property (nonatomic, getter=isExplicitContentAllowedForExpirationYear) char explicitContentAllowedForExpirationYear;
+@property (nonatomic, getter=isGrazingPathEnabled) char grazingPathEnabled;
+@property (readonly, nonatomic, getter=isPrivacyAcknowledgementDisabledForMusic) char privacyAcknowledgementDisabledForMusic;
+@property (nonatomic) char shouldForcePrivacyAcknowledgementRequiredForMusic;
+@property (readonly, nonatomic) char shouldForceLibraryRecommendationAnalysis;
+@property (readonly, nonatomic) char allowLowAffinityRecommendations;
+@property (readonly, nonatomic) char shouldReduceLibraryRecommendationsXPCInterval;
+@property (readonly, nonatomic) char shouldTreatSubscriptionStatusAsExpired;
+@property (readonly, nonatomic) char shouldTreatSagaAddComputerCallAsFailed;
+@property (readonly, nonatomic) char shouldTreatInitialSagaImportAsFailed;
+@property (readonly, nonatomic) char shouldTreatSubscriptionStatusCheckAsIncomplete;
+@property (readonly, nonatomic) char shouldTreatFavoritingEntityRequestAsFailed;
+@property (readonly, nonatomic, getter=isLegacyStoreCacheBusterEnabled) char legacyStoreCacheBusterEnabled;
+@property (readonly, nonatomic) char shouldBypassURLBagCache;
+@property (readonly, copy, nonatomic) NSNumber *secureKeyRenewalTimeOverride;
+@property (readonly, nonatomic) char shouldForceWatchInitialSyncCompletion;
+@property (readonly, nonatomic) char shouldForceSilentAuthentications;
+@property (copy, nonatomic) NSDictionary *lastKnownUserAgeVerificationState;
+@property (readonly, nonatomic) char enableMultipathTCP;
+@property (readonly, nonatomic) ICAuthServiceClientTokenProviderDebugConfiguration *debugFetchConfiguration;
+@property (readonly, nonatomic) ICAuthServiceClientTokenProviderDebugConfiguration *debugRefreshConfiguration;
+@property (readonly, nonatomic) char presetsFound;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)synchronize;
+- (void)clearAllPresets;
+- (void)_setOrRemoveInternalDefaultsObject:(id)a0 forKey:(id)a1;
+- (void)_setOrRemoveObject:(id)a0 forKey:(id)a1;
+- (char)_shouldSpoofIPadRequestProperties;
+- (char)_shouldSpoofIPhoneRequestProperties;
+- (void)addDebugConfiguration:(id)a0;
+- (void)clearShouldForceServerToUseDAAPDebugFeatures;
+- (void)deleteAutomaticDownloadsKey;
+
+@end

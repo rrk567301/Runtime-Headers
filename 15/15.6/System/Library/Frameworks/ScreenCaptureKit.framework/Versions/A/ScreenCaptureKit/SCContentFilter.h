@@ -1,0 +1,91 @@
+@class NSString, NSArray, SCContentFilterAppsAndWindowsPinnedToDisplayInformation, SCContentFilterDisplayInformation, SCContentFilterDesktopIndependentWindowInformation, NSDictionary, SCWindow, NSMutableArray, SCDisplay;
+
+@interface SCContentFilter : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) char supportsSecureCoding;
+
+@property (nonatomic) long long source;
+@property (retain, nonatomic) NSDictionary *serializedCompositionConfig;
+@property (copy, nonatomic) NSDictionary *serializedDefaultPickerConfig;
+@property (copy, nonatomic) NSDictionary *serializedPickerConfig;
+@property (nonatomic) NSString *filterID;
+@property (copy, nonatomic) NSArray *ignoredExcludedBundleIDs;
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) SCContentFilterDisplayInformation *displayInfo;
+@property (readonly, nonatomic) SCContentFilterAppsAndWindowsPinnedToDisplayInformation *appsAndWindowsPinnedToDisplayInfo;
+@property (readonly, nonatomic) SCContentFilterDesktopIndependentWindowInformation *desktopIndependentWindowInfo;
+@property (retain, nonatomic) NSMutableArray *internalIncludedWindows;
+@property (retain, nonatomic) NSMutableArray *excludedWindows;
+@property (retain, nonatomic) NSArray *internalIncludedApplications;
+@property (retain, nonatomic) NSArray *excludedApplications;
+@property (retain, nonatomic) SCWindow *individualWindow;
+@property (retain, nonatomic) SCDisplay *display;
+@property (nonatomic) char shareAll;
+@property (nonatomic) long long filterType;
+@property (retain, nonatomic) NSString *filterID;
+@property (retain, nonatomic) NSDictionary *serializedCompositionConfig;
+@property (nonatomic) long long source;
+@property (copy, nonatomic) NSDictionary *serializedPickerConfig;
+@property (copy, nonatomic) NSDictionary *serializedDefaultPickerConfig;
+@property (copy, nonatomic) NSArray *ignoredExcludedBundleIDs;
+@property (readonly, nonatomic) long long streamType;
+@property (readonly, nonatomic) long long style;
+@property (readonly, nonatomic) float pointPixelScale;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } contentRect;
+@property (nonatomic) char includeMenuBar;
+@property (readonly, nonatomic) NSArray *includedDisplays;
+@property (readonly, nonatomic) NSArray *includedApplications;
+@property (readonly, nonatomic) NSArray *includedWindows;
+
++ (char)isValidContentFilterType:(long long)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (char)addWindow:(id)a0;
+- (char)removeWindow:(id)a0;
+- (id)serialize;
+- (id)includedWindows;
+- (id)includedApplications;
+- (id)initWithDesktopIndependentWindow:(id)a0;
+- (id)initWithDisplayId:(unsigned int)a0;
+- (char)inIndividualWindowWithWindowID:(unsigned int)a0;
+- (void)addIncludedApplication:(id)a0;
+- (void)appendWithIncludedWindows:(id)a0 includedBundleIDs:(id)a1;
+- (char)canModifyWindows;
+- (char)checkApplications:(id)a0 doesContainWindow:(id)a1;
+- (id)createNewContentFilterWithAdditionalWindow:(id)a0 display:(id)a1;
+- (id)deserializeApplications:(id)a0 bundleIDs:(id)a1;
+- (id)deserializeWindows:(id)a0;
+- (char)displayHasWindow:(id)a0;
+- (char)inExcludedApplicationsWithWindow:(id)a0;
+- (char)inExcludedWindows:(id)a0;
+- (char)inIncludedApplicationsWithWindow:(id)a0;
+- (char)inIncludedWindows:(id)a0;
+- (char)inIndividualWindow:(id)a0;
+- (char)inPickerExcludedApplicationsWithWindow:(id)a0;
+- (char)inPickerExcludedWindows:(id)a0;
+- (id)includedDisplays;
+- (id)initSharingNothing;
+- (id)initWithDisplay:(id)a0 excludingApplications:(id)a1 exceptingWindows:(id)a2;
+- (id)initWithDisplay:(id)a0 excludingWindows:(id)a1;
+- (id)initWithDisplay:(id)a0 includingApplications:(id)a1 exceptingWindows:(id)a2;
+- (id)initWithDisplay:(id)a0 includingWindows:(id)a1;
+- (id)initWithDisplayId:(unsigned int)a0 bundleIds:(id)a1;
+- (id)initWithDisplayId:(unsigned int)a0 windowIds:(id)a1;
+- (id)initWithWindowId:(unsigned int)a0;
+- (char)isCapturingApplications;
+- (char)isCapturingWindows;
+- (char)isEqualToSCContentFilter:(id)a0;
+- (id)preservedSerialize;
+- (void)printProperties:(id)a0;
+- (char)removeFromIncludedWindowsWithWindowID:(unsigned int)a0 canReplaceFilter:(char)a1;
+- (void)removeIncludedApplication:(id)a0;
+- (void)setContentsAndStreamType;
+
+@end

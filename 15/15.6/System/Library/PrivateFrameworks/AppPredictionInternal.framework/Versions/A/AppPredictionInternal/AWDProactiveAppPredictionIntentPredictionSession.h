@@ -1,0 +1,98 @@
+@class AWDProactiveAppPredictionAppLaunchSequence, NSString, AWDProactiveAppPredictionAppActionSequence, NSMutableArray;
+
+@interface AWDProactiveAppPredictionIntentPredictionSession : PBCodable <NSCopying> {
+    struct { int *list; unsigned long long count; unsigned long long size; } _engagedActionCacheIndices;
+    struct { unsigned char timestamp : 1; unsigned char appActionCoreMotionCurrentMotionLaunches : 1; unsigned char appForAllActionsCoreMotionCurrentMotionLaunches : 1; unsigned char consumerSubType : 1; unsigned char currentLOIType : 1; unsigned char dayOfWeek : 1; unsigned char engagementType : 1; unsigned char intentDonationDelay : 1; unsigned char locationDistanceFromHome : 1; unsigned char locationDistanceFromWork : 1; unsigned char logType : 1; unsigned char predictionAge : 1; unsigned char sessionLogVersion : 1; unsigned char timeOfDayInterval : 1; unsigned char totalAppActionAirplaneModeLaunches : 1; unsigned char totalAppActionCoarseTimeOfDayLaunches : 1; unsigned char totalAppActionCurrentDayOfWeekLaunches : 1; unsigned char totalAppActionTimeOfDayLaunches : 1; unsigned char totalAppForAllActionTimeOfDayLaunches : 1; unsigned char totalAppForAllActionsAirplaneModeLaunches : 1; unsigned char totalAppForAllActionsCoarseTimeOfDayLaunches : 1; unsigned char totalAppForAllActionsCurrentDayOfWeekLaunches : 1; unsigned char uiFeedbackDelay : 1; unsigned char inAirplaneMode : 1; unsigned char isInternalBuild : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (retain, nonatomic) NSMutableArray *actionDatas;
+@property (nonatomic) char hasAppActionCoreMotionCurrentMotionLaunches;
+@property (nonatomic) int appActionCoreMotionCurrentMotionLaunches;
+@property (readonly, nonatomic) char hasAppSequence;
+@property (retain, nonatomic) AWDProactiveAppPredictionAppLaunchSequence *appSequence;
+@property (nonatomic) char hasConsumerSubType;
+@property (nonatomic) int consumerSubType;
+@property (nonatomic) char hasCurrentLOIType;
+@property (nonatomic) int currentLOIType;
+@property (nonatomic) char hasDayOfWeek;
+@property (nonatomic) int dayOfWeek;
+@property (readonly, nonatomic) unsigned long long engagedActionCacheIndicesCount;
+@property (readonly, nonatomic) int *engagedActionCacheIndices;
+@property (nonatomic) char hasEngagementType;
+@property (nonatomic) int engagementType;
+@property (nonatomic) char hasInAirplaneMode;
+@property (nonatomic) char inAirplaneMode;
+@property (nonatomic) char hasIntentDonationDelay;
+@property (nonatomic) int intentDonationDelay;
+@property (nonatomic) char hasIsInternalBuild;
+@property (nonatomic) char isInternalBuild;
+@property (nonatomic) char hasLogType;
+@property (nonatomic) int logType;
+@property (nonatomic) char hasPredictionAge;
+@property (nonatomic) int predictionAge;
+@property (nonatomic) char hasTimeOfDayInterval;
+@property (nonatomic) int timeOfDayInterval;
+@property (nonatomic) char hasTotalAppActionAirplaneModeLaunches;
+@property (nonatomic) int totalAppActionAirplaneModeLaunches;
+@property (nonatomic) char hasTotalAppActionCurrentDayOfWeekLaunches;
+@property (nonatomic) int totalAppActionCurrentDayOfWeekLaunches;
+@property (nonatomic) char hasTotalAppForAllActionsAirplaneModeLaunches;
+@property (nonatomic) int totalAppForAllActionsAirplaneModeLaunches;
+@property (nonatomic) char hasTotalAppForAllActionsCurrentDayOfWeekLaunches;
+@property (nonatomic) int totalAppForAllActionsCurrentDayOfWeekLaunches;
+@property (nonatomic) char hasUiFeedbackDelay;
+@property (nonatomic) int uiFeedbackDelay;
+@property (nonatomic) char hasSessionLogVersion;
+@property (nonatomic) int sessionLogVersion;
+@property (readonly, nonatomic) char hasAbGroup;
+@property (retain, nonatomic) NSString *abGroup;
+@property (nonatomic) char hasAppForAllActionsCoreMotionCurrentMotionLaunches;
+@property (nonatomic) int appForAllActionsCoreMotionCurrentMotionLaunches;
+@property (nonatomic) char hasLocationDistanceFromHome;
+@property (nonatomic) int locationDistanceFromHome;
+@property (nonatomic) char hasLocationDistanceFromWork;
+@property (nonatomic) int locationDistanceFromWork;
+@property (nonatomic) char hasTotalAppActionTimeOfDayLaunches;
+@property (nonatomic) int totalAppActionTimeOfDayLaunches;
+@property (nonatomic) char hasTotalAppForAllActionTimeOfDayLaunches;
+@property (nonatomic) int totalAppForAllActionTimeOfDayLaunches;
+@property (nonatomic) char hasTotalAppActionCoarseTimeOfDayLaunches;
+@property (nonatomic) int totalAppActionCoarseTimeOfDayLaunches;
+@property (nonatomic) char hasTotalAppForAllActionsCoarseTimeOfDayLaunches;
+@property (nonatomic) int totalAppForAllActionsCoarseTimeOfDayLaunches;
+@property (readonly, nonatomic) char hasAppActionSequence;
+@property (retain, nonatomic) AWDProactiveAppPredictionAppActionSequence *appActionSequence;
+@property (readonly, nonatomic) char hasSessionId;
+@property (retain, nonatomic) NSString *sessionId;
+
++ (Class)actionDataType;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsEngagementType:(id)a0;
+- (id)engagementTypeAsString:(int)a0;
+- (int)StringAsCurrentLOIType:(id)a0;
+- (int)StringAsConsumerSubType:(id)a0;
+- (id)actionDataAtIndex:(unsigned long long)a0;
+- (unsigned long long)actionDatasCount;
+- (void)addActionData:(id)a0;
+- (void)addEngagedActionCacheIndices:(int)a0;
+- (void)clearActionDatas;
+- (void)clearEngagedActionCacheIndices;
+- (id)consumerSubTypeAsString:(int)a0;
+- (id)currentLOITypeAsString:(int)a0;
+- (int)engagedActionCacheIndicesAtIndex:(unsigned long long)a0;
+- (void)setEngagedActionCacheIndices:(int *)a0 count:(unsigned long long)a1;
+
+@end

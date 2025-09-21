@@ -1,0 +1,3 @@
+@interface RightGradientLayer : CAGradientLayer
+
+@end

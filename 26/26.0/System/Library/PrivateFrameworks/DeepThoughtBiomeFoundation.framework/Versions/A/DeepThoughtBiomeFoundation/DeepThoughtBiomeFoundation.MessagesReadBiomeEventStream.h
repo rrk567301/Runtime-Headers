@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.MessagesReadBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

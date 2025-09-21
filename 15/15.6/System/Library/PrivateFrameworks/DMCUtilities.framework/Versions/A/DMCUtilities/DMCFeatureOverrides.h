@@ -1,0 +1,50 @@
+@interface DMCFeatureOverrides : NSObject
+
++ (char)boolForDefaultsKey:(id)a0;
++ (id)numberForDefaultsKey:(id)a0;
++ (id)stringForDefaultsKey:(id)a0;
++ (char)useHTTPLogging;
++ (char)allowAnyMAIDToSignIn;
++ (id)wellKnownDiscoveryURLWithValue:(id)a0;
++ (id)appleMDMWellKnownURLWithDefaultValue:(id)a0;
++ (id)enrollmentProfileWithDefaultValue:(id)a0;
++ (double)enrollmentStepTimeoutThresholdWithDefaultValue:(double)a0;
++ (char)ignoreEnrollmentMode;
++ (id)productNameWithDefaultValue:(id)a0;
++ (id)serviceDiscoveryDefaultPortWithValue:(id)a0;
++ (id)serviceDiscoveryDomainWithValue:(id)a0;
++ (id)serviceDiscoveryFallbackServerVersion;
++ (id)serviceDiscoveryFallbackURLWithValue:(id)a0;
++ (char)shouldSimulateDEPCommunication;
++ (char)shouldSimulateMDMAccountDrivenEnrollment;
++ (id)simulatedCloudConfigProfile;
++ (id)simulatedMDMAccountDrivenEnrollmentAuthMethod;
++ (id)simulatedMDMAccountDrivenEnrollmentDefaultUsername;
++ (id)simulatedMDMEnrollmentMode;
++ (id)simulatedMDMEnrollmentProfile;
++ (id)activationRecordFlagsWithFlags:(id)a0;
++ (char)_isUnknownProduct;
++ (double)accountSignInTimeoutThresholdWithDefaultValue:(double)a0;
++ (char)allowAnyESSOApplicationEntitlements;
++ (id)attestationRateLimitOverrideMinutes;
++ (char)bypassMDMTLSClientAuthentication;
++ (char)bypassWatchUnpairWhenUnenrolling;
++ (id)deviceNameWithDefaultValue:(id)a0;
++ (id)dictForDefaultsKey:(id)a0;
++ (char)fakePushToken;
++ (char)forceAppInstallUnremovability;
++ (char)forceAppRemovalOnUnenroll;
++ (char)forceMediaCommandSupport;
++ (id)gestaltOverrideForKey:(struct __CFString { } *)a0 withDefaultValue:(id)a1;
++ (id)mdmAppInstallationSourceIdentifierWithDefaultValue:(id)a0;
++ (id)modelNameWithDefaultValue:(id)a0;
++ (id)modelNumberWithDefaultValue:(id)a0;
++ (id)objectForDefaultsKey:(id)a0;
++ (char)sentinelExistsAtPath:(id)a0;
++ (char)shouldSimulateMDMCommunication;
++ (id)simluatedMDMAccountDrivenEnrollmentAuthenticationResults;
++ (id)softwareUpdateDeviceIDWithDefaultValue:(id)a0;
++ (char)useNonEphemeralWebAuthSession;
++ (char)watchEnrollmentAllowLocalProfile;
+
+@end

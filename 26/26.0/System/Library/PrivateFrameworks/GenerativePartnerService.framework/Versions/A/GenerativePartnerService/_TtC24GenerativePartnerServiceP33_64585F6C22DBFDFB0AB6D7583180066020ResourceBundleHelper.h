@@ -1,0 +1,3 @@
+@interface _TtC24GenerativePartnerServiceP33_64585F6C22DBFDFB0AB6D7583180066020ResourceBundleHelper : _TtCs12_SwiftObject
+
+@end

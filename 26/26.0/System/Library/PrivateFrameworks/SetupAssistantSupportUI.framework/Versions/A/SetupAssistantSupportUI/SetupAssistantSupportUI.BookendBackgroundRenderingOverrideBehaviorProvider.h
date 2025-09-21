@@ -1,0 +1,3 @@
+@interface SetupAssistantSupportUI.BookendBackgroundRenderingOverrideBehaviorProvider : _TtCs12_SwiftObject
+
+@end

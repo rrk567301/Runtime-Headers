@@ -1,0 +1,10 @@
+@interface _NSTargetAction : NSObject {
+    id _target;
+    SEL _action;
+}
+
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithTarget:(id)a0 action:(SEL)a1;
+
+@end

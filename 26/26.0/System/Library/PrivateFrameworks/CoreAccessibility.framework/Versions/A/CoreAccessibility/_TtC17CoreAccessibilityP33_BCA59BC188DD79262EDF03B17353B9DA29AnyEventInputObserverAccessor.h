@@ -1,0 +1,3 @@
+@interface _TtC17CoreAccessibilityP33_BCA59BC188DD79262EDF03B17353B9DA29AnyEventInputObserverAccessor : CoreAccessibility._UnsafeValueBuffer_Accessor
+
+@end

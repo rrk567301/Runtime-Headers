@@ -1,0 +1,5 @@
+@interface FamilyCircleUI.AgeRangeGlobalSharedState : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _isUpdated;
+}
+
+@end

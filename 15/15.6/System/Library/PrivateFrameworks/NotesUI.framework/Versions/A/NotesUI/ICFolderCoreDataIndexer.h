@@ -1,0 +1,73 @@
+@class ICTagCoreDataIndexer, NSManagedObjectID, NSMutableDictionary, NSSet, NSFetchedResultsController, NSMutableSet, NSMutableOrderedSet, NSObject;
+@protocol OS_dispatch_queue, ICItemIdentifier;
+
+@interface ICFolderCoreDataIndexer : ICCoreDataIndexer
+
+@property (retain, nonatomic) NSFetchedResultsController *legacyFetchedResultsController;
+@property (retain, nonatomic) NSFetchedResultsController *modernFetchedResultsController;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *indexAccessQueue;
+@property (retain, nonatomic) NSMutableDictionary *folderListSectionIdentifiersToButtonIdentifiers;
+@property (retain, nonatomic) NSMutableDictionary *folderListSectionIdentifiersToVirtualSmartFolderIdentifiers;
+@property (retain, nonatomic) NSMutableDictionary *folderListSectionIdentifiersToFolderItemIdentifiers;
+@property (retain, nonatomic) NSMutableDictionary *folderItemIdentifiersToParentFolderItemIdentifier;
+@property (retain, nonatomic) NSMutableDictionary *folderItemIdentifiersToChildFolderItemIdentifiers;
+@property (retain, nonatomic) NSMutableOrderedSet *folderListSectionIdentifiers;
+@property (retain, nonatomic) NSMutableSet *legacyAccountManagedObjectIDs;
+@property (retain, nonatomic) NSMutableSet *modernAccountManagedObjectIDs;
+@property (retain, nonatomic) NSMutableSet *smartFolderManagedObjectIDs;
+@property (retain, nonatomic) NSMutableSet *virtualSmartFolderIdentifiers;
+@property (readonly, nonatomic) char includeMigratedLocalLegacyAccounts;
+@property (readonly, nonatomic) char hideUnmigratedLocalLegacyAccounts;
+@property (readonly, nonatomic) char includeMigratedICloudLegacyAccounts;
+@property (retain, nonatomic) ICTagCoreDataIndexer *tagIndexer;
+@property (readonly, nonatomic) unsigned long long countOfLegacyAccounts;
+@property (readonly, nonatomic) unsigned long long countOfModernAccounts;
+@property (retain, nonatomic) NSManagedObjectID *ancestorObjectID;
+@property (retain, nonatomic) NSManagedObjectID *accountObjectID;
+@property (readonly, nonatomic) unsigned long long totalFolderCount;
+@property (nonatomic) char shouldIncludeLegacyAccounts;
+@property (nonatomic) char shouldIncludeTags;
+@property (nonatomic) char shouldIncludeTagOperator;
+@property (nonatomic) long long shouldIncludeSystemPaper;
+@property (nonatomic) long long shouldIncludeMathNotes;
+@property (nonatomic) long long shouldIncludeCallNotes;
+@property (nonatomic) char shouldIncludeSmartFolders;
+@property (nonatomic) long long shouldIncludeSharedWithYou;
+@property (nonatomic) long long shouldIncludeAccount;
+@property (nonatomic) char shouldIncludeDefaultFolder;
+@property (nonatomic) char shouldIncludeTrash;
+@property (nonatomic) char shouldIncludeNewFolderButton;
+@property (nonatomic) char shouldIncludeSubfolders;
+@property (nonatomic) char shouldAutoExpandSingleSection;
+@property (retain, nonatomic) id<ICItemIdentifier> overrideContainerIdentifier;
+@property (readonly, nonatomic) NSSet *allSmartFolderObjectIDs;
+@property (readonly, nonatomic) NSSet *allVirtualSmartFolderIdentifiers;
+
+- (void).cxx_destruct;
+- (char)isCustomFolder:(id)a0;
+- (id)activeFetchedResultsControllers;
+- (void)addAccountItemsIfNeededForFolderSectionIdentifier:(id)a0;
+- (void)addSystemSectionIfNeeded;
+- (void)deleteObjectWithIDFromIndex:(id)a0 inSection:(id)a1;
+- (void)deleteWithDecisionController:(id)a0 completion:(id /* block */)a1;
+- (void)didIndex;
+- (id)expansionStateContext;
+- (id)firstRelevantItemIdentifier;
+- (id)indexObjectsInSection:(id)a0 sectionIndex:(unsigned long long)a1 fetchedResultsController:(id)a2;
+- (id)initWithLegacyManagedObjectContext:(id)a0 modernManagedObjectContext:(id)a1;
+- (id)initWithLegacyManagedObjectContext:(id)a0 modernManagedObjectContext:(id)a1 overrideContainerIdentifier:(id)a2;
+- (char)isDefaultFolder:(id)a0;
+- (char)itemIdentifiersContainCustomFolder:(id)a0;
+- (id)legacyFolderFetchPredicate;
+- (id)modernDescendantsPredicate;
+- (id)modernFolderFetchPredicate;
+- (id)newSnapshotFromIndexWithLegacyManagedObjectContext:(id)a0 modernManagedObjectContext:(id)a1;
+- (id)nextRelevantItemIdentifierAfter:(id)a0;
+- (id)rootFolderListSectionIdentifiersForSection:(id)a0;
+- (id)sectionIdentifierForHeaderInSection:(long long)a0;
+- (id)sectionIdentifiersForSectionType:(unsigned long long)a0;
+- (void)sortIdentifiersWithLegacyManagedObjectContext:(id)a0 modernManagedObjectContext:(id)a1;
+- (id)sortedFolderItemIdentifiersForItemIdentifiers:(id)a0 legacyManagedObjectContext:(id)a1 modernManagedObjectContext:(id)a2;
+- (void)willIndex;
+
+@end

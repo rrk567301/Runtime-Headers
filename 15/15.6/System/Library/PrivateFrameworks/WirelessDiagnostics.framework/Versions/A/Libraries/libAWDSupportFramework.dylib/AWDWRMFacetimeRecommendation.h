@@ -1,0 +1,83 @@
+@class NSString;
+
+@interface AWDWRMFacetimeRecommendation : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char wifiRssi : 1; unsigned char wifiSNR : 1; unsigned char audioErasure : 1; unsigned char bssLoad : 1; unsigned char cca : 1; unsigned char cellRsrp : 1; unsigned char cellRsrq : 1; unsigned char cellSnr : 1; unsigned char counter : 1; unsigned char dataLQM : 1; unsigned char facetimeAction : 1; unsigned char facetimePacketLoss : 1; unsigned char facetimeTimeDelay : 1; unsigned char qbssLoad : 1; unsigned char signalBar : 1; unsigned char stationCount : 1; unsigned char videoErasure : 1; unsigned char voiceLQM : 1; unsigned char wifiEstimatedBandwitdh : 1; unsigned char wifiRxPhyRate : 1; unsigned char wifiRxRetry : 1; unsigned char wifiTxPER : 1; unsigned char wifiTxPhyRate : 1; unsigned char alertedMode : 1; unsigned char captiveNetworks : 1; unsigned char cellMode : 1; unsigned char isPCDetected : 1; unsigned char isStallDetected : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) char hasWifiRssi;
+@property (nonatomic) long long wifiRssi;
+@property (nonatomic) char hasWifiTxPER;
+@property (nonatomic) unsigned int wifiTxPER;
+@property (nonatomic) char hasWifiSNR;
+@property (nonatomic) long long wifiSNR;
+@property (nonatomic) char hasCaptiveNetworks;
+@property (nonatomic) char captiveNetworks;
+@property (nonatomic) char hasWifiRxRetry;
+@property (nonatomic) unsigned int wifiRxRetry;
+@property (nonatomic) char hasWifiEstimatedBandwitdh;
+@property (nonatomic) unsigned int wifiEstimatedBandwitdh;
+@property (nonatomic) char hasWifiTxPhyRate;
+@property (nonatomic) unsigned int wifiTxPhyRate;
+@property (nonatomic) char hasWifiRxPhyRate;
+@property (nonatomic) unsigned int wifiRxPhyRate;
+@property (nonatomic) char hasQbssLoad;
+@property (nonatomic) unsigned int qbssLoad;
+@property (nonatomic) char hasCca;
+@property (nonatomic) unsigned int cca;
+@property (nonatomic) char hasStationCount;
+@property (nonatomic) unsigned int stationCount;
+@property (nonatomic) char hasDataLQM;
+@property (nonatomic) unsigned int dataLQM;
+@property (nonatomic) char hasBssLoad;
+@property (nonatomic) unsigned int bssLoad;
+@property (nonatomic) char hasVoiceLQM;
+@property (nonatomic) unsigned int voiceLQM;
+@property (nonatomic) char hasSignalBar;
+@property (nonatomic) unsigned int signalBar;
+@property (readonly, nonatomic) char hasRatType;
+@property (retain, nonatomic) NSString *ratType;
+@property (readonly, nonatomic) char hasIRATRecommendation;
+@property (retain, nonatomic) NSString *iRATRecommendation;
+@property (readonly, nonatomic) char hasIRATRecommendationReason;
+@property (retain, nonatomic) NSString *iRATRecommendationReason;
+@property (nonatomic) char hasFacetimePacketLoss;
+@property (nonatomic) unsigned int facetimePacketLoss;
+@property (nonatomic) char hasFacetimeAction;
+@property (nonatomic) unsigned int facetimeAction;
+@property (nonatomic) char hasFacetimeTimeDelay;
+@property (nonatomic) unsigned int facetimeTimeDelay;
+@property (nonatomic) char hasCounter;
+@property (nonatomic) unsigned int counter;
+@property (nonatomic) char hasAlertedMode;
+@property (nonatomic) char alertedMode;
+@property (nonatomic) char hasIsStallDetected;
+@property (nonatomic) char isStallDetected;
+@property (nonatomic) char hasIsPCDetected;
+@property (nonatomic) char isPCDetected;
+@property (nonatomic) char hasVideoErasure;
+@property (nonatomic) unsigned int videoErasure;
+@property (nonatomic) char hasAudioErasure;
+@property (nonatomic) unsigned int audioErasure;
+@property (nonatomic) char hasCellRsrp;
+@property (nonatomic) int cellRsrp;
+@property (nonatomic) char hasCellRsrq;
+@property (nonatomic) int cellRsrq;
+@property (nonatomic) char hasCellSnr;
+@property (nonatomic) int cellSnr;
+@property (nonatomic) char hasCellMode;
+@property (nonatomic) char cellMode;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

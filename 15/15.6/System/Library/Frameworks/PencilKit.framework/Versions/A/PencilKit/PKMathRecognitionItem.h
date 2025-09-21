@@ -1,0 +1,83 @@
+@class NSUUID, NSString, NSArray, CHTokenizedMathResult, NSSet, PKStrokeGroupItem, PKStroke, NSNumber;
+
+@interface PKMathRecognitionItem : NSObject {
+    PKStrokeGroupItem *_strokeGroupItem;
+    PKStroke *_heroStroke;
+    NSArray *_scrubbableVariables;
+    NSString *_updatedExpression;
+    double _updateTimestamp;
+    char _isGraphable;
+    NSArray *_graphableVariables;
+    NSArray *_availableTranscriptionPaths;
+}
+
+@property (readonly, nonatomic) NSArray *strokesForEqualSign;
+@property (readonly, nonatomic) NSArray *strokesForVerticalExpressionLine;
+@property (readonly, nonatomic) NSArray *strokesForIdentifier;
+@property (readonly, nonatomic) PKStroke *heroStroke;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } boundsForEqualSign;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } boundsForAnyEqualSign;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } boundsForVerticalExpressionLine;
+@property (readonly, nonatomic) char isGraphable;
+@property (readonly, nonatomic) NSSet *strokeUUIDs;
+@property (readonly, nonatomic) NSString *originalExpression;
+@property (readonly, nonatomic) CHTokenizedMathResult *mathResult;
+@property (readonly, nonatomic) NSArray *alternativesTokens;
+@property (copy, nonatomic) NSArray *allTokens;
+@property (retain, nonatomic) NSUUID *uuid;
+@property (retain, nonatomic) NSNumber *stableIdentifier;
+@property (retain, nonatomic) NSNumber *changeIdentifier;
+@property (nonatomic) double sortIndex;
+@property (nonatomic) double suggestedHeightForResult;
+@property (nonatomic) double suggestedDistanceBetweenDigits;
+@property (readonly, nonatomic) char disallowVariableScrubbing;
+@property (readonly, nonatomic) char isRecentlyModified;
+@property (readonly, nonatomic) char isRecentlyCreated;
+@property (readonly, nonatomic) struct _NSRange { unsigned long long x0; unsigned long long x1; } characterRangeForTriggerSymbol;
+@property (readonly, nonatomic) char hasAnyErrorsOrAlternatives;
+@property (readonly, nonatomic) char hasAnyErrors;
+@property (readonly, nonatomic) char hasAnyTrignometry;
+@property (readonly, nonatomic) double mostRecentStrokeTimestamp;
+@property (nonatomic) char shouldSolveMathFlagIsSet;
+@property (readonly, nonatomic) NSArray *graphableVariables;
+@property (readonly, nonatomic) char shouldBeSolved;
+@property (readonly, nonatomic) char isVerticalExpression;
+@property (readonly, nonatomic) char isLowConfidenceMath;
+@property (readonly, nonatomic) NSString *expression;
+@property (readonly, nonatomic) NSString *expressionToPresent;
+@property (readonly, nonatomic) NSArray *strokes;
+@property (readonly, nonatomic) NSArray *triggerStrokes;
+@property (readonly, nonatomic) NSArray *symbolStrokes;
+@property (readonly, nonatomic) NSArray *tappableStrokes;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } bounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } boundsForTriggerStrokes;
+@property (readonly, nonatomic) NSArray *scrubbableVariables;
+@property (readonly, nonatomic) NSNumber *strokeGroupIdentifier;
+
+- (void).cxx_destruct;
+- (id)_findHeroStroke;
+- (id)_anyEqualSignStrokes;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_boundsForStrokeIndexes:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_boundsForStrokes:(id)a0;
+- (id)_heroStrokeInDrawing:(id)a0;
+- (void)_logRecentlyModifiedAndCreated;
+- (void)_refreshStrokesInDrawing:(id)a0;
+- (double)_remainingDelayForTargetDelay:(double)a0;
+- (void)_setIsGraphable:(char)a0 graphableVariables:(id)a1;
+- (id)_stringForVariable:(id)a0;
+- (id)_strokeIndexesForCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)_strokeIndexesForEqualSign;
+- (id)_strokeIndexesForTappableStrokes;
+- (id)_strokeIndexesForVerticalExpressionLine;
+- (id)_strokesForStrokeIndexes:(id)a0;
+- (id)_strokesForToken:(id)a0;
+- (void)_tagAsRecentlyUpdated;
+- (void)_updateFromOldItem:(id)a0;
+- (void)_updatePreferredTranscriptionChangingToken:(id)a0 withAlternative:(id)a1;
+- (void)_updateVariable:(id)a0 valueString:(id)a1;
+- (void)_variableEditingEnded;
+- (id)initWithStrokeGroupItem:(id)a0 uuid:(id)a1;
+- (char)isValidForDrawing:(id)a0;
+- (id)stringForTokens:(id)a0;
+
+@end

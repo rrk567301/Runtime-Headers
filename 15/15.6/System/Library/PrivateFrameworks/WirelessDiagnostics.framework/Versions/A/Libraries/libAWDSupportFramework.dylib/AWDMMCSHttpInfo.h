@@ -1,0 +1,98 @@
+@class NSString, NSMutableArray;
+
+@interface AWDMMCSHttpInfo : PBCodable <NSCopying> {
+    struct { unsigned char duration : 1; unsigned char networkServiceType : 1; unsigned char responseReceivedDuration : 1; unsigned char startTime : 1; unsigned char adaptiveTcpReadTimeout : 1; unsigned char adaptiveTcpWriteTimeout : 1; unsigned char errorCode : 1; unsigned char httpStatus : 1; unsigned char locatorPort : 1; unsigned char qualityOfService : 1; unsigned char requestSize : 1; unsigned char responseSize : 1; unsigned char allowsCellular : 1; unsigned char allowsPowerNapScheduling : 1; unsigned char cancelled : 1; unsigned char connectionReused : 1; unsigned char fastFail : 1; unsigned char finalTryInRequest : 1; unsigned char forceNondiscretionary : 1; unsigned char inlineEdgeComplete : 1; unsigned char powerPluggedInAtEnd : 1; unsigned char powerPluggedInAtStart : 1; unsigned char powerPluggedInWhenQueued : 1; unsigned char proxyUsed : 1; unsigned char requiresPowerPluggedIn : 1; unsigned char timedOut : 1; unsigned char transactionComplete : 1; } _has;
+}
+
+@property (readonly, nonatomic) char hasLocatorScheme;
+@property (retain, nonatomic) NSString *locatorScheme;
+@property (readonly, nonatomic) char hasLocatorHostname;
+@property (retain, nonatomic) NSString *locatorHostname;
+@property (nonatomic) char hasLocatorPort;
+@property (nonatomic) unsigned int locatorPort;
+@property (nonatomic) char hasConnectionReused;
+@property (nonatomic) char connectionReused;
+@property (nonatomic) char hasStartTime;
+@property (nonatomic) long long startTime;
+@property (nonatomic) char hasResponseReceivedDuration;
+@property (nonatomic) long long responseReceivedDuration;
+@property (nonatomic) char hasDuration;
+@property (nonatomic) long long duration;
+@property (nonatomic) char hasHttpStatus;
+@property (nonatomic) int httpStatus;
+@property (readonly, nonatomic) char hasErrorDomain;
+@property (retain, nonatomic) NSString *errorDomain;
+@property (nonatomic) char hasErrorCode;
+@property (nonatomic) int errorCode;
+@property (nonatomic) char hasRequestSize;
+@property (nonatomic) int requestSize;
+@property (nonatomic) char hasResponseSize;
+@property (nonatomic) int responseSize;
+@property (nonatomic) char hasTransactionComplete;
+@property (nonatomic) char transactionComplete;
+@property (nonatomic) char hasTimedOut;
+@property (nonatomic) char timedOut;
+@property (nonatomic) char hasCancelled;
+@property (nonatomic) char cancelled;
+@property (retain, nonatomic) NSMutableArray *tcpInfos;
+@property (retain, nonatomic) NSMutableArray *httpErrors;
+@property (readonly, nonatomic) char hasInterfaceIdentifier;
+@property (retain, nonatomic) NSString *interfaceIdentifier;
+@property (readonly, nonatomic) char hasLocatorPeerAddress;
+@property (retain, nonatomic) NSString *locatorPeerAddress;
+@property (nonatomic) char hasRequiresPowerPluggedIn;
+@property (nonatomic) char requiresPowerPluggedIn;
+@property (nonatomic) char hasAllowsPowerNapScheduling;
+@property (nonatomic) char allowsPowerNapScheduling;
+@property (nonatomic) char hasAllowsCellular;
+@property (nonatomic) char allowsCellular;
+@property (nonatomic) char hasForceNondiscretionary;
+@property (nonatomic) char forceNondiscretionary;
+@property (nonatomic) char hasFastFail;
+@property (nonatomic) char fastFail;
+@property (nonatomic) char hasQualityOfService;
+@property (nonatomic) int qualityOfService;
+@property (nonatomic) char hasProxyUsed;
+@property (nonatomic) char proxyUsed;
+@property (nonatomic) char hasFinalTryInRequest;
+@property (nonatomic) char finalTryInRequest;
+@property (nonatomic) char hasInlineEdgeComplete;
+@property (nonatomic) char inlineEdgeComplete;
+@property (nonatomic) char hasAdaptiveTcpReadTimeout;
+@property (nonatomic) int adaptiveTcpReadTimeout;
+@property (nonatomic) char hasAdaptiveTcpWriteTimeout;
+@property (nonatomic) int adaptiveTcpWriteTimeout;
+@property (nonatomic) char hasPowerPluggedInWhenQueued;
+@property (nonatomic) char powerPluggedInWhenQueued;
+@property (nonatomic) char hasPowerPluggedInAtStart;
+@property (nonatomic) char powerPluggedInAtStart;
+@property (nonatomic) char hasPowerPluggedInAtEnd;
+@property (nonatomic) char powerPluggedInAtEnd;
+@property (readonly, nonatomic) char hasNetworkUsed;
+@property (retain, nonatomic) NSString *networkUsed;
+@property (nonatomic) char hasNetworkServiceType;
+@property (nonatomic) long long networkServiceType;
+
++ (Class)httpErrorType;
++ (Class)tcpInfoType;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearHttpErrors;
+- (unsigned long long)httpErrorsCount;
+- (id)tcpInfoAtIndex:(unsigned long long)a0;
+- (void)addHttpError:(id)a0;
+- (void)addTcpInfo:(id)a0;
+- (void)clearTcpInfos;
+- (id)httpErrorAtIndex:(unsigned long long)a0;
+- (unsigned long long)tcpInfosCount;
+
+@end

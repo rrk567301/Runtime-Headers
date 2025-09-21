@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_71F62EDC1DAE3BBC7A74521E45BA5A6636AnyAccessibilityViewModifierAccessor : _TtCs12_SwiftObject
+
+@end

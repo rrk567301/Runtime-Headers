@@ -1,0 +1,97 @@
+@class NSString, NSSet, NSMutableSet, UARPAccessoryHardwareID;
+
+@interface UARPSupportedAccessory : NSObject {
+    NSMutableSet *_bsdNotificationsInternal;
+    NSMutableSet *_serviceBsdNotificationsInternal;
+    NSMutableSet *_supplementalAssetsInternal;
+    NSMutableSet *_downstreamAppleModelNumbers;
+    NSMutableSet *_alternativeAppleModelNumbers;
+    NSString *_mobileAssetAppleModelNumber;
+    NSString *_supplementalMobileAssetAppleModelNumber;
+    NSString *_modelName;
+    NSString *_vendorName;
+    NSString *_productCode;
+    char _autoAppliesStagedFirmware;
+}
+
+@property (copy) NSString *appleModelNumber;
+@property (copy) NSString *productGroup;
+@property (copy) NSString *productNumber;
+@property unsigned long long capabilities;
+@property (retain) UARPAccessoryHardwareID *hardwareID;
+@property (readonly) NSString *mobileAssetAppleModelNumber;
+@property (readonly) NSString *supplementalMobileAssetAppleModelNumber;
+@property (copy) NSString *modelName;
+@property (copy) NSString *vendorName;
+@property char supportsPowerLogging;
+@property char supportsVoiceAssist;
+@property char supportsHeySiriCompact;
+@property char supportsLogs;
+@property char supportsAnalytics;
+@property char supportsMappedAnalytics;
+@property char supportsFriendlyName;
+@property char autoAppliesStagedFirmware;
+@property char supportsAccMode7;
+@property char reofferFirmwareOnSync;
+@property char supportsInternalSettings;
+@property char supportsDeveloperSettings;
+@property char supportsVersions;
+@property char allowDownloadOnCellular;
+@property char isSimulator;
+@property char dfuMode;
+@property char updateRequiresPowerAssertion;
+@property char ttrSolicitLogs;
+@property (retain) NSString *fusingOverrideUnfused;
+@property (copy) NSString *updaterName;
+@property (copy) NSString *productCode;
+@property (copy) NSString *personalizationNotification;
+@property unsigned long long uploaderResponseTimeout;
+@property unsigned long long uploaderRetryLimit;
+@property char postStagingNotifications;
+@property char supportsAuthListingInternally;
+@property (readonly) NSString *identifier;
+@property (readonly) NSSet *bsdNotifications;
+@property (readonly) NSSet *serviceBsdNotifications;
+@property (readonly) NSSet *supplementalAssets;
+@property (readonly) NSSet *downstreamAppleModelNumbers;
+@property (readonly) NSSet *alternativeAppleModelNumbers;
+@property (readonly) char isMFi;
+
++ (id)findByAppleModelNumber:(id)a0;
++ (id)findByHardwareID:(id)a0;
++ (id)findByMobileAssetAppleModelNumber:(id)a0;
++ (id)supportedAccessories;
++ (id)supportedAccessoriesByTransport:(long long)a0;
+
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (void)addAlternativeAppleModelNumber:(id)a0;
+- (void)setMobileAssetAppleModelNumber:(id)a0;
+- (void)addBSDNotificationName:(id)a0;
+- (void)addDownstreamAppleModelNumber:(id)a0;
+- (void)addServiceBSDNotificationName:(id)a0;
+- (void)addSupplementalAssetName:(id)a0;
+- (id)generatePlist;
+- (id)hashIdentifier;
+- (id)initWithBluetoothDictionary:(id)a0;
+- (id)initWithHDSDictionary:(id)a0;
+- (id)initWithHIDDictionary:(id)a0;
+- (id)initWithHardwareID:(id)a0 appleModelNumber:(id)a1 capabilities:(unsigned long long)a2;
+- (id)initWithHardwareID:(id)a0 capabilities:(unsigned long long)a1;
+- (id)initWithHardwareID:(id)a0 productGroup:(id)a1 productNumber:(id)a2 capabilities:(unsigned long long)a3;
+- (id)initWithIICDictionary:(id)a0;
+- (id)initWithIPv4Dictionary:(id)a0;
+- (id)initWithIPv6Dictionary:(id)a0;
+- (id)initWithSerialDictionary:(id)a0;
+- (id)initWithUSBDictionary:(id)a0;
+- (id)initWithUSBPDDictionary:(id)a0;
+- (id)plistFilename;
+- (void)removeAlternativeAppleModelNumber:(id)a0;
+- (void)removeDownstreamAppleModelNumbers;
+- (void)setSupplementalMobileAssetAppleModelNumber:(id)a0;
+
+@end

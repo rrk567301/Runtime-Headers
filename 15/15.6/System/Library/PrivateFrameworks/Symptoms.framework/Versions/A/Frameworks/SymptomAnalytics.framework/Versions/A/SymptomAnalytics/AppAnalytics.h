@@ -1,0 +1,5 @@
+@interface AppAnalytics : ProcessAnalytics
+
+- (id)initWithWorkspace:(id)a0 withCache:(char)a1;
+
+@end

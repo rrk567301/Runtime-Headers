@@ -1,0 +1,27 @@
+@class NSString, SASRecognition, SAConfidenceScores, NSNumber;
+
+@interface SASResultCandidate : SABaseClientBoundCommand
+
+@property (retain, nonatomic) SASRecognition *filteredRecognition;
+@property (copy, nonatomic) NSNumber *latticeRnnMitigatorCalibrationOffset;
+@property (copy, nonatomic) NSNumber *latticeRnnMitigatorCalibrationScale;
+@property (copy, nonatomic) NSNumber *latticeRnnMitigatorIsProcessed;
+@property (copy, nonatomic) NSString *latticeRnnMitigatorModelId;
+@property (nonatomic) double latticeRnnMitigatorScore;
+@property (nonatomic) double latticeRnnMitigatorThreshold;
+@property (copy, nonatomic) NSNumber *processedAudioDuration;
+@property (retain, nonatomic) SASRecognition *recognition;
+@property (copy, nonatomic) NSString *resultId;
+@property (copy, nonatomic) NSString *sharedUserId;
+@property (copy, nonatomic) NSString *speechId;
+@property (copy, nonatomic) NSNumber *speechProfileUsed;
+@property (copy, nonatomic) NSString *speechRecognitionTask;
+@property (copy, nonatomic) NSString *userIdentityClassification;
+@property (retain, nonatomic) SAConfidenceScores *voiceIDConfidenceScores;
+
+- (id)groupIdentifier;
+- (id)encodedClassName;
+- (BOOL)requiresResponse;
+- (BOOL)mutatingCommand;
+
+@end

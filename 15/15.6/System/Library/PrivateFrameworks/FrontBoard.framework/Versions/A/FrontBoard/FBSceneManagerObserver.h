@@ -1,0 +1,85 @@
+@class NSString;
+@protocol FBSceneManagerObserver;
+
+@interface FBSceneManagerObserver : NSObject <BSDescriptionProviding, FBSceneWorkspaceDelegate_Internal, FBSceneManagerInternalObserver, FBSceneManagerDelegate_Private> {
+    unsigned long long _observerAddress;
+    Class _observerClass;
+    char _isDelegate;
+    char _supportLegacy;
+    char _internalObserver;
+    char _privateDelegate;
+    char _didCreateDEPRECATED;
+    char _willDestroyDEPRECATED;
+    char _didDestroyDEPRECATED;
+    char _updatePreparedDEPRECATED;
+    char _updateAppliedDEPRECATED;
+    char _updateCompletedDEPRECATED;
+    char _didCreateSceneDEPRECATED;
+    char _willUpdateSceneDEPRECATED;
+    char _willCommitDEPRECATED;
+    char _didCommitDEPRECATED;
+    char _didCommitDEPRECATED2;
+    char _didReceiveActionsDEPRECATED;
+    char _willSynchronizeLEGACY;
+    char _didSynchronizeLEGACY;
+    char _didUpdateClientSettingsDEPRECATED;
+    char _didAddLEGACY;
+    char _willRemoveLEGACY;
+    char _interceptSceneUpdatesLEGACY;
+    char _clientDidConnectLEGACY;
+    char _didReceiveSceneRequestLEGACY;
+    char _didAdd;
+    char _willRemove;
+    char _clientDidConnect;
+    char _didReceiveSceneRequest;
+    char _didReceiveScene;
+    char _didReceiveActions;
+}
+
+@property (readonly, weak, nonatomic) id<FBSceneManagerObserver> observer;
+@property (readonly, weak, nonatomic) id delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescription;
+- (id)succinctDescriptionBuilder;
+- (void)workspace:(id)a0 didReceiveActions:(id)a1;
+- (char)isDelegate;
+- (id)_privateDelegate;
+- (void)workspace:(id)a0 clientDidConnectWithHandshake:(id)a1;
+- (void)workspace:(id)a0 didAddScene:(id)a1;
+- (void)workspace:(id)a0 didReceiveScene:(id)a1 withContext:(id)a2 fromProcess:(id)a3;
+- (void)workspace:(id)a0 didReceiveSceneRequestWithOptions:(id)a1 fromProcess:(id)a2 completion:(id /* block */)a3;
+- (void)workspace:(id)a0 willRemoveScene:(id)a1;
+- (id)initWithObserver:(id)a0 supportLegacy:(char)a1;
+- (id)initWithDelegate:(id)a0 supportLegacy:(char)a1;
+- (id)_initWithObserver:(id)a0 supportLegacy:(char)a1;
+- (id)_internalObserver;
+- (char)delegateHandlesClientScenes;
+- (char)delegateHandlesLegacyInterception;
+- (char)delegateReceivesActions;
+- (char)delegateReceivesSceneActions;
+- (char)isInternalObserver;
+- (void)sceneManager:(id)a0 clientDidConnectWithHandshake:(id)a1;
+- (id)sceneManager:(id)a0 createDefaultTransitionContextForScene:(id)a1;
+- (void)sceneManager:(id)a0 didAddScene:(id)a1;
+- (void)sceneManager:(id)a0 didCreateScene:(id)a1;
+- (void)sceneManager:(id)a0 didDestroyScene:(id)a1;
+- (void)sceneManager:(id)a0 interceptUpdateForScene:(id)a1 withNewSettings:(id)a2;
+- (void)sceneManager:(id)a0 scene:(id)a1 didReceiveActions:(id)a2;
+- (void)sceneManager:(id)a0 scene:(id)a1 didUpdateClientSettingsWithDiff:(id)a2 oldClientSettings:(id)a3 transitionContext:(id)a4;
+- (void)sceneManager:(id)a0 updateForScene:(id)a1 appliedWithContext:(id)a2;
+- (void)sceneManager:(id)a0 updateForScene:(id)a1 completedWithContext:(id)a2 error:(id)a3;
+- (void)sceneManager:(id)a0 updateForScene:(id)a1 preparedWithContext:(id)a2;
+- (void)sceneManager:(id)a0 willDestroyScene:(id)a1;
+- (void)sceneManager:(id)a0 willRemoveScene:(id)a1;
+- (void)sceneManagerDidEndSceneUpdateSynchronization:(id)a0;
+- (void)sceneManagerWillBeginSceneUpdateSynchronization:(id)a0;
+
+@end

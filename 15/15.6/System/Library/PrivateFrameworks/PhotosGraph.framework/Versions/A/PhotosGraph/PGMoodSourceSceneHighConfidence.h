@@ -1,0 +1,7 @@
+@interface PGMoodSourceSceneHighConfidence : PGMoodSourceScene
+
++ (char)shouldUseSceneIdentifier:(id)a0;
+
+- (double)weight;
+
+@end

@@ -1,0 +1,3 @@
+@interface SwiftTLSExternalPreSharedKey : SecExternalPreSharedKey
+
+@end

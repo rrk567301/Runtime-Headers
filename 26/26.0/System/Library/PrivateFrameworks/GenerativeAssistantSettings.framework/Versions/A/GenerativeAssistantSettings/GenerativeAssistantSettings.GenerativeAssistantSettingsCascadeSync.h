@@ -1,0 +1,3 @@
+@interface GenerativeAssistantSettings.GenerativeAssistantSettingsCascadeSync : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,82 @@
+@class NSString, TSDInfoGeometry, TSDShapeStyle, TSDPathSource, NSObject, TSDFill, TSDLineEnd, TSPObject;
+@protocol TSDInfo, TSDOwningAttachment;
+
+@interface TSDShapeInfo : TSDStyledInfo <TSDReducibleImageContainer, TSDMixing, TSKSearchable, TSDInfoWithPathSource, TSDCompatibilityAwareMediaContainer> {
+    TSDShapeStyle *mStyle;
+}
+
+@property (retain, nonatomic) TSDPathSource *pathSource;
+@property (readonly, nonatomic) TSDShapeStyle *shapeStyle;
+@property (copy, nonatomic) TSDFill *fill;
+@property (copy, nonatomic) TSDLineEnd *headLineEnd;
+@property (copy, nonatomic) TSDLineEnd *tailLineEnd;
+@property (readonly, nonatomic) char supportsTextInset;
+@property (readonly, nonatomic) char supportsShrinkTextToFit;
+@property (nonatomic) double strokePatternOffsetDistance;
+@property (readonly, nonatomic) char isTreatedAsFillForFreehandDrawing;
+@property (readonly, nonatomic) char isFreehandDrawingSpacerShape;
+@property (readonly, nonatomic) char shouldRemovePastedFillStyleProperties;
+@property (readonly, nonatomic) char shouldRemovePastedLineEndStyleProperties;
+@property (readonly, nonatomic) char shouldValidatePastedLineEndStyleProperties;
+@property (readonly, nonatomic) char shouldRemovePastedFrameStrokeStyleProperties;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) char floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) char anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) char inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) char inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) char attachedToBodyText;
+@property (nonatomic) char matchesObjectPlaceholderGeometry;
+
+- (void).cxx_destruct;
+- (id)style;
+- (void)setStyle:(id)a0;
+- (id)typeName;
+- (void)acceptVisitor:(id)a0;
+- (char)isLine;
+- (char)needsDownload;
+- (id)objectForProperty:(int)a0;
+- (Class)layoutClass;
+- (Class)repClass;
+- (void)setValuesForProperties:(id)a0;
+- (id)initWithContext:(id)a0 geometry:(id)a1 style:(id)a2;
+- (id)animationFilters;
+- (char)canAspectRatioLockBeChangedByUser;
+- (id)initWithContext:(id)a0 geometry:(id)a1 style:(id)a2 pathSource:(id)a3;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (char)pathIsOpen;
+- (Class)styleClass;
+- (char)supportsHyperlinks;
+- (struct CGSize { double x0; double x1; })targetSizeForImageData:(id)a0 associatedHint:(id)a1;
+- (void)saveToArchiver:(id)a0;
+- (char)allowsCaption;
+- (char)allowsTitle;
+- (char)isValidShapeToUnarchive;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)loadFromUnarchiver:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (id)pastedPropertyMapForStyle:(id)a0 tailLineEndInfo:(int)a1;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (char)canCopyData;
+- (char)isAllowedInFreehandDrawings;
+- (long long)mediaCompatibilityTypeForData:(id)a0 associatedHint:(id)a1;
+- (char)allowsParentGroupToBeResizedWithoutAspectRatioLock;
+- (char)isAutosizingTextBox;
+- (char)isOpenPath;
+- (char)isTailEndOnLeftFromTemporaryLayoutForPasteboard;
+- (void)p_correctLineSegmentGeometry;
+- (void)p_correctNearZeroWidthLines;
+- (char)p_isLineForPastedStyleProperties;
+- (id)p_nameFromPathSource;
+- (void)p_recoverFromMissingStyleDuringUnarchivingIfNeededFromVersion:(unsigned long long)a0;
+- (id)p_shapeLibraryUserDefinedName;
+- (char)shouldBeIgnoredWhenCopying;
+- (char)shouldFlipLineEndsForStyle:(id)a0 isStyleTailEndOnLeft:(int)a1;
+
+@end

@@ -1,0 +1,24 @@
+@class NSString, NTPBDeviceInfo;
+
+@interface NTPBDevicePushTokenUpdateRequest : PBRequest <NSCopying>
+
+@property (readonly, nonatomic) char hasNotificationUserId;
+@property (retain, nonatomic) NSString *notificationUserId;
+@property (readonly, nonatomic) char hasDeviceInfoToAdd;
+@property (retain, nonatomic) NTPBDeviceInfo *deviceInfoToAdd;
+@property (readonly, nonatomic) char hasDeviceInfoToRemove;
+@property (retain, nonatomic) NTPBDeviceInfo *deviceInfoToRemove;
+@property (readonly, nonatomic) char hasUserStorefrontId;
+@property (retain, nonatomic) NSString *userStorefrontId;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC26AccessibilitySharedSupportP33_CBECDD908EB1E0F957F08A3D85914CCD18AXGEOServiceHelper : _TtCs12_SwiftObject
+
+@end

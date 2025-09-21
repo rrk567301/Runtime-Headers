@@ -1,0 +1,3 @@
+@interface _TtCV3VFX23ParticleOpacityOverLife9GPUSystem : VFX.ParticleEmitterGPUSystemStorage
+
+@end

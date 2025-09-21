@@ -1,0 +1,88 @@
+@class NSString, MKPlaceCardActionItem, MKPlaceActionDataProvider, TUCallProvider;
+@protocol _MKInfoCardAnalyticsDelegate;
+
+@interface MKPlaceActionManager : NSObject <MKPlaceActionItemAppearanceDataProvider, MKPlaceActionManagerProtocol, MKPlaceActionItemFooterBuilder> {
+    MKPlaceCardActionItem *_favoriteActionItem;
+    MKPlaceCardActionItem *_homeActionItem;
+    MKPlaceCardActionItem *_collectionActionItem;
+    MKPlaceCardActionItem *_callActionItem;
+    MKPlaceCardActionItem *_websiteActionItem;
+    MKPlaceCardActionItem *_brandStoreActionItem;
+    MKPlaceCardActionItem *_libraryActionItem;
+    MKPlaceCardActionItem *_noteActionItem;
+    TUCallProvider *_callProvider;
+}
+
+@property (readonly, nonatomic) MKPlaceCardActionItem *homeActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *favoriteActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *reportAProblemFooterAction;
+@property (readonly, nonatomic) MKPlaceCardActionItem *reportAProblemAddPlaceFooterAction;
+@property (readonly, nonatomic) MKPlaceCardActionItem *removeMarkerItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *claimBusinessActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *flyoverActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *shareActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *messageActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *callActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *websiteActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *collectionActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *libraryActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *deleteFromLibraryActionItem;
+@property (readonly, nonatomic) MKPlaceCardActionItem *noteActionItem;
+@property (nonatomic) char placeInBookmarks;
+@property (nonatomic) char placeInCollections;
+@property (nonatomic) char placeInShortcuts;
+@property (nonatomic) char showContactActions;
+@property (nonatomic) char isCurrentLocation;
+@property (nonatomic) unsigned long long placeInLibrary;
+@property (nonatomic) unsigned long long placeHasNote;
+@property (weak, nonatomic) id placeCardDelegate;
+@property (weak, nonatomic) id<_MKInfoCardAnalyticsDelegate> analyticsDelegate;
+@property (readonly, nonatomic) MKPlaceActionDataProvider *dataProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)delegate;
+- (void)openURL:(id)a0;
+- (unsigned long long)options;
+- (id)contact;
+- (id)mapItem;
+- (char)_showReportAProblemFooterAction;
+- (void)_addInternalOnlyActions:(id)a0;
+- (void)_canMakeCalls:(id /* block */)a0;
+- (char)_canShowAddOrEditNoteAction;
+- (char)_canShowCallAction;
+- (char)_canShowClaimThisBusiness;
+- (char)_canShowLibraryAction;
+- (void)_enableStoreAction;
+- (char)_isCurrentLocationOrDroppedPin;
+- (void)_launchMaps;
+- (char)_showAddPlaceFooterAction;
+- (char)_showCollectionItem;
+- (char)_showHomeShortcutItem;
+- (char)_showMapItemIdentifier;
+- (char)_showPlaceID;
+- (char)_showReportAProblem;
+- (char)_showWebsite;
+- (id)actionItemForButtonItem:(id)a0;
+- (id)actionItemForButtonType:(int)a0;
+- (void)addLayoutInfoIfNeeded:(id)a0;
+- (id)addToHomeItem;
+- (id)createContactActions;
+- (id)createFooterActions;
+- (id)createRowActionsWithStyle:(unsigned long long)a0;
+- (id)createSearchAlongRouteActions;
+- (id)developerPlaceCardGetDirectionsFooterAction;
+- (id)developerPlaceCardOpenInMapsFooterAction;
+- (id)favoriteItemForFooter;
+- (id)initWithDataProvider:(id)a0;
+- (void)performAction:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (id)placeIDForAppearance:(id)a0;
+- (char)placeInCollectionsForAppearance:(id)a0;
+- (id)placeItem;
+- (unsigned long long)placeMUIDForAppearance:(id)a0;
+- (id)shortPlacecardFooterActions;
+
+@end

@@ -1,0 +1,32 @@
+@class OFLinearGradientView, NSArray;
+
+@interface OKWidgetLinearGradientView : OKWidgetView <OKWidgetLinearGradientViewProxyExports> {
+    OFLinearGradientView *_gradientView;
+    NSArray *_gradientColors;
+    NSArray *_gradientLocations;
+}
+
++ (void)setupJavascriptContext:(id)a0;
++ (id)supportedSettings;
+
+- (void)dealloc;
+- (id)valueForUndefinedKey:(id)a0;
+- (char)prepareForDisplay:(char)a0;
+- (id)initWithWidget:(id)a0;
+- (struct CGPoint { double x0; double x1; })settingEndPoint;
+- (char)prepareForUnload:(char)a0;
+- (char)prepareForWarmup:(char)a0;
+- (void)setAntialiasing:(char)a0;
+- (void)setSettingEndPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)setSettingGradientColors:(id)a0;
+- (void)setSettingGradientLocations:(id)a0;
+- (void)setSettingOpaque:(char)a0;
+- (void)setSettingStartPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)settingGradientColors;
+- (id)settingGradientLocations;
+- (id)settingObjectForKey:(id)a0;
+- (char)settingOpaque;
+- (struct CGPoint { double x0; double x1; })settingStartPoint;
+- (void)updateGradient;
+
+@end

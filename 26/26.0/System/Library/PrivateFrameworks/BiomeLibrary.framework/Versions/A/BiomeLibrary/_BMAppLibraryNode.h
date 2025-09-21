@@ -1,0 +1,56 @@
+@interface _BMAppLibraryNode : _BMLibraryNode
+
++ (id)storeConfigurationForMediaUsage;
++ (id)syncPolicyForMediaUsage;
++ (id)Clip;
++ (id)syncPolicyForRelevantShortcuts;
++ (id)storeConfigurationForInstall;
++ (id)identifier;
++ (id)syncPolicyForContextualActions;
++ (id)WebApp;
++ (id)configurationForLanguageConsumption;
++ (id)storeConfigurationForDocumentInteraction;
++ (id)configurationForActivity;
++ (id)MediaUsage;
++ (id)storeConfigurationForContextualActions;
++ (id)configurationForIntent;
++ (id)Intent;
++ (id)configurationForDocumentInteraction;
++ (id)syncPolicyForActivity;
++ (id)sublibraries;
++ (id)LanguageConsumption;
++ (id)storeConfigurationForLanguageConsumption;
++ (id)RelevantShortcuts;
++ (id)configurationForRelevantShortcuts;
++ (id)WebUsage;
++ (id)syncPolicyForInstall;
++ (id)syncPolicyForInFocus;
++ (id)Install;
++ (id)storeConfigurationForInFocus;
++ (id)configurationForWebUsage;
++ (id)syncPolicyForDocumentInteraction;
++ (id)Activity;
++ (id)configurationForMenuItem;
++ (id)storeConfigurationForMenuItem;
++ (id)DocumentInteraction;
++ (id)storeConfigurationForWebUsage;
++ (id)syncPolicyForWebUsage;
++ (id)storeConfigurationForActivity;
++ (id)syncPolicyForIntent;
++ (id)Intents;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)ContextualActions;
++ (id)configurationForInFocus;
++ (id)MenuItem;
++ (id)validKeyPaths;
++ (id)InFocus;
++ (id)syncPolicyForLanguageConsumption;
++ (id)syncPolicyForMenuItem;
++ (id)configurationForInstall;
++ (id)configurationForContextualActions;
++ (id)storeConfigurationForRelevantShortcuts;
++ (id)storeConfigurationForIntent;
++ (id)configurationForMediaUsage;
+
+@end

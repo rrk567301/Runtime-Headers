@@ -1,0 +1,76 @@
+@class NSString, NSDictionary, WFPythonHTMLParser, NSMutableOrderedSet, NSMutableArray, NSURL;
+
+@interface WFHTMLToMarkdown : NSObject <WFPythonHTMLParserDelegate>
+
+@property (retain, nonatomic) WFPythonHTMLParser *parser;
+@property (retain, nonatomic) NSDictionary *nameToCodepointMapping;
+@property (retain, nonatomic) NSDictionary *unifiableN;
+@property (retain, nonatomic) NSMutableArray *outTextList;
+@property (copy, nonatomic) NSString *outText;
+@property (nonatomic) long long quiet;
+@property (nonatomic) long long p_p;
+@property (nonatomic) long long outCount;
+@property (nonatomic) char start;
+@property (nonatomic) char space;
+@property (retain, nonatomic) NSMutableArray *a;
+@property (retain, nonatomic) NSMutableArray *aStack;
+@property (copy, nonatomic) NSString *maybeAutomaticLink;
+@property (nonatomic) long long aCount;
+@property (retain, nonatomic) NSMutableArray *list;
+@property (nonatomic) long long blockquote;
+@property (nonatomic) char pre;
+@property (nonatomic) char startpre;
+@property (nonatomic) char code;
+@property (nonatomic) char lastWasNewline;
+@property (nonatomic) char lastWasList;
+@property (nonatomic) long long style;
+@property (copy, nonatomic) NSString *abbreviationTitle;
+@property (copy, nonatomic) NSString *abbreviationData;
+@property (retain, nonatomic) NSMutableOrderedSet *abbreviationList;
+@property (copy, nonatomic) NSString *ulItemMark;
+@property (copy, nonatomic) NSString *emphasisMark;
+@property (copy, nonatomic) NSString *strongMark;
+@property (retain, nonatomic) NSURL *baseURL;
+@property (nonatomic) char unicodeSnob;
+@property (nonatomic) char escapeSnob;
+@property (nonatomic) char linksEachParagraph;
+@property (nonatomic) long long bodyWidth;
+@property (nonatomic) char skipInternalLinks;
+@property (nonatomic) char inlineLinks;
+@property (nonatomic) char ignoreLinks;
+@property (nonatomic) char ignoreImages;
+@property (nonatomic) char ignoreEmphasis;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)close;
+- (id)initWithBaseURL:(id)a0;
+- (void)addOutput:(id)a0;
+- (void)output:(id)a0;
+- (void)p;
+- (void)pbr;
+- (id)charref:(id)a0;
+- (id)entityref:(id)a0;
+- (id)escapeMD:(id)a0;
+- (id)escapeMDSection:(id)a0 snob:(char)a1;
+- (id)handleHTML:(id)a0;
+- (void)handleTag:(id)a0 attributes:(id)a1 start:(char)a2;
+- (unsigned short)nameToCodepoint:(id)a0;
+- (char)onlywhite:(id)a0;
+- (id)optwrap:(id)a0;
+- (void)output:(id)a0 pureData:(char)a1 force:(id)a2;
+- (void)parser:(id)a0 foundCharacterRef:(id)a1;
+- (void)parser:(id)a0 foundData:(id)a1;
+- (void)parser:(id)a0 foundEndTag:(id)a1;
+- (void)parser:(id)a0 foundEntityRef:(id)a1;
+- (void)parser:(id)a0 foundStartTag:(id)a1 attributes:(id)a2;
+- (id)previousIndex:(id)a0;
+- (char)skipwrap:(id)a0;
+- (int)tagHeaderNumber:(id)a0;
+- (id)unifiable;
+- (id)wrapText:(id)a0 toWidth:(long long)a1;
+
+@end

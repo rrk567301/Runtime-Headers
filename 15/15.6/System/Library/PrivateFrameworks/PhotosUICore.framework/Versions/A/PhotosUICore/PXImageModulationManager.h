@@ -1,0 +1,91 @@
+@class PXRequestedEDRHeadroomFactorFilter, NSString, PXImageModulationSettings, NSHashTable, CAContext, UXViewController;
+
+@interface PXImageModulationManager : PXObservable <PXChangeObserver, PXSettingsKeyObserver, PXPreferencesObserver> {
+    struct { char enabled; char lowPowerModeEnabled; char active; char HDRFocus; char imageModulationIntensity; char requestedEDRHeadroomFactor; char finalRequestedEDRHeadroomFactor; char desiredDynamicRange; char imageLayerModulators; char currentScreenSupportsHDR; } _needsUpdateFlags;
+    double _lastRequestedEDRHeadroomChangeTime;
+}
+
+@property (readonly, nonatomic) PXImageModulationSettings *settings;
+@property (readonly, nonatomic) NSHashTable *imageLayerModulators;
+@property (readonly, nonatomic) PXRequestedEDRHeadroomFactorFilter *requestedEDRHeadroomFactorFilter;
+@property (nonatomic) long long requestedEDRHeadroomSignpost;
+@property (retain, nonatomic) CAContext *coreAnimationContext;
+@property (nonatomic, getter=isLowPowerModeEnabled) char lowPowerModeEnabled;
+@property (nonatomic, getter=isApplicationActive) char applicationActive;
+@property (nonatomic) char enabledForTesting;
+@property (readonly, weak, nonatomic) UXViewController *rootViewController;
+@property (readonly, nonatomic, getter=isMainScreen) char mainScreen;
+@property (readonly, nonatomic, getter=isEnabled) char enabled;
+@property (readonly, nonatomic, getter=isActive) char active;
+@property (readonly, nonatomic) char currentScreenSupportsHDR;
+@property (readonly, nonatomic) double HDRFocus;
+@property (readonly, nonatomic) double imageModulationIntensity;
+@property (readonly, nonatomic) double requestedEDRHeadroomFactor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)HDRValueForAsset:(id)a0;
++ (long long)_contentFormatForAsset:(id)a0;
++ (double)_hdrGainForAsset:(id)a0;
++ (struct { long long x0; float x1; })optionsForAsset:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)setEnabled:(char)a0;
+- (void)_applicationDidResignActive:(id)a0;
+- (void)setActive:(char)a0;
+- (void)_applicationDidBecomeActive:(id)a0;
+- (void)settings:(id)a0 changedValueForKey:(id)a1;
+- (void)_windowDidChangeScreen:(id)a0;
+- (char)_needsUpdate;
+- (void)_setNeedsUpdate;
+- (void)_updateIfNeeded;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)didPerformChanges;
+- (id)mutableChangeObject;
+- (void)_invalidateImageLayerModulators;
+- (void)_applicationDidChangeScreenParameters:(id)a0;
+- (id)_checkoutImageLayerModulatorWithOptions:(struct { long long x0; float x1; })a0 contentType:(long long)a1;
+- (void)_didEndRequestingEDRHeadroomFactor:(double)a0;
+- (void)_didStartRequestingEDRHeadroomFactor:(double)a0;
+- (void)_invalidateActive;
+- (void)_invalidateCurrentScreenSupportsHDR;
+- (void)_invalidateDesiredDynamicRange;
+- (void)_invalidateEnabled;
+- (void)_invalidateFinalRequestedEDRHeadroomFactor;
+- (void)_invalidateHDRFocus;
+- (void)_invalidateImageModulationIntensity;
+- (void)_invalidateLowPowerModeEnabled;
+- (void)_invalidateRequestedEDRHeadroomFactor;
+- (void)_processInfoPowerStateDidChange:(id)a0;
+- (void)_updateActiveIfNeeded;
+- (void)_updateCoreAnimationContext;
+- (void)_updateCurrentScreenSupportsHDRIfNeeded;
+- (void)_updateDesiredDynamicRangeIfNeeded;
+- (void)_updateEnabledIfNeeded;
+- (void)_updateFinalRequestedEDRHeadroomFactorIfNeeded;
+- (void)_updateHDRFocusIfNeeded;
+- (void)_updateImageLayerModulator:(id)a0;
+- (void)_updateImageLayerModulatorsIfNeeded;
+- (void)_updateImageModulationIntensityIfNeeded;
+- (void)_updateLowPowerModeEnabledIfNeeded;
+- (void)_updateRequestedEDRHeadroomFactorIfNeeded;
+- (void)checkInImageLayerModulator:(id)a0;
+- (void)checkInLivePhotoViewModulator:(id)a0;
+- (id)checkoutImageLayerModulatorWithOptions:(struct { long long x0; float x1; })a0;
+- (id)checkoutLivePhotoViewModulatorWithOptions:(struct { long long x0; float x1; })a0;
+- (void)enableForTesting;
+- (id)initWithRootViewController:(id)a0 mainScreen:(char)a1;
+- (void)preferencesDidChange;
+- (void)setCurrentScreenSupportsHDR:(char)a0;
+- (void)setHDRFocus:(double)a0;
+- (void)setImageModulationIntensity:(double)a0;
+- (void)setNeedsEnabledUpdate;
+- (void)setNeedsHDRFocusUpdate;
+- (void)setNeedsImageModulationIntensityUpdate;
+- (void)setRequestedEDRHeadroomFactor:(double)a0;
+
+@end

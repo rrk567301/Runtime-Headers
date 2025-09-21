@@ -1,0 +1,75 @@
+@interface AWDLBConnectionReport : PBCodable <NSCopying> {
+    struct { long long *list; unsigned long long count; unsigned long long size; } _connectionReadyTimes;
+    struct { int *list; unsigned long long count; unsigned long long size; } _resumptionFailureErrors;
+    struct { long long *list; unsigned long long count; unsigned long long size; } _resumptionFailureTimes;
+    struct { long long *list; unsigned long long count; unsigned long long size; } _resumptionSuccessTimes;
+    struct { unsigned char bytesReceived : 1; unsigned char bytesSent : 1; unsigned char clientConnectionCount : 1; unsigned char connectionDuration : 1; unsigned char timestamp : 1; unsigned char connectionAttemptCount : 1; unsigned char connectionCellularFallbackCount : 1; unsigned char connectionFailureCount : 1; unsigned char connectionSuccessMptcpCount : 1; unsigned char connectionSuccessTcpCount : 1; unsigned char resumptionFailureCount : 1; unsigned char resumptionSuccessCount : 1; unsigned char suspensionCount : 1; unsigned char upgradeSuccessAndNotNeededCount : 1; unsigned char upgradeSuccessAndPrimaryCount : 1; } _has;
+}
+
+@property (nonatomic) char hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) char hasConnectionAttemptCount;
+@property (nonatomic) int connectionAttemptCount;
+@property (nonatomic) char hasConnectionSuccessMptcpCount;
+@property (nonatomic) int connectionSuccessMptcpCount;
+@property (nonatomic) char hasConnectionSuccessTcpCount;
+@property (nonatomic) int connectionSuccessTcpCount;
+@property (nonatomic) char hasConnectionFailureCount;
+@property (nonatomic) int connectionFailureCount;
+@property (nonatomic) char hasConnectionCellularFallbackCount;
+@property (nonatomic) int connectionCellularFallbackCount;
+@property (readonly, nonatomic) unsigned long long connectionReadyTimesCount;
+@property (readonly, nonatomic) long long *connectionReadyTimes;
+@property (nonatomic) char hasSuspensionCount;
+@property (nonatomic) int suspensionCount;
+@property (nonatomic) char hasResumptionSuccessCount;
+@property (nonatomic) int resumptionSuccessCount;
+@property (nonatomic) char hasResumptionFailureCount;
+@property (nonatomic) int resumptionFailureCount;
+@property (readonly, nonatomic) unsigned long long resumptionFailureErrorsCount;
+@property (readonly, nonatomic) int *resumptionFailureErrors;
+@property (readonly, nonatomic) unsigned long long resumptionSuccessTimesCount;
+@property (readonly, nonatomic) long long *resumptionSuccessTimes;
+@property (readonly, nonatomic) unsigned long long resumptionFailureTimesCount;
+@property (readonly, nonatomic) long long *resumptionFailureTimes;
+@property (nonatomic) char hasUpgradeSuccessAndPrimaryCount;
+@property (nonatomic) int upgradeSuccessAndPrimaryCount;
+@property (nonatomic) char hasUpgradeSuccessAndNotNeededCount;
+@property (nonatomic) int upgradeSuccessAndNotNeededCount;
+@property (nonatomic) char hasConnectionDuration;
+@property (nonatomic) long long connectionDuration;
+@property (nonatomic) char hasBytesSent;
+@property (nonatomic) long long bytesSent;
+@property (nonatomic) char hasBytesReceived;
+@property (nonatomic) long long bytesReceived;
+@property (nonatomic) char hasClientConnectionCount;
+@property (nonatomic) long long clientConnectionCount;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (char)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (char)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)resumptionFailureErrorsAtIndex:(unsigned long long)a0;
+- (void)addConnectionReadyTimes:(long long)a0;
+- (void)addResumptionFailureErrors:(int)a0;
+- (void)addResumptionFailureTimes:(long long)a0;
+- (void)addResumptionSuccessTimes:(long long)a0;
+- (void)clearConnectionReadyTimes;
+- (void)clearResumptionFailureErrors;
+- (void)clearResumptionFailureTimes;
+- (void)clearResumptionSuccessTimes;
+- (long long)connectionReadyTimesAtIndex:(unsigned long long)a0;
+- (long long)resumptionFailureTimesAtIndex:(unsigned long long)a0;
+- (long long)resumptionSuccessTimesAtIndex:(unsigned long long)a0;
+- (void)setConnectionReadyTimes:(long long *)a0 count:(unsigned long long)a1;
+- (void)setResumptionFailureErrors:(int *)a0 count:(unsigned long long)a1;
+- (void)setResumptionFailureTimes:(long long *)a0 count:(unsigned long long)a1;
+- (void)setResumptionSuccessTimes:(long long *)a0 count:(unsigned long long)a1;
+
+@end
