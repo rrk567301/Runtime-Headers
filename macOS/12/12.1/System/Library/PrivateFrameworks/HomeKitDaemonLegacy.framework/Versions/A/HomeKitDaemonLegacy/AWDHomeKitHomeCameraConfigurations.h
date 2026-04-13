@@ -1,0 +1,38 @@
+@class NSMutableArray;
+
+@interface AWDHomeKitHomeCameraConfigurations : PBCodable <NSCopying> {
+    struct { unsigned char enabledResidentsDeviceCapabilities : 1; unsigned char isFaceClassificationEnabled : 1; unsigned char isOwner : 1; } _has;
+}
+
+@property (retain, nonatomic) NSMutableArray *homeKitCameraUserSettings;
+@property (retain, nonatomic) NSMutableArray *homeKitCameraSettings;
+@property (nonatomic) BOOL hasEnabledResidentsDeviceCapabilities;
+@property (nonatomic) unsigned int enabledResidentsDeviceCapabilities;
+@property (nonatomic) BOOL hasIsFaceClassificationEnabled;
+@property (nonatomic) BOOL isFaceClassificationEnabled;
+@property (nonatomic) BOOL hasIsOwner;
+@property (nonatomic) BOOL isOwner;
+
++ (Class)homeKitCameraUserSettingsType;
++ (Class)homeKitCameraSettingsType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)copyTo:(id)a0;
+- (void)clearHomeKitCameraUserSettings;
+- (void)addHomeKitCameraUserSettings:(id)a0;
+- (unsigned long long)homeKitCameraUserSettingsCount;
+- (id)homeKitCameraUserSettingsAtIndex:(unsigned long long)a0;
+- (void)clearHomeKitCameraSettings;
+- (void)addHomeKitCameraSettings:(id)a0;
+- (unsigned long long)homeKitCameraSettingsCount;
+- (id)homeKitCameraSettingsAtIndex:(unsigned long long)a0;
+
+@end

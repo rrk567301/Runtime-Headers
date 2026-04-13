@@ -1,0 +1,24 @@
+@class NSDictionary, ISDConflict;
+
+@interface ISyncRecordWithConflictGraphNode : ISyncConcreteRecordGraphNode {
+    ISDConflict *_isdConflict;
+    NSDictionary *_freezeDriedRecord;
+}
+
+- (void)dealloc;
+- (id)description;
+- (id)changedKeys;
+- (id)record;
+- (void)setWinningClientId:(id)a0;
+- (void)setISDConflict:(id)a0;
+- (void)setFreezeDriedRecord:(id)a0;
+- (id)displayKeys;
+- (id)descriptionForEntireTreeTabs:(int)a0;
+- (BOOL)mergeChildrenTree:(id)a0 atRelationship:(id)a1 childChangeType:(int)a2;
+- (BOOL)mergeChangesFromNode:(id)a0;
+- (id)isdConflict;
+- (id)freezeDriedRecord;
+- (id)conflictingPropertyNames;
+- (id)conflictingValuesForPropertyName:(id)a0;
+
+@end

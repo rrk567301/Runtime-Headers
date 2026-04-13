@@ -1,0 +1,3 @@
+@interface CoreSoundAlarmOccurrence : CoreAlarmOccurrence
+
+@end

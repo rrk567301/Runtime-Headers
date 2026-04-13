@@ -1,0 +1,1 @@
+dlerror: dlopen(/System/iOSSupport/System/Library/AccessibilityBundles/WebCore.axbundle/Versions/A/WebCore, 0x0002): tried: '/System/iOSSupport/System/Library/AccessibilityBundles/WebCore.axbundle/Versions/A/WebCore' (wrong platform to load into process), '/usr/local/lib/WebCore' (no such file), '/usr/lib/WebCore' (no such file)

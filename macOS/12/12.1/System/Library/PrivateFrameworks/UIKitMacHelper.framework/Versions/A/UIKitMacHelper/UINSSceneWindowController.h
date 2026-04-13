@@ -1,0 +1,36 @@
+@class NSString, NSExtensionContext, UINSSceneViewController;
+
+@interface UINSSceneWindowController : NSWindowController <NSWindowDelegate>
+
+@property (weak, nonatomic) NSExtensionContext *extensionContext;
+@property (copy, nonatomic) NSString *sceneIdentifier;
+@property (copy, nonatomic) NSString *persistentIdentifier;
+@property (readonly, nonatomic) UINSSceneViewController *sceneViewController;
+@property (readonly, nonatomic) unsigned int declinedEventMask;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)encodeRestorableStateWithCoder:(id)a0;
+- (BOOL)windowShouldClose:(id)a0;
+- (unsigned long long)window:(id)a0 willUseFullScreenPresentationOptions:(unsigned long long)a1;
+- (void)windowDidFailToEnterFullScreen:(id)a0;
+- (void)windowDidFailToExitFullScreen:(id)a0;
+- (void)windowWillEnterFullScreen:(id)a0;
+- (void)windowDidEnterFullScreen:(id)a0;
+- (void)windowWillExitFullScreen:(id)a0;
+- (void)windowDidExitFullScreen:(id)a0;
+- (id)windowNibName;
+- (void)windowDidLoad;
+- (Class)windowClass;
+- (void)loadWindow;
+- (void)_windowWillEnterFullScreen;
+- (void)_windowDidEnterFullScreen;
+- (void)_windowWillExitFullScreen;
+- (void)_windowDidExitFullScreen;
+- (void)_updateForFullscreen:(BOOL)a0 phase:(long long)a1;
+- (id)sceneWindow;
+
+@end

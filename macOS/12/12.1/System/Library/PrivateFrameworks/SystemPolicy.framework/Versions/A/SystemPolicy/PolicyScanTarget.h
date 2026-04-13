@@ -1,0 +1,57 @@
+@class NSUUID, NSString, NSURL, NSDate, NSData, NSDictionary;
+
+@interface PolicyScanTarget : NSObject {
+    NSDate *_chgTime;
+    NSURL *_mainExecutableURL;
+    NSString *_bundleID;
+    BOOL _isDirectory;
+    struct __CFBundle { } *_bundle;
+    struct __SecCode { } *_staticCodeRef;
+    NSDictionary *_signingInfo;
+    NSString *_cdhash;
+    NSData *_cdhashData;
+    unsigned int _cdhashDigestAlgorithm;
+    NSString *_teamID;
+    NSString *_signingID;
+    BOOL _quarantineChecked;
+    BOOL _isQuarantined;
+    BOOL _isUserApproved;
+}
+
+@property (readonly, nonatomic) NSURL *originalURL;
+@property (readonly, nonatomic) NSURL *url;
+@property (readonly, nonatomic) NSUUID *volumeUUID;
+@property (readonly, nonatomic) NSString *volumePath;
+@property (readonly, nonatomic) NSString *pathOnVolume;
+@property (readonly, nonatomic) NSString *blockDevice;
+@property (readonly, nonatomic) NSString *fsTypeName;
+@property (readonly, nonatomic) unsigned long long objectID;
+@property (readonly, nonatomic) NSString *bundleID;
+@property (readonly, nonatomic) NSDate *modTime;
+@property (readonly, nonatomic) NSDate *mountTime;
+@property (readonly, nonatomic) NSURL *mainExecutableURL;
+@property (readonly, nonatomic) const struct __SecCode { } *staticCodeRef;
+@property (readonly, nonatomic) NSString *cdhash;
+@property (readonly, nonatomic) NSData *cdhashData;
+@property (readonly, nonatomic) unsigned int cdhashDigestAlgorithm;
+@property (readonly, nonatomic) NSString *teamID;
+@property (readonly, nonatomic) NSString *signingID;
+@property (readonly, nonatomic) BOOL isQuarantinedMount;
+@property (readonly, nonatomic) BOOL isQuarantined;
+@property (readonly, nonatomic) BOOL isUserApproved;
+@property (readonly, nonatomic) BOOL isAppWrapper;
+@property (nonatomic) BOOL checkValidity;
+@property (nonatomic) BOOL triggeredByLibraryLoad;
+@property (nonatomic) BOOL isBundled;
+@property (nonatomic) BOOL isScript;
+@property (nonatomic) int pid;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (id)redactedDescription;
+- (id)initWithURL:(id)a0;
+- (void).cxx_destruct;
+- (id)signingInfo;
+
+@end

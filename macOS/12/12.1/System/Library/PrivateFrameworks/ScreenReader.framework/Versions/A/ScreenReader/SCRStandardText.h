@@ -1,0 +1,75 @@
+@class AXFTextRange, AXKTextNavigator, NSString;
+
+@interface SCRStandardText : SCRTextElement <AXKTextProviding>
+
+@property (retain, nonatomic) AXKTextNavigator *_navigator;
+@property (readonly, nonatomic) BOOL isComboBox;
+@property (readonly, nonatomic) AXFTextRange *contentRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)substringWithRange:(id)a0;
+- (void).cxx_destruct;
+- (id)stringForRange:(id)a0;
+- (id)selectedTextRange;
+- (void)setSelectedTextRange:(id)a0;
+- (id)lastPosition;
+- (id)attributedStringForRange:(id)a0;
+- (struct SCRPageInfo { unsigned long long x0; unsigned long long x1; })pageInfo;
+- (unsigned long long)numberOfCharacters;
+- (BOOL)shouldMap;
+- (id)sharedCharacterRange;
+- (void)addItemNameToRequest:(id)a0;
+- (id)initWithUIElement:(id)a0 parent:(id)a1;
+- (id)markerForScreenPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)wordRangeForPosition:(id)a0;
+- (void)echoDataInRange:(id)a0 request:(id)a1 showOnScreen:(BOOL)a2 feedbackType:(long long)a3 withScrolling:(BOOL)a4;
+- (id)firstPosition;
+- (BOOL)isControlElement;
+- (void)addItemStatusToRequest:(id)a0;
+- (BOOL)isPasswordSuggestionComboBox;
+- (void)addItemDescriptionForFallbackToRequest:(id)a0;
+- (void)addBrailleItemDescriptionForFallbackToRequest:(id)a0;
+- (BOOL)isSelectionSettable;
+- (id)rotorIdentifiers;
+- (id)wordRangeBeforePosition:(id)a0;
+- (BOOL)wantsExpandedAttachmentsForItemName;
+- (id)uiElementAttributedStringForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)visibleCharacterRange;
+- (id)characterMarkerAfterPosition:(id)a0;
+- (id)rangeForStartMarker:(id)a0 withOffset:(unsigned long long)a1 length:(unsigned long long)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsForRange:(id)a0;
+- (struct SCRPageInfo { unsigned long long x0; unsigned long long x1; })pageInfoForSharedTextUIElement:(id)a0;
+- (BOOL)_annotationDictionary:(id)a0 isAtRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (id)_rangeOfParagraphForPosition:(id)a0 inBlock:(long long)a1;
+- (id)sentenceRangeForPosition:(id)a0;
+- (id)_nextWordRangeFromPosition:(id)a0 searchingForward:(BOOL)a1;
+- (id)characterMarkerBeforePosition:(id)a0;
+- (BOOL)_isLineEndPosition:(id)a0 forLineRange:(id)a1;
+- (id)wordRangeAfterPosition:(id)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_getNextSentenceRangeWithIndex:(unsigned long long)a0;
+- (unsigned long long)_fetchFragmentSentenceLengthBeforeIndex:(unsigned long long)a0;
+- (id)paragraphRangeForPosition:(id)a0;
+- (void)echoDataInRange:(id)a0 request:(id)a1 showOnScreen:(BOOL)a2 feedbackType:(long long)a3 withScrolling:(BOOL)a4 braille:(BOOL)a5;
+- (id)crossedPageBoundaryWithDataString:(id)a0 inRange:(id)a1 insertIndex:(unsigned long long *)a2;
+- (void)_handleOutputOfSpaceAndNewLineAttributedString:(id)a0 variants:(id)a1 request:(id)a2;
+- (id)selectedTextRanges;
+- (void)setSelectedTextRanges:(id)a0;
+- (id)axVisibleCharacterRange;
+- (id)rangeForInlineSession;
+- (BOOL)readNextSentence:(id)a0;
+- (BOOL)readPreviousSentence:(id)a0;
+- (BOOL)readNextParagraph:(id)a0;
+- (BOOL)readPreviousParagraph:(id)a0;
+- (void)readCurrentSentence:(id)a0;
+- (void)readCurrentParagraph:(id)a0;
+- (id)sentenceEndMarkerAfterPosition:(id)a0;
+- (id)paragraphStartMarkerBeforePosition:(id)a0;
+- (id)paragraphEndMarkerAfterPosition:(id)a0;
+- (id)styleRangeForPosition:(id)a0;
+- (id)outputAttributedStringForData:(id)a0;
+- (BOOL)_containsAllWordBreakCharactersInRange:(id)a0;
+
+@end

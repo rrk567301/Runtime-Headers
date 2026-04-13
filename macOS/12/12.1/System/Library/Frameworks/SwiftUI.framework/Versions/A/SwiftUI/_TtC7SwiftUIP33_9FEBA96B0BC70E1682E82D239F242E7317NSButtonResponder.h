@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_9FEBA96B0BC70E1682E82D239F242E7317NSButtonResponder : SwiftUI.NSViewResponder
+
+@end

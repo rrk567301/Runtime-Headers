@@ -1,0 +1,76 @@
+@class NSString, NSMutableDictionary, NSRecursiveLock;
+
+@interface IFDiskObject : NSObject {
+    NSString *_diskRepID;
+    NSString *_diskLogicalVolumeUUID;
+    NSRecursiveLock *_lock;
+    NSMutableDictionary *_cachedAttributes;
+    BOOL _installWouldResultInUnsupportedConfig;
+}
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)UUID;
+- (id)protocol;
+- (BOOL)isLeaf;
+- (unsigned long long)totalSize;
+- (unsigned long long)availableSpace;
+- (BOOL)isSystemImage;
+- (id)volumeName;
+- (id)mountPoint;
+- (BOOL)isWritable;
+- (id)diskIdentifier;
+- (BOOL)isEjectable;
+- (id)fileSystemType;
+- (BOOL)isJournaled;
+- (BOOL)isCoreStorage;
+- (unsigned long long)freeSpace;
+- (void)purgeCache;
+- (unsigned long long)rawSize;
+- (BOOL)isDiskImage;
+- (BOOL)isRootVolume;
+- (BOOL)isWhole;
+- (id)fileSystem;
+- (BOOL)isPasswordLocked;
+- (void)setDiskRep:(struct __DADisk { } *)a0;
+- (void)setDiskLogicalVolumeUUID:(id)a0;
+- (struct __DADisk { } *)diskRep;
+- (id)dm;
+- (id)logicalVolumeUUID;
+- (id)logicalVolumeDictionary;
+- (BOOL)isAppleRAIDDisk;
+- (BOOL)isSoftRAID;
+- (id)userContextObjectForKey:(id)a0 createIfMissing:(BOOL)a1;
+- (id)childDADisks;
+- (long long)_DMPartitionTypeToMKSchemeID:(int)a0;
+- (id)_sortDisksByBSDName:(id)a0;
+- (id)initWithDADisk:(struct __DADisk { } *)a0;
+- (id)initWithLogicalVolumeUUID:(id)a0;
+- (id)ioContent;
+- (id)fileSystemBundleType;
+- (id)rawDeviceNode;
+- (id)systemRoot;
+- (BOOL)filesystemIsLocked;
+- (BOOL)isNetworkDisk;
+- (BOOL)isMountedVolume;
+- (BOOL)isCDROM;
+- (BOOL)isDVDROM;
+- (BOOL)isOptical;
+- (id)backingDiskImageFile;
+- (BOOL)isROSVSystemVolume;
+- (BOOL)isMountable;
+- (BOOL)isUserDataVolume;
+- (BOOL)isSSDBacked;
+- (void)setObject:(id)a0 forKey:(id)a1 withContext:(id)a2;
+- (id)objectForKey:(id)a0 withContext:(id)a1;
+- (id)userContextObjectForKey:(id)a0;
+- (void)setUserContextObject:(id)a0 forKey:(id)a1;
+- (id)wholeDiskName;
+- (BOOL)childIsRecoveryCompatible:(id)a0;
+- (id)parentDisk;
+- (void)setInstallWouldResultInUnsupportedConfig:(BOOL)a0;
+- (BOOL)installWouldResultInUnsupportedConfig;
+
+@end

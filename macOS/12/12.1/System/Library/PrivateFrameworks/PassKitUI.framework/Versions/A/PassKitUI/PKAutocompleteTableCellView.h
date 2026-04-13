@@ -1,0 +1,3 @@
+@interface PKAutocompleteTableCellView : NSTableCellView
+
+@end

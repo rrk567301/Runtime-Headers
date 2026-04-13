@@ -1,0 +1,16 @@
+@class PXContentSyndicationPhotoKitAssetArrivalObserver, PHFetchResult;
+
+@interface PXPhotoKitAssetCollectionContentSyndicationSaveToLibraryActionPerformer : PXPhotoKitAssetCollectionActionPerformer {
+    PHFetchResult *_assetsToSaveFetchResult;
+    PXContentSyndicationPhotoKitAssetArrivalObserver *_assetArrivalObserver;
+}
+
++ (BOOL)canPerformOnAssetCollectionReference:(id)a0 withInputs:(id)a1;
++ (id)systemImageNameForAssetCollectionReference:(id)a0 withInputs:(id)a1;
++ (id)localizedTitleForUseCase:(unsigned long long)a0 assetCollectionReference:(id)a1 withInputs:(id)a2;
+
+- (void).cxx_destruct;
+- (void)performUserInteractionTask;
+- (void)performBackgroundTask;
+
+@end

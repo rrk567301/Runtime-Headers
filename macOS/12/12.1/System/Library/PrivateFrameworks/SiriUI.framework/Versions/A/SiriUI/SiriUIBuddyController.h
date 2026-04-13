@@ -1,0 +1,65 @@
+@class SiriUIOrbView, NSDictionary, SiriUIBuddyEnableSiriController, SiriUIBuddyVoiceTriggerController, AFVoiceInfo, SiriUIBuddyVoiceTriggerIntroController, NSString, OBTemplateView, NSLayoutConstraint, SiriUIBuddyChooseVoiceController, SiriUIBuddyVoiceTriggerOutroController, NSViewController, SiriUIBuddyImproveSiriController, SiriUIBuddyChooseLanguageController;
+@protocol SiriUIBuddyDelegate, SiriUIBuddySubviewController, MBSecondPartyHost;
+
+@interface SiriUIBuddyController : NSViewController {
+    long long _state;
+    NSViewController<SiriUIBuddySubviewController> *_currentPanelController;
+    SiriUIBuddyEnableSiriController *_enableSiriController;
+    SiriUIBuddyChooseLanguageController *_chooseLanguageController;
+    SiriUIBuddyChooseVoiceController *_chooseVoiceController;
+    SiriUIBuddyVoiceTriggerController *_voiceTriggerController;
+    SiriUIBuddyVoiceTriggerIntroController *_voiceTriggerIntroController;
+    SiriUIBuddyVoiceTriggerOutroController *_voiceTriggerOutroController;
+    SiriUIBuddyImproveSiriController *_improveSiriController;
+    OBTemplateView *_templateView;
+}
+
+@property (retain) NSDictionary *userInfo;
+@property (weak) NSLayoutConstraint *viewHeightConstraint;
+@property (readonly) BOOL siriEnabled;
+@property (readonly) BOOL siriPreviouslyEnabled;
+@property (readonly) BOOL siriNewlyEnabled;
+@property (readonly) BOOL dataSharingPreviouslySpecified;
+@property BOOL enableSiri;
+@property BOOL skippedVoiceTrigger;
+@property (retain) NSString *userChosenSiriLanguageCode;
+@property (retain) AFVoiceInfo *userChosenVoice;
+@property (retain) NSString *effectiveSiriLanguageCode;
+@property (readonly) OBTemplateView *templateView;
+@property (readonly, weak) SiriUIOrbView *orbView;
+@property (readonly, weak) id<MBSecondPartyHost> host;
+@property (weak) id<SiriUIBuddyDelegate> delegate;
+
++ (void)initialize;
++ (id)_stateMachineDispatchQueue;
+
+- (void).cxx_destruct;
+- (void)setState:(long long)a0;
+- (void)loadView;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (long long)initialState;
+- (id)initWithHost:(id)a0 userInfo:(id)a1;
+- (void)updateOnBoardingKitTemplate;
+- (void)moveToPreviousPanel;
+- (void)moveToNextPanel;
+- (void)setLoadingSpinnerHidden:(BOOL)a0;
+- (BOOL)_mbuaIsSiriEnabled;
+- (long long)_mbuaGetDataSharingOptInStatus;
+- (id)_configurationRecognitionLanguageCodes;
+- (void)_mbuaSetEnablementLanguages:(id)a0;
+- (void)didOpenLid:(id)a0;
+- (void)didCloseLid:(id)a0;
+- (BOOL)_mbuaRandomVoice;
+- (BOOL)_mbuaRequiresVoiceSelection;
+- (BOOL)shouldShowState:(long long)a0;
+- (void)currentPaneWillExit;
+- (id)enableSiriController;
+- (id)chooseLanguageController;
+- (id)chooseVoiceController;
+- (id)voiceTriggerIntroController;
+- (id)voiceTriggerController;
+- (id)voiceTriggerOutroController;
+- (id)improveSiriController;
+
+@end

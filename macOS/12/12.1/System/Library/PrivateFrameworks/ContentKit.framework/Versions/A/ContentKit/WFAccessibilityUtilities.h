@@ -1,0 +1,3 @@
+@interface WFAccessibilityUtilities : NSObject
+
+@end

@@ -1,0 +1,90 @@
+@class NSStackView, UnifiedTabBarItem, LayerView, NSImageView, RolloverImageButton, NSImage, NSString, NSLayoutConstraint, UnifiedTabBarVisualEffectView, NSArray, NSView, CABackdropLayer, NSTextField;
+@protocol UnifiedTabBarButtonDelegate, UnifiedTabBarAccessibilityElementDelegate;
+
+@interface UnifiedTabBarButton : NSView <NSAccessibilityRadioButton, RolloverTrackingButtonDelegate> {
+    NSView *_unifiedField;
+    LayerView *_backgroundView;
+    NSView *_contentView;
+    NSView *_iconContainerView;
+    NSStackView *_stackView;
+    NSImageView *_iconImageView;
+    NSTextField *_titleTextField;
+    NSTextField *_detailTextField;
+    RolloverImageButton *_closeButton;
+    NSLayoutConstraint *_smallTabIconWidthAnchor;
+    NSLayoutConstraint *_largeTabIconWidthAnchor;
+    UnifiedTabBarVisualEffectView *_visualEffectBackground;
+    NSImageView *_visualEffectBackgroundHighlight;
+    CABackdropLayer *_backdropLayer;
+    BOOL _dragging;
+}
+
+@property (weak, nonatomic) id<UnifiedTabBarButtonDelegate, UnifiedTabBarAccessibilityElementDelegate> delegate;
+@property (readonly, nonatomic) long long tabBarStyle;
+@property (retain, nonatomic) UnifiedTabBarItem *tabBarItem;
+@property (nonatomic) long long state;
+@property (retain, nonatomic) NSImage *icon;
+@property (retain, nonatomic) NSImage *placeholderIcon;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *activeTitle;
+@property (copy, nonatomic) NSString *placeholderTitle;
+@property (copy, nonatomic) NSArray *accessoryViews;
+@property (copy, nonatomic) NSString *backdropGroupName;
+@property (nonatomic) BOOL canShowCloseButton;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)titleFont;
++ (double)titleWidthForButtonWidth:(double)a0;
+
+- (void).cxx_destruct;
+- (void)layout;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)viewDidMoveToWindow;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)accessibilitySubrole;
+- (void)mouseDown:(id)a0;
+- (id)_backgroundColor;
+- (id)accessibilityChildren;
+- (id)accessibilityLabel;
+- (BOOL)isAccessibilityElement;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityActionNames;
+- (void)accessibilityPerformAction:(id)a0;
+- (id)accessibilityTitle;
+- (BOOL)mouseDownCanMoveWindow;
+- (id)accessibilityIdentifier;
+- (BOOL)accessibilityPerformPress;
+- (BOOL)accessibilityPerformShowMenu;
+- (id)accessibilityValue;
+- (id)accessibilityHelp;
+- (id)menuForEvent:(id)a0;
+- (id)tabDragImageOfSize:(struct CGSize { double x0; double x1; })a0;
+- (id)pinnedTabDragImageOfSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_closeButtonClicked:(id)a0;
+- (BOOL)_canShowCloseButton;
+- (void)endDragging;
+- (void)updateBackgroundAppearance;
+- (void)_updateViewsForState;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_backgroundFrameForButtonFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_backdropLayerFrameForBackgroundView:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_updateActiveStateChange;
+- (BOOL)_shouldDisplayOverlappingCloseButtonForEvent:(id)a0;
+- (void)updateIconAppearance;
+- (BOOL)_keyWindowOrEditing;
+- (void)updateCloseButtonVisibility;
+- (void)_setUpCloseButtonForState;
+- (void)_updateTitleAndIcon;
+- (BOOL)_pointInside:(struct CGPoint { double x0; double x1; })a0 margin:(double)a1;
+- (double)_windowDragMargin;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0;
+- (void)startDragging;
+- (id)initWithTabBarStyle:(long long)a0;
+- (BOOL)pointInsideWithMargins:(struct CGPoint { double x0; double x1; })a0;
+- (void)addAnimationsForChangesFromState:(long long)a0 withFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+
+@end

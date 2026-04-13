@@ -1,0 +1,86 @@
+@class ODRecord, NSMutableDictionary;
+
+@interface ODUFrameworkMCXRecord : NSObject {
+    ODRecord *mRecord;
+    NSMutableDictionary *mOverride;
+}
+
++ (id)mcxrecordWithRecord:(id)a0;
++ (id)mcxrecordWithOverride:(id)a0;
++ (id)mcxrecordWithRecord:(id)a0 withOverride:(id)a1;
+
+- (void)dealloc;
+- (unsigned int)uid;
+- (id)recordName;
+- (BOOL)isExternal;
+- (BOOL)isGroup;
+- (id)recordType;
+- (id)home;
+- (BOOL)isLocal;
+- (id)nodeName;
+- (id)uuidString;
+- (unsigned int)gid;
+- (id)record;
+- (id)bestName;
+- (BOOL)isAdmin;
+- (id)picturePath;
+- (id)originalNodeName;
+- (id)override;
+- (BOOL)setValue:(id)a0 forAttribute:(id)a1;
+- (id)rawNodeName;
+- (BOOL)isUserGroup;
+- (BOOL)isComputerGroup;
+- (BOOL)isComputerList;
+- (id)mcxSettings;
+- (void)generateUUIDandSID;
+- (id)recordDetailsForAttributes:(id)a0;
+- (id)valuesForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0 withClass:(Class)a1;
+- (id)firstValueForAttributeIfXMLPList:(id)a0;
+- (BOOL)setValues:(id)a0 forAttribute:(id)a1;
+- (BOOL)isUser;
+- (BOOL)rawIsAdmin;
+- (BOOL)mcxBoolFlag:(id)a0 withDefault:(BOOL)a1;
+- (id)firstValueForAttributeIfString:(id)a0;
+- (id)longName;
+- (id)gidString;
+- (id)uidString;
+- (BOOL)isComputer;
+- (id)rawUUIDString;
+- (id)firstValueForAttributeIfXMLDictionary:(id)a0;
+- (id)mcxFlagsDictionary;
+- (id)originalHome;
+- (id)timestampString;
+- (BOOL)rawIsLocal;
+- (BOOL)isMobileRecord;
+- (double)mcxTimestamp;
+- (BOOL)boolForAttribute:(id)a0 withDefault:(BOOL)a1;
+- (id)firstValueForAttributeIfXMLArray:(id)a0;
+- (id)mcxRecordArrayForXMLAttribute:(id)a0;
+- (id)recordDetailsForAttribute:(id)a0;
+- (id)stringValuesForAttribute:(id)a0;
+- (id)dataValuesForAttribute:(id)a0;
+- (id)uniqueStringValuesForAttribute:(id)a0;
+- (id)firstValueForAttributeAsData:(id)a0;
+- (BOOL)setMCXFlagsDictionary:(id)a0;
+- (BOOL)isWorkgroup;
+- (BOOL)isGroupWithMCXSettingsFlag;
+- (id)mcxFlags;
+- (BOOL)preventSimultaneousLogin;
+- (BOOL)hasNetworkHome;
+- (id)homeLoc;
+- (BOOL)hasNetworkOriginalHome;
+- (id)originalHomeLoc;
+- (BOOL)isMobileUserAccount;
+- (BOOL)isMobileComputerAccount;
+- (BOOL)fromCache;
+- (id)cachedTrustInfoArray;
+- (id)cachedGroups;
+- (id)cachedParents;
+- (id)cachedParentGroups;
+- (id)cachedLocalUserGroups;
+- (id)initWithRecord:(id)a0 withOverride:(id)a1;
+- (BOOL)removeValuesForAttribute:(id)a0;
+
+@end

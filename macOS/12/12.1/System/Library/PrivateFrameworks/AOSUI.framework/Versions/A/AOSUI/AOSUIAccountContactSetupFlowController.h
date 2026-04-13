@@ -1,0 +1,80 @@
+@class CNContactPicker, NSDictionary, AOSUIOBBaseViewController, ACAccount, AOSUIContactsProvider, NSMutableArray, iCloudAccountDetailsWebTabView, NSString, AOSUIAccountContactsSharingController, AALocalContactInfo, AABeneficiaryInfo, NSWindow, AACustodianController, NSUUID;
+
+@interface AOSUIAccountContactSetupFlowController : NSObject <AOSUIOBBaseViewControllerDelegate, AOSUIAccountContactSelectorDelegate, AOSUIBeneficiaryRadioListViewSelectorDelegate, CNContactPickerDelegate, iCloudWebViewDelegate> {
+    ACAccount *_appleAccount;
+    NSWindow *_modalWindow;
+    unsigned long long _requestedFlow;
+    AOSUIOBBaseViewController *baseViewController;
+    unsigned long long currentSetupStep;
+    AOSUIContactsProvider *_contactsProvider;
+    NSDictionary *_authResults;
+    AALocalContactInfo *_selectedContact;
+    AABeneficiaryInfo *_selectedBeneficiary;
+    AACustodianController *_custodianController;
+    NSUUID *_custodianshipID;
+    NSMutableArray *_suggestedContacts;
+    CNContactPicker *contactPicker;
+    unsigned long long _currentRadioListSelection;
+    AOSUIAccountContactsSharingController *_sharingController;
+    id /* block */ _dismref;
+    iCloudAccountDetailsWebTabView *_webView;
+}
+
+@property (retain, nonatomic) NSWindow *hostWindow;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)endWebView:(id)a0;
+- (void)sizeChangedFrom:(struct CGSize { double x0; double x1; })a0 toSize:(struct CGSize { double x0; double x1; })a1 webViewName:(id)a2 callback:(id)a3;
+- (void)skipAndContinueSignIn;
+- (void)resizeModalSheet:(struct CGSize { double x0; double x1; })a0;
+- (void)printOperationDidRun:(id)a0 success:(BOOL)a1 contextInfo:(void *)a2;
+- (void)contactPickerDidClose:(id)a0;
+- (void)contactPicker:(id)a0 didSelectContactProperty:(id)a1;
+- (void)loadFailed:(id)a0;
+- (id)_setupWindowWithContentViewController:(id)a0;
+- (void)currentSelection:(unsigned long long)a0;
+- (id)initWithAccount:(id)a0 forFlow:(unsigned long long)a1;
+- (void)beginFlow;
+- (void)firstButtonPressed;
+- (void)secondButtonPressed;
+- (void)linkButtonPressed;
+- (void)contactSelected:(id)a0;
+- (void)showContactPickerRelativeToItem:(id)a0;
+- (void)_showFirstTimeSetup;
+- (void)_dismissWithReturnCode:(long long)a0;
+- (void)_showDeviceUpgradeUI;
+- (void)_fetchSuggestedContacts;
+- (void)_validateAccountWithCompletion:(id /* block */)a0;
+- (void)_verifyCDPWithCompletion:(id /* block */)a0;
+- (void)_fetchSuggestedCustodians;
+- (void)_fetchSuggestedBeneficiaries;
+- (void)_showTrustedContactMessageTemplate;
+- (void)_showInheritanceMessageTemplate;
+- (void)_showTrustedContactEditMessageUI;
+- (void)_showInheritanceEditMessageUI;
+- (void)_sendInvitationToSelectedContact;
+- (void)_showMessageTemplate;
+- (void)_showInheritanceSetupCompletedForAccessKeyShareType:(unsigned long long)a0;
+- (void)_sendDefaultiMessageWithContext:(id)a0;
+- (void)_showTrustedContactSetupCompleted;
+- (void)_validateAccount;
+- (void)_showShareData;
+- (void)_setupBeneficiary;
+- (void)_printAccessKeyDocument;
+- (void)_sendDefaultiMessageToSelectedContact;
+- (void)_showEditMessageUI;
+- (void)_showContactSelector:(id)a0;
+- (void)_showChoseHowToShare;
+- (void)_validateTrustedContactIsMessageable;
+- (void)_firstButtonPressedInheritance;
+- (void)_firstButtonPressedTrustedContact;
+- (void)_secondButtonPressedInheritance;
+- (void)_secondButtonPressedTrustedContact;
+- (void)_processLinkButtonPressForSetupStep:(unsigned long long)a0;
+- (void)beginPrefPaneAction;
+
+@end

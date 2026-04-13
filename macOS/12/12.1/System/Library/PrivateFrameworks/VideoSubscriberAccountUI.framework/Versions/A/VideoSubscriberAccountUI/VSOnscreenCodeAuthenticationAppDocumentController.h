@@ -1,0 +1,3 @@
+@interface VSOnscreenCodeAuthenticationAppDocumentController : VSAppDocumentController
+
+@end

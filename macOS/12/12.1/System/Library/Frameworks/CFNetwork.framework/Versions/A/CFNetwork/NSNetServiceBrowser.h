@@ -1,0 +1,25 @@
+@protocol NSNetServiceBrowserDelegate;
+
+@interface NSNetServiceBrowser : NSObject {
+    id _netServiceBrowser;
+    id _delegate;
+    void *_reserved;
+}
+
+@property id<NSNetServiceBrowserDelegate> delegate;
+@property BOOL includesPeerToPeer;
+
+- (void)dealloc;
+- (id)init;
+- (void)scheduleInRunLoop:(id)a0 forMode:(id)a1;
+- (void)removeFromRunLoop:(id)a0 forMode:(id)a1;
+- (void)stop;
+- (void)_setIncludesAWDL:(BOOL)a0;
+- (void)searchForBrowsableDomains;
+- (void)searchForRegistrationDomains;
+- (void)searchForServicesOfType:(id)a0 inDomain:(id)a1;
+- (struct __CFNetServiceBrowser { } *)_internalNetServiceBrowser;
+- (void)_dispatchCallBack:(void *)a0 flags:(unsigned long long)a1 error:(struct { long long x0; int x1; })a2;
+- (void)searchForAllDomains;
+
+@end

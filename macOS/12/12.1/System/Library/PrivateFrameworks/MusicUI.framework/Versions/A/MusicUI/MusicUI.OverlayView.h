@@ -1,0 +1,16 @@
+@interface MusicUI.OverlayView : JUCustomView {
+    void /* unknown type, empty encoding */ configuration;
+    void /* unknown type, empty encoding */ playButton;
+    void /* unknown type, empty encoding */ contextMenuButton;
+    void /* unknown type, empty encoding */ checkmarkButton;
+    void /* unknown type, empty encoding */ objectGraph;
+    void /* unknown type, empty encoding */ clickGestureRecognizer;
+}
+
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)onOverlayViewClicked:(id)a0;
+
+@end

@@ -1,0 +1,19 @@
+@class NSDictionary, _PASLock, TRIClient;
+
+@interface PREExperimentResolver : NSObject <PREExperimentResolverProtocol> {
+    _PASLock *_guardedSmartReplyConfig;
+    NSDictionary *_lockPerLanguage;
+    TRIClient *_trialClient;
+}
+
+@property (readonly, nonatomic) NSDictionary *smartReplyLangAndNamespaces;
+
++ (id)sharedInstance;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)getResponseSuggestionsExperimentConfig:(id)a0 shouldDownloadAssets:(BOOL)a1;
+- (void)warmupForLocale:(id)a0;
+- (id)_getDefaultResponseSuggestionsExperimentConfig:(id)a0;
+
+@end

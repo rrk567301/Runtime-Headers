@@ -1,0 +1,92 @@
+@class NSPressGestureRecognizer, NSString, SafariWebBookmark, NSMenu;
+
+@interface FavoriteButton : RolloverTextButton <NSGestureRecognizerDelegate, NSMenuDelegate> {
+    SafariWebBookmark *_bookmark;
+    NSMenu *_contentsMenu;
+    BOOL _drawForDragging;
+    BOOL _ignoreModifiers;
+    BOOL _menuOpen;
+    NSMenu *_contextMenu;
+    NSPressGestureRecognizer *_longPressRecognizer;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)font;
++ (id)draggedButton;
++ (void)_updateCellClass;
++ (void)setDraggedButton:(id)a0;
++ (double)maxWidthForBookmarkType:(long long)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)setTitle:(id)a0;
+- (id)menu;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)mouseDown:(id)a0;
+- (BOOL)acceptsFirstResponder;
+- (void)menuWillOpen:(id)a0;
+- (void)menuDidClose:(id)a0;
+- (void)performClick:(id)a0;
+- (void)moveRight:(id)a0;
+- (void)moveLeft:(id)a0;
+- (id)_hitTest:(const struct CGPoint { double x0; double x1; } *)a0 dragTypes:(id)a1;
+- (unsigned long long)draggingSourceOperationMaskForLocal:(BOOL)a0;
+- (void)draggedImage:(id)a0 endedAt:(struct CGPoint { double x0; double x1; })a1 operation:(unsigned long long)a2;
+- (BOOL)ignoreModifierKeysWhileDragging;
+- (unsigned long long)draggingEntered:(id)a0;
+- (unsigned long long)draggingUpdated:(id)a0;
+- (void)draggingExited:(id)a0;
+- (BOOL)performDragOperation:(id)a0;
+- (id)menuForEvent:(id)a0;
+- (BOOL)_shouldDrawDragged;
+- (void)moveDown:(id)a0;
+- (void)moveUp:(id)a0;
+- (void)otherMouseDown:(id)a0;
+- (void)_setAttributes;
+- (void)quickLookWithEvent:(id)a0;
+- (BOOL)canSmoothFontsInLayer;
+- (id)_clipViewAncestor;
+- (id)bookmark;
+- (void)setBookmark:(id)a0;
+- (struct TabPlacementHint { id x0; BOOL x1; })_tabPlacementHint;
+- (BOOL)automaticallyOpensInTabs;
+- (void)_didRecognizeImmediateAction:(id)a0;
+- (void)_configurePressGestureRecognizerIfNeeded;
+- (void)_goToBookmark;
+- (void)_didClickButton:(id)a0;
+- (void)registerForDraggedTypes;
+- (id)_menuBuilder;
+- (BOOL)_shouldShowOpenInTabs;
+- (void)_openInNewTabs:(id)a0;
+- (void)_replaceTabs:(id)a0;
+- (void)_editTitle:(id)a0;
+- (void)_editAddress:(id)a0;
+- (id)bookmarkSource;
+- (BOOL)hasContentsMenu;
+- (void)_setShouldDrawDragged:(BOOL)a0;
+- (void)_bookmarksReloaded:(id)a0;
+- (void)startObservingBookmarkReloads;
+- (id)contentsMenu;
+- (void)popUpContentsMenu;
+- (BOOL)shouldShowContentsMenuFromEvent:(id)a0 waitedForDragDelay:(BOOL)a1;
+- (BOOL)mouseDownIsInMenuArrow:(id)a0;
+- (BOOL)canDragHorizontally:(BOOL)a0 fromMouseDown:(id)a1;
+- (void)performDragFromMouseDown:(id)a0 withViewFrameOrigin:(struct CGPoint { double x0; double x1; })a1;
+- (void)stopObservingBookmarkReloads;
+- (void)confirmDeletingFolder;
+- (void)deleteAfterDrag;
+- (unsigned long long)determineDragOperation:(id)a0;
+- (BOOL)_canAcceptDroppedBookmarkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)_canEditOnLongPress;
+- (void)_didRecognizeLongPressGesture:(id)a0;
+- (void)_didRecognizeRenameGesture;
+- (id)initWithBookmark:(id)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)drawForDraggingImageInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isMenuOpen;
+- (void)performClickIgnoringModifiers:(id)a0;
+
+@end

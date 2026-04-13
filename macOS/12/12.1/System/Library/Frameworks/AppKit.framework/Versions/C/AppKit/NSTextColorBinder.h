@@ -1,0 +1,34 @@
+@class NSColor;
+
+@interface NSTextColorBinder : NSBinder {
+    NSColor *_originalColor;
+    NSColor *_referenceBinderRequestedColor;
+    struct __textColorBinderFlags { unsigned char _referenceBinderDidRequestColor : 1; unsigned int _reservedTextColorBinder : 31; } _textColorBinderFlags;
+}
+
++ (id)objectMechanismsRequiredForObject:(id)a0;
++ (id)_pluginProtocol;
++ (id)bindingsForObject:(id)a0;
++ (id)bindingCategory;
+
+- (void)_init;
+- (void)_connectionWasEstablished;
+- (BOOL)isBindingReadOnly:(id)a0;
+- (void)updateOutlineColumnDataCell:(id)a0 forDisplayAtIndexPath:(id)a1;
+- (void)updateTableColumnDataCell:(id)a0 forDisplayAtIndex:(unsigned long long)a1;
+- (void)_observeValueForKeyPath:(id)a0 ofObject:(id)a1 context:(void *)a2;
+- (unsigned long long)_bindingAdaptorMethodsNeededMask;
+- (id)textColor;
+- (void)_dealloc;
+- (Class)valueClassForBinding:(id)a0;
+- (void)_clearDependenciesWithAllPeerBinders;
+- (void)_synchronizeWithPeerBindersInArray:(id)a0;
+- (id)textColorAtIndex:(unsigned long long)a0;
+- (id)textColorAtIndexPath:(id)a0;
+- (id)_textColorWithMode:(struct __NSKeyValueCodingControllerModeType { long long x0; unsigned long long x1; id x2; })a0;
+- (id)_setTextColorInObject:(id)a0 mode:(struct __NSKeyValueCodingControllerModeType { long long x0; unsigned long long x1; id x2; })a1 compareDirectly:(BOOL)a2 toTextColor:(id)a3;
+- (void)_showTextColorImmediatelyInObject:(id)a0 mode:(struct __NSKeyValueCodingControllerModeType { long long x0; unsigned long long x1; id x2; })a1;
+- (void)_requestTextColor:(id)a0;
+- (id)updateInvalidatedTextColor:(id)a0 forObject:(id)a1;
+
+@end

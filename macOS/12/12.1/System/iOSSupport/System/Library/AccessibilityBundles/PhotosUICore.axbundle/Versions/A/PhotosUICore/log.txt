@@ -1,0 +1,1 @@
+dlerror: dlopen(/System/iOSSupport/System/Library/AccessibilityBundles/PhotosUICore.axbundle/Versions/A/PhotosUICore, 0x0002): tried: '/System/iOSSupport/System/Library/AccessibilityBundles/PhotosUICore.axbundle/Versions/A/PhotosUICore' (wrong platform to load into process), '/usr/local/lib/PhotosUICore' (no such file), '/usr/lib/PhotosUICore' (no such file)

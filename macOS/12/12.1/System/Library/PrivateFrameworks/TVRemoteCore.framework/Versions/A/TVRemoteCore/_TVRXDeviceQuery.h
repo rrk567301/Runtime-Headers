@@ -1,0 +1,34 @@
+@class NSMutableDictionary, _TVRCRapportDeviceQuery, NSSet, _TVRCMediaRemoteDeviceQuery, _TVRCMatchPointDeviceQuery, NSString;
+@protocol _TVRXDeviceQueryDelegate;
+
+@interface _TVRXDeviceQuery : NSObject <_TVRCMediaRemoteDeviceQueryDelegate, _TVRCRapportDeviceQueryDelegate, _TVRCMatchPointDeviceQueryDelegate>
+
+@property (nonatomic) BOOL isRunning;
+@property (retain, nonatomic) NSMutableDictionary *aggregateDevices;
+@property (retain, nonatomic) _TVRCMediaRemoteDeviceQuery *mediaRemoteQuery;
+@property (retain, nonatomic) _TVRCRapportDeviceQuery *rapportDeviceQuery;
+@property (retain, nonatomic) _TVRCMatchPointDeviceQuery *matchPointQuery;
+@property (weak, nonatomic) id<_TVRXDeviceQueryDelegate> delegate;
+@property (readonly, copy, nonatomic) NSSet *devices;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)start;
+- (void)stop;
+- (void)_startSearch;
+- (void)_notifyDelegateDidUpdateDevices;
+- (void)_stopSearch;
+- (id)_findAggregateForIdentifier:(id)a0 createIfNeeded:(BOOL)a1;
+- (void)_reevaluateAggregates;
+- (void)mediaRemoteDeviceQuery:(id)a0 addedTelevision:(id)a1;
+- (void)mediaRemoteDeviceQuery:(id)a0 removedTelevision:(id)a1;
+- (void)rapportDeviceQuery:(id)a0 addedDevice:(id)a1;
+- (void)rapportDeviceQuery:(id)a0 removedDevice:(id)a1;
+- (void)matchpointDeviceQuery:(id)a0 addedService:(id)a1;
+- (void)matchpointDeviceQuery:(id)a0 removedService:(id)a1;
+
+@end

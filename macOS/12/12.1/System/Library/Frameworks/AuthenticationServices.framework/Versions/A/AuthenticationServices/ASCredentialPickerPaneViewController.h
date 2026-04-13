@@ -1,0 +1,74 @@
+@class ASCAuthorizationPresentationContext, NSString, ASCredentialRequestImageSubPane, ASCredentialRequestConfirmButtonSubPane, AKASAuthorizationProvider, NSObject, NSWindow;
+@protocol OS_dispatch_queue, ASCLoginChoiceProtocol;
+
+@interface ASCredentialPickerPaneViewController : ASCredentialRequestPaneViewController <_ASAuthenticationPresentationProvider, ASCredentialRequestSubPaneConfirmButtonDelegate, NSTableViewDataSource> {
+    ASCAuthorizationPresentationContext *_presentationContext;
+    ASCredentialRequestImageSubPane *_imageSubPane;
+    ASCredentialRequestConfirmButtonSubPane *_confirmButtonSubPane;
+    long long _currentlySelectedRow;
+    id<ASCLoginChoiceProtocol> _previouslySelectedLoginChoice;
+    AKASAuthorizationProvider *_authKitAuthorizationProvider;
+    NSObject<OS_dispatch_queue> *_alertQueue;
+}
+
+@property (readonly, nonatomic) NSWindow *presentationAnchor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSString *callerIconBundlePathForTouchBar;
+@property (readonly, copy, nonatomic) NSString *localizedCallerNameForTouchBar;
+
+- (void).cxx_destruct;
+- (id)_serviceName;
+- (void)loadView;
+- (long long)numberOfRowsInTableView:(id)a0;
+- (id)tableView:(id)a0 viewForTableColumn:(id)a1 row:(long long)a2;
+- (double)tableView:(id)a0 heightOfRow:(long long)a1;
+- (void)tableViewSelectionDidChange:(id)a0;
+- (id)_callerIconBundlePath;
+- (void)_addAuthorizationButtonToPaneContext:(id)a0;
+- (id)_localizedInfoString;
+- (id)initWithPresentationContext:(id)a0;
+- (void)_setCancelButtonEnabled:(BOOL)a0;
+- (void)authenticationProvider:(id)a0 presentAlert:(id)a1 primaryAction:(id /* block */)a2 alternateAction:(id /* block */)a3;
+- (id)_cellForRow:(long long)a0;
+- (void)performAuthorization:(id)a0 withAuthenticatedLAContext:(id)a1;
+- (void)performPasswordAuthentication:(id)a0;
+- (void)userTappedContinueButton;
+- (id)authenticationSheetControllerForConfirmButtonSubPane:(id)a0;
+- (BOOL)validateReadyForAuthorization:(id)a0;
+- (void)confirmButtonSubPaneDidEnterProcessingState:(id)a0 withAuthenticatedContext:(id)a1;
+- (void)confirmButtonSubPaneDidFailBiometry:(id)a0;
+- (void)_selectPreviouslySelectedLoginChoiceIfPossible:(id)a0;
+- (void)_setUpView;
+- (void)_selectInitialLoginChoice;
+- (void)_setUpIconViewIfNecessary;
+- (void)_setUpInfoLabel;
+- (void)_addUseSecurityKeyButtonIfNeeded;
+- (void)_createIconViewWithIconImage:(id)a0;
+- (void)_useSecurityKeyButtonTapped;
+- (double)_secondaryButtonBottomMargin;
+- (void)_manuallyEnterPasswordButtonTapped;
+- (BOOL)_shouldShowLoginChoicesInTableView;
+- (void)_configureAuthenticationPaneForSelectedLoginChoice:(id)a0;
+- (id)_infoLabelStringForPassword;
+- (id)_infoLabelStringForSignInWithApple;
+- (id)_infoLabelStringForPlatformPublicKeyCredentialRegistration;
+- (id)_infoLabelStringForPlatformPublicKeyCredentialAssertion;
+- (id)_infoLabelStringForSecurityKeyCredentialAssertion;
+- (long long)numberOfTableRows;
+- (void)_loginChoiceSelected:(id)a0;
+- (void)_updateSelectedRow:(long long)a0;
+- (BOOL)_errorIsPINRequiredError:(id)a0;
+- (void)_performAuthorizationWithAuthenticatedContext:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_authenticationSheetForLoginChoice:(id)a0;
+- (id)_authKitLoginAuthenticationSheet;
+- (void)_presentAlert:(id)a0 primaryAction:(id /* block */)a1 alternateAction:(id /* block */)a2;
+- (void)authenticationProvider:(id)a0 showViewController:(id)a1;
+- (void)authenticationProvider:(id)a0 hideViewController:(id)a1;
+- (void)reloadLoginChoices;
+- (void)_addManuallyEnterPasswordButtonIfNeeded;
+- (long long)_numberOfPasswordLoginChoices;
+
+@end

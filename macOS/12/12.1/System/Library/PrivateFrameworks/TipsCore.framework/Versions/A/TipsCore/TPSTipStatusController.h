@@ -1,0 +1,86 @@
+@class NSDictionary, NSMutableDictionary, NSUserDefaults;
+
+@interface TPSTipStatusController : NSObject <NSCopying> {
+    BOOL _isDirty;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *identifierToTipStatusMap;
+@property (retain, nonatomic) NSUserDefaults *appGroupDefaults;
+@property (readonly, nonatomic) NSDictionary *tipStatusMap;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)debugDescription;
+- (id)init;
+- (void).cxx_destruct;
+- (id)statusesForCorrelationIdentifier:(id)a0;
+- (unsigned long long)displayTypeForIdentifier:(id)a0;
+- (int)hintDisplayedCountForIdentifier:(id)a0;
+- (void)_reloadCacheData;
+- (void)updatePreconditionMatchedForIdentifiers:(id)a0 value:(BOOL)a1;
+- (id)_tipStatusForIdentifier:(id)a0 addIfMissing:(BOOL)a1;
+- (void)updateCacheData;
+- (BOOL)isContentNeverVisibleForIdentifier:(id)a0;
+- (BOOL)isTriggerTrackingEligibleForIdentifier:(id)a0 checkForPrecondition:(BOOL)a1 checkForEligibleDate:(BOOL)a2;
+- (void)updatePreconditionMatchedForIdentifier:(id)a0 value:(BOOL)a1;
+- (BOOL)isPreconditionMatchedForIdentifier:(id)a0;
+- (void)updateHintWouldHaveBeenDisplayedDateForIdentifier:(id)a0 value:(BOOL)a1;
+- (void)updateHintInelgibileForIdentifier:(id)a0 value:(long long)a1;
+- (void)donateDesiredOutcomePerformedForIdentifier:(id)a0 date:(id)a1;
+- (id)tipStatusMap;
+- (BOOL)isContentViewedForIdentifier:(id)a0;
+- (id)initWithAppGroupDefaults:(id)a0;
+- (void)syncWithIdentifiers:(id)a0;
+- (id)statusForIdentifier:(id)a0;
+- (void)removeAllTipStatus;
+- (id)reenrollHoldoutContent;
+- (id)reenrollPreconditionChangeContent;
+- (BOOL)isLockScreenHintDisplayEligibleForIdentifier:(id)a0;
+- (BOOL)isContextualInfoLifetimeExpiredForIdentifier:(id)a0;
+- (BOOL)isHintMaxDurationExcceededForIdentifier:(id)a0;
+- (BOOL)isEligibilityTrackingNeedsRestartForIdentifier:(id)a0;
+- (BOOL)isTipAppDisplayEligibleForIdentifier:(id)a0;
+- (BOOL)isTriggerTrackingEligibleForIdentifier:(id)a0;
+- (BOOL)isDesiredOutcomeTrackingEligibleForIdentifier:(id)a0;
+- (long long)hintInelgibileReasonForIdentifier:(id)a0;
+- (BOOL)isHintInelgibileForIdentifier:(id)a0;
+- (BOOL)isHintInelgibileForReason:(long long)a0 identifier:(id)a1;
+- (id)dateForTriggerRestartTrackingForIdentifier:(id)a0;
+- (void)updateDateForTriggerRestartTrackingForIdentifier:(id)a0 date:(id)a1;
+- (void)updateDisplayTypeForIdentifier:(id)a0 value:(unsigned long long)a1;
+- (id)variantIdentifierForIdentifier:(id)a0;
+- (void)updatevariantIdentifierForIdentifier:(id)a0 value:(id)a1;
+- (id)correlationIdentifierForIdentifier:(id)a0;
+- (void)updateCorrelationIdentifierForIdentifier:(id)a0 value:(id)a1;
+- (id)clonedFromIdentifierForIdentifier:(id)a0;
+- (void)updateClonedFromIdentifierForIdentifier:(id)a0 value:(id)a1;
+- (id)hintEligibleDateForIdentifier:(id)a0;
+- (void)updateHintEligibleDateForIdentifier:(id)a0 value:(BOOL)a1;
+- (id)hintWouldHaveBeenDisplayedDateForIdentifier:(id)a0;
+- (BOOL)isHintDisplayedForIdentifier:(id)a0;
+- (void)addHintDisplayedForIdentifier:(id)a0 context:(id)a1;
+- (id)firstHintDisplayDateForIdentifier:(id)a0;
+- (void)addHintNotDisplayedDueToFrequencyControlDateForIdentifier:(id)a0;
+- (id)hintNotDisplayedDueToFrequencyControlDatesForIdentifier:(id)a0;
+- (BOOL)isHintDismissedForIdentifier:(id)a0;
+- (void)updateHintDismissedForIdentifier:(id)a0 value:(BOOL)a1;
+- (void)updateContentViewedForIdentifier:(id)a0 value:(BOOL)a1;
+- (id)contentViewedDateForIdentifier:(id)a0;
+- (BOOL)isDesiredOutcomePerformedForIdentifier:(id)a0;
+- (void)addDesiredOutcomePerformedDateForIdentifier:(id)a0 date:(id)a1;
+- (BOOL)isExpiredForIdentifier:(id)a0;
+- (void)updateExpiredForIdentifier:(id)a0 value:(BOOL)a1;
+- (id)lastUsedVersionForIdentifier:(id)a0;
+- (void)updateLastUsedVersionForIdentifier:(id)a0 value:(id)a1;
+- (BOOL)isOverrideHoldoutForIdentifier:(id)a0;
+- (void)updateOverrideHoldoutForIdentifier:(id)a0 value:(BOOL)a1;
+- (BOOL)isOverrideFrequencyControlForIdentifier:(id)a0;
+- (void)updateOverrideFrequencyControlForIdentifier:(id)a0 value:(BOOL)a1;
+- (unsigned long long)usageFlagsForIdentifier:(id)a0;
+- (id)lastDisplayContextForIdentifier:(id)a0;
+- (id)userInfoForIdentifier:(id)a0;
+- (void)updateUserInfoForIdentifier:(id)a0 key:(id)a1 value:(id)a2;
+- (void)removeUserInfoForIdentifier:(id)a0;
+- (void)removeCacheData;
+- (BOOL)unviewedContentAvailable;
+
+@end

@@ -1,0 +1,29 @@
+@class AOSUIProfileViewRootViewController, NSViewController, AOSUIProfileViewCacheController, NSString, NSRemoteViewController;
+
+@interface AOSUIProfileViewUtility : NSObject <AOSUIProfileRemoteViewControllerDelegate>
+
+@property (retain) NSRemoteViewController *remoteViewController;
+@property (retain) NSViewController *cacheViewController;
+@property (retain) AOSUIProfileViewRootViewController *rootViewController;
+@property (retain) AOSUIProfileViewCacheController *cacheController;
+@property (readonly) NSViewController *viewController;
+@property (copy) id /* block */ updateOverlayPrefPaneBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedProfileViewUtility;
++ (void)requestProfileViewController:(id /* block */)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)viewController;
+- (id)serviceProxy;
+- (void)updateOverlay:(id /* block */)a0;
+- (void)profileRemoteViewController_updateOverlayPrefPane:(BOOL)a0 prefPanesToHide:(id)a1;
+- (void)_requestRemoteProfileViewControllerWithCompletion:(id /* block */)a0;
+- (void)_updateProfileViewFromCache;
+- (void)_updateImageCache;
+
+@end

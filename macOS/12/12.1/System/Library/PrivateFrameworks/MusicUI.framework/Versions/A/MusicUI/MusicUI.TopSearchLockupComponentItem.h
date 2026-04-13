@@ -1,0 +1,21 @@
+@interface MusicUI.TopSearchLockupComponentItem : NSCollectionViewItem {
+    void /* unknown type, empty encoding */ isHovered;
+    void /* unknown type, empty encoding */ trackContentDescriptor;
+    void /* unknown type, empty encoding */ menuPresenter;
+    void /* unknown type, empty encoding */ automaticReloadTriggers;
+    void /* unknown type, empty encoding */ titleLabel;
+    void /* unknown type, empty encoding */ subtitleLabel;
+    void /* unknown type, empty encoding */ subheadlineLabel;
+    void /* unknown type, empty encoding */ explicitBadge;
+    void /* unknown type, empty encoding */ gradientFadeView;
+    void /* unknown type, empty encoding */ trackArtworkView;
+    void /* unknown type, empty encoding */ badgeView;
+}
+
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)loadView;
+- (void)viewWillLayout;
+
+@end

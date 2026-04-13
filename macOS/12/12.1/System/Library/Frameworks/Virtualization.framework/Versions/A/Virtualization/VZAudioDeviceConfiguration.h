@@ -1,0 +1,11 @@
+@class NSString;
+
+@interface VZAudioDeviceConfiguration : NSObject <_VZVirtualMachineConfigurationEncodable, NSCopying>
+
+@property (readonly) struct expected<std::variant<VzCore::VirtualMachineConfiguration::AudioDevices::Virtio>, NSError *> { union storage<std::variant<VzCore::VirtualMachineConfiguration::AudioDevices::Virtio>, NSError *> { char x0; struct variant<VzCore::VirtualMachineConfiguration::AudioDevices::Virtio> { struct __impl<VzCore::VirtualMachineConfiguration::AudioDevices::Virtio> { union __union<std::__variant_detail::_Trait::_Available, 0, VzCore::VirtualMachineConfiguration::AudioDevices::Virtio> { char x0; struct __alt<0, VzCore::VirtualMachineConfiguration::AudioDevices::Virtio> { struct Virtio { struct vector<VzCore::VirtualMachineConfiguration::AudioDevices::Stream, std::allocator<VzCore::VirtualMachineConfiguration::AudioDevices::Stream>> { struct Stream *x0; struct Stream *x1; struct __compressed_pair<VzCore::VirtualMachineConfiguration::AudioDevices::Stream *, std::allocator<VzCore::VirtualMachineConfiguration::AudioDevices::Stream>> { struct Stream *x0; } x2; } x0; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 1> { } x2; } x0; unsigned int x1; } x0; } x1; id x2; } x0; BOOL x1; } _audioDevice;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+@end

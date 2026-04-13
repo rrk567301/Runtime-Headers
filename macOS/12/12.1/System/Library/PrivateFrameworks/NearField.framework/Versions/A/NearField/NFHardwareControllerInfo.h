@@ -1,0 +1,30 @@
+@interface NFHardwareControllerInfo : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) unsigned long long siliconVersion;
+@property (readonly, nonatomic) unsigned long long siliconName;
+@property (readonly, nonatomic) unsigned long long ROMVersion;
+@property (readonly, nonatomic) unsigned long long firmwareVersion;
+@property (readonly, nonatomic) unsigned long long firmwareRevision;
+@property (readonly, nonatomic) unsigned long long middlewareVersion;
+@property (readonly, nonatomic) BOOL hasAntenna;
+@property (readonly, nonatomic) BOOL hasBooster;
+@property (readonly, nonatomic) BOOL hasIcfResistor;
+@property (readonly, nonatomic) BOOL hasMFW;
+@property (readonly, nonatomic) BOOL hasExpressFelicaTransitMode;
+@property (readonly, nonatomic) BOOL hasExpressECPAccessMode;
+@property (readonly, nonatomic) BOOL hasExpressGenericAMode;
+@property (readonly, nonatomic) BOOL hasExpressSinglePollMode;
+@property (readonly, nonatomic) BOOL hasLPCDSupport;
+@property (readonly, nonatomic) BOOL hasHLMSupport;
+@property (readonly, nonatomic) BOOL hasLPEMSupport;
+@property (readonly, nonatomic) BOOL poweredRunDuringSleep;
+@property (readonly, nonatomic) BOOL hasCarKeySupport;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)asDictionary;
+
+@end

@@ -1,0 +1,80 @@
+@class STMediaStatusDomainPublisher, NSArray, NSMutableDictionary, NSMutableSet, NSString, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue, CMIOExtensionProviderSource;
+
+@interface CMIOExtensionProvider : NSObject {
+    NSObject<OS_dispatch_queue> *_clientQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _contextsMapLock;
+    NSMutableDictionary *_contextsMap;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _connectedClientsLock;
+    NSArray *_connectedClients;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _devicesMapLock;
+    NSMutableDictionary *_devicesMap;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _streamsMapLock;
+    NSMutableDictionary *_streamsMap;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _devicesLock;
+    NSMutableArray *_devices;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _changedDeviceIDsLock;
+    NSArray *_changedDeviceIDs;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _changedStreamIDsLock;
+    NSArray *_changedStreamIDs;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _changedPropertiesLock;
+    NSMutableDictionary *_changedProperties;
+    STMediaStatusDomainPublisher *_stMediaStatusDomainPublisher;
+    NSMutableSet *_audioRecordingAttributions;
+    NSMutableSet *_cameraCaptureAttributions;
+    NSString *_description;
+}
+
+@property (copy) NSArray *connectedClients;
+@property (readonly, weak) id<CMIOExtensionProviderSource> source;
+@property (readonly) NSObject<OS_dispatch_queue> *clientQueue;
+@property (readonly, copy) NSArray *devices;
+
++ (id)sharedProvider;
++ (id)internalProperties;
++ (id)newActivityAttributionWithToken:(struct { unsigned int x0[8]; })a0;
++ (id)internalWritableProperties;
++ (id)providerWithSource:(id)a0 clientQueue:(id)a1;
++ (void)startServiceWithProvider:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (void)removeProviderContext:(id)a0;
+- (void)availablePluginPropertiesForClientID:(id)a0 reply:(id /* block */)a1;
+- (void)pluginStatesForClientID:(id)a0 reply:(id /* block */)a1;
+- (void)pluginPropertyStatesForClientID:(id)a0 properties:(id)a1 reply:(id /* block */)a2;
+- (void)setPluginPropertyValuesForClientID:(id)a0 propertyValues:(id)a1 reply:(id /* block */)a2;
+- (void)availableDevicePropertiesForClientID:(id)a0 deviceID:(id)a1 reply:(id /* block */)a2;
+- (void)deviceStatesForClientID:(id)a0 deviceID:(id)a1 reply:(id /* block */)a2;
+- (void)devicePropertyStatesForClientID:(id)a0 deviceID:(id)a1 properties:(id)a2 reply:(id /* block */)a3;
+- (void)setDevicePropertyValuesForClientID:(id)a0 deviceID:(id)a1 propertyValues:(id)a2 reply:(id /* block */)a3;
+- (void)availableStreamPropertiesForClientID:(id)a0 streamID:(id)a1 reply:(id /* block */)a2;
+- (void)streamPropertyStatesForClientID:(id)a0 streamID:(id)a1 properties:(id)a2 reply:(id /* block */)a3;
+- (void)setStreamPropertyValuesForClientID:(id)a0 streamID:(id)a1 propertyValues:(id)a2 reply:(id /* block */)a3;
+- (void)startStreamForClientID:(id)a0 streamID:(id)a1 reply:(id /* block */)a2;
+- (void)stopStreamForClientID:(id)a0 streamID:(id)a1 reply:(id /* block */)a2;
+- (BOOL)addProviderContext:(id)a0;
+- (void)notifyPropertiesChanged:(id)a0;
+- (void)_clientQueue_notifyStreamPropertiesChangedWithStreamID:(id)a0 propertyStates:(id)a1;
+- (void)_clientQueue_sendSampleForStream:(id)a0 sample:(id)a1;
+- (void)consumeSampleBufferForStream:(id)a0 client:(id)a1 reply:(id /* block */)a2;
+- (void)notifyScheduledOutputChangedForStream:(id)a0 scheduledOutput:(id)a1;
+- (id)_clientQueue_internalPropertyStatesForProperties:(id)a0;
+- (BOOL)registerStream:(id)a0 withDeviceID:(id)a1 error:(id *)a2;
+- (BOOL)unregisterStream:(id)a0 withDeviceID:(id)a1 notify:(BOOL)a2 error:(id *)a3;
+- (void)_clientQueue_notifyDevicePropertiesChangedWithDeviceID:(id)a0 propertyStates:(id)a1;
+- (id)initWithSource:(id)a0 clientQueue:(id)a1;
+- (BOOL)registerDevice:(id)a0 error:(id *)a1;
+- (BOOL)unregisterDevice:(id)a0 error:(id *)a1;
+- (long long)authorizationStatusForContext:(id)a0 mediaType:(unsigned int)a1;
+- (void)requestAccessForContext:(id)a0 mediaType:(unsigned int)a1 reply:(id /* block */)a2;
+- (void)_clientQueue_notifyIsRunningSomewhereForStream:(id)a0;
+- (void)notifyAvailableDevicesChanged:(id)a0;
+- (void)notifyAvailableStreamsChangedWithDeviceID:(id)a0 streamIDs:(id)a1;
+- (BOOL)addDevice:(id)a0 error:(id *)a1;
+- (BOOL)removeDevice:(id)a0 error:(id *)a1;
+- (long long)authorizationStatusForClient:(id)a0 mediaType:(unsigned int)a1;
+- (void)requestAccessForClient:(id)a0 mediaType:(unsigned int)a1 completionHandler:(id /* block */)a2;
+
+@end

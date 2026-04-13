@@ -1,0 +1,12 @@
+@interface NUPlatform_Mac : NUPlatform
+
+- (id)init;
+- (id)displays;
+- (id)mainDisplay;
+- (BOOL)supportsANE;
+- (BOOL)defaultSupportsLiveVideoRendering;
+- (id)mainDevice;
+- (id)deviceForDisplay:(id)a0;
+- (id)deviceForDisplayID:(unsigned int)a0;
+
+@end

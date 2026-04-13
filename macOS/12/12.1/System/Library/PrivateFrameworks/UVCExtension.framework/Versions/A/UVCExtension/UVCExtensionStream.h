@@ -1,0 +1,80 @@
+@class NSString, NSArray, UVCDeviceStreamFormat, UVCUSBDeviceStreamingInterface, UVCExtensionDevice, NSSet, NSObject, UVCExtensionStateMachine;
+@protocol OS_dispatch_queue;
+
+@interface UVCExtensionStream : CMIOExtensionStream <CMIOExtensionStreamSource, UVCFrameProcessorProtocol> {
+    NSArray *_streamFormats;
+    long long _activeFormatIndex;
+    NSArray *_streamProcessingPipeline;
+    UVCExtensionStateMachine *_stateMachine;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_processingQueue;
+    unsigned long long _vendorID;
+    unsigned long long _productID;
+    BOOL _builtIn;
+    unsigned long long _rollAngle;
+    NSString *_lastStreamStartTime;
+    NSString *_lastStreamStopTime;
+    NSString *_lastStreamFirstPacketTime;
+    unsigned long long _lastStreamTotalPackets;
+    unsigned long long _lastStreamTotalFramesDispatched;
+    NSString *_lastStreamFirstFrameDispatchTime;
+    unsigned long long _streamStartTimeInHostClock;
+    unsigned long long _firstFrameStreamStartDelta;
+    BOOL _adjustHostClock;
+}
+
+@property (readonly, weak) UVCExtensionDevice *device;
+@property (readonly) UVCUSBDeviceStreamingInterface *streamSource;
+@property (readonly) BOOL streaming;
+@property (readonly) UVCDeviceStreamFormat *activeFormat;
+@property (readonly) unsigned long long activeFrameInterval;
+@property (readonly) unsigned long long activeMaxFrameInterval;
+@property (readonly) NSArray *formats;
+@property (readonly, copy) NSSet *availableProperties;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)serialize;
+- (BOOL)setActiveFormatIndex:(unsigned long long)a0;
+- (BOOL)stopStreamAndReturnError:(id *)a0;
+- (id)streamPropertiesForProperties:(id)a0 error:(id *)a1;
+- (BOOL)setStreamProperties:(id)a0 error:(id *)a1;
+- (BOOL)authorizedToStartStreamForClient:(id)a0;
+- (BOOL)startStreamAndReturnError:(id *)a0;
+- (void)setupStateMachine;
+- (id)initWithDevice:(id)a0 uvcFormats:(id)a1 source:(id)a2 attributes:(id)a3;
+- (BOOL)setupFormats:(id)a0;
+- (BOOL)stateMachineStartStream:(id *)a0;
+- (BOOL)stateMachineStopStream:(id *)a0;
+- (BOOL)stateMachineTerminate:(id *)a0;
+- (BOOL)stateMachineStreamGuard;
+- (BOOL)postEvent:(id)a0 error:(id *)a1;
+- (BOOL)stateMachineIsBuilitIn;
+- (BOOL)commitStream:(BOOL)a0 error:(id *)a1;
+- (void)updateStreamFormatForRoll;
+- (BOOL)setupProcessingPipeline:(id)a0 frameInterval:(unsigned long long)a1 error:(id *)a2;
+- (void)handleStreamData:(id)a0 error:(id)a1 args:(id)a2;
+- (BOOL)adjustHostClock;
+- (void)addProcessingStateObserver:(id)a0;
+- (const struct opaqueCMFormatDescription { } *)getCMFormatDescription:(id)a0 attributes:(id)a1;
+- (id)getValidFrameDurations:(id)a0;
+- (id)filterFormats:(id)a0;
+- (id)createCMIOFormat:(id)a0 attributes:(id)a1;
+- (id)updateFormatsForFieldOfView:(id)a0;
+- (id)streamPropertiesForPropertiesSync:(id)a0 error:(id *)a1;
+- (BOOL)setStreamPropertiesSync:(id)a0 error:(id *)a1;
+- (BOOL)setActiveFrameDuration:(id)a0;
+- (void)setActiveMaxFrameDuration:(id)a0;
+- (BOOL)postEventSync:(id)a0 error:(id *)a1;
+- (id)serializeSync;
+- (void)observeValueForKeyPathSync:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)streamProcessingPipeline;
+- (void)handleDataFromStreamSource:(id)a0 error:(id)a1;
+- (id)streamFormats;
+
+@end

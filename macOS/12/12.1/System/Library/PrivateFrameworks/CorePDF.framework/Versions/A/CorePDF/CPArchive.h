@@ -1,0 +1,25 @@
+@class NSData, NSMutableString, NSAttributedString;
+
+@interface CPArchive : NSObject <CPDisposable> {
+    struct __CFArray { } *selections;
+    struct __CFArray { } *imageNodes;
+    NSMutableString *plainText;
+    NSMutableString *htmlString;
+    NSMutableString *htmlStringNoImages;
+    NSData *webArchiveData;
+    NSAttributedString *structuredString;
+    NSData *RTFDData;
+}
+
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (void)dispose;
+- (id)webArchiveData;
+- (id)html;
+- (id)plainText;
+- (void)addSelection:(struct CGPDFSelection { } *)a0;
+- (id)structuredString;
+- (id)RTFDData;
+
+@end

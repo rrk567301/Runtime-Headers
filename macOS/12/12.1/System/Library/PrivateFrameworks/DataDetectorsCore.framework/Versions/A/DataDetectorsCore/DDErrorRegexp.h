@@ -1,0 +1,3 @@
+@interface DDErrorRegexp : DDBasicRegexp
+
+@end

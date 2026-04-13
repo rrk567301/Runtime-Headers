@@ -1,0 +1,61 @@
+@class NSDate, NSString, FMAccuracyOverlay, FMFHandle, NSColor, FMFPlacemark, NSImage, CLLocation;
+
+@interface FMFLocation : NSObject <NSCopying, NSSecureCoding, FMAnnotation>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) FMFHandle *handle;
+@property (retain) FMFPlacemark *placemark;
+@property (retain) CLLocation *location;
+@property (retain) NSString *label;
+@property (getter=isLocatingInProgress) BOOL locatingInProgress;
+@property (copy) NSString *shortAddressString;
+@property (copy) NSString *longAddress;
+@property (copy) NSDate *timestamp;
+@property double maxLocatingInterval;
+@property double TTL;
+@property double distance;
+@property (retain) NSString *distanceDescription;
+@property (retain) NSString *age;
+@property (readonly, copy) NSString *shortAddress;
+@property (nonatomic) struct CLLocationCoordinate2D { double latitude; double longitude; } coordinate;
+@property (retain, nonatomic) FMAccuracyOverlay *overlay;
+@property (nonatomic) double horizontalAccuracy;
+@property (nonatomic) double distanceFromUser;
+@property (nonatomic) BOOL isBorderEnabled;
+@property (retain, nonatomic) NSColor *tintColor;
+@property (retain, nonatomic) NSImage *largeAnnotationIcon;
+@property (retain, nonatomic) NSImage *smallAnnotationIcon;
+@property (retain, nonatomic) NSImage *largeOverlayIcon;
+@property (retain, nonatomic) NSImage *smallOverlayIcon;
+@property (readonly, copy, nonatomic) NSString *title;
+@property (readonly, copy, nonatomic) NSString *subtitle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)conformsToProtocol:(id)a0;
+- (BOOL)isValid;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithLatitude:(double)a0 longitude:(double)a1;
+- (BOOL)isThisDevice;
+- (BOOL)hasKnownLocation;
+- (void)updateLocationForCache:(id)a0;
+- (id)locationAge;
+- (id)locationShortAddressWithAge;
+- (void)resetLocateInProgressTimer;
+- (void)resetLocateInProgress:(id)a0;
+- (void)_updateLocation:(id)a0;
+- (id)initWithDictionary:(id)a0 forHandle:(id)a1 maxLocatingInterval:(double)a2 TTL:(double)a3;
+- (id)agingItemTimestamp;
+- (id)locationShortAddressWithAgeIncludeLocating;
+- (long long)distanceThenNameCompare:(id)a0;
+- (void)updateLocation:(id)a0;
+- (void)updateHandle:(id)a0;
+
+@end

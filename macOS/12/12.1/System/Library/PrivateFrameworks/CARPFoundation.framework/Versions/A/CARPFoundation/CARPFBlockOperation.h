@@ -1,0 +1,14 @@
+@class NSArray;
+
+@interface CARPFBlockOperation : CARPFOperation
+
+@property (readonly, copy) NSArray *executionBlocks;
+
++ (id)blockOperationWithBlock:(id /* block */)a0;
+
+- (void)addExecutionBlock:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)main;
+- (id)initWithTimeout:(double)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC17RealityFoundationP33_66FAE78254F2FCE15E4C394775E8830527StubPhotogrammetryNativeApi : _TtCs12_SwiftObject
+
+@end

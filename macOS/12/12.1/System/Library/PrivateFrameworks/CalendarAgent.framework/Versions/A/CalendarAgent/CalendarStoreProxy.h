@@ -1,0 +1,62 @@
+@interface CalendarStoreProxy : CalendarLinkProxy <CalendarStore>
+
++ (id)_defaultLocalCalendarAttachmentsBackupPath;
++ (BOOL)_calendarIsDefaultLocal:(id)a0;
+
+- (void)remoteManagedObjectWithObjectId:(id)a0 withReply:(id /* block */)a1;
+- (void)setupCalendarPersistenceWithReply:(id /* block */)a0;
+- (void)dateInTimeZone:(id)a0 fromFloatingDateInGMT:(id)a1 withReply:(id /* block */)a2;
+- (void)date:(id)a0 withTimeZone:(id)a1 withReply:(id /* block */)a2;
+- (void)dateWithGMT:(id)a0 withReply:(id /* block */)a1;
+- (void)expandEvent:(id)a0 fromDate:(id)a1 toDate:(id)a2 isInvitation:(BOOL)a3 originalDuration:(double)a4 withReply:(id /* block */)a5;
+- (void)mainPrincipalForAccount:(id)a0 withReply:(id /* block */)a1;
+- (void)eventForRecurrenceException:(id)a0 withReply:(id /* block */)a1;
+- (void)fetchPrincipalsWithPredicate:(id)a0 withReply:(id /* block */)a1;
+- (void)fetchCalendarsWithPredicate:(id)a0 withReply:(id /* block */)a1;
+- (void)calendar:(id)a0 hasCapability:(int)a1 reply:(id /* block */)a2;
+- (void)removeCalendar:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)saveCalendar:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)recurrenceRuleFromICSString:(id)a0 withReply:(id /* block */)a1;
+- (void)CDVServerURLForURL:(id)a0 withPath:(BOOL)a1 withReply:(id /* block */)a2;
+- (void)currentTimeZoneWithReply:(id /* block */)a0;
+- (void)disableUnitTestModeWithReply:(id /* block */)a0;
+- (void)enableUnitTestModeWithReply:(id /* block */)a0;
+- (void)isPluginId:(id)a0 supportedForApp:(id)a1 withReply:(id /* block */)a2;
+- (void)notifyAccountsChangedExternally;
+- (void)setCurrentTimeZone:(id)a0;
+- (void)nodeWithUid:(id)a0 withReply:(id /* block */)a1;
+- (void)passwordForAccount:(id)a0 withReply:(id /* block */)a1;
+- (void)setPassword:(id)a0 forAccount:(id)a1 withReply:(id /* block */)a2;
+- (void)activeCalendarWithReply:(id /* block */)a0;
+- (void)anyLocalCalendarHasAttachmentsWithReply:(id /* block */)a0;
+- (void)anyLocalCalendarsExistWithReply:(id /* block */)a0;
+- (void)calendarsForGroup:(id)a0 withReply:(id /* block */)a1;
+- (void)defaultLocalCalendarAttachmentsBackupPathWithReply:(id /* block */)a0;
+- (void)fetchLocalCalendarsWithPredicate:(id)a0 withReply:(id /* block */)a1;
+- (void)migrateLocalCalendarsToGroup:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)eventWithItemId:(id)a0 withReply:(id /* block */)a1;
+- (void)fetchEventsWithPredicate:(id)a0 inCalendars:(id)a1 withReply:(id /* block */)a2;
+- (void)fetchEventsWithSharedUid:(id)a0 withReply:(id /* block */)a1;
+- (void)fetchEventsWithSharedUid:(id)a0 occurrence:(id)a1 withReply:(id /* block */)a2;
+- (void)removeEvent:(id)a0 span:(int)a1 originatorProcessId:(int)a2 withReply:(id /* block */)a3;
+- (void)saveEvent:(id)a0 span:(int)a1 originatorProcessId:(int)a2 withReply:(id /* block */)a3;
+- (void)groupsWithReply:(id /* block */)a0;
+- (void)groupWithExchangeUrl:(id)a0 externalURL:(id)a1 userName:(id)a2 emailAddress:(id)a3 withReply:(id /* block */)a4;
+- (void)groupWithPrincipalUrl:(id)a0 userName:(id)a1 withReply:(id /* block */)a2;
+- (void)groupWithUid:(id)a0 withReply:(id /* block */)a1;
+- (void)removeGroup:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)saveGroup:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)anyLocalRemindersExistWithReply:(id /* block */)a0;
+- (void)exchangeCompatibleTaskWithTask:(id)a0 withCalendar:(id)a1 originatorProcessId:(int)a2 withReply:(id /* block */)a3;
+- (void)fetchTasksWithPredicate:(id)a0 inCalendars:(id)a1 withReply:(id /* block */)a2;
+- (void)fetchTasksWithSharedUid:(id)a0 withReply:(id /* block */)a1;
+- (void)removeTask:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)saveTask:(id)a0 originatorProcessId:(int)a1 withReply:(id /* block */)a2;
+- (void)task:(id)a0 isExchangeCompatibleWithReply:(id /* block */)a1;
+- (id)_fetchRemoteManagedObjects:(Class)a0 withPredicate:(id)a1 prefetchingKeyPaths:(id)a2;
+- (id)originatorIdForPid:(int)a0;
+- (id)_calendarPredicateForCalendarIds:(id)a0;
+- (BOOL)_saveLegacyEntity:(id)a0 isNew:(BOOL)a1 source:(id)a2 inManagedObjectContext:(id)a3 error:(id *)a4;
+- (id)_createURLStringForServerURL:(id)a0 removePath:(BOOL)a1;
+
+@end
