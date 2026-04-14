@@ -1,0 +1,83 @@
+@class NSString, NSArray, NSDictionary, NSMutableSet, NSNumber;
+
+@interface SKGProcessorTask : NSObject {
+    NSString *_name;
+    NSNumber *_versionValue;
+    NSArray *_additionalQueries;
+    NSArray *_includeBundles;
+    NSArray *_excludeBundles;
+    NSArray *_includeContentTypes;
+    NSArray *_excludeContentTypes;
+    NSArray *_trackingAttributes;
+    NSArray *_requiredAttributes;
+    NSArray *_donationAttributes;
+    NSMutableSet *_fetchAttributes;
+    NSDictionary *_bgstOptions;
+    long long _events;
+    BOOL _override;
+    BOOL _overrideEnabled;
+    BOOL _enabled;
+}
+
+@property (readonly, nonatomic) NSNumber *versionValue;
+@property (readonly, nonatomic) NSString *versionAttributeKey;
+@property (readonly, nonatomic) NSString *journalAttributeKey;
+@property (readonly, nonatomic) NSString *errorAttributeKey;
+@property (nonatomic) BOOL ignoreInternalBundles;
+@property (nonatomic) BOOL ignoreExternalBundles;
+@property (nonatomic) BOOL enabledOverride;
+@property (nonatomic) BOOL enabledForTesting;
+@property (nonatomic) BOOL enabled;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSArray *requiredAttributes;
+@property (readonly, nonatomic) NSArray *trackingAttributes;
+@property (readonly, nonatomic) NSArray *optionalAttributes;
+@property (readonly, nonatomic) NSArray *fetchAttributes;
+@property (readonly, nonatomic) NSArray *includeBundles;
+@property (readonly, nonatomic) NSArray *excludeBundles;
+@property (readonly, nonatomic) NSDictionary *taskOptions;
+@property (readonly, nonatomic) unsigned long long flags;
+@property (nonatomic) BOOL canRun;
+
+- (BOOL)allowed;
+- (void)setAdditionalQueries:(id)a0;
+- (id)additionalQueries;
+- (long long)events;
+- (id)initWithName:(id)a0;
+- (void).cxx_destruct;
+- (void)setIncludeBundles:(id)a0;
+- (id)donationAttributes;
+- (void)setOptionalAttributes:(id)a0;
+- (void)setRequiredAttributes:(id)a0;
+- (void)setVersionValue:(id)a0;
+- (void)setTaskOptions:(id)a0;
+- (BOOL)supportsBundleID:(id)a0;
+- (id)_additionalQuery;
+- (id)_backgroundQuery;
+- (id)_cleanupQuery;
+- (id)_excludedQuery;
+- (id)_includedQuery;
+- (id)_invalidVersionQuery;
+- (id)_journalQuery;
+- (id)_notExcludedQuery;
+- (id)_notIncludedQuery;
+- (id)_updatesQuery;
+- (id)_versionQuery;
+- (void)commonInitWithName:(id)a0;
+- (id)excludeContentTypes;
+- (id)includeContentTypes;
+- (id)processorAttributesForEvent:(long long)a0 failed:(BOOL)a1;
+- (unsigned long long)processorFlags;
+- (id)queryForEvent:(long long)a0;
+- (void)setExcludeBundles:(id)a0;
+- (void)setExcludeContentTypes:(id)a0;
+- (void)setIncludeContentTypes:(id)a0;
+- (void)setProcessorFlags:(unsigned long long)a0;
+- (void)setSupportedEvent:(long long)a0;
+- (void)setTrackingAttributes:(id)a0;
+- (BOOL)supportsEvent:(long long)a0;
+- (BOOL)supportsEvent:(long long)a0 bundleID:(id)a1;
+- (BOOL)supportsEvent:(long long)a0 record:(id)a1 bundleID:(id)a2;
+- (void)testWithEnabledFlag:(BOOL)a0;
+
+@end

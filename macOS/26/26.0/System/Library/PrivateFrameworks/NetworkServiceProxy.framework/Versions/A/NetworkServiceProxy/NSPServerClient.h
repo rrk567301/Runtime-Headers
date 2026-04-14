@@ -1,0 +1,85 @@
+@class NSString, NSObject;
+@protocol OS_dispatch_queue, OS_xpc_object;
+
+@interface NSPServerClient : NSObject <NSPServerCommands> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } lock;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_xpc_object> *_fetchTokenConnection;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)fetchAuxiliaryAuthenticationDataFromCacheForType:(unsigned long long)a0 label:(id)a1 cacheKey:(id)a2 completionHandler:(id /* block */)a3;
+- (void)setPrivacyProxyUserTier:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)dumpPrivacyProxyTokenEventsWithCompletionHandler:(id)a0 mostRecent:(BOOL)a1 limit:(unsigned long long)a2 dumpStats:(BOOL)a3 completionHandler:(id /* block */)a4;
+- (void)setGeohashSharingPreference:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)fetchCurrentConfigurationWithCompletionHandler:(id /* block */)a0;
+- (void)getPrivacyProxyServiceStatusTimelineWithCompletionHandler:(id /* block */)a0;
+- (void)stopLocationMonitor;
+- (void)setPrivacyProxyStatus:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)resetConfigurationInternalSettings:(id /* block */)a0;
+- (void)reportPrivacyProxyServiceStatus:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)getPreferredObliviousProxyWithCompletionHandler:(id /* block */)a0;
+- (void)setProxiedContentMapDoHBootstrapEnabled:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)overridePreferredProxy:(id)a0 completionHandler:(id /* block */)a1;
+- (void)sendRTCReport:(long long)a0 errorCode:(long long)a1 url:(id)a2 completionHandler:(id /* block */)a3;
+- (void)getPrivateAccessTokensEnabledWithCompletionHandler:(id /* block */)a0;
+- (void)checkRemainingCostQuotaWithFetcher:(id)a0 allowRetry:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)fetchPrivateAccessTokenWithFetcher:(id)a0 allowRetry:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)getPrivacyProxyDomainFilters:(id /* block */)a0;
+- (void)setCurrentConfiguration:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)privateAccessTokensAllowTools:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (BOOL)removePrivacyProxyPolicy;
+- (void)getPrivacyProxyAccountTypeWithCompletionHandler:(id /* block */)a0;
+- (void)setPreferredPathRoutingEnabled:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)setPrivacyProxyPolicy:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPreferredResolverWithCompletionHandler:(id /* block */)a0;
+- (void)getPrivacyProxyPolicyWithCompletionHandler:(id /* block */)a0;
+- (void)setLocationMonitorInterval:(double)a0;
+- (void)fetchPrivateAccessTokenPairWithFetcher:(id)a0 allowRetry:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)addAuxiliaryAuthenticationData:(id)a0 type:(unsigned long long)a1 label:(id)a2 cacheKey:(id)a3;
+- (void)setPrivacyProxyConfiguration:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)checkOriginAllowedAsThirdParty:(id)a0;
+- (void)addToken:(id)a0 toCacheForFetcher:(id)a1;
+- (void)startProxyToMPTCPConverterProxyWithCompletionHandler:(id /* block */)a0;
+- (void)getOverrideProxiedContentMapEnabled:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getOverrideIngressProxyWithCompletionHandler:(id /* block */)a0;
+- (void)fetchKnownPrivateAccessTokenKeyWithFetcher:(id)a0 allowRetry:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)getGeohashSharingPreferenceWithCompletionHandler:(id /* block */)a0;
+- (void)getPrivacyProxyConfiguration:(id /* block */)a0;
+- (void)mergePrivacyProxyPolicy:(id /* block */)a0;
+- (void)locationAuthorizationStatusWithCompletionHandler:(id /* block */)a0;
+- (void)overrideIngressProxy:(id)a0 fallbackProxy:(id)a1 key:(id)a2 completionHandler:(id /* block */)a3;
+- (void)setPrivacyProxyTokenEventsProactiveTokenFetchParams:(id)a0 lowerTokenCountThresholdStr:(id)a1 lowerTokenCountProbabilityStr:(id)a2 statsDurationStr:(id)a3 upperLWMCountThresholdStr:(id)a4 upperLWMCountProbabilityOffsetStr:(id)a5 completionHandler:(id /* block */)a6;
+- (void)getPrivacyProxyUserTierWithCompletionHandler:(id /* block */)a0;
+- (void)stopProxyToMPTCPConverterProxyWithCompletionHandler:(id /* block */)a0;
+- (void)reportPrivacyProxyNetworkStatus:(id)a0 completionHandler:(id /* block */)a1;
+- (void)overridePreferredObliviousProxy:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPrivacyProxyInfoWithCompletionHandler:(id /* block */)a0;
+- (void)addOneTimeToken:(id)a0 oneTimeTokenSalt:(id)a1 longLivedToken:(id)a2 toCacheForFetcher:(id)a3;
+- (void)setInProcessFlowDivert:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)setForceFallback:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)getPrivacyProxyAppStatusesWithCompletionHandler:(id /* block */)a0;
+- (void)setPrivateAccessTokensEnabled:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)getPrivacyProxyEffectiveUserTierWithCompletionHandler:(id /* block */)a0;
+- (void)overrideProxiedContentMap:(id)a0 enabled:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)convertPrivacyProxyConfigurationWithCompletionHandler:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPreferredProxyWithCompletionHandler:(id /* block */)a0;
+- (void)overridePreferredResolver:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setGeohashOverride:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPrivacyProxyTrafficStateWithCompletionHandler:(id /* block */)a0;
+- (void)setFreeUserTierUntilTomorrowWithCompletionHandler:(id /* block */)a0;
+- (void)setPrivacyProxyAppStatus:(unsigned long long)a0 bundleIdentifier:(id)a1 path:(id)a2 completionHandler:(id /* block */)a3;
+- (void)startLocationMonitor;
+- (void)getForceFallbackWithCompletionHandler:(id /* block */)a0;
+- (void)getPrivacyProxyServiceStatusWithCompletionHandler:(id /* block */)a0;
+- (void)getPrivacyProxyStatusWithCompletionHandler:(id /* block */)a0;
+- (void)fetchNewConfigurationWithCompletionHandler:(id /* block */)a0;
+- (void)setPrivacyProxyTrafficState:(unsigned long long)a0 proxyTraffic:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,85 @@
+@interface AKFeatureManager : NSObject {
+    BOOL _cachedIsLisbonAvailable;
+    BOOL _cachedIsAppleIDPasskeyFeatureEnabled;
+    BOOL _cachedIsTiburonU13Enabled;
+    BOOL _cachedIsHawksbillEnabled;
+    BOOL _cachedIsChildPasscodeEnabled;
+    BOOL _cachedSiwaCredentialSharingEnabled;
+    BOOL _cachedIsDTOEnabled;
+    BOOL _cachedIsForgotPasswordNativeTakeoverEnabled;
+    BOOL _cachedIsDeviceListCacheEnabled;
+    BOOL _cacheIsDeviceListCacheEnableDryMode;
+    BOOL _cachedIsSiwaInPasswordsFeatureEnabled;
+    BOOL _cachedIsAuthKitSolariumFeatureEnabled;
+    BOOL _cachedIsConvertToMAIDEnabled;
+    BOOL _cachedPltUpgradeEnabled;
+    BOOL _cachedAuthenticatedRequestSerializationEnabled;
+    BOOL _cachedSilentAuthenticationRequestSerializationEnabled;
+    BOOL _adpExpansionViaCFUEnabled;
+    BOOL _baaSupportedForVirtualMachines;
+    BOOL _cachedSignInSecurityRedesignEnabled;
+    BOOL _cacheIsServerBackoffEnabled;
+    BOOL _cachedAgeAttestationPhase1Enabled;
+    BOOL _cachedAgeMigrationEnabled;
+    BOOL _cachedSecurePakeEnabled;
+    BOOL _cachedThreatNotificationCFUEnabled;
+    BOOL _cachedServerBackoffOptInEnabled;
+    BOOL _cachedPRKGenerationEnabled;
+    BOOL _cachedPRKHealingEnabled;
+    BOOL _cachedAccountImprovementProgramEnabled;
+    BOOL _cachedRUITelemetryEnabled;
+    BOOL _cachedAuthenticationTelemetryEnabled;
+    BOOL _cachedSIWALandscapeModeEnabled;
+}
+
+@property (readonly, nonatomic, getter=isLisbonAvailable) BOOL lisbonAvailable;
+@property (readonly, nonatomic, getter=isAppleIDPasskeyFeatureEnabled) BOOL appleIDPasskeyFeatureEnabled;
+@property (readonly, nonatomic, getter=isTiburonU13Enabled) BOOL tiburonU13Enabled;
+@property (readonly, nonatomic, getter=isHawksbillEnabled) BOOL enableHawksbill;
+@property (readonly, nonatomic, getter=isChildPasscodeEnabled) BOOL childPasscodeEnabled;
+@property (readonly, nonatomic, getter=isDTOEnabled) BOOL DTOEnabled;
+@property (readonly, nonatomic, getter=isForgotPasswordNativeTakeoverEnabled) BOOL forgotPasswordNativeTakeoverEnabled;
+@property (readonly, nonatomic, getter=isAppleIDSessionTelemetryEnabled) BOOL appleIDSessionTelemetryEnabled;
+@property (readonly, nonatomic, getter=isDeviceListCacheEnabled) BOOL deviceListCacheEnabled;
+@property (readonly, nonatomic, getter=isDeviceListCacheEnableDryMode) BOOL deviceListCacheEnableDryMode;
+@property (readonly, nonatomic, getter=isAgeAttestationPhase1Enabled) BOOL AgeAttestationPhase1Enabled;
+@property (readonly, nonatomic, getter=isAgeMigrationEnabled) BOOL AgeMigrationEnabled;
+@property (readonly, nonatomic, getter=isBackgroundiCloudSignInEnabled) BOOL backgroundiCloudSignInEnabled;
+@property (readonly, nonatomic, getter=isTokenCacheEnabled) BOOL tokenCacheEnabled;
+@property (readonly, nonatomic) BOOL isSiwaCredentialSharingEnabled;
+@property (readonly, nonatomic, getter=isSiwaInPasswordsFeatureEnabled) BOOL siwaInPasswordsFeatureEnabled;
+@property (readonly, nonatomic, getter=isAuthKitSolariumFeatureEnabled) BOOL authKitSolariumFeatureEnabled;
+@property (readonly, nonatomic, getter=isConvertToMAIDEnabled) BOOL convertToMAIDEnabled;
+@property (readonly, nonatomic, getter=isTokenCreationTimeEnabled) BOOL tokenCreationTimeEnabled;
+@property (readonly, nonatomic, getter=isPltUpgradeEnabled) BOOL pltUpgradeEnabled;
+@property (readonly, nonatomic, getter=isAuthenticatedRequestSerializationEnabled) BOOL authenticatedRequestSerializationEnabled;
+@property (readonly, nonatomic, getter=isSilentAuthenticationRequestSerializationEnabled) BOOL silentAuthenticationRequestSerializationEnabled;
+@property (readonly, nonatomic, getter=isUplevelSignInWithAppleEnabled) BOOL uplevelSignInWithAppleEnabled;
+@property (readonly, nonatomic, getter=isADPExpansionViaCFUEnabled) BOOL adpExpansionViaCFUEnabled;
+@property (readonly, nonatomic, getter=isBAASupportedForVirtualMachines) BOOL baaSupportedForVirtualMachines;
+@property (readonly, nonatomic, getter=isSignInSecurityRedesignEnabled) BOOL isSignInSecurityRedesignEnabled;
+@property (readonly, nonatomic, getter=isPhysicalDeviceBAAEnabled) BOOL physicalDeviceBAAEnabled;
+@property (readonly, nonatomic, getter=isPhysicalDeviceBAAValidationEnabled) BOOL physicalDeviceBAAValidationEnabled;
+@property (readonly, nonatomic, getter=isServerBackoffEnabled) BOOL serverBackoffEnabled;
+@property (readonly, nonatomic, getter=isAgeBasedAccountSupportEnabled) BOOL ageBasedAccountSupportEnabled;
+@property (readonly, nonatomic, getter=isSecurePakeEnabled) BOOL securePakeEnabled;
+@property (readonly, nonatomic, getter=isThreatNotificationCFUEnabled) BOOL threatNotificationCFUEnabled;
+@property (readonly, nonatomic, getter=isServerBackoffOptInEnabled) BOOL serverBackoffOptInEnabled;
+@property (readonly, nonatomic, getter=isPRKTokenGenerationEnabled) BOOL pRKTokenGenerationEnabled;
+@property (readonly, nonatomic, getter=isPRKHealingEnabled) BOOL pRKHealingEnabled;
+@property (readonly, nonatomic, getter=isAccountImprovementProgramEnabled) BOOL accountImprovementProgramEnabled;
+@property (readonly, nonatomic, getter=isRUITelemetryEnabled) BOOL ruiTelemetryEnabled;
+@property (readonly, nonatomic, getter=isAuthenticationTelemetryEnabled) BOOL authenticationTelemetryEnabled;
+@property (readonly, nonatomic, getter=isSIWALandscapeModeEnabled) BOOL siwaLandscapeModeEnabled;
+
++ (id)sharedManager;
++ (BOOL)isYorktownEnabled;
++ (BOOL)isEasyDependentSignInEnabled;
++ (BOOL)isEnforceMDMPolicyEnabled;
++ (BOOL)isProxAuthEnabled;
++ (BOOL)isProxForAuthkitEnabled;
+
+- (id)init;
+- (BOOL)backgroundiCloudSignInEnabled;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE19iCloudMailAssistantCSo8NSBundleP33_E5160300CD134B6B5A6757E758B80AA018CurrentBundleClass : _TtCs12_SwiftObject
+
+@end

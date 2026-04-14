@@ -1,0 +1,3 @@
+@interface _TtC15SystemMigrationP33_B0500C89F3314AF259303C8D0DDA53AF19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

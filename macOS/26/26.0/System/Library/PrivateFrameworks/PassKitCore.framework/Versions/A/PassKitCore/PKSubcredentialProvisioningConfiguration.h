@@ -1,0 +1,3 @@
+@interface PKSubcredentialProvisioningConfiguration : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC17RealityFoundationP33_49BDC38E295F3C579F45227C7EDAAAC616ColorSpaceHelper : _TtCs12_SwiftObject
+
+@end

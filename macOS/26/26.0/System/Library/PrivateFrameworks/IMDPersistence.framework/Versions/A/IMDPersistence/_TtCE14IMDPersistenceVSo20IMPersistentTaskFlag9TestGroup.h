@@ -1,0 +1,3 @@
+@interface _TtCE14IMDPersistenceVSo20IMPersistentTaskFlag9TestGroup : _TtCE14IMDPersistenceVSo20IMPersistentTaskFlag5Group
+
+@end

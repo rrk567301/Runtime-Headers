@@ -1,0 +1,82 @@
+@class NSData, NSUUID;
+
+@interface SCDARecord : NSObject <NSCopying>
+
+@property (nonatomic) BOOL advertisementDataIsDirty;
+@property (nonatomic) unsigned char bump;
+@property (nonatomic) unsigned char goodness;
+@property (nonatomic) unsigned char rawAudioGoodnessScore;
+@property (copy, nonatomic) NSData *advertisementData;
+@property (copy, nonatomic) NSUUID *electionParticipantId;
+@property (nonatomic) unsigned long long context;
+@property (nonatomic) unsigned char userConfidence;
+@property (nonatomic) unsigned short pHash;
+@property (copy, nonatomic) NSUUID *deviceID;
+@property (nonatomic) unsigned char deviceGroup;
+@property (nonatomic) unsigned char deviceClass;
+@property (nonatomic) unsigned char productType;
+@property (nonatomic) unsigned char tieBreaker;
+@property (nonatomic) BOOL isMe;
+@property (nonatomic) unsigned char isCollectedFromContextCollector;
+@property (readonly, nonatomic) unsigned long long voiceTriggerMachTime;
+@property (nonatomic) long long recordType;
+
++ (unsigned short)_generateRandomHash;
+
+- (BOOL)isValid;
+- (id)deviceName;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isSetup;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isAContinuation;
+- (void)adjustByMultiplier:(float)a0 adding:(int)a1;
+- (id)asAdvertisementData;
+- (void)generateRandomConfidence;
+- (void)generateTiebreaker;
+- (BOOL)hasEqualAdvertisementData:(id)a0;
+- (BOOL)isATrump;
+- (BOOL)isAnEmergency;
+- (BOOL)isAnEmergencyHandled;
+- (BOOL)isInEarTrump;
+- (BOOL)isSane;
+- (BOOL)isSlowdown;
+- (void)setRawAudioGoodnessScore:(unsigned char)a0 withBump:(unsigned char)a1;
+- (int)slowdownDelay;
+- (id)initWithLateSuppression:(unsigned short)a0 device:(id)a1;
+- (id)initWithOverrideTrigger:(id)a0 device:(id)a1;
+- (void)adjustByAdding:(int)a0;
+- (void)_assignDeviceDetails:(id)a0;
+- (void)_generateConfidenceWithinLowerBound:(unsigned char)a0 andUpperBound:(unsigned char)a1;
+- (id)_initWithPerceptualAudioHash:(id)a0 type:(long long)a1 device:(id)a2;
+- (id)_initWithRecordType:(long long)a0 device:(id)a1;
+- (id)_initWithVoiceTriggerTime:(unsigned long long)a0;
+- (void)generateCarPlayConfidence;
+- (void)generateSiriSpeakingConfidence;
+- (void)generateUIShowingConfidence;
+- (void)generateVisionProConfidence;
+- (id)initWithAlertFiringTrigger:(id)a0 device:(id)a1;
+- (id)initWithCarPlayTrigger:(id)a0 device:(id)a1;
+- (id)initWithContinuation:(id)a0;
+- (id)initWithDeviceID:(id)a0 data:(id)a1 electionParticipantId:(id)a2;
+- (id)initWithDirectTrigger:(id)a0 device:(id)a1;
+- (id)initWithEmergency:(id)a0;
+- (id)initWithEmergencyHandled:(id)a0;
+- (id)initWithEmpty:(id)a0;
+- (id)initWithInEarTrigger:(id)a0 device:(id)a1;
+- (id)initWithInTaskTrigger:(id)a0 device:(id)a1;
+- (id)initWithOutgoing:(id)a0 device:(id)a1;
+- (id)initWithPHS:(id)a0;
+- (id)initWithRTS:(id)a0;
+- (id)initWithRealityTrigger:(id)a0 device:(id)a1;
+- (id)initWithResponse:(unsigned short)a0 device:(id)a1;
+- (id)initWithSlowdown:(unsigned short)a0 device:(id)a1;
+- (id)initWithThreshold:(id)a0 isLoudnessMissing:(BOOL)a1 device:(id)a2;
+- (id)initWithVoiceTrigger:(id)a0 device:(id)a1;
+- (BOOL)isALateSuppressionTrumpFor:(id)a0;
+- (void)updateVoiceTriggerTime:(id)a0;
+- (id)winReason;
+
+@end

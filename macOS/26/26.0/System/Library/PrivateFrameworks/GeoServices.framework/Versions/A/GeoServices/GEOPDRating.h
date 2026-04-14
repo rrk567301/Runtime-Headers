@@ -1,0 +1,34 @@
+@class PBUnknownFields, NSMutableArray, PBDataReader;
+
+@interface GEOPDRating : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    NSMutableArray *_appleRatingCategorys;
+    double _maxScore;
+    NSMutableArray *_reviewSummarys;
+    double _score;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _numRatingsUsedForScore;
+    int _ratingType;
+    struct { unsigned char has_maxScore : 1; unsigned char has_score : 1; unsigned char has_numRatingsUsedForScore : 1; unsigned char has_ratingType : 1; unsigned char read_unknownFields : 1; unsigned char read_appleRatingCategorys : 1; unsigned char read_reviewSummarys : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
++ (id)ratingForPlaceData:(id)a0 type:(int)a1;
++ (id)ratingListForPlaceData:(id)a0 type:(int)a1;
+
+- (id)displayTitle;
+- (id)initWithData:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)jsonRepresentation;
+- (id)dictionaryRepresentation;
+- (id)init;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

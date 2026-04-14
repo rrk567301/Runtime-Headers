@@ -1,0 +1,17 @@
+@class NSURL, NSOperationQueue, NSError;
+
+@interface ComputationalGraph.ContainerLock : NSObject <NSFilePresenter> {
+    void /* unknown type, empty encoding */ containerURL;
+    void /* unknown type, empty encoding */ options;
+    void /* unknown type, empty encoding */ isRetained;
+    void /* unknown type, empty encoding */ isPresenter;
+}
+
+@property (nonatomic, readonly) NSURL *presentedItemURL;
+@property (nonatomic, readonly) NSOperationQueue *presentedItemOperationQueue;
+
+- (void)accommodatePresentedItemDeletionWithCompletionHandler:(void (^)(NSError *))a0;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

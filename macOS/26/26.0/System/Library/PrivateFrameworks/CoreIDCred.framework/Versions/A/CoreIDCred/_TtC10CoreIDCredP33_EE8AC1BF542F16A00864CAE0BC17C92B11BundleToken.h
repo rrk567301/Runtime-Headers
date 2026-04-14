@@ -1,0 +1,3 @@
+@interface _TtC10CoreIDCredP33_EE8AC1BF542F16A00864CAE0BC17C92B11BundleToken : _TtCs12_SwiftObject
+
+@end

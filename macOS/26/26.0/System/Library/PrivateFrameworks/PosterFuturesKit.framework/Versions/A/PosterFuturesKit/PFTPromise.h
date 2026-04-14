@@ -1,0 +1,23 @@
+@class NSString, PFTFuture;
+
+@interface PFTPromise : NSObject <PFTPromise>
+
+@property (readonly) PFTFuture *future;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id /* block */)boolErrorCompletionHandlerAdapter;
+- (BOOL)finishWithResult:(id)a0;
+- (id /* block */)completionHandlerAdapter;
+- (BOOL)finishWithResult:(id)a0 error:(id)a1;
+- (id /* block */)errorOnlyCompletionHandlerAdapter;
+- (id)initWithSchedulerProvider:(id)a0;
+- (id /* block */)completionHandlerAdapterWithDefaultValue:(id)a0;
+- (BOOL)finishWithError:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)cancelWithReason:(id)a0;
+
+@end

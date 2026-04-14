@@ -1,0 +1,97 @@
+@class NSString, NSArray, PKInkSmoothingDescriptor, PKInkParticleDescriptor, PKInkAnimationDescriptor, NSMutableArray, PKInkFeatheringDescriptor, PKInkRenderingDescriptor;
+
+@interface PKInkBehavior : NSObject {
+    BOOL _usesAzimuthOrAltitude;
+    BOOL _showBrushIndicator;
+    double _rulerOffsetScale;
+    double _rulerOffsetConstant;
+    NSMutableArray *_cachedRadiusFunctions;
+    NSMutableArray *_cachedRadius2Functions;
+    NSMutableArray *_cachedThresholdFunctions;
+    NSMutableArray *_cachedAzimuthFunctions;
+    NSMutableArray *_cachedOpacityFunctions;
+    NSMutableArray *_cachedEdgeWidthFunctions;
+    NSMutableArray *_cachedAspectRatioFunctions;
+    struct unique_ptr<PKFunction, std::default_delete<PKFunction>> { struct PKFunction *__ptr_; } _weightFunction;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _radiusOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _radius2Output;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _thresholdOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _azimuthOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _opacityOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _edgeWidthOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _aspectRatioOutput;
+    struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *__begin_; struct PKOutputFunction *__end_; struct PKOutputFunction *__cap_; } _brushOpacityOutput;
+}
+
+@property (nonatomic, getter=showBrushIndicator, setter=setShowBrushIndicator:) BOOL showBrushIndicator;
+@property (nonatomic, setter=setRulerOffsetScale:) double rulerOffsetScale;
+@property (nonatomic, setter=setRulerOffsetConstant:) double rulerOffsetConstant;
+@property (readonly, nonatomic) BOOL immutableVelocity;
+@property (nonatomic, getter=usesAzimuthOrAltitude, setter=setUsesAzimuthOrAltitude:) BOOL usesAzimuthOrAltitude;
+@property (readonly, nonatomic) double mutableDurationToEndOfStroke;
+@property (readonly, copy, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) unsigned long long version;
+@property (readonly, nonatomic) NSString *variant;
+@property (readonly, nonatomic) PKInkRenderingDescriptor *renderingDescriptor;
+@property (readonly, nonatomic) PKInkParticleDescriptor *particleDescriptor;
+@property (readonly, nonatomic) PKInkParticleDescriptor *secondaryParticleDescriptor;
+@property (readonly, nonatomic) NSArray *inkFunctions;
+@property (nonatomic) double blendAlpha;
+@property (nonatomic) double targetMultiple;
+@property (nonatomic) double baseAlpha;
+@property (nonatomic) BOOL useUnclampedWeight;
+@property (nonatomic) struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } inkTransform;
+@property (nonatomic) BOOL supportsCombiningStrokes;
+@property (copy, nonatomic) NSArray *uiWidths;
+@property (nonatomic) BOOL uiAzimuthControl;
+@property (nonatomic) double defaultWidth;
+@property (retain, nonatomic) PKInkSmoothingDescriptor *smoothingDescriptor;
+@property (retain, nonatomic) PKInkFeatheringDescriptor *featheringDescriptor;
+@property (retain, nonatomic) PKInkFeatheringDescriptor *pencilFeatheringDescriptor;
+@property (retain, nonatomic) PKInkAnimationDescriptor *animationDescriptor;
+@property (readonly, nonatomic) BOOL isEraser;
+
++ (id)arrayFromVector:(struct vector<double, std::allocator<double>> { double *x0; double *x1; double *x2; })a0;
++ (id)inkFunctionForProperty:(unsigned long long)a0 outputFunctions:(void *)a1 index:(unsigned long long)a2;
++ (double)inkRadiusOverride;
++ (id)loadInkV2WithURL:(id)a0;
++ (struct PKOutputFunction { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; struct unique_ptr<PKFunction, std::default_delete<PKFunction>> { struct PKFunction *x0; } x5; })outputFunctionFromInkFunction:(id)a0;
+
+- (id)mutableCopy;
+- (id)description;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (double)evaluateWeight:(double)a0;
+- (void)_calculateUsesAzimuthOrAltitude;
+- (double)alphaForStroke:(id)a0;
+- (void)addNewInkFunction:(id)a0;
+- (double)alphaForStrokeColor:(struct CGColor { } *)a0;
+- (double)brushOpacityForPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; double x11; BOOL x12; double x13; long long x14; long long x15; })a0 context:(struct { struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; } x0; BOOL x1; double x2; double x3; long long x4; double x5; double x6; double x7; double x8; id x9; unsigned long long x10; } *)a1;
+- (double)edgeWidthForPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; double x11; BOOL x12; double x13; long long x14; long long x15; })a0 context:(struct { struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; } x0; BOOL x1; double x2; double x3; long long x4; double x5; double x6; double x7; double x8; id x9; unsigned long long x10; } *)a1;
+- (id)functionsForProperty:(unsigned long long)a0;
+- (id)initWithRenderingDescriptor:(id)a0 blendAlpha:(double)a1 targetMultiple:(double)a2 baseAlpha:(double)a3 inkTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a4 useUnclampedWeight:(BOOL)a5 smoothingDescriptor:(id)a6 featheringDescriptor:(id)a7 pencilFeatheringDescriptor:(id)a8 animationDescriptor:(id)a9 identifier:(id)a10 version:(unsigned long long)a11 variant:(id)a12 uiWidths:(id)a13 defaultWidth:(double)a14 uiAzimuthControl:(BOOL)a15 showBrushIndicator:(BOOL)a16 supportsCombiningStrokes:(BOOL)a17 rulerOffsetScale:(double)a18 rulerOffsetConstant:(double)a19 weightFunction:(id)a20 inkFunctions:(id)a21;
+- (id)initWithRenderingDescriptor:(id)a0 blendAlpha:(double)a1 targetMultiple:(double)a2 baseAlpha:(double)a3 inkTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a4 useUnclampedWeight:(BOOL)a5 smoothingDescriptor:(id)a6 featheringDescriptor:(id)a7 pencilFeatheringDescriptor:(id)a8 animationDescriptor:(id)a9 identifier:(id)a10 version:(unsigned long long)a11 variant:(id)a12 uiWidths:(id)a13 defaultWidth:(double)a14 uiAzimuthControl:(BOOL)a15 showBrushIndicator:(BOOL)a16 supportsCombiningStrokes:(BOOL)a17 rulerOffsetScale:(double)a18 rulerOffsetConstant:(double)a19 weightFunction:(void *)a20 radiusOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a21 radius2Output:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a22 azimuthOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a23 thresholdOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a24 opacityOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a25 edgeWidthOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a26 aspectRatioOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a27 brushOpacityOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a28;
+- (id)initWithRenderingDescriptor:(id)a0 variant:(id)a1;
+- (void)inkFunctionDidChange:(id)a0;
+- (id)inkFunctions;
+- (id)inkFunctionsForProperty:(unsigned long long)a0;
+- (BOOL)isEraser;
+- (struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; })outputForPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; double x11; BOOL x12; double x13; long long x14; long long x15; })a0 context:(struct { struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; } x0; BOOL x1; double x2; double x3; long long x4; double x5; double x6; double x7; double x8; id x9; unsigned long long x10; } *)a1;
+- (struct PKOutputFunction { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; struct unique_ptr<PKFunction, std::default_delete<PKFunction>> { struct PKFunction *x0; } x5; })outputFunctionFromInkFunction:(id)a0;
+- (void *)outputVectorForProperty:(unsigned long long)a0;
+- (id)particleTextureName;
+- (double)radiusForPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; double x11; BOOL x12; double x13; long long x14; long long x15; })a0 context:(struct { struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; } x0; BOOL x1; double x2; double x3; long long x4; double x5; double x6; double x7; double x8; id x9; unsigned long long x10; } *)a1;
+- (void)removeInkFunction:(id)a0;
+- (double)rulerOffsetForBaseValues:(struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; })a0 inputType:(long long)a1 inputScale:(double)a2;
+- (void)setAspectRatioOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setAzimuthOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setBrushOpacityOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setEdgeWidthOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setOpacityOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setRadius2Output:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setRadiusOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setThresholdOutput:(struct vector<PKOutputFunction, std::allocator<PKOutputFunction>> { struct PKOutputFunction *x0; struct PKOutputFunction *x1; struct PKOutputFunction *x2; })a0;
+- (void)setWeightFunction:(struct unique_ptr<PKFunction, std::default_delete<PKFunction>> { struct PKFunction *x0; })a0;
+- (double)solve:(void *)a0 forPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; double x11; BOOL x12; double x13; long long x14; long long x15; })a1 context:(struct { struct _PKStrokePoint { double x0; struct CGPoint { double x0; double x1; } x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; } x0; BOOL x1; double x2; double x3; long long x4; double x5; double x6; double x7; double x8; id x9; unsigned long long x10; } *)a2 weight:(double)a3;
+
+@end

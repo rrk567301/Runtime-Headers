@@ -1,0 +1,90 @@
+@class NSString, NSArray, AVAssetWriterHelper, NSURL, NSError, AVAssetWriterInternal;
+@protocol AVAssetWriterDataWritingDelegate;
+
+@interface AVAssetWriter : NSObject <AVWeakObservable, AVKeyPathDependencyHost> {
+    AVAssetWriterInternal *_internal;
+}
+
+@property (readonly, retain, getter=_helper) AVAssetWriterHelper *helper;
+@property (readonly, weak, nonatomic) id<AVAssetWriterDataWritingDelegate> dataWritingDelegate;
+@property (readonly, copy, nonatomic) NSURL *outputURL;
+@property (readonly, copy, nonatomic) NSString *outputFileType;
+@property (readonly, nonatomic) NSArray *availableMediaTypes;
+@property (readonly) long long status;
+@property (readonly) NSError *error;
+@property (copy, nonatomic) NSArray *metadata;
+@property (nonatomic) BOOL shouldOptimizeForNetworkUse;
+@property (copy, nonatomic) NSURL *directoryForTemporaryFiles;
+@property (readonly, nonatomic) NSArray *inputs;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)automaticallyNotifiesObserversForKey:(id)a0;
++ (void)initialize;
++ (id)_errorForOSStatus:(int)a0;
++ (id)assetWriterWithDataWritingDelegate:(id)a0 fileType:(id)a1;
++ (id)assetWriterWithURL:(id)a0 fileType:(id)a1 error:(id *)a2;
+
+- (float)preferredVolume;
+- (void)setPreferredVolume:(float)a0;
+- (float)preferredRate;
+- (void)setPreferredTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)setDataWritingDelegate:(id)a0;
+- (void)setInitialSegmentStartTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (BOOL)canAddInputGroup:(id)a0;
+- (void)addCallbackToCancelDuringDeallocation:(id)a0;
+- (void)flushSegment;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })preferredTransform;
+- (void)dealloc;
+- (void)setDelegate:(id)a0;
+- (void)addInput:(id)a0;
+- (void)endSessionAtSourceTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setInitialMovieFragmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (id)initWithDataWritingDelegate:(id)a0 fileType:(id)a1;
+- (void)declareKeyPathDependenciesWithRegistry:(id)a0;
+- (BOOL)producesCombinableFragments;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })initialSegmentStartTime;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })initialMovieFragmentInterval;
+- (void)setContentProtectionConfigurations:(id)a0;
+- (int)movieTimeScale;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })preferredOutputSegmentInterval;
+- (id)init;
+- (void)startSessionAtSourceTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setMovieFragmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (id)contentProtectionConfigurations;
+- (void)finishWritingWithCompletionHandler:(id /* block */)a0;
+- (long long)initialMovieFragmentSequenceNumber;
+- (void)flush;
+- (BOOL)canAddInput:(id)a0;
+- (void)setPreferredRate:(float)a0;
+- (id)outputFileTypeProfile;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })overallDurationHint;
+- (void)addInputGroup:(id)a0;
+- (id)inputGroups;
+- (void)setMovieTimeScale:(int)a0;
+- (void)cancelWriting;
+- (void)setOutputFileTypeProfile:(id)a0;
+- (void)setPreferredOutputSegmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setInitialMovieFragmentSequenceNumber:(long long)a0;
+- (id)delegate;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })movieFragmentInterval;
+- (void)setOverallDurationHint:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (BOOL)finishWriting;
+- (void)setProducesCombinableFragments:(BOOL)a0;
+- (BOOL)startWriting;
+- (id)initWithContentType:(id)a0;
+- (BOOL)_initInternalObject;
+- (BOOL)_setHelper:(id)a0 ifCurrentHelper:(id)a1;
+- (BOOL)_setHelper:(id)a0 ifCurrentHelper:(id)a1 withBlock:(id /* block */)a2;
+- (BOOL)_supportsSampleReferencesReturningError:(id *)a0;
+- (void)_transitionToFailedStatusWithError:(id)a0;
+- (BOOL)canApplyOutputSettings:(id)a0 forMediaType:(id)a1;
+- (id)finishWritingDelegate;
+- (id)initWithFileType:(id)a0 error:(id *)a1;
+- (id)initWithURL:(id)a0 fileType:(id)a1 error:(id *)a2;
+- (void)setFinishWritingDelegate:(id)a0;
+- (void)setWritesSinglePassUsingPredeterminedFileSize:(long long)a0 mediaDataSize:(long long)a1;
+
+@end

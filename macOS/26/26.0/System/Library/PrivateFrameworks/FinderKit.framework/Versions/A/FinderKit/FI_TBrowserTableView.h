@@ -1,0 +1,85 @@
+@class FI_TNotificationCenterObserverGlue, NSString, NSImmediateActionGestureRecognizer, FI_TBrowserImmediateActionGestureRecognizerDelegate, FI_TTableViewShrinkToFitController, NSObject;
+@protocol TableView_Common_Delegate;
+
+@interface FI_TBrowserTableView : NSBrowserTableView <TShrinkToFitDelegateProtocol, TShrinkToFitEditorControllerAccessible> {
+    struct TOrderedSet<TFENode, std::hash<TFENode>, std::equal_to<TFENode>> { struct unordered_map<TFENode, unsigned long, std::hash<TFENode>, std::equal_to<TFENode>, std::allocator<std::pair<const TFENode, unsigned long>>> { struct __hash_table<std::__hash_value_type<TFENode, unsigned long>, std::__unordered_map_hasher<TFENode, std::__hash_value_type<TFENode, unsigned long>, std::hash<TFENode>, std::equal_to<TFENode>>, std::__unordered_map_equal<TFENode, std::__hash_value_type<TFENode, unsigned long>, std::equal_to<TFENode>, std::hash<TFENode>>, std::allocator<std::__hash_value_type<TFENode, unsigned long>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TFENode, unsigned long>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TFENode, unsigned long>, void *> *> *>>> { void **__ptr_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TFENode, unsigned long>, void *> *> *>> { unsigned long long __size_; } __deleter_; } __bucket_list_; struct __hash_node_base<std::__hash_node<std::__hash_value_type<TFENode, unsigned long>, void *> *> { void *__next_; } __first_node_; unsigned long long __size_; float __max_load_factor_; } __table_; } fItemToIndexMap; struct vector<TFENode, std::allocator<TFENode>> { struct TFENode *__begin_; struct TFENode *__end_; struct TFENode *__cap_; } fItems; } _nodeToRowSet;
+    BOOL _itemHitOnMouseDown;
+    FI_TTableViewShrinkToFitController *_stfController;
+    struct TNotificationCenterObserver { NSObject *fObservedObject; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fNotificationName; FI_TNotificationCenterObserverGlue *fFunctorGlue; BOOL fIsDistributedObserving; struct function<NSNotificationCenter *()> { struct __value_func<NSNotificationCenter *()> { union type { unsigned char __data[24]; } __buf_; void *__f_; } __f_; } fCenterProvider; } _clipViewBoundsChangedObserver;
+    FI_TBrowserImmediateActionGestureRecognizerDelegate *_immediateActionGestureRecognizerDelegate;
+    NSImmediateActionGestureRecognizer *_quickLookImmediateActionGestureRecognizer;
+    NSImmediateActionGestureRecognizer *_renameImmediateActionGestureRecognizer;
+}
+
+@property (readonly, weak, nonatomic) NSObject<TableView_Common_Delegate> *tvcDelegate;
+@property (nonatomic) long long disabledTrackingRow;
+@property (nonatomic) BOOL fileProviderMode;
+@property (nonatomic) BOOL computedICloudAndFileProviderModes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) FI_TTableViewShrinkToFitController *stfEditorController;
+
+- (void)reloadData;
+- (void)mouseDown:(id)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)dealloc;
+- (struct TFENode { struct OpaqueNodeRef *x0; })targetNode;
+- (void)keyDown:(id)a0;
+- (BOOL)becomeFirstResponder;
+- (void)viewDidMoveToWindow;
+- (id).cxx_construct;
+- (void)viewDidMoveToSuperview;
+- (id)menuForEvent:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)canDragRowsWithIndexes:(id)a0 atPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)draggingExited:(id)a0;
+- (unsigned long long)_hitTestForEvent:(id)a0 atColumn:(long long)a1 row:(long long)a2;
+- (BOOL)_onlyAcceptRowDropOnContent;
+- (BOOL)_supportsTrackingAreasForCells;
+- (BOOL)_typeSelectInterpretKeyEvent:(id)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (BOOL)acceptsFirstResponder;
+- (void)didRemoveRowView:(id)a0 forRow:(long long)a1;
+- (void)draggingEnded:(id)a0;
+- (unsigned long long)draggingEntered:(id)a0;
+- (void)editColumn:(long long)a0 row:(long long)a1 withEvent:(id)a2 select:(BOOL)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameOfCellAtColumn:(long long)a0 row:(long long)a1;
+- (id)inputContext;
+- (id)itemAtRow:(unsigned long long)a0;
+- (id)preparedCellAtColumn:(long long)a0 row:(long long)a1;
+- (void)quickLookWithEvent:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectOfRow:(long long)a0;
+- (void)selectRowIndexes:(id)a0 byExtendingSelection:(BOOL)a1;
+- (id)selectedItems;
+- (BOOL)shouldDelayWindowOrderingForEvent:(id)a0;
+- (void)synchSelectionCache;
+- (void)updateDraggingItemsForDrag:(id)a0;
+- (void)viewWillMoveToSuperview:(id)a0;
+- (void)shrinkToFitTextViewAboutToClose;
+- (void)_setUpImmediateActionGestureRecognizers;
+- (void)_trackDisabledClickWithEvent:(id)a0;
+- (BOOL)_wantsLiveResizeToUseCachedImage;
+- (id)columnViewController;
+- (BOOL)commonMouseDownAndEarlyReturn:(id)a0;
+- (int)editingSelectionType;
+- (BOOL)handleUnicodeTextInput:(id)a0 atTime:(double)a1;
+- (unsigned long long)hitTestForEvent:(id)a0 row:(long long)a1;
+- (void)insertSortedNodes:(const void *)a0 atIndexes:(id)a1 withAnimation:(unsigned long long)a2;
+- (void)moveNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0 atIndex:(long long)a1 toIndex:(long long)a2;
+- (const struct TFENode { struct OpaqueNodeRef *x0; } *)nodeAtRow:(unsigned long long)a0;
+- (void)removeNodes:(const void *)a0 atIndexes:(id)a1 withAnimation:(unsigned long long)a2;
+- (void)renameSelectedItem;
+- (unsigned long long)rowForNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (void)scrollSelectedRowToVisible;
+- (BOOL)shrinkToFitTextViewAboutToOpen;
+- (void)shrinkToFitTextViewEditingComplete:(id)a0;
+- (BOOL)startEditingWithNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0 renameOp:(id)a1;
+- (BOOL)startEditingWithNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0 runNewFolderAnimation:(BOOL)a1 renameOp:(id)a2;
+- (void)stopEditing:(BOOL)a0;
+- (void)updateSTFEditorLocation;
+
+@end

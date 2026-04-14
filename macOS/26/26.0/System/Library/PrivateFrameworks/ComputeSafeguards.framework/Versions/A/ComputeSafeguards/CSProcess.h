@@ -1,0 +1,70 @@
+@class NSUUID, NSString, NSMutableDictionary, CPUEnergySnapshot, NSMutableArray, NSNumber;
+
+@interface CSProcess : NSObject
+
+@property (retain) NSUUID *uuid;
+@property (readonly) NSString *identifier;
+@property (retain) NSString *processName;
+@property (retain) NSMutableDictionary *previousPIDs;
+@property (retain) NSMutableArray *previousPIDkeys;
+@property (retain) NSMutableDictionary *trackedPIDs;
+@property (retain) NSMutableArray *trackedPIDkeys;
+@property (retain) NSMutableDictionary *exitMonitors;
+@property unsigned int policyBitMask;
+@property BOOL rootDaemon;
+@property BOOL xpcService;
+@property BOOL band95Mitigations;
+@property BOOL band80Mitigations;
+@property unsigned char cpuFatalCnt;
+@property unsigned short cpuNonFatalCnt;
+@property unsigned short exitsCnt;
+@property unsigned char penaltyBoxCnt;
+@property BOOL needClearRestrictions;
+@property BOOL resetNonFatalCPUMonitor;
+@property (retain) NSNumber *cpuThreshold;
+@property (retain) NSNumber *cpuTimeWindow;
+@property BOOL cpuMonitored;
+@property (retain) NSString *violationPath;
+@property struct mach_timespec { unsigned int tv_sec; int tv_nsec; } violationEndTime;
+@property long long violationObservedValue;
+@property long long violationObservationWindow;
+@property long long violationLimitValue;
+@property long long violationLimitWindow;
+@property int violationPid;
+@property (retain) NSString *violationDetectorString;
+@property BOOL inPenaltyBox;
+@property BOOL penaltyBoxPending;
+@property long long penaltyBoxDurationMins;
+@property unsigned long long penaltyBoxEndTime;
+@property (retain) NSMutableDictionary *penaltyBoxCoalitionIDs;
+@property unsigned char issueType;
+@property unsigned char mitigationType;
+@property unsigned char mitigationReason;
+@property (retain) CPUEnergySnapshot *energySnapshot;
+@property (retain) CPUEnergySnapshot *energySnapshotNew;
+@property unsigned int estimatedEnergyDiff;
+@property (retain) NSMutableArray *eventHistory;
+
+- (double)computeEnergyDiff:(id)a0;
+- (void)dealloc;
+- (id)initWithIdentifier:(id)a0;
+- (BOOL)isRunning;
+- (id)description;
+- (void).cxx_destruct;
+- (unsigned long long)lastCoalitionID;
+- (int)lastPid;
+- (void)addMitigationEvent:(unsigned char)a0 startTime:(double)a1;
+- (void)addNewTrackedPID:(int)a0;
+- (void)addPenaltyBoxCoalitionID:(unsigned long long)a0;
+- (void)addViolationEvent:(unsigned char)a0 startTime:(double)a1 endTime:(double)a2;
+- (BOOL)checkKnownViolationStartTime:(double)a0 endTime:(double)a1;
+- (id)getPidsForCoalitionID:(unsigned long long)a0;
+- (void)incrementCPUViolationCounter:(BOOL)a0;
+- (void)incrementExitCounter;
+- (id)initWithIdentifier:(id)a0 andPID:(int)a1;
+- (void)monitorForExitWithPID:(int)a0;
+- (void)performCleanupOnExitOnPID:(int)a0;
+- (void)removeTrackedPID:(int)a0;
+- (void)snapshotCPUEnergy;
+
+@end

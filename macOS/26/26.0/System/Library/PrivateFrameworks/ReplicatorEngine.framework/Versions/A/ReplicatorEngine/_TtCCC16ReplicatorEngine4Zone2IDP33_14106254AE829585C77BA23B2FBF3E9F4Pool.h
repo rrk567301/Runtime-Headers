@@ -1,0 +1,3 @@
+@interface _TtCCC16ReplicatorEngine4Zone2IDP33_14106254AE829585C77BA23B2FBF3E9F4Pool : _TtCs12_SwiftObject
+
+@end

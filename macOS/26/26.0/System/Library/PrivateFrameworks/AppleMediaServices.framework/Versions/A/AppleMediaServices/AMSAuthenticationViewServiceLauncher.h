@@ -1,0 +1,3 @@
+@interface AMSAuthenticationViewServiceLauncher : NSObject
+
+@end

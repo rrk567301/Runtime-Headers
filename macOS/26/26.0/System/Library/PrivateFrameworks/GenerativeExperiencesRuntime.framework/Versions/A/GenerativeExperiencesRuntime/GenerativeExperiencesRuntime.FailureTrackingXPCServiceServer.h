@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.FailureTrackingXPCServiceServer : _TtCs12_SwiftObject
+
+@end

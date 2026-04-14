@@ -1,0 +1,97 @@
+@class NSCharacterSet, EKOccurrenceCacheLocationSearch, EKStructuredLocationSearchResult, EKEventStore, NSObject, CLLocation, CLGeocoder, CRSearchQuery, CLLocationManager, NSMutableArray, NSMutableDictionary, NSString, CNContactStore, NSOperationQueue, NSArray, NSCountedSet, EKStructuredLocation, MKLocalSearchCompleter;
+@protocol EKLocationSearchModelDelegate, CalCancelable, OS_dispatch_queue, CNCancelable;
+
+@interface EKLocationSearchModel : NSObject <CLLocationManagerDelegate, MKLocalSearchCompleterDelegate> {
+    CLLocationManager *_locationManager;
+    MKLocalSearchCompleter *_completer;
+    CLLocation *_currentImpreciseLocation;
+    CLGeocoder *_geocoder;
+    id<CalCancelable> _localSearch;
+    CNContactStore *_contactStore;
+    id<CNCancelable> _contactsSearchToken;
+    NSObject<OS_dispatch_queue> *_recentsQueue;
+    NSObject<OS_dispatch_queue> *_eventsQueue;
+    NSObject<OS_dispatch_queue> *_customConferenceQueue;
+    EKEventStore *_eventStore;
+    EKOccurrenceCacheLocationSearch *_eventsSearch;
+    CRSearchQuery *_currentRecentsSearch;
+    NSCharacterSet *_whitespaceAndNewlineCharacterSet;
+    NSObject<OS_dispatch_queue> *_conferenceRoomProcessingQueue;
+    NSOperationQueue *_conferenceRoomOperationQueue;
+    NSMutableArray *_mutableConferenceRoomSearchResults;
+    NSMutableDictionary *_conferenceRoomAddressesToConferenceRooms;
+    NSMutableArray *_allPossibleVirtualConferenceRooms;
+    NSCountedSet *_pendingOperationsCounts;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _pendingOperationsCountsLock;
+}
+
+@property (retain, nonatomic) EKStructuredLocation *currentLocation;
+@property (nonatomic) unsigned long long supportedSearchTypes;
+@property (readonly, nonatomic) EKStructuredLocationSearchResult *locationFromMapsURL;
+@property (readonly, nonatomic) NSArray *mapCompletionSearchResults;
+@property (readonly, nonatomic) NSMutableArray *contactsSearchResults;
+@property (readonly, nonatomic) NSMutableArray *recentsSearchResults;
+@property (readonly, nonatomic) NSMutableArray *frequentsSearchResults;
+@property (readonly, nonatomic) NSMutableArray *eventsSearchResults;
+@property (readonly, nonatomic) NSArray *textualSearchResults;
+@property (readonly, nonatomic) NSArray *conferenceRoomSearchResults;
+@property (readonly, nonatomic) NSMutableArray *virtualConferenceRoomSearchResults;
+@property (readonly, nonatomic) NSArray *virtualConferenceCustomSearchResults;
+@property (weak, nonatomic) id<EKLocationSearchModelDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)_linksInSource:(id)a0;
++ (id)_dataDetector;
++ (id)URLsFromSource:(id)a0;
++ (id)mapItemForMapKitHandle:(id)a0;
+
+- (void)locationManager:(id)a0 didUpdateLocations:(id)a1;
+- (void)locationManager:(id)a0 didFailWithError:(id)a1;
+- (void)dealloc;
+- (void)getCurrentLocation;
+- (void)stopUpdatingLocation;
+- (id)initWithEventStore:(id)a0;
+- (void).cxx_destruct;
+- (void)completerDidFail:(id)a0 error:(id)a1;
+- (void)completerDidUpdateResults:(id)a0 finished:(BOOL)a1;
+- (void)updateContacts:(id)a0;
+- (void)selectLocation:(id)a0;
+- (void)_addDiscoveredConferenceRooms:(id)a0;
+- (void)_addLocationToRecents:(id)a0 addressString:(id)a1 mapItem:(id)a2;
+- (id)_availabilityRequestForConferenceRooms:(id)a0 eventID:(id)a1 source:(id)a2 dateRange:(id)a3 resultsBlock:(id /* block */)a4 completionBlock:(id /* block */)a5;
+- (void)_decrementPendingOperationsCountForDomain:(id)a0;
+- (void)_handleAvailabilityResults:(id)a0 forOperation:(id)a1;
+- (void)_incrementPendingOperationsCountForDomain:(id)a0;
+- (void)_processDirectorySearchResultSet:(id)a0 forOperation:(id)a1;
+- (void)_updateAllPossibleVirtualConferenceResultsWithRoomTypes:(id)a0;
+- (void)_updateContactsSearchWithResults:(id)a0 forToken:(id)a1;
+- (void)_updateMapURL:(id)a0;
+- (void)_updateVirtualConferenceCustomOptions:(id)a0;
+- (void)_updateVirtualConferenceOptions:(id)a0;
+- (void)addConferenceRoomToRecents:(id)a0 fromSource:(id)a1;
+- (void)beginSearchForTerm:(id)a0;
+- (void)cancelSearch;
+- (unsigned long long)dedupeResults;
+- (BOOL)removeRecentLocation:(id)a0;
+- (void)resetConferenceRoomSearchResults;
+- (void)resetContactsSearchResults;
+- (void)resetEventsSearchResults;
+- (void)resetRecentsSearchResults;
+- (void)resetSearchResults:(BOOL)a0;
+- (BOOL)resultsPending;
+- (void)searchConferenceRooms:(id)a0;
+- (void)searchFrequentLocations:(id)a0;
+- (void)selectCurrentLocation;
+- (void)selectMapSearchCompletion:(id)a0;
+- (void)selectVirtualConferenceRoomType:(id)a0;
+- (id)splitEventLocations:(id)a0;
+- (void)updateConferenceRoomAvailability:(id)a0 duringEvent:(id)a1 completionBlock:(id /* block */)a2;
+- (void)updateEventLocations:(id)a0;
+- (void)updateRecents:(id)a0;
+- (void)updateVirtualConferenceRoomOptions:(id)a0;
+
+@end

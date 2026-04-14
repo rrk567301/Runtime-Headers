@@ -1,0 +1,11 @@
+@interface ControlCenter.ControlCenterModule : NSObject {
+    void /* unknown type, empty encoding */ logger;
+    void /* unknown type, empty encoding */ xpcSession;
+    void /* unknown type, empty encoding */ xpcSessionQueue;
+}
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

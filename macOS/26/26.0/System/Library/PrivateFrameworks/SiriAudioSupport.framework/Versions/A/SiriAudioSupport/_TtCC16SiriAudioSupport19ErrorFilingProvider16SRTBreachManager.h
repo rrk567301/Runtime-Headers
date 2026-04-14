@@ -1,0 +1,3 @@
+@interface _TtCC16SiriAudioSupport19ErrorFilingProvider16SRTBreachManager : _TtCs12_SwiftObject
+
+@end

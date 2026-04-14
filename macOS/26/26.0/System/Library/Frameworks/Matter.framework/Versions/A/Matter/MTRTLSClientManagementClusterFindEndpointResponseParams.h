@@ -1,0 +1,14 @@
+@class MTRTLSClientManagementClusterTLSEndpointStruct;
+
+@interface MTRTLSClientManagementClusterFindEndpointResponseParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) MTRTLSClientManagementClusterTLSEndpointStruct *endpoint;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithResponseValue:(id)a0 error:(id *)a1;
+- (struct ChipError { unsigned int x0; char *x1; unsigned int x2; })_setFieldsFromDecodableStruct:(const void *)a0;
+
+@end

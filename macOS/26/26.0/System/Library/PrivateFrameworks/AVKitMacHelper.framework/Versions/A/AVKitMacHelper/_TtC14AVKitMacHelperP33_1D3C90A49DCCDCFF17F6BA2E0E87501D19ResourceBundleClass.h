@@ -1,0 +1,3 @@
+@interface _TtC14AVKitMacHelperP33_1D3C90A49DCCDCFF17F6BA2E0E87501D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

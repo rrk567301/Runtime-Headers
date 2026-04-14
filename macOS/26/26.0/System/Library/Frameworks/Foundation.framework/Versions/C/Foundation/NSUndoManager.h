@@ -1,0 +1,96 @@
+@class _NSAuxiliaryUndoManagerReference, NSString, NSArray, NSXPCListenerEndpoint, NSXPCConnection, NSMutableDictionary, NSUUID, _NSUndoManagerMainExportedObject, _NSUndoStack, NSObject, NSXPCListener;
+@protocol OS_dispatch_source;
+
+@interface NSUndoManager : NSObject <NSXPCListenerDelegate> {
+    struct _NSRemoteUndoState { BOOL isAux; union { struct { NSMutableDictionary *auxManagers; } main; struct { BOOL inProcessConnection; BOOL performingAuxUndo; union { struct { NSXPCListener *listener; NSXPCListenerEndpoint *endpoint; NSXPCConnection *connection; } xpc; struct { _NSUndoManagerMainExportedObject *mainInterface; NSUUID *uuid; } inProcess; } ; } aux; } ; } _remote;
+    _NSUndoStack *_undoStack;
+    _NSUndoStack *_redoStack;
+    NSArray *_runLoopModes;
+    unsigned long long _flags;
+    id _target;
+    id _proxy;
+    NSObject<OS_dispatch_source> *_automaticTerminationSource;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) _NSAuxiliaryUndoManagerReference *_auxiliaryReference;
+@property (readonly) long long groupingLevel;
+@property (readonly, getter=isUndoRegistrationEnabled) BOOL undoRegistrationEnabled;
+@property BOOL groupsByEvent;
+@property unsigned long long levelsOfUndo;
+@property (copy) NSArray *runLoopModes;
+@property (readonly) BOOL canUndo;
+@property (readonly) BOOL canRedo;
+@property (readonly) unsigned long long undoCount;
+@property (readonly) unsigned long long redoCount;
+@property (readonly, getter=isUndoing) BOOL undoing;
+@property (readonly, getter=isRedoing) BOOL redoing;
+@property (readonly) BOOL undoActionIsDiscardable;
+@property (readonly) BOOL redoActionIsDiscardable;
+@property (readonly, copy) NSString *undoActionName;
+@property (readonly, copy) NSString *redoActionName;
+@property (readonly, copy) NSString *undoMenuItemTitle;
+@property (readonly, copy) NSString *redoMenuItemTitle;
+
++ (void)initialize;
++ (void)_endTopLevelGroupings;
++ (void)_setEndsTopLevelGroupingsAfterRunLoopIterations:(BOOL)a0;
+
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)dealloc;
+- (void)removeAllActions;
+- (id)init;
+- (void)redo;
+- (void)undo;
+- (void)endUndoGrouping;
+- (void)registerUndoWithTarget:(id)a0 handler:(id /* block */)a1;
+- (void)__redoCommonDoSingle:(BOOL)a0;
+- (void)undoNestedGroup;
+- (void)_processEndOfEventNotification:(id)a0;
+- (id)_undoActionInfo;
+- (id)redoMenuTitleForUndoActionName:(id)a0;
+- (void)__redoSingle;
+- (id)undoMenuTitleForUndoActionName:(id)a0;
+- (void)_assertNotAuxForPerformingAction;
+- (void)_cancelAutomaticTopLevelGroupEnding;
+- (void)_commitUndoGrouping;
+- (void)_connectionTerminated:(id)a0;
+- (void)_delayAutomaticTermination:(double)a0;
+- (void)_endEventGroupingIfOpen;
+- (BOOL)_endUndoGroupRemovingIfEmpty:(BOOL)a0;
+- (void)_forwardTargetInvocation:(id)a0;
+- (void)_linkWithAuxiliaryManager:(id)a0;
+- (id)_methodSignatureForTargetSelector:(SEL)a0;
+- (id)_newestUndoActionDate;
+- (id)_oldestUndoActionDate;
+- (void)_postCheckpointNotification;
+- (void)_prepareEventGrouping;
+- (id)_redoGroupIdentifier;
+- (void)_registerUndoGroupOnMainManagerIfNecessary;
+- (void)_registerUndoObject:(id)a0;
+- (void)_registerUndoWithTarget:(id)a0 handler:(id /* block */)a1;
+- (struct _NSRemoteUndoState { BOOL x0; union { struct { id x0; } x0; struct { BOOL x0; BOOL x1; union { struct { id x0; id x1; id x2; } x0; struct { id x0; id x1; } x1; } x2; } x1; } x1; } *)_remoteState;
+- (void)_removeAllActionsForConnectionUUID:(id)a0;
+- (void)_rollbackUndoGrouping;
+- (void)_scheduleAutomaticTopLevelGroupEnding;
+- (void)_setGroupIdentifier:(id)a0;
+- (BOOL)_shouldCoalesceTypingForText:(id)a0 :(id)a1;
+- (void)_teardownRemoteConnections;
+- (id)_undoGroupIdentifier;
+- (id)_undoStack;
+- (void)beginUndoGrouping;
+- (void)disableUndoRegistration;
+- (void)enableUndoRegistration;
+- (id)prepareWithInvocationTarget:(id)a0;
+- (id)redoActionUserInfoValueForKey:(id)a0;
+- (void)registerUndoWithTarget:(id)a0 selector:(SEL)a1 object:(id)a2;
+- (void)removeAllActionsWithTarget:(id)a0;
+- (void)setActionIsDiscardable:(BOOL)a0;
+- (void)setActionName:(id)a0;
+- (void)setActionUserInfoValue:(id)a0 forKey:(id)a1;
+- (id)undoActionUserInfoValueForKey:(id)a0;
+
+@end

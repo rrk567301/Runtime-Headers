@@ -1,0 +1,57 @@
+@interface IOGPUMetalRenderCommandEncoder : IOGPUMetalCommandEncoder
+
+- (unsigned long long)getType;
+- (void)setVertexIntersectionFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (id)getRenderPipelineState;
+- (void)useHeap:(id)a0;
+- (void)setObjectIntersectionFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2;
+- (void)setDepthStoreActionOptions:(unsigned long long)a0;
+- (void)setVertexVisibleFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setTileAccelerationStructure:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setMeshIntersectionFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setObjectIntersectionFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setStencilCleared;
+- (void)setFragmentVisibleFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setFragmentIntersectionFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void *)getFragmentBufferContentsAtIndex:(unsigned long long)a0;
+- (void)setTileVisibleFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setFragmentAccelerationStructure:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setMeshIntersectionFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)useHeaps:(const id *)a0 count:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void)sampleCountersInBuffer:(id)a0 atSampleIndex:(unsigned long long)a1 withBarrier:(BOOL)a2;
+- (BOOL)isMemorylessRender;
+- (void)memoryBarrierWithScope:(unsigned long long)a0 afterStages:(unsigned long long)a1 beforeStages:(unsigned long long)a2;
+- (void)executeCommandsInBuffer:(id)a0 indirectBuffer:(id)a1 indirectBufferOffset:(unsigned long long)a2;
+- (void)useHeap:(id)a0 stages:(unsigned long long)a1;
+- (void)setDepthCleared;
+- (void)setFragmentIntersectionFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1;
+- (void)setFragmentVisibleFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setStencilStoreAction:(unsigned long long)a0;
+- (void)setTileIntersectionFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setVertexIntersectionFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setObjectAccelerationStructure:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setVertexAmplificationCount:(unsigned long long)a0 viewMappings:(const struct { unsigned int x0; unsigned int x1; } *)a1;
+- (void)setColorStoreAction:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)memoryBarrierWithResources:(const id *)a0 count:(unsigned long long)a1 afterStages:(unsigned long long)a2 beforeStages:(unsigned long long)a3;
+- (void)waitForFence:(id)a0 beforeStages:(unsigned long long)a1;
+- (void)setVertexAccelerationStructure:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setTileVisibleFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)executeCommandsInBuffer:(id)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setMeshAccelerationStructure:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2 stages:(unsigned long long)a3;
+- (id)initWithCommandBuffer:(id)a0 descriptor:(id)a1;
+- (void)setTileIntersectionFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)useHeaps:(const id *)a0 count:(unsigned long long)a1;
+- (void)setStencilStoreActionOptions:(unsigned long long)a0;
+- (void)textureBarrier;
+- (void)setDepthStoreAction:(unsigned long long)a0;
+- (void)setVertexVisibleFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setColorStoreActionOptions:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void *)getVertexBufferContentsAtIndex:(unsigned long long)a0;
+- (void)setDepthClipModeSPI:(unsigned long long)a0;
+- (void)updateFence:(id)a0 afterStages:(unsigned long long)a1;
+
+@end

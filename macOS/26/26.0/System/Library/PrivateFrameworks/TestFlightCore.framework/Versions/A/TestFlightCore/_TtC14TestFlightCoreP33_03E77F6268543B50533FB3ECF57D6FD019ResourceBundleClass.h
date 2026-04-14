@@ -1,0 +1,3 @@
+@interface _TtC14TestFlightCoreP33_03E77F6268543B50533FB3ECF57D6FD019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

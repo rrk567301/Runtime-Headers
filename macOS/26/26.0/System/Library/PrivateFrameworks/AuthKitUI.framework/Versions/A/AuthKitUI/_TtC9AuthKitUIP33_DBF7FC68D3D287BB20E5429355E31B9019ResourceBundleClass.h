@@ -1,0 +1,3 @@
+@interface _TtC9AuthKitUIP33_DBF7FC68D3D287BB20E5429355E31B9019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

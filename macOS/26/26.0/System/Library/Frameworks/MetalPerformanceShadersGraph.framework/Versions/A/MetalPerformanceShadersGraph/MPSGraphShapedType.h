@@ -1,0 +1,15 @@
+@class NSArray;
+
+@interface MPSGraphShapedType : MPSGraphType
+
+@property (copy) NSArray *shape;
+@property unsigned int dataType;
+
+- (id)debugDescription;
+- (BOOL)isEqualTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithShape:(id)a0 dataType:(unsigned int)a1;
+
+@end

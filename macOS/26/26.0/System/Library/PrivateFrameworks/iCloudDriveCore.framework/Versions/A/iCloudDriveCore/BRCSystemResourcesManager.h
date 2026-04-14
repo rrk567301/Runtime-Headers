@@ -1,0 +1,98 @@
+@class NSHashTable, NSString, BRCStateUpdateCoalescer, NSDate, NSMutableDictionary, NSMutableSet, NSObject, BRReachabilityMonitor, br_pacer, NSMapTable;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface BRCSystemResourcesManager : NSObject <BRReachabilityObserver, BRScreenLockObserver> {
+    NSObject<OS_dispatch_queue> *_notificationQueue;
+    BOOL _invalidated;
+    BOOL _screenLocked;
+    NSHashTable *_screenLockObservers;
+    NSHashTable *_reachabilityObservers;
+    BRReachabilityMonitor *_reachabilityMonitor;
+    BOOL _isNetworkReachable;
+    BRCStateUpdateCoalescer *_reachabilityStateUpdateCoalescer;
+    BOOL _isCellularNetwork;
+    BRCStateUpdateCoalescer *_cellularStateUpdateCoalescer;
+    NSHashTable *_powerObservers;
+    int _powerNotifyToken;
+    BOOL _powerLevelOK;
+    NSObject<OS_dispatch_source> *_powerLevelOKTimer;
+    BOOL _connectedToPowerSource;
+    NSDate *_connectedToPowerSourceCheckedDate;
+    NSMutableSet *_lowDiskSet;
+    NSMutableDictionary *_lowDiskDict;
+    NSObject<OS_dispatch_source> *_lowDiskSource;
+    NSObject<OS_dispatch_source> *_lowDiskTimer;
+    NSHashTable *_lowMemoryObservers;
+    NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
+    br_pacer *_memoryNotificationCoalescePacer;
+    NSMapTable *_processObservers;
+    NSHashTable *_appListObservers;
+}
+
+@property (readonly) BOOL isNetworkReachable;
+@property (readonly) BOOL isCellularNetwork;
+@property (readonly) BOOL isPowerOK;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)manager;
+
+- (id)_init;
+- (void)screenLockChanged:(BOOL)a0;
+- (void)__resetReachability;
+- (void)_initScreenLockManager;
+- (void)_invalidateLowDiskManager;
+- (void)reset;
+- (void)dealloc;
+- (void)addScreenLockObserver:(id)a0;
+- (void)reachabilityMonitor:(id)a0 didChangeCellularNetworkTo:(BOOL)a1;
+- (void)_setIsCellularNetworkEnabledWithCoalescing:(BOOL)a0;
+- (BOOL)hasEnoughSpaceForDevice:(int)a0;
+- (void)addReachabilityObserver:(id)a0;
+- (void)suspend;
+- (void)removeScreenLockObserver:(id)a0;
+- (void)_didReceiveMemoryWarning;
+- (void)_setNetworkReachable:(BOOL)a0;
+- (void)_setPowerLevel:(BOOL)a0;
+- (void)resume;
+- (id)init;
+- (void)_setIsNetworkReachableWithCoalescing:(BOOL)a0;
+- (void)_processLowDiskNotification:(BOOL)a0;
+- (void)_initPowerManager;
+- (void)_setPowerLevelWithCoalescing:(BOOL)a0;
+- (void)addLowMemoryObserver:(id)a0;
+- (void)_initProcessObservers;
+- (void)addLowDiskObserver:(id)a0 forDevice:(int)a1;
+- (void)reachabilityMonitor:(id)a0 didChangeReachabilityStatusTo:(BOOL)a1;
+- (void)_initLowDiskManager;
+- (BOOL)isNetworkAvailableForDriveWithError:(id *)a0;
+- (BOOL)isSystemInDarkWake;
+- (void)removeLowDiskObserver:(id)a0 forDevice:(int)a1;
+- (void)_invalidateProcessObservers;
+- (void)_invalidateReachability;
+- (void)addAppListObserver:(id)a0;
+- (void)_resetLowDiskManager;
+- (void)_invalidateLowMemory;
+- (void)removePowerObserver:(id)a0;
+- (void)_initLowMemory;
+- (void)_invalidateAppListObservers;
+- (void)removeAppListObserver:(id)a0;
+- (void)removeProcessMonitor:(id)a0;
+- (void)_resetPowerManager;
+- (void)_initAppListObservers;
+- (void)_resetReachability;
+- (void)addProcessMonitor:(id)a0 forProcessID:(int)a1;
+- (void)_initReachability;
+- (void)_invalidatePowerManager;
+- (BOOL)connectedToPowerSource;
+- (void)removeReachabilityObserver:(id)a0;
+- (void)_invalidateScreenLockManager;
+- (void)close;
+- (void).cxx_destruct;
+- (void)_setCellularNetwork:(BOOL)a0;
+- (void)addPowerObserver:(id)a0;
+- (void)removeLowMemoryObserver:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface LiveCommunicationKit.ShareIdentityConversationAction : LiveCommunicationKit.ConversationAction
+
+@end

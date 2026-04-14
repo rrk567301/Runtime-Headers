@@ -1,0 +1,61 @@
+@interface _TtCE13HomeDataModelCSo6HMHome15DelegateAdapter : NSObject <HMHomeDelegatePrivate> {
+    void /* unknown type, empty encoding */ delegate;
+}
+
+- (void)home:(id)a0 didAddAccessory:(id)a1;
+- (void)home:(id)a0 didRemoveRoom:(id)a1;
+- (id)init;
+- (void)home:(id)a0 didAddRoom:(id)a1 toZone:(id)a2;
+- (void)home:(id)a0 didUpdateRoom:(id)a1 forAccessory:(id)a2;
+- (void)home:(id)a0 didAddRoom:(id)a1;
+- (void)home:(id)a0 didRemoveAccessory:(id)a1;
+- (void)home:(id)a0 didAddMediaSystem:(id)a1;
+- (void)home:(id)a0 didRemoveMediaSystem:(id)a1;
+- (void)home:(id)a0 didRemoveUser:(id)a1;
+- (void)home:(id)a0 didAddUser:(id)a1;
+- (void)home:(id)a0 didAddZone:(id)a1;
+- (void).cxx_destruct;
+- (void)home:(id)a0 didRemoveZone:(id)a1;
+- (void)homeDidUpdateSupportedFeatures:(id)a0;
+- (void)home:(id)a0 didUpdateNameForActionSet:(id)a1;
+- (void)home:(id)a0 didAddActionSet:(id)a1;
+- (void)home:(id)a0 didAddService:(id)a1 toServiceGroup:(id)a2;
+- (void)home:(id)a0 didAddServiceGroup:(id)a1;
+- (void)home:(id)a0 didAddTrigger:(id)a1;
+- (void)home:(id)a0 didEncounterError:(id)a1 forAccessory:(id)a2;
+- (void)home:(id)a0 didRemoveActionSet:(id)a1;
+- (void)home:(id)a0 didRemoveRoom:(id)a1 fromZone:(id)a2;
+- (void)home:(id)a0 didRemoveService:(id)a1 fromServiceGroup:(id)a2;
+- (void)home:(id)a0 didRemoveServiceGroup:(id)a1;
+- (void)home:(id)a0 didRemoveTrigger:(id)a1;
+- (void)home:(id)a0 didUnblockAccessory:(id)a1;
+- (void)home:(id)a0 didUpdateAccessControlForUser:(id)a1;
+- (void)home:(id)a0 didUpdateActionSet:(id)a1 isExecuting:(BOOL)a2;
+- (void)home:(id)a0 didUpdateActionsForActionSet:(id)a1;
+- (void)home:(id)a0 didUpdateApplicationDataForActionSet:(id)a1;
+- (void)home:(id)a0 didUpdateApplicationDataForRoom:(id)a1;
+- (void)home:(id)a0 didUpdateApplicationDataForServiceGroup:(id)a1;
+- (void)home:(id)a0 didUpdateAreBulletinNotificationsSupported:(BOOL)a1;
+- (void)home:(id)a0 didUpdateAutomaticSoftwareUpdateEnabled:(BOOL)a1;
+- (void)home:(id)a0 didUpdateHomeHubState:(unsigned long long)a1;
+- (void)home:(id)a0 didUpdateNameForRoom:(id)a1;
+- (void)home:(id)a0 didUpdateNameForServiceGroup:(id)a1;
+- (void)home:(id)a0 didUpdateNameForTrigger:(id)a1;
+- (void)home:(id)a0 didUpdateNameForZone:(id)a1;
+- (void)home:(id)a0 didUpdateReprovisionStateForAccessory:(id)a1;
+- (void)home:(id)a0 didUpdateSiriPhraseOptions:(unsigned long long)a1;
+- (void)home:(id)a0 didUpdateTrigger:(id)a1;
+- (void)homeDidAddWalletKey:(id)a0;
+- (void)homeDidRemoveWalletKey:(id)a0;
+- (void)homeDidUpdateAccessControlForCurrentUser:(id)a0;
+- (void)homeDidUpdateApplicationData:(id)a0;
+- (void)homeDidUpdateAutoSelectedPreferredResident:(id)a0;
+- (void)homeDidUpdateName:(id)a0;
+- (void)homeDidUpdateNetworkRouterSupport:(id)a0;
+- (void)homeDidUpdateProtectionMode:(id)a0;
+- (void)homeDidUpdateSoundCheck:(id)a0;
+- (void)homeDidUpdateSupportsResidentSelection:(id)a0;
+- (void)homeDidUpdateToROAR:(id)a0;
+- (void)homeDidUpdateUserSelectedPreferredResident:(id)a0;
+
+@end

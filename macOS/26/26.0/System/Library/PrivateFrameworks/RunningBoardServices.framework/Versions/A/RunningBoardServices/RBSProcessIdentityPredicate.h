@@ -1,0 +1,18 @@
+@class RBSProcessIdentity;
+
+@interface RBSProcessIdentityPredicate : RBSProcessPredicateImpl {
+    RBSProcessIdentity *_identity;
+}
+
++ (BOOL)supportsRBSXPCSecureCoding;
+
+- (void)encodeWithRBSXPCCoder:(id)a0;
+- (id)processPredicate;
+- (id)description;
+- (id)initWithRBSXPCCoder:(id)a0;
+- (BOOL)matchesProcess:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

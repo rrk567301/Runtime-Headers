@@ -1,0 +1,3 @@
+@interface SMNNetworkMigrationBrowser : SMNNetworkSourceFinder
+
+@end

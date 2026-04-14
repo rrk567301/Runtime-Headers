@@ -1,0 +1,55 @@
+@interface SFUtilities : NSObject
+
++ (id)localeStringForLanguageString:(id)a0;
++ (id)speechProfilePathsWithLanguage:(id)a0;
++ (void)loadSpeechProfiles:(id)a0 language:(id)a1;
++ (void)initialize;
++ (id)aneSubType;
++ (id)speechProfileDateLastModifiedForLanguage:(id)a0;
++ (id)speechProfileRootDirectories;
++ (id)languageStringForLocaleString:(id)a0;
++ (id)alignedPartialResultIndicesForTokens:(id)a0 firstSeenPartialResultTokens:(id)a1;
++ (id)getNormString:(id)a0;
++ (id)_alignTokenToFirstSeenPartialResult:(id)a0 tokenIndex:(unsigned long long)a1 firstSeenPartialResultTokens:(id)a2 firstSeenPartialResultIndex:(unsigned long long)a3;
++ (id)_firstSeenPartialResultIndicesForTokens:(id)a0 firstSeenPartialResultTokens:(id)a1;
++ (id)defaultClientID;
++ (BOOL)canAccessPathAt:(id)a0 methodName:(id)a1 error:(id *)a2;
++ (BOOL)isGeneralASRSupportedOnDevice;
++ (id)SFTop21Locales;
++ (BOOL)isANETypeAtLeastVersion:(int)a0 prefix:(id)a1;
++ (id)SFTop41Locales;
++ (void)supportedLocalesWithCompletion:(id /* block */)a0;
++ (id)transcriptionFromSpeechPhrases:(id)a0 afAudioAnalytics:(id)a1 utteranceStart:(double)a2;
++ (id)allSpeechProfileContainersForSharedUserInfos:(id)a0;
++ (double)continuousTimeToNanoseconds:(unsigned long long)a0;
++ (unsigned long long)cooldownTimerTimeoutSeconds;
++ (void)createDirPath:(id)a0;
++ (id)generalASRLanguageForLocaleIdentifier:(id)a0;
++ (BOOL)hasSPIAccess;
++ (BOOL)isCacheDirInternal;
++ (BOOL)isSpeechXPCEnabled;
++ (id)issueReadSandboxExtensionForFilePath:(id)a0 error:(id *)a1;
++ (id)issueReadWriteSandboxExtensionForDirectoryPath:(id)a0 error:(id *)a1;
++ (id)languageCodeForLocaleIdentifier:(id)a0;
++ (id)languageCodeStringForLanguageString:(id)a0;
++ (void)loadSpeechProfiles:(id)a0 speechProfileContainers:(id)a1 language:(id)a2;
++ (id)localeCodeForLocale:(id)a0;
++ (id)localeIdentifiersForGeneralASRLanguageCode:(id)a0;
++ (id)recognitionMetadataFromSpeechPhrases:(id)a0 afAudioAnalytics:(id)a1 utteranceStart:(double)a2;
++ (id)recognizedResultFromPackage:(id)a0;
++ (id)sandboxExtensionsForCustomLmConfig:(id)a0;
++ (id)sandboxExtensionsForUsingANEAndAssets;
++ (id)speechProfilePathsForLanguage:(id)a0;
++ (id)speechProfilePathsForLanguage:(id)a0 personaId:(id)a1;
++ (id)speechProfilePathsForLanguage:(id)a0 speechProfileContainers:(id)a1;
++ (id)speechProfilePathsForLanguage:(id)a0 userType:(id)a1;
++ (id)speechProfilePathsWithLanguage:(id)a0 sharedUserInfos:(id)a1;
++ (id)speechProfileRootDirectoriesWithUserType:(id)a0;
++ (id)stringByReplacingHyphensWithUnderscores:(id)a0;
++ (id)stringByReplacingUnderscoresWithHyphens:(id)a0;
++ (id)supportedDictationLanguages;
++ (id)taskNameFromTaskHint:(long long)a0;
++ (id)transcriptionsWithTokens:(id)a0;
++ (id)userSpecificSpeechProfileContainersForSharedUserInfos:(id)a0;
+
+@end

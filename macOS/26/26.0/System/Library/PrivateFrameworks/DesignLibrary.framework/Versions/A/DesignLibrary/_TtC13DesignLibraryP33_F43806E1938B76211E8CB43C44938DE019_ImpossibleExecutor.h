@@ -1,0 +1,3 @@
+@interface _TtC13DesignLibraryP33_F43806E1938B76211E8CB43C44938DE019_ImpossibleExecutor : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,23 @@
+@class NSSet, NSString, NSDictionary, _GCHIDEventSubjectAuditor;
+
+@interface _GCHIDEventSubject : NSObject <_GCHIDEventSource> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSDictionary *_handlersByService;
+    NSSet *_pausedForReasons;
+    _GCHIDEventSubjectAuditor *_auditor;
+}
+
+@property (readonly, getter=isPaused) BOOL paused;
+@property (copy) NSSet *pausedForReasons;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)observeHIDEvents:(id /* block */)a0;
+- (id)observeHIDEvents:(id /* block */)a0 forService:(id)a1;
+- (void)publishHIDEvent:(struct __IOHIDEvent { } *)a0;
+
+@end

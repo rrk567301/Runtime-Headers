@@ -1,0 +1,53 @@
+@interface ATXSpotlightClient : NSObject
+
++ (BOOL)_demoModeEnabled;
++ (id)rerankRecents:(id)a0 withAlternateRanking:(unsigned long long)a1;
++ (id)_symbolImageForName:(id)a0;
++ (id)_resultWithAppClipSuggestion:(id)a0;
++ (id)_resultWithIntent:(id)a0 title:(id)a1 subtitle:(id)a2 bundleIdForDisplay:(id)a3 appIcon:(id)a4;
++ (id)descriptionForTopic:(id)a0;
++ (id)rerankRecents_Normal:(id)a0;
++ (BOOL)_lastExecutedActionModeEnabled;
++ (id)zkwPredictionsForRequest:(id)a0 error:(id *)a1;
++ (id)_resultWithATXAction:(id)a0;
++ (BOOL)_isAutoShortcutEnabledForSpotlight:(id)a0;
++ (id)_demoModeActionResponse;
++ (BOOL)isAutoShortcutsEnabledForSpotlightForBundleId:(id)a0;
++ (id)rerankRecents_Filter:(id)a0 removingType:(int)a1;
++ (BOOL)_isEqualRecentTopics:(id)a0 otherRecentTopics:(id)a1;
++ (id)rerankRecents_LimitCount:(id)a0 oneCountDays:(double)a1 twoCountDays:(double)a2;
++ (id)_demoActionsPath;
++ (id)searchResultWithEncodedToolAction:(id)a0 localizedAppName:(id)a1;
++ (id)_imageWithLinkImage:(id)a0;
++ (id)suggestedResultResponseWithLimit:(long long)a0;
++ (id)_fetchSpotlightRecentTopicsWithAlternateRanking:(long long)a0 limit:(long long)a1;
++ (id)_accessoryImageWithContextualAction:(id)a0;
++ (id)_iconForParameterizedAutoShortcutContextualAction:(id)a0 provider:(id)a1;
++ (BOOL)_isValidSuggestion:(id)a0 forWorldState:(id)a1;
++ (id)detailedRowCardSectionWithTitle:(id)a0 subtitles:(id)a1 thumbnail:(id)a2 trailingImage:(id)a3;
++ (id)_resultWithAppBundleId:(id)a0;
++ (id)_resultWithSuggestion:(id)a0;
++ (id)_resultWithShortcutsActionSuggestion:(id)a0;
++ (id)_contextualActionIconFromLNImage:(id)a0;
++ (id)_topicWithSuggestion:(id)a0 layoutUUID:(id)a1;
++ (id)_responseWithUpcomingMedia;
++ (id)_extractTopicsFromRecentTopics:(id)a0;
++ (id)_resultWithContextualAction:(id)a0 title:(id)a1 subtitle:(id)a2;
++ (BOOL)topic:(id)a0 isDuplicateComparingTopics:(id)a1;
++ (id)_resultWithActionSuggestion:(id)a0;
++ (id)_resultWithLinkActionContainer:(id)a0;
++ (id)_resultWithLinkActionSuggestion:(id)a0;
++ (id)recentUpcomingMediaActionsWithLimit:(unsigned long long)a0;
++ (BOOL)_shouldDisplayUpcomingMediaForTesting;
++ (id)suggestedResultResponseWithLimit:(long long)a0 andSpotlightRecentTopics:(id)a1;
++ (id)_imageWithContextualActionIcon:(id)a0;
++ (id)_suggestedResultResponseWithLimit:(long long)a0 andSpotlightRecentTopics:(id)a1 actionScope:(id)a2;
++ (int)_imageCornerRoundingStyleForIconDisplayStyle:(unsigned long long)a0;
++ (void)predictionsForRequest:(id)a0 withCompletion:(id /* block */)a1;
++ (id)_imageWithDirectionsContextualAction:(id)a0;
++ (BOOL)isValidSuggestion:(id)a0 forScope:(id)a1;
++ (id)_fetchSpotlightRecentTopics:(long long)a0;
++ (id)_responseWithSpotlightLayout:(id)a0 andSpotlightRecentTopics:(id)a1 actionScope:(id)a2 limit:(long long)a3;
++ (BOOL)isAutoShortcutEnabledForSpotlightForBundleId:(id)a0 signature:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_6D2D089539A5EF9BD0AF3B1F342535E017AnyDragStorageBox : _TtCs12_SwiftObject
+
+@end

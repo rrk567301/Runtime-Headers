@@ -1,0 +1,80 @@
+@class NSString, NSMutableDictionary, NSData, NSDictionary, NSArray, NSMutableArray;
+
+@interface CRFDRBaseDeviceHandler : NSObject
+
+@property BOOL isServicePart;
+@property BOOL allowFactoryReset;
+@property BOOL allowMissingData;
+@property (retain, nonatomic) NSString *sealDate;
+@property (retain, nonatomic) NSString *kbbSealDate;
+@property (retain, nonatomic) NSData *kbbSealingManifest;
+@property (retain, nonatomic) NSString *previousCGSN;
+@property (retain, nonatomic) NSString *kbbCGSN;
+@property (retain, nonatomic) NSMutableDictionary *updateProperties;
+@property (retain, nonatomic) NSDictionary *currentProperties;
+@property (retain, nonatomic) NSArray *currentDataClasses;
+@property (retain, nonatomic) NSArray *currentDataInstances;
+@property (retain, nonatomic) NSString *KBBSerialNumber;
+@property (retain, nonatomic) NSString *KBBECID;
+@property (retain, nonatomic) NSString *KBBSIK;
+@property (retain, nonatomic) NSString *KGBSerialNumber;
+@property (retain, nonatomic) NSString *KBBSealInstance;
+@property (retain, nonatomic) NSArray *KBBDataClasses;
+@property (retain, nonatomic) NSArray *KBBDataInstances;
+@property (retain, nonatomic) NSMutableArray *warnings;
+@property (retain, nonatomic) NSMutableDictionary *componentsMapping;
+
++ (BOOL)isFDRPrimaryDataClass:(id)a0;
++ (BOOL)isFDRDataClassSupported:(id)a0;
++ (id)getSealingMap;
++ (id)getRegisterChangeDictUsingComponentAuthName:(id)a0;
++ (id)getDeviceHandlerForProductType:(int)a0;
++ (void)initSealingMap;
++ (id)_getDataClassUsingComponentAuthName:(id)a0;
++ (id)_populateSealingMapForCurrentDevice;
++ (id)_populateSealingMapProperties;
++ (id)getUnsealedSPCWithDataClass:(id)a0;
++ (BOOL)isFDRPropertySupported:(id)a0;
++ (id)copySealingManifestDataInstanceForComponent:(id)a0;
++ (id)getPropertyArrayFrom:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)_addDataClassAndInstanceToMutableDictionary:(id)a0 dataClass:(id)a1 withError:(id *)a2;
+- (BOOL)_addDataClassAndInstancesToMutableArray:(id)a0 dataClasses:(id)a1 dataInstances:(id)a2 withError:(id *)a3;
+- (BOOL)_addPropertyToMutableDictionary:(id)a0 property:(id)a1 withError:(id *)a2;
+- (void)challengeComponentsWith:(id)a0 withReply:(id /* block */)a1;
+- (id)getClaimDataClassesAndInstancesWithPartSPC:(id)a0 withError:(id *)a1;
+- (id)getCurrentManifestDataClassesAndInstancesWithPartSPC:(id)a0 fdr:(struct __AMFDR { } *)a1 currentClasses:(id *)a2 currentInstances:(id *)a3 currentProperties:(id *)a4 fdrError:(id *)a5;
+- (BOOL)getCurrentMinimalManifestsWithVersions:(id *)a0 fdrRemote:(struct __AMFDR { } *)a1 minimalSealingDataInstances:(id *)a2 minimalSealedDataClasses:(id *)a3 minimalSealedDataInstances:(id *)a4 minimalSealedVersions:(id *)a5;
+- (BOOL)getDataClassesAndInstancesOfKBBWith:(struct __AMFDR { } *)a0 dataClasses:(id *)a1 dataInstances:(id *)a2 propertiesDict:(id *)a3 fdrError:(id *)a4;
+- (id)getDataClassesAndInstancesOfKBBWith:(struct __AMFDR { } *)a0 propertiesDict:(id *)a1 fdrError:(id *)a2;
+- (id)getDataValueOfKBBWithDataClass:(id)a0 fdrRemote:(struct __AMFDR { } *)a1 error:(id *)a2;
+- (id)getExcludedPropertiesForFactoryReset;
+- (id)getExcludedPropertiesForSealedVerify;
+- (id)getExpectedPatchInfo:(id)a0;
+- (BOOL)getKBBMinimalManifestsWithVersions:(id *)a0 minimalSealingDataInstances:(id *)a1 minimalSealedDataClasses:(id *)a2 minimalSealedDataInstances:(id *)a3 minimalSealedVersions:(id *)a4;
+- (id)getKBBSealInstanceWithError:(id *)a0 fdrRemote:(struct __AMFDR { } *)a1;
+- (BOOL)getMakeDataClassesAndInstancesWithPartSPC:(id)a0 fdrRemote:(struct __AMFDR { } *)a1 makeClasses:(id *)a2 makeInstances:(id *)a3 makePropertiesDict:(id *)a4 fdrError:(id *)a5;
+- (BOOL)getMinimalManifestsClassesAndInstancesWithPartSPC:(id)a0 fdrLocal:(struct __AMFDR { } *)a1 fdrRemote:(struct __AMFDR { } *)a2 minimalSealingDataInstances:(id *)a3 minimalSealedDataClasses:(id *)a4 minimalSealedDataInstances:(id *)a5 minimalSealedVersions:(id *)a6 error:(id *)a7;
+- (BOOL)getPatchDataClassesAndInstancesWithPartSPC:(id)a0 fdrRemote:(struct __AMFDR { } *)a1 patchClasses:(id *)a2 patchInstances:(id *)a3 patchValues:(id *)a4 error:(id *)a5;
+- (BOOL)getPatchExpectedDataWithPartSPC:(id)a0 amfdr:(struct __AMFDR { } *)a1 expectedClasses:(id *)a2 expectedInstances:(id *)a3 expectedValues:(id *)a4 expectedDatas:(id *)a5 validClasses:(id)a6 validInstances:(id)a7 error:(id *)a8;
+- (id)getPatchInfoPerSPC;
+- (id)getSealDateFromSealingManifestData:(id)a0;
+- (void)getStrongComponentsWithReply:(id /* block */)a0;
+- (id)getUpdateDataClassesAndInstancesWithPartSPC:(id)a0 withError:(id *)a1;
+- (id)getUpdatePropertyWithPartSPC:(id)a0 propertiesFromParam:(id)a1;
+- (long long)performPostSealingStage:(id)a0;
+- (BOOL)setMinimalSealingMeta:(struct __AMFDR { } *)a0 hintDataClass:(id)a1 sealingInstances:(id)a2;
+- (id)spcInPartSPC:(id)a0 withDataClass:(id)a1;
+- (id)spcWithComponent:(id)a0 withIdentifier:(id)a1;
+- (BOOL)storeWarningStrings:(id)a0;
+- (BOOL)supportPatch;
+- (double)timeIntervalSinceLastSealing:(id)a0;
+- (BOOL)validateAndFilterPatchWithPartSPC:(id)a0 patchClasses:(id *)a1 patchInstances:(id *)a2 patchValues:(id *)a3 validClasses:(id)a4 validInstances:(id)a5 error:(id *)a6;
+- (BOOL)validateAndSetSerialNumbersUsingPartSPC:(id)a0 KGBSerialNumber:(id)a1 KBBSerialNumber:(id)a2 withError:(id *)a3;
+- (long long)validateDisplaySwapped:(id)a0 lessThan:(id)a1;
+- (BOOL)validateSwappedForDays:(long long)a0 currentSN:(id)a1 previousSN:(id)a2 sealDate:(id)a3;
+
+@end

@@ -1,0 +1,8 @@
+@interface _VZMacTouchIDDeviceConfiguration : _VZBiometricDeviceConfiguration
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (struct expected<std::variant<VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice>, NSError *> { struct __conditional_no_unique_address<true, std::__expected_base<std::variant<VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice>, NSError *>::__repr> { struct __repr { struct __conditional_no_unique_address<false, std::__expected_base<std::variant<VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice>, NSError *>::__union_t> { union __union_t { struct variant<VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice> { struct __impl<VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice> { union __union<std::__variant_detail::_Trait::_TriviallyAvailable, 0UL, VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice> { char x0; struct __alt<0UL, VzCore::VirtualMachineConfiguration::MacTouchIDBiometricDevice> { struct MacTouchIDBiometricDevice { } x0; } x1; union __union<std::__variant_detail::_Trait::_TriviallyAvailable, 1UL> { } x2; } x0; unsigned int x1; } x0; } x0; id x1; } x0; } x0; BOOL x1; } x0; } x0; })_biometricDeviceWithPlatform:(id)a0;
+- (struct expected<NSDictionary *, NSError *> { struct __conditional_no_unique_address<true, std::__expected_base<NSDictionary *, NSError *>::__repr> { struct __repr { struct __conditional_no_unique_address<false, std::__expected_base<NSDictionary *, NSError *>::__union_t> { union __union_t { id x0; id x1; } x0; } x0; BOOL x1; } x0; } x0; })encodeWithEncoder:(id)a0;
+
+@end

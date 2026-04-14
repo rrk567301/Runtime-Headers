@@ -1,0 +1,3 @@
+@interface PFTQueueSchedulerCancellationToken : PFTCancellationToken
+
+@end

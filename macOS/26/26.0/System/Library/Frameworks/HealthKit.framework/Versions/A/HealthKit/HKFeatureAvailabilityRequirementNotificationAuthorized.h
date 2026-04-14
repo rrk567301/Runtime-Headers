@@ -1,0 +1,21 @@
+@class NSString;
+
+@interface HKFeatureAvailabilityRequirementNotificationAuthorized : HKFeatureAvailabilityBaseRequirement
+
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+
++ (BOOL)supportsSecureCoding;
++ (id)requirementIdentifier;
+
+- (id)initWithBundleIdentifier:(id)a0;
+- (id)requiredEntitlements;
+- (id)requirementDescription;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)isSatisfiedWithDataSource:(id)a0 error:(id *)a1;
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+
+@end

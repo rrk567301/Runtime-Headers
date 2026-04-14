@@ -1,0 +1,3 @@
+@interface _TtCV7Network22QUICConnectionProtocol22QUICConnectionInstance : Network.DefaultOneToOneProtocol
+
+@end

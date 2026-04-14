@@ -1,0 +1,87 @@
+@class NSFont, NSString, NSArray, NSAttributedString, EKEvent, NSColor, NSImage, NSNumber;
+
+@interface CUIKOROccurrenceState : NSObject <CUIKOROccurrenceState>
+
+@property (readonly, nonatomic) BOOL isValid;
+@property (readonly, nonatomic) BOOL isSelected;
+@property (readonly, nonatomic) BOOL isDimmed;
+@property (readonly, nonatomic) BOOL isTentative;
+@property (readonly, nonatomic) BOOL needsReply;
+@property (readonly, nonatomic) BOOL isAllDay;
+@property (readonly, nonatomic) BOOL isCancelled;
+@property (readonly, nonatomic) BOOL isDeclined;
+@property (readonly, nonatomic) BOOL hasNewTimeProposed;
+@property (readonly, nonatomic) BOOL usesSmallText;
+@property (readonly, nonatomic) NSNumber *allDayOverride;
+@property (readonly, nonatomic) BOOL isBirthday;
+@property (readonly, nonatomic) long long birthdayCount;
+@property (readonly, nonatomic) BOOL isReminder;
+@property (readonly, nonatomic) int reminderStackDepth;
+@property (readonly, nonatomic) BOOL isCompleted;
+@property (readonly, nonatomic) BOOL drawReminderAsEditable;
+@property (readonly, nonatomic) NSString *title;
+@property (readonly, nonatomic) BOOL hidesTime;
+@property (readonly, nonatomic) BOOL occurrenceIsFirstVisibleDayOfEvent;
+@property (readonly, nonatomic) NSAttributedString *location;
+@property (readonly, nonatomic) NSString *moreText;
+@property (readonly, nonatomic) double travelTime;
+@property (readonly, nonatomic) NSColor *titleTextColor;
+@property (readonly, nonatomic) NSColor *timeTextColor;
+@property (readonly, nonatomic) NSColor *locationTextColor;
+@property (readonly, nonatomic) NSColor *moreTextColor;
+@property (readonly, nonatomic) NSColor *strikethroughColor;
+@property (readonly, nonatomic) NSColor *displayColor;
+@property (readonly, nonatomic) NSColor *baseColor;
+@property (readonly, nonatomic) NSColor *colorBarColor;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } backgroundRect;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } estimatedTextFrame;
+@property (readonly, nonatomic) struct NSEdgeInsets { double x0; double x1; double x2; double x3; } padding;
+@property (readonly, nonatomic) double travelTimeHeight;
+@property (readonly, nonatomic) double visibleHeight;
+@property (readonly, nonatomic) long long userInterfaceStyle;
+@property (readonly, nonatomic) long long horizontalSizeClass;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } textSpace;
+@property (readonly, nonatomic) double minimumNaturalHeightAllText;
+@property (readonly, nonatomic) double enoughHeightForOneLine;
+@property (readonly, nonatomic) struct NSEdgeInsets { double x0; double x1; double x2; double x3; } languageAwareInsets;
+@property (readonly, nonatomic) BOOL requiresLanguageAwarePadding;
+@property (readonly, nonatomic) double totalLanguageAwareHeightPadding;
+@property (readonly, nonatomic) NSImage *leadingIcon;
+@property (readonly, nonatomic) NSArray *trailingIcons;
+@property (readonly, nonatomic) NSFont *primaryTextFont;
+@property (readonly, nonatomic) NSFont *secondaryTextFont;
+@property (readonly, nonatomic) unsigned long long fontCompressionDegree;
+@property (readonly, nonatomic) NSString *locationImageName;
+@property (readonly, nonatomic) EKEvent *occurrence;
+@property (readonly, nonatomic) NSArray *occurrences;
+@property (readonly, nonatomic) BOOL isProposedTime;
+@property (readonly, nonatomic) BOOL isMiniPreviewInEventDetail;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)locationCache;
++ (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })defaultPadding;
++ (void)clearLocationCache;
++ (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })defaultMarginFromEKDayOccurrenceView;
++ (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })defaultPaddingFromEKDayOccurrenceView;
++ (double)enoughHeightForOneLineForEvent:(id)a0 usingSmallText:(BOOL)a1 sizeClass:(long long)a2;
++ (id)languageAwareInsetsCache;
+
+- (id)initWithState:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isReminderStack;
+- (id)init;
+- (id)status;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)_leadingSymbolSizeConfigurationForReminder:(BOOL)a0;
+- (void)_location:(id *)a0 locationImageName:(id *)a1;
+- (id)primaryTextFontBold:(BOOL)a0;
+- (id)primaryTextFontNonBold;
+- (id)reminderIcon;
+- (id)secondaryTitleTextColor;
+- (id)trailingIconsColor;
+
+@end

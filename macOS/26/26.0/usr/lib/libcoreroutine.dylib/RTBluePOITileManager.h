@@ -1,0 +1,85 @@
+@class NSMutableDictionary, RTVisitManager, RTBluePOITileStore, RTMapServiceManager, RTPredictedContextManager, RTDefaultsManager, RTPlatform, RTBatteryManager, RTLearnedLocationStore, NSString, NSFileManager, GEOExternalTileLoader, RTXPCActivityManager, RTVisit, RTBluePOIMetricManager, RTDistanceCalculator;
+
+@interface RTBluePOITileManager : RTService <RTPurgable>
+
+@property (readonly, nonatomic) NSString *bluePOIModelPath;
+@property (readonly, nonatomic) NSString *bluePOITempPath;
+@property (readonly, nonatomic) NSString *bluePOITilePath;
+@property (nonatomic) BOOL predownloadBluePOITiles;
+@property (nonatomic) BOOL deviceCharging;
+@property (retain, nonatomic) RTVisit *currentVisit;
+@property (retain, nonatomic) NSMutableDictionary *pendingTiles;
+@property (nonatomic) BOOL retryDownloadBluePOITiles;
+@property (readonly, nonatomic) RTBatteryManager *batteryManager;
+@property (readonly, nonatomic) RTBluePOIMetricManager *bluePOIMetricManager;
+@property (readonly, nonatomic) RTBluePOITileStore *bluePOITileStore;
+@property (readonly, nonatomic) RTDefaultsManager *defaultsManager;
+@property (readonly, nonatomic) RTDistanceCalculator *distanceCalculator;
+@property (readonly, nonatomic) NSFileManager *fileManager;
+@property (readonly, nonatomic) RTLearnedLocationStore *learnedLocationStore;
+@property (readonly, nonatomic) RTMapServiceManager *mapServiceManager;
+@property (readonly, nonatomic) RTPlatform *platform;
+@property (retain, nonatomic) RTPredictedContextManager *predictedContextManager;
+@property (readonly, nonatomic) GEOExternalTileLoader *tileLoader;
+@property (retain, nonatomic) RTVisitManager *visitManager;
+@property (readonly, nonatomic) RTXPCActivityManager *xpcActivityManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)periodicPurgePolicy;
+
+- (void)_shutdownWithHandler:(id /* block */)a0;
+- (void)performPurgeOfType:(long long)a0 referenceDate:(id)a1 completion:(id /* block */)a2;
+- (void)_setup;
+- (void)onVisitManagerVisitIncidentNotification:(id)a0;
+- (id)init;
+- (void)_performPurgeOfType:(long long)a0 referenceDate:(id)a1 completion:(id /* block */)a2;
+- (void)_onVisitManagerVisitIncidentNotification:(id)a0;
+- (void)fetchBluePOIMetadataWithHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)_validateTiles:(id)a0;
+- (id)downloadKeysForLocation:(id)a0 radius:(double)a1;
+- (void)onBluePOITileStoreNotification:(id)a0;
+- (void)_addToPendingTiles:(id)a0;
+- (id)_compileCoreMLModelAtURL:(id)a0 outError:(id *)a1;
+- (id)_downloadBluePOITilesWithDownloadKeys:(id)a0 collectMetrics:(BOOL)a1 outError:(id *)a2;
+- (void)_fetchBluePOIMetadataWithHandler:(id /* block */)a0;
+- (void)_fetchBluePOITileAtLocation:(id)a0 priority:(unsigned long long)a1 validateTile:(BOOL)a2 collectMetrics:(BOOL)a3 handler:(id /* block */)a4;
+- (void)_fetchBluePOITilesForDownloadKeys:(id)a0 atIndex:(unsigned long long)a1 batchSize:(unsigned long long)a2 priority:(unsigned long long)a3 validateTile:(BOOL)a4 handler:(id /* block */)a5;
+- (void)_fetchBluePOITilesForDownloadKeys:(id)a0 priority:(unsigned long long)a1 validateTile:(BOOL)a2 collectMetrics:(BOOL)a3 handler:(id /* block */)a4;
+- (void)_fetchCandidatesForTilePredownloadingOnBatteryWithHandler:(id /* block */)a0;
+- (void)_fetchCandidatesForTilePredownloadingOnChargerWithHandler:(id /* block */)a0;
+- (void)_fetchPOICategoryDenyListWithHandler:(id /* block */)a0;
+- (void)_fetchPredictedLocationsForTimeInterval:(double)a0 limit:(unsigned long long)a1 minProbability:(double)a2 handler:(id /* block */)a3;
+- (id)_lazyLoadProtobufTileWithGeoTileKey:(unsigned long long)a0 outError:(id *)a1;
+- (void)_onBatteryManagerNotification:(id)a0;
+- (void)_onBluePOITileStoreNotification:(id)a0;
+- (void)_predownloadBluePOITileForPredictedLocationWithHandler:(id /* block */)a0;
+- (void)_predownloadBluePOITilesOnChargerWithHandler:(id /* block */)a0;
+- (BOOL)_purgeCompiledModelsIfStorageLimitExceededWithError:(id *)a0;
+- (void)_registerXpcActivityPredownloadTileOnBattery;
+- (void)_registerXpcActivityPredownloadTileOnCharger;
+- (void)_registerXpcActivityRetryDownloadTiles;
+- (BOOL)_removeBluePOITilesWithGeoTileKeys:(id)a0 modelURLs:(id)a1 outError:(id *)a2;
+- (void)_unregisterXpcActivityPredownloadTileOnBattery;
+- (void)_unregisterXpcActivityRetryDownloadTiles;
+- (BOOL)_validateMetadata:(id)a0;
+- (id)downloadKeyForLocation:(id)a0;
+- (void)fetchBluePOITileAtLocation:(id)a0 priority:(unsigned long long)a1 validateTile:(BOOL)a2 collectMetrics:(BOOL)a3 handler:(id /* block */)a4;
+- (void)fetchBluePOITileWithGeoTileKey:(unsigned long long)a0 handler:(id /* block */)a1;
+- (void)fetchBluePOITilesForDownloadKeys:(id)a0 priority:(unsigned long long)a1 validateTile:(BOOL)a2 collectMetrics:(BOOL)a3 handler:(id /* block */)a4;
+- (void)fetchPOICategoryDenyListWithHandler:(id /* block */)a0;
+- (unsigned long long)geoTileKeyForLocation:(id)a0;
+- (unsigned long long)geoTileKeyForLocationDeprecated:(id)a0;
+- (id)geoTileKeysForLocation:(id)a0 radius:(double)a1;
+- (id)initWithBatteryManager:(id)a0 bluePOIMetricManager:(id)a1 bluePOITileStore:(id)a2 defaultsManager:(id)a3 distanceCalculator:(id)a4 fileManager:(id)a5 geoExternalTileLoader:(id)a6 learnedLocationStore:(id)a7 mapServiceManager:(id)a8 platform:(id)a9 xpcActivityManager:(id)a10;
+- (void)onBatteryManagerNotification:(id)a0;
+- (void)predownloadBluePOITileForPredictedLocationWithHandler:(id /* block */)a0;
+- (void)predownloadBluePOITilesOnChargerWithHandler:(id /* block */)a0;
+- (id)selectDownloadKeysFromCandidates:(id)a0;
+- (void)storeBluePOITiles:(id)a0 handler:(id /* block */)a1;
+- (double)totalModelSizeInKB;
+
+@end

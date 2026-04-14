@@ -1,0 +1,27 @@
+@class NSDictionary;
+
+@interface SUCorePolicyDocumentationScan : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long specifiedFields;
+@property (nonatomic) BOOL allowsCellular;
+@property (nonatomic) BOOL discretionary;
+@property (nonatomic) BOOL disableUI;
+@property (nonatomic) BOOL requiresPowerPluggedIn;
+@property (nonatomic) int downloadTimeoutSecs;
+@property (nonatomic) BOOL liveServerCatalogOnly;
+@property (retain, nonatomic) NSDictionary *additionalServerParams;
+@property (retain, nonatomic) NSDictionary *additionalOptions;
+
+- (id)summary;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)init;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)backToDefaults;
+
+@end

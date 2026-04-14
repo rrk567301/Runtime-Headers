@@ -1,0 +1,83 @@
+@class RTVisitManager, RTDistanceCalculator, RTInferredMapItemFuser, RTPlaceInferenceDailyMetrics, RTMapServiceManager, RTVisitStore, NSDictionary, RTDefaultsManager, NSMutableArray, RTBluePOIMonitor, RTMetricManager, RTLearnedLocationStore, NSDate, RTPlaceInferenceQueryStore, NSString, RTLocationManager, RTBluePOITileManager, RTBluePOIMetricManager, RTMapItemManager;
+
+@interface RTPlaceInferenceManager : RTService <RTPurgable>
+
+@property (readonly, nonatomic) RTBluePOIMetricManager *bluePOIMetricManager;
+@property (readonly, nonatomic) RTBluePOIMonitor *bluePOIMonitor;
+@property (readonly, nonatomic) RTBluePOITileManager *bluePOITileManager;
+@property (readonly, nonatomic) RTDefaultsManager *defaultsManager;
+@property (retain, nonatomic) RTDistanceCalculator *distanceCalculator;
+@property (readonly, nonatomic) RTInferredMapItemFuser *inferredMapItemFuser;
+@property (readonly, nonatomic) RTMetricManager *metricManager;
+@property (readonly, nonatomic) RTLearnedLocationStore *learnedLocationStore;
+@property (readonly, nonatomic) RTLocationManager *locationManager;
+@property (readonly, nonatomic) RTMapItemManager *mapItemManager;
+@property (readonly, nonatomic) RTMapServiceManager *mapServiceManager;
+@property (retain, nonatomic) RTVisitManager *visitManager;
+@property (readonly, nonatomic) RTVisitStore *visitStore;
+@property (readonly, nonatomic) NSDictionary *mapItemProviders;
+@property (nonatomic) unsigned long long placeInferencesLimit;
+@property (readonly, nonatomic) NSMutableArray *cachedLocations;
+@property (readonly, nonatomic) unsigned long long cachedLocationIndex;
+@property (retain, nonatomic) RTPlaceInferenceDailyMetrics *dailyMetrics;
+@property (retain, nonatomic) NSDate *visitEntryTime;
+@property (nonatomic) unsigned long long clientMappingIndex;
+@property (readonly, nonatomic) RTPlaceInferenceQueryStore *placeInferenceQueryStore;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)sanityCheckMapItemProviders:(id)a0;
++ (unsigned long long)userSpecificPlaceTypeSourceFromLearnedPlaceTypeSource:(unsigned long long)a0;
++ (unsigned long long)userSpecificPlaceTypeFromLearnedPlaceType:(unsigned long long)a0;
++ (unsigned long long)userSpecificPlaceTypeFromLocationOfInterestType:(long long)a0;
++ (unsigned long long)learnedPlaceTypeFromLocationOfInterestType:(long long)a0;
++ (unsigned long long)learnedPlaceTypeFromUserSpecificPlaceType:(unsigned long long)a0;
++ (unsigned long long)learnedPlaceTypeSourceFromLocationOfInterestTypeSource:(unsigned long long)a0;
++ (unsigned long long)learnedPlaceTypeSourceFromUserSpecificPlaceTypeSource:(unsigned long long)a0;
++ (unsigned long long)userSpecificPlaceTypeSourceFromLocationOfInterestTypeSource:(unsigned long long)a0;
++ (long long)periodicPurgePolicy;
+
+- (void)_shutdownWithHandler:(id /* block */)a0;
+- (void)onDailyMetricsNotification:(id)a0;
+- (void)performPurgeOfType:(long long)a0 referenceDate:(id)a1 completion:(id /* block */)a2;
+- (void)_onPointOfInterestVisitNotification:(id)a0;
+- (void)_unRegisterForDailyMetricsNotifications;
+- (id)_selectMapItemProvidersForOptions:(id)a0;
+- (id)_getFallbackMapItemProviderForOptions:(id)a0;
+- (id)_selectMapItemProvidersForOptions:(id)a0 targetProvider:(unsigned long long)a1;
+- (void)_setup;
+- (id)initWithDefaultsManager:(id)a0 bluePOIMetricManager:(id)a1 bluePOIMonitor:(id)a2 bluePOITileManager:(id)a3 distanceCalculator:(id)a4 eventManager:(id)a5 fingerprintManager:(id)a6 inferredMapItemFuser:(id)a7 learnedLocationStore:(id)a8 locationManager:(id)a9 mapItemManager:(id)a10 mapServiceManager:(id)a11 mapsSupportManager:(id)a12 metricManager:(id)a13 motionActivityManager:(id)a14 placeInferenceQueryStore:(id)a15 platform:(id)a16 portraitManager:(id)a17 userCurationStore:(id)a18 visitStore:(id)a19;
+- (void)_addMapItemProviderFromArray:(id)a0 toSet:(id)a1;
+- (void)_onDailyMetricsNotification:(id)a0;
+- (id)_removeCurrentPOIMapItems:(id)a0;
+- (void)onVisitManagerVisitIncidentNotification:(id)a0;
+- (void)_onBluePOIMonitorEstimateUpdateNotification:(id)a0;
+- (void)_onSyncedPlaceInferences:(id)a0;
+- (void)onSyncedPlaceInferences:(id)a0;
+- (BOOL)_savePlaceInferenceQueriesFromInferredMapItems:(id)a0 inferenceErrorCode:(long long)a1 referenceLocation:(id)a2 options:(id)a3 outError:(id *)a4;
+- (void)onPointOfInterestVisitNotification:(id)a0;
+- (id)init;
+- (void)_updateCachedLocationsWithLocation:(id)a0;
+- (id)createAllMapItemProvidersWithDefaultManager:(id)a0 bluePOIMetricManager:(id)a1 bluePOIMonitor:(id)a2 bluePOITileManager:(id)a3 distanceCalculator:(id)a4 eventManager:(id)a5 fingerprintManager:(id)a6 learnedLocationStore:(id)a7 locationManager:(id)a8 mapItemManager:(id)a9 mapServiceManager:(id)a10 mapsSupportManager:(id)a11 motionActivityManager:(id)a12 platform:(id)a13 portraitManager:(id)a14 userCurationStore:(id)a15 visitStore:(id)a16;
+- (void)_performPurgeOfType:(long long)a0 referenceDate:(id)a1 completion:(id /* block */)a2;
+- (void)fetchPlaceInferencesForOptions:(id)a0 handler:(id /* block */)a1;
+- (void)_registerForDailyMetricsNotifications;
+- (unsigned long long)_getMappingIndexForClientIdentifier:(id)a0;
+- (id)_estimatedLocationFromSortedLocations:(id)a0;
+- (BOOL)_learnedPlaceTypeForInferredMapItem:(id)a0 placeType:(unsigned long long *)a1 placeTypeSource:(unsigned long long *)a2 error:(id *)a3;
+- (BOOL)_inferUserSpecificPlaceTypeForInferredMapItem:(id)a0 userSpecificPlaceType:(unsigned long long *)a1 userSpecificPlaceTypeSource:(unsigned long long *)a2 error:(id *)a3;
+- (id)_selectLastLocationFromLocations:(id)a0 maxHorizontalUncertainty:(double)a1;
+- (void)_onVisitManagerVisitIncidentNotification:(id)a0;
+- (id)_selectBestCandidateAndUpdateReferenceLocation:(id)a0;
+- (void)onBluePOIMonitorEstimateUpdateNotification:(id)a0;
+- (id)_placeInferenceFromInferredMapItem:(id)a0 referenceLocation:(id)a1 error:(id *)a2;
+- (id)_closestCachedLocationForLocation:(id)a0;
+- (id)_filterLocalBluePOIMapItems:(id)a0;
+- (void).cxx_destruct;
+- (id)_loiIdentifierForInferredMapItem:(id)a0;
+- (void)sendPlaceInferenceMetrics:(id)a0 inferredMapItems:(id)a1 fusedMapItems:(id)a2 fallbackInferredMapItems:(id)a3 finalPlaceInferences:(id)a4 referenceLocation:(id)a5;
+- (id)_placeInferencesForOptions:(id)a0 error:(id *)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface SpotlightUIShared.ImageFileTypedValueResultBuilder : SpotlightUIShared.FileTypedValueResultBuilder
+
+@end

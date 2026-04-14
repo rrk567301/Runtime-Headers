@@ -1,0 +1,3 @@
+@interface GameStoreKit.PlayableViewRegistrationCollectionElementsObserver : _TtCs12_SwiftObject
+
+@end

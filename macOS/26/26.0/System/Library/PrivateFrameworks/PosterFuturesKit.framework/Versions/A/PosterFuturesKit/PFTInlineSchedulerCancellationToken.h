@@ -1,0 +1,3 @@
+@interface PFTInlineSchedulerCancellationToken : PFTCancellationToken
+
+@end

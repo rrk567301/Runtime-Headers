@@ -1,0 +1,3 @@
+@interface _TtC10FindMyCoreP33_985E72F07D1F304BA0922992D19F8E7013GeneralModule : _TtCs12_SwiftObject
+
+@end

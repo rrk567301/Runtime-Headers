@@ -1,0 +1,9 @@
+@interface DeviceDiscoveryUI.BoopBrowser : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ identity;
+    void /* unknown type, empty encoding */ airdropClient;
+    void /* unknown type, empty encoding */ updateNearbySharingInteractionsTask;
+    void /* unknown type, empty encoding */ currentNearbySharingInteraction;
+}
+
+@end
