@@ -1,0 +1,3 @@
+@interface BEURLWithBookmark : BEDownloadMonitorLocation
+
+@end

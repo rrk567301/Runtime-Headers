@@ -1,0 +1,6 @@
+@interface RequestDispatcherBridges.MUXUserSelector : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ nlParseUtils;
+    void /* unknown type, empty encoding */ isBackgroundSessionEnabled;
+}
+
+@end

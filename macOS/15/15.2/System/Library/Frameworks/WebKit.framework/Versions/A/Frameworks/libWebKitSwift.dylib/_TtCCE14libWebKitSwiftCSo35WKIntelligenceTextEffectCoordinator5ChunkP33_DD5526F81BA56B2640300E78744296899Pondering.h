@@ -1,0 +1,3 @@
+@interface _TtCCE14libWebKitSwiftCSo35WKIntelligenceTextEffectCoordinator5ChunkP33_DD5526F81BA56B2640300E78744296899Pondering : _TtCE14libWebKitSwiftCSo35WKIntelligenceTextEffectCoordinator5Chunk
+
+@end

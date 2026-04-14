@@ -1,0 +1,3 @@
+@interface _TtC19AppStoreKitInternalP33_BB27098D28D036CA93680E21C1C1D9CA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

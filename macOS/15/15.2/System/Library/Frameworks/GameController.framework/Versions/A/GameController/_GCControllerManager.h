@@ -1,0 +1,95 @@
+@class NSString, GCExtendedGamepad, GCMouse, NSMutableDictionary, GCMicroGamepad, NSObject, _GCHIDEventSubject, GCKeyboardAndMouseManager, NSMapTable, GCController;
+@protocol NSSecureCoding, _GCIPCObjectRegistry, _GCIPCServiceRegistry, NSCopying, NSObject, OS_dispatch_queue;
+
+@interface _GCControllerManager : NSObject <_GCImplicitIPCObject, _GCIPCObjectRegistry, _GCIPCServiceRegistry, _GCIPCObjectMaterializationContext, _GCHIDEventSource> {
+    NSObject<OS_dispatch_queue> *_hidSystemClientQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _ipcRegistryLock;
+    NSMapTable *_ipcObjectRegistry;
+    struct __IOHIDEventSystemClient { } *_hidSystemClient;
+    _GCHIDEventSubject *_hidEventSource;
+    GCController *_currentController;
+    GCMicroGamepad *_currentMicroGamepad;
+    GCExtendedGamepad *_currentExtendedGamepad;
+    id _hidEventObservation;
+    BOOL _shouldKeepRunning;
+    NSMutableDictionary *_controllersByUDID;
+    NSMutableDictionary *_controllersByRegistryID;
+    GCController *_firstMicroGamepad;
+    long long _currentMediaRemoteInputMode;
+    GCKeyboardAndMouseManager *_keyboardAndMouseManager;
+    GCController *__controller_genericBTRemote;
+}
+
+@property (readonly) id<NSObject, NSCopying, NSSecureCoding> identifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) id<_GCIPCObjectRegistry> IPCObjectRegistry;
+@property (readonly) id<_GCIPCServiceRegistry> IPCServiceRegistry;
+@property (readonly, nonatomic) BOOL isAppInBackground;
+@property (weak, nonatomic) GCController *firstMicroGamepad;
+@property (retain) GCController *currentController;
+@property (retain) GCMicroGamepad *currentMicroGamepad;
+@property (retain) GCExtendedGamepad *currentExtendedGamepad;
+@property (readonly) GCMouse *currentMouse;
+@property (nonatomic) BOOL shouldMonitorBackgroundEvents;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *controllersQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)sharedInstance;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)open;
+- (id)controllers;
+- (id)HIDDeviceMatchingAttributes;
+- (id)IPCObjectWithIdentifier:(id)a0;
+- (void)CBApplicationDidBecomeActive;
+- (void)CBApplicationWillResignActive;
+- (void)_legacy_dealloc;
+- (void)_legacy_addControllerWithServiceInfo:(id)a0;
+- (id)_legacy_controllers;
+- (void)_legacy_init;
+- (id)_legacy_makeHIDEventSource:(struct __IOHIDEventSystemClient { } *)a0;
+- (void)_legacy_publishController:(id)a0;
+- (void)_legacy_removeControllerWithServiceInfo:(id)a0;
+- (void)_legacy_startHIDDeviceMonitor;
+- (void)_legacy_startHIDEventMonitor;
+- (void)_legacy_stopHIDDeviceMonitor;
+- (void)_legacy_stopHIDEventMonitor;
+- (void)_legacy_unpublishController:(id)a0;
+- (void)_legacy_updateControllerWithEvent:(struct __IOHIDEvent { } *)a0;
+- (void)_queue_removeController:(id)a0 registryID:(id)a1;
+- (void)addController:(id)a0;
+- (id)coalescedKeyboard;
+- (BOOL)combineSiriRemoteHIDDevicesWithNewController:(id)a0 existingController:(id)a1;
+- (int)connectedATVRemoteCount;
+- (BOOL)isExistingController:(id)a0;
+- (id)makeHIDEventSource:(struct __IOHIDEventSystemClient { } *)a0;
+- (id)mice;
+- (id)observeHIDEvents:(id /* block */)a0;
+- (id)observeHIDEvents:(id /* block */)a0 forService:(id)a1;
+- (void)onHIDServiceAdded:(id)a0;
+- (void)onHIDServiceRemoved:(id)a0;
+- (void)onScreenshotTriggeredWithController:(id)a0;
+- (void)onVideoRecordingToggledWithController:(id)a0;
+- (void)onVideoRecordingToggledWithController:(id)a0 mode:(long long)a1;
+- (void)registerIPCObject:(id)a0;
+- (void)removeCoalescedControllerComponent:(id)a0;
+- (void)removeController:(id)a0;
+- (void)removeController:(id)a0 registryID:(id)a1;
+- (id)serviceClientForIPCService:(id)a0;
+- (void)setupHIDMonitor:(BOOL)a0;
+- (void)startVideoRecordingBuffering;
+- (void)stopVideoRecordingBuffering;
+- (void)storeController:(id)a0;
+- (void)teardownHIDMonitor:(BOOL)a0;
+- (void)updateCurrentControllerAndProfileForUnpublishedController:(id)a0;
+
+@end
