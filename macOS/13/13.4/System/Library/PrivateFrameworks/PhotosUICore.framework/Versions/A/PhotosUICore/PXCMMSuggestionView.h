@@ -1,0 +1,40 @@
+@class NSFont, NSString, PXCMMSuggestionViewModel, PXSelectionView, PXCMMPosterHeaderView, UXImageView, UXLabel;
+@protocol PXCMMSuggestionViewDelegate;
+
+@interface PXCMMSuggestionView : UXView <PXChangeObserver> {
+    PXSelectionView *_selectionView;
+    PXCMMPosterHeaderView *_headerView;
+    UXLabel *_titleLabel;
+    UXLabel *_subtitleLabel;
+    UXImageView *_combinedFaceTileImageView;
+    NSFont *_titleFont;
+    NSFont *_titleBoldFont;
+}
+
+@property (retain, nonatomic) PXCMMSuggestionViewModel *viewModel;
+@property (weak, nonatomic) id<PXCMMSuggestionViewDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0 viewModel:(id)a1;
+
+- (void).cxx_destruct;
+- (void)layout;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isFlipped;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)_updateSelected;
+- (BOOL)_updateSubtitle;
+- (void)_contextClickGesture:(id)a0;
+- (void)_doubleClickGesture:(id)a0;
+- (struct CGSize { double x0; double x1; })_performLayoutInWidth:(double)a0 updateSubviewFrames:(BOOL)a1;
+- (BOOL)_updateCombinedFaceTileImage;
+- (void)_updateHeaderView;
+- (BOOL)test_selected;
+- (id)test_subtitle;
+- (id)test_title;
+
+@end

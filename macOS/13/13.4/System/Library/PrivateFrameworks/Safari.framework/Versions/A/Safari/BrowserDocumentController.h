@@ -1,0 +1,76 @@
+@interface BrowserDocumentController : NSDocumentController <NSUserInterfaceValidations>
+
+@property (nonatomic) unsigned long long browsingModeForNewDocument;
+@property (readonly, nonatomic) BOOL canShowUnifiedField;
+
++ (id)sharedDocumentController;
+
+- (id)_openableFileExtensions;
+- (id)makeUntitledDocumentOfType:(id)a0 error:(id *)a1;
+- (unsigned long long)maximumRecentDocumentCount;
+- (void)openDocument:(id)a0;
+- (id)openDocumentWithContentsOfURL:(id)a0 display:(BOOL)a1;
+- (id)typeForContentsOfURL:(id)a0 error:(id *)a1;
+- (BOOL)validateUserInterfaceItem:(id)a0;
+- (void)_newTabInCurrentContext:(BOOL)a0 sender:(id)a1;
+- (BOOL)canCreateNewTab;
+- (id)createAutomationSessionDocument;
+- (BOOL)anyInactiveTabs;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 isPopupWindow:(BOOL)a1;
+- (void)goHome:(id)a0;
+- (void)newTab:(id)a0;
+- (id)_URLFromShortcutFile:(id)a0;
+- (id)_URLToVisitFromURL:(id)a0;
+- (BOOL)_browserDocumentIsAvailable:(id)a0 usingWindowPolicy:(long long)a1;
+- (BOOL)_canOpenDocument;
+- (BOOL)_canShowStartPage;
+- (void)_closeModalWindowIfBlockingInteractionOnWindowController:(id)a0;
+- (id)_createEmptyBrowserDocumentAndDisplay:(BOOL)a0 behind:(BOOL)a1 loadWindow:(BOOL)a2 suppressSidebar:(BOOL)a3 isPopupWindow:(BOOL)a4 browsingMode:(unsigned long long)a5 websiteDataStore:(id)a6 jitEnabled:(BOOL)a7 restoringFromLastSession:(BOOL)a8 initialSize:(struct CGSize { double x0; double x1; })a9;
+- (id)_frontmostBrowserDocumentIfAvailableUsingWindowPolicy:(long long)a0;
+- (id)_frontmostBrowserDocumentWithoutTabGroupSelectedIfAvailableUsingWindowPolicy:(long long)a0 browsingMode:(unsigned long long)a1;
+- (id)_goToEachRequest:(id)a0 tabLabels:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(id)a3 forSearch:(BOOL)a4 inNewProcess:(BOOL)a5;
+- (id)_goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(id)a3 forSearch:(BOOL)a4 inNewProcess:(BOOL)a5;
+- (BOOL)_isNewTabDefaultForWindowUserTabbingPreference;
+- (id)_openDocumentWithContentsOfRequest:(id)a0 behind:(BOOL)a1 display:(BOOL)a2 browsingMode:(unsigned long long)a3 isPopupWindow:(BOOL)a4;
+- (void)_setUpNewTabOrWindowMenuItem:(id)a0 addOptionFlagModifier:(BOOL)a1;
+- (id)_tabGroupWithUUID:(id)a0;
+- (id)activateFrontmostBrowserDocumentIfAvailable;
+- (id)browserDocuments;
+- (BOOL)canGoHome;
+- (void)createAutomationSessionDocument:(id)a0;
+- (id)createHiddenBrowserDocumentForWebExtensionsWithBrowsingMode:(unsigned long long)a0 shouldLoadUserStartPage:(BOOL)a1 isPopupWindow:(BOOL)a2;
+- (id)createHiddenEmptyBrowserDocument;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 configuration:(id)a1 suppressSidebar:(BOOL)a2 isPopupWindow:(BOOL)a3;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 jitEnabled:(BOOL)a1 isPopupWindow:(BOOL)a2 restoringFromLastSession:(BOOL)a3 initialSize:(struct CGSize { double x0; double x1; })a4;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 websiteDataStore:(id)a1 suppressSidebar:(BOOL)a2 isPopupWindow:(BOOL)a3;
+- (id)createHiddenEmptyBrowserDocumentWithoutLoadingWindowWithBrowsingMode:(unsigned long long)a0;
+- (void)createPrivateBrowsingDocument:(id)a0;
+- (void)enumerateBrowserDocumentsUsingBlock:(id /* block */)a0;
+- (id)findOrCreateFrontmostBrowserDocument;
+- (id)findOrCreateFrontmostBrowserDocumentIncludingPopups;
+- (id)frontmostBrowserDocument;
+- (id)frontmostBrowserDocumentPassingTest:(id /* block */)a0;
+- (id)frontmostNonPopupBrowserDocumentIfAvailableUsingWindowPolicy:(long long)a0 browsingMode:(unsigned long long)a1;
+- (id)goToCloudTab:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(id)a3;
+- (id)goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(id)a3;
+- (id)goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(id)a3 inNewProcess:(BOOL)a4;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1 tabPlacementHint:(id)a2;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1 tabPlacementHint:(id)a2 forSearch:(BOOL)a3;
+- (id)goToURLFromExternalApplication:(id)a0 forcingHTMLMIMEType:(BOOL)a1 openInNewPrivateWindowIfNecessary:(BOOL)a2 bundleIdentifierOfApplicationThatInitiatedNavigation:(id)a3;
+- (void)newTabAtEndFromFileMenu:(id)a0;
+- (void)newTabFromFileMenu:(id)a0;
+- (id)openEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0;
+- (void)openLocation:(id)a0;
+- (id)orderedBrowserDocuments;
+- (void)promptUserToSelectTabGroupForFocusModeWithTabGroupUUID:(id)a0 onWindowController:(id)a1;
+- (void)searchWeb:(id)a0;
+- (void)showFavorites:(id)a0;
+- (void)showStartPage:(id)a0;
+- (void)showTabGroupForFocusModeWithTabGroupUUID:(id)a0;
+- (void)showTopSitesWall:(id)a0;
+- (void)toggleBookmarksEditView:(id)a0;
+- (void)toggleHistoryInBookmarksView:(id)a0;
+- (id)tryMultipleURLs:(id)a0 windowPolicy:(long long)a1 httpReferrer:(id)a2;
+
+@end

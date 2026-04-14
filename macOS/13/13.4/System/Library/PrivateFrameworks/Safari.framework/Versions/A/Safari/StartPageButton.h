@@ -1,0 +1,3 @@
+@interface StartPageButton : NSButton
+
+@end

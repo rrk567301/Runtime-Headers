@@ -1,0 +1,3 @@
+@interface BWRefinedCinematographyNode : BWNode
+
+@end

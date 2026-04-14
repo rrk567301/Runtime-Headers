@@ -1,0 +1,86 @@
+@class NSArray, AXChartDescriptor;
+
+@interface SwiftUI.AccessibilityNode : NSObject <AXChart, NSAccessibilityElement, AXCustomContentProvider> {
+    void /* unknown type, empty encoding */ id;
+    void /* unknown type, empty encoding */ version;
+    void /* unknown type, empty encoding */ children;
+    void /* unknown type, empty encoding */ bridgedChild;
+    void /* unknown type, empty encoding */ parent;
+    void /* unknown type, empty encoding */ viewRendererHost;
+    void /* unknown type, empty encoding */ environment;
+    void /* unknown type, empty encoding */ attachmentsStorage;
+    void /* unknown type, empty encoding */ cachedCombinedAttachment;
+    void /* unknown type, empty encoding */ platformElementPropertiesDirty;
+    void /* unknown type, empty encoding */ platformRotorStorage;
+    void /* unknown type, empty encoding */ queuedUpdateFocusResponder;
+    void /* unknown type, empty encoding */ focusResponder;
+    void /* unknown type, empty encoding */ cachedIsPlaceholderOrIgnored;
+    void /* unknown type, empty encoding */ relationshipScope;
+}
+
+@property (nonatomic, retain) AXChartDescriptor *accessibilityChartDescriptor;
+@property (nonatomic, copy) NSArray *accessibilityCustomContent;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)accessibilityNextContentSibling;
+- (BOOL)isAccessibilitySelectorAllowed:(SEL)a0;
+- (id)accessibilityActionNames;
+- (struct CGPoint { double x0; double x1; })accessibilityActivationPoint;
+- (id)accessibilityAllowedValues;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityAttributedStringForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)accessibilityAttributedUserInputLabels;
+- (id)accessibilityChildren;
+- (id)accessibilityChildrenInNavigationOrder;
+- (id)accessibilityContentSiblingAbove;
+- (id)accessibilityContentSiblingBelow;
+- (id)accessibilityCustomActions;
+- (id)accessibilityCustomRotors;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrameForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)accessibilityHelp;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)accessibilityIdentifier;
+- (BOOL)accessibilityIsAttributeSettable:(id)a0;
+- (id)accessibilityLabel;
+- (id)accessibilityLinkedUIElements;
+- (id)accessibilityMaxValue;
+- (id)accessibilityMinValue;
+- (id)accessibilityParent;
+- (id)accessibilityPath;
+- (void)accessibilityPerformAction:(id)a0;
+- (BOOL)accessibilityPerformCancel;
+- (BOOL)accessibilityPerformDecrement;
+- (BOOL)accessibilityPerformDelete;
+- (BOOL)accessibilityPerformIncrement;
+- (BOOL)accessibilityPerformPress;
+- (BOOL)accessibilityPerformShowMenu;
+- (int)accessibilityPresenterProcessIdentifier;
+- (id)accessibilityPreviousContentSibling;
+- (id)accessibilityRole;
+- (id)accessibilityRoleDescription;
+- (id)accessibilityServesAsTitleForUIElements;
+- (BOOL)accessibilityShouldUseUniqueId;
+- (id)accessibilityStringForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)accessibilitySubrole;
+- (id)accessibilityTitleUIElement;
+- (id)accessibilityURL;
+- (id)accessibilityUserInputLabels;
+- (id)accessibilityValue;
+- (id)accessibilityValueDescription;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })accessibilityVisibleCharacterRange;
+- (id)accessibilityWindow;
+- (BOOL)isAccessibilityDisclosed;
+- (BOOL)isAccessibilityElement;
+- (BOOL)isAccessibilityEnabled;
+- (BOOL)isAccessibilityFocused;
+- (BOOL)isAccessibilitySelected;
+- (void)setAccessibilityFocused:(BOOL)a0;
+- (void)setAccessibilityValue:(id)a0;
+- (BOOL)_accessibilityIsChartElement;
+- (id)accessibilityAttributedLabel;
+
+@end

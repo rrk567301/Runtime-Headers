@@ -1,0 +1,95 @@
+@class NSArray, NSString, AVValueTiming, AVThumbnailGenerator, AVFunctionBarMediaSelectionOption;
+@protocol AVFunctionBarPlaybackControlsControlling;
+
+@interface AVFunctionBarPlaybackControlsController : NSObject <AVFunctionBarMediaSelectionControlling, AVFunctionBarPlaybackControlsControllingInternal, AVFunctionBarScrubberControlling, AVFunctionBarTrackControlling, AVTimeControlling> {
+    id<AVFunctionBarPlaybackControlsControlling> _externalFunctionBarPlaybackControlsController;
+    struct { BOOL _isPlaying; BOOL _setPlaying; BOOL _canTogglePlayback; BOOL _togglePlayback; BOOL _seekableTimeRanges; BOOL _audioFunctionBarMediaSelectionOptions; BOOL _currentAudioFunctionBarMediaSelectionOption; BOOL _setCurrentAudioFunctionBarMediaSelectionOption; BOOL _legibleFunctionBarMediaSelectionOptions; BOOL _currentLegibleFunctionBarMediaSelectionOption; BOOL _setCurrentLegibleFunctionBarMediaSelectionOption; BOOL _canBeginFunctionBarScrubbing; BOOL _beginFunctionBarScrubbing; BOOL _endFunctionBarScrubbing; BOOL _generateFunctionBarThumbnailsForTimesSizeCompletionHandler; BOOL _generateFunctionBarAudioAmplitudeSamplesCompletionHandler; BOOL _cancelThumbnailAndAudioAmplitudeSampleGeneration; BOOL _assetURL; BOOL _controlsViewWillAppear; BOOL _controlsViewDidDisappear; BOOL _canSeek; } _externalControllerRespondsTo;
+    AVThumbnailGenerator *_thumbnailGenerator;
+}
+
+@property (weak) id<AVFunctionBarPlaybackControlsControlling> externalFunctionBarPlaybackControlsController;
+@property (readonly) BOOL hasFunctionBarMediaSelectionOptions;
+@property (readonly) BOOL hasAudioFunctionBarMediaSelectionOptions;
+@property (readonly) NSArray *audioFunctionBarMediaSelectionOptions;
+@property (retain) AVFunctionBarMediaSelectionOption *currentAudioFunctionBarMediaSelectionOption;
+@property (readonly) BOOL hasLegibleFunctionBarMediaSelectionOptions;
+@property (readonly) NSArray *legibleFunctionBarMediaSelectionOptions;
+@property (retain) AVFunctionBarMediaSelectionOption *currentLegibleFunctionBarMediaSelectionOption;
+@property (getter=isPlaying) BOOL playing;
+@property (readonly) BOOL canTogglePlayback;
+@property (readonly) BOOL canScanForward;
+@property (readonly) BOOL canScanBackward;
+@property (readonly) BOOL hasLiveStreamingContent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) BOOL canBeginFunctionBarScrubbing;
+@property (readonly) BOOL hasEnabledAudio;
+@property (readonly) BOOL hasEnabledVideo;
+@property (readonly) double minTime;
+@property (readonly) double maxTime;
+@property (readonly) double contentDuration;
+@property (readonly) double contentDurationWithinEndTimes;
+@property (readonly) AVValueTiming *timing;
+@property (readonly) AVValueTiming *minTiming;
+@property (readonly) AVValueTiming *maxTiming;
+@property (readonly) NSArray *seekableTimeRanges;
+@property (readonly, getter=isCompletelySeekable) BOOL completelySeekable;
+@property (readonly) BOOL hasSeekableLiveStreamingContent;
+@property (readonly) BOOL canSeek;
+@property (readonly, getter=isSeeking) BOOL seeking;
+@property (readonly) double seekToTime;
+
++ (BOOL)automaticallyNotifiesObserversOfHasEnabledAudio;
++ (BOOL)automaticallyNotifiesObserversOfHasEnabledVideo;
++ (id)keyPathsForValuesAffectingContentDuration;
++ (id)keyPathsForValuesAffectingHasAudioMediaSelectionOptions;
++ (id)keyPathsForValuesAffectingMaxTime;
++ (id)keyPathsForValuesAffectingPlaying;
++ (id)keyPathsForValuesAffectingAudioFunctionBarMediaSelectionOptions;
++ (BOOL)automaticallyNotifiesObserversOfAudioFunctionBarMediaSelectionOptions;
++ (BOOL)automaticallyNotifiesObserversOfCanBeginFunctionBarScrubbing;
++ (BOOL)automaticallyNotifiesObserversOfCanSeek;
++ (BOOL)automaticallyNotifiesObserversOfContentDuration;
++ (BOOL)automaticallyNotifiesObserversOfCurrentAudioFunctionBarMediaSelectionOption;
++ (BOOL)automaticallyNotifiesObserversOfCurrentLegibleFunctionBarMediaSelectionOption;
++ (BOOL)automaticallyNotifiesObserversOfLegibleFunctionBarMediaSelectionOptions;
++ (BOOL)automaticallyNotifiesObserversOfSeekToTime;
++ (BOOL)automaticallyNotifiesObserversOfSeeking;
++ (BOOL)automaticallyNotifiesObserversOfTiming;
++ (id)keyPathsForValuesAffectingCanBeginFunctionBarScrubbing;
++ (id)keyPathsForValuesAffectingCanSeek;
++ (id)keyPathsForValuesAffectingCanTogglePlayback;
++ (id)keyPathsForValuesAffectingCompletelySeekable;
++ (id)keyPathsForValuesAffectingContentDurationWithinEndTimes;
++ (id)keyPathsForValuesAffectingCurrentAudioFunctionBarMediaSelectionOption;
++ (id)keyPathsForValuesAffectingCurrentLegibleFunctionBarMediaSelectionOption;
++ (id)keyPathsForValuesAffectingHasEnabledAudio;
++ (id)keyPathsForValuesAffectingHasEnabledVideo;
++ (id)keyPathsForValuesAffectingHasFunctionBarMediaSelectionOptions;
++ (id)keyPathsForValuesAffectingHasLegibleFunctionBarMediaSelectionOptions;
++ (id)keyPathsForValuesAffectingLegibleFunctionBarMediaSelectionOptions;
++ (id)keyPathsForValuesAffectingMaxTiming;
++ (id)keyPathsForValuesAffectingMinTiming;
++ (id)keyPathsForValuesAffectingSeekToTime;
++ (id)keyPathsForValuesAffectingSeekableTimeRanges;
++ (id)keyPathsForValuesAffectingSeeking;
++ (id)keyPathsForValuesAffectingTiming;
+
+- (void).cxx_destruct;
+- (void)seekToTime:(double)a0 toleranceBefore:(double)a1 toleranceAfter:(double)a2;
+- (void)togglePlayback:(id)a0;
+- (void)controlsViewDidDisappear;
+- (void)controlsViewWillAppear;
+- (void)gotoEndOfSeekableRanges:(id)a0;
+- (void)skipBackwardThirtySeconds:(id)a0;
+- (void)beginFunctionBarScrubbing;
+- (void)cancelThumbnailAndAudioAmplitudeSampleGenerationForRequestTypeLegacy:(long long)a0;
+- (void)endFunctionBarScrubbing;
+- (void)generateFunctionBarAudioAmplitudeSamples:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)generateFunctionBarThumbnailsForTimes:(id)a0 size:(struct CGSize { double x0; double x1; })a1 requestType:(long long)a2 completionHandler:(id /* block */)a3;
+- (void)scanBackward:(id)a0;
+- (void)scanForward:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface MTRTimeSynchronizationClusterDstOffsetType : MTRTimeSynchronizationClusterDSTOffsetStruct
+
+@end

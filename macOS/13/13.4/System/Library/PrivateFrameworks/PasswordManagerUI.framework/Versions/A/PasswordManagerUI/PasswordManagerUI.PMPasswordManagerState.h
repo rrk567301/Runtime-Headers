@@ -1,0 +1,29 @@
+@interface PasswordManagerUI.PMPasswordManagerState : NSObject <SFCredentialProviderExtensionManagerObserver> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_passwordsImporterExporter;
+    void /* unknown type, empty encoding */ accountIconController;
+    void /* unknown type, empty encoding */ newAccountSubject;
+    void /* unknown type, empty encoding */ accountUpdatedSubject;
+    void /* unknown type, empty encoding */ subscriptions;
+    void /* unknown type, empty encoding */ _accounts;
+    void /* unknown type, empty encoding */ _hasUnacknowledgedHighPriorityWarnings;
+    void /* unknown type, empty encoding */ _highPrioritySecurityRecommendations;
+    void /* unknown type, empty encoding */ _standardPrioritySecurityRecommendations;
+    void /* unknown type, empty encoding */ _hiddenSecurityRecommendations;
+    void /* unknown type, empty encoding */ _loadedSecurityRecommendations;
+    void /* unknown type, empty encoding */ _accountIDForPresentedDetailsSheet;
+    void /* unknown type, empty encoding */ _mainNavigationPath;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_mainAccountsListModel;
+    void /* unknown type, empty encoding */ _inboundOTPAuthURLContext;
+    void /* unknown type, empty encoding */ _inboundSharableAccountContext;
+    void /* unknown type, empty encoding */ _credentialProviders;
+    void /* unknown type, empty encoding */ _otpauthHandlers;
+    void /* unknown type, empty encoding */ _selectedOtpauthHandler;
+}
+
+- (void)credentialProviderExtensionManagerExtensionListDidChange:(id)a0;
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

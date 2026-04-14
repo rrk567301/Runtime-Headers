@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.INPlayMediaIntentFeatureExtractor : _TtCs12_SwiftObject
+
+@end
