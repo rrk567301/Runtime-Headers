@@ -1,0 +1,3 @@
+@interface _TtC8VideosUIP33_E6B8CB8EC60876D9DEE01835E09251C023StaticPPTDocumentLoader : _TtCs12_SwiftObject
+
+@end

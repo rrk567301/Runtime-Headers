@@ -1,0 +1,3 @@
+@interface _TtC16MetricsFrameworkP33_08D689A1C5D72AB5B6F41FBD0395FA4D12AIMLISClient : _TtCs12_SwiftObject
+
+@end
