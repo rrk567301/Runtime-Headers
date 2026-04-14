@@ -1,0 +1,21 @@
+@class MANAutoAssetSetInfoFound, MANAutoAssetSetInfoDesire, MANAutoAssetSetStatus, MANAutoAssetSetInfoInstance, MADAutoSetDescriptor;
+
+@interface MADAutoSetJobInformation : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) MANAutoAssetSetInfoInstance *clientInstance;
+@property (retain, nonatomic) MANAutoAssetSetInfoDesire *clientDesire;
+@property (retain, nonatomic) MANAutoAssetSetInfoFound *foundContent;
+@property (retain, nonatomic) MADAutoSetDescriptor *setDescriptor;
+@property (retain, nonatomic) MANAutoAssetSetStatus *currentSetStatus;
+
+- (id)copy;
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)summary;
+
+@end

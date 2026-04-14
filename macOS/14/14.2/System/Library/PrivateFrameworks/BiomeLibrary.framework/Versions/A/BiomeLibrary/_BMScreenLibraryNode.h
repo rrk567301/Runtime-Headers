@@ -1,0 +1,17 @@
+@interface _BMScreenLibraryNode : _BMLibraryNode
+
++ (id)identifier;
++ (id)validKeyPaths;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)sublibraries;
++ (id)Recording;
++ (id)Sharing;
++ (id)configurationForRecording;
++ (id)configurationForSharing;
++ (id)storeConfigurationForRecording;
++ (id)storeConfigurationForSharing;
++ (id)syncPolicyForRecording;
++ (id)syncPolicyForSharing;
+
+@end

@@ -1,0 +1,85 @@
+@class NSString;
+
+@interface HMAccessoryDiagnosticInfoProtoSetupInfo : PBCodable <NSCopying> {
+    struct { unsigned char accessoryAddMSHH2 : 1; unsigned char accountSettleWaitMSHH2 : 1; unsigned char controllerKeyExchangeMSHH1 : 1; unsigned char currentDeviceIDSWaitMSHH2 : 1; unsigned char eventRouterFirstEventPushMSHH2 : 1; unsigned char eventRouterServerConnectionMSHH2 : 1; unsigned char firstCoreDataImportMSHH2 : 1; unsigned char homeManagerReadyMSHH2 : 1; unsigned char lastKnownStageErrorCode : 1; unsigned char lastKnownStageUnderlyingErrorCode : 1; unsigned char newAccessoryTransferMSHH1 : 1; unsigned char pairingIdentityCreationMSHH2 : 1; unsigned char primaryResidentElectionMSHH2 : 1; unsigned char savedEventState : 1; unsigned char sentinelZoneFetchMSHH1 : 1; unsigned char sessionSetupCloseMSHH1 : 1; unsigned char sessionSetupOpenMSHH1 : 1; unsigned char settingsCreationMSHH2 : 1; unsigned char siriReadyMSHH2 : 1; unsigned char totalDurationMSHH1 : 1; unsigned char totalDurationMSHH2 : 1; unsigned char version : 1; unsigned char iCloudAvailableINT : 1; unsigned char iDSAvailableINT : 1; unsigned char manateeAvailableINT : 1; unsigned char networkAvailableINT : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic) unsigned long long version;
+@property (nonatomic) BOOL hasSessionSetupOpenMSHH1;
+@property (nonatomic) long long sessionSetupOpenMSHH1;
+@property (nonatomic) BOOL hasControllerKeyExchangeMSHH1;
+@property (nonatomic) long long controllerKeyExchangeMSHH1;
+@property (nonatomic) BOOL hasNewAccessoryTransferMSHH1;
+@property (nonatomic) long long newAccessoryTransferMSHH1;
+@property (nonatomic) BOOL hasSessionSetupCloseMSHH1;
+@property (nonatomic) long long sessionSetupCloseMSHH1;
+@property (nonatomic) BOOL hasSentinelZoneFetchMSHH1;
+@property (nonatomic) long long sentinelZoneFetchMSHH1;
+@property (nonatomic) BOOL hasTotalDurationMSHH1;
+@property (nonatomic) long long totalDurationMSHH1;
+@property (nonatomic) BOOL hasAccountSettleWaitMSHH2;
+@property (nonatomic) long long accountSettleWaitMSHH2;
+@property (nonatomic) BOOL hasCurrentDeviceIDSWaitMSHH2;
+@property (nonatomic) long long currentDeviceIDSWaitMSHH2;
+@property (nonatomic) BOOL hasHomeManagerReadyMSHH2;
+@property (nonatomic) long long homeManagerReadyMSHH2;
+@property (nonatomic) BOOL hasFirstCoreDataImportMSHH2;
+@property (nonatomic) long long firstCoreDataImportMSHH2;
+@property (nonatomic) BOOL hasAccessoryAddMSHH2;
+@property (nonatomic) long long accessoryAddMSHH2;
+@property (nonatomic) BOOL hasSettingsCreationMSHH2;
+@property (nonatomic) long long settingsCreationMSHH2;
+@property (nonatomic) BOOL hasPairingIdentityCreationMSHH2;
+@property (nonatomic) long long pairingIdentityCreationMSHH2;
+@property (nonatomic) BOOL hasSiriReadyMSHH2;
+@property (nonatomic) long long siriReadyMSHH2;
+@property (nonatomic) BOOL hasEventRouterServerConnectionMSHH2;
+@property (nonatomic) long long eventRouterServerConnectionMSHH2;
+@property (nonatomic) BOOL hasPrimaryResidentElectionMSHH2;
+@property (nonatomic) long long primaryResidentElectionMSHH2;
+@property (nonatomic) BOOL hasEventRouterFirstEventPushMSHH2;
+@property (nonatomic) long long eventRouterFirstEventPushMSHH2;
+@property (nonatomic) BOOL hasTotalDurationMSHH2;
+@property (nonatomic) long long totalDurationMSHH2;
+@property (nonatomic) BOOL hasICloudAvailableINT;
+@property (nonatomic) int iCloudAvailableINT;
+@property (nonatomic) BOOL hasIDSAvailableINT;
+@property (nonatomic) int iDSAvailableINT;
+@property (nonatomic) BOOL hasManateeAvailableINT;
+@property (nonatomic) int manateeAvailableINT;
+@property (nonatomic) BOOL hasNetworkAvailableINT;
+@property (nonatomic) int networkAvailableINT;
+@property (nonatomic) BOOL hasLastKnownStageErrorCode;
+@property (nonatomic) long long lastKnownStageErrorCode;
+@property (readonly, nonatomic) BOOL hasLastKnownStageErrorDomain;
+@property (retain, nonatomic) NSString *lastKnownStageErrorDomain;
+@property (readonly, nonatomic) BOOL hasLastKnownStageErrorString;
+@property (retain, nonatomic) NSString *lastKnownStageErrorString;
+@property (nonatomic) BOOL hasLastKnownStageUnderlyingErrorCode;
+@property (nonatomic) long long lastKnownStageUnderlyingErrorCode;
+@property (readonly, nonatomic) BOOL hasLastKnownStageUnderlyingErrorDomain;
+@property (retain, nonatomic) NSString *lastKnownStageUnderlyingErrorDomain;
+@property (nonatomic) BOOL hasSavedEventState;
+@property (nonatomic) unsigned long long savedEventState;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsIDSAvailableINT:(id)a0;
+- (int)StringAsManateeAvailableINT:(id)a0;
+- (int)StringAsNetworkAvailableINT:(id)a0;
+- (int)StringAsICloudAvailableINT:(id)a0;
+- (id)iCloudAvailableINTAsString:(int)a0;
+- (id)iDSAvailableINTAsString:(int)a0;
+- (id)manateeAvailableINTAsString:(int)a0;
+- (id)networkAvailableINTAsString:(int)a0;
+
+@end

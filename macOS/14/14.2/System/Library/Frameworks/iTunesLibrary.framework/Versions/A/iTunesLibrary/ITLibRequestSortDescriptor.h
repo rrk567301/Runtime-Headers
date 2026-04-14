@@ -1,0 +1,3 @@
+@interface ITLibRequestSortDescriptor : NSObject
+
+@end
