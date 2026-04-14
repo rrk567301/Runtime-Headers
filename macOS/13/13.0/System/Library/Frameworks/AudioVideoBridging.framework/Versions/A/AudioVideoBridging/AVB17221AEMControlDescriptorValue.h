@@ -1,0 +1,33 @@
+@class NSData;
+
+@interface AVB17221AEMControlDescriptorValue : AVB17221AEMObject <NSCopying>
+
+@property unsigned short controlValueType;
+@property (readonly, nonatomic) unsigned long long valuesSize;
+@property (readonly, nonatomic) unsigned short numberOfValues;
+@property (readonly, nonatomic) unsigned long long currentValueSize;
+@property (copy, nonatomic) NSData *currentValueData;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)plistRepresentation;
+- (BOOL)updateWithPlistEntry:(id)a0;
+- (BOOL)updateWithXML:(id)a0;
+- (id)xmlRepresentation;
+- (id)initWithValueType:(unsigned short)a0;
+- (id)initWithValuePointer:(char **)a0 valueType:(unsigned short)a1;
+- (BOOL)updateWithValueDictionary:(id)a0;
+- (id)valueDictionary;
+- (id)valueXMLElement;
+- (BOOL)updateWithValueXMLElement:(id)a0;
+- (char *)setValuesAtPointer:(char *)a0 maxLength:(unsigned long long)a1;
+- (unsigned long long)valuesSize;
+- (unsigned short)numberOfValues;
+- (void)setCurrentValueData:(id)a0;
+- (id)currentValueData;
+- (id)objectsForSetCommandValuesData:(id)a0;
+- (BOOL)validControlValueType:(unsigned short)a0;
+- (id)valuesDataWithNewNumberValue:(id)a0 atValueIndex:(unsigned short)a1;
+
+@end

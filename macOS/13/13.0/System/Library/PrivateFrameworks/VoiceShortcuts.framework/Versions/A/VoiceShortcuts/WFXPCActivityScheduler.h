@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface WFXPCActivityScheduler : NSObject
+
+@property (nonatomic) struct _xpc_activity_eligibility_changed_handler_s { } *eligibilityChangedHandler;
+@property (readonly, nonatomic) NSString *activityIdentifier;
+
++ (id)activatedSchedulerWithActivityIdentifier:(id)a0 checkInHandler:(id /* block */)a1 runHandler:(id /* block */)a2;
++ (id)activatedSchedulerWithActivityIdentifier:(id)a0 runHandler:(id /* block */)a1;
+
+- (void)dealloc;
+- (void)invalidate;
+- (void).cxx_destruct;
+- (id)initWithActivityIdentifier:(id)a0;
+- (void)scheduleWithCheckInHandler:(id /* block */)a0 runHandler:(id /* block */)a1;
+- (void)scheduleWithRunHandler:(id /* block */)a0;
+
+@end

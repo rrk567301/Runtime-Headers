@@ -1,0 +1,75 @@
+@class NSArray, INUIRemoteViewController, NSView, NSString, CRKCardSectionViewConfiguration;
+@protocol CRCardSection, CRKCardSectionViewControllerDelegate, CRKCardSectionView;
+
+@interface CRKCardSectionViewController : NSViewController <CRKCardSectionViewControllingDelegate, SFFeedbackListener, CRKFeedbackDelegate, CRKEventResponding> {
+    BOOL _childVCDesiresInteractivity;
+}
+
+@property (retain, nonatomic, getter=_extraCommands, setter=_setExtraCommands:) NSArray *extraCommands;
+@property (readonly, nonatomic) INUIRemoteViewController *_remoteViewController;
+@property (weak, nonatomic) CRKCardSectionViewConfiguration *viewConfiguration;
+@property (weak, nonatomic) id<CRKCardSectionViewControllerDelegate> delegate;
+@property (retain) NSView<CRKCardSectionView> *view;
+@property (retain, nonatomic) id<CRCardSection> cardSection;
+@property (nonatomic, getter=isLoading) BOOL loading;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)cardSectionViewControllerForCardSection:(id)a0;
++ (id)cardSectionClasses;
++ (void)registerCardSectionViewController;
++ (id)cardSectionViewControllerForViewConfiguration:(id)a0;
++ (void)_registerWithCardKit;
+
+- (void).cxx_destruct;
+- (id)_commands;
+- (void)loadView;
+- (void)viewDidLoad;
+- (void)didEngageCardSection:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidLayoutSubviews;
+- (void)presentViewController:(id)a0;
+- (void)userDidEngageCardSection:(id)a0 withEngagementFeedback:(id)a1;
+- (void)cardViewWillAppearForCard:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)cardViewDidAppearForCard:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)cardViewDidDisappearForCard:(id)a0 withDisappearanceFeedback:(id)a1;
+- (void)cardSectionViewWillAppearForCardSection:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)cardSectionViewDidAppearForCardSection:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)cardSectionViewDidDisappearForCardSection:(id)a0 withDisappearanceFeedback:(id)a1;
+- (void)controllerForCard:(id)a0 didRequestAsyncCard:(id)a1 withAsyncCardRequestFeedback:(id)a2;
+- (void)controllerForCard:(id)a0 didReceiveAsyncCard:(id)a1 withAsyncCardReceiptFeedback:(id)a2;
+- (void)cardSectionViewDidInvalidateSizeForCardSection:(id)a0;
+- (BOOL)shouldHandleEngagement:(id)a0 forCardSection:(id)a1;
+- (void)cardEventDidOccur:(unsigned long long)a0 withIdentifier:(id)a1 userInfo:(id)a2;
+- (void)willDismissViewController:(id)a0;
+- (BOOL)performCommand:(id)a0 forViewController:(id)a1;
+- (id)_initWithCardSection:(id)a0;
+- (void)_performCommand:(id)a0;
+- (BOOL)_hasCorrespondingSearchUIView;
+- (BOOL)_expectsSearchUIView;
+- (BOOL)_isLoadedWithIntentsUIView;
+- (void)_performAllCommands;
+- (void)_loadCardSectionView;
+- (void)_finishLoadingViewIfNecessary;
+- (void)_cancelTouchesIfNecessary;
+- (void)_resumeTouchesIfNecessary;
+- (BOOL)_shouldRenderButtonOverlay;
+- (id)_destinationPunchout;
+- (id)_preferredPunchoutCommand;
+- (BOOL)_isIndicatingActivity;
+- (BOOL)_shouldHideButtonOverlay;
+- (id)_backingCardSection;
+- (BOOL)_checkIfCardSectionIsNull:(id)a0;
+- (id)_generateCardSectionViewAppearanceFeedback;
+- (void)_setViewExternally:(id)a0;
+- (void)_setupCardSectionButtons;
+- (void)cardSectionViewDidInvalidateSize:(id)a0 animate:(BOOL)a1;
+- (void)cardSectionViewDidInvalidateSize:(id)a0;
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)a0;
+
+@end

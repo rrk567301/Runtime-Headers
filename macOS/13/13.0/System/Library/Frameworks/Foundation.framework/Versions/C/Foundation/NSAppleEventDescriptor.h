@@ -1,0 +1,104 @@
+@class NSString, NSData, NSDate, NSURL;
+
+@interface NSAppleEventDescriptor : NSObject <NSCopying, NSSecureCoding> {
+    struct AEDesc { unsigned int descriptorType; struct OpaqueAEDataStorageType **dataHandle; } _desc;
+    BOOL _hasValidDesc;
+    char _padding[3];
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) const struct AEDesc { unsigned int x0; struct OpaqueAEDataStorageType **x1; } *aeDesc;
+@property (readonly) unsigned int descriptorType;
+@property (readonly, copy) NSData *data;
+@property (readonly) unsigned char booleanValue;
+@property (readonly) unsigned int enumCodeValue;
+@property (readonly) int int32Value;
+@property (readonly) double doubleValue;
+@property (readonly) unsigned int typeCodeValue;
+@property (readonly, copy) NSString *stringValue;
+@property (readonly, copy) NSDate *dateValue;
+@property (readonly, copy) NSURL *fileURLValue;
+@property (readonly) unsigned int eventClass;
+@property (readonly) unsigned int eventID;
+@property (readonly) short returnID;
+@property (readonly) int transactionID;
+@property (readonly) BOOL isRecordDescriptor;
+@property (readonly) long long numberOfItems;
+
++ (id)descriptorWithApplicationURL:(id)a0;
++ (id)descriptorWithDescriptorType:(unsigned int)a0 bytes:(const void *)a1 length:(unsigned long long)a2;
++ (id)appleEventWithEventClass:(unsigned int)a0 eventID:(unsigned int)a1 targetDescriptor:(id)a2 returnID:(short)a3 transactionID:(int)a4;
++ (id)descriptorWithDescriptorType:(unsigned int)a0 data:(id)a1;
++ (id)descriptorWithFileURL:(id)a0;
++ (id)descriptorWithInt32:(int)a0;
++ (id)descriptorWithString:(id)a0;
++ (id)descriptorWithTypeCode:(unsigned int)a0;
++ (id)nullDescriptor;
++ (id)descriptorWithBoolean:(unsigned char)a0;
++ (id)descriptorWithEnumCode:(unsigned int)a0;
++ (id)descriptorWithDouble:(double)a0;
++ (id)descriptorWithDate:(id)a0;
++ (id)currentProcessDescriptor;
++ (id)descriptorWithProcessIdentifier:(int)a0;
++ (id)descriptorWithBundleIdentifier:(id)a0;
++ (id)listDescriptor;
++ (id)recordDescriptor;
++ (id)_descriptorWithNumber:(id)a0;
++ (id)_descriptorOfType:(id)a0 withValue:(id)a1 orReasonWhyNot:(id *)a2;
++ (id)_descriptorOfType:(id)a0 withValue:(id)a1;
++ (id)_scriptingAnyWithDescriptor:(id)a0;
+
+- (id)ls_initWithAEDesc:(const struct AEDesc { unsigned int x0; struct OpaqueAEDataStorageType **x1; } *)a0;
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithDescriptorType:(unsigned int)a0 bytes:(const void *)a1 length:(unsigned long long)a2;
+- (id)coerceToDescriptorType:(unsigned int)a0;
+- (void)setAttributeDescriptor:(id)a0 forKeyword:(unsigned int)a1;
+- (void)setParamDescriptor:(id)a0 forKeyword:(unsigned int)a1;
+- (id)initWithAEDescNoCopy:(const struct AEDesc { unsigned int x0; struct OpaqueAEDataStorageType **x1; } *)a0;
+- (id)paramDescriptorForKeyword:(unsigned int)a0;
+- (id)initWithDescriptorType:(unsigned int)a0 data:(id)a1;
+- (id)initWithEventClass:(unsigned int)a0 eventID:(unsigned int)a1 targetDescriptor:(id)a2 returnID:(short)a3 transactionID:(int)a4;
+- (id)initListDescriptor;
+- (id)initRecordDescriptor;
+- (id)_dataForDescriptorType:(unsigned int)a0;
+- (void)removeParamDescriptorWithKeyword:(unsigned int)a0;
+- (id)attributeDescriptorForKeyword:(unsigned int)a0;
+- (id)sendEventWithOptions:(unsigned long long)a0 timeout:(double)a1 error:(id *)a2;
+- (void)insertDescriptor:(id)a0 atIndex:(long long)a1;
+- (id)descriptorAtIndex:(long long)a0;
+- (void)removeDescriptorAtIndex:(long long)a0;
+- (void)setDescriptor:(id)a0 forKeyword:(unsigned int)a1;
+- (id)descriptorForKeyword:(unsigned int)a0;
+- (void)removeDescriptorWithKeyword:(unsigned int)a0;
+- (unsigned int)keywordForDescriptorAtIndex:(long long)a0;
+- (id)_numberValue;
+- (BOOL)_copyValueOfDescriptorType:(unsigned int)a0 toBuffer:(void *)a1 ofLength:(unsigned long long)a2;
+- (id)_dateValue;
+- (id)_fileURLValue;
+- (id)_fsRefValue;
+- (id)_singleFilePathValue;
+- (id)_filePathValue;
+- (BOOL)_senderHasSpecificSendRights;
+- (id)_senderAccessGroups;
+- (BOOL)_senderHasGenericSendRights;
+- (BOOL)_isAutoWhitelistedEvent;
+- (void)_flushAEDesc;
+- (void)removeDecriptorAtIndex:(long long)a0;
+- (id)_initWithDescriptorType:(unsigned int)a0 bytes:(const void *)a1 byteCount:(unsigned long long)a2;
+- (id)_initWithoutAEDesc;
+- (struct AEDesc { unsigned int x0; struct OpaqueAEDataStorageType **x1; } *)_AEDesc;
+- (void)_setAEDesc:(struct AEDesc { unsigned int x0; struct OpaqueAEDataStorageType **x1; } *)a0;
+- (id)_valueOfType:(id)a0;
+- (id)_valueOfType:(id)a0 withDeferredSpecifierEvaluation:(BOOL)a1;
+- (int)_scriptingAlternativeValueRankWithDescriptor:(id)a0;
+- (id)_scriptingAnyDescriptor;
+- (id)_printSettingsValue;
+
+@end

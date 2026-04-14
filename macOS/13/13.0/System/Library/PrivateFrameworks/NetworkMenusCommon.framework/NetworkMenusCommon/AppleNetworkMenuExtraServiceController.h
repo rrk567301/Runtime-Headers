@@ -1,0 +1,84 @@
+@class NSMenuItem, NSString, AppleNetworkMenuHeaderView, NSURL, NSArray, NSView, NSDictionary, NSTimer, NSBundle, NSMutableArray, NSNumber;
+
+@interface AppleNetworkMenuExtraServiceController : NSObject {
+    NSString *mServiceID;
+    NSBundle *mBundle;
+    NSURL *mApplicationURL;
+    NSMenuItem *mHeaderMenuItem;
+    NSMutableArray *mMenuItems;
+    BOOL mHeaderEnabled;
+    BOOL mShouldShowTimer;
+    NSString *mSelectedConfigID;
+    struct __SCPreferences { } *mPrefs;
+    struct __SCNetworkConnection { } *mConnectionRef;
+    struct __CFRunLoopSource { } *mRunLoopSource;
+    NSNumber *mConnectionStartTime;
+    double kSleepStartTime;
+    long long kSleepTimeAdditionalSeconds;
+    long long mConnectionRetryCount;
+    NSDictionary *mStatusStrings;
+    NSArray *mImages;
+    NSArray *mAlternateImages;
+    NSView *mMenuBarView;
+    NSTimer *mStatusCheckTimer;
+    NSTimer *mFailSafeTimer;
+    BOOL mInitializing;
+    BOOL mUnloading;
+    long long mStatus;
+    int mConnectionState;
+}
+
+@property (retain) AppleNetworkMenuHeaderView *headerView;
+
+- (void)dealloc;
+- (int)connectionType;
+- (struct __SCPreferences { } *)preferences;
+- (void)disconnect;
+- (id)serviceName;
+- (void)connect;
+- (int)connectionState;
+- (BOOL)isConnected;
+- (void)setPreferences:(struct __SCPreferences { } *)a0;
+- (id)applicationDisplayName;
+- (id)serviceID;
+- (void)setShouldShowTimer:(BOOL)a0;
+- (id)applicationURL;
+- (id)menuItems;
+- (id)connectionStartTime;
+- (id)headerMenuItem;
+- (void)setMenuWidth:(double)a0;
+- (void)refreshConnectionState;
+- (id)selectedConfiguration;
+- (void)setSelectedConfiguration:(id)a0;
+- (id)initWithServiceID:(id)a0 andBundle:(id)a1;
+- (void)a_changeCurrentlySelectedPreference:(id)a0;
+- (void)prepareToUnload;
+- (void)refreshStatus;
+- (void)refreshHeaderView;
+- (void)refreshMenuItems;
+- (void)a_connectOrDisconnect:(id)a0;
+- (void)handleDynamicStoreChangedNotification:(id)a0;
+- (void)p_initializeConnection;
+- (void)p_performStatusCheck;
+- (void)updateViewIfHighlighted;
+- (void)setMenuBarView:(id)a0;
+- (double)desiredMenuWidth;
+- (struct __SCNetworkService { } *)serviceRefWithRefresh:(BOOL)a0;
+- (void)storeConfigID:(id)a0;
+- (void)storeLastConnectedServiceID:(id)a0;
+- (struct __SCUserPreferencesRef { } *)userPrefsForUniqueID:(id)a0;
+- (id)machinePrefs;
+- (id)connectionTypeKey;
+- (id)connectionSubType;
+- (BOOL)isThirdPartyVPN;
+- (void)refreshConnectionRef;
+- (void)handleStateChangedNotification:(int)a0;
+- (struct __SCNetworkConnection { } *)connectionRef;
+- (void)p_teardownConnection;
+- (void)p_scheduleConnectionWithRunloop:(BOOL)a0;
+- (void)p_initializeDynamicStoreMonitoring;
+- (int)p_connectionStatus:(struct __SCNetworkConnection { } *)a0;
+- (void)p_startStatusCheckTimer;
+- (void)p_stopStatusCheckTimer;
+
+@end

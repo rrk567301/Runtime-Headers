@@ -1,0 +1,18 @@
+@interface GKRandomSource : NSObject <GKRandom, NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
++ (id)systemRandom;
++ (id)sharedRandom;
+
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)nextIntWithUpperBound:(unsigned long long)a0;
+- (long long)nextInt;
+- (float)nextUniform;
+- (BOOL)nextBool;
+- (id)arrayByShufflingObjectsInArray:(id)a0;
+
+@end

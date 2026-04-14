@@ -1,0 +1,90 @@
+@class NSUUID, NSString, HMFTimer, HMDMediaGroupsLocalDataStorage, NSArray, NSMutableDictionary, HMDMediaGroupsAggregatorMessenger, HMDMediaGroupsAggregateData;
+@protocol HMEEventForwarder, HMDMediaGroupsAggregatorDelegate, HMELastEventStoreReadHandle, HMDMediaGroupsAggregatorDataSource, HMDFeaturesDataSource, HMESubscriptionProviding, HMDTimerProvider;
+
+@interface HMDMediaGroupsAggregator : HMFObject <HMDMediaSystemsAggregateDataGeneratorDataSource, HMDTimerProvider, HMFLogging, HMFTimerDelegate, HMEEventConsumer, HMDMediaGroupsAggregatorMessengerDelegate> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    unsigned long long _state;
+    NSMutableDictionary *_destinations;
+    NSMutableDictionary *_destinationControllersData;
+}
+
+@property (weak) id<HMDTimerProvider> timerProvider;
+@property (readonly, copy) NSUUID *identifier;
+@property (readonly) id<HMEEventForwarder> eventForwarder;
+@property (readonly) id<HMESubscriptionProviding> subscriptionProvider;
+@property (readonly) id<HMELastEventStoreReadHandle> eventStoreReadHandle;
+@property (readonly) HMDMediaGroupsLocalDataStorage *groupLocalDataStorage;
+@property (readonly) id<HMDFeaturesDataSource> featuresDataSource;
+@property (retain) HMFTimer *warmUpTimer;
+@property (retain) HMDMediaGroupsAggregateData *aggregateData;
+@property (readonly) NSArray *generators;
+@property (weak) id<HMDMediaGroupsAggregatorDataSource> dataSource;
+@property (weak) id<HMDMediaGroupsAggregatorDelegate> delegate;
+@property (readonly) HMDMediaGroupsAggregatorMessenger *messenger;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void).cxx_destruct;
+- (BOOL)setState:(unsigned long long)a0;
+- (id)groups;
+- (BOOL)isRunning;
+- (void)stop;
+- (void)setDestination:(id)a0;
+- (id)destinations;
+- (id)eventSource;
+- (void)updateGroup:(id)a0;
+- (void)clearCachedData;
+- (id)logIdentifier;
+- (void)timerDidFire:(id)a0;
+- (void)didReceiveEvent:(id)a0 topic:(id)a1;
+- (void)didReceiveCachedEvent:(id)a0 topic:(id)a1 source:(id)a2;
+- (void)registerForEvents;
+- (id)appleMediaAccessories;
+- (void)clearCachedDataForParticipantAccessoryUUID:(id)a0;
+- (id)timerWithTimeInterval:(double)a0 options:(unsigned long long)a1;
+- (id)destinationControllersData;
+- (void)updateGroup:(id)a0 participantAccessoryUUIDs:(id)a1;
+- (void)removeGroupWithIdentifier:(id)a0;
+- (void)handleHomeAddedAccessoryNotification:(id)a0;
+- (void)handleHomeRemovedAccessoryNotification:(id)a0;
+- (void)handleMediaSystemAddedNotification:(id)a0;
+- (void)handlePrimaryResidentDeviceChangeNotification:(id)a0;
+- (void)handleAccessoryChangedRoomNotification:(id)a0;
+- (id)roomForAllDestinationParentIdentifiers:(id)a0 mediaSystemsAggregateDataGenerator:(id)a1;
+- (void)didReceiveUpdateAssociatedGroupRequestMessage:(id)a0 withGroupIdentifier:(id)a1 associatedGroupIdentifier:(id)a2 messenger:(id)a3;
+- (id)initWithIdentifier:(id)a0 messenger:(id)a1 eventForwarder:(id)a2 subscriptionProvider:(id)a3 eventStoreReadHandle:(id)a4 groupsLocalDataStorage:(id)a5;
+- (id)initWithIdentifier:(id)a0 messenger:(id)a1 eventForwarder:(id)a2 subscriptionProvider:(id)a3 eventStoreReadHandle:(id)a4 groupsLocalDataStorage:(id)a5 timerProvider:(id)a6 featuresDataSource:(id)a7;
+- (id)createGenerators;
+- (void)configureWithHome:(id)a0 messageDispatcher:(id)a1 notificationCenter:(id)a2 primaryResidentChangeMonitor:(id)a3;
+- (void)registerForNotificationsWithHome:(id)a0 notificationCenter:(id)a1 primaryResidentChangeMonitor:(id)a2;
+- (void)refreshRunningStateUsingPrimaryResidentChangeMonitor:(id)a0;
+- (void)registerForEventsForAccessory:(id)a0;
+- (void)unregisterForAllEvents;
+- (void)unregisterForEventsForAccessory:(id)a0;
+- (void)refreshAggregateData;
+- (void)notifyOfUpdateAggregateData:(id)a0;
+- (void)notifyOfStoppedState;
+- (void)forwardAggregateData;
+- (BOOL)shouldWarmUp;
+- (id)aggregateDataTopic;
+- (id)participantDataTopicForAccessory:(id)a0;
+- (BOOL)isRunningAsPrimary;
+- (BOOL)setState:(unsigned long long)a0 previousState:(unsigned long long *)a1;
+- (void)runAsPrimary;
+- (void)startWarmUpTimer;
+- (void)stopWarmUpTimer;
+- (BOOL)removeDestinationWithParentIdentifier:(id)a0;
+- (void)setDestinationControllerData:(id)a0;
+- (BOOL)removeDestinationControllerDataWithParentIdentifier:(id)a0;
+- (id)localGroupWithIdentifier:(id)a0;
+- (id)participantAccessoryUUIDFromTopic:(id)a0;
+- (void)handleParticipantDataEvent:(id)a0 accessoryUUID:(id)a1;
+- (void)handleIncomingParticipantData:(id)a0 forAccessoryUUID:(id)a1;
+- (BOOL)updateAssociatedGroupIdentifier:(id)a0 forGroupIdentifier:(id)a1 error:(id *)a2;
+- (void)handleParticipantDestination:(id)a0 backedUpGroups:(id)a1 forParticipantAccessoryUUID:(id)a2;
+
+@end

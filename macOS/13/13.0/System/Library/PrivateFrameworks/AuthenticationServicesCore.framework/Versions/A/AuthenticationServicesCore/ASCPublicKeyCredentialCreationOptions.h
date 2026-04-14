@@ -1,0 +1,27 @@
+@class NSString, NSArray, NSData, ASCWebAuthenticationExtensionsClientInputs, NSNumber;
+
+@interface ASCPublicKeyCredentialCreationOptions : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) BOOL shouldRequireResidentKey;
+@property (copy, nonatomic) NSData *challenge;
+@property (copy, nonatomic) NSData *clientDataHash;
+@property (copy, nonatomic) NSString *relyingPartyIdentifier;
+@property (copy, nonatomic) NSString *userName;
+@property (copy, nonatomic) NSData *userIdentifier;
+@property (copy, nonatomic) NSString *userDisplayName;
+@property (copy, nonatomic) NSArray *supportedAlgorithmIdentifiers;
+@property (copy, nonatomic) NSString *userVerificationPreference;
+@property (copy, nonatomic) NSString *attestationPreference;
+@property (copy, nonatomic) NSNumber *timeout;
+@property (copy, nonatomic) ASCWebAuthenticationExtensionsClientInputs *extensions;
+@property (copy, nonatomic) NSData *extensionsCBOR;
+@property (copy, nonatomic) NSArray *excludedCredentials;
+@property (nonatomic) long long residentKeyPreference;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

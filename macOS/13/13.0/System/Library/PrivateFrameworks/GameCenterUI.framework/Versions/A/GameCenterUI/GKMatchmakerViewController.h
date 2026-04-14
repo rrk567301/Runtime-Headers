@@ -1,0 +1,77 @@
+@class GKInvite, GKMatchRequest, NSObject, NSString, NSMutableArray, GKMatch;
+@protocol OS_dispatch_queue, GKMatchmakerViewControllerDelegate, GKRemoteViewController;
+
+@interface GKMatchmakerViewController : NSViewController <GKMatchDelegate, GKRemoteViewControllerDelegate, GKDialogControllerSizing, GKViewController>
+
+@property (retain, nonatomic) GKMatchRequest *matchRequest;
+@property (retain, nonatomic) GKInvite *acceptedInvite;
+@property (retain, nonatomic) GKMatch *match;
+@property (retain, nonatomic) id<GKRemoteViewController> remoteViewController;
+@property (retain, nonatomic) NSMutableArray *hostedPlayers;
+@property (nonatomic) BOOL finished;
+@property BOOL didRequestRemoteViewController;
+@property BOOL didRequestDismissRemoteViewController;
+@property BOOL userCancelledMatching;
+@property (nonatomic) BOOL inviterCancelNotificaitonReceived;
+@property (readonly) NSObject<OS_dispatch_queue> *cancellingQueue;
+@property (weak, nonatomic) id<GKMatchmakerViewControllerDelegate> matchmakerDelegate;
+@property (nonatomic, getter=isHosted) BOOL hosted;
+@property (nonatomic) long long matchmakingMode;
+@property (nonatomic) BOOL canStartWithMinimumPlayers;
+@property (copy, nonatomic) NSString *defaultInvitationMessage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)view;
+- (void)cancel;
+- (void)loadView;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)viewDidDisappear;
+- (void)finishWithError:(id)a0;
+- (id)initialState;
+- (void)sendData:(id)a0;
+- (void)setupNotifications;
+- (void)requestRemoteViewController;
+- (void)match:(id)a0 didReceiveData:(id)a1 fromRemotePlayer:(id)a2;
+- (void)match:(id)a0 player:(id)a1 didChangeConnectionState:(long long)a2;
+- (void)setConnectingStateForPlayer:(id)a0;
+- (void)match:(id)a0 didFailWithError:(id)a1;
+- (void)cancelInviteToPlayer:(id)a0;
+- (void)setShareInvitees:(id)a0;
+- (void)localPlayerAcceptedGameInvite:(id)a0;
+- (void)playersToInvite:(id)a0;
+- (void)authenticationChanged:(id)a0;
+- (void)inviteSharePlayPlayer:(id)a0;
+- (void)inviterCancelledNotification:(id)a0;
+- (void)remoteViewController:(id)a0 receivedMessageFromService:(id)a1;
+- (BOOL)remoteViewControllerRequestingDismiss:(id)a0;
+- (struct CGSize { double x0; double x1; })_gkSizeForDialogController;
+- (BOOL)_gkMatchParentContentSize;
+- (id)initWithMatchRequest:(id)a0;
+- (id)initWithInvite:(id)a0;
+- (void)setupGroupActivity;
+- (void)setDefaultInvitationMessage:(id)a0;
+- (id)defaultInvitationMessage;
+- (void)addPlayersToMatch:(id)a0;
+- (void)setHostedPlayer:(id)a0 didConnect:(BOOL)a1;
+- (void)setHostedPlayer:(id)a0 connected:(BOOL)a1;
+- (void)setHostedPlayerReady:(id)a0;
+- (void)finishWithMatch;
+- (void)finishWithPlayers;
+- (void)createMatchForAcceptedInvite;
+- (void)shareMatchWithRequest:(id)a0;
+- (void)startMatchingWithRequest:(id)a0 devicePushToken:(id)a1;
+- (void)setAutomatchPlayerCount:(long long)a0;
+- (void)setFailedToStartMatchingWithError:(id)a0 inviting:(BOOL)a1;
+- (void)groupActivityJoiningPlayer:(id)a0 devicePushToken:(id)a1;
+- (void)invitedPlayer:(id)a0 responded:(long long)a1;
+- (void)setBrowsingForNearbyPlayers:(BOOL)a0;
+- (void)cancelMatching;
+- (id)_gkInGameUIUnavailableAlertWithDismissHandler:(id /* block */)a0;
+
+@end

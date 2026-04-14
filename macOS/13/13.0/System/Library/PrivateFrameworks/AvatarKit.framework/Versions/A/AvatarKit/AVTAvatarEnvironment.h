@@ -1,0 +1,40 @@
+@class SCNNode, NSString, SCNMaterial, SCNScene, AVTAvatar;
+@protocol SCNSceneRenderer;
+
+@interface AVTAvatarEnvironment : NSObject {
+    SCNScene *_scene;
+    id<SCNSceneRenderer> _renderer;
+    AVTAvatar *_avatar;
+    SCNMaterial *_shadowPlaneMaterial;
+    SCNNode *_whitePlane;
+    SCNNode *_environmentNode;
+    SCNNode *_defaultPointOfView;
+    NSString *_framingMode;
+    SCNNode *_animojiCamera;
+    SCNNode *_memojiCameraGroup;
+    SCNNode *_customCamera;
+    SCNNode *_specializedLightingNode;
+    SCNNode *_defaultLightingNode;
+}
+
+@property (retain, nonatomic) NSString *framingMode;
+@property (readonly, nonatomic) SCNNode *environmentNode;
+@property (readonly, nonatomic) SCNNode *currentPointOfView;
+@property (readonly, nonatomic) SCNNode *defaultPointOfView;
+@property (nonatomic) float fadeFactor;
+@property (readonly, nonatomic) BOOL faceIsFullyVisible;
+
+- (void).cxx_destruct;
+- (void)willSnapshot;
+- (void)didSnapshot;
+- (id)defaultEnvironmentNode;
+- (id)initAndInstallInScene:(id)a0 renderer:(id)a1;
+- (void)avatarDidChange:(id)a0 arMode:(BOOL)a1;
+- (void)updateCustomCameras;
+- (void)updateSpecializedLighting;
+- (void)setFramingModeForcingPointOfViewUpdate:(id)a0;
+- (id)pointOfViewForFramingMode:(id)a0;
+- (void)updatePointOfViewFromFramingMode;
+- (void)updateARMode:(BOOL)a0;
+
+@end

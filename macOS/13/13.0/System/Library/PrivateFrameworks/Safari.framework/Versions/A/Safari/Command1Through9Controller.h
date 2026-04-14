@@ -1,0 +1,8 @@
+@interface Command1Through9Controller : NSObject
+
++ (BOOL)handleEvent:(id)a0 beforeWebProcessDoes:(BOOL)a1 forWindowController:(id)a2;
++ (BOOL)shouldVisitFavoriteInResponseToKeyEvent:(id)a0;
++ (BOOL)shouldSwitchTabInResponseToKeyEvent:(id)a0 forWindowController:(id)a1;
++ (long long)_outcomeForEvent:(id)a0 handledBeforeWebProcess:(BOOL)a1 forWindowController:(id)a2 index:(unsigned long long *)a3;
+
+@end

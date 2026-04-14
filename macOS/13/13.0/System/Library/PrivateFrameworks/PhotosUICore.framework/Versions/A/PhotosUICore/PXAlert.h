@@ -1,0 +1,23 @@
+@class NSAlert, PXAlertConfiguration;
+
+@interface PXAlert : NSObject {
+    BOOL _didLoad;
+}
+
+@property (readonly, nonatomic) PXAlertConfiguration *configuration;
+@property (readonly, nonatomic) id /* block */ alertResponseHandler;
+@property (readonly, nonatomic) NSAlert *alert;
+
++ (id)show:(id /* block */)a0;
++ (id)showForError:(id)a0;
++ (id)showWithConfiguration:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithConfiguration:(id)a0;
+- (void)_present;
+- (void)_loadIfNeeded;
+- (void)handleAlertResponse:(long long)a0;
+- (void)dismissWithCompletionHandler:(id /* block */)a0;
+
+@end

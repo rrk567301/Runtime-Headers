@@ -1,0 +1,3 @@
+@interface _TtCC8VideosUI40SportsCanonicalBannerScoreboardViewModel21SubscriptionTaskActor : _TtCs12_SwiftObject
+
+@end

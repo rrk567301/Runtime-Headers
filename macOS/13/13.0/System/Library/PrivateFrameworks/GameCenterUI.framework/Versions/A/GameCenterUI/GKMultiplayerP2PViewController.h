@@ -1,0 +1,73 @@
+@class GKInvite;
+@protocol GKMultiplayerP2PViewControllerDelegate;
+
+@interface GKMultiplayerP2PViewController : GKMultiplayerViewController
+
+@property (nonatomic) long long mode;
+@property (retain, nonatomic) GKInvite *acceptedInvite;
+@property (nonatomic) double inviteeConnectionTimeStamp;
+@property BOOL userCancelledMatching;
+@property BOOL datasourceConfigured;
+@property (nonatomic, getter=isHosted) BOOL hosted;
+@property (weak, nonatomic) id<GKMultiplayerP2PViewControllerDelegate> delegate;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)cancel;
+- (void)viewDidLoad;
+- (void)finishWithError:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)applicationWillEnterForeground;
+- (void)updateMode;
+- (BOOL)isCanceling;
+- (void)configureDataSource;
+- (void)setConnectingStateForPlayer:(id)a0;
+- (void)startGame;
+- (void)setAutomatchPlayerCount:(long long)a0;
+- (void)groupActivityJoiningPlayer:(id)a0 devicePushToken:(id)a1;
+- (void)didUpdateAutoMatchPlayerCount;
+- (long long)automatchParticipantStatus;
+- (void)willPresentPlayerPicker:(id)a0;
+- (void)loadShareURLWithCompletion:(id /* block */)a0;
+- (void)sendInvitesToContactPlayers:(id)a0 legacyPlayers:(id)a1;
+- (void)setInvitesFailedWithError:(id)a0;
+- (BOOL)canStartForcedAutomatch;
+- (void)updateStartGameButtonTitle;
+- (void)startGameButtonPressed;
+- (void)inviteFriendsButtonPressed;
+- (void)performActionsForButtonCancelCurrentMatching;
+- (void)playNow;
+- (void)invitePlayers:(id)a0;
+- (void)setShareInvitees;
+- (void)removedPlayer:(id)a0;
+- (void)updateFooterButtonStates;
+- (BOOL)isInSetupMode;
+- (id)initWithAcceptedInvite:(id)a0;
+- (BOOL)shouldChangeModeFromOldMode:(long long)a0 toNewMode:(long long)a1;
+- (void)updateForNewMode;
+- (BOOL)haveInvitedPlayers;
+- (BOOL)havePendingPlayers;
+- (void)setExistingPlayers:(id)a0;
+- (void)incrementOneAutoMatchPlayerCountIfPossible;
+- (void)sendInvitesToSharePlayPlayer:(id)a0 devicePushToken:(id)a1;
+- (void)setPlayer:(id)a0 responded:(long long)a1;
+- (void)setPlayer:(id)a0 connected:(BOOL)a1;
+- (void)setPlayer:(id)a0 sentData:(id)a1;
+- (void)setAutomatchFailedWithError:(id)a0;
+- (void)setFailedWithError:(id)a0;
+- (void)inviterCancelled;
+- (void)displayCancelConfirmationDialog;
+- (void)cancelPendingInvites;
+- (void)resetInviteesStatus;
+- (void)playerConnected:(id)a0;
+- (void)playerDisconnected:(id)a0;
+- (void)sendStatusUpdate;
+- (void)processStatusUpdateMessageFromPlayer:(id)a0 bytes:(const char *)a1 withLength:(unsigned int)a2;
+- (void)showParentalControlsRestrictionAlert;
+- (void)showInviterDisconnectedAlert;
+- (void)showAutomatchingErrorAlert;
+- (void)showNoInternetAlert;
+- (void)showMatchDisconnectedAlertForPlayer:(id)a0;
+- (void)cancelAlertWithoutDelegateCallback;
+
+@end

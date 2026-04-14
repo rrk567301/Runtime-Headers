@@ -1,0 +1,34 @@
+@interface OSIUtilities : NSObject
+
++ (id)serialNumber;
++ (BOOL)isNetBooted;
++ (void)muteBootChimeForNextReboot;
++ (void)forceNVRAMSync;
++ (id)parseFirmlinkManifestForVolume:(id)a0 withError:(id *)a1;
++ (id)systemVersionForMountPoint:(id)a0;
++ (BOOL)isVirtualMachine;
++ (BOOL)isAPFSFusion:(id)a0;
++ (BOOL)isCSFusion:(id)a0;
++ (id)getEFIVersion;
++ (int)promoteDiskToReadWrite:(id)a0;
++ (BOOL)stopAutomationOnDisk:(id)a0 reblessUUID:(id)a1;
++ (id)allDiskUUIDs:(id)a0;
++ (void)enableDarkReboot;
++ (void)rebootNow;
++ (id)mountDiskImageWithPath:(id)a0 withError:(id *)a1;
++ (BOOL)shouldAllowInsecureCollections;
++ (id)systemVersionForDisk:(id)a0;
++ (void)setUseROSVPaths:(BOOL)a0;
++ (id)mapPathToROSV:(id)a0;
++ (id)mapMountPointToROSVPath:(id)a0;
++ (id)masterBOMSystemPath;
++ (BOOL)unsupportedInstallEnvironmentForGatheringDiagnosticsWithError:(id *)a0;
++ (BOOL)forceAttributesOfSrcPath:(id)a0 toDstPath:(id)a1;
++ (void)takeRecoveryDiagnose;
++ (BOOL)mountRequiredVolume:(id)a0 purpose:(id)a1;
++ (BOOL)mountRequiredVolume:(id)a0 atLocation:(id)a1 disableFirmlinks:(BOOL)a2 andPurpose:(id)a3;
++ (BOOL)insistentUnmount:(id)a0 purpose:(id)a1;
++ (BOOL)remountVolume:(id)a0 preferredMountpoint:(id)a1 disableFirmlinks:(BOOL)a2 andPurpose:(id)a3;
++ (void)inducePanicWithMessage:(id)a0 onInternalOnly:(BOOL)a1;
+
+@end

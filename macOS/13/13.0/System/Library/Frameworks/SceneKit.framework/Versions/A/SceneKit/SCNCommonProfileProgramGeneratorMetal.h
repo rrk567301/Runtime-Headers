@@ -1,0 +1,21 @@
+@class NSString, NSArray;
+
+@interface SCNCommonProfileProgramGeneratorMetal : SCNCommonProfileProgramGenerator {
+    BOOL _allowHotReload;
+    BOOL _useFunctionConstants;
+    NSString *_originalSourceCode;
+    NSArray *_injectionPointRanges;
+    NSString *_originalLightingSourceCode;
+    NSArray *_lightingInjectionPointRanges;
+}
+
+- (void)dealloc;
+- (int)profile;
+- (void)emptyShaderCache;
+- (void)_loadSourceCode;
+- (id)initAllowingHotReload:(BOOL)a0;
+- (struct __C3DFXProgram { } *)_newProgramWithHashCodeWithFunctionConstants:(struct __C3DProgramHashCode { } *)a0 engineContext:(struct __C3DEngineContext { } *)a1 introspectionDataPtr:(struct { long long x0; struct *x1; struct { long long x0; long long x1; } x2[4]; struct { long long x0; long long x1; } x3[4]; long long x4[4]; void *x5; void *x6; BOOL x7; } *)a2;
+- (struct __C3DFXProgram { } *)_newProgramWithHashCode:(struct __C3DProgramHashCode { } *)a0 engineContext:(struct __C3DEngineContext { } *)a1 introspectionDataPtr:(struct { long long x0; struct *x1; struct { long long x0; long long x1; } x2[4]; struct { long long x0; long long x1; } x3[4]; long long x4[4]; void *x5; void *x6; BOOL x7; } *)a2;
+- (void)collectShaderForProgram:(struct __C3DFXMetalProgram { } *)a0 newVertexFunctionName:(id)a1 newFragmentFunctionName:(id)a2 sourceCodeBlock:(id /* block */)a3 additionalFileBlock:(id /* block */)a4;
+
+@end

@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface NSAccessibilityImageMockUIElement : NSAccessibilityIndexedMockUIElement {
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _bounds;
+    NSString *_description;
+    NSString *_help;
+}
+
+- (void)dealloc;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityHelpAttribute;
+- (BOOL)accessibilityIsFocusedAttributeSettable;
+- (id)accessibilityPositionAttribute;
+- (id)accessibilitySizeAttribute;
+- (id)initWithParent:(id)a0 index:(long long)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 description:(id)a3 help:(id)a4;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounds;
+- (id)accessibilityDescriptionAttribute;
+- (BOOL)accessibilityIsDescriptionAttributeSettable;
+- (id)accessibilityEnabledAttribute;
+- (BOOL)accessibilityIsEnabledAttributeSettable;
+
+@end

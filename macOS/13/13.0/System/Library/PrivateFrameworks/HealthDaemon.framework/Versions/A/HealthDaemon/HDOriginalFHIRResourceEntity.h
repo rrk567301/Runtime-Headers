@@ -1,0 +1,11 @@
+@interface HDOriginalFHIRResourceEntity : HDHealthEntity
+
++ (id)foreignKeys;
++ (long long)protectionClass;
++ (id)indices;
++ (id)databaseTable;
++ (const struct { id x0; id x1; unsigned char x2; } *)columnDefinitionsWithCount:(unsigned long long *)a0;
++ (id)uniquedColumns;
++ (id)propertyForSyncProvenance;
+
+@end

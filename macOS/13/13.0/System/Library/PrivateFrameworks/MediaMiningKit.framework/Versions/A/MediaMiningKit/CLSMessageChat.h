@@ -1,0 +1,3 @@
+@interface CLSMessageChat : NSObject
+
+@end

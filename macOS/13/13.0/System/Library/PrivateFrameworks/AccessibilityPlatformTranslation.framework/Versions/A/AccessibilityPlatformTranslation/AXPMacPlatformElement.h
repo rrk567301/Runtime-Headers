@@ -1,0 +1,91 @@
+@class NSArray, NSMutableDictionary, NSString, AXPTranslationObject;
+
+@interface AXPMacPlatformElement : NSAccessibilityElement <NSAccessibilityCustomRotorItemSearchDelegate, NSAccessibilityCustomElementDataProvider, AXPTranslationElementProtocol, NSAccessibilityElement> {
+    NSMutableDictionary *_selectiveCache;
+}
+
+@property (retain, nonatomic) AXPTranslationObject *translation;
+@property (retain, nonatomic) NSArray *cachedCustomActions;
+@property (retain, nonatomic) NSArray *cachedCustomRotors;
+@property (retain, nonatomic) NSMutableDictionary *cachedRotorResult;
+@property (copy, nonatomic) id /* block */ nsPostEventTestingCallback;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)elementWithAccessibilityCustomElementData:(id)a0;
++ (id)applicationElement;
++ (id)platformElementWithTranslationObject:(id)a0;
+
+- (void)dealloc;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)role;
+- (id)rotor:(id)a0 resultForSearchParameters:(id)a1;
+- (id)accessibilityRole;
+- (id)accessibilityLabel;
+- (id)accessibilityCustomActions;
+- (BOOL)accessibilityIsIgnored;
+- (id)accessibilityParameterizedAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0 forParameter:(id)a1;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityMultipleAttributes:(id)a0;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)accessibilityShouldUseUniqueId;
+- (BOOL)accessibilityIsAttributeSettable:(id)a0;
+- (void)accessibilitySetValue:(id)a0 forAttribute:(id)a1;
+- (id)accessibilityActionNames;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)accessibilityPerformAction:(id)a0;
+- (id)accessibilityCustomElementData;
+- (BOOL)accessibilitySupportsCustomElementData;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (id)accessibilityParent;
+- (BOOL)accessibilityPerformPress;
+- (BOOL)accessibilityPerformShowMenu;
+- (struct CGPoint { double x0; double x1; })accessibilityActivationPoint;
+- (BOOL)isAccessibilityEnabled;
+- (id)accessibilityCustomRotors;
+- (int)accessibilityPresenterProcessIdentifier;
+- (id)_cachedRole;
+- (id)_customRotorData:(id)a0;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0 withDisplayId:(unsigned int)a1 contextId:(unsigned int)a2;
+- (id)_macAttributeTypeForAXPAttribute:(unsigned long long)a0;
+- (unsigned long long)_attributeTypeForMacAttribute:(id)a0;
+- (id)_accessibilityTranslationRootParent;
+- (id)_accessibilityProcessImmediateAttributeResult:(id)a0;
+- (id)_accessibilityProcessAttribute:(id)a0;
+- (id)_accessibilityProcessAttribute:(id)a0 parameter:(id)a1;
+- (id)_preprocessRequest:(unsigned long long)a0 parameter:(id)a1;
+- (id)_postProcessResult:(id)a0 attributeType:(unsigned long long)a1;
+- (BOOL)_shouldPostProcessSubstituteRemoteRepresentationWithObject:(id)a0 forAttribute:(unsigned long long)a1;
+- (void)_cacheResultSelectively:(id)a0 attribute:(unsigned long long)a1;
+- (id)_convertTranslatorResponse:(id)a0 forAttribute:(unsigned long long)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_convertPlatformFrameToSystemFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)_isRemoteElement;
+- (BOOL)_clientSideRemoteElement;
+- (int)_remoteElementPid;
+- (unsigned int)_windowContextId;
+- (BOOL)_synthesizeMouseClick:(unsigned int)a0;
+- (id)_convertMacMarkerToiOSMarker:(id)a0;
+- (id)_convertMacMarkerRangeToiOSMarkerRange:(id)a0;
+- (id)_convertiOSMarkerToMacMarker:(id)a0;
+- (id)_convertiOSMarkerRangeToMacMarkerRange:(id)a0;
+- (void)performScrollToVisible;
+- (void)performEscapeAction;
+- (void)performMagicTapAction;
+- (void)performIncrementAction;
+- (void)performDecrementAction;
+- (void)performScrollDownByPageAction;
+- (void)performScrollUpByPageAction;
+- (void)performScrollLeftByPageAction;
+- (void)performScrollRightByPageAction;
+- (void)performScrollNextPageAction;
+- (void)performScrollPreviousPageAction;
+- (BOOL)performNotifyVoiceOverAnnouncementCompletionWithValue:(id)a0;
+
+@end

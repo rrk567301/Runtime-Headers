@@ -1,0 +1,88 @@
+@class FI_TKeyValueObserverGlue, NSString, NSArray, FI_TTagSuggestionsWindowController, NSValue, FI_TTaggingSuggestionsViewController, NSSet, NSObject, FI_TNotificationCenterObserverGlue, NSIndexSet;
+
+@interface FI_TTaggingTokenField : NSTokenField <TTouchBarTagsViewTagProviding, NSTouchBarDelegate, TMarkTornDown> {
+    FI_TTaggingSuggestionsViewController *_suggestionsViewController;
+    FI_TTagSuggestionsWindowController *_suggestionsWindowController;
+    BOOL _becomingFirstResponder;
+    struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } _nonEmptyTagsAddTagText;
+    struct TNSWeakPtr<FI_TRunAfterHelper> { NSValue *fWeakObject; } _showSuggestionsWindowToken;
+    BOOL _isFirstResponder;
+    struct TKeyValueObserver { FI_TKeyValueObserverGlue *fObserver; NSObject *fObjectToObserve; NSArray *fArrayOfObjectsToObserve; NSIndexSet *fIndexesOfObjectsToObserve; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fKeyPathToObserve; } _tfWindowFirstResponderObserver;
+    struct TNotificationCenterObserver { NSObject *fObservedObject; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fNotificationName; FI_TNotificationCenterObserverGlue *fFunctorGlue; BOOL fIsDistributedObserving; struct function<NSNotificationCenter *()> { struct __value_func<NSNotificationCenter *()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } fCenterProvider; } _tfWindowDidBecomeKeyObserver;
+    struct TNotificationCenterObserver { NSObject *fObservedObject; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fNotificationName; FI_TNotificationCenterObserverGlue *fFunctorGlue; BOOL fIsDistributedObserving; struct function<NSNotificationCenter *()> { struct __value_func<NSNotificationCenter *()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } fCenterProvider; } _tfWindowDidResignKeyObserver;
+    struct TNotificationCenterObserver { NSObject *fObservedObject; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fNotificationName; FI_TNotificationCenterObserverGlue *fFunctorGlue; BOOL fIsDistributedObserving; struct function<NSNotificationCenter *()> { struct __value_func<NSNotificationCenter *()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } fCenterProvider; } _sWindowDidHideObserver;
+    struct TNSWeakPtr<FI_TTouchBar> { NSValue *fWeakObject; } _editTagsTouchBar;
+    struct TNSWeakPtr<FI_TCustomTouchBarItem> { NSValue *fWeakObject; } _touchBarAddTagsToolBarItem;
+    NSSet *_touchBarTagTokens;
+    struct vector<CGSize, std::allocator<CGSize>> { struct CGSize *__begin_; struct CGSize *__end_; struct __compressed_pair<CGSize *, std::allocator<CGSize>> { struct CGSize *__value_; } __end_cap_; } _lastFourIntrinsicContentSizes;
+}
+
+@property (retain, nonatomic) NSArray *tagAttributes;
+@property (nonatomic) BOOL autoResizesVertically;
+@property (nonatomic) BOOL showSuggestionsTableInMenu;
+@property (nonatomic) BOOL ignoreTextChanged;
+@property (nonatomic) BOOL inhibitSuggestions;
+@property (readonly, nonatomic) BOOL wasCancelled;
+@property (nonatomic) unsigned long long completionLength;
+@property (nonatomic) struct CGSize { double width; double height; } minSize;
+@property (nonatomic) struct CGSize { double width; double height; } maxSize;
+@property (nonatomic, getter=isInPopover) BOOL inPopover;
+@property (nonatomic) BOOL showsAddTagPlaceholder;
+@property (readonly, nonatomic) FI_TTaggingSuggestionsViewController *suggestionsViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (getter=isTornDown) BOOL tornDown;
+
++ (Class)cellClass;
+
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (double)firstBaselineOffsetFromTop;
+- (void)viewDidMoveToWindow;
+- (void)awakeFromNib;
+- (void)doCommandBySelector:(SEL)a0;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (BOOL)becomeFirstResponder;
+- (void)viewDidMoveToSuperview;
+- (void)textDidChange:(id)a0;
+- (void)viewWillMoveToSuperview:(id)a0;
+- (void)setBoundsSize:(struct CGSize { double x0; double x1; })a0;
+- (id)makeTouchBar;
+- (void)selectText:(id)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (id)touchBar:(id)a0 makeItemForIdentifier:(id)a1;
+- (id)textView:(id)a0 menu:(id)a1 forEvent:(id)a2 atIndex:(unsigned long long)a3;
+- (void)aboutToTearDown;
+- (void)initCommon;
+- (void)firstResponderChanged:(id)a0;
+- (void)_becomeFirstResponder;
+- (void)_resignFirstResponder;
+- (void)awakeCommon;
+- (double)heightForRows:(double)a0;
+- (id)tagsAsAttributes;
+- (void)resizeVertically;
+- (id)tokenizedTagsAsAttributes;
+- (void)postGenerateCompletionsNotification:(id)a0;
+- (void)postSuggestionsWillShowNotification;
+- (BOOL)suggestionsWindowIsVisible;
+- (void)tokenFieldWindowBecameKey;
+- (void)tokenFieldWindowResignedKey;
+- (void)addLastTagPlaceholder;
+- (BOOL)hasLastTagPlaceholder;
+- (void)removeLastTagPlaceholder;
+- (void)moveToEndOfText;
+- (void)showSuggestionsWindow;
+- (void)showSuggestionsWindowIfNeeded;
+- (void)hideSuggestionsWindowWithCommit:(BOOL)a0;
+- (void)closeSuggestionsWindow;
+- (void)suggestionsWindowDidHideNotification:(id)a0;
+- (void)suggestionsListDidChange;
+- (id)accessibilityChildrenAttributeValue;
+- (id)touchBarAddTagsViewController;
+
+@end

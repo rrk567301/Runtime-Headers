@@ -1,0 +1,26 @@
+@class NSScrubberContainerView;
+
+@interface NSScrubberSelectionPair : NSObject
+
+@property long long itemIndex;
+@property BOOL containsCustomViews;
+@property (retain) NSScrubberContainerView *backgroundView;
+@property (retain) NSScrubberContainerView *overlayView;
+@property (readonly) double preferredItemCornerRadius;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)init;
+- (id)initWithBackgroundView:(id)a0 overlayView:(id)a1;
+- (void)setSelected:(BOOL)a0 highlighted:(BOOL)a1;
+- (void)addToSuperview:(id)a0 initiallyVisible:(BOOL)a1;
+- (void)removeFromViewHierarchy;
+- (BOOL)isSubviewOfSuperview:(id)a0;
+- (id)currentSuperview;
+- (void)applyLayoutAttributes:(id)a0 relativeToContentView:(id)a1;
+- (void)setContainerAlphaValue:(double)a0;
+- (void)_forEachContainer:(id /* block */)a0;
+
+@end

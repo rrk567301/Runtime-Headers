@@ -1,0 +1,12 @@
+@interface SCRLevelIndicator : SCRSlider
+
+- (id)valueDescription;
+- (id)statusDescription;
+- (BOOL)isInteractive;
+- (BOOL)canHandleValueChange;
+- (BOOL)decrementSmall;
+- (BOOL)incrementSmall;
+- (BOOL)decrementLarge;
+- (BOOL)incrementLarge;
+
+@end

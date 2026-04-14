@@ -1,0 +1,106 @@
+@class NSArray, NSSet, NSMutableDictionary, NSObject, WBSAuthenticationServicesAgentProxy, WBSKeychainCredentialNotificationMonitor, WBSDiagnosticStateCollector;
+@protocol OS_dispatch_queue;
+
+@interface WBSSavedAccountStore : NSObject <WBSAuthenticationServicesAgentDelegate> {
+    NSMutableDictionary *_personalKeychainHighLevelDomainToUsernameToPasswordToSavedAccounts;
+    NSArray *_savedAccountsWithPasswords;
+    NSArray *_savedAccounts;
+    NSArray *_passkeysDataInPersonalKeychain;
+    NSMutableDictionary *_highLevelDomainToLegacyPlatformAuthenticatorCredentials;
+    WBSKeychainCredentialNotificationMonitor *_keychainMonitor;
+    id _keychainNotificationRegistrationToken;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary *_allSavedAccountsHighLevelDomainToUsernameToCredentialTypesToSavedAccounts;
+    WBSAuthenticationServicesAgentProxy *_authenticationServicesAgentProxy;
+    WBSDiagnosticStateCollector *_stateCollector;
+}
+
+@property (class, readonly, nonatomic) WBSSavedAccountStore *sharedStore;
+
+@property (readonly, nonatomic) WBSAuthenticationServicesAgentProxy *authenticationServicesAgentProxy;
+@property (readonly, nonatomic) NSArray *savedAccountsWithPasswords;
+@property (readonly, nonatomic) NSArray *savedAccounts;
+@property (readonly, nonatomic) NSArray *savedAccountsWithPasswordsExcludingNeverSaveMarkerPasswords;
+@property (readonly, nonatomic) BOOL hasPasswordsEligibleForAutoFill;
+@property (readonly, nonatomic) BOOL hasPasskeysEligibleForAutoFill;
+@property (readonly, nonatomic) NSSet *highLevelDomainsOfAllSavedAccountsWithPasswordsExcludingNeverSaveMarkerPasswords;
+@property (readonly, nonatomic) NSArray *savedAccountsExcludingNeverSaveMarkerPasswords;
+@property (readonly, nonatomic) NSSet *highLevelDomainsOfAllSavedAccountsExcludingNeverSaveMarkerPasswords;
+
++ (void)removeCredentialTypes:(long long)a0 forSavedAccount:(id)a1;
++ (id)allPasskeysData;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)reset;
+- (id)savedAccountForURLCredential:(id)a0 protectionSpace:(id)a1;
+- (void)savedAccountsMatchingCriteria:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (id)savedAccountsForPersistentIdentifiers:(id)a0;
+- (void)newPasskeysAvailableForApplicationIdentifier:(id)a0;
+- (void)removeCredentialTypes:(long long)a0 forSavedAccount:(id)a1;
+- (id)initWithAuthenticationServicesAgentProxy:(id)a0;
+- (id)_diagnosticStateDictionary;
+- (void)removeLegacyPlatformCredentialsForDomains:(id)a0;
+- (void)savedAccountWithAllMetadataForURLCredential:(id)a0 protectionSpace:(id)a1 completion:(id /* block */)a2;
+- (id)savedAccountWithAllMetadataForURLCredential:(id)a0 protectionSpace:(id)a1;
+- (id)savedAccountForURL:(id)a0 user:(id)a1 password:(id)a2;
+- (id)_savedAccountForProtectionSpace:(id)a0 user:(id)a1 password:(id)a2;
+- (id)_allInternetPasswordEntriesFromPersonalKeychain;
+- (id)_allSidecarsFromPersonalKeychain;
+- (id)_sidecarsFromKeychainSidecarData:(id)a0;
+- (id)_savedAccountsWithPasswords;
+- (id)_loadSavedAccountsWithPasswordsFromKeychainData:(id)a0 withDictionaryForSavedAccountsWithPasswords:(id)a1;
+- (id)_savedAccounts;
+- (id)_loadSavedAccounts;
+- (void)_fetchAndFilterAllPasskeysData;
+- (id)_loadAndMergeSavedAccountsFromPersonalKeychainIntoAllSavedAccounts:(id)a0;
+- (id)_loadSavedAccountsWithPasskeysFromPasskeyData:(id)a0 withDictionaryForSavedAccountsWithPasskeys:(id)a1;
+- (id)_mergeSavedAccountsWithPasskeys:(id)a0 andSavedAccountsWithPasswords:(id)a1 usingDictionaryForSavedAccountsWithPasswords:(id)a2 dictionaryForSavedAccountsWithPasskeys:(id)a3;
+- (id)_mergeLoadedSavedAccounts:(id)a0 intoAllSavedAccounts:(id)a1;
+- (BOOL)_canMergeSavedAccount:(id)a0 withOtherSavedAccountWithoutSidecarConflict:(id)a1;
+- (void)_removeSavedAccount:(id)a0 fromCachedCollectionsForCredentialTypes:(long long)a1;
+- (void)removeSite:(id)a0 fromSavedAccountWithPassword:(id)a1 withCompletion:(id /* block */)a2;
+- (BOOL)canChangeSavedAccount:(id)a0 toUser:(id)a1 password:(id)a2;
+- (BOOL)_canChangeSavedAccountInPersonalKeychain:(id)a0 toUser:(id)a1 password:(id)a2;
+- (void)changeSavedAccount:(id)a0 toUser:(id)a1 password:(id)a2;
+- (BOOL)canChangeSavedAccountWithRequest:(id)a0;
+- (void)changeSavedAccountWithRequest:(id)a0;
+- (void)_updateSavedAccountsAndSavedAccountsWithPasswordsDictionary:(id)a0 withChangeFromOldUser:(id)a1 oldPassword:(id)a2 forSavedAccountWithPassword:(id)a3;
+- (BOOL)canSaveUser:(id)a0 password:(id)a1 forUserTypedSite:(id)a2;
+- (id)saveUser:(id)a0 password:(id)a1 forUserTypedSite:(id)a2;
+- (BOOL)canSaveUser:(id)a0 password:(id)a1 forProtectionSpace:(id)a2 highLevelDomain:(id)a3;
+- (id)saveUser:(id)a0 password:(id)a1 forProtectionSpace:(id)a2 highLevelDomain:(id)a3;
+- (id)_saveAccountOnInternalQueueWithUser:(id)a0 password:(id)a1 protectionSpace:(id)a2 highLevelDomain:(id)a3;
+- (void)_saveSidecarObjectsOnInternalQueueForSavedAccount:(id)a0 withBlock:(id /* block */)a1;
+- (void)_saveSidecarObjectsOnInternalQueueForSavedAccountWithPassword:(id)a0 withBlock:(id /* block */)a1;
+- (void)_saveSidecarOnInternalQueueForSavedAccountWithPasskey:(id)a0 withBlock:(id /* block */)a1;
+- (void)_removeSidecarObjectsOnInternalQueueForSavedAccount:(id)a0 withBlock:(id /* block */)a1;
+- (void)saveTOTPGenerator:(id)a0 forSavedAccount:(id)a1;
+- (void)removeTOTPGenerator:(id)a0 forSavedAccount:(id)a1;
+- (void)saveNotesEntry:(id)a0 forSavedAccount:(id)a1;
+- (void)saveHideMarker:(id)a0 forSavedAccount:(id)a1;
+- (void)removeHideWarningMarkerForSavedAccount:(id)a0;
+- (void)resetHiddenSecurityRecommendationsWithCompletionHandler:(id /* block */)a0;
+- (void)_postSavedAccountStoreDidChangeNotification;
+- (unsigned long long)numberOfSavedAccountsForHighLevelDomain:(id)a0;
+- (void)_cleanUpRedundantCredentialsWithoutUsernames;
+- (void)_ensureDomainsToUsersExists;
+- (void)_mergeSavedAccountWithPassword:(id)a0 toSavedAccountWithPasskey:(id)a1;
+- (void)_mergeSavedAccountWithPasskey:(id)a0 toSavedAccountWithPassword:(id)a1;
+- (id)_saveUser:(id)a0 passkeyCredential:(id)a1 passkeyRelyingPartyID:(id)a2;
+- (void)setSavedAccountAsDefault:(id)a0 forProtectionSpace:(id)a1;
+- (void)setDontSaveMarkerForSavedAccountsWithProtectionSpace:(id)a0;
+- (void)_updateLastOneTimeShareDateforSavedAccountIfNeeded:(id)a0;
+- (id)_getSavedAccountsMatchingCriteriaOnInternalQueue:(id)a0;
+- (void)getSavedAccountsMatchingCriteria:(id)a0 withSynchronousCompletionHandler:(id /* block */)a1;
+- (id)_getSavedAccountTreeMatchesWithCriteriaOnInternalQueue:(id)a0;
+- (id)_fetchCurrentAutoFillPasskeysWithCriteria:(id)a0;
+- (void)_pruneSavedAccountTreeMatchesOnInternalQueue:(id)a0 basedOnUsernameAndPasswordCriteria:(id)a1 autoFillPasskeyIdentifiers:(id)a2;
+- (id)_getSavedAccountMatchesFromSavedAccountTreeMatchesOnInternalQueue:(id)a0 withCriteria:(id)a1 mergingAutoFillPasskeys:(id)a2 nearbyDeviceOptions:(id)a3;
+- (id)persistentIdentifierForCredential:(id)a0 protectionSpace:(id)a1;
+- (id)persistentIdentifierForSavedAccount:(id)a0;
+- (id)_persistentIdentifierForUser:(id)a0 host:(id)a1;
+- (void)_migratePasswordsFor70968783;
+
+@end

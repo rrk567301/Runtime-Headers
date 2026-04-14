@@ -1,0 +1,41 @@
+@class NSString, CKRecordID, NSData, ICAccount, NSManagedObjectID;
+
+@interface ICAccountData : ICCloudSyncingObject <ICCloudObject>
+
+@property (readonly, copy, nonatomic) CKRecordID *recordID;
+@property (readonly, copy, nonatomic) NSString *recordType;
+@property (readonly, nonatomic) BOOL needsToSaveUserSpecificRecord;
+@property (readonly, nonatomic) BOOL wantsUserSpecificRecord;
+@property (readonly, copy, nonatomic) CKRecordID *userSpecificRecordID;
+@property (readonly, nonatomic) BOOL needsToBeDeletedFromCloud;
+@property (readonly, nonatomic) BOOL needsToBePushedToCloud;
+@property (readonly, nonatomic) BOOL needsToBeFetchedFromCloud;
+@property (readonly, nonatomic) BOOL isInICloudAccount;
+@property (readonly, nonatomic) BOOL isValidObject;
+@property (readonly, copy, nonatomic) NSString *loggingDescription;
+@property (readonly, nonatomic) NSManagedObjectID *objectID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) ICAccount *account;
+@property (retain, nonatomic) NSData *mergeableData;
+@property (nonatomic) short lockedNotesMode;
+
++ (id)existingCloudObjectForRecordID:(id)a0 accountID:(id)a1 context:(id)a2;
++ (id)newCloudObjectForRecord:(id)a0 accountID:(id)a1 context:(id)a2;
++ (id)accountDataWithIdentifier:(id)a0 context:(id)a1;
++ (id)newAccountDataForAccount:(id)a0;
++ (id)newAccountDataWithIdentifier:(id)a0 account:(id)a1;
+
+- (BOOL)isDeletable;
+- (id)recordName;
+- (id)recordZoneName;
+- (id)cloudAccount;
+- (void)mergeDataFromRecord:(id)a0 accountID:(id)a1 force:(BOOL)a2;
+- (id)newlyCreatedRecord;
+- (void)updateChangeCount;
+- (BOOL)mergeWithMergeableData:(id)a0;
+- (void)saveMergeableDataIfNeeded;
+
+@end

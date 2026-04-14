@@ -1,0 +1,30 @@
+@class NSLock, NSHashTable, NSWorkspace;
+
+@interface NSWorkspaceNotificationCenter : NSNotificationCenter {
+    NSWorkspace *_workspace;
+    NSLock *_workspaceLock;
+    struct NSWorkspaceNotificationCenterSubsystemContext_t { id token; } _subsystemContexts[18];
+    NSHashTable *_notificationObservers[23];
+}
+
+- (void)dealloc;
+- (id)addObserverForName:(id)a0 object:(id)a1 queue:(id)a2 usingBlock:(id /* block */)a3;
+- (void)addObserver:(id)a0 selector:(SEL)a1 name:(id)a2 object:(id)a3;
+- (void)removeObserver:(id)a0 name:(id)a1 object:(id)a2;
+- (id)initWithWorkspace:(id)a0;
+- (id)workspace;
+- (void)_createSubsystemIfNecessary:(int)a0;
+- (BOOL)_destroySubsystemIfUnobserved:(int)a0;
+- (void)_destroyAllUnobservedSubsystems;
+- (BOOL)hasObserversForNotificationName:(id)a0;
+- (void)_addOrRemoveObserverForAllNotifications:(id)a0 isAdding:(BOOL)a1;
+- (void)_addOrRemoveObserver:(id)a0 forName:(id)a1 isAdding:(BOOL)a2;
+- (BOOL)_checkForObserversOfSubsystem:(int)a0;
+- (unsigned int)connectionID;
+- (void)_workspaceDidResignOrBecomeActive:(id)a0;
+- (void)_workspaceDidBecomeActive:(id)a0;
+- (void)_workspaceDidResignActive:(id)a0;
+- (void)_accessibilityDisplaySettingsDidChange:(id)a0;
+- (void)_menuBarDidChangeAppearance:(id)a0;
+
+@end

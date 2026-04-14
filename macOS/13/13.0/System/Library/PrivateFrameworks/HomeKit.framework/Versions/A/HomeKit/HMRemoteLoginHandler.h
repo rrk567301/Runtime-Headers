@@ -1,0 +1,57 @@
+@class NSUUID, NSString, HMAccessoryInfoDataProvider, HMAccessory, HMRemoteLoginAnisetteDataProvider, _HMContext, ACAccount, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface HMRemoteLoginHandler : NSObject <HMAccessoryInfoDataProviderDelegate, HMFLogging, HMFMessageReceiver, NSSecureCoding, HMObjectMerge> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) _HMContext *context;
+@property (retain, nonatomic) HMAccessoryInfoDataProvider *accessoryInfoDataProvider;
+@property (readonly, nonatomic) NSUUID *uuid;
+@property (readonly, weak, nonatomic) HMAccessory *accessory;
+@property (retain, nonatomic) NSString *currentSessionID;
+@property (readonly, getter=isControllable) BOOL controllable;
+@property (readonly, nonatomic) ACAccount *loggedInAccount;
+@property (readonly, nonatomic, getter=isSessionInProgress) BOOL sessionInProgress;
+@property (readonly, nonatomic) HMRemoteLoginAnisetteDataProvider *anisetteDataProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (readonly, nonatomic) NSUUID *uniqueIdentifier;
+
++ (id)logCategory;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)logIdentifier;
+- (BOOL)_mergeWithNewObject:(id)a0;
+- (id)messageDestination;
+- (void)postConfigure;
+- (void)accessoryInfoDataProvider:(id)a0 didReceiveUpdatesForAccessoryWithIdentifier:(id)a1 accountInfo:(id)a2;
+- (void)_configureWithContext:(id)a0;
+- (void)_handleRemoteLoginAccountUpdated:(id)a0;
+- (BOOL)_configureAccessoryInfoDataProviderIfNeeded;
+- (void)registerForMessages;
+- (void)setLoggedInAccount:(id)a0;
+- (void)updateLoggedInAccount:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_callAccountUpdateDelegate:(id)a0;
+- (void)companionLoginWithAccount:(id)a0 completion:(id /* block */)a1;
+- (void)_companionLoginWithAccount:(id)a0 completion:(id /* block */)a1;
+- (void)queryProxiedDevice:(id /* block */)a0;
+- (void)_queryProxiedDevice:(id /* block */)a0;
+- (void)_handleQueryProxiedDeviceResponse:(id)a0 error:(id)a1 completion:(id /* block */)a2;
+- (void)proxyLoginWithAuthResults:(id)a0 completion:(id /* block */)a1;
+- (void)_proxyLoginWithAuthResults:(id)a0 completion:(id /* block */)a1;
+- (void)_handleLoginResponse:(id)a0 error:(id)a1 completion:(id /* block */)a2;
+- (void)signout:(id /* block */)a0;
+- (void)_signout:(id /* block */)a0;
+- (void)_handleRemoteLoginSignoutResponse:(id)a0 error:(id)a1 completion:(id /* block */)a2;
+- (id)_accountFromAccountInfo:(id)a0;
+
+@end

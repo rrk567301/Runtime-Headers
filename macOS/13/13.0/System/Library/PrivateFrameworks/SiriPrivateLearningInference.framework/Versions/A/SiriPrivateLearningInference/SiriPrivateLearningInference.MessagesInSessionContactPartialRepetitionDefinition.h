@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.MessagesInSessionContactPartialRepetitionDefinition : _TtCs12_SwiftObject
+
+@end

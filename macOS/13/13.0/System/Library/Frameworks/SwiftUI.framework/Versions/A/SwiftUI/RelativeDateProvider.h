@@ -1,0 +1,47 @@
+@class NSDateInterval, NSDate, NSDateComponents, NSDateComponentsFormatter;
+
+@interface RelativeDateProvider : BaseDateProvider {
+    double _elapsedTime;
+    NSDateComponents *_sessionComponents;
+    long long _sessionTimePeriod;
+    unsigned long long _sessionVisibleUnits;
+    BOOL _sessionInProgress;
+    NSDate *_mostRecentSessionDate;
+}
+
+@property (class, readonly, nonatomic) double noPause;
+
+@property (retain, nonatomic) NSDate *date;
+@property (nonatomic) unsigned long long calendarUnits;
+@property (nonatomic) long long relativeDateStyle;
+@property (retain, nonatomic) NSDateComponentsFormatter *formatter;
+@property (nonatomic) BOOL disableOffsetPrefix;
+@property (retain, nonatomic) NSDateInterval *interval;
+@property (nonatomic) BOOL countdown;
+@property (nonatomic) double pause;
+@property (nonatomic) unsigned long long lowFidelityTimerStyle;
+@property (nonatomic) BOOL twoDigitMinuteZeroPadding;
+@property (nonatomic) BOOL wantsSubseconds;
+@property (nonatomic) BOOL showLeadingMinutes;
+@property (nonatomic) BOOL pauseTimerAtZero;
+
++ (BOOL)_configureFormatter:(id)a0 fallbackIndex:(unsigned long long)a1 style:(long long)a2 context:(id)a3;
+
+- (void).cxx_destruct;
+- (long long)updateType;
+- (id)timerEndDate;
+- (void)_startSessionWithDate:(id)a0;
+- (id)_sessionTextForIndex:(long long)a0 context:(id)a1;
+- (void)_endSession;
+- (long long)_updateFrequency;
+- (id)initWithDate:(id)a0 style:(long long)a1 units:(unsigned long long)a2 calendar:(id)a3 locale:(id)a4 timeZone:(id)a5;
+- (id)initWithInterval:(id)a0 countdown:(BOOL)a1 pause:(double)a2 units:(unsigned long long)a3 calendar:(id)a4 locale:(id)a5 timeZone:(id)a6;
+- (void)_configureFormatterForTimerStyle;
+- (id)_componentsForDate:(id)a0 visibleUnits:(unsigned long long *)a1;
+- (long long)_timePeriodForElapsedTime:(double)a0;
+- (id)_signPrefixString;
+- (BOOL)_timerIsPausedAtZero;
+- (id)componentsForGameClock:(id)a0 units:(unsigned long long)a1;
+- (double)elapsedTimeForGameClock:(id)a0;
+
+@end

@@ -1,0 +1,28 @@
+@class NSTextField, NSString, _AXKAlertImageView, NSStackView, NSButton;
+
+@interface AXKAlertWindowController : NSWindowController
+
+@property (weak, nonatomic) NSStackView *_stackView;
+@property (weak, nonatomic) _AXKAlertImageView *_iconImage;
+@property (weak, nonatomic) NSButton *_confirmButton;
+@property (weak, nonatomic) NSButton *_cancelButton;
+@property (weak, nonatomic) NSButton *_suppressionCheckbox;
+@property (weak, nonatomic) NSTextField *_titleTextView;
+@property (weak, nonatomic) NSTextField *_subtitleTextView;
+@property (copy, nonatomic) id /* block */ completionBlock;
+@property (copy, nonatomic) NSString *titleText;
+@property (copy, nonatomic) NSString *subtitleText;
+@property (nonatomic) BOOL confirmButtonVisible;
+@property (nonatomic) BOOL cancelButtonVisible;
+@property (nonatomic) BOOL suppressionButtonVisible;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)windowDidLoad;
+- (id)_allButtons;
+- (void)_buttonPressed:(long long)a0;
+- (void)_updateViewVisibility;
+- (void)pressOK:(id)a0;
+- (void)pressCancel:(id)a0;
+
+@end

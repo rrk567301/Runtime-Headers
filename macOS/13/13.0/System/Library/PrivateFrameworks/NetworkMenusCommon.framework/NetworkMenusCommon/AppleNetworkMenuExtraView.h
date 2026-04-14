@@ -1,0 +1,74 @@
+@class NSDate, NSTimer, NSArray, NSAppearance, AppleNetworkMenuExtraServiceController, NSBundle, NSMenuExtra, NSNumber;
+
+@interface AppleNetworkMenuExtraView : NSView {
+    NSArray *mImages;
+    NSArray *mAlternateImages;
+    NSAppearance *mTextImagesAppearance;
+    NSArray *mTextImages;
+    NSArray *mAlternateTextImages;
+    NSBundle *mBundle;
+    AppleNetworkMenuExtraServiceController *mServiceController;
+    NSMenuExtra *mMenuExtra;
+    BOOL mShowTimer;
+    BOOL mShowAnimatedStatus;
+    BOOL mForceTimersOff;
+    BOOL mDecreaseFrameSize;
+    NSTimer *mStateTimer;
+    NSTimer *mSizeTimer;
+    NSTimer *mConnectedTimer;
+    NSDate *mStateReferenceTime;
+    NSDate *mSizeStartTime;
+    NSDate *mLastIconChangeTime;
+    long long mFrameNumber;
+    long long mFrameCount;
+    double mMaxWidth;
+    NSNumber *mConnectionStartTime;
+    double mSleepStartTime;
+    long long mSleepTimeAdditionalSeconds;
+}
+
+- (void)dealloc;
+- (BOOL)isOpaque;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)display;
+- (long long)elapsedTime;
+- (void)setConnectionStartTime:(id)a0;
+- (id)localizedString:(id)a0;
+- (BOOL)showTimer;
+- (id)serviceController;
+- (void)stopTimers;
+- (void)changeFrameSize;
+- (void)changeFrameSizeForConnectedView;
+- (void)drawSelf;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 andBundle:(id)a1;
+- (void)showAnimatedView;
+- (void)showNonAnimatedView;
+- (void)showConnectedView;
+- (void)drawAnimatedView:(long long)a0;
+- (void)drawAnimated:(long long)a0;
+- (void)drawNonAnimatedView:(long long)a0;
+- (void)drawConnectedView:(long long)a0;
+- (void)loadTextImagesIfNeeded;
+- (id)getTextImage:(id)a0 withAttributes:(id)a1 isTime:(BOOL)a2;
+- (long long)getStringWidth:(id)a0 withAttributes:(id)a1 isTime:(BOOL)a2;
+- (id)stringAttributes:(BOOL)a0;
+- (id)getTimeImage:(long long)a0 isMenuDown:(BOOL)a1;
+- (void)initializeTimerConstants;
+- (void)startStateTimer;
+- (void)stopStateTimer;
+- (void)startSizeTimer:(SEL)a0;
+- (void)stopConnectedTimer;
+- (void)startConnectedTimer;
+- (void)stopSizeTimer;
+- (void)setServiceController:(id)a0;
+- (id)imageArray;
+- (id)alternateImageArray;
+- (void)setImageArray:(id)a0;
+- (void)setAlternateImageArray:(id)a0;
+- (void)setMenuExtra:(id)a0;
+- (id)menuExtra;
+- (void)setShowTimer:(BOOL)a0;
+- (void)setShowAnimatedStatus:(BOOL)a0;
+- (BOOL)showAnimatedStatus;
+
+@end

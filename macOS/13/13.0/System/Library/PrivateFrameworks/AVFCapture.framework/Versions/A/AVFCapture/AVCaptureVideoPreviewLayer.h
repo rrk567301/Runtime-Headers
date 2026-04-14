@@ -1,0 +1,92 @@
+@class AVCaptureSession, NSString, AVCaptureVideoPreviewLayerInternal, AVCaptureConnection;
+
+@interface AVCaptureVideoPreviewLayer : CALayer {
+    AVCaptureVideoPreviewLayerInternal *_internal;
+}
+
+@property (retain, nonatomic) AVCaptureSession *session;
+@property (readonly, nonatomic) AVCaptureConnection *connection;
+@property (copy) NSString *videoGravity;
+@property (readonly, nonatomic, getter=isPreviewing) BOOL previewing;
+@property (readonly, nonatomic, getter=isOrientationSupported) BOOL orientationSupported;
+@property (nonatomic) long long orientation;
+@property (readonly, nonatomic, getter=isMirroringSupported) BOOL mirroringSupported;
+@property (nonatomic) BOOL automaticallyAdjustsMirroring;
+@property (nonatomic, getter=isMirrored) BOOL mirrored;
+
++ (void)initialize;
++ (id)layerWithSession:(id)a0;
++ (id)layerWithSessionWithNoConnection:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)isPaused;
+- (void)setPaused:(BOOL)a0;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (long long)_orientation;
+- (void)layoutSublayers;
+- (void)layerDidBecomeVisible:(BOOL)a0;
+- (id)initWithLayer:(id)a0;
+- (int)changeSeed;
+- (id)_input;
+- (id)initWithSession:(id)a0;
+- (void)removeConnection:(id)a0;
+- (id)weakReference;
+- (id)addConnection:(id)a0 error:(id *)a1;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)handleChangedActiveFormat:(id)a0 forDevice:(id)a1;
+- (id)connectionMediaTypes;
+- (BOOL)canAddConnection:(id)a0 failureReason:(id *)a1;
+- (void)_handleNotification:(id)a0 payload:(id)a1;
+- (id)_initWithSession:(id)a0 makeConnection:(BOOL)a1;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })captureDeviceTransformForSensorSize:(struct CGSize { double x0; double x1; })a0 previewSize:(struct CGSize { double x0; double x1; })a1 sensorToPreviewVTScalingMode:(id)a2;
+- (void)didUpdatePreviewImageQueueSlot:(unsigned int)a0 imageQueue:(id)a1 rotationDegrees:(double)a2 size:(struct CGSize { double x0; double x1; })a3;
+- (BOOL)isSemanticStyleRenderingSupported;
+- (void)_updateSemanticStyleRenderingSupported;
+- (BOOL)isSemanticStyleRenderingEnabled;
+- (void)setSemanticStyleRenderingEnabled:(BOOL)a0;
+- (id)semanticStyle;
+- (void)setSemanticStyle:(id)a0 animated:(BOOL)a1;
+- (void)bumpChangeSeed;
+- (id)sinkID;
+- (void)performFigCaptureSessionOperationSafelyUsingBlock:(id /* block */)a0;
+- (void)attachToFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)detachFromFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)setSinkID:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })metadataOutputRectOfInterestForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForMetadataOutputRectOfInterest:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isDepthDataDeliveryEnabled;
+- (void)setDepthDataDeliveryEnabled:(BOOL)a0;
+- (unsigned int)imageQueueSlot;
+- (double)previewRotationDegrees;
+- (id)videoPreviewFilters;
+- (void)centerSublayer:(long long)a0;
+- (id)initWithSessionWithNoConnection:(id)a0;
+- (void)setSessionWithNoConnection:(id)a0;
+- (BOOL)_automaticallyAdjustsMirroring;
+- (BOOL)_isMirrored;
+- (BOOL)isDepthDataDeliverySupported;
+- (BOOL)isFilterRenderingEnabled;
+- (void)setFilterRenderingEnabled:(BOOL)a0;
+- (void)setVideoPreviewFilters:(id)a0;
+- (BOOL)isUnoptimizedFilterRenderingEnabled;
+- (void)setUnoptimizedFilterRenderingEnabled:(BOOL)a0;
+- (struct CGPoint { double x0; double x1; })captureDevicePointOfInterestForPoint:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGPoint { double x0; double x1; })pointForCaptureDevicePointOfInterest:(struct CGPoint { double x0; double x1; })a0;
+- (id)transformedMetadataObjectForMetadataObject:(id)a0;
+- (void)_setSensorAndEstimatedPreviewSizes;
+- (void)setCaptureDeviceTransformNeedsUpdate;
+- (void)_updateCaptureDeviceTransform;
+- (void)_updatePreviewTransforms;
+- (void)_updateDepthDataDeliverySupported;
+- (BOOL)_filtersAreOptimized:(id)a0 exceptionReason:(id *)a1;
+- (BOOL)_setVideoPreviewFilters:(id)a0 checkForExceptionalInput:(BOOL)a1 exceptionReason:(id *)a2;
+- (void)didUpdatePreviewFormatDescription:(struct opaqueCMFormatDescription { } *)a0;
+- (void)_removeMetadataObjectLayersWithName:(id)a0;
+- (void)_setUpMetadataObjectLayerAttributes;
+- (void)drawMetadataObjects:(id)a0;
+- (void)_removeMetadataObjectLayers;
+
+@end

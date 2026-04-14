@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface PKContactButton : NSButton
+
+@property (readonly) unsigned long long type;
+@property (readonly) NSString *value;
+
++ (id)contactViewWithPhone:(id)a0 email:(id)a1 website:(id)a2;
+
+- (void).cxx_destruct;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawFocusRingMask;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })focusRingMaskBounds;
+- (id)_buttonTitle;
+- (id)initWithType:(unsigned long long)a0 value:(id)a1;
+- (void)buttonAction:(id)a0;
+- (id)_backgroundCirclePathInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_imageGlyph;
+- (id)_contactURL;
+- (id)_popOverContent;
+
+@end

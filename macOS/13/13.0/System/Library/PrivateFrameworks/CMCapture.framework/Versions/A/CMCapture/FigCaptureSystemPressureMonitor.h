@@ -1,0 +1,27 @@
+@class NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface FigCaptureSystemPressureMonitor : NSObject {
+    id /* block */ _systemPressureLevelChangedHandler;
+    NSObject<OS_dispatch_queue> *_systemPressureLevelChangedHandlerQueue;
+    int _thermalPressureNotificationToken;
+    int _systemPressureLevelByThermalPressureLevel[5];
+    int _currentSystemPressureFromThermalPressure;
+    struct { float min; float max; } _systemPressureLevelByProjectorTemperature[5];
+    int _currentSystemPressureFromProjectorTemperature;
+    NSObject<OS_dispatch_source> *_pearlPollTimer;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _pollingTimerStopTime;
+}
+
+@property (copy) id /* block */ systemPressureLevelChangedHandler;
+@property (readonly) int systemPressureLevelFromPearlProjector;
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)initWithPearlModuleType:(int)a0;
+- (void)callSystemPressureLevelChangedHandler;
+- (void)updateWithPearlProjectorTemperature:(float)a0;
+- (void)startMonitoringPearlProjectorTemperatureUntilNominal;
+
+@end

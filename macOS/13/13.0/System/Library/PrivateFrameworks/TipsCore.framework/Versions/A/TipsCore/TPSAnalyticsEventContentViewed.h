@@ -1,0 +1,48 @@
+@class NSNumber, NSString;
+
+@interface TPSAnalyticsEventContentViewed : TPSAnalyticsEvent
+
+@property (retain, nonatomic) NSNumber *trialDeploymentID;
+@property (retain, nonatomic) NSString *trialExperimentID;
+@property (retain, nonatomic) NSString *trialTreatmentID;
+@property (retain, nonatomic) NSString *trialRampID;
+@property (nonatomic) double timeOnScreen;
+@property (nonatomic) BOOL seenThisContentBefore;
+@property (nonatomic) BOOL hardwareWelcome;
+@property (nonatomic) BOOL softwareWelcome;
+@property (nonatomic) BOOL isNotificationModelControl;
+@property (retain, nonatomic) NSString *contentID;
+@property (retain, nonatomic) NSString *collectionID;
+@property (retain, nonatomic) NSString *correlationID;
+@property (retain, nonatomic) NSString *clientConditionID;
+@property (readonly, nonatomic) NSNumber *sessionViewNumber;
+@property (retain, nonatomic) NSString *viewMethod;
+@property (retain, nonatomic) NSString *viewMode;
+@property (retain, nonatomic) NSString *contentStyle;
+@property (retain, nonatomic) NSString *widgetType;
+@property (retain, nonatomic) NSNumber *windowWidth;
+@property (retain, nonatomic) NSNumber *windowHeight;
+@property (retain, nonatomic) NSNumber *percentScreenWidth;
+@property (retain, nonatomic) NSNumber *percentScreenHeight;
+@property (retain, nonatomic) NSNumber *percentScreenArea;
+
++ (BOOL)supportsSecureCoding;
++ (void)resetSessionViewNumber;
++ (BOOL)updateSessionViewNumber;
++ (id)eventWithContentID:(id)a0 collectionID:(id)a1 correlationID:(id)a2 clientConditionID:(id)a3 widgetType:(id)a4 hardwareWelcome:(BOOL)a5 softwareWelcome:(BOOL)a6;
++ (id)eventWithContentID:(id)a0 collectionID:(id)a1 correlationID:(id)a2 clientConditionID:(id)a3 viewMethod:(id)a4 contentStyle:(id)a5 viewMode:(id)a6 timeOnScreen:(double)a7 seenThisContentBefore:(BOOL)a8 hardwareWelcome:(BOOL)a9 softwareWelcome:(BOOL)a10;
++ (void)incrementSessionViewNumberForKey:(id)a0;
++ (void)setAppReferrer:(id)a0;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)eventName;
+- (void)log;
+- (void)setDataProvider:(id)a0;
+- (BOOL)isWidget;
+- (id)mutableAnalyticsEventRepresentation;
+- (id)_initWithContentID:(id)a0 collectionID:(id)a1 correlationID:(id)a2 clientConditionID:(id)a3 viewMethod:(id)a4 contentStyle:(id)a5 viewMode:(id)a6 timeOnScreen:(double)a7 seenThisContentBefore:(BOOL)a8 hardwareWelcome:(BOOL)a9 softwareWelcome:(BOOL)a10;
+- (id)_initWithContentID:(id)a0 collectionID:(id)a1 correlationID:(id)a2 clientConditionID:(id)a3 widgetType:(id)a4 hardwareWelcome:(BOOL)a5 softwareWelcome:(BOOL)a6;
+
+@end

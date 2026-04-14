@@ -1,0 +1,90 @@
+@class QCSCN_Node, QCSCN_Scene, NSString;
+@protocol QCSCN_SceneRendererDelegate;
+
+@interface QCSCN_Renderer : NSObject <QCSCN_SceneRenderer> {
+    id _reserved;
+}
+
+@property (retain) id cameraModifier;
+@property (retain, nonatomic) QCSCN_Scene *scene;
+@property (nonatomic) double currentTime;
+@property (nonatomic) id<QCSCN_SceneRendererDelegate> delegate;
+@property (getter=isPlaying) BOOL playing;
+@property (nonatomic) BOOL loops;
+@property (retain, nonatomic) QCSCN_Node *pointOfView;
+@property (nonatomic) BOOL autoenablesDefaultLighting;
+@property (nonatomic, getter=isJitteringEnabled) BOOL jitteringEnabled;
+@property (readonly, nonatomic) void *context;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)propertyKeys;
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)a0;
++ (BOOL)isKeyExcludedFromWebScript:(const char *)a0;
++ (Class)typeForProperty:(id)a0;
++ (int)_baseTypeForProperty:(id)a0;
++ (id)rendererWithContext:(void *)a0 options:(id)a1;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (void)unlock;
+- (void)pause;
+- (id)initWithOptions:(id)a0;
+- (struct _CGLPixelFormatObject { } *)pixelFormat;
+- (void)setContext:(void *)a0;
+- (void)stop;
+- (void)setBackgroundColor:(id)a0;
+- (id)backgroundColor;
+- (void)stop:(id)a0;
+- (void)play;
+- (double)nextFrameTime;
+- (void)render;
+- (struct __C3DEngineAdaptor { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __C3DEngineContext *x2; void *x3; } *)engine;
+- (void)setEngine:(struct __C3DEngineAdaptor { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __C3DEngineContext *x2; void *x3; } *)a0;
+- (void)pause:(id)a0;
+- (id)propertyKeys;
+- (struct C3DColor4 { union { float x0[4]; struct { float x0; float x1; float x2; float x3; } x1; } x0; } *)backgroundColorComponents;
+- (void)play:(id)a0;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 options:(id)a1;
+- (void)setNextFrameTime:(double)a0;
+- (void *)__CFObject;
+- (void)_attachTexture:(id)a0;
+- (void)_detachTexture:(id)a0;
+- (void)_attachShader:(id)a0;
+- (void)_detachShader:(id)a0;
+- (BOOL)jitteringEnabled;
+- (void)_commonInitWithOptions:(id)a0;
+- (id)initPublicWithOptions:(id)a0;
+- (void)initializeOffscreenWithSize:(struct CGSize { double x0; double x1; })a0 options:(id)a1;
+- (id)initOffscreenRendererWithSize:(struct CGSize { double x0; double x1; })a0;
+- (id)initOffscreenRendererWithSize:(struct CGSize { double x0; double x1; })a0 options:(id)a1;
+- (struct CGSize { double x0; double x1; })offscreenBufferSize;
+- (struct __C3DEngineContext { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __C3DScene *x1; struct __C3DNode *x2; struct __C3DNode *x3; struct { void /* function */ *x0; void /* function */ *x1; } x4; void *x5; struct __C3DRendererContext *x6; struct __C3DFXContext *x7; BOOL x8; struct __C3DCommonProfileProgramTree *x9; struct __CFDictionary *x10; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x11; struct __CFDictionary *x12; struct __C3DObjectPool *x13; struct __CFDictionary *x14; struct __CFArray *x15; double x16; } *)engineContext;
+- (void)_engineWillChange:(struct __C3DEngineAdaptor { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __C3DEngineContext *x2; void *x3; } *)a0;
+- (void)_engineDidChange:(struct __C3DEngineAdaptor { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __C3DEngineContext *x2; void *x3; } *)a0;
+- (BOOL)enableDefaultLight;
+- (void)setEnableDefaultLight:(BOOL)a0;
+- (void)didRenderScene:(id)a0;
+- (void)willRenderScene:(id)a0;
+- (void)_setupCallbacks:(struct __C3DEngineAdaptor { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __C3DEngineContext *x2; void *x3; } *)a0;
+- (void)setAutoAdjustCamera:(BOOL)a0;
+- (BOOL)autoAdjustCamera;
+- (void)_setCurrentTime:(double)a0;
+- (void)sceneWillChange;
+- (void)sceneDidChange;
+- (void)_setScene:(id)a0;
+- (id)scnContext;
+- (BOOL)warmUpResourcesWhenLoadingScene;
+- (void)setWarmUpResourcesWhenLoadingScene:(BOOL)a0;
+- (BOOL)warmUpScene:(id)a0 abortHandler:(id /* block */)a1;
+- (void)updateCurrentTimeWithSystemTime:(double)a0;
+- (void)evaluateAnimationsAtSystemTime:(double)a0;
+- (void)drawInGLContext:(void *)a0;
+- (struct CGImage { } *)copySnapshotWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)renderNode:(id)a0 options:(id)a1;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 viewport:(struct CGSize { double x0; double x1; })a1 options:(id)a2;
+
+@end

@@ -1,0 +1,16 @@
+@class _DKEventQuery;
+@protocol _DKKnowledgeQuerying;
+
+@interface BPSKnowledgeStorePublisher : BPSPublisher
+
+@property (readonly, nonatomic) _DKEventQuery *query;
+@property (readonly, nonatomic) id<_DKKnowledgeQuerying> store;
+
++ (id)new;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)subscribe:(id)a0;
+- (id)initWithEventQuery:(id)a0 knowledgeStore:(id)a1;
+
+@end

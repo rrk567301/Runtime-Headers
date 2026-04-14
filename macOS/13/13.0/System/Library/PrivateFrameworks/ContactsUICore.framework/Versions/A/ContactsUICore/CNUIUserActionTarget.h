@@ -1,0 +1,41 @@
+@class NSString;
+@protocol CNTUCallProvider;
+
+@interface CNUIUserActionTarget : NSObject
+
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *bundleIdentifier;
+@property (copy, nonatomic) NSString *teamIdentifier;
+@property (readonly, nonatomic) NSString *actionType;
+@property (retain) id<CNTUCallProvider> callProvider;
+
++ (id)targetForVoiceWithTelephony;
++ (id)targetForTextWithMessages;
++ (id)targetForVoiceWithFaceTime;
++ (id)targetForVideoWithFaceTime;
++ (id)targetForVoiceWithSkype;
++ (id)targetForVideoWithSkype;
++ (id)targetForTextWithSkype;
++ (id)targetForEmailWithMail;
++ (id)targetForPayWithWallet;
++ (id)targetForDirections;
++ (id)targetForVoiceWithCallProvider:(id)a0;
++ (id)targetForStartAudioCallIntentWithAppProxy:(id)a0;
++ (id)targetForVideoWithCallProvider:(id)a0;
++ (id)targetForStartVideoCallIntentWithAppProxy:(id)a0;
++ (id)targetForSendMessageIntentWithAppProxy:(id)a0;
++ (id)descriptorForRequiredKeysForActionDiscovering;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)init;
+- (void).cxx_destruct;
+- (id)actionsForEmailAddresses:(id)a0 contact:(id)a1 discoveringEnvironment:(id)a2;
+- (id)actionsForPhoneNumbers:(id)a0 contact:(id)a1 discoveringEnvironment:(id)a2;
+- (id)actionsForSocialProfiles:(id)a0 contact:(id)a1 discoveringEnvironment:(id)a2;
+- (id)actionsForInstantMessageAddresses:(id)a0 contact:(id)a1 discoveringEnvironment:(id)a2;
+- (id)initWithName:(id)a0 bundleIdentifier:(id)a1 teamIdentifier:(id)a2;
+- (id)actionsForContact:(id)a0 discoveringEnvironment:(id)a1;
+- (id)actionsForPostalAddresses:(id)a0 contact:(id)a1 discoveringEnvironment:(id)a2;
+
+@end

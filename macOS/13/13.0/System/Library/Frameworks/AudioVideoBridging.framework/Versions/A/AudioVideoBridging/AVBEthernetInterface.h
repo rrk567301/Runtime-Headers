@@ -1,0 +1,22 @@
+@class IOKService, IOKInterestNotification;
+
+@interface AVBEthernetInterface : AVBInterface {
+    IOKService *_ethernetController;
+    IOKInterestNotification *_controllerInterestNotification;
+    IOKService *_ethernetInterface;
+    IOKInterestNotification *_interfaceInterestNotification;
+}
+
++ (id)supportedInterfaces;
++ (id)allInterfaces;
++ (id)iokitMatchingDictionaryForInterfaceName:(id)a0;
++ (id)iokitMatchingDictionaryForNetworkController;
++ (id)macAddressForInterfaceNamed:(id)a0;
++ (id)iokitMatchingDictionaryForAnyInterface;
+
+- (void).cxx_destruct;
+- (id)initWithInterfaceName:(id)a0;
+- (unsigned long long)linkSpeed;
+- (BOOL)linkActive;
+
+@end

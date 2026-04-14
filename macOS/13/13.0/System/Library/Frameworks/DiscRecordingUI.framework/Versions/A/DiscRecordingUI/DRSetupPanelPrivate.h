@@ -1,0 +1,45 @@
+@class NSMutableSet, DRDevice;
+
+@interface DRSetupPanelPrivate : NSObject {
+    id _state;
+    BOOL _weAskedForTrayOpen;
+    NSMutableSet *_internalDisabledItems;
+    NSMutableSet *_userDisabledItems;
+    id _owner;
+    DRDevice *_device;
+    long long _reservation;
+    id _sheetDelegate;
+    SEL _sheetDidEndSelector;
+    struct __flags { unsigned char _delegateRespondsToDeviceCouldBeTarget : 1; unsigned char _delegateRespondsToDeviceSelectionChanged : 1; unsigned char _delegateRespondsToShouldHandleMediaReservations : 1; unsigned char _delegateRespondsToMediaIsSuitable : 1; unsigned char _delegateRespondsToDeviceContainsSuitableMedia : 1; unsigned char _delegateRespondsToPropertiesDidChange : 1; unsigned char _delegateRespondsToShouldAllowPropertyModification : 1; unsigned char _delegateRespondsToDetermineSuitable : 1; unsigned int _reserved : 24; } _sp_flags;
+}
+
+- (void)dealloc;
+- (id)state;
+- (void)setOwner:(id)a0;
+- (void)setState:(id)a0;
+- (id)device;
+- (id)owner;
+- (void)setDevice:(id)a0;
+- (long long)reservation;
+- (void)setReservation:(long long)a0;
+- (id)sheetDelegate;
+- (void)setSheetDelegate:(id)a0;
+- (BOOL)delegateRespondsToDeviceCouldBeTarget;
+- (BOOL)delegateRespondsToDetermineSuitable;
+- (void)setWeAskedForTrayOpen:(BOOL)a0;
+- (void)setInternalDisabledItems:(id)a0;
+- (void)setUserDisabledItems:(id)a0;
+- (void)setSheetDidEndSelector:(SEL)a0;
+- (void)setUpDelegateSelectors:(id)a0;
+- (BOOL)weAskedForTrayOpen;
+- (id)internalDisabledItems;
+- (id)userDisabledItems;
+- (SEL)sheetDidEndSelector;
+- (BOOL)delegateRespondsToDeviceSelectionChanged;
+- (BOOL)delegateRespondsToShouldHandleMediaReservations;
+- (BOOL)delegateRespondsToMediaIsSuitable;
+- (BOOL)delegateRespondsToDeviceContainsSuitableMedia;
+- (BOOL)delegateRespondsToPropertiesDidChange;
+- (BOOL)delegateRespondsToShouldAllowPropertyModification;
+
+@end

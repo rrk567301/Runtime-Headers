@@ -1,0 +1,16 @@
+@class NSString;
+
+@interface PKStandaloneTransactionBannerServiceRequest : PKBannerServiceRequest <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *passUniqueIdentifier;
+@property (readonly, nonatomic) long long transactionType;
+
++ (id)createForPassUniqueIdentifier:(id)a0 transactionType:(long long)a1;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,31 @@
+@class NSString;
+
+@interface IMNicknameAvatarImage : IMNicknameAvatar <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) BOOL hasImage;
+@property (copy, nonatomic) NSString *imageName;
+@property (copy, nonatomic) NSString *imageFilePath;
+@property (readonly, nonatomic) BOOL imageExists;
+
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)imageData;
+- (id)dictionaryRepresentation;
+- (id)initWithDictionaryRepresentation:(id)a0;
+- (id)initWithImageName:(id)a0 imageFilePath:(id)a1;
+- (id)initWithImageName:(id)a0 imageData:(id)a1 imageFilePath:(id)a2;
+- (id)initWithImageName:(id)a0 imageData:(id)a1 imageFilePath:(id)a2 error:(id *)a3;
+- (id)initWithPublicDictionaryMetadataRepresentation:(id)a0;
+- (id)initWithPublicDictionaryMetadataRepresentation:(id)a0 imageData:(id)a1 imageFilePath:(id)a2 error:(id *)a3;
+- (id)publicDictionaryRepresentation;
+- (id)publicDictionaryMetadataRepresentation;
+- (BOOL)_writeImageData:(id)a0 path:(id)a1 error:(id *)a2;
+- (id)loadAndReturnImageData;
+
+@end

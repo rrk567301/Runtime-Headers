@@ -1,0 +1,44 @@
+@interface SCRiBooksStandardText : SCRStandardText
+
+@property (nonatomic) BOOL didPerformTurnPage;
+@property (nonatomic) struct { long long type; struct { long long direction; long long granularity; } selection; } lastTextCommand;
+@property (nonatomic) BOOL turnedPageFromReadAll;
+
+- (BOOL)scrollToNextPage;
+- (id)lineAfterRange:(id)a0 affinity:(long long)a1;
+- (BOOL)interactUpWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactDownWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactLeftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactRightWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactDownShiftWithEvent:(id)a0 request:(id)a1;
+- (void)setIsEventHandler:(BOOL)a0 isKeyboardHandler:(BOOL)a1;
+- (BOOL)interactLeftShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactRightShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactPageUpShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactPageDownShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)handleReadContentsCallbackForEvent:(id)a0 request:(id)a1 visibleOnly:(BOOL)a2;
+- (id)captionDescription;
+- (BOOL)addContentSummaryToRequest:(id)a0;
+- (BOOL)interactPageUpCommandWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactPageDownCommandWithEvent:(id)a0 request:(id)a1;
+- (BOOL)iBooksHasReachedBeginningOfTextElementWithGranularity:(long long)a0;
+- (BOOL)iBooksHasReachedEndOfTextElementWithGranularity:(long long)a0;
+- (id)iBooksInteractWithoutBoundaryCheckWithEvent:(id)a0 request:(id)a1 direction:(long long)a2;
+- (id)nextLineRangeForPosition:(id)a0;
+- (void)addTextBoundryToRequest:(id)a0 edge:(long long)a1;
+- (void)_handlePageScrolled:(id)a0;
+- (id)iBooksFirstMarker;
+- (id)iBooksLastMarker;
+- (BOOL)iBooksMarkerIsInPreviousSibling:(id)a0;
+- (BOOL)iBooksMarkerIsInNextSibling:(id)a0;
+- (id)iBooksFocusIntoTextUIElement:(id)a0 withEvent:(id)a1 request:(id)a2 direction:(long long)a3;
+- (BOOL)scrollToPreviousPage;
+- (void)_conditionallyTurnPage:(struct { long long x0; struct { long long x0; long long x1; } x1; })a0 request:(id)a1;
+- (void)_iBooksPerformTurnPage:(struct { long long x0; struct { long long x0; long long x1; } x1; })a0;
+- (BOOL)_iBooksShouldTurnPage:(struct { long long x0; struct { long long x0; long long x1; } x1; })a0;
+- (id)_adjacentChapterContainter:(struct { long long x0; struct { long long x0; long long x1; } x1; })a0;
+- (BOOL)readContentAtBoundaryWithTextCommand:(struct { long long x0; struct { long long x0; long long x1; } x1; })a0 request:(id)a1;
+- (void)iBooksAdvanceToNextTextElementWithEvent:(id)a0 request:(id)a1;
+- (id)iBooksMoveToTextElementWithEvent:(id)a0 request:(id)a1 direction:(long long)a2;
+
+@end

@@ -1,0 +1,19 @@
+@class NSString, CSSuggestion;
+
+@interface EMSearchableIndexQueryExpression : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSString *queryString;
+@property (copy, nonatomic) NSString *searchString;
+@property (readonly, copy, nonatomic) CSSuggestion *updatedSuggestion;
+@property (readonly, nonatomic, getter=isValid) BOOL valid;
+
++ (id)expressionWithQueryString:(id)a0;
++ (id)expressionWithQueryString:(id)a0 searchString:(id)a1 updatedSuggestion:(id)a2;
+
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)initWithQueryString:(id)a0 searchString:(id)a1 updatedSuggestion:(id)a2;
+
+@end

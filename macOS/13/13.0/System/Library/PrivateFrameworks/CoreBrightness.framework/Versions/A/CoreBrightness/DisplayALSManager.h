@@ -1,0 +1,77 @@
+@class NSString, CBDisplayModuleMacOS, AmbientLightSensorStats, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source, OS_os_log;
+
+@interface DisplayALSManager : NSObject {
+    NSObject<OS_dispatch_queue> *_queue;
+    struct ALSStruct { float currentValue; float e1; float e1Sensor; float e2; float e2Sensor; float eThresh; float bl1; float bl2; BOOL autoEnabled; } _als;
+    struct DisplayStruct { CBDisplayModuleMacOS *displayModule; float displayIncrement; BOOL needsBrightnessSmoothing; float minimumLinearBrightness; float maximumLinearBrightness; float currentFadeTarget; NSObject<OS_dispatch_source> *fadeTimer; NSObject<OS_dispatch_source> *alsIdleTimer; NSObject<OS_dispatch_source> *forceUpdateTimer; float magsafeFactor; struct MagSafeReduction { BOOL enabled; float linearBrightnessLimit; float luxThreshold; } magSafeReduction; struct DynamicSlider { BOOL supported; NSObject<OS_dispatch_source> *fadeTimer; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } range; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } rangeBattery; struct *currentRange; float currentTargetFactor; } dynamicSlider; BOOL freezeBrightnessUpdates; NSString *uniqueID; } _display;
+    struct __CFString { } *_IOPMDynamicStoreSettingsKey;
+    struct __SCDynamicStore { } *_SCDynamicStore;
+    struct { long long x0; void *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *_SCDynamicStoreContext;
+    int _currentReducedBrightnessSetting;
+    AmbientLightSensorStats *_alsStats;
+    BOOL _ecoModeState;
+    int _ecoModeNotificationToken;
+    id /* block */ _ecoModeNotificationHandler;
+    unsigned int _powerNotifierRootIOKitPort;
+    struct IONotificationPort { } *_powerNotifierPortRef;
+    unsigned int _powerNotifierObject;
+    BOOL _removedMagSafeOnSleep;
+    NSObject<OS_os_log> *_logHandle;
+}
+
+- (void)dealloc;
+- (BOOL)start;
+- (void)setQueue:(id)a0;
+- (void)stop;
+- (void)setAutoBrightnessEnabled:(BOOL)a0;
+- (void)startEcoModeStateMonitoring;
+- (void)stopEcoModeStateMonitoring;
+- (id)initWithDisplayModule:(id)a0;
+- (BOOL)cacheDisplayAlgorithmParameters;
+- (void)userBrightnessChanged;
+- (void)commitUserBrightnessChange;
+- (void)stopFade;
+- (BOOL)autoBrightnessEnabled;
+- (int)getAdjustedLinearBrightness:(float *)a0;
+- (int)setAdjustedLinearBrightness:(float)a0;
+- (float)getAdjustedMaxLinearBrightness;
+- (float)getAdjustedMinLinearBrightness;
+- (void)updateALSParameters;
+- (void)updateDynamicThreshold;
+- (void)registerForSystemNotifications;
+- (void)unregisterForSystemNotifications;
+- (void)startMagsafeMonitoring;
+- (void)stopMagsafeMonitoring;
+- (void)registerSleepWakeNotifications;
+- (void)unregisterSleepWakeNotifications;
+- (void)setInitialMagsafeState;
+- (void)magsafeStateChanged:(id)a0;
+- (int)magsafeBrightnessLevel;
+- (void)setMagsafeBrightnessLevel:(int)a0;
+- (float)linearBrightness;
+- (float)linearBrightnessForLux:(float)a0;
+- (void)stopDynamicSliderFade;
+- (id)copyMagsafeRestrictionConfiguration;
+- (void)setMagsafeRestrictionConfigurationValues:(id)a0;
+- (void)updateMagsafeRestrictionConfiguration:(id)a0;
+- (id)copyDynamicSliderConfiguration;
+- (void)setDynamicSliderConfigurationValues:(id)a0;
+- (void)updateDynamicSliderConfiguration:(id)a0;
+- (void)setDynamicSliderWithFade:(float)a0 length:(float)a1;
+- (BOOL)updateDynamicSliderState:(BOOL)a0 battery:(BOOL)a1;
+- (BOOL)updateDynamicSliderWithLux:(float)a0 force:(BOOL)a1;
+- (BOOL)updateDynamicSlider:(float)a0;
+- (void)forceUpdateDynamicSlider;
+- (void)handleALSUpdate:(float)a0;
+- (void)setPerceptualBrightnessWithFade:(float)a0 length:(float)a1;
+- (void)startALSIdleTimer;
+- (unsigned long long)curveVersion;
+- (BOOL)loadPreferences;
+- (void)saveCurvePreferences;
+- (void)saveTogglePreference;
+- (void)setDisplayModuleAutoEnabled;
+- (void)setDisplayModuleAlsCurve;
+- (void)forceUpdate:(unsigned int)a0;
+
+@end

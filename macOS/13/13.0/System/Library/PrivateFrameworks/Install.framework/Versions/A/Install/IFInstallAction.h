@@ -1,0 +1,29 @@
+@interface IFInstallAction : NSObject {
+    struct IFInstallAction_Private { id x0; BOOL x1; BOOL x2; BOOL x3; int x4; id x5; id x6; id x7; } *_private;
+}
+
+- (void)dealloc;
+- (id)init;
+- (void)setEnabled:(BOOL)a0;
+- (BOOL)enabled;
+- (id)identifier;
+- (id)title;
+- (void)setVisible:(BOOL)a0;
+- (BOOL)visible;
+- (BOOL)selected;
+- (void)setSelected:(BOOL)a0;
+- (void)setEngine:(id)a0;
+- (id)errorDictionary;
+- (void)resolveState;
+- (BOOL)loadFromXMLElement:(id)a0 scripts:(id)a1;
+- (BOOL)runWithQueueElement:(id)a0;
+- (id)writableActionSpecificMetadataDictionary;
+- (id)actionSpecificMetadata;
+- (int)requiredAuth;
+- (int)failType;
+- (void)setFailType:(int)a0;
+- (id)functionNameForAttr:(id)a0;
+- (id)resolvedNumberForAttr:(id)a0;
+- (id)resolvedStringForAttr:(id)a0;
+
+@end

@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface NSPPrivacyProxyObliviousTargetInfo : PBCodable <NSCopying> {
+    unsigned int _proxyIndex;
+    NSString *_proxyURLPath;
+    NSString *_targetHost;
+    struct { unsigned char proxyIndex : 1; } _has;
+}
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

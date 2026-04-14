@@ -1,0 +1,12 @@
+@interface ABPersonListAttributedName : NSObject
+
++ (id)attributedStringForName:(id)a0 emphasisRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
++ (id)darkAttributedStringForName:(id)a0 emphasisRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
++ (id)attributedStringForName:(id)a0 emphasisRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 withForegroundColor:(id)a2;
++ (BOOL)shouldEmphasizeRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 ofName:(id)a1;
++ (id)noNameStringWithForegroundColor:(id)a0;
++ (id)normalFont;
++ (id)boldFont;
++ (id)italicFont;
+
+@end

@@ -1,0 +1,3 @@
+@interface ASDBaseClient : NSObject
+
+@end

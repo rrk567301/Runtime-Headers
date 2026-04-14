@@ -1,0 +1,21 @@
+@class NSArray, AVVideoScrollView, AVDesktopPlayerLayerView, AVObservationController;
+
+@interface AVDesktopVideoContentView : NSView
+
+@property (readonly, nonatomic) AVVideoScrollView *scrollView;
+@property (copy, nonatomic) NSArray *playerLayerViewContraints;
+@property (retain, nonatomic) AVObservationController *observationController;
+@property (nonatomic) struct CGSize { double width; double height; } contentDimensions;
+@property (nonatomic) double contentScale;
+@property (nonatomic) BOOL allowsMagnification;
+@property (nonatomic) double magnification;
+@property (readonly, nonatomic) AVDesktopPlayerLayerView *playerLayerView;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)setMagnification:(double)a0 centeredAtPoint:(struct CGPoint { double x0; double x1; })a1;
+
+@end

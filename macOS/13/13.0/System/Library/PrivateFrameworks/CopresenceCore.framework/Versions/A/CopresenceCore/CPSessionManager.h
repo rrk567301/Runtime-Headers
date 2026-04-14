@@ -1,0 +1,28 @@
+@class NSString, NSMutableDictionary;
+@protocol CPSessionManagerDelegate;
+
+@interface CPSessionManager : NSObject {
+    NSString *_selfUserCreatedSessionID;
+    NSString *_activeSessionID;
+    NSMutableDictionary *_sessions;
+}
+
+@property (copy, nonatomic) NSString *selfAccountID;
+@property (weak, nonatomic) id<CPSessionManagerDelegate> delegate;
+
+- (void).cxx_destruct;
+- (id)_simpleDescription;
+- (id)initWithAccountID:(id)a0;
+- (id)activeSession;
+- (id)selfCreatedSession:(id)a0 inviteeAccountIDs:(id)a1;
+- (void)selfLeftSession:(id)a0;
+- (void)selfAcceptedSession:(id)a0;
+- (void)selfSentInvitesFor:(id)a0 toInviteeAccountIDs:(id)a1;
+- (void)receivedInviteForSession:(id)a0 invitedByAccountID:(id)a1 withInviteeAccountIDs:(id)a2;
+- (void)applySessionMemberStateUpdate:(id)a0 accountID:(id)a1 state:(unsigned char)a2;
+- (id)listReceivedSessionInvites;
+- (id)sessionInviteFor:(id)a0;
+- (void)_applySessionMemberStateUpdate:(id)a0 accountID:(id)a1 state:(unsigned char)a2 checkGC:(BOOL)a3;
+- (void)_attemptGarbageCollectSession:(id)a0;
+
+@end

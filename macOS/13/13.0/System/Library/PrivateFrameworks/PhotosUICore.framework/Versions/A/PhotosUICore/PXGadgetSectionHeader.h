@@ -1,0 +1,40 @@
+@class NSString, NSImage, PXGadgetSpec, NSFont;
+
+@interface PXGadgetSectionHeader : PXObservable <PXMutableGadgetSectionHeader>
+
+@property (copy, nonatomic) id /* block */ accessoryButtonPressed;
+@property (readonly, nonatomic) NSString *headerTitle;
+@property (readonly, nonatomic) BOOL wantsMultilineTitle;
+@property (readonly, nonatomic) NSFont *headerFont;
+@property (readonly, nonatomic) BOOL shouldShowAccessoryButton;
+@property (readonly, nonatomic) NSString *buttonTitle;
+@property (readonly, nonatomic) NSFont *buttonFont;
+@property (readonly, nonatomic) NSImage *buttonImage;
+@property (readonly, nonatomic) BOOL shouldShowDivider;
+@property (readonly, nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } edgeInsets;
+@property (readonly, nonatomic) double headerHeight;
+@property (readonly, nonatomic) double titleHeight;
+@property (readonly, nonatomic) double titleTopSpacing;
+@property (readonly, nonatomic) double titleBottomSpacing;
+@property (nonatomic) unsigned long long headerStyle;
+@property (nonatomic) unsigned long long buttonType;
+@property (copy, nonatomic) NSString *customButtonTitle;
+@property (retain, nonatomic) PXGadgetSpec *gadgetSpec;
+@property (nonatomic) BOOL isFirstSection;
+@property (nonatomic) BOOL shouldShowDividerOnFirstSection;
+
++ (id)buttonImageForButtonType:(unsigned long long)a0;
++ (id)_buttonImageNameForButtonType:(unsigned long long)a0;
++ (id)titleFontForHeaderStyle:(unsigned long long)a0;
++ (id)buttonFontForButtonType:(unsigned long long)a0;
+
+- (void).cxx_destruct;
+- (void)setHeaderTitle:(id)a0;
+- (id)initWithGadget:(id)a0;
+- (void)performChanges:(id /* block */)a0;
+- (id)initWithConfigurationBlock:(id /* block */)a0;
+- (void)setWantsMultilineTitle:(BOOL)a0;
+- (void)performChangesWithGadget:(id)a0 additionalChanges:(id /* block */)a1;
+- (void)_configureWithGadget:(id)a0;
+
+@end

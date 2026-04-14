@@ -1,0 +1,20 @@
+@class NSString, NSNumber;
+
+@interface RBTargetPropertyDomainRestriction : RBDomainRestriction {
+    NSString *_property;
+    NSNumber *_numberValue;
+    NSString *_stringValue;
+}
+
++ (id)domainRestrictionForDictionary:(id)a0 withError:(id *)a1;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)allEntitlements;
+- (BOOL)allowsContext:(id)a0 withError:(id *)a1;
+- (id)_initWithProperty:(id)a0 value:(id)a1;
+
+@end

@@ -1,0 +1,19 @@
+@class NSArray, NSString;
+
+@interface VUIPlaybackReporterVPAFPlaylistItem_Legacy : NSObject <MTMediaPlaylistItem>
+
+@property unsigned long long overallPosition;
+@property (retain) NSArray *eventData;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } timeRange;
+@property unsigned long long duration;
+@property (readonly) unsigned long long startOverallPosition;
+@property (readonly) unsigned long long startPosition;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initWithPosition:(unsigned long long)a0 duration:(unsigned long long)a1 eventData:(id)a2;
+
+@end

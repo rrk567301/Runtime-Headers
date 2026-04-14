@@ -1,0 +1,84 @@
+@class NSArray, NSView, SiriSharedUIContentPlatterView, NSLayoutConstraint, SiriSharedUIRectSet;
+@protocol SiriSharedUICompactResultViewHosting, SiriSharedUICompactViewDelegate, SiriSharedUIViewStackContainerHosting, SiriSharedUICompactConversationViewHosting;
+
+@interface SiriSharedUICompactView : SiriSharedUIStandardView <SiriSharedUICompactConversationViewDelegate, SiriSharedUICompactResultViewDelegate, SiriSharedUIStackableContentActionHandling, SiriSharedUIAccessibilityFocusing> {
+    id<SiriSharedUICompactConversationViewHosting> _conversationView;
+    id<SiriSharedUICompactResultViewHosting> _resultView;
+    NSView *_textRequestView;
+    NSLayoutConstraint *_textRequestViewBottomConstraint;
+    NSLayoutConstraint *_conversationExpansionConstraint;
+    NSView *_fullScreenEffectContainerView;
+}
+
+@property (copy, nonatomic, getter=_transitionalContentViewFrames, setter=_setTransitionalContentViewFrames:) SiriSharedUIRectSet *transitionalContentViewFrames;
+@property (readonly, nonatomic) id<SiriSharedUIViewStackContainerHosting> viewStackContainer;
+@property (weak, nonatomic) id<SiriSharedUICompactViewDelegate> delegate;
+@property (readonly, nonatomic) SiriSharedUIContentPlatterView *snippetView;
+@property (copy, nonatomic) NSArray *serverUtterances;
+@property (copy, nonatomic) NSArray *conversationSnippetViews;
+@property (readonly, nonatomic) id<SiriSharedUICompactConversationViewHosting> conversationView;
+@property (readonly, nonatomic) id<SiriSharedUICompactResultViewHosting> resultView;
+@property (nonatomic) BOOL hidesTextRequestView;
+@property (nonatomic) double bottomContentInset;
+@property (readonly, nonatomic) double effectiveBottomContentInset;
+@property (nonatomic) BOOL shouldOfferDismissal;
+
+- (void).cxx_destruct;
+- (void)layout;
+- (id)accessibilityChildren;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)setResultView:(id)a0;
+- (id)_analytics;
+- (BOOL)alwaysShowRecognizedSpeech;
+- (void)didMoveToWindow;
+- (void)contentDidUpdate:(BOOL)a0;
+- (void)setShowSnippetView:(BOOL)a0 animated:(BOOL)a1;
+- (void)setSpeechRecognitionHypothesis:(id)a0;
+- (double)maximumHeightForResultView:(id)a0;
+- (struct CGSize { double x0; double x1; })resultViewContentSize;
+- (id)preferredAccessibilityElementToFocus;
+- (void)prepareForUpdatesWithDiff:(unsigned long long)a0 updateBlock:(id /* block */)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 backgroundBlurView:(id)a1 navigationView:(id)a2 resultView:(id)a3 conversationView:(id)a4 textRequestView:(id)a5 viewStackContainer:(id)a6;
+- (void)snippetLayoutDidUpdateForView:(id)a0;
+- (void)setConversationView:(id)a0;
+- (void)tapToEditRequestedFromView:(id)a0;
+- (id)contentViewSizeProvider;
+- (void)handleDismissalAction;
+- (void)_updateStackableContentDismissalOffering;
+- (id)_instrumentationManager;
+- (void)conversationViewContentScrolled:(id)a0 toContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (void)conversationViewDidTransitionToExpandedState:(id)a0;
+- (void)conversationViewDidTransitionToCollapsedState:(id)a0;
+- (void)conversationViewDidBeginExpandTransition:(id)a0;
+- (void)conversationViewDidResetExpandedState:(id)a0;
+- (void)conversationView:(id)a0 didUpdateHeightDuringExpansionTransition:(double)a1 didCompleteGesture:(BOOL)a2;
+- (double)expectedExpandedHeightForConversationView:(id)a0;
+- (BOOL)conversationViewShouldAlwaysShowSpeechFeedback:(id)a0;
+- (void)conversationView:(id)a0 viewDidAppearForAceObject:(id)a1;
+- (void)conversationView:(id)a0 viewDidDisappearForAceObject:(id)a1;
+- (id)parserSpeakableObjectProviderForConversationView:(id)a0;
+- (double)maximumHeightForConversationView:(id)a0;
+- (void)conversationViewDidUpdatePresentedContentHeight:(id)a0;
+- (void)conversationView:(id)a0 didFinishEditingWithText:(id)a1 selectionResults:(id)a2 shouldStartNewRequest:(BOOL)a3;
+- (void)resultViewContentDidScroll:(id)a0;
+- (void)resultViewDarkenedContentWasTapped:(id)a0;
+- (void)resultViewContentDidLoad:(id)a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })contentInsetsForResultView:(id)a0;
+- (void)resultViewContentScrolled:(id)a0 toContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (struct CGSize { double x0; double x1; })conversationViewContentSize;
+- (void)setResultViewAlpha:(double)a0;
+- (void)setSnippetView:(id)a0 completion:(id /* block */)a1;
+- (void)setConversationViewHidden:(BOOL)a0;
+- (BOOL)hasContentAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)setBottomContentInset:(double)a0 animatedWithContext:(id)a1;
+- (void)_updateExpansionConstraints:(BOOL)a0;
+- (void)showFullScreenEffect:(id)a0;
+- (void)_textRequestViewVisibilityDidChange;
+- (void)_snapshotContentViewFramesForTransition;
+- (void)_clearTransitionalContentViewFrameSnapshots;
+- (void)_updateBottomPaddingAnimatedWithContext:(id)a0 alongsideAnimations:(id /* block */)a1;
+- (void)_updateBottomPaddingAnimatedWithContext:(id)a0;
+- (void)_updateBottomPadding;
+- (id)_orderedStackableViews;
+
+@end

@@ -1,0 +1,26 @@
+@interface IOBluetoothPairingController : NSWindowController
+
++ (id)alloc;
++ (id)pairingController;
++ (id)withPairingControllerRef:(struct OpaqueIOBluetoothObjectRef { } *)a0;
+
+- (void)setPrompt:(id)a0;
+- (int)runModal;
+- (void)setTitle:(id)a0;
+- (void)setOptions:(unsigned int)a0;
+- (int)beginSheetModalForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3;
+- (void)setSearchAttributes:(const struct IOBluetoothDeviceSearchAttributes { unsigned int x0; unsigned int x1; unsigned int x2; struct IOBluetoothDeviceSearchDeviceAttributes *x3; } *)a0;
+- (void)setDescriptionText:(id)a0;
+- (id)getTitle;
+- (id)getResults;
+- (unsigned int)getOptions;
+- (const struct IOBluetoothDeviceSearchAttributes { unsigned int x0; unsigned int x1; unsigned int x2; struct IOBluetoothDeviceSearchDeviceAttributes *x3; } *)getSearchAttributes;
+- (void)clearAllowedUUIDs;
+- (void)addAllowedUUID:(id)a0;
+- (void)addAllowedUUIDArray:(id)a0;
+- (id)getDescriptionText;
+- (id)getPrompt;
+- (struct OpaqueIOBluetoothObjectRef { } *)getPairingControllerRef;
+- (void)runPanelWithAttributes:(struct IOBluetoothDeviceSearchAttributes { unsigned int x0; unsigned int x1; unsigned int x2; struct IOBluetoothDeviceSearchDeviceAttributes *x3; } *)a0;
+
+@end

@@ -1,0 +1,21 @@
+@interface TSSStylePropertyChangeSet : TSKSosBase
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void)setBoxedValue:(id)a0 forProperty:(int)a1;
+- (void)setSpec:(id)a0 forProperty:(int)a1;
+- (void)setUnsetSpecForProperty:(int)a0;
+- (void)enumerateDefinedPropertiesWithBlock:(id /* block */)a0;
+- (id)collectUndoForStyle:(id)a0;
+- (id)collectUnset;
+- (id)p_variationPropertyMapFromStyle:(id)a0 withPropertyMap:(id)a1;
+- (id)variationPropertyMapFromStyle:(id)a0;
+- (id)variationPropertyMapFromParentStyle:(id)a0;
+- (id)variationStyleFrom:(id)a0 inStylesheet:(id)a1;
+- (id)changedPropertyPaths;
+- (BOOL)isEmptyChangeSet;
+- (id)propertyChangeFilteredByProperties:(id)a0;
+- (BOOL)isEqualToChangeSet:(id)a0;
+
+@end

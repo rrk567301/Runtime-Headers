@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface VSCasePreservingString : NSString {
+    NSString *_underlyingString;
+}
+
+- (unsigned long long)length;
+- (id)lowercaseStringWithLocale:(id)a0;
+- (id)uppercaseStringWithLocale:(id)a0;
+- (unsigned short)characterAtIndex:(unsigned long long)a0;
+- (void)getCharacters:(unsigned short *)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void).cxx_destruct;
+- (id)initWithString:(id)a0;
+- (id)capitalizedString;
+- (id)lowercaseString;
+- (id)uppercaseString;
+- (id)localizedCapitalizedString;
+- (id)capitalizedStringWithLocale:(id)a0;
+- (id)localizedLowercaseString;
+- (id)localizedUppercaseString;
+
+@end

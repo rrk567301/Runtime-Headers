@@ -1,0 +1,76 @@
+@class NSString, NSMutableDictionary, NSRecursiveLock;
+
+@interface IFDiskObject : NSObject {
+    NSString *_diskRepID;
+    NSString *_diskLogicalVolumeUUID;
+    NSRecursiveLock *_lock;
+    NSMutableDictionary *_cachedAttributes;
+    BOOL _installWouldResultInUnsupportedConfig;
+}
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)UUID;
+- (id)protocol;
+- (BOOL)isLeaf;
+- (unsigned long long)totalSize;
+- (unsigned long long)availableSpace;
+- (BOOL)isSystemImage;
+- (id)volumeName;
+- (id)mountPoint;
+- (BOOL)isWritable;
+- (id)diskIdentifier;
+- (BOOL)isEjectable;
+- (id)fileSystemType;
+- (BOOL)isCoreStorage;
+- (BOOL)isJournaled;
+- (unsigned long long)freeSpace;
+- (void)purgeCache;
+- (unsigned long long)rawSize;
+- (BOOL)isDiskImage;
+- (id)ioContent;
+- (BOOL)isRootVolume;
+- (BOOL)isWhole;
+- (id)fileSystem;
+- (BOOL)isPasswordLocked;
+- (id)initWithDADisk:(struct __DADisk { } *)a0;
+- (id)initWithLogicalVolumeUUID:(id)a0;
+- (id)dm;
+- (struct __DADisk { } *)diskRep;
+- (void)setDiskRep:(struct __DADisk { } *)a0;
+- (void)setDiskLogicalVolumeUUID:(id)a0;
+- (id)fileSystemBundleType;
+- (id)rawDeviceNode;
+- (id)systemRoot;
+- (BOOL)filesystemIsLocked;
+- (BOOL)isNetworkDisk;
+- (BOOL)isMountedVolume;
+- (BOOL)isCDROM;
+- (BOOL)isDVDROM;
+- (BOOL)isOptical;
+- (id)backingDiskImageFile;
+- (BOOL)isROSVSystemVolume;
+- (BOOL)isMountable;
+- (BOOL)isUserDataVolume;
+- (BOOL)isAppleRAIDDisk;
+- (BOOL)isSoftRAID;
+- (BOOL)isSSDBacked;
+- (id)logicalVolumeUUID;
+- (id)logicalVolumeDictionary;
+- (void)setObject:(id)a0 forKey:(id)a1 withContext:(id)a2;
+- (id)objectForKey:(id)a0 withContext:(id)a1;
+- (id)userContextObjectForKey:(id)a0;
+- (id)userContextObjectForKey:(id)a0 createIfMissing:(BOOL)a1;
+- (void)setUserContextObject:(id)a0 forKey:(id)a1;
+- (id)wholeDiskName;
+- (id)childDADisks;
+- (BOOL)childIsRecoveryCompatible:(id)a0;
+- (id)parentDisk;
+- (id)_sortDisksByBSDName:(id)a0;
+- (void)setInstallWouldResultInUnsupportedConfig:(BOOL)a0;
+- (BOOL)installWouldResultInUnsupportedConfig;
+- (long long)_DMPartitionTypeToMKSchemeID:(int)a0;
+
+@end

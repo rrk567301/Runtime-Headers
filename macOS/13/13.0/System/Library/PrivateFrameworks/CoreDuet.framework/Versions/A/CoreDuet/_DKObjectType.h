@@ -1,0 +1,25 @@
+@interface _DKObjectType : NSObject <NSSecureCoding, NSCopying> {
+    long long _typeCode;
+    Class _objectClass;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) long long typeCode;
+@property (readonly, nonatomic) Class objectClass;
+
++ (long long)typeCodeFromName:(id)a0;
++ (Class)associatedObjectClass;
++ (id)objectTypeWithTypeCode:(long long)a0;
++ (id)objectTypeWithName:(id)a0;
++ (id)objectTypeFromClass:(Class)a0;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithTypeCode:(long long)a0 objectClass:(Class)a1;
+
+@end

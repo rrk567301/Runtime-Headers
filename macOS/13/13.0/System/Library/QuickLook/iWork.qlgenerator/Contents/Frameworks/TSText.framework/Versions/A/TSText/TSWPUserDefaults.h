@@ -1,0 +1,56 @@
+@interface TSWPUserDefaults : NSObject
+
++ (void)initialize;
++ (unsigned long long)minimumFontSize;
++ (BOOL)allowsFontSmoothing;
++ (BOOL)underlineLinks;
++ (void)setUnderlineLinks:(BOOL)a0;
++ (unsigned long long)maximumFontSize;
++ (BOOL)p_UserDefaultSet:(id)a0 force:(BOOL)a1;
++ (id)invisiblesColor;
++ (BOOL)automaticallyDetectLinks;
++ (BOOL)automaticallyDetectLists;
++ (BOOL)superscriptNumericalSuffixes;
++ (BOOL)spellCheckingEnabled;
++ (void)setInvisiblesColor:(id)a0;
++ (void)setAutomaticallyDetectLinks:(BOOL)a0;
++ (void)setAutomaticallyDetectLists:(BOOL)a0;
++ (void)setSuperscriptNumericalSuffixes:(BOOL)a0;
++ (void)setSpellCheckingEnabled:(BOOL)a0;
++ (void)registerUserDefaults:(BOOL)a0;
++ (void)p_defaultsChanged:(id)a0;
++ (BOOL)p_cachedBoolForKey:(id)a0;
++ (BOOL)automaticallyDetectPhoneLinks;
++ (BOOL)automaticallyFormatFractions;
++ (BOOL)spellCheckingAllowed;
++ (BOOL)shouldShowInvisibles;
++ (BOOL)automaticDashSubstitution;
++ (BOOL)automaticQuoteSubstitution;
++ (BOOL)automaticTextReplacement;
++ (BOOL)grammarChecking;
++ (BOOL)automaticSpellingCorrection;
++ (void)setAutomaticSpellingCorrection:(BOOL)a0;
++ (BOOL)automaticCapitalization;
++ (void)setAutomaticCapitalization:(BOOL)a0;
++ (id)ignoredWordsArray;
++ (void)setIgnoredWordsArray:(id)a0;
++ (BOOL)addIgnoredWord:(id)a0;
++ (long long)doubleQuotes;
++ (long long)singleQuotes;
++ (void)setDoubleQuotes:(long long)a0;
++ (void)setSingleQuotes:(long long)a0;
++ (id)doubleQuotesOptions;
++ (id)singleQuotesOptions;
++ (id)quotesArrayForLanguage:(id)a0;
++ (id)p_caseInsensitiveDictionary:(id)a0 mergedWithDictionary:(id)a1;
++ (id)replacementsDictionaryAllowingFractions:(BOOL)a0;
++ (id)appReplacementsDictionary;
++ (void)setReplacementsDictionary:(id)a0;
++ (void)setAutomaticallyDetectPhoneLinks:(BOOL)a0;
++ (void)setAutomaticallyFormatFractions:(BOOL)a0;
++ (void)setAutomaticDashSubstitution:(BOOL)a0;
++ (void)setAutomaticQuoteSubstitution:(BOOL)a0;
++ (void)setAutomaticTextReplacement:(BOOL)a0;
++ (void)setGrammarChecking:(BOOL)a0;
+
+@end
