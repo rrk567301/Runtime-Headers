@@ -1,0 +1,9 @@
+@interface AppStoreKitInternal.TodayCardMediaMediumLockupWithScreenshots : AppStoreKitInternal.TodayCardMedia {
+    void /* unknown type, empty encoding */ isAnimated;
+    void /* unknown type, empty encoding */ lockup;
+    void /* unknown type, empty encoding */ screenshots;
+    void /* unknown type, empty encoding */ secondaryTextColor;
+    void /* unknown type, empty encoding */ backgroundColor;
+}
+
+@end

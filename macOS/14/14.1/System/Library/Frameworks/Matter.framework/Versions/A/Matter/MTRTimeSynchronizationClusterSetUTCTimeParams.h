@@ -1,0 +1,3 @@
+@interface MTRTimeSynchronizationClusterSetUtcTimeParams : MTRTimeSynchronizationClusterSetUTCTimeParams
+
+@end

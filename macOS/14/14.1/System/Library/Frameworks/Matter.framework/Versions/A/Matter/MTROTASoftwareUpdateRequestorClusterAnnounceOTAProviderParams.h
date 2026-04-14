@@ -1,0 +1,3 @@
+@interface MTROtaSoftwareUpdateRequestorClusterAnnounceOtaProviderParams : MTROTASoftwareUpdateRequestorClusterAnnounceOTAProviderParams
+
+@end

@@ -1,0 +1,12 @@
+@class NSMutableDictionary;
+
+@interface ContentBlockerLoader : NSObject <ContentBlockerLoaderProtocol> {
+    NSMutableDictionary *_identifiersOfContentBlockersBeingCompiledToDistributedNotificationRequired;
+}
+
+- (void).cxx_destruct;
+- (void)loadContentBlockerWithIdentifier:(id)a0 previouslyLoadedHash:(id)a1 forProfileWithServerID:(id)a2 sandboxExtensionToken:(id)a3 reply:(id /* block */)a4;
+- (void)loadDeclarativeNetRequestContentBlockingRulesForExtensionWithIdentifier:(id)a0 previouslyLoadedHash:(id)a1 forProfileWithServerID:(id)a2 sandboxExtensionToken:(id)a3 rules:(id)a4 reply:(id /* block */)a5;
+- (void)removeContentBlockerWithIdentifier:(id)a0 forProfileWithServerID:(id)a1 reply:(id /* block */)a2;
+
+@end

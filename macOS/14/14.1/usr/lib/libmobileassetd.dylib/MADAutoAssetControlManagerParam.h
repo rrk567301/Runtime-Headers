@@ -1,0 +1,87 @@
+@class MAAutoAssetProgress, MADAutoAssetClientRequest, MADAutoAssetJobInformation, MADAutoAssetJob, NSDictionary, MADAutoSetJobInformation, SUCoreConnectMessage, MAAutoAssetStatus, MADAutoSetConfiguration, MANAutoAssetSetPolicy, NSString, NSArray, MAAutoAssetSelector, MADAutoAssetDescriptor, NSError, SUCoreConnectClientProxy;
+
+@interface MADAutoAssetControlManagerParam : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSString *paramSafeSummary;
+@property (readonly, nonatomic) long long paramType;
+@property (readonly, retain, nonatomic) NSString *clientID;
+@property (retain, nonatomic) MADAutoAssetClientRequest *clientRequest;
+@property (retain, nonatomic) NSArray *clientRequestArray;
+@property (readonly, retain, nonatomic) SUCoreConnectMessage *clientRequestMessage;
+@property (readonly, retain, nonatomic) SUCoreConnectClientProxy *clientProgressProxy;
+@property (readonly, retain, nonatomic) SUCoreConnectMessage *responseMessage;
+@property (retain, nonatomic) NSError *responseError;
+@property (readonly, retain, nonatomic) NSArray *downloadsInFlight;
+@property (retain, nonatomic) NSString *autoAssetJobID;
+@property (readonly, retain, nonatomic) NSDictionary *autoAssetCatalog;
+@property (readonly, retain, nonatomic) NSError *lockForUseError;
+@property (readonly, retain, nonatomic) NSError *finishedError;
+@property (retain, nonatomic) MADAutoAssetJobInformation *jobInformation;
+@property (readonly, retain, nonatomic) MAAutoAssetProgress *downloadProgress;
+@property (readonly, retain, nonatomic) MAAutoAssetStatus *autoAssetStatus;
+@property (readonly, retain, nonatomic) MAAutoAssetSelector *autoAssetSelector;
+@property (retain, nonatomic) NSString *autoAssetUUID;
+@property (retain, nonatomic) MADAutoAssetJob *fromAutoAssetJob;
+@property (retain, nonatomic) MAAutoAssetSelector *originalSelector;
+@property (readonly, retain, nonatomic) NSArray *setOfAutoAssetSelectors;
+@property (readonly, retain, nonatomic) NSArray *pushNotifications;
+@property (retain, nonatomic) MANAutoAssetSetPolicy *setPolicy;
+@property (retain, nonatomic) NSString *assetTargetOSVersion;
+@property (retain, nonatomic) NSString *assetTargetBuildVersion;
+@property (retain, nonatomic) NSString *assetTargetTrainName;
+@property (retain, nonatomic) NSString *assetTargetRestoreVersion;
+@property (retain, nonatomic) NSArray *stagedToDownloaded;
+@property (retain, nonatomic) NSArray *stagedSetLookupResults;
+@property (retain, nonatomic) MADAutoAssetDescriptor *downloadingDescriptor;
+@property (retain, nonatomic) MADAutoAssetDescriptor *baseForPatchDescriptor;
+@property (retain, nonatomic) NSArray *baseForStagingDescriptors;
+@property (readonly, nonatomic) BOOL schedulerInvolved;
+@property (readonly, nonatomic) BOOL potentialNetworkFailure;
+@property (readonly, retain, nonatomic) NSString *clientDomainName;
+@property (readonly, retain, nonatomic) NSString *assetSetIdentifier;
+@property (readonly, retain, nonatomic) MADAutoSetConfiguration *setConfiguration;
+@property (readonly, retain, nonatomic) NSString *setAtomicInstance;
+@property (readonly, retain, nonatomic) MADAutoSetJobInformation *setJobInformation;
+@property (readonly, retain, nonatomic) NSArray *triggeredSets;
+@property (copy, nonatomic) id /* block */ clientReplyCompletion;
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)summary;
+- (id)_summary;
+- (id)initWithClientID:(id)a0;
+- (id)initForFinishedJobID:(id)a0 withError:(id)a1;
+- (id)initForAssetSelector:(id)a0;
+- (id)initForConfigFinishedJobID:(id)a0 withError:(id)a1;
+- (id)initForCurrentJobID:(id)a0 withProgress:(id)a1;
+- (id)initForFinishedJobID:(id)a0 withCatalog:(id)a1 withError:(id)a2;
+- (id)initForFinishedJobSelector:(id)a0 withAutoAssetUUID:(id)a1 withSchedulerInvolved:(BOOL)a2 withPotentialNetworkFailure:(BOOL)a3;
+- (id)initForFinishedSetJob:(id)a0 forAssetSetIdentifier:(id)a1 withSetAtomicInstance:(id)a2 withAutoAssetUUID:(id)a3 withSetJobInformation:(id)a4 withSchedulerInvolved:(BOOL)a5 withPotentialNetworkFailure:(BOOL)a6;
+- (id)initForJobFoundSelector:(id)a0 withAutoAssetUUID:(id)a1;
+- (id)initForJobIssueProgress:(id)a0 forAutoAssetSelector:(id)a1 withAutoAssetUUID:(id)a2 withJobCurrentStatus:(id)a3 withLockForUseError:(id)a4;
+- (id)initForJobIssueReply:(id /* block */)a0 forAutoAssetSelector:(id)a1 withAutoAssetUUID:(id)a2 withResponseMessage:(id)a3 withResponseError:(id)a4;
+- (id)initForReceivedPushNotifications:(id)a0;
+- (id)initForSetJobClientDomain:(id)a0 forAssetSetIdentifier:(id)a1;
+- (id)initForSetJobFound:(id)a0 forAssetSetIdentifier:(id)a1 withSetAtomicInstance:(id)a2 withAutoAssetUUID:(id)a3 withSetJobInformation:(id)a4;
+- (id)initForSetJobIssueProgress:(id)a0 forDomainName:(id)a1 forAssetSetIdentifier:(id)a2 withSetAtomicInstance:(id)a3 withAutoAssetUUID:(id)a4 withSetJobInformation:(id)a5 withLockForUseError:(id)a6;
+- (id)initForSetJobIssueReply:(id /* block */)a0 forDomainName:(id)a1 forAssetSetIdentifier:(id)a2 withSetAtomicInstance:(id)a3 withAutoAssetUUID:(id)a4 withSetJobInformation:(id)a5 withResponseMessage:(id)a6 withResponseError:(id)a7;
+- (id)initForStagerJobInformation:(id)a0;
+- (id)initForStagerJobLookupResults:(id)a0 withBaseForStagingDescriptors:(id)a1 withDetermineError:(id)a2;
+- (id)initForStagerJobStart:(id)a0 withStagerSetConfiguration:(id)a1 usingCachedAutoAssetCatalog:(id)a2 usingBaseForPatching:(id)a3 withAssetTargetOSVersion:(id)a4 withAssetTargetBuildVersion:(id)a5;
+- (id)initForStagerSetJobStart:(id)a0 withAssetTargetOSVersion:(id)a1 withAssetTargetBuildVersion:(id)a2 withAssetTargetTrainName:(id)a3 withAssetTargetRestoreVersion:(id)a4;
+- (id)initForTimerFired;
+- (id)initForTriggeredNoActivity;
+- (id)initForTriggeredSelectors:(id)a0;
+- (id)initForTriggeredSets:(id)a0;
+- (id)initWithClientRequest:(id)a0 reportingProgressThroughProxy:(id)a1 withReplyCompletion:(id /* block */)a2;
+- (id)initWithDownloadsInFlight:(id)a0;
+- (id)initWithParamType:(long long)a0 withSafeSummary:(id)a1 withClientID:(id)a2 withClientRequestMessage:(id)a3 withClientProgressProxy:(id)a4 withClientReplyCompletion:(id /* block */)a5 withResponseMessage:(id)a6 withResponseError:(id)a7 withDownloadsInFlight:(id)a8 withAutoAssetJobID:(id)a9 withAutoAssetCatalog:(id)a10 withLockForUseError:(id)a11 withFinishedError:(id)a12 withDownloadProgress:(id)a13 withJobCurrentStatus:(id)a14 withAutoAssetSelector:(id)a15 withAutoAssetUUID:(id)a16 withSetOfAutoAssetSelectors:(id)a17 withPushNotifications:(id)a18 withSetPolicy:(id)a19 withAssetTargetOSVersion:(id)a20 withAssetTargetBuildVersion:(id)a21 withAssetTargetTrainName:(id)a22 withAssetTargetRestoreVersion:(id)a23 withStagedToDownloaded:(id)a24 withStagedLookupResults:(id)a25 withDownloadingDescriptor:(id)a26 withBaseForPatchDescriptor:(id)a27 withBaseForStagingDescriptors:(id)a28 withSchedulerInvolved:(BOOL)a29 withPotentialNetworkFailure:(BOOL)a30 withClientDomainName:(id)a31 withAssetSetIdentifier:(id)a32 withSetConfiguration:(id)a33 withSetAtomicInstance:(id)a34 withSetJobInformation:(id)a35 withTriggeredSets:(id)a36;
+- (id)initWithPromoted:(id)a0 withSetLookupResults:(id)a1;
+- (id)initWithSafeSummary:(id)a0;
+- (void)updateSafeSummary;
+
+@end

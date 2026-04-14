@@ -1,0 +1,37 @@
+@class NSArray, NSString, NSData, HKHearingLevelSummary;
+
+@interface HKAudiogramSample : HKSample <_HKBinarySample>
+
+@property (retain, nonatomic) NSData *encodedSensitivityPoints;
+@property (readonly, copy, nonatomic) HKHearingLevelSummary *hearingLevelSummary;
+@property (readonly, copy) NSArray *sensitivityPoints;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)supportsSecureCoding;
++ (id)_decodeSensitivityData:(id)a0;
++ (id)_encodeSensitivityPoints:(id)a0;
++ (BOOL)_isConcreteObjectClass;
++ (double)_randomDecibelValueInRangeFromStart:(double)a0 end:(double)a1;
++ (id)_randomSensitivityValueForClassification:(unsigned long long)a0;
++ (id)audiogramSampleWithSensitivityPoints:(id)a0 startDate:(id)a1 endDate:(id)a2 device:(id)a3 metadata:(id)a4;
++ (id)audiogramSampleWithSensitivityPoints:(id)a0 startDate:(id)a1 endDate:(id)a2 metadata:(id)a3;
++ (id)randomAudiogramSampleWithClassification:(unsigned long long)a0 startDate:(id)a1 endDate:(id)a2 device:(id)a3 metadata:(id)a4;
++ (id)randomAudiogramSampleWithLeftEarClassification:(unsigned long long)a0 rightEarClassification:(unsigned long long)a1 startDate:(id)a2 endDate:(id)a3 device:(id)a4 metadata:(id)a5;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)payload;
+- (unsigned long long)diagnostic;
+- (void)_setPayload:(id)a0;
+- (id)_validateSensitivityPointsOrderedAscending;
+- (id)_validateWithConfiguration:(struct HKObjectValidationConfiguration { unsigned long long x0; unsigned int x1; })a0;
+- (id)averageLeftEarSensitivity;
+- (id)averageRightEarSensitivity;
+- (id)maximumSensitivity;
+- (id)minimumSensitivity;
+
+@end
