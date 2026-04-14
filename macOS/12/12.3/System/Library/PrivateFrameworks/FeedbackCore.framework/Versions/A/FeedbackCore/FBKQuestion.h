@@ -1,0 +1,50 @@
+@class NSArray, NSString, FBKQuestionGroup, NSNumber;
+@protocol FBKChoiceSetResolverProtocol;
+
+@interface FBKQuestion : FBKManagedFeedbackObject <FBKDiffableObject>
+
+@property (retain) NSNumber *primitiveAnswerType;
+@property (retain) NSNumber *primitiveRequired;
+@property (retain) NSNumber *primitiveConditional;
+@property (retain) NSArray *choices;
+@property (retain) NSString *text;
+@property (retain) NSString *role;
+@property (retain) NSString *placeholder;
+@property (retain) NSNumber *sortOrder;
+@property (retain) NSString *resolver;
+@property (retain) FBKQuestionGroup *questionGroup;
+@property unsigned long long answerType;
+@property (getter=isRequired) BOOL required;
+@property (readonly) BOOL appearsRequiredIfOptional;
+@property (retain, nonatomic) id<FBKChoiceSetResolverProtocol> choiceSetResolver;
+@property (getter=isConditional) BOOL conditional;
+@property (retain) NSNumber *conditionQuestionID;
+@property (retain) id conditionValue;
+@property (retain) NSArray *conditions;
+@property (retain) NSString *choiceSetClientSideResolver;
+@property (retain) NSString *targetUserAgent;
+@property (retain) NSString *userAgentPopulate;
+@property BOOL visible;
+
++ (id)entityName;
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)prepareForDeletion;
+- (void)setRequired:(BOOL)a0;
+- (BOOL)isMultiSelect;
+- (BOOL)shouldHaveChoices;
+- (id)choiceForValue:(id)a0;
+- (id)allChoices;
+- (void)setPropertiesFromJSONObject:(id)a0;
+- (id)diffableHashWithContext:(id)a0;
+- (id)serverSideChoices;
+- (BOOL)isAnswerable;
+- (void)setConditional:(BOOL)a0;
+- (void)setQuestionChoices:(id)a0;
+- (BOOL)affectsRequirements;
+- (id)titleForValue:(id)a0;
+- (id)displayTextForAnswer:(id)a0;
+- (id)answerToDisplayNameValueTransformer;
+
+@end

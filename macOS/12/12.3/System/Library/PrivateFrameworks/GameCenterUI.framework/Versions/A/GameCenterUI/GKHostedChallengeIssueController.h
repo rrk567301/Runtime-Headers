@@ -1,0 +1,29 @@
+@class NSString;
+
+@interface GKHostedChallengeIssueController : UXViewController <GKDialogControllerSizing, GKViewController>
+
+@property (retain, nonatomic) id players;
+@property (copy, nonatomic) id defaultMessage;
+@property (retain, nonatomic) id challenge;
+@property (nonatomic) BOOL forcePicker;
+@property (retain, nonatomic) id remoteViewController;
+@property BOOL didRequestRemoteViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)hostedIssueControllerWithChallenge:(id)a0 players:(id)a1 defaultMessage:(id)a2 completionHandler:(id /* block */)a3;
++ (void)presentHostedIssueControllerWithChallenge:(id)a0 players:(id)a1 defaultMessage:(id)a2;
+
+- (void).cxx_destruct;
+- (id)view;
+- (void)loadView;
+- (void)viewWillAppear;
+- (void)viewDidDisappear;
+- (void)requestRemoteViewController;
+- (void)setNavigationController:(id)a0;
+- (struct CGSize { double x0; double x1; })_gkSizeForDialogController;
+- (id)initWithChallenge:(id)a0 players:(id)a1 defaultMessage:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

@@ -1,0 +1,9 @@
+@interface WLKNetworkRequestUtilities : NSObject
+
++ (id)defaultSessionConfiguration;
++ (id)_defaultAppSessionConfiguration;
++ (void)startNetworkRequest:(id)a0 account:(id)a1 sessionConfiguration:(id)a2 options:(long long)a3 completion:(id /* block */)a4;
++ (id)configurationBaseURLString;
++ (id)_sharedCacheSessionConfiguration;
+
+@end

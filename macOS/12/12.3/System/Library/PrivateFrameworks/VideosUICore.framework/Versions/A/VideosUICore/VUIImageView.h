@@ -1,0 +1,88 @@
+@class NSImageView, VUIImageProxy, NSImage, NSImageSymbolConfiguration, NSColor;
+
+@interface VUIImageView : NSView {
+    BOOL _rendersImageAsTemplates;
+    NSImage *_image;
+    NSImageView *_imageView;
+    unsigned long long _imageContentMode;
+    NSImage *_flatImage;
+    NSImage *_flatHighlightImage;
+    BOOL _selected;
+    double _cornerRadius;
+    BOOL _continuousCorners;
+    struct CGSize { double width; double height; } _previousSize;
+}
+
+@property (copy, nonatomic) id /* block */ completion;
+@property (nonatomic, getter=isImageLoaded) BOOL imageLoaded;
+@property (retain, nonatomic) NSColor *imageViewOSXBackgroundColor;
+@property (nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
+@property (nonatomic) long long viewTag;
+@property (retain, nonatomic) NSImage *image;
+@property (retain, nonatomic) NSImage *placeholderImage;
+@property (retain, nonatomic) NSColor *placeholderColor;
+@property (nonatomic) BOOL shouldScaleToSize;
+@property (nonatomic) double cornerRadius;
+@property (nonatomic) BOOL imageContainsShadow;
+@property (nonatomic) BOOL animatesShadowChanges;
+@property (nonatomic) struct _VUICornerRadii { double topLeft; double topRight; double bottomLeft; double bottomRight; } shadowRadii;
+@property (copy, nonatomic) id /* block */ shadowPathUpdater;
+@property (nonatomic) BOOL imageContainsCornerRadius;
+@property (retain, nonatomic) NSColor *borderColor;
+@property (nonatomic) double borderWidth;
+@property (retain, nonatomic) VUIImageProxy *imageProxy;
+@property (copy, nonatomic) id /* block */ dynamicProxyProvider;
+@property (nonatomic) long long tag;
+@property (readonly, nonatomic) NSImageView *imageViewForAccessibility;
+@property (retain, nonatomic, setter=_setTintColor:) NSColor *_tintColor;
+@property (retain, nonatomic, setter=_setFocusedColor:) NSColor *_focusedColor;
+@property (nonatomic, setter=_setEnableEdgeAntialiasingOnSelected:) BOOL _enableEdgeAntialiasingOnSelected;
+@property (retain, nonatomic, setter=_setPreferredSymbolConfiguration:) NSImageSymbolConfiguration *preferredSymbolConfiguration;
+@property (nonatomic, getter=isSymbolImage) BOOL symbolImage;
+@property (nonatomic, getter=isResourceImage) BOOL resourceImage;
+@property (nonatomic) struct CGSize { double width; double height; } resourceOrSymbolSize;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)setTag:(long long)a0;
+- (void)layout;
+- (void)setBackgroundColor:(id)a0;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isFlipped;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })fittingSize;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)viewDidChangeEffectiveAppearance;
+- (id)backgroundColor;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (long long)tag;
+- (id)accessibilityLabel;
+- (id)accessibilityTitle;
+- (void)setAccessibilityLabel:(id)a0;
+- (id)_imageView;
+- (double)_cornerRadius;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)_setImage:(id)a0;
+- (void)_setCornerRadius:(double)a0;
+- (void)_updateImageView;
+- (void)_updateTintColor;
+- (void)_loadImage;
+- (void)_setContinuousCornerRadius:(double)a0;
+- (double)_continuousCornerRadius;
+- (void)_updateCornerRadius;
+- (void)setVuiBackgroundColor:(id)a0;
+- (struct CGSize { double x0; double x1; })vui_layoutSubviews:(struct CGSize { double x0; double x1; })a0 computationOnly:(BOOL)a1;
+- (void)vui_willMoveToWindow:(id)a0;
+- (id)vuiBackgroundColor;
+- (void)vui_traitCollectionDidChange:(id)a0;
+- (void)setVuiContentMode:(unsigned long long)a0;
+- (BOOL)vuiIsUserInteractionEnabled;
+- (void)setVuiUserInteractionEnabled:(BOOL)a0;
+- (void)setImageProxy:(id)a0 completion:(id /* block */)a1;
+- (unsigned long long)vuiContentMode;
+- (void)setImageProxy:(id)a0 clearingExisting:(BOOL)a1 completion:(id /* block */)a2;
+- (id)_imageProxyWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateFlatImageWithImage:(id)a0;
+- (void)_reloadImageForLayoutDirectionChange;
+
+@end

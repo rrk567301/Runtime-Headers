@@ -1,0 +1,13 @@
+@interface HomeAutomationInternal.AutomateHomeIntentHandler : NSObject <AutomateHomeIntentHandling> {
+    void /* unknown type, empty encoding */ genericErrorResponse;
+    void /* unknown type, empty encoding */ deviceIsSupported;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)resolveTriggerForAutomateHome:(id)a0 withCompletion:(id /* block */)a1;
+- (void)resolveAutomatableTaskForAutomateHome:(id)a0 withCompletion:(id /* block */)a1;
+- (void)confirmAutomateHome:(id)a0 completion:(id /* block */)a1;
+- (void)handleAutomateHome:(id)a0 completion:(id /* block */)a1;
+
+@end

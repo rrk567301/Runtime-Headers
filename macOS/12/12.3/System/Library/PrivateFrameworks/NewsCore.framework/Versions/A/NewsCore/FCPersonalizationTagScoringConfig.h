@@ -1,0 +1,22 @@
+@interface FCPersonalizationTagScoringConfig : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) double channelTopicMappingWeight;
+@property (nonatomic) double democratizationFactor;
+@property (nonatomic) double locationScoreDecayFactor;
+@property (nonatomic) double locationWeight;
+@property (nonatomic) double maxDistanceThreshold;
+@property (nonatomic) long long maxLocationsToConsider;
+@property (nonatomic) double topicTopicMappingWeight;
+@property (nonatomic) double userMembershipWeight;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithConfigDictionary:(id)a0;
+- (id)initWithChannelTopicMappingWeight:(double)a0 democratizationFactor:(double)a1 locationScoreDecayFactor:(double)a2 locationWeight:(double)a3 maxDistanceThreshold:(double)a4 maxLocationsToConsider:(long long)a5 topicTopicMappingWeight:(double)a6 userMembershipWeight:(double)a7;
+- (id)initWithConfigDictionary:(id)a0 defaultConfig:(id)a1;
+
+@end

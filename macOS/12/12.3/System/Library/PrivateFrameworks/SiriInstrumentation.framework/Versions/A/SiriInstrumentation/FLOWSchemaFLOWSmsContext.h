@@ -1,0 +1,82 @@
+@class FLOWSchemaFLOWLanguageConfidenceMatrix, NSArray, FLOWSchemaFLOWSmsAudioContext, NSData, FLOWSchemaFLOWSmsTextContext, FLOWSchemaFLOWTextMessageLength;
+
+@interface FLOWSchemaFLOWSmsContext : SISchemaInstrumentationMessage {
+    struct { unsigned char messageType : 1; unsigned char emojiUsed : 1; unsigned char keyboardUsed : 1; } _has;
+}
+
+@property (nonatomic) int messageType;
+@property (nonatomic) BOOL hasMessageType;
+@property (nonatomic) BOOL emojiUsed;
+@property (nonatomic) BOOL hasEmojiUsed;
+@property (nonatomic) BOOL keyboardUsed;
+@property (nonatomic) BOOL hasKeyboardUsed;
+@property (copy, nonatomic) NSArray *recipientTypes;
+@property (nonatomic) unsigned int messageDurationMs;
+@property (nonatomic) BOOL hasMessageDurationMs;
+@property (retain, nonatomic) FLOWSchemaFLOWTextMessageLength *textMessageLength;
+@property (nonatomic) BOOL hasTextMessageLength;
+@property (retain, nonatomic) FLOWSchemaFLOWSmsTextContext *textContext;
+@property (nonatomic) BOOL hasTextContext;
+@property (retain, nonatomic) FLOWSchemaFLOWSmsAudioContext *audioContext;
+@property (nonatomic) BOOL hasAudioContext;
+@property (copy, nonatomic) NSArray *personTypes;
+@property (copy, nonatomic) NSArray *readMessageTypes;
+@property (copy, nonatomic) NSArray *isMultiLinguals;
+@property (copy, nonatomic) NSArray *isReadables;
+@property (copy, nonatomic) NSArray *isGroupMessages;
+@property (retain, nonatomic) FLOWSchemaFLOWLanguageConfidenceMatrix *languageConfidenceMatrix;
+@property (nonatomic) BOOL hasLanguageConfidenceMatrix;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichMessagesize;
+@property (readonly, nonatomic) unsigned long long whichMessagecontext;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)clearRecipientType;
+- (void)clearPersonType;
+- (void)addRecipientType:(int)a0;
+- (void)addPersonType:(int)a0;
+- (void)deleteRecipientType;
+- (unsigned long long)recipientTypeCount;
+- (int)recipientTypeAtIndex:(unsigned long long)a0;
+- (void)deletePersonType;
+- (unsigned long long)personTypeCount;
+- (int)personTypeAtIndex:(unsigned long long)a0;
+- (void)deleteMessageDurationMs;
+- (void)clearReadMessageType;
+- (void)clearIsMultiLingual;
+- (void)clearIsReadable;
+- (void)clearIsGroupMessage;
+- (void)addReadMessageType:(int)a0;
+- (void)addIsMultiLingual:(BOOL)a0;
+- (void)addIsReadable:(BOOL)a0;
+- (void)addIsGroupMessage:(BOOL)a0;
+- (void)deleteMessageType;
+- (void)deleteEmojiUsed;
+- (void)deleteKeyboardUsed;
+- (void)deleteTextMessageLength;
+- (void)deleteTextContext;
+- (void)deleteAudioContext;
+- (void)deleteReadMessageType;
+- (unsigned long long)readMessageTypeCount;
+- (int)readMessageTypeAtIndex:(unsigned long long)a0;
+- (void)deleteIsMultiLingual;
+- (unsigned long long)isMultiLingualCount;
+- (BOOL)isMultiLingualAtIndex:(unsigned long long)a0;
+- (void)deleteIsReadable;
+- (unsigned long long)isReadableCount;
+- (BOOL)isReadableAtIndex:(unsigned long long)a0;
+- (void)deleteIsGroupMessage;
+- (unsigned long long)isGroupMessageCount;
+- (BOOL)isGroupMessageAtIndex:(unsigned long long)a0;
+- (void)deleteLanguageConfidenceMatrix;
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+
+@end

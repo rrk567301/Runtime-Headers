@@ -1,0 +1,91 @@
+@class NSString, AppTelemetryInvestigation;
+
+@interface AppTelemetryTimeSeriesEvent : PBCodable <PQLValuable, NSCopying> {
+    struct { unsigned char magnitudeDouble : 1; unsigned char timestamp : 1; unsigned char magnitude : 1; unsigned char magnitudeFloat : 1; unsigned char magnitudeInt : 1; unsigned char magnitudeBool : 1; } _has;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) unsigned int identifier;
+@property (nonatomic) BOOL hasMagnitudeFloat;
+@property (nonatomic) float magnitudeFloat;
+@property (nonatomic) BOOL hasMagnitudeDouble;
+@property (nonatomic) double magnitudeDouble;
+@property (nonatomic) BOOL hasMagnitudeInt;
+@property (nonatomic) int magnitudeInt;
+@property (nonatomic) BOOL hasMagnitudeBool;
+@property (nonatomic) BOOL magnitudeBool;
+@property (nonatomic) BOOL hasMagnitude;
+@property (nonatomic) int magnitude;
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (readonly, nonatomic) BOOL hasInvestigation;
+@property (retain, nonatomic) AppTelemetryInvestigation *investigation;
+
++ (id)newFromSqliteValue:(struct sqlite3_value { } *)a0;
++ (id)newFromSqliteStatement:(struct sqlite3_stmt { } *)a0 atIndex:(int)a1;
++ (id)newOperationTimedOutEventWithTime:(double)a0 type:(id)a1 nonDiscretionary:(BOOL)a2 hasForegroundClients:(BOOL)a3;
++ (id)newPermanentlyInconsistentEventWithZoneMangledID:(id)a0;
++ (id)newConsistencyCheckerFailedEvent;
++ (id)newFullyConsistentEvent;
++ (id)newSyncUpBackoffRatioEventWithRatio:(float)a0 zoneMangledID:(id)a1;
++ (id)newSyncUpBackoffDelayEventWithBackoff:(float)a0 zoneMangledID:(id)a1;
++ (id)newDroppedEventWithCount:(unsigned int)a0;
++ (id)newFSEventToSyncUpEventWithDuration:(double)a0;
++ (id)newUserDownloadEventWithDuration:(double)a0;
++ (id)newCASyncUpZoneErrorEventWithError:(id)a0 pcsChained:(BOOL)a1 zoneMangledID:(id)a2;
++ (id)newCASyncDownErrorEventWithError:(id)a0 pcsChained:(BOOL)a1 zoneMangledID:(id)a2;
++ (id)newCAUploadErrorEventWithError:(id)a0 pcsChained:(BOOL)a1 sharedZone:(BOOL)a2 count:(int)a3;
++ (id)newCADownloadErrorEventWithError:(id)a0 pcsChained:(BOOL)a1 sharedZone:(BOOL)a2 count:(int)a3;
++ (id)newCASyncUpItemErrorEventWithError:(id)a0 pcsChained:(BOOL)a1 sharedZone:(BOOL)a2 count:(int)a3;
++ (id)newCASyncUpZoneErrorCountEventWithCount:(int)a0;
++ (id)newCASyncDownErrorCountEventWithCount:(int)a0;
++ (id)newCASyncUpItemErrorCountEventWithCount:(int)a0;
++ (id)newCAUploadErrorCountEventWithCount:(int)a0;
++ (id)newCADownloadErrorCountEventWithCount:(int)a0;
++ (id)newCATotalErrorCountEventWithCount:(int)a0;
++ (id)newShareAliasInSharedFolderEventWithZoneMangledID:(id)a0;
++ (id)newFolderSharingCountMismatchEventWithCount:(int)a0 zoneMangledID:(id)a1;
++ (id)newMissingApplyJobEventWithNumberMissing:(unsigned int)a0;
++ (id)newMissingDownloaderJobEventWithNumberMissing:(unsigned int)a0;
++ (id)newZoneResetEventWithZoneMangledID:(id)a0 lastSyncDate:(id)a1 error:(id)a2 errorDescription:(id)a3;
++ (id)newMissingAssetContentEventWithRecordID:(id)a0;
++ (id)newChainedDirectoryMissingChainPCSEventWithZoneMangledID:(id)a0 itemIDString:(id)a1;
++ (id)newTelemetryEventInZoneWithMangledID:(id)a0 fromError:(id)a1 errorDescription:(id)a2 itemIDString:(id)a3;
++ (id)newTelemetryEventInZoneWithMangledID:(id)a0;
++ (id)newMissingPushEventWithNumberOutOfSync:(unsigned int)a0;
++ (id)newTestMetricEventWithMagnitude:(unsigned int)a0;
++ (id)newDBResetEventWithError:(id)a0 description:(id)a1;
++ (id)newMissingSyncUpJobEventWithNumberMissing:(unsigned int)a0;
++ (id)newMissingUploaderJobEventWithNumberMissing:(unsigned int)a0;
++ (id)newMissingReaderJobEventWithNumberMissing:(unsigned int)a0;
++ (id)newCorruptPackageDownloadEventWithZoneMangledID:(id)a0 error:(id)a1 itemIDString:(id)a2;
++ (id)newFolderSharePCSChainingEventWithTime:(double)a0 zoneMangledID:(id)a1 itemIDString:(id)a2 error:(id)a3 errorDescription:(id)a4;
++ (id)newShareAcceptationEventWithLastStep:(id)a0 zoneMangledID:(id)a1 itemIDString:(id)a2 error:(id)a3;
++ (id)newSyncBoostingProblemCountWithProblemCount:(int)a0;
++ (id)newDeepScanEventWithReason:(id)a0 appLibrary:(id)a1;
++ (id)newFileChecksumMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1;
++ (id)newPackageChecksumMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1;
++ (id)newFileReadErrorWithError:(id)a0 zoneMangledID:(id)a1 itemIDString:(id)a2;
++ (id)newChildCountMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1 magnitude:(int)a2;
++ (id)newRecursiveItemCountMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1 magnitude:(int)a2;
++ (id)newShareAliasCountMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1 magnitude:(int)a2;
++ (id)newShareCountMismatchEventWithZoneMangledID:(id)a0 itemIDString:(id)a1 magnitude:(int)a2;
++ (id)newMissingShareAliasEventWithZoneMangledID:(id)a0 itemIDString:(id)a1;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)copyTo:(id)a0;
+- (void)sqliteBind:(struct sqlite3_stmt { } *)a0 index:(int)a1;
+- (void)clearOneofValuesForMagnitude;
+- (id)magnitudeAsString:(int)a0;
+- (int)StringAsMagnitude:(id)a0;
+
+@end

@@ -1,0 +1,66 @@
+@interface CHIPPumpConfigurationAndControl : CHIPCluster
+
+@property (readonly) struct PumpConfigurationAndControlCluster { void /* function */ **_vptr$ClusterBase; unsigned int mClusterId; struct DeviceProxy *mDevice; unsigned short mEndpoint; struct Optional<chip::SessionHandle> { BOOL mHasValue; union Value { struct SessionHandle { unsigned long long mPeerNodeId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mLocalSessionId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mPeerSessionId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mGroupId; unsigned char mFabric; struct Optional<chip::ReferenceCountedHandle<chip::Transport::UnauthenticatedSession>> { BOOL mHasValue; union Value { struct ReferenceCountedHandle<chip::Transport::UnauthenticatedSession> { struct UnauthenticatedSession *mTarget; } mData; } mValue; } mUnauthenticatedSessionHandle; } mData; } mValue; } mSessionHandle; } cppCluster;
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void *)getCluster;
+- (void)readAttributeAttributeListWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeClusterRevisionWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeFeatureMapWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeFeatureMapWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxPressureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxPressureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxSpeedWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxSpeedWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxFlowWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxFlowWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinConstPressureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMinConstPressureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxConstPressureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxConstPressureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinCompPressureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMinCompPressureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxCompPressureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxCompPressureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinConstSpeedWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMinConstSpeedWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxConstSpeedWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxConstSpeedWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinConstFlowWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMinConstFlowWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxConstFlowWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxConstFlowWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinConstTempWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMinConstTempWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxConstTempWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeMaxConstTempWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributePumpStatusWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributePumpStatusWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeEffectiveOperationModeWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeEffectiveOperationModeWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeEffectiveControlModeWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeEffectiveControlModeWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeCapacityWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeCapacityWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeSpeedWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeSpeedWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeLifetimeRunningHoursWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeLifetimeRunningHoursWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeLifetimeRunningHoursWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributePowerWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributePowerWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeLifetimeEnergyConsumedWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeLifetimeEnergyConsumedWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeLifetimeEnergyConsumedWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeOperationModeWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeOperationModeWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeOperationModeWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeControlModeWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeControlModeWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeControlModeWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeAlarmMaskWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAlarmMaskWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+
+@end

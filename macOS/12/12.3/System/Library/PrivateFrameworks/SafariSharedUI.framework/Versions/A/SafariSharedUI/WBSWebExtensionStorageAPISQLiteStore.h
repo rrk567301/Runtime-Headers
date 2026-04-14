@@ -1,0 +1,32 @@
+@class NSString;
+
+@interface WBSWebExtensionStorageAPISQLiteStore : WBSWebExtensionSQLiteStore <WBSWebExtensionStorageProtocol> {
+    long long _storageType;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_databaseURL;
+- (int)_createFreshDatabaseSchema;
+- (void)getValuesForKeys:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getValuesForAllKeysWithCompletionHandler:(id /* block */)a0;
+- (void)setKeyedData:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getStorageSizeForAllKeysIncludingKeyedData:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)deleteValuesForKeys:(id)a0 completionHandler:(id /* block */)a1;
+- (void)deleteDatabaseWithCompletionHandler:(id /* block */)a0;
+- (void)getStorageSizeForKeys:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getStorageSizeForAllKeysWithCompletionHandler:(id /* block */)a0;
+- (id)_getKeysAndValuesFromRowEnumerator:(id)a0;
+- (id)_getValuesForKeys:(id)a0 outErrorMessage:(id *)a1;
+- (id)_getValuesForAllKeysReturningErrorMessage:(id *)a0;
+- (id)_insertOrUpdateValue:(id)a0 forKey:(id)a1 inDatabase:(id)a2;
+- (id)initWithType:(long long)a0 composedIdentifier:(id)a1;
+- (id)initForTestingWithType:(long long)a0 composedIdentifier:(id)a1;
+- (int)_currentDatabaseSchemaVersion;
+- (int)_resetDatabaseSchema;
+- (BOOL)_isDatabaseEmpty;
+
+@end

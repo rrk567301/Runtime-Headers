@@ -1,0 +1,92 @@
+@class NSString, NSMutableDictionary, MCContainerNavigator, MPNavigatorInternal, MCPlug;
+
+@interface MPNavigator : NSObject <MPNavigatorSupportInternal, MPActionableSupportInternal, NSSecureCoding, NSCopying, MPAnimationSupport, MPNavigatorSupport, MPActionSupport, MPLayerableSupport, MPActionableSupport, MPGeometrySupport, MPTimingSupport> {
+    MPNavigatorInternal *_internal;
+    NSMutableDictionary *_layers;
+    NSMutableDictionary *_actions;
+    MCPlug *_plug;
+    MCContainerNavigator *_navigator;
+    id _parent;
+    NSMutableDictionary *_animationPaths;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *initialLayer;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (struct CGSize { double x0; double x1; })size;
+- (void)dealloc;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)uuid;
+- (void)cleanup;
+- (void)setSize:(struct CGSize { double x0; double x1; })a0;
+- (id)parent;
+- (double)scale;
+- (struct CGPoint { double x0; double x1; })position;
+- (double)duration;
+- (void)setPosition:(struct CGPoint { double x0; double x1; })a0;
+- (void)setDuration:(double)a0;
+- (id)objectID;
+- (void)setOpacity:(double)a0;
+- (void)setScale:(double)a0;
+- (void)setZPosition:(double)a0;
+- (id)actionForKey:(id)a0;
+- (void)setContainer:(id)a0;
+- (double)zPosition;
+- (double)opacity;
+- (void)setZIndex:(long long)a0;
+- (void)setNumberOfLoops:(double)a0;
+- (long long)zIndex;
+- (id)layers;
+- (id)actions;
+- (void)setParent:(id)a0;
+- (double)numberOfLoops;
+- (double)rotationAngle;
+- (void)setRotationAngle:(double)a0;
+- (void)removeActionForKey:(id)a0;
+- (void)setAction:(id)a0 forKey:(id)a1;
+- (id)parentDocument;
+- (BOOL)isTriggered;
+- (id)plug;
+- (id)animationPathForKey:(id)a0;
+- (void)removeAnimationPathForKey:(id)a0;
+- (id)actionableObjectForID:(id)a0;
+- (void)configureActions;
+- (id)plugID;
+- (void)copyActions:(id)a0;
+- (void)setTimeIn:(double)a0;
+- (void)setPhaseInDuration:(double)a0;
+- (void)setPhaseOutDuration:(double)a0;
+- (void)setIsTriggered:(BOOL)a0;
+- (id)animationPaths;
+- (void)copyAnimationPaths:(id)a0;
+- (void)setAnimationPath:(id)a0 forKey:(id)a1;
+- (double)phaseInDuration;
+- (double)phaseOutDuration;
+- (void)copyStruct:(id)a0;
+- (void)setPlug:(id)a0;
+- (void)removeAllLayers;
+- (id)navigatorKey;
+- (void)setLayer:(id)a0 forKey:(id)a1;
+- (void)reconnectAll;
+- (id)allSlides:(BOOL)a0;
+- (void)removeLayerForKey:(id)a0;
+- (id)layerForKey:(id)a0;
+- (id)allSongs;
+- (double)xRotationAngle;
+- (double)yRotationAngle;
+- (void)setXRotationAngle:(double)a0;
+- (void)setYRotationAngle:(double)a0;
+- (void)setStartsPaused:(BOOL)a0;
+- (double)timeIn;
+- (BOOL)startsPaused;
+- (id)layerKeyDictionary;
+- (id)layerKey;
+- (void)copyLayers:(id)a0;
+- (void)setInitialLayer:(id)a0;
+- (id)initialLayer;
+
+@end

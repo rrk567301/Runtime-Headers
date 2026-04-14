@@ -1,0 +1,83 @@
+@class NSString, NSArray, ForYouRecommendationMediator, WBSSiteMetadataManager, NSMapTable, _WelcomeView;
+@protocol StartPageCollectionSectionProviderDelegate, StartPageSiriSuggestionsSectionProviderDelegate;
+
+@interface StartPageSiriSuggestionsSectionProvider : NSObject <StartPageCollectionSectionTitleViewDelegate, StartPageFullDescriptionViewItemDelegate, StartPageCollectionSectionProvider> {
+    NSArray *_currentRecommendations;
+    WBSSiteMetadataManager *_siteMetadataManager;
+    NSMapTable *_recommendationMetadataTokens;
+    _WelcomeView *_welcomeView;
+    _WelcomeView *_welcomeViewTemplate;
+    BOOL _isVisible;
+    BOOL _hideEmptyItemView;
+}
+
+@property (nonatomic) BOOL usesPrivateBrowsing;
+@property (retain, nonatomic) ForYouRecommendationMediator *recommendationMediator;
+@property (weak, nonatomic) id<StartPageSiriSuggestionsSectionProviderDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSString *identifier;
+@property (weak, nonatomic) id<StartPageCollectionSectionProviderDelegate> sectionProviderDelegate;
+@property (readonly, nonatomic) BOOL usesCompactAppearance;
+@property (readonly, copy, nonatomic) NSArray *draggedTypes;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)reloadData;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
+- (long long)_numberOfItems;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)collectionView:(id)a0 itemForRepresentedObjectAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 willDisplayItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 didEndDisplayingItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (id)_sectionIndexSet;
+- (long long)_sectionIndex;
+- (void)_cleanUp;
+- (void)willReuseItem:(id)a0;
+- (void)startPageFullDescriptionViewItem:(id)a0 showContextMenuWithEvent:(id)a1;
+- (id)_browserWindowController;
+- (id)_titleViewForSectionAtIndex:(long long)a0;
+- (void)startPageCollectionSectionTitleView:(id)a0 collapseSection:(BOOL)a1;
+- (long long)columnTypeForLayoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (id)layoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (void)setUpReusableViewsUsingRegister:(id)a0;
+- (void)highlightSectionAtIndex:(long long)a0;
+- (void)unhighlightSectionAtIndex:(long long)a0;
+- (void)viewDidLayoutWithFirstSectionIndex:(long long)a0;
+- (id)accessibilityTitleForSection:(long long)a0;
+- (id)accessibilityIdentifierForSection:(long long)a0;
+- (id)initWithCompactAppearance:(BOOL)a0;
+- (struct TabPlacementHint { id x0; BOOL x1; })_tabPlacementHint;
+- (BOOL)_hasContentToDisplay;
+- (void)_didUpdateSiriSuggestionsVisibility;
+- (id)_makeWelcomeView;
+- (id)_welcomeString;
+- (void)_didSelectWelcomeViewCloseButton:(id)a0;
+- (void)_incrementWelcomeViewTimesShownCounterIfApplicableBy:(unsigned long long)a0;
+- (BOOL)_shouldShowWelcomeView;
+- (void)_updateWelcomeView;
+- (unsigned long long)_numberOfTimesWelcomeViewHasBeenShown;
+- (id)_enqueueTouchIconRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (id)_enqueueLeadImageRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (void)_fetchHandoffResult;
+- (void)_updateCurrentRecommendations:(id)a0;
+- (void)_updateCurrentRecommendationsAndReloadSection:(id)a0;
+- (void)_updateRecommendationsForTopics:(id)a0;
+- (void)_makeWelcomeViewIfNeeded;
+- (void)navigateToSiriSuggestion:(id)a0;
+- (id)_debugToolTipForRecommendation:(id)a0;
+- (id)_enqueueSiteMetadataRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (BOOL)_isSectionVisible;
+- (BOOL)_recommendationsAreVisuallyIdentical:(id)a0;
+- (void)_navigateToRecommendation:(id)a0 withPolicy:(long long)a1;
+- (id)_sectionInsertionIndexSetWasDisplayingSection:(BOOL)a0;
+- (void)_scheduleHandoffApplicationUpdate:(id)a0;
+- (void)_scheduleRecommendationUpdate:(id)a0;
+- (void)_updateImageForRecommendation:(id)a0;
+
+@end

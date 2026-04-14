@@ -1,0 +1,83 @@
+@class ISDDataClass, NSString, NSArray, NSDictionary, NSMutableArray, ISDFileReference;
+
+@interface ISDEntity : ISDDataObject <NSCoding> {
+    NSString *_name;
+    NSString *_parentName;
+    ISDDataClass *_dataClass;
+    ISDFileReference *_bundleRef;
+    NSArray *_attributes;
+    NSArray *_relationships;
+    NSMutableArray *_propertyDependencies;
+    NSString *_uiHelperClassName;
+    BOOL _excludeFromAirbagCount;
+    int _idNumber;
+    NSDictionary *_propertiesByName;
+    int _hasPropertiesWithLastModifiedResolutionPolicy;
+    NSMutableArray *_versionInfo;
+}
+
++ (void)initialize;
++ (void)_cleanUp:(id)a0;
++ (void)cleanupCyclicReferences:(id)a0;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)name;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithName:(id)a0;
+- (id)replacementObjectForPortCoder:(id)a0;
+- (id)displayName;
+- (void)setAttributes:(id)a0;
+- (id)attributes;
+- (id)bundle;
+- (id)versionInfo;
+- (id)relationships;
+- (id)dataClass;
+- (void)setRelationships:(id)a0;
+- (id)parentName;
+- (void)setParentName:(id)a0;
+- (void)setDataClass:(id)a0;
+- (id)propertyNames;
+- (void)setVersionInfo:(id)a0;
+- (int)idNumber;
+- (void)_setIdNumber:(int)a0;
+- (id)fastName;
+- (id)bundleRef;
+- (BOOL)morphInToObject:(id)a0;
+- (id)uiHelperClassName;
+- (id)anchorChildren;
+- (void)setBundleRef:(id)a0;
+- (id)conflictUIHelperClassName;
+- (void)setUIHelperClassName:(id)a0;
+- (id)relationshipWithName:(id)a0;
+- (void)setExcludeFromAirbagCount:(BOOL)a0;
+- (id)propertyWithName:(id)a0;
+- (void)addPropertyDependencySet:(id)a0;
+- (id)fastDataclass;
+- (id)identityKeys:(BOOL *)a0;
+- (id)attributeWithName:(id)a0;
+- (BOOL)morphInToObjectExceptingProperties:(id)a0;
+- (BOOL)hasPropertiesWithLastModifiedResolutionPolicy;
+- (id)identityKeysForDictionary:(id)a0;
+- (id)identityKeys;
+- (BOOL)excludeFromAirbagCount;
+- (id)propertyDependenciesForPropertyName:(id)a0;
+- (Class)uiHelperClass;
+- (id)requiredPropertyNames;
+- (id)hashValueOfIdentityKeyValuesForRecord:(id)a0;
+- (void)_createEntityNamePropertyIfNeeded;
+- (id)propertyDependencies;
+- (void)_updatePropertiesFromEntity:(id)a0 forKey:(id)a1 didChange:(BOOL *)a2;
+- (id)_identityKeys:(int *)a0;
+- (id)identityKeysForRecord:(id)a0 identityComponent:(int *)a1 minimumAlternate:(int)a2;
+- (id)identityKeysForRecord:(id)a0;
+- (id)identityKeysForDictionary:(id)a0 minimumAlternate:(int)a1;
+- (void)_buildPropertyNameCache;
+- (id)identityKeysForRecord:(id)a0 minimumAlternate:(int)a1;
+- (id)primaryRelationships;
+- (id)newListOfRequiredRelationshipNames;
+
+@end

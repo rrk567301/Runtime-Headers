@@ -1,0 +1,45 @@
+@interface CALFreeBusy : CALEntity
+
+- (void)setURL:(id)a0;
+- (id)url;
+- (id)uid;
+- (id)endDate;
+- (id)startDate;
+- (id)duration;
+- (void)setDuration:(id)a0;
+- (id)contact;
+- (void)setContact:(id)a0;
+- (void)setStartDate:(id)a0;
+- (void)setEndDate:(id)a0;
+- (void)setUID:(id)a0;
+- (id)comments;
+- (void)setComments:(id)a0;
+- (id)attendees;
+- (void)setAttendees:(id)a0;
+- (id)organizer;
+- (void)setOrganizer:(id)a0;
+- (id)requestStatus;
+- (void)setRequestStatus:(id)a0;
+- (void)addAttendee:(id)a0;
+- (void)removeAttendee:(id)a0;
+- (id)expandOnTimeRange:(id)a0;
+- (BOOL)hasAttendee:(id)a0;
+- (void)removeAllAttendees;
+- (void)removeAllComments;
+- (void)removeAllRequestStatus;
+- (void)removeAllFreeBusyTimes;
+- (id)stampDate;
+- (void)setStampDate:(id)a0;
+- (void)addComment:(id)a0;
+- (void)removeComment:(id)a0;
+- (void)addRequestStatus:(id)a0;
+- (void)removeRequestStatus:(id)a0;
+- (id)freeBusyTimes;
+- (void)addFreeBusyTime:(id)a0;
+- (void)removeFreeBusyTime:(id)a0;
+- (void)setFreeBusyTimes:(id)a0;
+- (id)maskUID;
+- (void)setMaskUID:(id)a0;
+- (id)occurrencesOnTimeRange:(id)a0;
+
+@end

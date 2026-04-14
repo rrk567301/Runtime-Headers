@@ -1,0 +1,94 @@
+@class NSString, NSImage, NSMutableSet, NSSharingServicePicker, NSMenu, NSWindow;
+
+@interface BrowserShareManager : NSObject <BrowserSharingServiceInvocationDelegate, NSMenuDelegate, NSMenuItemValidation, NSSharingServiceDelegate, NSSharingServicePickerDelegate> {
+    struct HashMap<unsigned long long, BrowserSharingOperation *, WTF::DefaultHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::GenericHashTraits<BrowserSharingOperation *>, WTF::HashTableTraits> { struct HashTable<unsigned long long, WTF::KeyValuePair<unsigned long long, BrowserSharingOperation *>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned long long, BrowserSharingOperation *>>, WTF::DefaultHash<unsigned long long>, WTF::HashMap<unsigned long long, BrowserSharingOperation *, WTF::DefaultHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::GenericHashTraits<BrowserSharingOperation *>>::KeyValuePairTraits, WTF::HashTraits<unsigned long long>> { union { void *m_table; unsigned int *m_tableForLLDB; } ; } m_impl; } _browserSharingOperationMap;
+    NSMutableSet *_activeInvocations;
+    BOOL _isShowingSharingServicePicker;
+}
+
+@property (retain, nonatomic) NSSharingServicePicker *sharingServicePicker;
+@property (retain, nonatomic) NSSharingServicePicker *sharingServicePickerForShareSubmenuInFileMenu;
+@property (retain, nonatomic) NSSharingServicePicker *sharingServicePickerForShareSubmenuInToolbarOverflowMenu;
+@property (retain, nonatomic) NSWindow *sourceWindow;
+@property (copy, nonatomic) id /* block */ performWithItemsBlock;
+@property (retain, nonatomic) NSImage *transitionImage;
+@property (retain, nonatomic) NSMenu *shareSubmenuInToolbarOverflowMenu;
+@property (readonly, nonatomic) NSMenu *shareSubmenuInFileMenu;
+@property (nonatomic) BOOL includesQuickNoteInShareMenu;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)menuNeedsUpdate:(id)a0;
+- (BOOL)menuHasKeyEquivalent:(id)a0 forEvent:(id)a1 target:(id *)a2 action:(SEL *)a3;
+- (id)sharingServicePicker:(id)a0 delegateForSharingService:(id)a1;
+- (id)sharingService:(id)a0 sourceWindowForShareItems:(id)a1 sharingContentScope:(long long *)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })sharingService:(id)a0 sourceFrameOnScreenForShareItem:(id)a1;
+- (id)sharingService:(id)a0 transitionImageForShareItem:(id)a1 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a2;
+- (void)sharingService:(id)a0 didFailToShareItems:(id)a1 error:(id)a2;
+- (void)sharingService:(id)a0 didShareItems:(id)a1;
+- (id)sharingServicePicker:(id)a0 sharingServicesForItems:(id)a1 mask:(unsigned long long)a2 proposedSharingServices:(id)a3;
+- (id)sharingServicePicker:(id)a0 recentSharingServicesForItems:(id)a1 proposedSharingServices:(id)a2;
+- (void)initializeShareSubmenuInFileMenu:(id)a0;
+- (void)browserViewControllerWillClose:(id)a0;
+- (void)didCreateVisibleContentsSnapshotForSharingWithID:(unsigned long long)a0 image:(id)a1;
+- (void)didRunJavaScriptForSharingExtensionWithID:(unsigned long long)a0 results:(id)a1;
+- (void)performSharingService:(id)a0 withItems:(id)a1 window:(id)a2 defaultSubject:(id)a3;
+- (void)showSharingServicePickerForURL:(id)a0 window:(id)a1 atBottomOfView:(id)a2 performWithItemsHandler:(id /* block */)a3;
+- (id)_currentBrowserViewController;
+- (void)_performSharingService:(id)a0 withItems:(id)a1 window:(id)a2 serviceParameters:(id)a3 shouldRunJavaScriptIfAvailable:(BOOL)a4;
+- (unsigned long long)_addBrowserSharingOperation:(id)a0;
+- (BOOL)_runJavaScriptForSharingService:(id)a0 items:(id)a1 serviceParameters:(id)a2;
+- (id)_transitionImageFromSourceWindow;
+- (id)_convertActiveWebPageShareItemsIfNecessaryForSharingService:(id)a0 originalItems:(id)a1;
+- (void)performSharingService:(id)a0 withItems:(id)a1 window:(id)a2 serviceParameters:(id)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_currentTabContentViewFrameForSnapshot;
+- (id)_browserDocument;
+- (id)_browserViewControllerForShareMenu;
+- (id)_sharingServiceFromShareKitMenuItem:(id)a0;
+- (void)_shareMenuItemSelected:(id)a0;
+- (id)_urlForShareMenu;
+- (BOOL)_sharingService:(id)a0 supportsPDFForURL:(id)a1;
+- (id)_pdfItemProviderForURL:(id)a0 browserViewController:(id)a1;
+- (void)_mailPageMailingLinkByDefault:(BOOL)a0;
+- (id)_sharingServicesForSharingServicePickerForItems:(id)a0 proposedSharingServices:(id)a1 isForRecentsSection:(BOOL)a2;
+- (id)_sharingServicesForShareSubmenuInFileMenuForItems:(id)a0 proposedSharingServices:(id)a1 isForRecentsSection:(BOOL)a2;
+- (id)_sharingServicesForShareSubmenuInToolbarOverflowMenuForItems:(id)a0 proposedSharingServices:(id)a1 isForRecentsSection:(BOOL)a2;
+- (id)_urlInSharedItems:(id)a0;
+- (id)_servicesThatSupportPDFForURL:(id)a0;
+- (BOOL)_removeSharingServiceWithName:(id)a0 fromArray:(id)a1;
+- (void)_performFromSharingServicePicker:(id)a0 withItems:(id)a1;
+- (id)_browserSharingServiceForService:(id)a0 items:(id)a1 isForRecentsSection:(BOOL)a2 handler:(id /* block */)a3;
+- (void)_addUnifiedFieldURLToReadingList;
+- (id)_addToBookmarksGlyph;
+- (void)_addBookmarkForUnifiedFieldURL;
+- (id)_addQuickNoteGlyph;
+- (unsigned long long)_indexToInsertFirstSharingServiceThatSupportsPDF:(id)a0;
+- (id)_titleForSharingService:(id)a0;
+- (void)_insertSharingServicesThatSupportPDF:(id)a0 intoExistingSharingServices:(id)a1;
+- (id)_emailThisPageMenuItemKeyEquivalent;
+- (id)_emailLinkToThisPageMenuItemKeyEquivalent;
+- (id)_sharingServicePicker:(id)a0 sharingServicesForItems:(id)a1 proposedSharingServices:(id)a2 isForRecentsSection:(BOOL)a3;
+- (void)_didFinishUsingSharingService:(id)a0;
+- (void)_finalizeJavaScriptForSharingServiceInvocation:(id)a0 arguments:(id)a1;
+- (void)_getFinalizeArgumentsForReturnedItems:(id)a0 completion:(id /* block */)a1;
+- (void)_processJavaScriptFinalizeReturnedItems:(id)a0 forSharingService:(id)a1;
+- (void)_convertShareKitMenuItemToShareMenuItem:(id)a0;
+- (void)_mailPageFromShareMenuKeyEquivalent:(id)a0;
+- (void)_mailLinkFromShareMenuKeyEquivalent:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })sourceFrameOnScreenForSharingServiceInvocation:(id)a0;
+- (id)sharingServiceInvocation:(id)a0 transitionImageWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a1;
+- (id)sourceWindowForSharingServiceInvocation:(id)a0 sharingContentScope:(long long *)a1;
+- (void)sharingServiceInvocationDidFail:(id)a0;
+- (void)sharingServiceInvocation:(id)a0 didShareItems:(id)a1;
+- (void)initializeShareSubmenuInToolbarOverflowMenu:(id)a0;
+- (id)emailServiceParametersDictionaryForService:(id)a0 uuid:(id)a1 pageTitle:(id)a2 emailURLByDefault:(BOOL)a3 isWebArchiveAvailable:(BOOL)a4 isReaderAvailable:(BOOL)a5 isShowingReader:(BOOL)a6;
+
+@end

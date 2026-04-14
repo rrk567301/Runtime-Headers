@@ -1,0 +1,62 @@
+@interface CHIPThermostat : CHIPCluster
+
+@property (readonly) struct ThermostatCluster { void /* function */ **_vptr$ClusterBase; unsigned int mClusterId; struct DeviceProxy *mDevice; unsigned short mEndpoint; struct Optional<chip::SessionHandle> { BOOL mHasValue; union Value { struct SessionHandle { unsigned long long mPeerNodeId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mLocalSessionId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mPeerSessionId; struct Optional<unsigned short> { BOOL mHasValue; union Value { unsigned short mData; } mValue; } mGroupId; unsigned char mFabric; struct Optional<chip::ReferenceCountedHandle<chip::Transport::UnauthenticatedSession>> { BOOL mHasValue; union Value { struct ReferenceCountedHandle<chip::Transport::UnauthenticatedSession> { struct UnauthenticatedSession *mTarget; } mData; } mValue; } mUnauthenticatedSessionHandle; } mData; } mValue; } mSessionHandle; } cppCluster;
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void *)getCluster;
+- (void)readAttributeAttributeListWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeClusterRevisionWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeFeatureMapWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeFeatureMapWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)clearWeeklyScheduleWithCompletionHandler:(id /* block */)a0;
+- (void)getRelayStatusLogWithCompletionHandler:(id /* block */)a0;
+- (void)getWeeklyScheduleWithParams:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setWeeklyScheduleWithParams:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setpointRaiseLowerWithParams:(id)a0 completionHandler:(id /* block */)a1;
+- (void)readAttributeLocalTemperatureWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeLocalTemperatureWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeAbsMinHeatSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAbsMinHeatSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeAbsMaxHeatSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAbsMaxHeatSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeAbsMinCoolSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAbsMinCoolSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeAbsMaxCoolSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAbsMaxCoolSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeOccupiedCoolingSetpointWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeOccupiedCoolingSetpointWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeOccupiedCoolingSetpointWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeOccupiedHeatingSetpointWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeOccupiedHeatingSetpointWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeOccupiedHeatingSetpointWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinHeatSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeMinHeatSetpointLimitWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeMinHeatSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxHeatSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeMaxHeatSetpointLimitWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeMaxHeatSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinCoolSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeMinCoolSetpointLimitWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeMinCoolSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMaxCoolSetpointLimitWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeMaxCoolSetpointLimitWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeMaxCoolSetpointLimitWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeMinSetpointDeadBandWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeMinSetpointDeadBandWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeMinSetpointDeadBandWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeControlSequenceOfOperationWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeControlSequenceOfOperationWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeControlSequenceOfOperationWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeSystemModeWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeSystemModeWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)subscribeAttributeSystemModeWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeStartOfWeekWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeStartOfWeekWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeNumberOfWeeklyTransitionsWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeNumberOfWeeklyTransitionsWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+- (void)readAttributeNumberOfDailyTransitionsWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeNumberOfDailyTransitionsWithMinInterval:(unsigned short)a0 maxInterval:(unsigned short)a1 subscriptionEstablished:(id /* block */)a2 reportHandler:(id /* block */)a3;
+
+@end

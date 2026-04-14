@@ -1,0 +1,55 @@
+@interface SearchUIUtilities : NSObject
+
++ (id)localizedStringForKey:(id)a0;
++ (id)focusGroupIdentifier;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1;
++ (void)dispatchMainIfNecessary:(id /* block */)a0;
++ (double)onePixelForCurrentScreenResolution;
++ (BOOL)isWideScreen;
++ (void)dispatchAsyncIfNecessary:(id /* block */)a0;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
++ (double)standardTableCellContentInset;
++ (BOOL)deviceSupportsRotation;
++ (void)performAnimatableChanges:(id /* block */)a0;
++ (BOOL)resultIsSiriAction:(id)a0;
++ (id)bundleIdentifierForApp:(unsigned long long)a0;
++ (id)defaultBrowserBundleIdentifier;
++ (void)openPunchout:(id)a0 fromCardSection:(id)a1 toListener:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4;
++ (void)requestDeviceUnlock:(id /* block */)a0;
++ (BOOL)isLargeIpad;
++ (void)openPunchout:(id)a0;
++ (BOOL)shouldHandleCardSectionEngagement:(id)a0 feedbackListener:(id)a1;
++ (id)pointerKeyMapTable;
++ (BOOL)appIsValidForBundleIdentifier:(id)a0;
++ (id)stringForSFRichText:(id)a0;
++ (id)cachedColorForSFColor:(id)a0;
++ (void)fetchColorForSFColor:(id)a0 withCompletionHandler:(id /* block */)a1;
++ (id)colorForSFColor:(id)a0;
++ (id)stringForSFRichTextArray:(id)a0;
++ (BOOL)backgroundColorPrefersWhiteForegroundText:(id)a0;
++ (id)sendFeedbackForPunchout:(id)a0 toListener:(id)a1 fromCardSection:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4;
++ (void)openUserActivity:(id)a0 applicationBundleIdentifier:(id)a1;
++ (BOOL)bundleIdentifierIsBlockedForScreenTimeExpiration:(id)a0;
++ (id)imageForBlockedApp;
++ (id)uiColorForSFColor:(id)a0;
++ (id)sharedColorCache;
++ (void)openPunchout:(id)a0 completion:(id /* block */)a1;
++ (void)openURL:(id)a0 withCompletion:(id /* block */)a1;
++ (void)performOpenTask:(id /* block */)a0;
++ (void)openUserActivity:(id)a0 applicationBundleIdentifier:(id)a1 completion:(id /* block */)a2;
++ (id)openOptions;
++ (void)openPunchout:(id)a0 fromCardSection:(id)a1 toListener:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4 completion:(id /* block */)a5;
++ (void)openApplicationWithBundleIdentifier:(id)a0 completion:(id /* block */)a1;
++ (BOOL)isIpad;
++ (id)hyphenatableStringForString:(id)a0;
++ (id)addAspectRatioConstraintForSize:(struct CGSize { double x0; double x1; })a0 toView:(id)a1;
++ (BOOL)isPortraitForWindow:(id)a0;
++ (void)requestClipInstallWithURL:(id)a0 completion:(id /* block */)a1;
++ (BOOL)deviceIsAuthenticated;
++ (void)requestDeviceUnlockWithSuccessHandler:(id /* block */)a0;
++ (void)playNegativeHaptic;
++ (BOOL)resultBlockedForScreenTime:(id)a0;
++ (void)openApplicationWithBundleIdentifier:(id)a0;
++ (BOOL)isMinimizedHardwareKeyboardMode;
+
+@end

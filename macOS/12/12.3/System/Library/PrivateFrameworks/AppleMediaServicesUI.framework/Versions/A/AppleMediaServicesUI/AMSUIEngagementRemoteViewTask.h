@@ -1,0 +1,30 @@
+@class NSError, NSString, AMSEngagementRequest, AMSEngagementResult, NSViewController, NSObject, NSXPCListener, AMSProcessInfo;
+@protocol OS_dispatch_group, AMSBagProtocol;
+
+@interface AMSUIEngagementRemoteViewTask : AMSTask <AMSUIEngagementTaskHostInterface>
+
+@property (retain) NSObject<OS_dispatch_group> *dispatchGroup;
+@property (retain) NSError *error;
+@property (retain) NSViewController *presentedViewController;
+@property (retain) NSXPCListener *remoteListener;
+@property (retain) AMSEngagementRequest *request;
+@property (retain) AMSEngagementResult *result;
+@property (retain) NSViewController *viewController;
+@property (retain) id<AMSBagProtocol> bag;
+@property (retain) AMSProcessInfo *clientInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)_snapshotBagDataPromise;
+- (id)initWithRequest:(id)a0 presentingViewController:(id)a1;
+- (void)engagementTaskDidFinishWithResult:(id)a0 error:(id)a1 completion:(id /* block */)a2;
+- (void)preferredContentSizeDidChange:(struct CGSize { double x0; double x1; })a0;
+- (void)_unblock;
+- (void)_presentViewController:(id)a0;
+- (BOOL)_isWindowPresentation;
+- (id)presentEngagement;
+
+@end

@@ -1,0 +1,52 @@
+@class NSXPCConnection;
+
+@interface CDPDClientHandler : NSObject <CDPDaemonProtocol> {
+    NSXPCConnection *_connection;
+    unsigned long long _entitlements;
+    unsigned long long _clientType;
+    id _notificationObject;
+}
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)saveTermsAcceptance:(id)a0 completion:(id /* block */)a1;
+- (void)fetchTermsAcceptanceForAccount:(id)a0 completion:(id /* block */)a1;
+- (void)_removeObserver;
+- (void)setUserVisibleKeychainSyncEnabled:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)isICDPEnabledForDSID:(id)a0 checkWithServer:(BOOL)a1 completion:(id /* block */)a2;
+- (void)postFollowUpWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)clearFollowUpWithContext:(id)a0 completion:(id /* block */)a1;
+- (oneway void)statusForDataPrivacyWithCompletion:(id /* block */)a0;
+- (oneway void)updateDataPrivacyWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)isUserVisibleKeychainSyncEnabledWithCompletion:(id /* block */)a0;
+- (void)removeNonViewAwarePeersFromCircleWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)handleCloudDataProtectionStateWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)repairCloudDataProtectionStateWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)startCircleApplicationApprovalServerWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)recoverAndSynchronizeSquirrelWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)recoverSquirrelWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)attemptToEscrowPreRecord:(id)a0 context:(id)a1 completion:(id /* block */)a2;
+- (void)localSecretChangedTo:(id)a0 secretType:(unsigned long long)a1 context:(id)a2 uiProvider:(id)a3 completion:(id /* block */)a4;
+- (void)finishOfflineLocalSecretChangeWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)finishCyrusFlowAfterTermsAgreementWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)shouldPerformRepairForContext:(id)a0 forceFetch:(BOOL)a1 completion:(id /* block */)a2;
+- (void)generateNewRecoveryKeyWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)deleteRecoveryKeyWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (void)verifyRecoveryKeyWithContext:(id)a0 uiProvider:(id)a1 completion:(id /* block */)a2;
+- (oneway void)isRecoveryKeyAvailableWithCompletion:(id /* block */)a0;
+- (void)generateRandomRecoveryKeyWithContext:(id)a0 completion:(id /* block */)a1;
+- (oneway void)fetchEscrowRecordDevicesWithContext:(id)a0 usingCache:(BOOL)a1 completion:(id /* block */)a2;
+- (void)performRecoveryWithContext:(id)a0 uiProvider:(id)a1 authProvider:(id)a2 completion:(id /* block */)a3;
+- (void)hasLocalSecretWithCompletion:(id /* block */)a0;
+- (id)initWithConnection:(id)a0 entitlements:(unsigned long long)a1 clientType:(unsigned long long)a2;
+- (BOOL)_allowDataRecovery;
+- (BOOL)_allowStateMachineAccess;
+- (void)_startObservingConnectionStateForRepairWithStateMachine:(id)a0;
+- (void)_reportCDPJoinMetricsWithContext:(id)a0 didJoin:(BOOL)a1 withError:(id)a2;
+- (BOOL)_allowFollowUps;
+- (void)_performRecoveryWithContext:(id)a0 uiProvider:(id)a1 authProvider:(id)a2 errorProviuder:(id)a3 resultParser:(id)a4 secureBackUpController:(id)a5 completion:(id /* block */)a6;
+- (BOOL)_allowRecoveryKey;
+- (void)attemptToEscrowPreRecord:(id)a0 preRecordUUID:(id)a1 secretType:(unsigned long long)a2 context:(id)a3 completion:(id /* block */)a4;
+- (BOOL)_allowUtilityAccess;
+
+@end

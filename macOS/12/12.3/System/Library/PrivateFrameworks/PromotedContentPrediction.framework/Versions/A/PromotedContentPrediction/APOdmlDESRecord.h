@@ -1,0 +1,3 @@
+@interface APOdmlDESRecord : NSObject
+
+@end

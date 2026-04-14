@@ -1,0 +1,27 @@
+@class NSString, MTLSimDevice;
+@protocol MTLDevice;
+
+@interface MTLSimSharedEvent : _MTLObjectWithLabel <MTLSimEvent, MTLSharedEvent> {
+    MTLSimDevice *_device;
+    unsigned int _reference;
+    unsigned long long _signaledValue;
+}
+
+@property (readonly) id<MTLDevice> device;
+@property (copy) NSString *label;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property unsigned long long signaledValue;
+
+- (void)dealloc;
+- (void)notifyListener:(id)a0 atValue:(unsigned long long)a1 block:(id /* block */)a2;
+- (id)newSharedEventHandle;
+- (unsigned long long)signaledValue;
+- (void)setSignaledValue:(unsigned long long)a0;
+- (unsigned int)eventRef;
+- (id)initWithDevice:(id)a0 reference:(unsigned int)a1;
+- (BOOL)waitSignaledValue:(unsigned long long)a0 timeoutMS:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,24 @@
+@class NSArray, NSSet, NSDate;
+
+@interface PGGraphMusicSessionNode : PGGraphOptimizedNode
+
+@property (class, readonly, nonatomic) NSArray *musicSessionDateSortDescriptors;
+
+@property (readonly, nonatomic) NSDate *localStartDate;
+@property (readonly, nonatomic) NSDate *localEndDate;
+@property (readonly, nonatomic) NSSet *trackNodes;
+
++ (id)momentOfMusicSession;
+
+- (id)description;
+- (unsigned short)domain;
+- (void).cxx_destruct;
+- (id)label;
+- (BOOL)hasProperties:(id)a0;
+- (id)initWithLabel:(id)a0 domain:(unsigned short)a1 weight:(float)a2 properties:(id)a3;
+- (id)propertyDictionary;
+- (id)momentNodes;
+- (void)enumerateMusicTrackNodesUsingBlock:(id /* block */)a0;
+- (id)initWithLocalStartDate:(id)a0 localEndDate:(id)a1;
+
+@end

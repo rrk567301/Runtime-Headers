@@ -1,0 +1,95 @@
+@class NSControl, NSImage, NSImageSymbolConfiguration, NSFont, NSColor;
+
+@interface NSImageCell : NSCell <NSCopying, NSCoding> {
+    NSControl *_controlView;
+    struct _NSImageCellAnimationState { id x0; double x1; long long x2; long long x3; long long x4; long long x5; } *_animationState;
+    struct { unsigned int  : 18; unsigned char _symbolScale : 3; unsigned char _animates : 1; unsigned char _align : 4; unsigned char _scale : 3; unsigned char _style : 3; } _icFlags;
+    NSFont *_symbolFont;
+    NSImageSymbolConfiguration *_symbolConfiguration;
+    NSImage *_specializedImage;
+    NSColor *_contentTintColor;
+    id _scaledImage;
+}
+
+@property unsigned long long imageAlignment;
+@property unsigned long long imageScaling;
+@property unsigned long long imageFrameStyle;
+
++ (void)initialize;
++ (BOOL)_copiesContents;
++ (BOOL)_shouldClearIvarOnCopy:(struct objc_ivar { } *)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_drawingRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 frameStyle:(unsigned long long)a1 flipped:(BOOL)a2;
++ (struct CGSize { double x0; double x1; })_cellSizeAccountingForImageOfSize:(struct CGSize { double x0; double x1; })a0 frameStyle:(unsigned long long)a1 flipped:(BOOL)a2;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_imageRectForDrawingImageOfSize:(struct CGSize { double x0; double x1; })a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 scaling:(unsigned long long)a2 alignment:(unsigned long long)a3 flipped:(BOOL)a4;
+
+- (id)copy;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setImage:(id)a0;
+- (id)image;
+- (void)setFormatter:(id)a0;
+- (void)setObjectValue:(id)a0;
+- (BOOL)isOpaque;
+- (id)controlView;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilityDescriptionAttribute;
+- (BOOL)accessibilityIsDescriptionAttributeSettable;
+- (void)setControlView:(id)a0;
+- (long long)interiorBackgroundStyle;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })titleRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)_needRedrawOnWindowChangedKeyState;
+- (struct CGSize { double x0; double x1; })cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_startAnimation;
+- (void)_stopAnimation;
+- (void)drawWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)setEditable:(BOOL)a0;
+- (unsigned long long)hitTestForEvent:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2;
+- (void)highlight:(BOOL)a0 withFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (id)initImageCell:(id)a0;
+- (void)drawInteriorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })imageRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_symbolConfiguration;
+- (void)_setSymbolConfiguration:(id)a0;
+- (id)_contentTintColor;
+- (void)_setContentTintColor:(id)a0;
+- (void)drawFocusRingMaskWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })drawingRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_autoflipUnarchivedProperties;
+- (id)_controlContentStyleInView:(id)a0;
+- (void)_updateControlContentStyle:(id)a0 inView:(id)a1;
+- (BOOL)_shouldDrawWithContentTintColorInView:(id)a0;
+- (long long)_contentBacking;
+- (long long)_interiorContentPresentationStateInView:(id)a0;
+- (long long)_interiorContentValueInView:(id)a0;
+- (long long)_interiorContentStateInView:(id)a0;
+- (BOOL)trackMouse:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2 untilMouseUp:(BOOL)a3;
+- (int)_vibrancyBlendModeForControlView:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })focusRingMaskBoundsForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)_setContents:(id)a0;
+- (void)_controlViewDidChangeEffectiveSemanticContext:(id)a0;
+- (id)accessibilityAuditLabel;
+- (id)accessibilityEmbeddedImageDescriptionAttribute;
+- (BOOL)_animates;
+- (id)_specializedImageForImage:(id)a0;
+- (id)_symbolFont;
+- (long long)_symbolScale;
+- (id)_specializedImage;
+- (BOOL)_shouldClip;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_imageRectForDrawing:(id)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (struct __CFDictionary { } *)_newCUIGrayBezelDrawOptionsInView:(id)a0;
+- (BOOL)_wantsFocusRingForControlView:(id)a0;
+- (void)_drawBorderStyleWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)_animationTimerCallback:(id)a0;
+- (void)_setSymbolFont:(id)a0;
+- (void)_setSymbolScale:(long long)a0;
+- (struct CGSize { double x0; double x1; })_cellSizeAccountingForImage:(id)a0 inControl:(id)a1;
+- (unsigned long long)_currentImageStateForView:(id)a0;
+- (id)_vibrancyFilterForControlView:(id)a0;
+- (void)_setAnimates:(BOOL)a0;
+- (BOOL)_hasAccessibilityTitle;
+
+@end

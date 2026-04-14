@@ -1,0 +1,32 @@
+@class NSColor;
+
+@interface MusicUI.MultiValueActionsTextField : NSTextField {
+    void /* unknown type, empty encoding */ underlinesTextOnHover;
+    void /* unknown type, empty encoding */ axChildren;
+    void /* unknown type, empty encoding */ shouldTrackMouseEvents;
+    void /* unknown type, empty encoding */ trackingArea;
+    void /* unknown type, empty encoding */ links;
+    void /* unknown type, empty encoding */ objectGraph;
+    void /* unknown type, empty encoding */ mouseExitEventsMonitor;
+    void /* unknown type, empty encoding */ hoverableRanges;
+    void /* unknown type, empty encoding */ separatorString;
+    void /* unknown type, empty encoding */ activeHoverableRange;
+    void /* unknown type, empty encoding */ isHovered;
+}
+
+@property (nonatomic, retain) NSColor *textColor;
+
+- (void)dealloc;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)accessibilityChildren;
+- (BOOL)isAccessibilityElement;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)updateTrackingAreas;
+
+@end

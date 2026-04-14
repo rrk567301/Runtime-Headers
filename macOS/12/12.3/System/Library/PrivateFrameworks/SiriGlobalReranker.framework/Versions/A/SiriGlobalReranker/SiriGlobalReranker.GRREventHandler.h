@@ -1,0 +1,6 @@
+@interface SiriGlobalReranker.GRREventHandler : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ deviceContext;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_shouldDisableSELFLogging;
+}
+
+@end

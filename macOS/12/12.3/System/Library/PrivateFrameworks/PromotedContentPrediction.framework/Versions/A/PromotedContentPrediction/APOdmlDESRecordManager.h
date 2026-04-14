@@ -1,0 +1,3 @@
+@interface APOdmlDESRecordManager : APOdmlSingleton
+
+@end

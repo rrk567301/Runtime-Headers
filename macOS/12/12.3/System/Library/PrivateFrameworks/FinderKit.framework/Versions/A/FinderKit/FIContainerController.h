@@ -1,0 +1,70 @@
+@interface FIContainerController : FI_TBrowserContainerController
+
+@property (nonatomic) BOOL historyDisabled;
+@property (readonly, nonatomic) BOOL downloadsUbiquitousContents;
+
++ (BOOL)_isMediaBrowserNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
++ (BOOL)_isMediaBrowserInTargetPath:(const void *)a0;
++ (unsigned long long)_mediaBrowserTypeForTargetPath:(const void *)a0;
++ (unsigned long long)_mediaBrowserTypeForNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+
+- (BOOL)allowsMultipleSelection;
+- (BOOL)shouldEnableShareButton;
+- (void)setViewStyle:(int)a0;
+- (void)setMediaBrowserShownTypes:(unsigned long long)a0;
+- (BOOL)previewPanel:(id)a0 shouldShowOpenButtonForItem:(id)a1;
+- (void)aboutToTearDown;
+- (BOOL)canShare;
+- (BOOL)canClickDimmedNodes;
+- (BOOL)nodeIsDimmed:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (void)clickedOnDisabledNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)canSelectNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (void)openQuickLookNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)quickLookShouldShowOpenButtonForNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)shouldShowSidebarSplitter;
+- (BOOL)canBrowseNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)canDuplicateItems;
+- (BOOL)canMoveItemsToTrash;
+- (BOOL)shouldTypeSelectForEvent:(id)a0 withCurrentSearchString:(id)a1;
+- (BOOL)urlIsDimmed:(id)a0;
+- (BOOL)panelDisableNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)allowsBrowsingPackages;
+- (void)openSelection;
+- (void)openLocation:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0 origin:(struct shared_ptr<ISpawnOrigin> { struct ISpawnOrigin *x0; struct __shared_weak_count *x1; })a1;
+- (void)cmdShowInFinder:(id)a0;
+- (void)prefetchEnableStates:(const void *)a0;
+- (void)cmdToggleHideExtension:(id)a0;
+- (void)searchWasChanged;
+- (BOOL)inBrowseMode;
+- (void)viewDidSyncToDataSource:(const void *)a0;
+- (void)setAnimating:(BOOL)a0 expanded:(BOOL)a1;
+- (void)_replaceUnresolvedTarget:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0 withTarget:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a1;
+- (struct TFENodeVector { struct TFENode *x0; struct TFENode *x1; struct __compressed_pair<TFENode *, std::allocator<TFENode>> { struct TFENode *x0; } x2; })reduceRootedPath:(const void *)a0;
+- (void)addCurrentTargetPathToHistory;
+- (void)setHidesSharedItems:(BOOL)a0;
+- (BOOL)hidesSharedItems;
+- (void)disableHistoryAndDoWork:(const void *)a0;
+- (BOOL)sidebarInitiallyVisible;
+- (id)appCustomMenuItemsForNodes:(const void *)a0;
+- (void)saveQuery:(BOOL)a0;
+- (BOOL)shouldShowPathBarForTarget:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (void)searchTextChanged:(id)a0;
+- (struct TFENode { struct OpaqueNodeRef *x0; })sidebarTarget;
+- (void)historyChanged;
+- (void)addToHistory:(const void *)a0 windowState:(id)a1;
+- (id)gutsController;
+- (void)backForwardCommon:(BOOL)a0;
+- (void)gotoHistoryEntry:(id)a0;
+- (void)searchFieldTextChanged;
+- (void)destroyBrowserView:(BOOL)a0;
+- (void)setPreferredViewStyle:(int)a0;
+- (Class)browserClassForViewStyle:(int)a0;
+- (struct TFENode { struct OpaqueNodeRef *x0; })_nodeForLastMediaBrowserMode;
+- (BOOL)nodeIsOurICloud:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (BOOL)_updateViewStyle:(int)a0;
+- (id)_historySearchTemplateMenu;
+- (struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *x0; } x0; })_backupBrowserSnapshotPath;
+- (BOOL)validateToggleHideExtension:(id)a0;
+- (BOOL)validateShowInFinder:(id)a0;
+
+@end

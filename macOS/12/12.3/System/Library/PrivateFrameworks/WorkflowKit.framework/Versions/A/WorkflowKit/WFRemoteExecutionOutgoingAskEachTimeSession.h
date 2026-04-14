@@ -1,0 +1,18 @@
+@class WFRemoteExecutionAskEachTimeRequest;
+
+@interface WFRemoteExecutionOutgoingAskEachTimeSession : WFRemoteExecutionSession
+
+@property (copy, nonatomic) id /* block */ completion;
+@property (readonly, nonatomic) WFRemoteExecutionAskEachTimeRequest *request;
+
+- (void).cxx_destruct;
+- (void)finish;
+- (void)finishWithError:(id)a0;
+- (void)sendToDestinations:(id)a0 options:(id)a1;
+- (id)initWithService:(id)a0 request:(id)a1 completion:(id /* block */)a2;
+- (void)handleIncomingProtobuf:(id)a0;
+- (void)handleTimeout;
+- (double)timeoutLimitInSeconds;
+- (void)finishWithoutCallingCompletion;
+
+@end

@@ -1,0 +1,46 @@
+@class NSEvent, NSForceClickMonitor;
+
+@interface NSImmediateActionGestureRecognizer : NSGestureRecognizer {
+    long long _flags;
+    struct CGPoint { double x; double y; } _location;
+    struct CGPoint { double x; double y; } _startLocation;
+    long long _style;
+    NSEvent *_startEvent;
+    NSForceClickMonitor *_forceClickMonitor;
+    id _animationController;
+}
+
+- (void)dealloc;
+- (id)delegate;
+- (void)setDelegate:(id)a0;
+- (id)_delegate;
+- (long long)style;
+- (void)reset;
+- (void)setStyle:(long long)a0;
+- (struct CGPoint { double x0; double x1; })locationInView:(id)a0;
+- (id)initWithTarget:(id)a0 action:(SEL)a1;
+- (void)pressureChangeWithEvent:(id)a0;
+- (id)_desiredPressureBehavior;
+- (BOOL)shouldRequireFailureOfGestureRecognizer:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)rightMouseDown:(id)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (void)mouseUp:(id)a0;
+- (BOOL)canPreventGestureRecognizer:(id)a0;
+- (BOOL)shouldBeArchived;
+- (void)otherMouseDown:(id)a0;
+- (double)animationProgress;
+- (void)quickLookWithEvent:(id)a0;
+- (void)setAnimationController:(id)a0;
+- (id)animationController;
+- (unsigned long long)_acceptedEventMask;
+- (BOOL)_delegateShouldAttemptToRecognizeWithEvent:(id)a0;
+- (id)_forceClickMonitor;
+- (id)_startEvent;
+- (void)_didSendActions;
+- (BOOL)_shouldSendActionWhenPossibleConcurrentlyWithRecognizer:(id)a0;
+- (BOOL)shouldBeRequiredToFailByGestureRecognizer:(id)a0;
+- (BOOL)canBePreventedByGestureRecognizer:(id)a0;
+
+@end

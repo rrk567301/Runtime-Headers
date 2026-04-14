@@ -1,0 +1,42 @@
+@class NSString, NSOperationQueue, NSLocale, AFDictationConnection;
+@protocol SFSpeechRecognizerDelegate, NSObject;
+
+@interface SFSpeechRecognizer : NSObject <AFDictationDelegate> {
+    AFDictationConnection *_dictationConnection;
+    NSString *_languageCode;
+    id<NSObject> _facetimeObserver;
+    id<NSObject> _foregroundObserver;
+    id<NSObject> _preferencesObserver;
+}
+
+@property (readonly, nonatomic, getter=_isAvailableForForcedOfflineRecognition) BOOL _availableForForcedOfflineRecognition;
+@property (readonly, nonatomic, getter=isAvailable) BOOL available;
+@property (readonly, copy, nonatomic) NSLocale *locale;
+@property (nonatomic) BOOL supportsOnDeviceRecognition;
+@property (weak, nonatomic) id<SFSpeechRecognizerDelegate> delegate;
+@property (nonatomic) long long defaultTaskHint;
+@property (retain, nonatomic) NSOperationQueue *queue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (long long)authorizationStatus;
++ (void)requestAuthorization:(id /* block */)a0;
++ (id)supportedLocales;
++ (void)_fetchSupportedForcedOfflineLocalesWithCompletion:(id /* block */)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithLocale:(id)a0;
+- (void)dictationConnnectionDidChangeAvailability:(id)a0;
+- (id)recognitionTaskWithRequest:(id)a0 delegate:(id)a1;
+- (void)_informDelegateOfPreferencesChange;
+- (void)_informDelegateOfAvailabilityChange;
+- (void)_requestOfflineDictationSupportWithCompletion:(id /* block */)a0;
+- (BOOL)_isInternalTaskHint:(long long)a0;
+- (id)recognitionTaskWithRequest:(id)a0 resultHandler:(id /* block */)a1;
+
+@end

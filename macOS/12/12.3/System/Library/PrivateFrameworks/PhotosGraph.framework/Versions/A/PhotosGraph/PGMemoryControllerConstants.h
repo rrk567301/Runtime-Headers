@@ -1,0 +1,28 @@
+@interface PGMemoryControllerConstants : NSObject
+
++ (double)recentExclusionSpanForMeaningfulAggregationAfterSameMeaningMemory;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForMeaningfulAggregationAfterSameMeaningMemory;
++ (double)recentExclusionSpanBasedOnFeaturedSubcategoryAndFeatureVector;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysBasedOnFeaturedSubcategoryAndFeatureVector;
++ (double)recentExclusionSpanForWeekInHistory;
++ (double)recentExclusionSpanForTimeCategories;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForWeekInHistory;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForTimeCategories;
++ (double)recentExclusionSpanForYearSummary;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForYearSummary;
++ (double)recentExclusionSpanForRecentPastAndUpcoming;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForRecentPastAndUpcoming;
++ (double)recentExclusionSpanBasedOnFeaturedSubcategory;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysBasedOnFeaturedSubcategory;
++ (double)recentExclusionSpanForInHistoryMemoryCategories;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForNonExclusionOfInHistoryMemoryCategories;
++ (double)recentExclusionSpanForContextualAgainstContextual;
++ (double)recentExclusionSpanForContextualAgainstNonContextual;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForNonExclusionOfContextualAgainstContextual;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForNonExclusionOfContextualAgainstNonContextual;
++ (double)recentExclusionSpanForZeroOverlap;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForNonExclusionOfOverlappingMemories;
++ (double)recentExclusionSpanBetweenTripsWeekendsAndConstituentMoments;
++ (unsigned long long)minimumNumberOfMemoryGenerationDaysForNonExclusionBetweenTripsWeekendsAndConstituentMoments;
+
+@end

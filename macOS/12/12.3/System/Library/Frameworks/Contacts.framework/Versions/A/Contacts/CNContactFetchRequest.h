@@ -1,0 +1,37 @@
+@class NSPredicate, NSArray;
+
+@interface CNContactFetchRequest : CNFetchRequest <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property BOOL disallowsEncodedFetch;
+@property unsigned long long batchSize;
+@property unsigned long long decoderBatchSize;
+@property (readonly) unsigned long long serialNumber;
+@property (readonly) unsigned long long signpostId;
+@property BOOL rankSort;
+@property BOOL onlyMainStore;
+@property BOOL allowsBatching;
+@property (nonatomic) BOOL shouldFailIfAccountNotYetSynced;
+@property (copy) NSPredicate *predicate;
+@property (copy) NSArray *keysToFetch;
+@property BOOL mutableObjects;
+@property BOOL unifyResults;
+@property long long sortOrder;
+
++ (unsigned long long)makeSerialNumber;
++ (unsigned long long)makeSignpostId;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithKeysToFetch:(id)a0;
+- (void)acceptVisitor:(id)a0;
+- (id)effectiveKeysToFetch;
+- (id)effectivePredicate;
+- (BOOL)requiresMeContactAuthorization;
+
+@end

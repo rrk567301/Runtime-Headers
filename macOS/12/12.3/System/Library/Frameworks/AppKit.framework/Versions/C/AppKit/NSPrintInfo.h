@@ -1,0 +1,101 @@
+@class NSSet, NSPrinter, NSString, NSMutableDictionary;
+
+@interface NSPrintInfo : NSObject <NSSecureCoding, NSCopying, NSCoding> {
+    NSMutableDictionary *_attributes;
+    id _moreVars;
+}
+
+@property (class, readonly) NSSet *allowedAttributeClasses;
+@property (class, retain) NSPrintInfo *sharedPrintInfo;
+@property (class, readonly) NSPrinter *defaultPrinter;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy) NSString *paperName;
+@property struct CGSize { double x0; double x1; } paperSize;
+@property long long orientation;
+@property double scalingFactor;
+@property double leftMargin;
+@property double rightMargin;
+@property double topMargin;
+@property double bottomMargin;
+@property (getter=isHorizontallyCentered) BOOL horizontallyCentered;
+@property (getter=isVerticallyCentered) BOOL verticallyCentered;
+@property unsigned long long horizontalPagination;
+@property unsigned long long verticalPagination;
+@property (copy) NSString *jobDisposition;
+@property (copy) NSPrinter *printer;
+@property (readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } imageablePageBounds;
+@property (readonly, copy) NSString *localizedPaperName;
+@property (readonly) NSMutableDictionary *printSettings;
+@property (getter=isSelectionOnly) BOOL selectionOnly;
+
++ (void)initialize;
++ (id)_pageFormatAttributeKeys;
++ (id)_printSettingsAttributeKeys;
++ (void)_setOrientation:(long long)a0 inPageFormat:(struct OpaquePMPageFormat { } *)a1;
++ (void)setDefaultPrinter:(id)a0;
++ (struct CGSize { double x0; double x1; })sizeForPaperName:(id)a0;
++ (id)_printerInPrintSession:(struct OpaquePMPrintSession { } *)a0;
++ (void)_setPaperSize:(struct CGSize { double x0; double x1; })a0 inPrintSession:(struct OpaquePMPrintSession { } *)a1 pageFormat:(struct OpaquePMPageFormat { } *)a2;
++ (void)_setJobDisposition:(id)a0 format:(id)a1 saveURL:(id)a2 inPrintSession:(struct OpaquePMPrintSession { } *)a3 printSettings:(struct OpaquePMPrintSettings { } *)a4;
++ (void)_setJobDisposition:(id)a0 saveURL:(id)a1 inPrintSession:(struct OpaquePMPrintSession { } *)a2 printSettings:(struct OpaquePMPrintSettings { } *)a3;
++ (id)_printSessionAttributeKeys;
++ (void)_setPrinter:(id)a0 inPrintSession:(struct OpaquePMPrintSession { } *)a1;
++ (void)_setPaperName:(id)a0 inPrintSession:(struct OpaquePMPrintSession { } *)a1 pageFormat:(struct OpaquePMPageFormat { } *)a2;
++ (id)_jobSavingURLInPrintSession:(struct OpaquePMPrintSession { } *)a0 printSettings:(struct OpaquePMPrintSettings { } *)a1;
++ (id)_jobDispositionInPrintSession:(struct OpaquePMPrintSession { } *)a0 printSettings:(struct OpaquePMPrintSettings { } *)a1;
++ (void)_setJobDisposition:(id)a0 savePath:(id)a1 inPrintSession:(struct OpaquePMPrintSession { } *)a2 printSettings:(struct OpaquePMPrintSettings { } *)a3;
++ (id)_managedAttributeKeys;
++ (id)_paperNameInPageFormat:(struct OpaquePMPageFormat { } *)a0;
++ (struct CGSize { double x0; double x1; })_paperSizeInPageFormat:(struct OpaquePMPageFormat { } *)a0;
++ (unsigned long long)_orientationInPageFormat:(struct OpaquePMPageFormat { } *)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)dictionary;
+- (id)initWithDictionary:(id)a0;
+- (void)_pageFormatWasEdited;
+- (void)_setPrintInfo:(id)a0;
+- (void)_setAttributesNoCopy:(id)a0 pageFormat:(struct OpaquePMPageFormat { } *)a1 orFlattenedData:(id)a2 printSettings:(struct OpaquePMPrintSettings { } *)a3 orFlattenedData:(id)a4;
+- (void)_setFloat:(float)a0 ifNoAttributeForKey:(id)a1;
+- (void)_setBool:(BOOL)a0 ifNoAttributeForKey:(id)a1;
+- (void)_setInt:(int)a0 ifNoAttributeForKey:(id)a1;
+- (id)_initWithAttributesNoCopy:(id)a0 flattenedPageFormatData:(id)a1 printSettingsData:(id)a2;
+- (void)_validatePaginationAttributes;
+- (void)_setObject:(id)a0 forAttributeKey:(id)a1;
+- (id)_objectForAttributeKey:(id)a0;
+- (void)_setObject:(id)a0 ifNoAttributeForKey:(id)a1;
+- (struct OpaquePMPageFormat { } *)_pageFormatForGetting;
+- (struct OpaquePMPrintSession { } *)_printSessionForGetting;
+- (struct OpaquePMPrintSettings { } *)_printSettingsForGetting;
+- (id)_compatibility_initWithUnkeyedCoder:(id)a0;
+- (void)_setPageFormat:(struct OpaquePMPageFormat { } *)a0;
+- (void)_reconcilePrintSettingsAttributes;
+- (void *)PMPrintSession;
+- (void *)PMPageFormat;
+- (void *)PMPrintSettings;
+- (struct OpaquePMPageFormat { } *)_pageFormatForSetting;
+- (struct OpaquePMPrintSettings { } *)_printSettingsForSetting;
+- (void)_printSettingsWasEdited;
+- (void)setUpPrintOperationDefaultValues;
+- (void)updateFromPMPageFormat;
+- (void)updateFromPMPrintSettings;
+- (void)takeSettingsFromPDFInfo:(id)a0;
+- (struct OpaquePMPrintSession { } *)_printSession;
+- (struct OpaquePMPageFormat { } *)_pageFormat;
+- (struct OpaquePMPrintSettings { } *)_printSettings;
+- (void)_setPrintSettings:(struct OpaquePMPrintSettings { } *)a0;
+- (void)_reconcilePrintSessionAttributes;
+- (void)_createDefaultOrUnflattenPageFormatIfNecessary;
+- (void)_reconcilePageFormatAttributes;
+- (void)_createDefaultOrUnflattenPrintSettingsIfNecessary;
+- (struct OpaquePMPrintSession { } *)_printSessionForSetting;
+- (id)_makePDFInfo;
+- (id)_allAttributeKeys;
+- (void)_removeObjectForAttributeKey:(id)a0;
+
+@end

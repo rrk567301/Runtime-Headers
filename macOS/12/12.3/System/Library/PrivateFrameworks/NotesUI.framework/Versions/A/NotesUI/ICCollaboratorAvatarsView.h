@@ -1,0 +1,30 @@
+@class NSArray, NSStackView, CKShare;
+
+@interface ICCollaboratorAvatarsView : NSView
+
+@property (retain, nonatomic) NSArray *avatarContainerViews;
+@property (retain, nonatomic) NSStackView *avatarStackView;
+@property (nonatomic) double borderWidth;
+@property (nonatomic) double dimension;
+@property (retain, nonatomic) NSArray *participants;
+@property (weak, nonatomic) CKShare *share;
+@property (nonatomic) struct CGSize { double width; double height; } shadowOffset;
+@property (nonatomic) double shadowOpacity;
+@property (nonatomic) double shadowRadius;
+@property (nonatomic) double spacing;
+@property (readonly, nonatomic) unsigned long long displayedAvatarCount;
+@property (nonatomic) BOOL reverseZIndexing;
+@property (nonatomic) BOOL useImageRenderer;
+
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)updateUI;
+- (void)commonInit;
+- (void)setUpAvatarContainerViews;
+- (void)updateShadows;
+- (id)createAvatarContainerView;
+- (id)avatarViewsWithShare:(id)a0;
+- (id)avatarsFromRendererWithParticipants:(id)a0;
+
+@end

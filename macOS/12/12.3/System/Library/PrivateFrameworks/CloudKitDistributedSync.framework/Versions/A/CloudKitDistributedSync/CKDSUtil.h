@@ -1,0 +1,3 @@
+@interface CKDSUtil : NSObject
+
+@end

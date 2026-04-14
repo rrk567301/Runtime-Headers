@@ -1,0 +1,85 @@
+@class NSScrollView, NSString, NSView, PXNSScrollView, NSPanGestureRecognizer;
+@protocol PXNSScrollViewControllerAccessibilityDelegate;
+
+@interface PXNSScrollViewController : PXScrollViewController <PXNSScrollViewDelegate, NSScrollViewDelegate> {
+    PXNSScrollView *_scrollView;
+    BOOL _isScrolling;
+    BOOL _isTracking;
+    BOOL _isLiveScrolling;
+    BOOL _isScrubbing;
+    BOOL _isDecelerating;
+    struct CGPoint { double x; double y; } _targetContentOffset;
+    struct CGPoint { double x; double y; } _initialDragPoint;
+    NSView *_horizontalFloatingWrapperView;
+    NSView *_verticalFloatingWrapperView;
+}
+
+@property (retain, nonatomic) NSPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic) BOOL layoutOnBoundsChanges;
+@property (readonly, nonatomic) NSScrollView *scrollView;
+@property (weak, nonatomic) id<PXNSScrollViewControllerAccessibilityDelegate> accessibilityDelegate;
+@property (nonatomic) BOOL scrollViewIsAccessibilityElement;
+@property (setter=_setWantsPageAlignedHorizontalAxis:) BOOL _wantsPageAlignedHorizontalAxis;
+@property (setter=_setWantsPageAlignedVerticalAxis:) BOOL _wantsPageAlignedVerticalAxis;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)addSubview:(id)a0;
+- (void)didBeginScrollInScrollView:(id)a0;
+- (void)didScrollInScrollView:(id)a0;
+- (void)didEndScrollInScrollView:(id)a0;
+- (void)scrollViewBeganMomentum:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)setClipsToBounds:(BOOL)a0;
+- (void)setContentInset:(struct NSEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+- (BOOL)isTracking;
+- (BOOL)clipsToBounds;
+- (BOOL)isDragging;
+- (BOOL)isScrubbing;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)_handlePanGesture:(id)a0;
+- (BOOL)isDecelerating;
+- (void)setShowsHorizontalScrollIndicator:(BOOL)a0;
+- (void)setShowsVerticalScrollIndicator:(BOOL)a0;
+- (BOOL)showsHorizontalScrollIndicator;
+- (BOOL)showsVerticalScrollIndicator;
+- (BOOL)deferContentOffsetUpdates;
+- (void)addFloatingSublayer:(id)a0 forAxis:(long long)a1;
+- (struct CGSize { double x0; double x1; })scrollViewContentSize;
+- (BOOL)isScrolledAtEdge:(unsigned int)a0 tolerance:(double)a1;
+- (void)stopScrollingAndZoomingAnimations;
+- (id)contentCoordinateSpace;
+- (void)setVisibleOrigin:(struct CGPoint { double x0; double x1; })a0;
+- (void)scrollToEdge:(unsigned int)a0 animated:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)scrollToEdge:(unsigned int)a0 animated:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewVisibleRect;
+- (void)scrollViewWillStartLiveScroll:(id)a0;
+- (void)scrollViewDidEndLiveScroll:(id)a0;
+- (void)_setupDraggingGestureIfNeeded;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewContentBounds;
+- (void)setRespectsContentZOrder:(BOOL)a0;
+- (BOOL)respectsContentZOrder;
+- (void)_updateIsScrubbing;
+- (void)scrollViewDidLayout:(id)a0;
+- (BOOL)hasWindow;
+- (void)addSubviewToScrollView:(id)a0;
+- (void)scrollRectToVisible:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 avoidingContentInsetEdges:(unsigned long long)a1 animated:(BOOL)a2;
+- (void)setScrollViewNeedsLayout;
+- (void)scrollViewLayoutIfNeeded;
+- (void)decelerationRateDidChange;
+- (struct CGSize { double x0; double x1; })scrollViewReferenceSize;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewActiveRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewVisibleRectOutsideBounds;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewConstrainedVisibleRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollViewTargetRect;
+- (void)setScrollViewContentBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setDeferContentOffsetUpdates:(BOOL)a0;
+- (void)applyScrollInfo:(id)a0;
+- (void)draggingPerformsScrollDidChange;
+- (void)postContentRootAccessibilityNotification:(id)a0;
+- (void)postContentRootAccessibilityNotification:(id)a0 userInfo:(id)a1;
+
+@end

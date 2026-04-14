@@ -1,0 +1,20 @@
+@interface CIFilterGeneratorConnection : NSObject {
+    struct CIFilterGeneratorConnectionStruct { id x0; id x1; id x2; id x3; int x4; id x5; } *_generatorConnectionStruct;
+}
+
++ (id)connectionWithSourceObject:(id)a0 sourceKey:(id)a1 targetObject:(id)a2 targetKey:(id)a3 userInfo:(id)a4;
+
+- (void)finalize;
+- (void)dealloc;
+- (id)description;
+- (id)userInfo;
+- (int)type;
+- (void)setType:(int)a0;
+- (void)setUserInfo:(id)a0;
+- (id)sourceObject;
+- (id)sourceKey;
+- (id)targetObject;
+- (id)targetKey;
+- (id)initWithSourceObject:(id)a0 sourceKey:(id)a1 targetObject:(id)a2 targetKey:(id)a3 userInfo:(id)a4;
+
+@end

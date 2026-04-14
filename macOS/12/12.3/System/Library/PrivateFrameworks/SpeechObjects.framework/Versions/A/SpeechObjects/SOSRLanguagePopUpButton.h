@@ -1,0 +1,30 @@
+@class NSTextField, NSString, NSArray, NSProgressIndicator, NSTimer, SODownloadDisplayManager;
+
+@interface SOSRLanguagePopUpButton : NSPopUpButton {
+    long long _numberOfFixedItemsAtEndOfMenu;
+    NSTextField *_downloadStatusTextField;
+    NSProgressIndicator *_downloadStatusProgressIndicator;
+    NSTimer *_downloadStatusUpdateTimer;
+    NSTimer *_pendingDownloadStatusCompletionWhileDictationPreHeatsTimer;
+    SODownloadDisplayManager *_downloadDisplayManager;
+}
+
+@property (retain) NSString *previouslyChosenLocaleIdentifier;
+@property (retain) NSArray *networkBasedLocaleIdentifiers;
+@property (retain) NSArray *offlineBasedLocaleIdentifiers;
+@property BOOL languagesAreDownloadable;
+@property BOOL showOnlyNetworkSupportedItems;
+
+- (void)dealloc;
+- (id)initWithCoder:(id)a0;
+- (BOOL)sendAction:(SEL)a0 to:(id)a1;
+- (void)buildPopUpButtonAndSelectLocaleIdentifier:(id)a0 networkSupportedLocaleIdentifiers:(id)a1 offlineSupportedLocaleIdentifiers:(id)a2;
+- (id)selectedLanguageItem;
+- (void)_startDelayedPopUpUpdate;
+- (void)_updateSRLanguageMenu;
+- (void)_updateDownloadStatusFields;
+- (id)_statusStringForActiveDownloads;
+- (void)installationFinished:(id)a0;
+- (void)_clearDownloadStatusFieldAfterPreHeat;
+
+@end

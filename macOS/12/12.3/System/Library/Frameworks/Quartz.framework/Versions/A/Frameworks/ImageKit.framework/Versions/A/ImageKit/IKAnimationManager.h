@@ -1,0 +1,61 @@
+@class NSArray, NSView, NSMutableIndexSet, NSMutableDictionary, NSMutableArray, NSTimer;
+
+@interface IKAnimationManager : NSObject {
+    NSView *_view;
+    NSMutableArray *_groups;
+    int _perspectiveNeededCount;
+    float _frameRate;
+    NSArray *_channels;
+    BOOL _lockRemove;
+    NSMutableArray *_groupsToRemove;
+    NSMutableIndexSet *_cellsToRenderIndexes;
+    NSMutableIndexSet *_cellsRenderedIndexes;
+    NSMutableDictionary *_animatedCells;
+    NSMutableDictionary *_cellToIndexDictionaryCache;
+    unsigned int _datasourceVersionCache;
+    NSTimer *_animationTimer;
+    NSArray *_animatedCellsArrayCache;
+}
+
+@property BOOL allowsSlowMotion;
+
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (BOOL)isEmpty;
+- (void).cxx_destruct;
+- (id)view;
+- (id)groups;
+- (void)setView:(id)a0;
+- (void)updateTime;
+- (void)removeGroup:(id)a0;
+- (void)addAnimationGroup:(id)a0;
+- (void)willChangeValueForKey:(id)a0 forIndexes:(id)a1;
+- (id)initialValueForKey:(id)a0 forCell:(id)a1;
+- (void)didUpdateValueForKey:(id)a0 forCell:(id)a1;
+- (id)finalValueForKey:(id)a0 forCell:(id)a1;
+- (void)addIndexInRenderList:(int)a0;
+- (void)evalRenderTimeAnimations;
+- (id)cellsToRenderIndexes;
+- (id)cellsRenderedIndexes;
+- (void)evalPreRenderingAnimations;
+- (void)evalPostRenderingAnimations;
+- (void)declareChannels:(id)a0;
+- (id)animatedCellsArrayCache:(BOOL)a0;
+- (void)playAnimationsSynchronously;
+- (id)animatedCells;
+- (void)didChangeValueForKey:(id)a0 forIndexes:(id)a1;
+- (void)_removeGroup:(id)a0;
+- (void)setValue:(id)a0 forKey:(id)a1 forCell:(id)a2;
+- (void)onAnimationTimer;
+- (void)invalidateAnimatedCellsArrayCache;
+- (void)_addCells:(id)a0;
+- (BOOL)cell:(id)a0 needInitialDataForKey:(id)a1;
+- (id)animationDataForCell:(id)a0 forKey:(id)a1;
+- (BOOL)cell:(id)a0 needFinalDataForKey:(id)a1;
+- (void)updateAnimationTimes;
+- (void)removeAnimationsOutOfDate;
+- (BOOL)isCellAnimated:(id)a0;
+- (BOOL)perspectiveIsNeeded;
+
+@end
