@@ -1,0 +1,13 @@
+@interface NSColorWellEndcapButton : NSButton
+
+@property BOOL hasCustomImage;
+
++ (Class)cellClass;
+
+- (void)sizeToFit;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (void)updateLayer;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (BOOL)shouldBeArchived;
+
+@end

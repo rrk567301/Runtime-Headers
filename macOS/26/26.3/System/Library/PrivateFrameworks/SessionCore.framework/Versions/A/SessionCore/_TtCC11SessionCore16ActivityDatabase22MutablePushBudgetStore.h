@@ -1,0 +1,3 @@
+@interface _TtCC11SessionCore16ActivityDatabase22MutablePushBudgetStore : _TtCC11SessionCore16ActivityDatabase15PushBudgetStore
+
+@end

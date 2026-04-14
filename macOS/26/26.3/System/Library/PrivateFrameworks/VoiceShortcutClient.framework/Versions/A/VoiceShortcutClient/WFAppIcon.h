@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface WFAppIcon : WFIcon
+
+@property (readonly, nonatomic) NSString *bundleIdentifier;
+
++ (BOOL)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (id)initWithBundleIdentifier:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+- (id)associatedLogo;
+
+@end

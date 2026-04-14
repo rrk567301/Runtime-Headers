@@ -1,0 +1,3 @@
+@interface SSQuickLookCommand : SFCommand
+
+@end

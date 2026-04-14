@@ -1,0 +1,3 @@
+@interface SKDItemRecord : SKDBaseRecord
+
+@end

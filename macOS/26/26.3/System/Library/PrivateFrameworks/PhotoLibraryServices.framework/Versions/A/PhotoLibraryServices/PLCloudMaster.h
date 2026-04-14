@@ -1,0 +1,87 @@
+@class CPLScopedIdentifier, NSString, NSSet, PLCloudMasterMediaMetadata, NSDate, PLMomentShare, PLCollectionShare;
+
+@interface PLCloudMaster : PLManagedObject <PLSyncableMaster>
+
+@property (retain, nonatomic) NSString *cloudMasterGUID;
+@property (retain, nonatomic) NSString *sourceMasterForDuplicationIdentifier;
+@property (retain, nonatomic) NSString *sourceMasterForDuplicationScopeIdentifier;
+@property (nonatomic) short cloudLocalState;
+@property (retain, nonatomic) NSDate *creationDate;
+@property (nonatomic) short fullSizeJPEGSource;
+@property (retain, nonatomic) NSDate *importDate;
+@property (retain, nonatomic) NSString *uniformTypeIdentifier;
+@property (retain, nonatomic) NSString *originalFilename;
+@property (nonatomic) short originalOrientation;
+@property (retain, nonatomic) NSString *importSessionID;
+@property (copy, nonatomic) NSString *originatingAssetIdentifier;
+@property (nonatomic) short placeholderState;
+@property (nonatomic) short importedBy;
+@property (retain, nonatomic) NSString *importedByBundleIdentifier;
+@property (retain, nonatomic) NSString *importedByDisplayName;
+@property (nonatomic) NSString *codecName;
+@property (nonatomic) short videoFrameRate;
+@property (nonatomic) long long proxyState;
+@property (retain, nonatomic) NSSet *assets;
+@property (retain, nonatomic) NSSet *resources;
+@property (retain, nonatomic) NSSet *modernResources;
+@property (retain, nonatomic) NSString *mediaMetadataType;
+@property (retain, nonatomic) PLCloudMasterMediaMetadata *mediaMetadata;
+@property (retain, nonatomic) PLMomentShare *momentShare;
+@property (retain, nonatomic) PLCollectionShare *collectionShare;
+@property (retain, nonatomic) CPLScopedIdentifier *sourceMasterForDuplicationCPLScopedIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, retain, nonatomic) id localID;
+
++ (id)insertIntoPhotoLibrary:(id)a0 withCloudMasterGUID:(id)a1 inShare:(id)a2;
++ (id)entityName;
++ (id)cloudMastersByScopedIdentifiers:(id)a0 relationshipKeyPathsForPrefetching:(id)a1 inLibrary:(id)a2;
++ (void)deleteMasterIfNecessary:(id)a0 inLibrary:(id)a1;
++ (id)insertIntoManagedObjectContext:(id)a0 withCloudMasterGUID:(id)a1 inShare:(id)a2;
++ (id)cloudMastersWithScopedIdentifiers:(id)a0 relationshipKeyPathsForPrefetching:(id)a1 inLibrary:(id)a2;
++ (void)deleteAllCloudMastersInManagedObjectContext:(id)a0;
++ (id)cloudMasterWithGUID:(id)a0 inShare:(id)a1 prefetchResources:(BOOL)a2 inManagedObjectContext:(id)a3;
++ (unsigned long long)fullSizeJPEGSourceForUTI:(id)a0 andImageDimensions:(struct CGSize { double x0; double x1; })a1;
++ (id)listOfSyncedProperties;
++ (void)resetCloudMastersStateInManagedObjectContext:(id)a0;
++ (id)cloudMasterWithScopedIdentifier:(id)a0 prefetchResources:(BOOL)a1 inLibrary:(id)a2;
++ (void)deleteOrphanedMastersWithManagedObjectContext:(id)a0;
++ (id)_originalTypes;
+
+- (void)awakeFromInsert;
+- (void)applyPropertiesFromCPLMasterChange:(id)a0;
+- (id)shareRelationship;
+- (id)rm_transientCloudResourceForResourceType:(unsigned long long)a0;
+- (id)rm_applyResourcesFromCPLMasterChange:(id)a0 inPhotoLibrary:(id)a1;
+- (id)fingerprintContext;
+- (BOOL)isSyncableChange;
+- (BOOL)supportsCloudUpload;
+- (id)sourceMasterForDuplicationCPLScopedIdentifier;
+- (id)rm_assetUUIDToAssetAttachedResources;
+- (id)cplFullRecord;
+- (void)updateImportedByBundleIdentifier:(id)a0;
+- (id)scopedIdentifier;
+- (BOOL)hasResourcesOtherThanForAssetUuid:(id)a0;
+- (id)scopeIdentifier;
+- (void)setSourceMasterForDuplicationCPLScopedIdentifier:(id)a0;
+- (void)_promptForNilScopeIdentifierRadar;
+- (void)updateImportedByDisplayName:(id)a0;
+- (BOOL)allOriginalsAreLocallyAvailableForAssetUuid:(id)a0 useOriginalAltInsteadOfOriginal:(BOOL)a1;
+- (id)cplMasterPropertyChangeForAsset:(id)a0;
+- (id)rm_cloudResourcesForResourceType:(unsigned long long)a0;
+- (id)rm_assetAttachedResourceForResourceType:(unsigned long long)a0 forAssetUuid:(id)a1;
+- (id)payloadID;
+- (id)stableHashFromOriginalResourceError:(id *)a0;
+- (id)allAssetAttachedResources;
+- (void)rm_applyExpungeableResourceStatesFromCPLMasterChange:(id)a0 inPhotoLibrary:(id)a1;
+- (id)rm_assetAttachedResourcesForResourceType:(unsigned long long)a0;
+- (id)originalFilenameForResourceType:(unsigned long long)a0 filePath:(id)a1;
+- (unsigned long long)sizeOfOriginal;
+- (id)fingerprintScheme;
+- (id)cplPropertyRecord;
+- (id)payloadsForChangedKeys:(id)a0;
+- (BOOL)allOriginalsAreUploaded;
+
+@end

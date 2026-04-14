@@ -1,0 +1,35 @@
+@class NSSet, PPBaseScoreInputSet, NSMutableArray;
+
+@interface PPScoreDict : NSObject <MLFeatureProvider> {
+    PPBaseScoreInputSet *_scoreInputSet;
+    struct unique_ptr<std::vector<float>, std::default_delete<std::vector<float>>> { struct { void *__ptr_; } ; } _scalarValueStorage;
+    struct unique_ptr<std::vector<std::shared_ptr<std::vector<float>>>, std::default_delete<std::vector<std::shared_ptr<std::vector<float>>>>> { struct { void *__ptr_; } ; } _arrayValueStorage;
+    NSMutableArray *_objectStorage;
+}
+
+@property (readonly, nonatomic) NSSet *featureNames;
+
+- (void)setArrayStorage:(void *)a0 forIndex:(unsigned long long)a1;
+- (id)initWithScoreInputSet:(id)a0;
+- (id)objectDictionary;
+- (id)description;
+- (id)init;
+- (id)arrayValueForIndex:(unsigned long long)a0;
+- (float)scalarValueForIndex:(unsigned long long)a0;
+- (void)setArraySharedPtr:(struct shared_ptr<std::vector<float>> { void *x0; struct __shared_weak_count *x1; })a0 forIndex:(unsigned long long)a1;
+- (struct shared_ptr<std::vector<float>> { void *x0; struct __shared_weak_count *x1; })arraySharedPtrForIndex:(unsigned long long)a0;
+- (id)initWithScalarValueCount:(unsigned long long)a0 arrayValueCount:(unsigned long long)a1 objectCount:(unsigned long long)a2;
+- (void).cxx_destruct;
+- (void)setScalarValue:(float)a0 forIndex:(unsigned long long)a1;
+- (void)setArrayValue:(id)a0 forIndex:(unsigned long long)a1;
+- (unsigned long long)scalarValueCount;
+- (unsigned long long)arrayValueCount;
+- (id)objectForIndex:(unsigned long long)a0;
+- (id)featureValueForName:(id)a0;
+- (void)setObject:(id)a0 forIndex:(unsigned long long)a1;
+- (id)arrayValueDictionary;
+- (id)scalarValueDictionary;
+- (id).cxx_construct;
+- (unsigned long long)objectCount;
+
+@end

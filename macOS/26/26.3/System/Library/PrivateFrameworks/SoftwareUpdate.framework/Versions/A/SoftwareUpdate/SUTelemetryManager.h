@@ -1,0 +1,22 @@
+@class SUTelemetryReporter;
+
+@interface SUTelemetryManager : NSObject
+
+@property (retain, nonatomic) SUTelemetryReporter *reporter;
+
++ (id)sharedManager;
++ (id)advancedPreferencesEvent;
++ (id)downloadEvent;
++ (id)installEvent;
++ (id)preferencesEvent;
++ (id)scanEvent;
+
+- (id)initWithReporter:(id)a0;
+- (id)init;
+- (void)reportEvent:(id)a0;
+- (void)dealloc;
+- (void)reportEventName:(id)a0 telemetryServer:(long long)a1 reportableDictionary:(id)a2 className:(id)a3;
+- (id)_formatReportableDictionary:(id)a0 className:(id)a1;
+- (void)reportPreferences;
+
+@end

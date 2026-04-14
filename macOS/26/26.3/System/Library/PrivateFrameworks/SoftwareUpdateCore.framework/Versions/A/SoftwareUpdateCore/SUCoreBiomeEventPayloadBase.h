@@ -1,0 +1,3 @@
+@interface SUCoreBiomeEventPayloadBase : NSObject
+
+@end

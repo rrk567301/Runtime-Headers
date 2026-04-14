@@ -1,0 +1,58 @@
+@interface CKDSPIContainer : CKDContainer <CKXPCContainerScopedDaemonSPI>
+
+- (void)resetAllApplicationPermissionsWithCompletionHandler:(id /* block */)a0;
+- (void)clearPILSCacheForLookupInfos:(id)a0;
+- (void)getNewWebSharingIdentityDataWithCompletionHandler:(id /* block */)a0;
+- (void)decryptPersonalInfoOnShare:(id)a0 completionHandler:(id /* block */)a1;
+- (void)dropDetachedContainersWithCompletionHandler:(id /* block */)a0;
+- (void)statusGroupsForApplicationPermission:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)getOutstandingOperationCountWithCompletionHandler:(id /* block */)a0;
+- (void)serverPreferredPushEnvironmentWithCompletionHandler:(id /* block */)a0;
+- (void)tossConfigWithCompletionHandler:(id /* block */)a0;
+- (void)clearContainerFromMetadataCache;
+- (void)setApplicationPermission:(unsigned long long)a0 enabled:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)getRegisteredItemCountWithCompletionHandler:(id /* block */)a0;
+- (void)getCloudCoreSessionValidityError:(id /* block */)a0;
+- (void)frameworkCachesDirectoryWithCompletionHandler:(id /* block */)a0;
+- (void)performCompleteParticipantVettingOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performAggregateZonePCSOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performReplaceMergeableDeltasOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)clearCachesForRecordWithRecordID:(id)a0 databaseScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)clearRecordCacheWithDatabaseScope:(long long)a0;
+- (void)performMarkAssetBrokenOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchMergeableDeltaMetadataOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchRegisteredBundleIDsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)clearCachesWithOptions:(unsigned long long)a0 databaseScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)performSerializeRecordModificationsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)clearCachesForZoneWithZoneID:(id)a0 databaseScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)serverEnvironmentWithCompletionHandler:(id /* block */)a0;
+- (void)clearInvalidatedPCSCacheEntriesIfNeeded;
+- (void)performArchiveRecordsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)countAssetCacheItemsWithDatabaseScope:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)globalPerUserBoundaryKeyWithCompletionHandler:(id /* block */)a0;
+- (void)representativeDataclassEnabledWithCompletionHandler:(id /* block */)a0;
+- (void)getRecordPCSDiagnosticsForZonesWithCompletionHandler:(id /* block */)a0;
+- (void)currentDeviceIDWithCompletionHandler:(id /* block */)a0;
+- (void)performPublishAssetsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchRecordVersionsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)fetchPCSFromCacheForZoneWithZoneID:(id)a0 databaseScope:(long long)a1 localCacheOnly:(BOOL)a2 unitTestOverrides:(id)a3 completionHandler:(id /* block */)a4;
+- (void)showAssetCacheWithDatabaseScope:(long long)a0;
+- (void)performDeserializeRecordModificationsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchUserQuotaOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchArchivedRecordsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchMergeableDeltasOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)fetchPCSFromCacheForShareWithRecordID:(id)a0 databaseScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)performModifyRecordAccessOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchShareParticipantKeyOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performFetchWhitelistedBundleIDsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)fetchPCSFromCacheForRecordWithRecordID:(id)a0 databaseScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)performModifyWebSharingOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performInitiateParticipantVettingOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)performRepairAssetsOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)setFakeError:(id)a0 forNextRequestOfClassName:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setFakeResponseOperationResult:(id)a0 forNextRequestOfClassName:(id)a1 forItemID:(id)a2 withLifetime:(int)a3 completionHandler:(id /* block */)a4;
+- (void)getNewWebSharingIdentityWithCompletionHandler:(id /* block */)a0;
+- (void)performUploadMergeableDeltasOperation:(id)a0 withBlock:(id /* block */)a1;
+- (void)clearAssetCacheWithDatabaseScope:(long long)a0 completionHandler:(id /* block */)a1;
+
+@end

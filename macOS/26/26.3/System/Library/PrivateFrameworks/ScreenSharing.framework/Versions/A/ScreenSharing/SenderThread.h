@@ -1,0 +1,19 @@
+@class SSSession, NSObject;
+@protocol OS_dispatch_semaphore;
+
+@interface SenderThread : NSThread
+
+@property NSObject<OS_dispatch_semaphore> *suspendSemaphore;
+@property struct __CFRunLoop { } *runLoop;
+@property (weak) SSSession *session;
+@property BOOL suspended;
+
+- (void)shutDown;
+- (void)suspend;
+- (id)init;
+- (void)main;
+- (void)resume;
+- (void).cxx_destruct;
+- (void)dealloc;
+
+@end

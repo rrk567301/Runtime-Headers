@@ -1,0 +1,14 @@
+@class CUIThemeFacet;
+
+@interface CUIMaskedFacetLayer : CALayer
+
+@property (nonatomic) struct CGPath { } *maskPath;
+@property (retain, nonatomic) CUIThemeFacet *facet;
+@property long long drawingLayer;
+
+- (id)init;
+- (void)drawInContext:(struct CGContext { } *)a0;
+- (void)dealloc;
+- (void)updateRenditionKey:(id)a0 getFocus:(BOOL *)a1 userInfo:(id)a2;
+
+@end

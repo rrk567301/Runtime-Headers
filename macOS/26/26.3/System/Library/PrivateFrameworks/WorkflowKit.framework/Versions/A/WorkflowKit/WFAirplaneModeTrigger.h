@@ -1,0 +1,37 @@
+@class NSString;
+
+@interface WFAirplaneModeTrigger : WFTrigger <WFBinaryTrigger>
+
+@property (nonatomic) BOOL onEnable;
+@property (nonatomic) BOOL onDisable;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)supportsSecureCoding;
++ (id)tintColor;
++ (BOOL)isUserInitiated;
++ (BOOL)isAllowedToRunAutomatically;
++ (id)localizedDisplayNameWithContext:(id)a0;
++ (long long)triggerBacking;
++ (id)offIcon;
++ (id)onIconTintColor;
++ (id)onLabel;
++ (id)displayGlyphName;
++ (id)displayGlyphTintColor;
++ (BOOL)isSupportedOnThisDevice;
++ (id)localizedDisplayExplanation;
++ (id)offIconTintColor;
++ (id)offLabel;
++ (id)onIcon;
+
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)localizedDescriptionWithConfigurationSummary;
+- (id)localizedPastTenseDescription;
+- (BOOL)hasValidConfiguration;
+
+@end

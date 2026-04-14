@@ -1,0 +1,15 @@
+@class NSURL;
+
+@interface SSUMatcherBuildParams : NSObject <NSCopying>
+
+@property (readonly) NSURL *modelAssetsDirectoryURL;
+@property (readonly) NSURL *datasetAssetsDirectoryURL;
+@property (readonly) NSURL *cacheDirectoryURL;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)initWithModelAssetsDirectoryURL:(id)a0 datasetAssetsDirectoryURL:(id)a1 cacheDirectoryURL:(id)a2;
+
+@end

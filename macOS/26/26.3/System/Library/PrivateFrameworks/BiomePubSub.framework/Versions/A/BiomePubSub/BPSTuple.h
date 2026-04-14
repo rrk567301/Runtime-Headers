@@ -1,0 +1,18 @@
+@interface BPSTuple : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) id first;
+@property (readonly, nonatomic) id second;
+
++ (id)new;
+
+- (id)initWithFirst:(id)a0 second:(id)a1;
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

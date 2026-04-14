@@ -1,0 +1,3 @@
+@interface CoreAudioOrchestration.ExitWhenAllProcessesDisconnectHandler : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,18 @@
+@class CSUCLIPImageEncoderV3Configuration;
+
+@interface CSUCLIPImageEncoderV3 : NSObject {
+    struct unique_ptr<ik::EspressoNet, std::default_delete<ik::EspressoNet>> { struct { struct EspressoNet *__ptr_; } ; } _net;
+    struct unique_ptr<ik::PixelBufferTransfer, std::default_delete<ik::PixelBufferTransfer>> { struct { struct PixelBufferTransfer *__ptr_; } ; } _transferSession;
+}
+
+@property (readonly, nonatomic) CSUCLIPImageEncoderV3Configuration *configuration;
+
+- (id)initWithConfiguration:(id)a0;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (BOOL)loadResources:(id *)a0;
+- (void)runOnInputImage:(struct __CVBuffer { } *)a0 completion:(id /* block */)a1;
+- (void)_unsafeRunOnInputImage:(struct __CVBuffer { } *)a0 completion:(id /* block */)a1;
+- (BOOL)resampleImage:(struct __CVBuffer { } *)a0 intoInputImage:(struct __CVBuffer { } *)a1 error:(id *)a2;
+
+@end

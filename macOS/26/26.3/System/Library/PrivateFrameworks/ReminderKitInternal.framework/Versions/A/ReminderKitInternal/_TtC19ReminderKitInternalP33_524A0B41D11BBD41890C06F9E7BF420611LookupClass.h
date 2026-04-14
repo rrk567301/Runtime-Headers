@@ -1,0 +1,3 @@
+@interface _TtC19ReminderKitInternalP33_524A0B41D11BBD41890C06F9E7BF420611LookupClass : _TtCs12_SwiftObject
+
+@end

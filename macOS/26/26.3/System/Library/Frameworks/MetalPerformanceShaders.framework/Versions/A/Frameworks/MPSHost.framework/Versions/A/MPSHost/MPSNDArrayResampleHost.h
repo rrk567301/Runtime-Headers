@@ -1,0 +1,3 @@
+@interface MPSNDArrayResampleHost : MPSNDArrayUnaryKernelHost
+
+@end

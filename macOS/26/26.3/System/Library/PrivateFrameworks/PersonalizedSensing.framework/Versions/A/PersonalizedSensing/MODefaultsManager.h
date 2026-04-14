@@ -1,0 +1,20 @@
+@class NSUserDefaults;
+
+@interface MODefaultsManager : NSObject
+
+@property (readonly, nonatomic) NSUserDefaults *userDefaults;
+
++ (BOOL)isExtendedLogEnabled:(id)a0 forDetaultsManager:(id)a1;
++ (id)momentsDaemonDefaults;
+
+- (id)objectForKey:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (id)initWithSuiteName:(id)a0;
+- (void)deleteObjectForKey:(id)a0;
+- (id)initWithUniverse:(id)a0;
+- (id)objectForKeyWithoutLog:(id)a0;
+- (void)setObjectWithoutLog:(id)a0 forKey:(id)a1;
+
+@end

@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface CADisplayModeCriteria : NSObject {
+    struct CADisplayModeCriteriaPriv { struct CGSize { double x0; double x1; } x0; double x1; int x2; BOOL x3; BOOL x4; BOOL x5; } *_priv;
+}
+
+@property struct CGSize { double x0; double x1; } resolution;
+@property double refreshRate;
+@property (copy) NSString *hdrMode;
+@property (getter=isHighRefreshRate) BOOL highRefreshRate;
+@property (getter=isVariableRefreshRate) BOOL variableRefreshRate;
+@property BOOL disableFrameDoubling;
+
+- (id)init;
+- (void)dealloc;
+
+@end

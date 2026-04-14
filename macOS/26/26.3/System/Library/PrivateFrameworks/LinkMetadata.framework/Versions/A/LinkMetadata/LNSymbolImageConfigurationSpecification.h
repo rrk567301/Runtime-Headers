@@ -1,0 +1,20 @@
+@class LNSymbolConfiguration, NSString, NSData;
+
+@interface LNSymbolImageConfigurationSpecification : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) LNSymbolConfiguration *platformAgnosticConfiguration;
+@property (readonly, nonatomic) NSString *platform;
+@property (readonly, nonatomic) NSData *platformSpecificData;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithPlatformAgnosticConfiguration:(id)a0;
+- (id)initWithPlatformSpecificationConfigurationData:(id)a0 platform:(id)a1;
+
+@end

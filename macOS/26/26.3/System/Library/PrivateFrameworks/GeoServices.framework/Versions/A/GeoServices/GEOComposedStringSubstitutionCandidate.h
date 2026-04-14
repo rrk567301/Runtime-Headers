@@ -1,0 +1,18 @@
+@class GEOComposedString, GEOComposedStringOptions;
+
+@interface GEOComposedStringSubstitutionCandidate : NSObject <NSCopying, NSSecureCoding> {
+    GEOComposedStringOptions *_optionsToUse;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) int waypointCategory;
+@property (readonly, nonatomic) GEOComposedString *composedString;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

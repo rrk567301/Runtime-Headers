@@ -1,0 +1,98 @@
+@class NSObject, NSString, NSMutableString, NSMutableSet, NSMutableDictionary, AnalyticsWorkspace, ImpoExpoService;
+@protocol OS_dispatch_queue, CLIPSShimDelegate;
+
+@interface CLIPSShim : NSObject {
+    AnalyticsWorkspace *_clipsWorkspace;
+    ImpoExpoService *_ieService;
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (nonatomic) unsigned int strongAddressType;
+@property (nonatomic) void *environment;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } consoleNameRegex;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } dumpStringRegex;
+@property (retain, nonatomic) NSMutableString *dumpedString;
+@property (retain, nonatomic) NSMutableString *consoleContents;
+@property (retain, nonatomic) NSString *currentCommand;
+@property (nonatomic) unsigned long long commandStringLoc;
+@property (retain, nonatomic) NSMutableSet *clipsHeldObjects;
+@property (retain, nonatomic) NSMutableDictionary *invocationMap;
+@property (retain, nonatomic) NSMutableDictionary *pendingOTAUpdates;
+@property (weak, nonatomic) id<CLIPSShimDelegate> delegate;
+@property (readonly, nonatomic) NSMutableDictionary *modules;
+
++ (id)sharedInstance;
++ (id)decodeAndInflateCLIPSString:(id)a0;
++ (id)dataSectionNameForModule:(id)a0;
++ (id)decryptCLIPSData:(id)a0 forModule:(id)a1;
++ (id)createDecryptedCLPData:(const void *)a0 length:(unsigned long long)a1;
++ (struct _CCCryptor { } *)cryptor;
+
+- (long long)run:(long long)a0;
+- (void)listAllDeftemplates;
+- (void)log:(id)a0;
+- (id)stringFromConstructsLoadState:(long long)a0;
+- (void)pushFocus:(id)a0;
+- (id)matchFactsWithDeftemplateName:(id)a0 withSlotKeyValues:(id)a1;
+- (long long)memoryUsed;
+- (void *)getNextFact:(void *)a0;
+- (int)executeBatchCommand:(id)a0 module:(id)a1;
+- (id)objectForDO:(struct dataObject { void *x0; unsigned short x1; void *x2; long long x3; long long x4; struct dataObject *x5; } *)a0;
+- (id)objectFromMultifieldArg:(void *)a0 start:(long long)a1 end:(long long)a2;
+- (void)releaseFact:(void *)a0;
+- (void)clear;
+- (id)factStringForFactDictionary:(id)a0;
+- (void)unloadConstructsForModule:(id)a0 unconditionally:(BOOL)a1;
+- (id)factDictionaryForFact:(void *)a0;
+- (long long)run;
+- (void)updateAllModuleInfos;
+- (void *)assertFactString:(id)a0 moduleName:(id)a1;
+- (id)dumpEngineStatusWithContext:(id)a0;
+- (id)moduleRulesByName:(id)a0;
+- (void)retractFact:(void *)a0;
+- (void)logFacts:(long long)a0;
+- (BOOL)loadConstructsForModule:(id)a0;
+- (void)removeCallbackInvocation:(id)a0;
+- (BOOL)initializeWorkspace;
+- (id)init;
+- (void)executeCommand:(id)a0 moduleName:(id)a1;
+- (void)setCommandString:(id)a0;
+- (id)loadDataSection:(id)a0;
+- (BOOL)addModuleNamed:(id)a0 withConstruct:(id)a1;
+- (void)registerCallbackFunction:(id)a0 selector:(SEL)a1 target:(id)a2;
+- (id)getValueForSlotNamed:(id)a0 fromFact:(void *)a1;
+- (void)setOTAUpdate:(id)a0 version:(id)a1 module:(id)a2;
+- (BOOL)factIsImportant:(id)a0;
+- (id)swapConsoleBuffer:(id)a0;
+- (BOOL)conservePrettyPrintMemory:(BOOL)a0;
+- (BOOL)addNewConstruct:(id)a0;
+- (void)logMemoryStatistics:(id)a0;
+- (void)_logFactsForModule:(id)a0 limit:(long long)a1 when:(long long)a2;
+- (id)slotsStringForTemplate:(id)a0 fromDictionary:(id)a1 moduleName:(id)a2;
+- (id)currentModule;
+- (void)addCallbackInvocation:(id)a0 invocation:(id)a1;
+- (long long)constructLoadStateForModule:(id)a0;
+- (void *)deftemplateNamed:(id)a0 moduleName:(id)a1;
+- (id)printedFacts:(id)a0 limit:(long long)a1;
+- (void *)addObjectToEnvironment:(id)a0;
+- (unsigned long long)factCount;
+- (long long)releaseAllFreeMemory;
+- (void).cxx_destruct;
+- (void)retainFact:(void *)a0;
+- (id)parseCLIPSModuleInfoFromConstructs:(id)a0;
+- (id)currentRuleName;
+- (void)dealloc;
+- (void)logMemoryStatistics:(id)a0 verboseOnly:(BOOL)a1;
+- (id)setCurrentModule:(id)a0;
+- (void)reset;
+- (void)performOnFactsWithDeftemplateName:(id)a0 usingBlock:(id /* block */)a1;
+- (id)deftemplatesMatchingPrefix:(id)a0;
+- (void)deactivateModule:(id)a0;
+- (id)consoleBuffer;
+- (void)setQueue:(id)a0;
+- (id)moduleNames;
+- (void)reportError:(id)a0;
+- (id)otaUpdatePlatformStringForDeviceClass:(long long)a0;
+- (void)updateModuleInfoForModule:(id)a0 slotValues:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface PDFCGPDFUtilities : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface CXShareIdentityCallAction : CXCallAction
+
+@end

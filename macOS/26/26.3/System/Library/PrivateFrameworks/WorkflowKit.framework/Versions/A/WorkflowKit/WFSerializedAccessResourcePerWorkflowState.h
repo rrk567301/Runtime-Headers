@@ -1,0 +1,16 @@
+@class NSString, NSData, NSDictionary;
+
+@interface WFSerializedAccessResourcePerWorkflowState : NSObject
+
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSData *data;
+@property (readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+
+- (long long)compare:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)initWithIdentifier:(id)a0 data:(id)a1;
+
+@end

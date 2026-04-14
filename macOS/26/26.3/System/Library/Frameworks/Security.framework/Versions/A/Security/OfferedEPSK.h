@@ -1,0 +1,3 @@
+@interface OfferedEPSK : SecOfferedEPSK
+
+@end

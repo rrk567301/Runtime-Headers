@@ -1,0 +1,18 @@
+@class GEOComposedString, NSString, GEOComposedGuidanceEvent;
+
+@interface MNNavTrayGuidanceEvent : NSObject <NSSecureCoding, NSCoding>
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic, readonly) GEOComposedGuidanceEvent *_guidanceEvent;
+@property (nonatomic, readonly) GEOComposedString *title;
+@property (nonatomic, readonly) GEOComposedString *detail;
+@property (nonatomic, readonly) NSString *description;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithGuidanceEvent:(id)a0;
+
+@end

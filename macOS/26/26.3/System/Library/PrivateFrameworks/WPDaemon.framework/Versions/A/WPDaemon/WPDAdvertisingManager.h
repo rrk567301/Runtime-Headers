@@ -1,0 +1,81 @@
+@class NSString, WPDAdvertisingData, CBStackBLEAdvertiserBTStack, NSMutableDictionary, CBPeripheralManager, NSMutableSet, AdvMetrics, NSMutableIndexSet, WPAdvertisingRequestsQueue;
+
+@interface WPDAdvertisingManager : WPDManager <CBPeripheralManagerDelegate> {
+    CBStackBLEAdvertiserBTStack *_advStackAdaptor[3];
+    NSMutableDictionary *_clientStackAdvertisers;
+    BOOL _heySiriAdvEnabled;
+}
+
+@property (retain) WPAdvertisingRequestsQueue *advertisingRequests;
+@property (retain) NSMutableDictionary *clientAdvertisingRequests;
+@property (retain) NSMutableIndexSet *currentAdvertisers;
+@property (retain) NSMutableSet *clientsToNotifyOnAddressChange;
+@property (retain) NSMutableDictionary *publishedServices;
+@property (retain, nonatomic) CBPeripheralManager *connectablePeripheralManager;
+@property (retain, nonatomic) CBPeripheralManager *nonConnectablePeripheralManager;
+@property (retain, nonatomic) CBPeripheralManager *nonConnectableSecondaryPeripheralManager;
+@property (retain, nonatomic) WPDAdvertisingData *currentConnectableAdvertisingData;
+@property (retain, nonatomic) WPDAdvertisingData *currentNonConnectableAdvertisingData;
+@property (retain, nonatomic) WPDAdvertisingData *currentNonConnectableSecondaryAdvertisingData;
+@property BOOL allowCompoundAdvertisements;
+@property (retain) NSMutableDictionary *preallocatedServices;
+@property (readonly, nonatomic) BOOL isRanging;
+@property (nonatomic) unsigned long long nonConnectableAdvDropCount;
+@property (nonatomic) unsigned long long nonConnectableAdvTotalCount;
+@property (nonatomic) unsigned long long connectableAdvDropCount;
+@property (nonatomic) unsigned long long connectableAdvTotalCount;
+@property (retain) AdvMetrics *advMetrics;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)updateAdvertiser;
+- (id)addXPCDelayTiming:(id)a0 IsMetricOnly:(BOOL)a1 UseCase:(unsigned long long)a2 timeStamp:(unsigned long long)a3;
+- (void)removeServiceForClient:(id)a0;
+- (id)NSUUIDfromCBUUID:(id)a0;
+- (id)getCharacteristicForClient:(id)a0;
+- (id)removeAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (void)update;
+- (id)getCurrentAdvertisers;
+- (id)clientForAdvRequest:(id)a0;
+- (void)setupStackAdvertiser:(id)a0;
+- (id)setWPDaemonAdvDataFromWPAdvertisingRequest:(id)a0;
+- (BOOL)heySiriAdvertActiveAllDevices;
+- (id)getClientUUIDsForCharacteristic:(id)a0;
+- (void)informClientsAdvertisingPending:(id)a0;
+- (void)enableRanging:(BOOL)a0 forClient:(id)a1;
+- (void)statsExportTimerFired;
+- (void)preallocateServices;
+- (void)peripheralManager:(id)a0 central:(id)a1 didSubscribeToCharacteristic:(id)a2;
+- (id)requestFromAdvertisingDataFromInstance:(long long)a0 AddressChangeNotificationNeeded:(BOOL)a1;
+- (int)maxAdvertisingRules;
+- (id)generateStateDumpStrings;
+- (id)removeAdvertisingRequest:(id)a0 forClient:(id)a1 shouldUpdate:(BOOL)a2;
+- (void)resetAdvertisingManager;
+- (void)peripheralManagerIsReadyToUpdateSubscribers:(id)a0;
+- (id)initWithServer:(id)a0;
+- (void)peripheralManager:(id)a0 didAddService:(id)a1 error:(id)a2;
+- (void)peripheralManager:(id)a0 didReceiveWriteRequests:(id)a1;
+- (void)peripheralManagerDidStartAdvertising:(id)a0 error:(id)a1;
+- (BOOL)platformSupportsMultipleAdvertising;
+- (void).cxx_destruct;
+- (id)setWPDaemonAdvDataFrom:(id)a0;
+- (BOOL)heySiriAdvertActive:(BOOL)a0;
+- (void)addAdvertisingRequest:(id)a0 forDaemon:(id)a1;
+- (id)addAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (id)advertisingRulesCBStackAdvertiser;
+- (BOOL)isAdvertiserTestMode;
+- (BOOL)isAdvPermittedDuringHeySiriForType:(unsigned char)a0;
+- (void)removeAdvertisingRequest:(id)a0 forDaemon:(id)a1;
+- (void)peripheralManager:(id)a0 didReceiveReadRequest:(id)a1;
+- (void)addCharacteristic:(id)a0 forService:(id)a1 forClient:(id)a2;
+- (void)addCharacteristic:(id)a0 Properties:(unsigned long long)a1 Permissions:(unsigned long long)a2 Service:(id)a3 Name:(id)a4;
+- (void)peripheralManager:(id)a0 didStopAdvertisingWithError:(id)a1;
+- (id)removeAdvertisingRequestsForClient:(id)a0;
+- (id)advertisingRules;
+- (id)getManager;
+- (BOOL)addressChangeNotificationNeeded:(id)a0 advertiserTypeString:(id)a1;
+- (void)peripheralManager:(id)a0 central:(id)a1 didUnsubscribeFromCharacteristic:(id)a2;
+
+@end

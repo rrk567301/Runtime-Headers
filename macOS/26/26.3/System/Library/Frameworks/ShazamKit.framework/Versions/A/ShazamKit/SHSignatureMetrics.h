@@ -1,0 +1,18 @@
+@class NSDate;
+
+@interface SHSignatureMetrics : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long recordingSource;
+@property (readonly) NSDate *sessionStartDate;
+@property (readonly) double sessionDuration;
+@property (readonly) double signatureRecordingOffset;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithSessionStartDate:(id)a0 signatureRecordingOffset:(double)a1;
+
+@end

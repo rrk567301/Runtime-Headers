@@ -1,0 +1,3 @@
+@interface IMDPersistence.StorageInspectionChatVerificationTable : IMDPersistence.StorageInspectionVerificationTable
+
+@end

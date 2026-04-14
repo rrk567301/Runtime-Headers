@@ -1,0 +1,3 @@
+@interface IMSimulatedMessageConfiguration : IMSimulatedEntryConfiguration
+
+@end

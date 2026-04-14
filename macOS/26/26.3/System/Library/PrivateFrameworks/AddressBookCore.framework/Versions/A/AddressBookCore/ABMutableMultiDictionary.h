@@ -1,0 +1,7 @@
+@interface ABMutableMultiDictionary : ABMultiDictionary
+
+- (void)addObject:(id)a0 forKey:(id)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)addNonNilObject:(id)a0 forKey:(id)a1;
+
+@end

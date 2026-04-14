@@ -1,0 +1,3 @@
+@interface MPSNDArrayBinarySecondaryGradientKernelHost : MPSNDArrayMultiaryGradientKernelHost
+
+@end

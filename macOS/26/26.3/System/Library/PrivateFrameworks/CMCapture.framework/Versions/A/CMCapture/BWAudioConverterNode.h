@@ -1,0 +1,34 @@
+@class NSDictionary;
+
+@interface BWAudioConverterNode : BWNode {
+    NSDictionary *_settings;
+    struct OpaqueFigSampleBufferProcessor { } *_audioCompressionSBP;
+    BOOL _cinematicAudioCapture;
+    BOOL _multiCamClientCompositingEnabled;
+    BOOL _expectsToRecordOnlyOnce;
+}
+
+@property (readonly, nonatomic) NSDictionary *gaplessPlaybackInfo;
+
++ (void)initialize;
+
+- (id)nodeType;
+- (id)nodeSubType;
+- (void)setMultiCamClientCompositingEnabled:(BOOL)a0;
+- (void)didReachEndOfDataForConfigurationID:(id)a0 input:(id)a1;
+- (id)settings;
+- (void)acquireHardware;
+- (void)configurationWithID:(long long)a0 updatedFormat:(id)a1 didBecomeLiveForInput:(id)a2;
+- (void)didSelectFormat:(id)a0 forInput:(id)a1;
+- (void)setSettings:(id)a0;
+- (id)init;
+- (void)relinquishHardware;
+- (void)setCinematicAudioCapture:(BOOL)a0;
+- (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 forInput:(id)a1;
+- (void)setExpectsToRecordOnlyOnce:(BOOL)a0;
+- (BOOL)expectsToRecordOnlyOnce;
+- (BOOL)isCinematicAudioCapture;
+- (void)dealloc;
+- (BOOL)isMultiCamClientCompositingEnabled;
+
+@end

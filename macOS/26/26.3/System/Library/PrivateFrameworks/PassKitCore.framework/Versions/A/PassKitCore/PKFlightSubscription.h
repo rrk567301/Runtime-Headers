@@ -1,0 +1,20 @@
+@class NSString;
+
+@interface PKFlightSubscription : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) BOOL isActive;
+@property (retain, nonatomic) NSString *flightIdentifier;
+@property (retain, nonatomic) NSString *channelIdentifier;
+
+- (id)asDictionary;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithFlightIdentifier:(id)a0 channelIdentifier:(id)a1 isActive:(BOOL)a2;
+
+@end

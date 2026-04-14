@@ -1,0 +1,16 @@
+@interface CKSQLiteTOCTable : CKSQLiteTOCBaseTable
+
++ (id)logicalTableName;
++ (Class)entryClass;
++ (id)dbProperties;
++ (unsigned long long)dbVersion;
+
+- (id)validationTocEntriesWithGroupID:(id)a0 error:(id *)a1;
+- (BOOL)migrateEntryDataFromTable:(id)a0 entry:(id)a1 toEntry:(id)a2 addedProperties:(id)a3;
+- (id)addEntryForTable:(id)a0;
+- (id)tocEntriesWithGroupID:(id)a0 error:(id *)a1;
+- (id)tocEntryWithGroupID:(id)a0 logicalTableName:(id)a1 error:(id *)a2;
+- (id)setSchema:(id)a0 forTable:(id)a1;
+- (id)_tocEntriesWithGroupID:(id)a0 error:(id *)a1 label:(struct _CKSQLiteCompiledStatementLabel { char *x0; char *x1; int x2; } *)a2 properties:(id)a3;
+
+@end

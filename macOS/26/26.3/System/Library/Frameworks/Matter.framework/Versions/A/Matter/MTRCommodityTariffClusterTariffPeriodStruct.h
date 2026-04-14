@@ -1,0 +1,14 @@
+@class NSString, NSArray;
+
+@interface MTRCommodityTariffClusterTariffPeriodStruct : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSArray *dayEntryIDs;
+@property (copy, nonatomic) NSArray *tariffComponentIDs;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

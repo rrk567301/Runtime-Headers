@@ -1,0 +1,14 @@
+@class NSSet;
+
+@interface _GCDevicePhysicalInputAxisInputParameters : _GCDevicePhysicalInputViewParameters {
+    BOOL _analog;
+    BOOL _canWrap;
+    NSSet *_sources;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+
+@end

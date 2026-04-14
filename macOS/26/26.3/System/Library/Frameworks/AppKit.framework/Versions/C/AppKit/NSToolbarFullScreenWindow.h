@@ -1,0 +1,86 @@
+@interface NSToolbarFullScreenWindow : NSWindow {
+    BOOL _forcingToolbarVisible;
+    BOOL _hotKeyNavigationForcingToolbarAndAuxViewVisible;
+    long long _childWindowOrderingPriority;
+    long long _menubarAutohidingCount;
+    struct CGPath { } *_cachedCornerPath;
+}
+
+@property (nonatomic) BOOL positionManagedByWindowServer;
+@property (nonatomic) BOOL windowIsMoving;
+
++ (Class)_focusProxyClass;
+
+- (BOOL)canBecomeKeyWindow;
+- (void)becomeKeyWindow;
+- (void)setAppearance:(id)a0;
+- (id)appearance;
+- (id)description;
+- (double)_cornerRadius;
+- (void)_setFirstResponder:(id)a0;
+- (void)dealloc;
+- (BOOL)_canMiniaturize;
+- (id)_findKeyLoopGroupingViewFollowingKeyLoopGroupingView:(id)a0 direction:(unsigned long long)a1;
+- (id)_originalWindow;
+- (BOOL)_shouldStartWindowDragForEvent:(id)a0;
+- (void)resignKeyWindow;
+- (BOOL)_allowsSnapping;
+- (id)_currentDividerResizeDirections;
+- (BOOL)_wantsFullScreenTileDropTargets;
+- (BOOL)canHide;
+- (void)_adjustWindowToScreen;
+- (BOOL)_allowsExteriorResizing;
+- (double)_bottomCornerRadius;
+- (BOOL)_canBeSnappingTarget;
+- (BOOL)_cgsPositionManagedByExternalAgent;
+- (long long)_childWindowOrderingPriority;
+- (id)_cursorForResizeDirection:(long long)a0;
+- (void)_disableFullScreenMenubarAutohiding;
+- (double)_effectiveTitlebarAlphaValue;
+- (void)_enableFullScreenMenubarAutohiding;
+- (id)_focusController;
+- (void)_getResizeEdgeAndCornerThicknesses:(double[8])a0;
+- (BOOL)_hasActiveAppearanceIgnoringKeyFocus;
+- (BOOL)_hostsLayersInWindowServer;
+- (BOOL)_ignoreForFullScreenTransition;
+- (BOOL)_ignoreForVisibleNonFullScreenSpace;
+- (BOOL)_ignoredForScripting;
+- (void)_invalidateCornerPath;
+- (BOOL)_isRunningADocModalAttachedSheet;
+- (BOOL)_keyViewLoopsMayCrossWindows;
+- (BOOL)_newFirstResponderIsInToolbar:(id)a0;
+- (id)_orderedDrawerAndWindowKeyLoopGroupingViews;
+- (id)_parentWindowForAddingToMovementGroupWithProposedParent:(id)a0;
+- (BOOL)_performDividerDragWithEvent:(id)a0 forResizeDirection:(long long)a1;
+- (BOOL)_prepareToZoom;
+- (void)_setChildWindowOrderingPriority:(long long)a0;
+- (void)_setCursorForMouseLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_setWindowTag;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_sheetDimmingMaterialRect;
+- (void)_startClientSideMove;
+- (void)_stopClientSideMove;
+- (id)_supplementalSharingServicePickerToolbarItemDelegate;
+- (double)_topCornerRadius;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_visibleTileFrameForFullScreen;
+- (BOOL)_visualEffectViewAlwaysUseWSAwareBackdrops;
+- (BOOL)_wantsFocusSystem;
+- (BOOL)_wantsSheetDimmingMaterial;
+- (id)_windowForToolbar;
+- (BOOL)_windowIsBeingMoved;
+- (void)_windowMoved:(id)a0;
+- (id)accessibilityActionNames;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityParameterizedAttributeNames;
+- (BOOL)canBecomeMainWindow;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })constrainFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toScreen:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })contentRectForFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1;
+- (BOOL)hasKeyAppearanceIncludingSheets:(BOOL)a0;
+- (BOOL)isMainWindow;
+- (BOOL)isMovable;
+- (void)navigateWithEvent:(id)a0;
+- (void)performWindowDragWithEvent:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })startRectForSheet:(id)a0;
+- (void)updateForceToolbarVisible;
+
+@end

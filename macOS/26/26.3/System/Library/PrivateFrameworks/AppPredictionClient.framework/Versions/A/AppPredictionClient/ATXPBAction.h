@@ -1,0 +1,82 @@
+@class NSString, NSData, ATXPBActionCriteria, ATXPBAVRouteInfo, NSMutableArray;
+
+@interface ATXPBAction : PBCodable <NSCopying> {
+    struct { unsigned char actionType : 1; unsigned char cachedHash : 1; unsigned char userActivityHash : 1; unsigned char isFutureMedia : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasBundleId;
+@property (retain, nonatomic) NSString *bundleId;
+@property (nonatomic) BOOL hasActionType;
+@property (nonatomic) long long actionType;
+@property (readonly, nonatomic) BOOL hasIntent;
+@property (retain, nonatomic) NSData *intent;
+@property (readonly, nonatomic) BOOL hasHeuristic;
+@property (retain, nonatomic) NSString *heuristic;
+@property (nonatomic) BOOL hasIsFutureMedia;
+@property (nonatomic) BOOL isFutureMedia;
+@property (readonly, nonatomic) BOOL hasTitle;
+@property (retain, nonatomic) NSString *title;
+@property (readonly, nonatomic) BOOL hasSubtitle;
+@property (retain, nonatomic) NSString *subtitle;
+@property (nonatomic) BOOL hasUserActivityHash;
+@property (nonatomic) long long userActivityHash;
+@property (readonly, nonatomic) BOOL hasActivityString;
+@property (retain, nonatomic) NSString *activityString;
+@property (readonly, nonatomic) BOOL hasUserActivityProxy;
+@property (retain, nonatomic) NSData *userActivityProxy;
+@property (readonly, nonatomic) BOOL hasItemIdentifier;
+@property (retain, nonatomic) NSString *itemIdentifier;
+@property (readonly, nonatomic) BOOL hasUuid;
+@property (retain, nonatomic) NSString *uuid;
+@property (readonly, nonatomic) BOOL hasLanguageCode;
+@property (retain, nonatomic) NSString *languageCode;
+@property (readonly, nonatomic) BOOL hasContentAttributeSet;
+@property (retain, nonatomic) NSData *contentAttributeSet;
+@property (readonly, nonatomic) BOOL hasCriteria;
+@property (retain, nonatomic) ATXPBActionCriteria *criteria;
+@property (readonly, nonatomic) BOOL hasRouteInfo;
+@property (retain, nonatomic) ATXPBAVRouteInfo *routeInfo;
+@property (retain, nonatomic) NSMutableArray *heuristicMetadatas;
+@property (nonatomic) BOOL hasCachedHash;
+@property (nonatomic) unsigned long long cachedHash;
+@property (retain, nonatomic) NSMutableArray *predictableParameterCombinations;
+@property (retain, nonatomic) NSMutableArray *menuItemPathComponents;
+@property (readonly, nonatomic) BOOL hasToolInvocationID;
+@property (retain, nonatomic) NSString *toolInvocationID;
+@property (readonly, nonatomic) BOOL hasEncodedToolInvocation;
+@property (retain, nonatomic) NSData *encodedToolInvocation;
+@property (retain, nonatomic) NSMutableArray *parameterKeysForToolInvocations;
+
++ (Class)heuristicMetadataType;
++ (Class)menuItemPathComponentType;
++ (Class)parameterKeysForToolInvocationType;
++ (Class)predictableParameterCombinationsType;
+
+- (void)addPredictableParameterCombinations:(id)a0;
+- (unsigned long long)predictableParameterCombinationsCount;
+- (id)dictionaryRepresentation;
+- (void)clearHeuristicMetadatas;
+- (id)description;
+- (void)addParameterKeysForToolInvocation:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)heuristicMetadataAtIndex:(unsigned long long)a0;
+- (void)copyTo:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)predictableParameterCombinationsAtIndex:(unsigned long long)a0;
+- (void).cxx_destruct;
+- (unsigned long long)heuristicMetadatasCount;
+- (id)parameterKeysForToolInvocationAtIndex:(unsigned long long)a0;
+- (void)addHeuristicMetadata:(id)a0;
+- (void)clearParameterKeysForToolInvocations;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)clearMenuItemPathComponents;
+- (BOOL)isEqual:(id)a0;
+- (id)menuItemPathComponentAtIndex:(unsigned long long)a0;
+- (unsigned long long)hash;
+- (unsigned long long)menuItemPathComponentsCount;
+- (void)addMenuItemPathComponent:(id)a0;
+- (void)clearPredictableParameterCombinations;
+- (unsigned long long)parameterKeysForToolInvocationsCount;
+
+@end

@@ -1,0 +1,19 @@
+@class NSString, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface MEFileInfo : NSObject <NSCopying> {
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _duration;
+    long long _fragmentsStatus;
+}
+
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } duration;
+@property (nonatomic) long long fragmentsStatus;
+@property (copy, nonatomic) NSString *sidecarFileName;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setSidecarFilename:(id)a0;
+
+@end

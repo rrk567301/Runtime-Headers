@@ -1,0 +1,3 @@
+@interface SpotlightUIShared.PrimitiveTypedValueResultBuilder : SpotlightUIShared.TypedValueResultBuilder
+
+@end

@@ -1,0 +1,3 @@
+@interface MPSNDArrayStencilKernelHost : MPSNDArrayBinaryKernelHost
+
+@end

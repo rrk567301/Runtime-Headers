@@ -1,0 +1,19 @@
+@class NSData, SISchemaUUID;
+
+@interface SetupSchemaProvisionalSiriSetupEventMetadata : SISchemaInstrumentationMessage
+
+@property (retain, nonatomic) SISchemaUUID *setupId;
+@property (nonatomic) BOOL hasSetupId;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)dictionaryRepresentation;
+- (id)initWithJSON:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)deleteSetupId;
+
+@end

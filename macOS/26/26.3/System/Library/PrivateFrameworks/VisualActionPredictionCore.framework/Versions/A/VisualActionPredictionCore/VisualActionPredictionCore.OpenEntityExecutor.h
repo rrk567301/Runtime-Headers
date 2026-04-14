@@ -1,0 +1,7 @@
+@interface VisualActionPredictionCore.OpenEntityExecutor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ toolManager;
+    void /* unknown type, empty encoding */ linkManager;
+    void /* unknown type, empty encoding */ featureConfiguration;
+}
+
+@end

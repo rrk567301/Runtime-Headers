@@ -1,0 +1,44 @@
+@class NSXPCConnection, NSXPCListener, NSXPCInterface;
+@protocol WBSConditionalRegistrationRequester, WBSAuthenticationServicesAgentDelegate;
+
+@interface WBSAuthenticationServicesAgentProxy : NSObject <WBSAuthenticationServicesAgentDelegate, WBSAuthenticationServicesAgentInterface> {
+    NSXPCConnection *_connection;
+    NSXPCListener *_conditionalRegistrationListener;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (weak, nonatomic) id<WBSAuthenticationServicesAgentDelegate> delegate;
+@property (retain, nonatomic) id<WBSConditionalRegistrationRequester> conditionalRegistrationRequester;
+@property (retain, nonatomic) NSXPCInterface *conditionalRegistrationInterface;
+
+- (void)didGenerateStrongPassword:(id)a0 passwordKind:(id)a1 serviceIdentifierType:(long long)a2 serviceIdentifier:(id)a3 providerApplicationBundleIdentifier:(id)a4 providerExtensionBundleIdentifier:(id)a5 hostApplicationBundleIdentifier:(id)a6;
+- (void)getIsPasskeyAssertionRequestRunningForWebFrameIdentifier:(id)a0 orApplicationIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)didFillCredentialForUsername:(id)a0 forURL:(id)a1 fromProviderWithBundleIdentifier:(id)a2 inBrowserWithBundleIdentifier:(id)a3 externalProviderConditionalRegistrationRequester:(id)a4;
+- (void)newPasskeysAvailableForApplicationIdentifier:(id)a0;
+- (void)getExternalPasskeyRequestForApplicationIdentifier:(id)a0 relyingPartyIdentifier:(id)a1 credentialID:(id)a2 completionHandler:(id /* block */)a3;
+- (void)didFillCredentialForUsername:(id)a0 password:(id)a1 serviceIdentifierType:(long long)a2 serviceIdentifier:(id)a3 providerApplicationBundleIdentifier:(id)a4 providerExtensionBundleIdentifier:(id)a5 hostApplicationBundleIdentifier:(id)a6 externalProviderConditionalRegistrationRequester:(id)a7;
+- (void)credentialProviderInformationForAutoFillOfUsername:(id)a0 password:(id)a1 serviceIdentifierType:(long long)a2 serviceIdentifier:(id)a3 hostApplicationBundleIdentifier:(id)a4 completionHandler:(id /* block */)a5;
+- (void)userSelectedAutoFillPasskey:(id)a0 authenticatedLAContext:(id)a1 savedAccountContext:(id)a2 completionHandler:(id /* block */)a3;
+- (void)getPasskeysForRunningAssertionWithWebFrameIdentifier:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getExternalPasskeyRequestForWebFrameIdentifier:(id)a0 relyingPartyIdentifier:(id)a1 credentialID:(id)a2 completionHandler:(id /* block */)a3;
+- (void)_setUpConnection:(id)a0;
+- (void)test_createPasskeyWithUserName:(id)a0 displayName:(id)a1 relyingPartyIdentifier:(id)a2 userHandle:(id)a3 completionHandler:(id /* block */)a4;
+- (id)init;
+- (void)getPasskeysForRunningAssertionWithApplicationIdentifier:(id)a0 webPageURL:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)didFillCredentialForUsername:(id)a0 password:(id)a1 serviceIdentifierType:(long long)a2 serviceIdentifier:(id)a3 providerApplicationBundleIdentifier:(id)a4 providerExtensionBundleIdentifier:(id)a5 hostApplicationBundleIdentifier:(id)a6 listenerEndpoint:(id)a7;
+- (id)connection;
+- (id)_conditionalRegistrationListenerForProviderBundleIdentifier:(id)a0;
+- (void)didFillCredentialForUsername:(id)a0 forHost:(id)a1 fromProviderWithBundleIdentifier:(id)a2 inAppWithBundleIdentifier:(id)a3 listenerEndpoint:(id)a4;
+- (void).cxx_destruct;
+- (void)completeAssertionWithExternalPasskeyForWebFrameIdentifier:(id)a0 relyingPartyIdentifier:(id)a1 authenticatorData:(id)a2 signature:(id)a3 userHandle:(id)a4 credentialID:(id)a5;
+- (void)didFillCredentialForUsername:(id)a0 forHost:(id)a1 fromProviderWithBundleIdentifier:(id)a2 inAppWithBundleIdentifier:(id)a3 externalProviderConditionalRegistrationRequester:(id)a4;
+- (void)isOrigin:(id)a0 relatedToRelyingPartyIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)dealloc;
+- (void)getPasskeyAssertionRequestParametersForApplicationIdentifier:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPasskeyAssertionRequestParametersForWebFrameIdentifier:(id)a0 completionHandler:(id /* block */)a1;
+- (void)completeAssertionWithExternalPasskeyForApplicationIdentifier:(id)a0 relyingPartyIdentifier:(id)a1 authenticatorData:(id)a2 signature:(id)a3 userHandle:(id)a4 credentialID:(id)a5;
+- (void)getPasskeyAssertionRequestParametersForCABLEWithCompletionHandler:(id /* block */)a0;
+- (void)didFillCredentialForUsername:(id)a0 forURL:(id)a1 fromProviderWithBundleIdentifier:(id)a2 inBrowserWithBundleIdentifier:(id)a3 listenerEndpoint:(id)a4;
+- (void)credentialProviderInformationForGenerationOfStrongPassword:(id)a0 serviceIdentifierType:(long long)a1 serviceIdentifier:(id)a2 hostApplicationBundleIdentifier:(id)a3 completionHandler:(id /* block */)a4;
+
+@end

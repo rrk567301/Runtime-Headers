@@ -1,0 +1,20 @@
+@class NSString;
+
+@interface CPParticipantTranslation : NSObject <NSSecureCoding> {
+    void /* unknown type, empty encoding */ aliasedIdentifier;
+    void /* unknown type, empty encoding */ unaliasedIdentifier;
+    void /* unknown type, empty encoding */ handle;
+    void /* unknown type, empty encoding */ isNearby;
+    void /* unknown type, empty encoding */ stableDeviceIdentifier;
+}
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic, readonly) NSString *description;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

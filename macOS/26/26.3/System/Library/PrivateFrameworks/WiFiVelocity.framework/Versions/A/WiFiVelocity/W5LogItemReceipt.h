@@ -1,0 +1,23 @@
+@class NSArray, W5LogItemRequest, NSDictionary;
+
+@interface W5LogItemReceipt : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) W5LogItemRequest *request;
+@property (copy, nonatomic) NSArray *relativeURLs;
+@property (copy, nonatomic) NSDictionary *info;
+@property (nonatomic) double startedAt;
+@property (nonatomic) double completedAt;
+
+- (BOOL)conformsToProtocol:(id)a0;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqualToLogItemReceipt:(id)a0;
+
+@end

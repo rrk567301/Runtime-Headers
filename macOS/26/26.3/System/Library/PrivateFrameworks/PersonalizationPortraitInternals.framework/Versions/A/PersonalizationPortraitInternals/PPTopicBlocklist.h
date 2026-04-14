@@ -1,0 +1,19 @@
+@class _PASCFBurstTrie, PPTrialWrapper;
+@protocol TRINotificationToken;
+
+@interface PPTopicBlocklist : NSObject {
+    _PASCFBurstTrie *_blocklistTrie;
+    PPTrialWrapper *_trialWrapper;
+    id<TRINotificationToken> _trialToken;
+}
+
++ (id)sharedInstance;
+
+- (BOOL)shouldBlock:(id)a0;
+- (id)initWithTrialWrapper:(id)a0;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)indicesOfBlockedTopicsInScoredTopicArray:(id)a0;
+- (id)indicesOfBlockedTopicsInRecordArray:(id)a0;
+
+@end

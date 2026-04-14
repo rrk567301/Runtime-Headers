@@ -1,0 +1,28 @@
+@protocol BPSPublisher, BPSSubscriber;
+
+@interface BPSFlatMap : BMBookmarkablePublisher
+
+@property (retain, nonatomic) id<BPSPublisher> currentPublisher;
+@property (retain, nonatomic) id currentEvent;
+@property (retain, nonatomic) id<BPSSubscriber> subscriber;
+@property (readonly, nonatomic) long long maxPublishers;
+@property (readonly, nonatomic) id /* block */ transform;
+@property (readonly, nonatomic) id<BPSPublisher> upstream;
+
++ (id)publisherWithPublisher:(id)a0 upstreams:(id)a1 bookmarkState:(id)a2;
+
+- (BOOL)canStoreInternalStateInBookmark;
+- (id)nextEvent;
+- (id)upstreamPublishers;
+- (BOOL)completed;
+- (void)subscribe:(id)a0;
+- (id)startWithSubscriber:(id)a0;
+- (id)validateBookmark:(id)a0;
+- (id)bookmarkableUpstreams;
+- (void)applyBookmark:(id)a0;
+- (id)bookmark;
+- (id)initWithUpstream:(id)a0 maxPublishers:(long long)a1 transform:(id /* block */)a2;
+- (void).cxx_destruct;
+- (void)reset;
+
+@end

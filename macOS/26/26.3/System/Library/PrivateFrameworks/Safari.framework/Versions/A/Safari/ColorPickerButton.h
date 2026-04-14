@@ -1,0 +1,19 @@
+@class NSColor, CALayer, CAShapeLayer;
+
+@interface ColorPickerButton : RolloverTrackingButton {
+    CALayer *_imageLayer;
+    CAShapeLayer *_shapeLayer;
+    CAShapeLayer *_borderLayer;
+}
+
+@property (copy, nonatomic) NSColor *color;
+
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (void)layout;
+- (void)viewDidMoveToWindow;
+- (void).cxx_destruct;
+- (void)updateLayer;
+- (BOOL)wantsUpdateLayer;
+
+@end

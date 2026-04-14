@@ -1,0 +1,26 @@
+@class NSString, NSOrderedSet, NSDictionary;
+
+@interface _PHPickerResultMetadata : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) unsigned long long pixelWidth;
+@property (nonatomic) unsigned long long pixelHeight;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } preferredCropRect;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } acceptableCropRect;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } normalizedFaceAreaRect;
+@property (nonatomic) BOOL allowsItemProviderOpenInPlace;
+@property (copy, nonatomic) NSString *suggestedName;
+@property (copy, nonatomic) NSOrderedSet *typeIdentifiers;
+@property (copy, nonatomic) NSDictionary *filePromiseURLs;
+@property (copy, nonatomic) NSDictionary *sandboxExtensionTokens;
+@property (copy, nonatomic) NSString *itemIdentifier;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+
+@end

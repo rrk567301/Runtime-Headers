@@ -1,0 +1,3 @@
+@interface _TtC18SoftwareUpdateCoreP33_109DF3E415A26EAA056866113706C94811AIRReporter : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,11 @@
+@interface BKSHIDEventRedirectAttributes : BKSHIDEventBaseAttributes
+
+@property (nonatomic) int pid;
+
++ (unsigned char)_eventAttributeType;
++ (id)protobufSchema;
+
+- (void)appendDescriptionToFormatter:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

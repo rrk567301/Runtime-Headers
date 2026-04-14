@@ -1,0 +1,3 @@
+@interface FileProviderDaemon.MaintenanceWaitingContinuation : FileProviderDaemon.MaintenanceContinuation
+
+@end

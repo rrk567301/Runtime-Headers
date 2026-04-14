@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.UserFocusStatusChangeBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

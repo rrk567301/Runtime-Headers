@@ -1,0 +1,18 @@
+@class NSString, ICQLink, NSNumber;
+
+@interface _ICQAppLaunchLink : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *appId;
+@property (readonly, nonatomic) ICQLink *link;
+@property (readonly, nonatomic) NSNumber *minDisplayIntervalDays;
+@property (readonly, nonatomic) BOOL isEligible;
+
+- (id)initWithServerDictionary:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void)cacheLiftUIContentIfNeeded;
+
+@end

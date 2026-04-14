@@ -1,0 +1,27 @@
+@class NSArray, NSString, NSData;
+
+@interface CNVSchemaCNVDisambiguationDialogGenerated : SISchemaInstrumentationMessage
+
+@property (copy, nonatomic) NSArray *actionCandidateIds;
+@property (copy, nonatomic) NSString *dialogType;
+@property (nonatomic) BOOL hasDialogType;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)dictionaryRepresentation;
+- (id)initWithJSON:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (void)writeTo:(id)a0;
+- (void).cxx_destruct;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)actionCandidateIdsAtIndex:(unsigned long long)a0;
+- (unsigned long long)actionCandidateIdsCount;
+- (void)addActionCandidateIds:(id)a0;
+- (void)clearActionCandidateIds;
+- (void)deleteActionCandidateIds;
+- (void)deleteDialogType;
+
+@end

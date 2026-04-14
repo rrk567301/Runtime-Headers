@@ -1,0 +1,14 @@
+@class NSDictionary;
+
+@interface ARGazeEnrollmentFeedbackResult : NSObject <ARDaemonSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSDictionary *enrollmentData;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithEnrollmentData:(id)a0;
+
+@end

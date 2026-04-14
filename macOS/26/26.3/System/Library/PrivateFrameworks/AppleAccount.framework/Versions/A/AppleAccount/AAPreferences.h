@@ -1,0 +1,56 @@
+@interface AAPreferences : NSObject
+
++ (long long)customHealthCheckIntervalMinutes;
++ (BOOL)simulate2FAFA;
++ (void)setShouldUseUnifiedLoginEndpoint:(BOOL)a0;
++ (BOOL)shouldSkipIdMSFinalizeCustodian;
++ (void)setSimulateUnhealthyCustodianEnabled:(BOOL)a0;
++ (void)setShouldShowAccountContacts:(BOOL)a0;
++ (BOOL)isNeverSkipCustodianCheckEnabled;
++ (void)setCustomHealthFailureReachabilityIntervalMinutes:(long long)a0;
++ (long long)customMaintenanceIntervalMinutes;
++ (BOOL)shouldSkipIdMSKeyUpdate;
++ (BOOL)isHealthCheckTTREnabled;
++ (BOOL)isCustomHealthCheckIntervalEnabled;
++ (void)setTrustedContactsPreflightInfo:(id)a0;
++ (BOOL)isMultipleFullAccountsEnabled;
++ (BOOL)isSignInSecurityRedesignEnabled;
++ (BOOL)isExperimentalModeEnabled;
++ (void)setCustomHealthCheckIntervalMinutes:(long long)a0;
++ (void)setNeverSkipCustodianCheckEnabled:(BOOL)a0;
++ (BOOL)isSimulateUnhealthyCustodianEnabled;
++ (BOOL)isRCInSettingsEnabled;
++ (void)setExperimentalModeEnabled:(BOOL)a0;
++ (id)getCustodianInfo;
++ (BOOL)isSignInSecurityRedesignMacOSEnabled;
++ (BOOL)isCustomMaintenanceIntervalEnabled;
++ (BOOL)isRunningInStoreDemoMode;
++ (long long)customHealthCheckVersion;
++ (BOOL)shouldEnableUnifyRenewCredentials;
++ (BOOL)shouldUseUnifiedLoginEndpoint;
++ (BOOL)isYorktownEnabled;
++ (BOOL)isRCUpsellEnabled;
++ (BOOL)isLCInviteAcceptanceEnabled;
++ (long long)customHealthCheckReachabilityIntervalMinutes;
++ (BOOL)_os_feature_enabled_Journal_macOS;
++ (void)setLCInviteAcceptanceEnabled:(BOOL)a0;
++ (BOOL)isMomentsDataclassEnabled;
++ (void)setCustodianInfo:(id)a0;
++ (void)setMultipleFullAccountsEnabled:(BOOL)a0;
++ (BOOL)shouldSkipRecoveryInfoRecordStorage;
++ (void)setHealthCheckTTREnabled:(BOOL)a0;
++ (BOOL)shouldShowAccountContacts;
++ (BOOL)isIdentityKitEnabled;
++ (BOOL)disableADPStateHealing;
++ (BOOL)_os_feature_enabled_Journal_iPadOS;
++ (void)setDisableADPStateHealing:(BOOL)a0;
++ (id)getTrustedContactsPreflightInfo;
++ (BOOL)shouldEnableAccountUserNotifications;
++ (BOOL)shouldEnableFastSignIn;
++ (void)setCustomHealthCheckIntervalEnabled:(BOOL)a0;
++ (void)setCustomHealthCheckVersion:(long long)a0;
++ (BOOL)isLCMessageExtensionEnabled;
++ (void)setCustomMaintenanceIntervalMinutes:(long long)a0;
++ (void)setCustomMaintenanceIntervalEnabled:(BOOL)a0;
+
+@end

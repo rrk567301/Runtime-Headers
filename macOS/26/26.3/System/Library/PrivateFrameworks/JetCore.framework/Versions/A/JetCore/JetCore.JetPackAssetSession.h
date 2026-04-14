@@ -1,0 +1,8 @@
+@interface JetCore.JetPackAssetSession : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ requestMap;
+    void /* unknown type, empty encoding */ configuration;
+    void /* unknown type, empty encoding */ daemonClient;
+    void /* unknown type, empty encoding */ coreAnalyticsLogger;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC12GameStoreKitP33_898DD180B8867E41D64AF2996757A19119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

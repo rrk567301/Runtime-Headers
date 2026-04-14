@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.LocationPointOfInterestCategoryBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

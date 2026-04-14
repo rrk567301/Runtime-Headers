@@ -1,0 +1,19 @@
+@class MCMConcreteContainerIdentity;
+
+@interface MCMCommandDiskUsageForContainer : MCMCommand <MCMParametersWithConcreteContainer>
+
+@property (readonly, nonatomic) MCMConcreteContainerIdentity *concreteContainerIdentity;
+@property (readonly, nonatomic) BOOL includedPath;
+@property (readonly, nonatomic) BOOL includedInfo;
+@property (readonly, nonatomic) BOOL includedUserManagedAssetsPath;
+@property (readonly, nonatomic) BOOL includedCreator;
+
++ (Class)incomingMessageClass;
++ (unsigned long long)command;
+
+- (BOOL)preflightClientAllowed;
+- (void).cxx_destruct;
+- (id)initWithMessage:(id)a0 context:(id)a1 reply:(id)a2;
+- (void)execute;
+
+@end

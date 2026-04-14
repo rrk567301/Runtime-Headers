@@ -1,0 +1,12 @@
+@interface RBEncoderSet : NSObject {
+    struct refcounted_ptr<RB::Encoder::FontSet> { struct FontSet *_p; } _font_set;
+    BOOL _final;
+}
+
+- (void)commit;
+- (id)init;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void)addDisplayList:(id)a0;
+
+@end

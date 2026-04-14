@@ -1,0 +1,3 @@
+@interface HKSHSleepMetricsEngine : HKSleepMetricsEngine
+
+@end

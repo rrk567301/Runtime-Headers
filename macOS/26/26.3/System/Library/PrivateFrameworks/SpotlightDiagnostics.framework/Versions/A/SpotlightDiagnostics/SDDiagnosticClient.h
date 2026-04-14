@@ -1,0 +1,3 @@
+@interface SDDiagnosticClient : NSObject
+
+@end

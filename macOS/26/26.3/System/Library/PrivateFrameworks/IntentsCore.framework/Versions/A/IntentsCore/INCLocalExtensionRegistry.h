@@ -1,0 +1,17 @@
+@class NSMutableDictionary;
+
+@interface INCLocalExtensionRegistry : NSObject {
+    NSMutableDictionary *_localExtensionsByIdentifier;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
++ (id)sharedInstance;
+
+- (id)localExtensions;
+- (void)registerLocalExtension:(id)a0;
+- (void)deregisterLocalExtension:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)localExtensionForIdentifier:(id)a0;
+
+@end

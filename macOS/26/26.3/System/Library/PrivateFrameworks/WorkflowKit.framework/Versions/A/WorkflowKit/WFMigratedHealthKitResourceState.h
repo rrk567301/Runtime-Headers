@@ -1,0 +1,13 @@
+@class NSSet;
+
+@interface WFMigratedHealthKitResourceState : NSObject <NSSecureCoding> {
+    NSSet *entries;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

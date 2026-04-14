@@ -1,0 +1,10 @@
+@class NSString;
+
+@interface CTXPCGetRegistrationStatusResponse : CTXPCResponseMessage
+
+@property (readonly, nonatomic) NSString *status;
+
+- (id)ct_shortName;
+- (id)initWithStatus:(id)a0;
+
+@end

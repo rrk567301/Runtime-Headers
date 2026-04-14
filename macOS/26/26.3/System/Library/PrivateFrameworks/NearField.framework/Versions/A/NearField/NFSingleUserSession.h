@@ -1,0 +1,8 @@
+@interface NFSingleUserSession : NFSession
+
+- (id)setBlessedUser:(id)a0 withAuthorization:(id)a1;
+- (id)setBlessedUser:(id)a0 keybagUUID:(id)a1 withAuthorization:(id)a2;
+- (id)checkUserBlessing:(id)a0 hasCards:(BOOL *)a1;
+- (BOOL)hasCard:(id *)a0;
+
+@end

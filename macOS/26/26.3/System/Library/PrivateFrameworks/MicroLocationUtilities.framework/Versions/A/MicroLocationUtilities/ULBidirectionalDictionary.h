@@ -1,0 +1,14 @@
+@class NSMutableDictionary;
+
+@interface ULBidirectionalDictionary : NSObject
+
+@property (retain, nonatomic) NSMutableDictionary *keyToValueMap;
+@property (retain, nonatomic) NSMutableDictionary *valueToKeyMap;
+
+- (id)objectForKey:(id)a0;
+- (id)init;
+- (id)keyForObject:(id)a0;
+- (void).cxx_destruct;
+- (void)setObject:(id)a0 forKey:(id)a1;
+
+@end

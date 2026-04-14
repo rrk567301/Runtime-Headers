@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.DemoModeRemoteAuthenticationPrimitivesVendor : _TtCs12_SwiftObject
+
+@end

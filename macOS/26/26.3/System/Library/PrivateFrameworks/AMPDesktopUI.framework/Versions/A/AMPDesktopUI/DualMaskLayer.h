@@ -1,0 +1,3 @@
+@interface DualMaskLayer : CALayer
+
+@end

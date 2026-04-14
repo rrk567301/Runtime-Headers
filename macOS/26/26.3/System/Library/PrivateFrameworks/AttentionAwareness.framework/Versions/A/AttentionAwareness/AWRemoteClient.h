@@ -1,0 +1,86 @@
+@class NSUUID, NSString, NSArray, NSXPCConnection, NSSet, AWScheduler, NSObject, AWAttentionAwarenessConfiguration, AWAttentionEvent;
+@protocol OS_dispatch_source, OS_os_transaction, OS_dispatch_queue, AWFrameworkClient;
+
+@interface AWRemoteClient : NSObject <AWRemoteClient> {
+    NSObject<OS_dispatch_queue> *_queue;
+    AWScheduler *_scheduler;
+    id<AWFrameworkClient> _proxy;
+    NSXPCConnection *_connection;
+    unsigned long long _tagIndex;
+    unsigned long long _notificationMask;
+    unsigned long long _attentionLostEventMask;
+    BOOL _sampleWhileAbsent;
+    BOOL _retroactiveTimeoutMode;
+    BOOL _continuousFaceDetectMode;
+    BOOL _unityStream;
+    NSSet *_digitizerDisplayUUIDs;
+    NSSet *_keyboardDisplayUUIDs;
+    NSSet *_buttonDisplayUUIDs;
+    NSObject<OS_os_transaction> *_transaction;
+    NSArray *_attentionLostTimeoutsSec;
+    double _nonSampledAttentionLostTimeout;
+    BOOL _nonSampledAttentionLostTimeoutEnable;
+    NSObject<OS_dispatch_source> *_nonSampledAttentionTimer;
+    BOOL _nonSampledAttentionTimerResumed;
+    NSSet *_allowedHIDEventsForRemoteEvent;
+    struct { double x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; BOOL x8; BOOL x9; BOOL x10; BOOL x11; } *_clientState;
+    AWAttentionEvent *_lastEvent;
+    AWAttentionAwarenessConfiguration *_lastConfig;
+    BOOL _pollingFilter;
+    BOOL _filteredPollingEventDelivered;
+}
+
+@property (copy, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) unsigned long long samplingInterval;
+@property (readonly, nonatomic) unsigned long long samplingDelay;
+@property (readonly, nonatomic) BOOL invalid;
+@property (readonly, nonatomic) int clientIndex;
+@property (readonly, nonatomic) NSUUID *clientId;
+@property (nonatomic) unsigned long long streamingStartTime;
+@property (nonatomic) double streamingDuration;
+@property (readonly, nonatomic) BOOL activateAttentionDetection;
+@property (readonly, nonatomic) BOOL activateMotionDetect;
+@property (readonly, nonatomic) BOOL activateEyeRelief;
+@property (readonly, nonatomic) unsigned long long eventMask;
+@property (readonly, nonatomic) BOOL activatePersonDetection;
+
+- (void)invalidate;
+- (void)invalidateWithHandler:(id /* block */)a0;
+- (BOOL)canDeliverPollingEvent;
+- (unsigned long long)nextTimerForTime:(unsigned long long)a0;
+- (void)getLastEvent:(id /* block */)a0;
+- (void)deliverEvent:(id)a0;
+- (void)initializeClientState;
+- (void)notifyEvent:(unsigned long long)a0 timestamp:(unsigned long long)a1 metadata:(union { struct AWFaceDetectMetadata { BOOL x0; double x1; double x2; double x3; unsigned long long x4; double x5; unsigned long long x6; unsigned long long x7; float x8[16]; unsigned long long x9; float x10; unsigned long long x11; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x12; } x0; struct AWRemoteMetadata { long long x0; long long x1; unsigned long long x2; BOOL x3; } x1; struct AWDigitizerButtonKeyboardMetadata { unsigned long long x0; struct __CFString *x1; } x2; } *)a2;
+- (void)cancelFaceDetectStreamWithReply:(id /* block */)a0;
+- (id)description;
+- (void)deliverNotification:(unsigned long long)a0;
+- (void)updateEventTimesForMask:(unsigned long long)a0 timestamp:(unsigned long long)a1;
+- (BOOL)_isSamplingClient;
+- (void)_resetAttentionLostTimer;
+- (void)notifyHIDEvent:(struct __IOHIDEvent { } *)a0 mask:(unsigned long long)a1 timestamp:(unsigned long long)a2 senderID:(struct __IOHIDService { } *)a3 displayUUID:(id)a4;
+- (void)deliverPollEventType:(unsigned long long)a0 event:(id)a1;
+- (BOOL)canOperationBeEndedForClient;
+- (void)streamFaceDetectEventsWithReply:(id /* block */)a0;
+- (id)connection;
+- (BOOL)isStreamingClient;
+- (BOOL)_setClientConfig:(id)a0 shouldReset:(BOOL)a1 error:(id *)a2;
+- (void).cxx_destruct;
+- (void)reevaluateConfig;
+- (void)notifyStreamingClientOfInterruption:(unsigned long long)a0;
+- (void)setClientConfig:(id)a0 shouldReset:(BOOL)a1 reply:(id /* block */)a2;
+- (BOOL)shouldInitBeSent;
+- (BOOL)_interestedInHIDEvent:(struct __IOHIDEvent { } *)a0 mask:(unsigned long long)a1 metadata:(union { struct AWFaceDetectMetadata { BOOL x0; double x1; double x2; double x3; unsigned long long x4; double x5; unsigned long long x6; unsigned long long x7; float x8[16]; unsigned long long x9; float x10; unsigned long long x11; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x12; } x0; struct AWRemoteMetadata { long long x0; long long x1; unsigned long long x2; BOOL x3; } x1; struct AWDigitizerButtonKeyboardMetadata { unsigned long long x0; struct __CFString *x1; } x2; } *)a2 senderID:(struct __IOHIDService { } *)a3 displayUUID:(id)a4;
+- (void)pollWithTimeout:(unsigned long long)a0 reply:(id /* block */)a1;
+- (void)pingWithReply:(id /* block */)a0;
+- (void)notifyEvent:(unsigned long long)a0 timestamp:(unsigned long long)a1;
+- (id)initWithProxy:(id)a0 connection:(id)a1 clientConfig:(id)a2 clientIndex:(int)a3 clientId:(id)a4 scheduler:(id)a5 error:(id *)a6;
+- (void)updateDeadlinesForTime:(unsigned long long)a0;
+- (void)invalidateWithoutQueue;
+- (void)notifyClientOfStreamingEvent:(id)a0;
+- (void)resetAttentionLostTimerWithReply:(id /* block */)a0;
+- (unsigned long long)nextAttentionLostTime:(BOOL *)a0;
+- (unsigned long long)_activeEventMask;
+- (unsigned long long)nextSampleTime;
+
+@end

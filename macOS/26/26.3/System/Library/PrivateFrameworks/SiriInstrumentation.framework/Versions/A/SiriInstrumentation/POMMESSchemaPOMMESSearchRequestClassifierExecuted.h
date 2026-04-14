@@ -1,0 +1,24 @@
+@class NSData;
+
+@interface POMMESSchemaPOMMESSearchRequestClassifierExecuted : SISchemaInstrumentationMessage {
+    struct { unsigned char isPegasusSearchPerformed : 1; unsigned char mitigationResponseDecision : 1; } _has;
+}
+
+@property (nonatomic) BOOL isPegasusSearchPerformed;
+@property (nonatomic) BOOL hasIsPegasusSearchPerformed;
+@property (nonatomic) int mitigationResponseDecision;
+@property (nonatomic) BOOL hasMitigationResponseDecision;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)dictionaryRepresentation;
+- (id)initWithJSON:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (void)writeTo:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)deleteIsPegasusSearchPerformed;
+- (void)deleteMitigationResponseDecision;
+
+@end

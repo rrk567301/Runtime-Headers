@@ -1,0 +1,3 @@
+@interface _TtCC18ReplicatorServices8Database25MutableDataMigrationStore : _TtCC18ReplicatorServices8Database18DataMigrationStore
+
+@end

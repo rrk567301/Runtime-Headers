@@ -1,0 +1,16 @@
+@interface WidgetKit.ControlTemplateRequest : NSObject <NSSecureCoding> {
+    void /* unknown type, empty encoding */ fileHandle;
+    void /* unknown type, empty encoding */ control;
+    void /* unknown type, empty encoding */ environment;
+    void /* unknown type, empty encoding */ hostDeviceID;
+    void /* unknown type, empty encoding */ isPreview;
+}
+
+@property (class, nonatomic) BOOL supportsSecureCoding;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

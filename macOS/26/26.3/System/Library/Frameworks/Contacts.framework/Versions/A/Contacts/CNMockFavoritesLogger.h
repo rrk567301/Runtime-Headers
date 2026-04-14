@@ -1,0 +1,31 @@
+@class NSString;
+
+@interface CNMockFavoritesLogger : NSObject <CNFavoritesLogger>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)failedToReadRemoteFavorites:(id)a0 willRetry:(BOOL)a1;
+- (void)finishedReadingFavoritesFromPath:(id)a0 entriesCount:(unsigned long long)a1;
+- (void)failedToReadFavoritesForMatching:(id)a0;
+- (void)readingFavorites:(id /* block */)a0;
+- (void)finishedWritingFavoritesToPath:(id)a0 entriesCount:(unsigned long long)a1;
+- (void)reportFavoritesAccessedBeforeFirstUnlock;
+- (void)finishedReadingFavoritesForMatching;
+- (void)failedToWriteFavoritesForMatching:(id)a0;
+- (void)rematchingFavorites:(id /* block */)a0;
+- (void)failedToVerifyWrittenFavoritesExistsAtPath:(id)a0;
+- (void)writingFavorites:(id /* block */)a0;
+- (void)failedToReadFavoritesFromPath:(id)a0 error:(id)a1 simulateCrashReport:(BOOL)a2;
+- (void)reportFavoritesAccessedAfterFirstUnlock;
+- (void)finishedReadingRemoteFavorites;
+- (void)failedToWriteRemoteFavorites:(id)a0 willRetry:(BOOL)a1;
+- (void)finishedWritingRemoteFavorites;
+- (void)failedToConvertFavoritesToPropertyList:(id)a0;
+- (void)finishedWritingFavoritesForMatching;
+- (void)failedToWriteFavoritesToPath:(id)a0 error:(id)a1 simulateCrashReport:(BOOL)a2;
+- (void)failedToVerifyFavorites:(id)a0 withPropertyListFavorites:(id)a1 error:(id)a2;
+
+@end

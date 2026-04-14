@@ -1,0 +1,3 @@
+@interface MetalContextDummy : NSObject
+
+@end

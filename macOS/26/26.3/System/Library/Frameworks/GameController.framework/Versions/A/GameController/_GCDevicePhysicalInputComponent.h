@@ -1,0 +1,39 @@
+@class NSString, NSMutableArray, _GCDevicePhysicalInputGroup;
+@protocol NSSecureCoding, NSCopying, NSObject, GCDevice;
+
+@interface _GCDevicePhysicalInputComponent : NSObject <_GCGamepadEventSink, _GCCollectionEventSink, _GCDevicePhysicalInputGroupDataSource, GCDeviceComponent> {
+    _GCDevicePhysicalInputGroup *_defaultPhysicalInputGroup;
+    id _gamepadEventObservation;
+    id _collectionEventObservation;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _eventBufferLock;
+    NSMutableArray *_collectionEventBuffer;
+    id<GCDevice> _device;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) id<NSObject, NSCopying, NSSecureCoding> identifier;
+
+- (void)setDevice:(id)a0;
+- (id)capture;
+- (id)init;
+- (void).cxx_destruct;
+- (void)setDispatchQueue:(id)a0;
+- (void)enableEventBufferingPreviewForNIS;
+- (void)handleCollectionEvent:(id)a0;
+- (void)handleGamepadEvent:(id)a0;
+- (id)initWithIdentifier:(id)a0 defaultPhysicalInput:(id)a1;
+- (id)initWithIdentifier:(id)a0 physicalInputs:(id)a1;
+- (void)physicalInputGroupPoll:(id)a0 forLatest:(BOOL)a1;
+- (void)physicalInputGroupPreferredTransactionQueueDepthDidChange:(id)a0;
+- (void)physicalInputGroupQueueDidChange:(id)a0;
+- (void)setCollectionEventSource:(id)a0;
+- (void)setGamepadEventSource:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCV13CryptexServer19BootstrapVirtualEnvP33_208152451A27CF1F362939E4B64E74557Symlink : _TtCs12_SwiftObject
+
+@end

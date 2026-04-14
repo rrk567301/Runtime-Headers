@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.LocationSemanticBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

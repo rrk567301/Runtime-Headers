@@ -1,0 +1,15 @@
+@class NSString, NSArray;
+
+@interface STMDisk : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *name;
+@property (retain, nonatomic) NSArray *volumes;
+@property (nonatomic) BOOL isInternal;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,1 @@
+WARNING: /usr/local/bin/classdumpctl-mac is loading libcrypto in an unsafe way

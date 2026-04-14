@@ -1,0 +1,30 @@
+@interface AWDMETRICSKCellularPowerLogLteNrRxTxActivityStatsRxTxActivity : PBCodable <NSCopying> {
+    struct { unsigned char actState : 1; unsigned char caState : 1; unsigned char count : 1; unsigned char ratDpl : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasRatDpl;
+@property (nonatomic) int ratDpl;
+@property (nonatomic) BOOL hasCaState;
+@property (nonatomic) int caState;
+@property (nonatomic) BOOL hasActState;
+@property (nonatomic) int actState;
+@property (nonatomic) BOOL hasCount;
+@property (nonatomic) unsigned int count;
+
+- (id)dictionaryRepresentation;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)copyTo:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (int)StringAsActState:(id)a0;
+- (int)StringAsCaState:(id)a0;
+- (int)StringAsRatDpl:(id)a0;
+- (id)ratDplAsString:(int)a0;
+- (id)actStateAsString:(int)a0;
+- (id)caStateAsString:(int)a0;
+
+@end

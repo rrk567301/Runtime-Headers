@@ -1,0 +1,17 @@
+@interface DGMonochromeMixerOperation : DGOperation
+
+@property (nonatomic) long long inputType;
+@property (nonatomic) double inputRValue;
+@property (nonatomic) double inputGValue;
+@property (nonatomic) double inputBValue;
+
++ (id)inputKeys;
++ (id)attributes;
++ (id)outputKeys;
++ (id)_stringsTableName;
+
+- (id)initWithOperation:(id)a0;
+- (id)init;
+- (void)setNilValueForKey:(id)a0;
+
+@end

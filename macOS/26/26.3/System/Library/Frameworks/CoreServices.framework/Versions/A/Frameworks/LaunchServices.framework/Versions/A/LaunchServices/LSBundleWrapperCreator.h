@@ -1,0 +1,13 @@
+@interface LSBundleWrapperCreator : NSObject <LSBundleWrapperMutation> {
+    struct unique_ptr<LaunchServices::BundleWrapperMutationOperation, std::default_delete<LaunchServices::BundleWrapperMutationOperation>> { struct { struct BundleWrapperMutationOperation *__ptr_; } ; } _creationOperation;
+}
+
+- (id)finalizeWithError:(id *)a0;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)initForTargetDirectoryURL:(id)a0 consultingPlaceholderAtURL:(id)a1;
+- (id)initForTargetDirectoryURL:(id)a0 desiredFilesystemName:(id)a1;
+- (id)initTargetingFinalURL:(id)a0;
+- (id)writeContainerContents:(id /* block */)a0;
+
+@end

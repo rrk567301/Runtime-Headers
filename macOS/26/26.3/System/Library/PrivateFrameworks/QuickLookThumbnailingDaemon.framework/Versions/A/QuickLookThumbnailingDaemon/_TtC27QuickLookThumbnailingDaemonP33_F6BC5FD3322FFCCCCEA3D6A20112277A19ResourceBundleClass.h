@@ -1,0 +1,3 @@
+@interface _TtC27QuickLookThumbnailingDaemonP33_F6BC5FD3322FFCCCCEA3D6A20112277A19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

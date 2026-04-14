@@ -1,0 +1,3 @@
+@interface _TtCCC13HomeKitDaemon7Account14ChangeObserverP33_F23E2DDC4039C2F8D1DCCB698C08AC5420SimulatorUserManager : _TtCs12_SwiftObject
+
+@end

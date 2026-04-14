@@ -1,0 +1,26 @@
+@class NSString, _EFCancelationTokenImpl;
+
+@interface EFManualCancelationToken : NSObject <EFCancelableToken, EFInvocable> {
+    _EFCancelationTokenImpl *_impl;
+}
+
+@property (readonly, copy, nonatomic) NSString *label;
+@property (readonly, getter=isCanceled) BOOL canceled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)tokenWithLabel:(id)a0 cancelationBlock:(id /* block */)a1;
++ (id)tokenWithCancelationBlock:(id /* block */)a0;
+
+- (id)initWithLabel:(id)a0;
+- (void)cancel;
+- (void)invoke;
+- (id)init;
+- (void)addCancelable:(id)a0;
+- (void).cxx_destruct;
+- (void)addCancelationBlock:(id /* block */)a0;
+- (void)removeAllCancelationBlocks;
+
+@end

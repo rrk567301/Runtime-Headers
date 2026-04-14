@@ -1,0 +1,7 @@
+@interface NUChannelLogicalAndExpression : NUChannelLogicBinaryExpression
+
+- (id)description;
+- (id)compactDescription;
+- (id)evaluateWithLeftValue:(id)a0 rightValue:(id)a1 error:(out id *)a2;
+
+@end

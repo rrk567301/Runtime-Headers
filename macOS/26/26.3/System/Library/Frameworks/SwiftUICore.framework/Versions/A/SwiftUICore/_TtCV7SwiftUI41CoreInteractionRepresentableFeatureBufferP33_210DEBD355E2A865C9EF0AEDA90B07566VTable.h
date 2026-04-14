@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI41CoreInteractionRepresentableFeatureBufferP33_210DEBD355E2A865C9EF0AEDA90B07566VTable : SwiftUI._UnsafeHeterogeneousBuffer_VTable
+
+@end

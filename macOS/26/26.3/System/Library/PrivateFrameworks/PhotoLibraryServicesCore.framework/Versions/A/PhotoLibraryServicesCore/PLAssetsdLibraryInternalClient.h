@@ -1,0 +1,45 @@
+@interface PLAssetsdLibraryInternalClient : PLAssetsdBaseClient
+
+- (void)_getLibrarySizesFromDB:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (BOOL)synchronouslyGetSizeOfResourcesToUploadByCPL:(long long *)a0 error:(id *)a1;
+- (void)markPersonAsNeedingKeyFace:(id)a0 completionHandler:(id /* block */)a1;
+- (void)resetLimitedLibraryAccessForApplication:(id)a0 completionHandler:(id /* block */)a1;
+- (void)deleteiTunesSyncedContentWithCompletionHandler:(id /* block */)a0;
+- (BOOL)synchronouslyMarkPersonAsNeedingKeyFace:(id)a0 error:(id *)a1;
+- (void)mergeDuplicateAssetUuidSelection:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)checkAssetsArePendingForDuplicateMergeProcessing:(id)a0;
+- (void)getLibrarySizesFromDB:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)setWidgetTimelineGeneratedForDisplaySize:(struct CGSize { double x0; double x1; })a0 completionHandler:(id /* block */)a1;
+- (BOOL)backgroundJobServiceRemoveAllBundleRecordsFromProcessingSet:(id *)a0;
+- (id)metricsForLibraryAtURL:(id)a0 error:(id *)a1;
+- (id)getBackgroundJobServiceBundlesInQueueDictionaryWithError:(id *)a0;
+- (id)availabilityStateShouldPersist:(BOOL)a0 error:(id *)a1;
+- (BOOL)invalidateReverseLocationDataOnAllAssetsWithError:(id *)a0;
+- (void)pauseSearchIndexingWithCompletionHandler:(id /* block */)a0;
+- (BOOL)clearAvailabilityStateWithError:(id *)a0;
+- (BOOL)waitForSearchIndexExistenceWithError:(id *)a0;
+- (BOOL)updateInitialSuggestionsWithIdentifiers:(id)a0 dateLastUsed:(id)a1 error:(id *)a2;
+- (void)setFetchFilterWithAssets:(id)a0 forApplication:(id)a1 withAuditToken:(struct { unsigned int x0[8]; })a2 completionHandler:(id /* block */)a3;
+- (id)readAppPrivateDataBelongingToBundleID:(id)a0 error:(id *)a1;
+- (BOOL)generateInitialSuggestionsWithStyleType:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)deleteAllInitialSuggestionsWithError:(id *)a0;
+- (BOOL)failAvailabilityWithError:(id *)a0;
+- (BOOL)processIdenticalDuplicatesWithProcessingType:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)_inProcess_getLibrarySizesFromDB:(BOOL)a0 handler:(id /* block */)a1;
+- (BOOL)registerBackgroundJobServiceIfNecessaryOnLibraryPath:(id)a0 error:(id *)a1;
+- (id)getBackgroundJobServiceStatusCenterDumpWithError:(id *)a0;
+- (id)_librarySizesQueue;
+- (void)reloadMomentGenerationOptions;
+- (void)getAssetCountsWithReply:(id /* block */)a0;
+- (void)updateAssetLocationDataWithUUID:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)repairMemoriesWithUUIDs:(id)a0 error:(id *)a1;
+- (id)featureProcessingSnapshotWithError:(id *)a0;
+- (void)forceRunBackgroundJobsOnLibraryPath:(id)a0 criteriaShortCode:(id)a1 completionHandler:(id /* block */)a2;
+- (unsigned long long)getBackgroundJobServiceStateWithError:(id *)a0;
+- (void)coreAnalyticsLibrarySummaryDataWithCompletionHandler:(id /* block */)a0;
+- (BOOL)setKeywords:(id)a0 forAssetWithUUID:(id)a1;
+- (void)getSearchIndexProgress:(id /* block */)a0;
+- (BOOL)signalAvailabilityWithChanges:(id)a0 error:(id *)a1;
+- (void)resumeSearchIndexingWithCompletionHandler:(id /* block */)a0;
+
+@end
