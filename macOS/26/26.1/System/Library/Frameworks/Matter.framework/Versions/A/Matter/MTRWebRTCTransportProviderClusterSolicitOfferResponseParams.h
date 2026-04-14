@@ -1,0 +1,18 @@
+@class NSNumber;
+
+@interface MTRWebRTCTransportProviderClusterSolicitOfferResponseParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *webRTCSessionID;
+@property (copy, nonatomic) NSNumber *deferredOffer;
+@property (copy, nonatomic) NSNumber *videoStreamID;
+@property (copy, nonatomic) NSNumber *audioStreamID;
+
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (id)initWithResponseValue:(id)a0 error:(id *)a1;
+- (struct ChipError { unsigned int x0; unsigned int x1; char *x2; })_setFieldsFromDecodableStruct:(const void *)a0;
+- (id)initWithDecodableStruct:(const void *)a0;
+
+@end

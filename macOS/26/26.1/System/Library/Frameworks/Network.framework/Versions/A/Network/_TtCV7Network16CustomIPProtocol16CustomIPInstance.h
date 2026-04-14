@@ -1,0 +1,3 @@
+@interface _TtCV7Network16CustomIPProtocol16CustomIPInstance : Network.DefaultOneToOneProtocol
+
+@end

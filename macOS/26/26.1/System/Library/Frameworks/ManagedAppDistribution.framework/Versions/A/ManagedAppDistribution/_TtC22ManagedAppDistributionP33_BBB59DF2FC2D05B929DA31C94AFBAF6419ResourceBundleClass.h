@@ -1,0 +1,3 @@
+@interface _TtC22ManagedAppDistributionP33_BBB59DF2FC2D05B929DA31C94AFBAF6419ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

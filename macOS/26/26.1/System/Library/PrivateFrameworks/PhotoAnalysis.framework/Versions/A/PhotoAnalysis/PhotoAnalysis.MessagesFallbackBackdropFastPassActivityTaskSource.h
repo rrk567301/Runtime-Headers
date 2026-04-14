@@ -1,0 +1,3 @@
+@interface PhotoAnalysis.MessagesFallbackBackdropFastPassActivityTaskSource : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC23ImagePlaygroundInternalP33_78BB7017D1421EFD830904CF1E4BB1D314GetRecipeActor : _TtCs12_SwiftObject
+
+@end

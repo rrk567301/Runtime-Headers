@@ -1,0 +1,3 @@
+@interface _TtC15RemindersUICoreP33_A3BA6000D8428A992F3ECBE4ED9D1F9824FixtureSuggestionContext : _TtCs12_SwiftObject
+
+@end

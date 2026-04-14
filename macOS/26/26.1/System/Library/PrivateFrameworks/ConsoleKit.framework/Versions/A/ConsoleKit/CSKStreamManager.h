@@ -1,0 +1,18 @@
+@class NSOperationQueue;
+
+@interface CSKStreamManager : NSObject
+
+@property (class, readonly) CSKStreamManager *sharedManager;
+
+@property (readonly, nonatomic) NSOperationQueue *operationQueue;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)init;
+- (void)scheduleStream:(id)a0;
+- (void)cancelAllStreams;
+- (void)cancelStream:(id)a0;
+- (void)pauseStream:(id)a0;
+- (void)resumeStream:(id)a0;
+
+@end

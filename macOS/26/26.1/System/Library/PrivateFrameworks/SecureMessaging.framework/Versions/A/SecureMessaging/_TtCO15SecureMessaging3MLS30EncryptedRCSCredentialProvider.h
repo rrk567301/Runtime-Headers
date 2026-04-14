@@ -1,0 +1,3 @@
+@interface _TtCO15SecureMessaging3MLS30EncryptedRCSCredentialProvider : _TtCs12_SwiftObject
+
+@end

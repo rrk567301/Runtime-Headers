@@ -1,0 +1,19 @@
+@class _ICLLParticipantQuery;
+
+@interface _ICLLParticipantChangeAction : PBCodable <NSCopying> {
+    long long _participantId;
+    _ICLLParticipantQuery *_participantQuery;
+    int _status;
+    struct { unsigned char participantId : 1; unsigned char status : 1; } _has;
+}
+
+- (id)dictionaryRepresentation;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

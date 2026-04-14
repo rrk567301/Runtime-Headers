@@ -1,0 +1,65 @@
+@interface _TtC10ChronoCoreP33_2559684BF6D015C60DA4DF344EC1B12920ChronoServicesClient : NSObject <CHSChronoWidgetServiceServerInterface> {
+    void /* unknown type, empty encoding */ _server;
+    void /* unknown type, empty encoding */ timelineService;
+    void /* unknown type, empty encoding */ taskService;
+    void /* unknown type, empty encoding */ descriptorService;
+    void /* unknown type, empty encoding */ enablementProvider;
+    void /* unknown type, empty encoding */ deviceService;
+    void /* unknown type, empty encoding */ extensionService;
+    void /* unknown type, empty encoding */ widgetHostService;
+    void /* unknown type, empty encoding */ keybagStateProvider;
+    void /* unknown type, empty encoding */ powerlogSuggestionService;
+    void /* unknown type, empty encoding */ stuckPairedRelationshipRepairer;
+    void /* unknown type, empty encoding */ keepAliveAssertionProvider;
+    void /* unknown type, empty encoding */ widgetRelevanceService;
+    void /* unknown type, empty encoding */ remoteActivityLaunchService;
+    void /* unknown type, empty encoding */ activityService;
+    void /* unknown type, empty encoding */ _duetServiceQueue_duetService;
+    void /* unknown type, empty encoding */ _queue;
+    void /* unknown type, empty encoding */ _queue_connection;
+    void /* unknown type, empty encoding */ _queue_widgetHostIdentities;
+    void /* unknown type, empty encoding */ _queue_widgetFetchSubscriptions;
+    void /* unknown type, empty encoding */ _queue_widgetTimelineLoadSubscriptions;
+    void /* unknown type, empty encoding */ _queue_widgetTimelineLoadActionResponders;
+    void /* unknown type, empty encoding */ _queue_widgetLifetimeAssertionResponders;
+    void /* unknown type, empty encoding */ _queue_serviceAssertionIDs;
+    void /* unknown type, empty encoding */ _queue_serviceAssertions;
+    void /* unknown type, empty encoding */ _queue_providerOptions;
+    void /* unknown type, empty encoding */ _queue_invalidated;
+    void /* unknown type, empty encoding */ subscriptions;
+}
+
+- (id)widgetEnvironmentDataForBundleIdentifier:(id)a0;
+- (void)performDescriptorDiscoveryForHost:(id)a0;
+- (void)flushPowerlog;
+- (id)acquireKeepAliveAssertionForExtensionBundleIdentifier:(id)a0 reason:(id)a1 error:(id *)a2;
+- (void)pairDeviceWith:(id)a0 completion:(id /* block */)a1;
+- (void)acquireLifetimeAssertionForWidget:(id)a0 metrics:(id)a1 prewarm:(id)a2 timeout:(id)a3 completion:(id /* block */)a4;
+- (void)launchLiveActivityWithID:(id)a0 deviceID:(id)a1 url:(id)a2;
+- (void)retryStuckRemotePairings;
+- (void)modifyDescriptorEnablement:(id)a0 completion:(id /* block */)a1;
+- (void)removeWidgetHostWithIdentifier:(id)a0;
+- (void)reloadDescriptorsForContainerBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)fetchDescriptorsForContainerBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)subscribeToTimelineEntryRelevance:(id /* block */)a0;
+- (void)setActivationState:(id)a0 forWidgetHostWithIdentifier:(id)a1;
+- (BOOL)remoteWidgetsEnabled;
+- (void)reloadTimeline:(id)a0 error:(id *)a1;
+- (void)allWidgetConfigurationsByHostWithCompletion:(id /* block */)a0;
+- (id)allPairedDevices;
+- (void)reloadWidgetRelevanceForExtensionIdentifier:(id)a0 kind:(id)a1 completion:(id /* block */)a2;
+- (void).cxx_destruct;
+- (BOOL)unpairDeviceWith:(id)a0 error:(id *)a1;
+- (id)_URLSessionDidCompleteForExtensionWithBundleIdentifier:(id)a0 info:(id)a1;
+- (void)invalidateRelevancesOfKind:(id)a0 inBundle:(id)a1 completion:(id /* block */)a2;
+- (void)subscribeToExtensionsWithProviderOptions:(id)a0 completion:(id /* block */)a1;
+- (void)getAppIntentsXPCListenerEndpointForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)subscribeToWidgetRelevance:(id /* block */)a0;
+- (BOOL)toggleRemoteWidgetsEnabled:(id)a0 error:(id *)a1;
+- (void)subscribeToActivityPayloadUpdates:(id /* block */)a0;
+- (void)setWidgetConfiguration:(id)a0 activationState:(id)a1 forWidgetHostWithIdentifier:(id)a2;
+- (void)subscribeToRemoteDevices:(id /* block */)a0;
+- (id)init;
+- (BOOL)reloadRemoteWidgetsWithError:(id *)a0;
+
+@end

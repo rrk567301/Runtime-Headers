@@ -1,0 +1,81 @@
+@class _ATXDataStore, NSMutableArray;
+
+@interface _ATXAppInfoManager : NSObject <ATXBundleIdRemovableProtocol> {
+    _ATXDataStore *_dataStore;
+    NSMutableArray *_installDeltaLog;
+    struct _opaque_pthread_rwlock_t { long long __sig; char __opaque[192]; } _rwlock;
+}
+
++ (id)sharedInstance;
++ (id)sortArrayAndComputeMedian:(id)a0;
+
+- (void)train;
+- (id)allApps;
+- (id)lastAppLaunchDate;
+- (void)addMedianSecondsBetweenAppActionsForActionKey:(id)a0 median:(id)a1;
+- (id)lastAppActionLaunch;
+- (id)lastAppLaunch;
+- (id)genreIdsForBundleId:(id)a0;
+- (id)lastUnlockDate;
+- (id)secondMostRecentAppLaunch;
+- (void)addLaunchForAppAction:(id)a0 date:(id)a1;
+- (id)appInfoForBundleId:(id)a0;
+- (void)handleAppInstallWithInstallDict:(id)a0;
+- (void)updateApp2VecClusterForBundleId:(id)a0 app2VecCluster:(id)a1;
+- (void)startInstallDeltaRecording;
+- (void)addInstallForBundleInfoMap:(id)a0;
+- (void)computeAverageAndMedianSecondsBetweenAppActions;
+- (id)bundleIDForRemoteAppWithUUID:(id)a0;
+- (void)removeAppLaunchesForBundleId:(id)a0;
+- (id)subGenreIdsForBundleId:(id)a0;
+- (void)clearAppLaunchInfo;
+- (id)averageSecondsBetweenLaunchesForBundleId:(id)a0;
+- (id)initWithInMemoryStore;
+- (void)computeAverageAndMedianSecondsBetweenAppLaunches:(id)a0;
+- (void)addExtensionLaunchForBundleId:(id)a0 date:(id)a1;
+- (void)updateDatabaseWithRemoteAppsInfo;
+- (id)allRemoteApps;
+- (void)updateGenreIdsForAllApps;
+- (void)deleteAllRemoteApps;
+- (id)allActionKeys;
+- (id)allAppsLaunchedOrInstalledWithin30Days;
+- (void)addLaunchForBundleId:(id)a0 date:(id)a1;
+- (id)_appInfoNoLockForBundleId:(id)a0;
+- (void)addScreenLockAtDate:(id)a0;
+- (id)stopInstallDeltaRecording;
+- (void)updateGenreIdsForBundleId:(id)a0 genreId:(id)a1 subGenreIds:(id)a2;
+- (id)medianSecondsBetweenLaunchesForBundleId:(id)a0;
+- (id)averageSecondsBetweenAppActionsForActionKey:(id)a0;
+- (void)addSpotlightLaunchForBundleId:(id)a0 date:(id)a1;
+- (void)dealloc;
+- (void)removeAppInfoForBundleId:(id)a0;
+- (void)addMedianSecondsBetweenLaunchesForBundleId:(id)a0 median:(id)a1;
+- (id)allAppsWithInstallDate;
+- (id)lastAppActionLaunchDateForActionKey:(id)a0;
+- (id)genreIdForBundleId:(id)a0;
+- (void)addAverageSecondsBetweenLaunchesForBundleId:(id)a0 average:(id)a1;
+- (id)totalSlotsInDatastore;
+- (id)app2VecClusterForBundleId:(id)a0;
+- (void)appLaunchesCalculations:(id)a0;
+- (id)lastLaunchDateForBundleId:(id)a0;
+- (BOOL)hasRemoteApps;
+- (void)computeAverageAndMedianSecondsBetweenAppLaunches;
+- (void).cxx_destruct;
+- (id)initWithDataStore:(id)a0;
+- (void)computeAverageAndMedianSecondsBetweenAppActions:(id)a0;
+- (id)medianSecondsBetweenAppActionsForActionKey:(id)a0;
+- (id)lastAppActionLaunchDate;
+- (void)updateApp2VecClustersForAllApps;
+- (void)removeBundleIds:(id)a0;
+- (void)handleAppUninstallWithUninstalledAppSet:(id)a0;
+- (void)addAverageSecondsBetweenAppActionsForActionKey:(id)a0 average:(id)a1;
+- (void)removeAppInfoForBundleIds:(id)a0;
+- (long long)launchedAppCount;
+- (void)removeUninstalledApps;
+- (void)removeActionDataForBundleId:(id)a0;
+- (void)clearAppInstallInfo;
+- (void)updateInstallDateForBundleID:(id)a0 timestamp:(double)a1;
+- (id)init;
+- (void)addInstallForBundleId:(id)a0 date:(id)a1;
+
+@end

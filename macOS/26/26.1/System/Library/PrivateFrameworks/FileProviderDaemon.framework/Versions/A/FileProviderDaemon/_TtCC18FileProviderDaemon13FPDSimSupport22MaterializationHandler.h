@@ -1,0 +1,25 @@
+@class NSFileProvidingResponse, NSURL, NSFileProviderMovingInfo, NSFileProviderMovingResponse, NSFileProvidingInfo;
+
+@interface _TtCC18FileProviderDaemon13FPDSimSupport22MaterializationHandler : NSObject <FPDFileCoordinationProviderDelegate> {
+    void /* unknown type, empty encoding */ url;
+    void /* unknown type, empty encoding */ provider;
+    void /* unknown type, empty encoding */ queue;
+    void /* unknown type, empty encoding */ logger;
+    void /* unknown type, empty encoding */ proxy;
+}
+
+- (void)_writerWithID:(id)a0 didFinishWritingForURL:(id)a1;
+- (void)_providedItemAtURL:(id)a0 withPresenterWithID:(id)a1 didMoveToURL:(id)a2;
+- (void)_providedItemAtURL:(id)a0 didLosePresenterWithID:(id)a1;
+- (id)_providedItemsOperationQueue;
+- (void)_cancelProvidingItemAtURL:(id)a0 toReaderWithID:(id)a1;
+- (void)_providedItemAtURL:(id)a0 didGainPresenterWithInfo:(id)a1;
+- (void)_movingItemAtURL:(NSURL *)a0 withInfo:(NSFileProviderMovingInfo *)a1 completionHandler:(void (^)(NSFileProviderMovingResponse *))a2;
+- (void)_provideItemAtURL:(NSURL *)a0 withInfo:(NSFileProvidingInfo *)a1 completionHandler:(void (^)(NSFileProvidingResponse *))a2;
+- (id)_siblingDelegateForURL:(id)a0;
+- (void).cxx_destruct;
+- (id)_physicalURLForURL:(id)a0;
+- (id)_fileReactorID;
+- (id)init;
+
+@end

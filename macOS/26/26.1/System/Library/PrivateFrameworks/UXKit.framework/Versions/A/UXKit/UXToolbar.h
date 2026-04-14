@@ -1,0 +1,28 @@
+@class NSArray;
+@protocol UXToolbarDelegate;
+
+@interface UXToolbar : UXBar
+
+@property (readonly, nonatomic) double visibleHeight;
+@property (weak, nonatomic) id<UXToolbarDelegate> delegate;
+@property (copy, nonatomic) NSArray *items;
+
+- (long long)barPosition;
+- (void)mouseUp:(id)a0;
+- (id)nextResponder;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)mouseDragged:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)otherMouseDown:(id)a0;
+- (void)rightMouseDown:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)otherMouseDragged:(id)a0;
+- (void)otherMouseUp:(id)a0;
+- (void)rightMouseDragged:(id)a0;
+- (void)rightMouseUp:(id)a0;
+- (void)setItems:(id)a0 animated:(BOOL)a1;
+- (void)_beginInteractiveTransitionForItems:(id)a0;
+- (void)_setItems:(id)a0 animated:(BOOL)a1 duration:(double)a2;
+
+@end

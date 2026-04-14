@@ -1,0 +1,21 @@
+@class NSString;
+
+@interface PXCPLCloudQuotaSource : PXObservable
+
+@property (readonly, nonatomic) long long state;
+@property (readonly, nonatomic) NSString *title;
+@property (readonly, nonatomic) NSString *subtitle;
+@property (readonly, nonatomic) NSString *actionTitle;
+
++ (id)_placement;
+
+- (void)setActionTitle:(id)a0;
+- (void)setTitle:(id)a0;
+- (void)setState:(long long)a0;
+- (void).cxx_destruct;
+- (void)setSubtitle:(id)a0;
+- (id)init;
+- (void)_handleInAppMessage:(id)a0;
+- (void)currentInAppMessageDidChange:(id)a0;
+
+@end

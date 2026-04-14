@@ -1,0 +1,3 @@
+@interface WFLinkWritingToolsAdjustToneAction : WFLinkWritingToolsAction
+
+@end

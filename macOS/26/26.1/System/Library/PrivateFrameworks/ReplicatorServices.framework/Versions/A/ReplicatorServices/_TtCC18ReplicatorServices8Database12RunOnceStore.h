@@ -1,0 +1,3 @@
+@interface _TtCC18ReplicatorServices8Database12RunOnceStore : _TtCC18ReplicatorServices8Database16DatabaseAccessor
+
+@end

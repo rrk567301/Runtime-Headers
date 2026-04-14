@@ -1,0 +1,3 @@
+@interface _TtCV12HealthDaemon8AnyModelP33_2DAE45B05DF90942BD1FB3463CB1604C4Base : _TtCs12_SwiftObject
+
+@end

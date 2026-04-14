@@ -1,0 +1,3 @@
+@interface WidgetKit.RectangularHomeScreenComplicationDeprecatedFontDefinition : WidgetKit.RectangularClockComplicationFontDefinition
+
+@end

@@ -1,0 +1,5 @@
+@interface NetworkExtension.NEHotspotAuthenticationProviderHostExportedObject : NetworkExtension.NEExtensionBaseProviderHostExportedObject <NetworkExtension.NEHotspotAuthenticationProviderHostXPCProtocol>
+
+- (id)init;
+
+@end

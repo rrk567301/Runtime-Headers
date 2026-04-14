@@ -1,0 +1,3 @@
+@interface IMDPersistence.DatabaseInspectorAttachmentStorageInspectorCrossCheckReport : IMDPersistence.StorageInspectionCrossCheckReport
+
+@end

@@ -1,0 +1,3 @@
+@interface FBSPlistCollection : NSObject
+
+@end

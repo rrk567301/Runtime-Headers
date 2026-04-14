@@ -1,0 +1,10 @@
+@interface MTLTileRenderPipelineColorAttachmentDescriptorArray : NSObject
+
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { } *)a0;
+
+- (void)setObject:(id)a0 atIndexedSubscript:(unsigned long long)a1;
+- (void)reset;
+- (id)objectAtIndexedSubscript:(unsigned long long)a0;
+
+@end

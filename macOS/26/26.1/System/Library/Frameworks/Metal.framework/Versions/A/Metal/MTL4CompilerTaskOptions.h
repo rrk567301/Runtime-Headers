@@ -1,0 +1,13 @@
+@class NSArray;
+
+@interface MTL4CompilerTaskOptions : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSArray *lookupArchives;
+
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+
+@end

@@ -1,0 +1,3 @@
+@interface CoreAccessibility.RuntimeCoordinatorAccessor : CoreAccessibility._UnsafeValueBuffer_Accessor
+
+@end

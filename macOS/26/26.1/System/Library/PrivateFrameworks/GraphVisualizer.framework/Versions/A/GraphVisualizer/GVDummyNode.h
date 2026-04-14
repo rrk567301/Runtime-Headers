@@ -1,0 +1,3 @@
+@interface GVDummyNode : GVNode
+
+@end

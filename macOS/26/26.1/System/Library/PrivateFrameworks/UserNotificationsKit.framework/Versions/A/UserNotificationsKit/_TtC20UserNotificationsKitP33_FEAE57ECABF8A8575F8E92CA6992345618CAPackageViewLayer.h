@@ -1,0 +1,12 @@
+@interface _TtC20UserNotificationsKitP33_FEAE57ECABF8A8575F8E92CA6992345618CAPackageViewLayer : CALayer {
+    void /* unknown type, empty encoding */ packageLayer;
+    void /* unknown type, empty encoding */ contentMode;
+}
+
+- (id)initWithLayer:(id)a0;
+- (void)layoutSublayers;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+
+@end

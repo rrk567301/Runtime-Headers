@@ -1,0 +1,3 @@
+@interface _TtC19UnifiedMessagingKitP33_EF5FCB915A79063490148B862065CDFA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

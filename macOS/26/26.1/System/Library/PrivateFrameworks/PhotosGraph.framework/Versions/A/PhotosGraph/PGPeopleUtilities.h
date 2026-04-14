@@ -1,0 +1,10 @@
+@interface PGPeopleUtilities : NSObject
+
++ (BOOL)_hasMomentsForPersonLocalIdentifiers:(id)a0 inGraph:(id)a1 photoLibrary:(id)a2 usePersonMoments:(BOOL)a3;
++ (id)_validPersonLocalIdentifiersFromSocialGroups:(id)a0 withPhotoLibrary:(id)a1;
++ (unsigned short)ageTypeFromAgeCategory:(unsigned long long)a0;
++ (id)validateKeyedSocialGroups:(id)a0 withPhotoLibrary:(id)a1 graph:(id)a2;
++ (id)validateSocialGroups:(id)a0 withPhotoLibrary:(id)a1 graph:(id)a2;
++ (id)validateSocialGroups:(id)a0 withPhotoLibrary:(id)a1 graph:(id)a2 usePersonMoments:(BOOL)a3;
+
+@end

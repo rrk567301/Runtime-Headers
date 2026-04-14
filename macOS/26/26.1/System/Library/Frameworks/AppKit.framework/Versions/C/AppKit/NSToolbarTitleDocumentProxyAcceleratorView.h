@@ -1,0 +1,17 @@
+@class NSThemeDocumentButton;
+
+@interface NSToolbarTitleDocumentProxyAcceleratorView : NSView
+
+@property (weak) NSThemeDocumentButton *representedDocumentButton;
+@property BOOL requiresDelay;
+@property BOOL extendsRegionToIncludeTitle;
+
+- (void)mouseUp:(id)a0;
+- (void).cxx_destruct;
+- (void)mouseDragged:(id)a0;
+- (void)mouseDown:(id)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (BOOL)mouseDownCanMoveWindow;
+- (BOOL)shouldDelayWindowOrderingForEvent:(id)a0;
+
+@end

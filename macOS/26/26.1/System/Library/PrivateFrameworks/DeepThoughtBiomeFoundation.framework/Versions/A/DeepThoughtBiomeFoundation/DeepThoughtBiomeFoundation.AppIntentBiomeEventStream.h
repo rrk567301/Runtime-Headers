@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.AppIntentBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

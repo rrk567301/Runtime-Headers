@@ -1,0 +1,32 @@
+@class NSString, PBDataReader;
+
+@interface GEOPDSearchRewrittenQueryNonPayloadField : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    NSString *_rewrittenQuery;
+    NSString *_triggerFeatureSummary;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _pipelineType;
+    int _rewrittenQueryType;
+    BOOL _hasCamelCase;
+    BOOL _hasDirectionsIntent;
+    BOOL _hasEmojiRewrite;
+    BOOL _hasNumericSplit;
+    BOOL _hasSynonymCounterpart;
+    struct { unsigned char has_pipelineType : 1; unsigned char has_rewrittenQueryType : 1; unsigned char has_hasCamelCase : 1; unsigned char has_hasDirectionsIntent : 1; unsigned char has_hasEmojiRewrite : 1; unsigned char has_hasNumericSplit : 1; unsigned char has_hasSynonymCounterpart : 1; unsigned char read_rewrittenQuery : 1; unsigned char read_triggerFeatureSummary : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+- (id)dictionaryRepresentation;
+- (unsigned long long)hash;
+- (id)initWithData:(id)a0;
+- (id)jsonRepresentation;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)init;
+- (void)writeTo:(id)a0;
+
+@end

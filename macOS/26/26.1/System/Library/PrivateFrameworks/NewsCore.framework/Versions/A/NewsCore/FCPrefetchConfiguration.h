@@ -1,0 +1,21 @@
+@class NSDictionary;
+
+@interface FCPrefetchConfiguration : NSObject {
+    NSDictionary *_configDict;
+}
+
+@property (readonly, nonatomic, getter=isBackgroundFetchEnabled) BOOL backgroundFetchEnabled;
+@property (readonly, nonatomic) double minimumBackgroundFetchInterval;
+@property (readonly, nonatomic) BOOL shouldPrefetchForYouFeed;
+@property (readonly, nonatomic) NSDictionary *scheduledBGFetchTimes;
+@property (readonly, nonatomic) long long scheduledBGFetchTimeJitter;
+@property (readonly, nonatomic) NSDictionary *scheduledMicroUpdateTimes;
+@property (readonly, nonatomic) long long scheduledMicroUpdateTimeJitter;
+
+- (id)initWithConfigDictionary:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (id)initWithDefaults;
+- (BOOL)isEqual:(id)a0;
+
+@end

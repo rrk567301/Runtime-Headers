@@ -1,0 +1,27 @@
+@class MTRPluginPBMDeviceNode, MTRPluginPBMVariableValue, MTRPluginPBMHeader;
+
+@interface MTRPluginPBMDeviceNodeMessage : PBCodable <NSCopying>
+
+@property (readonly, nonatomic, getter=isValid) BOOL valid;
+@property (readonly, nonatomic) BOOL hasHeader;
+@property (retain, nonatomic) MTRPluginPBMHeader *header;
+@property (readonly, nonatomic) BOOL hasNode;
+@property (retain, nonatomic) MTRPluginPBMDeviceNode *node;
+@property (readonly, nonatomic) BOOL hasValue;
+@property (retain, nonatomic) MTRPluginPBMVariableValue *value;
+
++ (id)deviceNodeMessageFromMessage:(id)a0;
++ (id)deviceNodeMessageWithNodeID:(id)a0;
+
+- (id)dictionaryRepresentation;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

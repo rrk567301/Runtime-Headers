@@ -1,0 +1,88 @@
+@class NSString, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface ENConfigurationStore : NSObject
+
+@property (readonly, copy, nonatomic) NSString *directoryPath;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *storeQueue;
+@property (nonatomic) BOOL developerServerConfiguration;
+@property (copy, nonatomic) NSString *regionIdentifierOverride;
+
++ (id)legacyAppCacheURL;
+
+- (id)systemConfigurationCacheURL;
+- (void)clearTemporaryServerConfigurations;
+- (id)subdivisionListForRegion:(id)a0;
+- (id)localeIdentifiersForRegion:(id)a0;
+- (id)regionFromServerResponse:(id)a0;
+- (void)clearTemporaryCountrySubdivisionList;
+- (id)allRegionServerConfigurations;
+- (id)developerSubdivisionListCacheURL;
+- (id)subdivisionListCacheURL;
+- (BOOL)_saveServerConfigurationResponse:(id)a0 error:(id *)a1;
+- (void)allRegionServerConfigurationsWithCompletion:(id /* block */)a0;
+- (id)allRegionServerConfigurationsForCountryCode:(id)a0;
+- (void)prefsChanged;
+- (id)_agencyConfigurationForRegion:(id)a0;
+- (id)_configurationForRegion:(id)a0;
+- (id)localeForRegion:(id)a0;
+- (BOOL)saveRegionConfiguration:(id)a0 error:(id *)a1;
+- (void)allAgencyServerRegionConfigurationsWithCompletion:(id /* block */)a0;
+- (id)allCachedRegions;
+- (id)agencyConfigurationForRegion:(id)a0;
+- (id)serverConfigurationCacheURL;
+- (id)allCachedCountries;
+- (id)legacyAppConfiguationForMobileCountryCode:(id)a0;
+- (BOOL)_removeSubdivisionListForRegion:(id)a0 error:(id *)a1;
+- (id)configurationCacheURL;
+- (id)_serverConfigurationResponseForFileURL:(id)a0;
+- (id)configurationForRegion:(id)a0;
+- (id)initWithDirectoryPath:(id)a0;
+- (id)_subdivisionListForRegion:(id)a0;
+- (id)_localeIdentifiersForRegion:(id)a0;
+- (id)fileURLforRegionServerConfiguration:(id)a0;
+- (void)allCachedServerResponseConfigurationsWithCompletion:(id /* block */)a0;
+- (id)_serverConfigurationResponseForRegion:(id)a0;
+- (BOOL)saveTemporaryCountrySubdivisionList:(id)a0 region:(id)a1 error:(id *)a2;
+- (void)allCachedServerResponseConfigurationsWithCountryCode:(id)a0 completion:(id /* block */)a1;
+- (void)resetStore;
+- (BOOL)_saveCountrySubdivisionList:(id)a0 country:(id)a1 error:(id *)a2;
+- (BOOL)removeConfigurationsForRegion:(id)a0 includingSubdivisions:(BOOL)a1 error:(id *)a2;
+- (id)_directoryURLForCachedConfigurations;
+- (void)_enumerateCachedServerResponseConfigurationsWithDirectoryURL:(id)a0 prefix:(id)a1 handler:(id /* block */)a2;
+- (id)_existingConfigurationForRegion:(id)a0;
+- (void)allRegionConfigurationsWithCompletion:(id /* block */)a0;
+- (void)enumerateCachedRegionServerConfigurationsWithCountryCode:(id)a0 handler:(id /* block */)a1;
+- (void)enumerateCachedRegionServerConfigurationsWithHandler:(id /* block */)a0;
+- (id)downloadConfigurationForRegion:(id)a0;
+- (id)allRegionConfigurations;
+- (BOOL)_saveRegionHash:(id)a0 region:(id)a1 error:(id *)a2;
+- (id)fileURLforRegionConfiguration:(id)a0;
+- (id)_serverConfigurationForRegion:(id)a0;
+- (BOOL)removeConfigurationsForRegionCode:(id)a0 error:(id *)a1;
+- (BOOL)saveRegionHash:(id)a0 region:(id)a1 error:(id *)a2;
+- (void).cxx_destruct;
+- (BOOL)saveCountrySubdivisionList:(id)a0 region:(id)a1 error:(id *)a2;
+- (id)serverExposureConfigurationForRegion:(id)a0;
+- (BOOL)removeSubdivisionListForRegion:(id)a0 error:(id *)a1;
+- (BOOL)regionSupportsSubdivisions:(id)a0;
+- (id)fileURLforCountrySubdivisionList:(id)a0;
+- (id)developerConfigurationsURL;
+- (id)serverSubdivisionListCacheURL;
+- (id)_localeForRegion:(id)a0;
+- (id)_regionHashForRegion:(id)a0;
+- (id)_existingConfigurationForRegionPath:(id)a0;
+- (id)serverConfigurationForRegion:(id)a0;
+- (BOOL)saveTemporaryServerConfigurations:(id)a0 error:(id *)a1;
+- (void)allCachedCountryCodesServerResponseWithDirectoryURL:(id)a0 handler:(id /* block */)a1;
+- (id)serverConfigurationResponseForRegion:(id)a0;
+- (id)regionHashForRegion:(id)a0;
+- (BOOL)_saveRegionConfiguration:(id)a0 error:(id *)a1;
+- (id)init;
+- (id)fileURLForCountryRegionHash:(id)a0;
+- (id)regionCacheURL;
+- (BOOL)saveServerConfigurationResponse:(id)a0 error:(id *)a1;
+- (id)_allCachedServerResponseConfigurationsWithPrefix:(id)a0;
+- (id)cachedAppConfiguationForBundleID:(id)a0 forRegionID:(id)a1;
+
+@end

@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface _AMSystemEventsConfiguration : SBObject <_AMSystemEventsGenericMethods>
+
+@property (copy) NSString *accountName;
+@property (readonly) BOOL connected;
+@property (readonly, copy) NSString *name;
+
+- (id)disconnect;
+- (id)connect;
+- (void)moveTo:(id)a0;
+- (id)id;
+- (void)delete;
+- (void)closeSaving:(int)a0 savingIn:(id)a1;
+- (void)duplicateTo:(id)a0 withProperties:(id)a1;
+- (void)printWithProperties:(id)a0 printDialog:(BOOL)a1;
+- (void)saveIn:(id)a0 as:(int)a1;
+
+@end

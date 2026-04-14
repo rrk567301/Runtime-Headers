@@ -1,0 +1,3 @@
+@interface WFLinkWritingToolsFormatTableAction : WFLinkWritingToolsAction
+
+@end

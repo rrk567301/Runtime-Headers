@@ -1,0 +1,27 @@
+@class NSImageView;
+
+@interface SiriSharedUIDeviceMotionEffectView : NSView {
+    NSImageView *_effectImageView;
+    BOOL _shouldUpdateOffsetRadians;
+    BOOL _forcefullyUpdateImageViewFrame;
+    double _initialOffsetRadians;
+}
+
+- (void)layout;
+- (void)invalidate;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)viewDidChangeEffectiveAppearance;
+- (void).cxx_destruct;
+- (BOOL)isFlipped;
+- (BOOL)wantsDefaultClipping;
+- (void)_updateEffectView;
+- (void)_cleanUpIfNeeded;
+- (void)_configureDeviceMotionIfNeeded;
+- (BOOL)_supportsContentViewTransforms;
+- (BOOL)_supportsDeviceMotion;
+- (BOOL)isViewHighContrast;
+- (void)updateMaskingForView:(id)a0;
+- (long long)viewAppearanceStyle;
+- (void)viewWillBeUpdated;
+
+@end

@@ -1,0 +1,23 @@
+@class NSArray;
+
+@interface SensitiveContentAnalysisML.SCMLPersonAttributes : NSObject {
+    void /* function */ age;
+    void /* function */ gender;
+    void /* function */ ethnicity;
+}
+
+@property (nonatomic) BOOL specific;
+@property (nonatomic) BOOL isGroup;
+@property (nonatomic) BOOL hasAge;
+@property (nonatomic) BOOL hasGender;
+@property (nonatomic) BOOL hasEthnicity;
+@property (nonatomic, copy) NSArray *age;
+@property (nonatomic, copy) NSArray *gender;
+@property (nonatomic, copy) NSArray *ethnicity;
+@property (nonatomic) BOOL hasImplicitCategoryRequiringPersonalization;
+
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+
+@end

@@ -1,0 +1,16 @@
+@class NSMutableSet, CPProfileManager;
+
+@interface CWFConfigurationProfileManager : NSObject {
+    CPProfileManager *_profileManager;
+    NSMutableSet *_mdmManagedProfileUUIDs;
+}
+
+- (void)invalidate;
+- (void)activate;
+- (void).cxx_destruct;
+- (id)init;
+- (void)__updateCachedMDMManagedProfileUUIDs:(id)a0;
+- (BOOL)isDeviceSupervised;
+- (BOOL)isNetworkManagedByMDM:(id)a0;
+
+@end

@@ -1,0 +1,72 @@
+@class NSString, CKPersona, CKDBackingAccount, NSPersonNameComponents, NSObject, NSURL;
+@protocol OS_dispatch_queue;
+
+@interface CKDAccount : NSObject
+
+@property (readonly, nonatomic) CKDBackingAccount *backingAccount;
+@property (nonatomic) BOOL haveWarnedAboutServerPreferredPushEnvironment;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *authTokenQueue;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *authTokenCallbackQueue;
+@property (copy, nonatomic) NSString *lastFailediCloudAuthToken;
+@property (readonly) NSPersonNameComponents *fullName;
+@property (readonly) NSString *primaryEmail;
+@property (readonly) NSString *username;
+@property (readonly) NSString *formattedUsername;
+@property (readonly, copy) CKPersona *persona;
+@property (readonly) NSString *dsid;
+@property (readonly, nonatomic) BOOL isWarmingUp;
+@property (readonly) NSString *altDSID;
+@property (readonly) NSString *identifier;
+@property (readonly) BOOL isPrimaryAccount;
+@property (readonly, nonatomic) BOOL isRenewingAuthToken;
+@property (readonly, nonatomic) BOOL hasCredentials;
+@property (readonly, nonatomic) BOOL needsToVerifyTerms;
+@property (readonly) NSString *sharingURLHostname;
+@property (readonly) NSString *displayedHostname;
+@property (readonly) long long accountType;
+@property (readonly) NSString *accountID;
+@property (readonly) BOOL isCarryAccount;
+@property (readonly) BOOL isPrimaryEmailVerified;
+@property (readonly) NSURL *privateCloudDBURL;
+@property (readonly) NSURL *privateShareServiceURL;
+@property (readonly) NSURL *privateDeviceServiceURL;
+@property (readonly) NSURL *privateCodeServiceURL;
+@property (readonly) NSURL *privateMetricsServiceURL;
+@property (readonly, nonatomic) NSString *serverPreferredPushEnvironment;
+@property (readonly, nonatomic) BOOL isValidTestAccount;
+
++ (id)authTokenRenewalsInProgress;
++ (BOOL)isAuthTokenRenewalInProgressForAccountID:(id)a0;
++ (id)globalAuthTokenQueue;
++ (void)beginAuthTokenRenewalForAccountID:(id)a0;
++ (void)endAuthTokenRenewalForAccountID:(id)a0;
+
+- (id)iCloudAuthTokenWithContainer:(id)a0 error:(id *)a1;
+- (id)cloudKitAuthTokenWithContainer:(id)a0 error:(id *)a1;
+- (void)renewCloudKitAuthTokenWithReason:(id)a0 shouldForce:(BOOL)a1 container:(id)a2 failedToken:(id)a3 completionHandler:(id /* block */)a4;
+- (void)renewiCloudAuthTokenWithReason:(id)a0 shouldForce:(BOOL)a1 container:(id)a2 failedToken:(id)a3 completionHandler:(id /* block */)a4;
+- (void)iCloudAuthTokenWithContainer:(id)a0 completionHandler:(id /* block */)a1;
+- (unsigned long long)hash;
+- (BOOL)_userCloudDBURLisInCarryPartition;
+- (id)initMockAccountWithTestAccount:(id)a0 testDevice:(id)a1;
+- (id)initInternal;
+- (void)validateVettingToken:(id)a0 vettingEmail:(id)a1 vettingPhone:(id)a2 container:(id)a3 completionHandler:(id /* block */)a4;
+- (id)initWithAltDSID:(id)a0;
+- (void)cloudKitAuthTokenWithContainer:(id)a0 completionHandler:(id /* block */)a1;
+- (id)description;
+- (BOOL)isDataclassEnabledForCellular:(id)a0;
+- (void).cxx_destruct;
+- (id)_lockediCloudAuthTokenWithError:(id *)a0;
+- (id)_lockediCloudAuthTokenWithContainer:(id)a0 error:(id *)a1;
+- (id)initAnonymousAccount;
+- (id)initWithAccountID:(id)a0;
+- (id)initPrimaryAccount;
+- (void)_lockedRenewTokenWithReason:(id)a0 shouldForce:(BOOL)a1 container:(id)a2 tokenFetchBlock:(id /* block */)a3 completionHandler:(id /* block */)a4;
+- (void)updateAccountPropertiesAndSaveAccountWithCompletionHandler:(id /* block */)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)_lockedCloudKitAuthTokenWithContainer:(id)a0 error:(id *)a1;
+- (id)initExplicitCredentialsAccountWithAccountOverrideInfo:(id)a0;
+- (BOOL)isDataclassEnabled:(id)a0;
+- (void)iCloudAuthTokenWithCompletionHandler:(id /* block */)a0;
+
+@end

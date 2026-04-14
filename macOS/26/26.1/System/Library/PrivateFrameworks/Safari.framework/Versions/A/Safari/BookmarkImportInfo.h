@@ -1,0 +1,17 @@
+@class NSString, NSDictionary;
+
+@interface BookmarkImportInfo : NSObject
+
+@property (readonly, nonatomic) unsigned long long importOrigin;
+@property (readonly, copy, nonatomic) NSString *importOriginUUID;
+@property (readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)initFromDictionary:(id)a0;
+- (id)init;
+- (id)_initWithImportOrigin:(unsigned long long)a0 originUUID:(id)a1;
+- (id)initWithImportInfo:(id)a0;
+- (id)initWithImportOrigin:(unsigned long long)a0 originUUID:(id)a1;
+
+@end

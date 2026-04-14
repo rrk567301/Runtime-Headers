@@ -1,0 +1,16 @@
+@interface AVB17221AEMMSRPMapping : AVB17221AEMObject <NSCopying>
+
+@property unsigned char trafficClass;
+@property unsigned char priority;
+@property unsigned short vlanID;
+
+- (unsigned long long)hash;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)debugLogStringWithIndentation:(id)a0;
+- (id)plistRepresentationForDiagnostics:(BOOL)a0;
+- (BOOL)updateWithPlistEntry:(id)a0;
+- (BOOL)updateWithXML:(id)a0;
+- (id)xmlRepresentation;
+
+@end

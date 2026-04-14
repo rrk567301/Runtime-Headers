@@ -1,0 +1,14 @@
+@interface CCQueryDepthHitServiceDescriptor : CCServiceDescriptor
+
+@property (nonatomic) unsigned long long bufferOffset;
+
++ (BOOL)supportsSecureCoding;
++ (id)new;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isSupported;
+- (id)init;
+
+@end

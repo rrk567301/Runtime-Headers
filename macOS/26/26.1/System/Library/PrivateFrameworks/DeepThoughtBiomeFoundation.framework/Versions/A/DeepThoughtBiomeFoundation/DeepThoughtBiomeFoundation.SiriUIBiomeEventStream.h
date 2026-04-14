@@ -1,0 +1,3 @@
+@interface DeepThoughtBiomeFoundation.SiriUIBiomeEventStream : DeepThoughtBiomeFoundation.BiomeEventStream
+
+@end

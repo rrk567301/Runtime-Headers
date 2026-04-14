@@ -1,0 +1,24 @@
+@class NSString;
+
+@interface UNNotificationTopic : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy) NSString *identifier;
+@property (readonly, copy) NSString *displayName;
+@property (readonly) unsigned long long priority;
+@property (readonly, copy) NSString *sortIdentifier;
+
++ (id)topicWithIdentifier:(id)a0 displayName:(id)a1 priority:(unsigned long long)a2 sortIdentifier:(id)a3;
+
+- (unsigned long long)hash;
+- (id)_initWithIdentifier:(id)a0 displayName:(id)a1 priority:(unsigned long long)a2 sortIdentifier:(id)a3;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (id)_description;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+
+@end

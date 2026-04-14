@@ -1,0 +1,3 @@
+@interface PFTWrappingCancellableToken : PFTCancellationToken
+
+@end

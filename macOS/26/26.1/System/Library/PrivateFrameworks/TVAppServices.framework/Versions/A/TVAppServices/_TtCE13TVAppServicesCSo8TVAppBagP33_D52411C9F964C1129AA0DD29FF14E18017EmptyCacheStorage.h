@@ -1,0 +1,3 @@
+@interface _TtCE13TVAppServicesCSo8TVAppBagP33_D52411C9F964C1129AA0DD29FF14E18017EmptyCacheStorage : _TtCs12_SwiftObject
+
+@end

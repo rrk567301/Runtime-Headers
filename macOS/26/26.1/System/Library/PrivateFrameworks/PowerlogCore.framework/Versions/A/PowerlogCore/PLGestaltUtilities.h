@@ -1,0 +1,56 @@
+@interface PLGestaltUtilities : NSObject
+
++ (BOOL)isiPod;
++ (BOOL)isWatch;
++ (BOOL)hasANE;
++ (BOOL)isiPad;
++ (BOOL)isAppleTV;
++ (BOOL)hasNFC;
++ (BOOL)is64Bit;
++ (BOOL)hasOrb;
++ (BOOL)isMac;
++ (BOOL)isiPhone;
++ (BOOL)hasSleepMedia;
++ (BOOL)hasGasGauge;
++ (BOOL)isAppleVision;
++ (id)getBuildVersion;
++ (BOOL)hasDCP;
++ (BOOL)hasAOT;
++ (BOOL)isHomePod;
++ (BOOL)hasBaseband;
++ (BOOL)hasLPEM;
++ (BOOL)hasAOP2;
++ (BOOL)hasLPM;
++ (id)getProductType;
++ (BOOL)isDevBoard;
++ (BOOL)hasAOP;
++ (BOOL)hasRearALS;
++ (BOOL)hasBattery;
++ (BOOL)isVirtualDevice;
++ (BOOL)hasMesa;
++ (BOOL)isComputeModule;
++ (id)getBasebandChipset;
++ (id)getBasebandFirmwareVersion;
++ (int)getDeviceClass;
++ (id)getHardwareModel;
++ (id)getHardwarePlatform;
++ (id)getInverseDeviceID;
++ (int)getNumberOfDCPEXT;
++ (int)getProductTypeCode;
++ (id)getUserAssignedDeviceName;
++ (id)getWifiChipset;
++ (BOOL)has5G;
++ (BOOL)hasAlwaysListening;
++ (BOOL)hasBatteryModuleAuth;
++ (BOOL)hasDynamicChargingLimit;
++ (BOOL)hasFixedChargingLimit;
++ (BOOL)hasInductiveCharging;
++ (BOOL)hasLPW;
++ (BOOL)hasMessageOnDevice;
++ (BOOL)hasPearl;
++ (BOOL)hasPerseus;
++ (BOOL)hasPlatinum;
++ (BOOL)hasWirelessCharger;
++ (BOOL)hasWristTemperature;
+
+@end

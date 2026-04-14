@@ -1,0 +1,23 @@
+@class NSString, NSMutableArray, PKSelectedPaymentOffer;
+
+@interface PKPaymentOffersControllerSelectedOfferDetails : NSObject
+
+@property (retain, nonatomic) NSMutableArray *selectedOfferHistory;
+@property (readonly, nonatomic) PKSelectedPaymentOffer *selectedPaymentOffer;
+@property (readonly, nonatomic) PKSelectedPaymentOffer *previouslySelectedOffer;
+@property (readonly, nonatomic) unsigned long long updateReason;
+@property (readonly, nonatomic) NSString *selectedPassUniqueID;
+
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (void)clearCurrentSelectedPaymentOfferDetails;
+- (BOOL)hasSelectedOtherOffersAfterPreconfiguredInstallmentOffer;
+- (BOOL)requiresUserAction;
+- (BOOL)updateCurrentSelectedPaymentOffer:(id)a0 selectedPassUniqueID:(id)a1 updateReason:(unsigned long long)a2;
+- (BOOL)updatedSelectedOfferContents;
+- (void)updatedSelectedPassUniqueID:(id)a0;
+
+@end

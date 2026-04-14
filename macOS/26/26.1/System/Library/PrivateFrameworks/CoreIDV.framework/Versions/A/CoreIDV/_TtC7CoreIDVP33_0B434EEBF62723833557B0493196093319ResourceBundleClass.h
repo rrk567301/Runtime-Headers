@@ -1,0 +1,3 @@
+@interface _TtC7CoreIDVP33_0B434EEBF62723833557B0493196093319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

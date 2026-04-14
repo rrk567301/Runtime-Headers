@@ -1,0 +1,81 @@
+@class NSString, NSNumber, EKFrozenReminderSource;
+
+@interface EKPersistentSource : EKPersistentObject
+
+@property (readonly, nonatomic) NSString *UUID;
+@property (nonatomic) long long sourceTypeRaw;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSNumber *defaultAlarmOffset;
+@property (copy, nonatomic) NSString *externalID;
+@property (copy, nonatomic) NSString *externalModificationTag;
+@property (nonatomic) BOOL disabled;
+@property (nonatomic) BOOL onlyCreatorCanModify;
+@property (nonatomic) int preferredEventPrivateValue;
+@property (nonatomic) int strictestEventPrivateValue;
+@property (retain, nonatomic) NSString *UUID;
+@property (retain) EKFrozenReminderSource *reminderSource;
+
++ (id)propertyKeyForUniqueIdentifier;
++ (id)defaultPropertiesToLoad;
++ (Class)meltedClass;
++ (id)relations;
+
+- (void)setOwnerName:(id)a0;
+- (void)setDisabled:(BOOL)a0;
+- (void)setPendingPersonaIdentifierForNewSource:(id)a0;
+- (int)entityType;
+- (id)externalModificationTag;
+- (int)flags;
+- (BOOL)disabled;
+- (void)setCachedExternalInfoData:(id)a0;
+- (id)syncError;
+- (void)setLastSyncStartDate:(id)a0;
+- (id)constraints;
+- (id)appGroupIdentifier;
+- (void)setSyncError:(id)a0;
+- (id)constraintsName;
+- (BOOL)showsNotifications;
+- (int)strictestEventPrivateValueRaw;
+- (int)displayOrder;
+- (void)setFlags:(int)a0;
+- (id)notes;
+- (void)setStrictestEventPrivateValueRaw:(int)a0;
+- (BOOL)onlyCreatorCanModify;
+- (void)setTitle:(id)a0;
+- (void)setConstraintsName:(id)a0;
+- (void)setAppGroupIdentifier:(id)a0;
+- (id)ownerName;
+- (void)setExternalModificationTag:(id)a0;
+- (void)setSourceTypeRaw:(long long)a0;
+- (void)setShowsNotifications:(BOOL)a0;
+- (int)flags2;
+- (id)lastSyncStartDate;
+- (void)setDisplayOrder:(int)a0;
+- (id)description;
+- (id)pendingPersonaIdentifierForNewSource;
+- (void)setPreferredEventPrivateValueRaw:(int)a0;
+- (id)delegatedAccountOwnerStoreID;
+- (void)setFlags2:(int)a0;
+- (void)setOnlyCreatorCanModify:(BOOL)a0;
+- (id)title;
+- (id)defaultAlarmOffset;
+- (void).cxx_destruct;
+- (void)setCreatorBundleID:(id)a0;
+- (void)setLastSyncEndDate:(id)a0;
+- (id)defaultAllDayAlarmOffset;
+- (id)externalID;
+- (id)lastSyncEndDate;
+- (int)managedConfigurationAccountAccess;
+- (id)creatorBundleID;
+- (void)setNotes:(id)a0;
+- (int)preferredEventPrivateValueRaw;
+- (void)setDefaultAlarmOffset:(id)a0;
+- (id)cachedExternalInfoData;
+- (void)setCreatorCodeSigningIdentity:(id)a0;
+- (void)setExternalID:(id)a0;
+- (void)setDefaultAllDayAlarmOffset:(id)a0;
+- (long long)sourceTypeRaw;
+- (id)creatorCodeSigningIdentity;
+- (void)setDelegatedAccountOwnerStoreID:(id)a0;
+
+@end

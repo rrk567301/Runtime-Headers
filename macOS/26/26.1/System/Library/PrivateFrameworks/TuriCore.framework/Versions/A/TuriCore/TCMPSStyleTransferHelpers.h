@@ -1,0 +1,7 @@
+@interface TCMPSStyleTransferHelpers : NSObject
+
++ (id)toNSDictionary:(struct map<std::string, turi::neural_net::shared_float_array, std::less<std::string>, std::allocator<std::pair<const std::string, turi::neural_net::shared_float_array>>> { struct __tree<std::__value_type<std::string, turi::neural_net::shared_float_array>, std::__map_value_compare<std::string, std::__value_type<std::string, turi::neural_net::shared_float_array>, std::less<std::string>>, std::allocator<std::__value_type<std::string, turi::neural_net::shared_float_array>>> { void *x0; struct __tree_end_node<std::__tree_node_base<void *> *> { void *x0; } x1; unsigned long long x2; } x0; })a0;
++ (struct map<std::string, turi::neural_net::shared_float_array, std::less<std::string>, std::allocator<std::pair<const std::string, turi::neural_net::shared_float_array>>> { struct __tree<std::__value_type<std::string, turi::neural_net::shared_float_array>, std::__map_value_compare<std::string, std::__value_type<std::string, turi::neural_net::shared_float_array>, std::less<std::string>>, std::allocator<std::__value_type<std::string, turi::neural_net::shared_float_array>>> { void *x0; struct __tree_end_node<std::__tree_node_base<void *> *> { void *x0; } x1; unsigned long long x2; } x0; })fromNSDictionary:(id)a0;
++ (struct vector<unsigned long, std::allocator<unsigned long>> { unsigned long long *x0; unsigned long long *x1; unsigned long long *x2; })toVector:(id)a0;
+
+@end

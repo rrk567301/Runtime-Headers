@@ -1,0 +1,21 @@
+@class NSString, MPSGraphDeviceDescriptor;
+@protocol MTLDevice;
+
+@interface MPSGraphDevice : MPSGraphObject
+
+@property (readonly, nonatomic) NSString *metalDeviceName;
+@property (readonly, nonatomic) long long gpuCoreCount;
+@property (readonly, nonatomic) MPSGraphDeviceDescriptor *deviceDescriptor;
+@property (readonly, nonatomic) unsigned int type;
+@property (readonly, nonatomic) id<MTLDevice> metalDevice;
+
++ (void)initialize;
++ (id)deviceWithMTLDevice:(id)a0;
++ (id)CPUDevice;
++ (id)ANEDevice;
+
+- (void).cxx_destruct;
+- (id)initWithDeviceDescriptor:(id)a0;
+- (id)initWithDeviceType:(unsigned int)a0 metalDevice:(id)a1;
+
+@end

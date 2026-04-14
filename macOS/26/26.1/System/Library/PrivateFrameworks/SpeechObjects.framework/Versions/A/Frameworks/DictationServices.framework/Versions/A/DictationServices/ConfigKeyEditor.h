@@ -1,0 +1,32 @@
+@class NSNumber, NSString;
+@protocol ConfigEditorDelegate;
+
+@interface ConfigKeyEditor : NSTextView {
+    id<ConfigEditorDelegate> mDelegate;
+    unsigned long long mModifiers;
+    BOOL mOperationModeEnabled;
+    unsigned int mSavedHotKeyOperatingMode;
+}
+
+@property BOOL allowsHighFunctionKeys;
+@property (readonly) NSNumber *key;
+@property (readonly) NSString *charCode;
+@property (readonly) NSNumber *modifier;
+@property BOOL allowKeyWithoutModifiers;
+
++ (id)stringForVirtualKey:(unsigned long long)a0 characterCode:(unsigned short)a1 modifiers:(unsigned long long)a2;
+
+- (BOOL)validateMenuItem:(id)a0;
+- (BOOL)becomeFirstResponder;
+- (void)dealloc;
+- (BOOL)resignFirstResponder;
+- (void)mouseDown:(id)a0;
+- (void)keyDown:(id)a0;
+- (BOOL)performKeyEquivalent:(id)a0;
+- (void)_windowDidBecomeKeyNotification:(id)a0;
+- (void)_windowDidResignKeyNotification:(id)a0;
+- (void)_disableHotKeyOperationMode;
+- (void)_restoreHotKeyOperationMode;
+- (id)initConfigKeyEditorWithDelegate:(id)a0;
+
+@end

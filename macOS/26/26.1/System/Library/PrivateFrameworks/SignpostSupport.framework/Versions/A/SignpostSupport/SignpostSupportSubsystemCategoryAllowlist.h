@@ -1,0 +1,10 @@
+@interface SignpostSupportSubsystemCategoryAllowlist : SignpostSupportSubsystemCategoryFilter
+
+- (unsigned long long)_compoundPredicateType;
+- (id)initWithEntries:(id)a0;
+- (void)addAllowlist:(id)a0;
+- (BOOL)passesSubsystem:(id)a0 category:(id)a1;
+- (void)_forceInclusionOfSubsystem:(id)a0 category:(id)a1;
+- (BOOL)_wantsNotSubsystem;
+
+@end

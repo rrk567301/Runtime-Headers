@@ -1,0 +1,18 @@
+@class NSArray, NSObject;
+@protocol NSCopying;
+
+@interface VUIMediaEntityGroup : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSObject<NSCopying> *identifier;
+@property (copy, nonatomic) NSArray *mediaEntities;
+@property (copy, nonatomic) NSArray *sortIndexes;
+
+- (unsigned long long)hash;
+- (id)initWithIdentifier:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+
+@end

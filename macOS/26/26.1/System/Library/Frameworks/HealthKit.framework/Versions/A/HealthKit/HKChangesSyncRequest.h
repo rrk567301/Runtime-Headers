@@ -1,0 +1,18 @@
+@interface HKChangesSyncRequest : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) BOOL push;
+@property (readonly, nonatomic) BOOL pull;
+@property (readonly, nonatomic) BOOL lite;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (id)initWithPush:(BOOL)a0 pull:(BOOL)a1 lite:(BOOL)a2;
+- (id)requestByMergingRequest:(id)a0;
+
+@end

@@ -1,0 +1,24 @@
+@class NSString, BSAbsoluteMachTimer, FBProcess;
+
+@interface FBWaitForProcessDeathTransaction : FBTransaction <FBProcessManagerObserver> {
+    BSAbsoluteMachTimer *_timer;
+}
+
+@property (readonly, nonatomic) FBProcess *process;
+@property (readonly, nonatomic) double timeout;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)processManager:(id)a0 didRemoveProcess:(id)a1;
+- (void)_begin;
+- (id)initWithProcess:(id)a0;
+- (BOOL)_canBeInterrupted;
+- (void).cxx_destruct;
+- (void)processManager:(id)a0 didAddProcess:(id)a1;
+- (void)_didComplete;
+- (id)_customizedDescriptionProperties;
+- (id)initWithProcess:(id)a0 timeout:(double)a1;
+
+@end

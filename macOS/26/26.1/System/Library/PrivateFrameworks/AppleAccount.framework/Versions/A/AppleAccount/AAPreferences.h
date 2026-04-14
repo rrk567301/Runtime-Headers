@@ -1,0 +1,56 @@
+@interface AAPreferences : NSObject
+
++ (BOOL)disableADPStateHealing;
++ (BOOL)shouldEnableAccountUserNotifications;
++ (void)setExperimentalModeEnabled:(BOOL)a0;
++ (BOOL)isExperimentalModeEnabled;
++ (void)setCustomHealthCheckIntervalEnabled:(BOOL)a0;
++ (void)setCustomMaintenanceIntervalEnabled:(BOOL)a0;
++ (BOOL)shouldEnableUnifyRenewCredentials;
++ (long long)customHealthCheckIntervalMinutes;
++ (BOOL)isHealthCheckTTREnabled;
++ (BOOL)isRCUpsellEnabled;
++ (void)setTrustedContactsPreflightInfo:(id)a0;
++ (id)getCustodianInfo;
++ (void)setDisableADPStateHealing:(BOOL)a0;
++ (BOOL)isIdentityKitEnabled;
++ (long long)customMaintenanceIntervalMinutes;
++ (BOOL)isCustomHealthCheckIntervalEnabled;
++ (id)getTrustedContactsPreflightInfo;
++ (void)setSimulateUnhealthyCustodianEnabled:(BOOL)a0;
++ (BOOL)isLCMessageExtensionEnabled;
++ (BOOL)_os_feature_enabled_Journal_iPadOS;
++ (void)setCustomHealthCheckIntervalMinutes:(long long)a0;
++ (long long)customHealthCheckVersion;
++ (BOOL)isYorktownEnabled;
++ (BOOL)isRCInSettingsEnabled;
++ (BOOL)shouldUseUnifiedLoginEndpoint;
++ (BOOL)shouldSkipIdMSKeyUpdate;
++ (BOOL)isSimulateUnhealthyCustodianEnabled;
++ (void)setCustodianInfo:(id)a0;
++ (BOOL)shouldSkipIdMSFinalizeCustodian;
++ (void)setNeverSkipCustodianCheckEnabled:(BOOL)a0;
++ (void)setLCInviteAcceptanceEnabled:(BOOL)a0;
++ (BOOL)isRunningInStoreDemoMode;
++ (BOOL)isNeverSkipCustodianCheckEnabled;
++ (void)setMultipleFullAccountsEnabled:(BOOL)a0;
++ (BOOL)isSignInSecurityRedesignEnabled;
++ (BOOL)shouldShowAccountContacts;
++ (void)setShouldShowAccountContacts:(BOOL)a0;
++ (void)setCustomMaintenanceIntervalMinutes:(long long)a0;
++ (void)setCustomHealthFailureReachabilityIntervalMinutes:(long long)a0;
++ (BOOL)isMultipleFullAccountsEnabled;
++ (long long)customHealthCheckReachabilityIntervalMinutes;
++ (BOOL)isSignInSecurityRedesignMacOSEnabled;
++ (void)setShouldUseUnifiedLoginEndpoint:(BOOL)a0;
++ (BOOL)shouldEnableFastSignIn;
++ (void)setCustomHealthCheckVersion:(long long)a0;
++ (BOOL)simulate2FAFA;
++ (BOOL)isMomentsDataclassEnabled;
++ (void)setHealthCheckTTREnabled:(BOOL)a0;
++ (BOOL)isLCInviteAcceptanceEnabled;
++ (BOOL)_os_feature_enabled_Journal_macOS;
++ (BOOL)shouldSkipRecoveryInfoRecordStorage;
++ (BOOL)isCustomMaintenanceIntervalEnabled;
+
+@end

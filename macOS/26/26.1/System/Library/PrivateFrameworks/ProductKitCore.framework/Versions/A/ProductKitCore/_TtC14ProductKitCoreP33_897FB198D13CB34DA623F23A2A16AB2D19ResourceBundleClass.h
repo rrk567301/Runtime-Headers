@@ -1,0 +1,3 @@
+@interface _TtC14ProductKitCoreP33_897FB198D13CB34DA623F23A2A16AB2D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

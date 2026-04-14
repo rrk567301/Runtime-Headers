@@ -1,0 +1,3 @@
+@interface WFLinkWritingToolsSummarizeAction : WFLinkWritingToolsAction
+
+@end

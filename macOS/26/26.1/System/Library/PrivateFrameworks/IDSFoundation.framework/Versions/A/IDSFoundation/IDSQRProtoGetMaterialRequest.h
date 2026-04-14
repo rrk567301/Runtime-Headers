@@ -1,0 +1,24 @@
+@class NSMutableArray;
+
+@interface IDSQRProtoGetMaterialRequest : PBRequest <NSCopying>
+
+@property (retain, nonatomic) NSMutableArray *materialOwners;
+
++ (Class)materialOwnersType;
+
+- (id)dictionaryRepresentation;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)addMaterialOwners:(id)a0;
+- (void)clearMaterialOwners;
+- (id)materialOwnersAtIndex:(unsigned long long)a0;
+- (unsigned long long)materialOwnersCount;
+
+@end

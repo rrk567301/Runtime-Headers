@@ -1,0 +1,3 @@
+@interface _TtCV9CoreVideo24CVPixelFormatDescription8Registry : _TtCs12_SwiftObject
+
+@end

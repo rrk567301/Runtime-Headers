@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.ExcludeNonCommonTypesFromGenericSetPowerRequestHandler : _TtCs12_SwiftObject
+
+@end

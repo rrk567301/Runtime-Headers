@@ -1,0 +1,3 @@
+@interface _TtCC21ImmersiveMediaSupport28ParametricImmersiveAssetInfo20DJIExtractedMetadata : _TtCC21ImmersiveMediaSupport28ParametricImmersiveAssetInfo17ExtractedMetadata
+
+@end

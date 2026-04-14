@@ -1,0 +1,14 @@
+@class UARPAccessoryHardwareBluetooth;
+
+@interface UARPSupportedAccessoryA3065 : UARPSupportedAccessoryAirPodsBud {
+    UARPAccessoryHardwareBluetooth *hwID;
+}
+
++ (unsigned short)productID;
++ (id)appleModelNumber;
++ (id)mobileAssetAppleModelNumber;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

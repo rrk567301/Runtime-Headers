@@ -1,0 +1,16 @@
+@class NSMutableSet;
+
+@interface _WBSJSONEntryState : NSObject {
+    NSMutableSet *_encodedKeys;
+}
+
+@property (readonly, nonatomic) long long kind;
+@property (readonly, nonatomic) unsigned long long numberOfEntries;
+
+- (id)initWithKind:(long long)a0;
+- (BOOL)containsKey:(id)a0;
+- (void).cxx_destruct;
+- (void)addKey:(id)a0;
+- (void)addEntry;
+
+@end

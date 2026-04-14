@@ -1,0 +1,11 @@
+@interface AMSCB1PBundleInfo : NSObject {
+    struct shared_ptr<AMSCore::IBundleInfo> { struct IBundleInfo *__ptr_; struct __shared_weak_count *__cntrl_; } _coreBundleInfo;
+}
+
+- (unsigned long long)hash;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithIdentifier:(const char *)a0 name:(const char *)a1 version:(const char *)a2 accountClientIdentifier:(const char *)a3 mappedBundleInfo:(id)a4;
+
+@end

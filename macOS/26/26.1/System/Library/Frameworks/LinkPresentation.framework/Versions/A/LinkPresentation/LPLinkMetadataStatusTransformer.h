@@ -1,0 +1,21 @@
+@class LPLinkMetadata, NSURL, NSAttributedString, NSColor;
+@protocol LPLinkMetadataStatusTransformerDelegate;
+
+@interface LPLinkMetadataStatusTransformer : NSObject {
+    NSURL *_URL;
+}
+
+@property (retain, nonatomic) LPLinkMetadata *metadata;
+@property (weak, nonatomic) id<LPLinkMetadataStatusTransformerDelegate> delegate;
+@property (retain, nonatomic) NSColor *foregroundColor;
+@property (readonly, nonatomic) BOOL wantsStatusItem;
+@property (readonly, copy, nonatomic) NSAttributedString *statusText;
+@property (readonly, copy, nonatomic) NSURL *actionURL;
+@property (readonly, copy, nonatomic) NSURL *canonicalURL;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)originalURL;
+- (id)initWithMetadata:(id)a0 URL:(id)a1;
+
+@end

@@ -1,0 +1,22 @@
+@class IMKUITriCandidateLayout, NSArray, IMKCandidate;
+
+@interface IMKUICandidateLayout : NSObject
+
+@property (readonly) IMKCandidate *leftCandidate;
+@property (readonly) IMKCandidate *middleCandidate;
+@property (readonly) IMKUITriCandidateLayout *rightSet;
+@property (readonly) BOOL middleIsCorrection;
+@property (readonly) NSArray *candidates;
+
++ (id)candidateSetFrom:(id)a0;
+
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (id)candidateAtIndex:(unsigned long long)a0;
+- (id)initWithLeftCandidate:(id)a0 middleCandidate:(id)a1 rightCandidate:(id)a2;
+- (id)initWithLeftCandidate:(id)a0 middleCandidate:(id)a1 rightSet:(id)a2;
+- (id)initWithLeftCandidate:(id)a0 middleCandidate:(id)a1 thatIsCorrection:(BOOL)a2 rightSet:(id)a3;
+
+@end

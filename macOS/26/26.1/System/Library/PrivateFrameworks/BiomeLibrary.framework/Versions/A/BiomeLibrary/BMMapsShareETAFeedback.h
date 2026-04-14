@@ -1,0 +1,34 @@
+@class NSString;
+
+@interface BMMapsShareETAFeedback : BMEventBase <BMStoreData>
+
+@property (class, readonly, nonatomic) unsigned int latestDataVersion;
+
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSString *bundleId;
+@property (readonly, nonatomic) NSString *handle;
+@property (readonly, nonatomic) NSString *startLocationId;
+@property (readonly, nonatomic) NSString *endLocationId;
+@property (readonly, nonatomic) NSString *contactId;
+@property (readonly, nonatomic) NSString *groupId;
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)columns;
++ (id)protoFields;
++ (id)validKeyPaths;
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
+
+- (id)initByReadFrom:(id)a0;
+- (id)jsonDictionary;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)serialize;
+- (void)writeTo:(id)a0;
+- (id)initWithIdentifier:(id)a0 bundleId:(id)a1 handle:(id)a2 startLocationId:(id)a3 endLocationId:(id)a4 contactId:(id)a5 groupId:(id)a6;
+
+@end

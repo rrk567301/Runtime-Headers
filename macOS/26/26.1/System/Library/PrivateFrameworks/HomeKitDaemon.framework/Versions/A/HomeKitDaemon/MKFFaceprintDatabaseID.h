@@ -1,0 +1,3 @@
+@interface MKFFaceprintDatabaseID : MKFModelDatabaseID
+
+@end
