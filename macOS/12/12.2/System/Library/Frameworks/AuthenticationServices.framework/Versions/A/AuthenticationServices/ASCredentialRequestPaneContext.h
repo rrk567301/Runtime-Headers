@@ -1,0 +1,13 @@
+@class ASCredentialRequestPaneViewController, NSStackView;
+
+@interface ASCredentialRequestPaneContext : NSObject
+
+@property (readonly, nonatomic) ASCredentialRequestPaneViewController *paneViewController;
+@property (readonly, nonatomic) NSStackView *stackView;
+
+- (void).cxx_destruct;
+- (void)addEmptyViewWithSpacing:(double)a0;
+- (id)initWithPaneViewController:(id)a0 stackView:(id)a1;
+- (void)addSubPane:(id)a0 withCustomSpacingAfter:(double)a1;
+
+@end

@@ -1,0 +1,74 @@
+@class NSTextField, CNContactPicker, NSArray, GKDashboardMultiplayerPickerDataSourceObsolete, NSView, NSVisualEffectView, _TtC12GameCenterUI16NavigationButton, GKPickerSearchTextFieldObsolete, NSString, NSLayoutConstraint, NSButton;
+@protocol GKDashboardNearbyBrowserDelegate, GKDashboardMultiplayerPickerDelegateObsolete;
+
+@interface GKDashboardMultiplayerPickerViewControllerObsolete : GKDashboardCollectionViewController <NSTextFieldDelegate, GKDashboardMultiplayerPickerDatasourceDelegateObsolete, CNContactPickerDelegate, GKPickerSearchTextFieldDelegateObsolete>
+
+@property (retain, nonatomic) NSArray *initiallySelectedPlayers;
+@property (nonatomic) BOOL shouldIgnoreClearSelection;
+@property (retain, nonatomic) NSTextField *descriptionLabel;
+@property (retain, nonatomic) NSButton *sendButton;
+@property (retain, nonatomic) NSButton *customizeMessageButton;
+@property (retain, nonatomic) NSTextField *messageField;
+@property (retain, nonatomic) _TtC12GameCenterUI16NavigationButton *closeButton;
+@property (retain, nonatomic) NSVisualEffectView *navigationVisualEffectBackground;
+@property (retain, nonatomic) NSLayoutConstraint *customizeMessageBottomConstraint;
+@property (nonatomic) double initialCustomizeMessageBottomConstraintConstant;
+@property (readonly, nonatomic) GKDashboardMultiplayerPickerDataSourceObsolete *pickerDataSource;
+@property (retain, nonatomic) CNContactPicker *contactPicker;
+@property (retain, nonatomic) NSView *searchBackgroundView;
+@property (retain, nonatomic) NSVisualEffectView *backgroundEffectView;
+@property (retain, nonatomic) GKPickerSearchTextFieldObsolete *searchTextField;
+@property (retain, nonatomic) NSButton *showContactPickerButton;
+@property (copy, nonatomic) NSString *message;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) BOOL supportsNearby;
+@property (readonly, nonatomic) BOOL nearbyOnly;
+@property (nonatomic) id<GKDashboardNearbyBrowserDelegate> nearbyDelegate;
+@property (weak, nonatomic) id<GKDashboardMultiplayerPickerDelegateObsolete> multiplayerPickerDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)hasData;
+- (void).cxx_destruct;
+- (void)viewDidLayout;
+- (void)controlTextDidEndEditing:(id)a0;
+- (void)controlTextDidChange:(id)a0;
+- (BOOL)control:(id)a0 textView:(id)a1 doCommandBySelector:(SEL)a2;
+- (void)cancel:(id)a0;
+- (void)viewDidLoad;
+- (void)send:(id)a0;
+- (void)addMessage:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)setSearchText:(id)a0;
+- (void)clearSelection;
+- (void)contactPickerWillClose:(id)a0;
+- (void)contactPicker:(id)a0 didSelectContact:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (id)preferredFocusEnvironments;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)_updateButtonEnableState;
+- (void)dataUpdated:(BOOL)a0 withError:(id)a1;
+- (void)setupNoContentView:(id)a0 withError:(id)a1;
+- (id)initWithMaxSelectable:(long long)a0 hiddenPlayers:(id)a1 nearbyOnly:(BOOL)a2;
+- (void)setSupportsNearby:(BOOL)a0;
+- (void)searchTextFieldDidBecomeFirstResponder:(id)a0;
+- (BOOL)supportsNearby;
+- (void)_updateCollectionView;
+- (void)selectPlayersAtIndexPaths:(id)a0 askDelegateFirst:(BOOL)a1;
+- (void)handleSearchTextFieldReturn:(id)a0;
+- (void)didBeginSearchTextEditing;
+- (void)didEndSearchTextEditing;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })collectionSectionInset;
+- (void)pickerDatasource:(id)a0 didPickPlayers:(id)a1;
+- (void)pickerDatasourceDidSelectAddFriend:(id)a0;
+- (void)pickerDatasource:(id)a0 didChooseFriendFilter:(id)a1;
+- (void)didPressShowContactPickerButton:(id)a0;
+
+@end

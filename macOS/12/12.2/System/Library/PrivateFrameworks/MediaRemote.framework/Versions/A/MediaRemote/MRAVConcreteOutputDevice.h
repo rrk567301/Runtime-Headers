@@ -1,0 +1,86 @@
+@class AVOutputDevice, MRAVOutputDeviceSourceInfo, NSString, NSData, NSObject, NSDictionary;
+@protocol OS_dispatch_queue;
+
+@interface MRAVConcreteOutputDevice : MRAVOutputDevice {
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
+    AVOutputDevice *_avOutputDevice;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
+    NSString *_uid;
+    BOOL _overrideUID;
+    NSString *_modelID;
+    NSString *_firmwareVersion;
+    NSString *_logicalDeviceID;
+    NSString *_airPlayGroupID;
+    BOOL _overrideGroupID;
+    NSData *_MACAddress;
+    NSDictionary *_modelSpecificInfo;
+    NSString *_playingPairedDeviceName;
+}
+
+@property (retain, nonatomic, setter=setAVOutputDevice:) AVOutputDevice *avOutputDevice;
+@property (retain, nonatomic) MRAVOutputDeviceSourceInfo *sourceInfo;
+
+- (id)name;
+- (void).cxx_destruct;
+- (float)volume;
+- (id)uid;
+- (unsigned int)deviceType;
+- (void)setVolume:(float)a0;
+- (id)firmwareVersion;
+- (unsigned int)deviceSubtype;
+- (id)bluetoothID;
+- (float)batteryLevel;
+- (unsigned int)clusterType;
+- (BOOL)requiresAuthorization;
+- (BOOL)setAllowsHeadTrackedSpatialAudio:(BOOL)a0 error:(id *)a1;
+- (BOOL)setHeadTrackedSpatialAudioMode:(id)a0 error:(id *)a1;
+- (BOOL)setCurrentBluetoothListeningMode:(id)a0 error:(id *)a1;
+- (unsigned long long)configuredClusterSize;
+- (id)modelID;
+- (BOOL)producesLowFidelityAudio;
+- (BOOL)canAccessRemoteAssets;
+- (BOOL)canAccessAppleMusic;
+- (BOOL)canAccessiCloudMusicLibrary;
+- (BOOL)supportsBufferedAirPlay;
+- (BOOL)isGroupLeader;
+- (BOOL)groupContainsGroupLeader;
+- (id)logicalDeviceID;
+- (BOOL)canRelayCommunicationChannel;
+- (BOOL)canPlayEncryptedProgressiveDownloadAssets;
+- (BOOL)canFetchMediaDataFromSender;
+- (BOOL)presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+- (BOOL)supportsBluetoothSharing;
+- (BOOL)supportsHeadTrackedSpatialAudio;
+- (BOOL)allowsHeadTrackedSpatialAudio;
+- (id)headTrackedSpatialAudioMode;
+- (BOOL)isHeadTrackedSpatialAudioActive;
+- (id)availableBluetoothListeningModes;
+- (id)currentBluetoothListeningMode;
+- (id)MACAddress;
+- (BOOL)hasBatteryLevel;
+- (id)initWithAVOutputDevice:(id)a0 sourceInfo:(id)a1;
+- (id)clusterComposition;
+- (BOOL)supportsMultiplayer;
+- (BOOL)isRemoteControllable;
+- (BOOL)isProxyGroupPlayer;
+- (BOOL)isAirPlayReceiverSessionActive;
+- (id)parentGroupIdentifier;
+- (BOOL)isLocalDevice;
+- (BOOL)isVolumeControlAvailable;
+- (unsigned int)volumeCapabilities;
+- (BOOL)parentGroupContainsDiscoverableLeader;
+- (BOOL)isGroupable;
+- (BOOL)isDeviceGroupable;
+- (BOOL)supportsExternalScreen;
+- (BOOL)isAddedToHomeKit;
+- (BOOL)supportsHAP;
+- (BOOL)supportsRapportRemoteControlTransport;
+- (id)airPlayGroupID;
+- (BOOL)supportsSharePlayHandoff;
+- (id)modelSpecificInfo;
+- (void)setAirPlayGroupID:(id)a0;
+- (id)playingPairedDeviceName;
+- (BOOL)isPickedOnPairedDevice;
+- (BOOL)supportsRapport;
+
+@end

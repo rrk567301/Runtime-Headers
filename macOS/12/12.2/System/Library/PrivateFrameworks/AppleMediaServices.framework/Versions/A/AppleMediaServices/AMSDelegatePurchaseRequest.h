@@ -1,0 +1,14 @@
+@class AMSPurchaseResult;
+
+@interface AMSDelegatePurchaseRequest : AMSDelegateAuthenticateRequest <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) AMSPurchaseResult *purchaseResult;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithPurchaseResult:(id)a0 challenge:(id)a1 userAgent:(id)a2;
+
+@end

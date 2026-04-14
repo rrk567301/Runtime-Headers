@@ -1,0 +1,24 @@
+@class NSDictionary;
+
+@interface VNSceneprint : VNEspressoModelImageprint
+
+@property (readonly, copy) NSDictionary *labelsAndConfidence;
+
++ (BOOL)supportsSecureCoding;
++ (id)currentVersion;
++ (id)defaultOriginatingRequestClassNameForRequestRevision:(unsigned long long)a0;
++ (BOOL)shouldAssumeOriginatingRequestClassForHeaderSerializationVersion:(unsigned int)a0;
++ (unsigned int)currentCodingVersion;
++ (id)codingTypesToCodingKeys;
++ (unsigned long long)currentSerializationVersion;
++ (unsigned long long)serializationMagicNumber;
++ (unsigned long long)confidenceTypeForOriginatingRequestSpecifier:(id)a0;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (unsigned long long)serializeStateIntoData:(id)a0 startingAtByteOffset:(unsigned long long)a1 error:(id *)a2;
+- (unsigned long long)serializedLength;
+- (id)initWithData:(const void *)a0 elementCount:(unsigned long long)a1 elementType:(unsigned long long)a2 lengthInBytes:(unsigned long long)a3 labelsAndConfidence:(id)a4 requestRevision:(unsigned long long)a5;
+
+@end

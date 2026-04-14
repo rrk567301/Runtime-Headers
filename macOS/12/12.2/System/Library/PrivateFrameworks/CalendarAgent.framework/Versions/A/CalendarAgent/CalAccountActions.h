@@ -1,0 +1,50 @@
+@interface CalAccountActions : NSObject
+
++ (void)setPreventShutdownAfterIAMigration:(BOOL)a0;
++ (void)moveUnmigratedPrincipalsToSpecialDirectory;
++ (void)processAccountChangeFailure;
++ (void)processAccountChange:(id)a0 withChangedKeys:(id)a1;
++ (void)reconcileAccounts;
++ (void)deleteEmptyDefaultCalendarsIfAppropriateServerAccountsExist;
++ (BOOL)authenticateAccount:(id)a0 error:(id *)a1;
++ (BOOL)preventShutdownAfterIAMigration;
++ (void)localCalendarsExistForEvents:(BOOL *)a0 forReminders:(BOOL *)a1;
++ (void)itemsExistForAccountWithID:(id)a0 events:(BOOL *)a1 reminders:(BOOL *)a2;
++ (BOOL)migrateIntoLocalFromAccountWithID:(id)a0 includeEvents:(BOOL)a1 includeReminders:(BOOL)a2;
++ (id)accountForAccountPassedOverXPC:(id)a0;
++ (BOOL)canProcessAccount:(id)a0;
++ (void)processAccountAddition:(id)a0;
++ (void)processAccountRemoval:(id)a0;
++ (BOOL)shouldRescheduleLocalDataMigrationIntoParentAccountWithID:(id)a0;
++ (BOOL)migratingLocalDataIntoParentAccountWithID:(id)a0;
++ (BOOL)migrateLocalDataIntoParentAccountWithID:(id)a0;
++ (id)_calendarsWithEntityName:(id)a0 context:(id)a1;
++ (id)_emptyDefaultCalendarsFromCalendars:(id)a0;
++ (id)_allLocalCalendarsInContext:(id)a0;
++ (id)_infoDictionariesForUnmigratedPrincipals;
++ (BOOL)_migrateLocalDataHelperBackupDataError:(id *)a0;
++ (id)_migrateLocalDataHelperCreateMigrationGroupForPrincipal:(id)a0 dataFlowsTowardsLocalStore:(BOOL)a1 context:(id)a2;
++ (long long)_migrateLocalDataHelperMigrateCalendarsWithEntityName:(id)a0 migrationGroup:(id)a1 context:(id)a2;
++ (void)_migrateLocalDataHelperDeleteLocalGroupsInContext:(id)a0;
++ (void)_processAccountAddedOrChanged:(id)a0;
++ (void)_broadcastAccountChanged:(id)a0;
++ (void)_processPrincipalsWithUIDs:(id)a0 removedFromAccount:(id)a1 inContext:(id)a2 saveContext:(BOOL)a3;
++ (BOOL)_shouldIgnoreAccount:(id)a0;
++ (id)principalsWithDuplicatesRemovedForAccount:(id)a0 inContext:(id)a1;
++ (id)_titlesForDefaultLocalCalendars;
++ (BOOL)_validatePrincipalsForAccount:(id)a0 inContext:(id)a1;
++ (void)_processPrincipalsAddedOrRemovedFromAccount:(id)a0 inContext:(id)a1;
++ (void)_broadcastLegacyAccountChanged:(id)a0;
++ (id)_allManagedPrincipalsForAccount:(id)a0 inContext:(id)a1;
++ (void)_processPrincipalWithUID:(id)a0 addedToAccount:(id)a1 inContext:(id)a2;
++ (id)_removeDuplicatePrincipals:(id)a0 forAccount:(id)a1 basedOnKey:(id)a2 specificToClass:(Class)a3 inContext:(id)a4;
++ (id)_groupPrincipals:(id)a0 byKey:(id)a1 specificToClass:(Class)a2;
++ (id)_bestPrincipalInDuplicatePrincipals:(id)a0 principalsToDelete:(id)a1;
++ (id)_managedPrincipalEntityNameForAccount:(id)a0;
++ (void)_setupCalDAVSpecificPropertiesForManagedPrincipal:(id)a0 withAccount:(id)a1;
++ (void)_setupExchangeSpecificPropertiesForManagedPrincipal:(id)a0 withAccount:(id)a1;
++ (BOOL)_migrateLocalDataHelperBackupAttachments;
++ (void)_broadcastNotification:(id)a0 forAccount:(id)a1;
++ (id)_notificationUserInfoForAccount:(id)a0;
+
+@end

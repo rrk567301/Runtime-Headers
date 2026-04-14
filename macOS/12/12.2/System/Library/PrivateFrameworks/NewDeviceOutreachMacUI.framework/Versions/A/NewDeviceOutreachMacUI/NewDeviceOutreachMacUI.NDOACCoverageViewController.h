@@ -1,0 +1,75 @@
+@interface NewDeviceOutreachMacUI.NDOACCoverageViewController : NSViewController <NSTextViewDelegate> {
+    void /* unknown type, empty encoding */ appleCareVCWindow;
+    void /* unknown type, empty encoding */ warranty;
+    void /* unknown type, empty encoding */ fetchedWarranty;
+    void /* unknown type, empty encoding */ isExecutingCoverageAPI;
+    void /* unknown type, empty encoding */ coverageCallPendingPriority;
+    void /* unknown type, empty encoding */ group;
+    void /* unknown type, empty encoding */ purchaseRetryCount;
+    void /* unknown type, empty encoding */ source;
+    void /* unknown type, empty encoding */ footerForegroundColor;
+    void /* unknown type, empty encoding */ footerFontSize;
+    void /* unknown type, empty encoding */ containerWidth;
+    void /* unknown type, empty encoding */ containerHeight;
+    void /* unknown type, empty encoding */ defaultFooterHeight;
+    void /* unknown type, empty encoding */ footerWidth;
+    void /* unknown type, empty encoding */ footerHeightAdjust;
+    void /* unknown type, empty encoding */ defaultBenefitsLabelHeight;
+}
+
+@property (nonatomic, weak) void /* unknown type, empty encoding */ spinner;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ primarySpinner;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ primarySpinnerStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ activityIndicator;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ containerStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ containerHeightConstraint;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ primaryView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ primaryInfoStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ detailsView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ detailsStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ defaultCoverageView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyInfoView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageBenefitsHBView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ acOfferEligibleView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyFooterView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageExpiredTopView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageLabel;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageSubtitleLabel;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageImageView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageBenefitsStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageBenefitsHBStackView;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ detailsButton;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ getSupportButton;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverBenefitsButtonSpaceConstraint;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverBenefitsButtonTopConstraint;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ acOfferLabel;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ acOfferDescLabel;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ acOfferButton;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyFooter1Label;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyFooter2Label;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyFooter1HeightConstraint;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ warrantyFooter2HeightConstraint;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageExpiredTitleLabel;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ coverageExpiredDetailsLabel;
+@property (nonatomic, retain) void /* unknown type, empty encoding */ managePlanView;
+
+- (BOOL)textView:(id)a0 clickedOnLink:(id)a1 atIndex:(long long)a2;
+- (BOOL)canOpenURLFor:(long long)a0;
+- (void)dealloc;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)loadView;
+- (void)viewDidLoad;
+- (id)initWith:(id)a0;
+- (void)didBecomeActive;
+- (void)refreshView:(id)a0;
+- (void)addCoveragePressed:(id)a0;
+- (void)detailsButtonPressed:(id)a0;
+- (void)getSupportButtonPressed:(id)a0;
+- (void)managePlanPressed:(id)a0;
+- (void)checkCoverageClicked:(id)a0;
+- (void)getSupportClicked:(id)a0;
+
+@end

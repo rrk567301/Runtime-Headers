@@ -1,0 +1,82 @@
+@class AKController, SidecarDevice, NSArray, PKDrawing, AKAnnotation, SidecarRequest, PKStroke, NSMutableSet, SidecarStream, NSObject;
+@protocol OS_dispatch_source, AKSidecarControllerDelegate;
+
+@interface AKSidecarController : NSObject <SidecarRequestDelegate> {
+    BOOL _performingLiveInk;
+    BOOL _sentInitialData;
+    id _deviceObserver;
+    unsigned long long _liveInkAnnotationIndex;
+    PKStroke *_liveStroke;
+    PKDrawing *_lastDrawing;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _lastInkRectangle;
+    double _liveScale;
+    BOOL _updatingModel;
+    BOOL _ignoreKVOChanges;
+    BOOL _handlingUndoRedo;
+    BOOL _sendingCheckpoint;
+    BOOL _needCheckpointSent;
+    NSMutableSet *_coalescingAnnotationKeys;
+    AKAnnotation *_coalescingAnnotationChange;
+    NSObject<OS_dispatch_source> *_coalescingAnnotationSource;
+}
+
+@property (weak) AKController *controller;
+@property (retain) NSMutableSet *observedPageModelControllers;
+@property (retain) NSMutableSet *observedAnnotations;
+@property (nonatomic) BOOL shouldObserveEdits;
+@property (retain, nonatomic) SidecarRequest *request;
+@property (retain, nonatomic) SidecarStream *markupStream;
+@property (weak, nonatomic) id<AKSidecarControllerDelegate> delegate;
+@property (readonly, nonatomic) SidecarDevice *connectedDevice;
+@property (readonly, nonatomic) NSArray *availableDevices;
+@property (retain, nonatomic) SidecarStream *annotationsStream;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithController:(id)a0;
+- (void)done;
+- (BOOL)shareWithLastSelectedDevice;
+- (void)sidecarRequest:(id)a0 receivedItems:(id)a1;
+- (void)stopObservingPageModelController:(id)a0;
+- (void)startObservingPageModelController:(id)a0;
+- (void)_handleInternalFailure;
+- (void)observePageControllerRequestsDisableRegistration:(id)a0;
+- (void)observePageControllerRequestsEnableRegistration:(id)a0;
+- (void)_startObservingAnnotations:(id)a0;
+- (void)_stopObservingAnnotations:(id)a0;
+- (void)_handleUndo:(id)a0;
+- (void)_handleRedo:(id)a0;
+- (void)_handleUndoCheckpoint:(id)a0;
+- (void)_actuallySendAnnotationChange;
+- (void)_unregisterObservers;
+- (void)_releaseRequest:(BOOL)a0;
+- (void)_registerObservers;
+- (void)handleIncomingOPACKObject:(id)a0;
+- (void)shareWithDevice:(id)a0;
+- (void)_handleAnnotationStream:(id)a0 error:(id)a1;
+- (void)_handleMarkupStream:(id)a0 applicationData:(id)a1 error:(id)a2;
+- (void)_sendIntialAnnotationData;
+- (void)_annotation:(id)a0 addedToPageController:(unsigned long long)a1 selected:(BOOL)a2 atIndex:(unsigned long long)a3;
+- (unsigned long long)_indexOfAnnotationUUID:(id)a0 annotations:(id)a1;
+- (void)_handleLiveStrokeStart:(id)a0;
+- (void)_handleLiveStrokeUpdate:(id)a0;
+- (void)_handleAnnotationAdd:(id)a0;
+- (void)_handleAnnotationRemove:(id)a0;
+- (void)_handleAnnotationModify:(id)a0;
+- (void)_handleSelectionChanged:(id)a0;
+- (void)_startChangeUndoGroup;
+- (id)_inkAnnotationFromPageModelController:(id)a0;
+- (BOOL)_removeAnnotationUUID:(id)a0 fromPageModelController:(id)a1;
+- (id)_annotationWithUUID:(id)a0 inPageModelController:(id)a1;
+- (void)_annotation:(id)a0 modifiedInPageController:(unsigned long long)a1 properties:(id)a2;
+- (void)_sendDictionary:(id)a0;
+- (void)_coalesceAnnotationChange:(id)a0 keyChange:(id)a1;
+- (void)_annotationsWillBeRemoved:(id)a0 onPageController:(id)a1 isUndoingRedoing:(BOOL)a2;
+- (void)_annotationsWereAdded:(id)a0 onPageController:(id)a1 isUndoingRedoing:(BOOL)a2;
+- (void)_selectionChangedOnPageController:(id)a0;
+- (void)_annotation:(id)a0 removedFromPageController:(unsigned long long)a1;
+- (void)handleIncomingItem:(id)a0;
+- (BOOL)_replaceAnnotation:(id)a0 inPageModelController:(id)a1;
+
+@end

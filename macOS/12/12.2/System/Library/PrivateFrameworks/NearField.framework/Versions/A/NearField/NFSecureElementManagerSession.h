@@ -1,0 +1,81 @@
+@class NSString, NSMutableDictionary;
+@protocol NFSecureElementManagerSessionDelegate;
+
+@interface NFSecureElementManagerSession : NFSession <NFSecureElementManagerSessionCallbacks, NFAppletCollection> {
+    BOOL _hasApplets;
+    NSMutableDictionary *_appletsById;
+    id<NFSecureElementManagerSessionDelegate> _delegate;
+}
+
+@property (weak) id<NFSecureElementManagerSessionDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)stateInformation;
+- (id)appletWithIdentifier:(id)a0;
+- (id)felicaAppletState:(id)a0 error:(id *)a1;
+- (id)transitAppletState:(id)a0 error:(id *)a1;
+- (BOOL)deleteAllApplets:(BOOL)a0 error:(id *)a1;
+- (BOOL)getCryptogram:(id *)a0 challengeResponse:(id *)a1 error:(id *)a2;
+- (BOOL)getCryptogram:(id *)a0 challengeResponse:(id *)a1;
+- (unsigned int)validateSEPairings:(id *)a0;
+- (id)allApplets;
+- (BOOL)deleteApplets:(id)a0 queueServerConnection:(BOOL)a1 error:(id *)a2;
+- (id)signChallenge:(id)a0 forAID:(id)a1 sigInfo:(id *)a2 error:(id *)a3;
+- (id)signChallenge:(id)a0 useOSVersion:(BOOL)a1 signatureInfo:(id *)a2 error:(id *)a3;
+- (id)signChallenge:(id)a0 certs:(id *)a1 error:(id *)a2;
+- (id)getSignedPlatformDataForSeid:(id)a0 error:(id *)a1;
+- (id)performPeerPaymentEnrollment:(id)a0 error:(id *)a1;
+- (void)_setApplets:(id)a0;
+- (void)didEndUnexpectedly;
+- (id)stateInformationWithRedirectInfo:(id)a0 error:(id *)a1;
+- (id)signChallenge:(id)a0 forAID:(id)a1 certs:(id *)a2 error:(id *)a3;
+- (id)_appletsById;
+- (BOOL)setExpressModesEnabled:(BOOL)a0 error:(id *)a1;
+- (id)setExpressModesControlState:(long long)a0;
+- (BOOL)restoreAuthorizationForAllAppletsExcept:(id)a0 error:(id *)a1;
+- (BOOL)disableAuthorizationForApplets:(id)a0 andKey:(id)a1 authorization:(id)a2 error:(id *)a3;
+- (BOOL)disableAuthorizationForApplet:(id)a0 andKey:(id)a1 authorization:(id)a2 error:(id *)a3;
+- (BOOL)expressModesEnabledWithError:(id *)a0;
+- (id)expressAppletIdentifiersWithError:(id *)a0;
+- (BOOL)didExitRestrictedMode:(id)a0 error:(id *)a1;
+- (id)transceive:(id)a0 forSEID:(id)a1 error:(id *)a2;
+- (BOOL)refreshSecureElement:(id)a0 error:(id *)a1;
+- (id)getAttackCounterLogForSEID:(id)a0 error:(id *)a1;
+- (id)dumpDomain:(unsigned char)a0 forSEID:(id)a1 error:(id *)a2;
+- (id)stateInformationWithError:(id *)a0;
+- (id)signChallenge:(id)a0 certs:(id *)a1;
+- (id)signChallenge:(id)a0 useOSVersion:(BOOL)a1 signatureInfo:(id *)a2;
+- (id)signChallenge:(id)a0 forAID:(id)a1 certs:(id *)a2;
+- (BOOL)deleteApplets:(id)a0 queueServerConnection:(BOOL)a1;
+- (BOOL)deleteAllApplets:(BOOL)a0;
+- (BOOL)setExpressModesEnabled:(BOOL)a0;
+- (id)setExpressPassConfig:(id)a0 restoreAuthorization:(BOOL)a1;
+- (id)getExpressPassConfigWithError:(id *)a0;
+- (BOOL)restoreAuthorizationForAllAppletsExcept:(id)a0;
+- (BOOL)restoreAuthorizarionForKeys:(id)a0 onApplet:(id)a1 error:(id *)a2;
+- (BOOL)disableAuthorizationForApplet:(id)a0 authorization:(id)a1;
+- (BOOL)disableAuthorizationForApplet:(id)a0 authorization:(id)a1 error:(id *)a2;
+- (BOOL)disableAuthorizationForApplet:(id)a0 andKeys:(id)a1 authorization:(id)a2 error:(id *)a3;
+- (BOOL)disableAuthorizationForApplets:(id)a0 authorization:(id)a1 error:(id *)a2;
+- (id)felicaAppletState:(id)a0;
+- (id)getServiceProviderDataForApplet:(id)a0 error:(id *)a1;
+- (long long)getAndResetLPEMCounter:(id *)a0;
+- (BOOL)expressModesEnabled;
+- (id)expressAppletIdentifiers;
+- (void)didExitRestrictedMode:(id)a0;
+- (id)transceive:(id)a0 forSEID:(id)a1;
+- (id)transceiveMultiple:(id)a0 forSEID:(id)a1 error:(id *)a2;
+- (unsigned int)runScript:(id)a0 forSEID:(id)a1 results:(id *)a2 lastStatus:(unsigned long long *)a3;
+- (unsigned int)runScript:(id)a0 parameters:(id)a1 outputResults:(id *)a2;
+- (BOOL)refreshSecureElement:(id)a0;
+- (id)getAttackCounterLogForSEID:(id)a0;
+- (id)dumpDomain:(unsigned char)a0 forSEID:(id)a1;
+- (BOOL)powerCycleSEID:(id)a0 error:(id *)a1;
+- (id)getOSUpdateLog;
+
+@end

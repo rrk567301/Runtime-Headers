@@ -1,0 +1,92 @@
+@class NSString, NSArray, AVCaptureSessionInternal_Tundra;
+
+@interface AVCaptureSession_Tundra : NSObject {
+    AVCaptureSessionInternal_Tundra *_internal;
+}
+
+@property (copy, nonatomic) NSString *sessionPreset;
+@property (readonly, nonatomic) NSArray *inputs;
+@property (readonly, nonatomic) NSArray *outputs;
+@property (readonly, nonatomic) NSArray *connections;
+@property (readonly, nonatomic, getter=isRunning) BOOL running;
+@property (readonly, nonatomic, getter=isInterrupted) BOOL interrupted;
+@property (nonatomic) BOOL usesApplicationAudioSession;
+@property (nonatomic) BOOL automaticallyConfiguresApplicationAudioSession;
+@property (nonatomic) BOOL automaticallyConfiguresCaptureDeviceForWideColor;
+@property (readonly, nonatomic) struct OpaqueCMClock { } *masterClock;
+
++ (void)initialize;
++ (id)avCaptureSessionPlist;
++ (id)allAVCaptureSessionPresets;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (id)valueForUndefinedKey:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)applicationWillTerminate:(id)a0;
+- (void)beginConfiguration;
+- (void)removeInput:(id)a0;
+- (void)removeOutput:(id)a0;
+- (void)removeConnection:(id)a0;
+- (void)stopRunning;
+- (void)addConnection:(id)a0;
+- (void)addOutput:(id)a0;
+- (BOOL)canAddOutput:(id)a0;
+- (BOOL)canAddInput:(id)a0;
+- (void)addInput:(id)a0;
+- (BOOL)isBeingConfigured;
+- (void)removeVideoPreviewLayer:(id)a0;
+- (void)commitConfiguration;
+- (BOOL)canSetSessionPreset:(id)a0;
+- (void)_doSessionUpdates;
+- (BOOL)_canAddInput:(id)a0 failureReason:(id *)a1;
+- (void)_addInputWithNoConnections:(id)a0;
+- (id)_connectionsForNewInputPort:(id)a0;
+- (BOOL)canAddConnection:(id)a0;
+- (void)_addConnection:(id)a0;
+- (void)_removeConnection:(id)a0;
+- (BOOL)_canAddOutput:(id)a0 failureReason:(id *)a1;
+- (void)_addOutputWithNoConnections:(id)a0;
+- (id)_connectionsForNewOutput:(id)a0;
+- (id)_connectionsForNewVideoPreviewLayer:(id)a0;
+- (BOOL)_canAddConnection:(id)a0 failureReason:(id *)a1;
+- (void)_updateNewActiveUseState:(BOOL)a0 forConnection:(id)a1;
+- (void)_stopAndTearDownGraph;
+- (void)_buildAndRunGraph;
+- (void)_postRuntimeError:(id)a0;
+- (BOOL)_buildGraphUnitsForInputPort:(id)a0 error:(id *)a1;
+- (BOOL)_buildGraphUnitsForConnection:(id)a0 error:(id *)a1;
+- (void)_setupMasterSynchronizers;
+- (void)_configureAudioDecoderConverters;
+- (void)_informActiveInputsAndOutputsThatGraphWillStart;
+- (void)_setupMasterClock;
+- (void)_setMasterClock:(struct OpaqueCMClock { } *)a0;
+- (BOOL)_graphIsInitialized;
+- (BOOL)_graphIsRunning;
+- (id)_stopError;
+- (void)_informActiveInputsAndOutputsThatGraphWillStopWithError:(id)a0;
+- (void)_setRunning:(BOOL)a0;
+- (void)_postNotificationNamed:(id)a0;
+- (void)_rebuildGraph;
+- (BOOL)_buildSupportUnitsForVideoInputPort:(id)a0 error:(id *)a1;
+- (BOOL)_buildSupportUnitsForAudioInputPort:(id)a0 error:(id *)a1;
+- (BOOL)_buildSupportUnitsForClosedCaptionInputPort:(id)a0 error:(id *)a1;
+- (BOOL)_buildSupportUnitsForGenericInputPort:(id)a0 error:(id *)a1;
+- (BOOL)_connectGraphUnitsForVideoConnection:(id)a0 error:(id *)a1;
+- (BOOL)_connectGraphUnitsForAudioConnection:(id)a0 error:(id *)a1;
+- (BOOL)_connectGraphUnitsForClosedCaptionConnection:(id)a0 error:(id *)a1;
+- (BOOL)_connectGraphUnitsForGenericConnection:(id)a0 error:(id *)a1;
+- (id)_resolvedDecompressionSettingsForInputPort:(id)a0 alsoRequiresDeviceNative:(BOOL *)a1;
+- (void)decompressionRequirementsDidChangeForConnection:(id)a0;
+- (void)addInputWithNoConnections:(id)a0;
+- (void)addOutputWithNoConnections:(id)a0;
+- (void)addVideoPreviewLayer:(id)a0;
+- (void)addVideoPreviewLayerWithNoConnection:(id)a0;
+- (void)startRunning;
+- (int *)audioChannelMapForConnection:(id)a0 size:(unsigned long long *)a1;
+- (void)decompressionSettingsDidChangeForConnection:(id)a0;
+- (id)defaultOutputSettingsForConnection:(id)a0 fileType:(id)a1;
+- (id)defaultConnectionPropertiesForConnection:(id)a0;
+
+@end

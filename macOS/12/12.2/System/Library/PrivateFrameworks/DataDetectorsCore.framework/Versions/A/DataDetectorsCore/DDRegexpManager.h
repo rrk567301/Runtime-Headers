@@ -1,0 +1,98 @@
+@class NSString, NSMutableDictionary, NSMutableString, NSMutableSet, NSMutableArray, NSArray;
+
+@interface DDRegexpManager : NSObject <DDTypeCheckerDelegate> {
+    NSMutableDictionary *_regExpesByName;
+    NSMutableArray *_topRegexes;
+    int _maxTokenId;
+    struct __CFDictionary { } *_regexpToIdent;
+    NSMutableString *_icuPrelude;
+    NSMutableSet *_icuVariables;
+    NSMutableArray *_level1Regexs;
+    struct __DDLookupTable { } *_lookupTable;
+    NSMutableArray *_errors;
+    int _typeCheckingMethod;
+    NSMutableDictionary *_typeByName;
+    NSMutableSet *_alreadyLoadedFiles;
+    NSMutableArray *_seenXMLFiles;
+    NSMutableArray *_fileNamesStack;
+    NSArray *_searchPaths;
+    NSArray *_loadPaths;
+    struct __CFDate { } *_lastMod;
+    NSMutableString *_signature;
+    BOOL _allowsRedefinition;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property BOOL defaultSentinelsEnabled;
+@property (readonly) NSMutableArray *ruleAcceptancePredicates;
+
++ (id)_defaultLanguages;
++ (id)additionalPluginSearchPaths;
++ (id)_frameworkBundle;
++ (id)_standardManager;
+
+- (void)dealloc;
+- (id)init;
+- (id)errors;
+- (BOOL)loadString:(id)a0 filename:(id)a1 forLocale:(id)a2 error:(id *)a3;
+- (BOOL)loadString:(id)a0 withSignature:(id)a1 filename:(id)a2 forLocale:(id)a3 error:(id *)a4;
+- (BOOL)loadFileWithName:(id)a0 fromBundle:(id)a1 forLocale:(id)a2 error:(id *)a3;
+- (BOOL)loadAllFilesInDirectory:(id)a0 error:(id *)a1;
+- (BOOL)loadAllPatternsInBundle:(id)a0 forLanguages:(id)a1 error:(id *)a2;
+- (BOOL)loadAllPatternsInBundle:(id)a0 forLanguage:(id)a1 error:(id *)a2;
+- (BOOL)loadAllPatternsForLanguages:(id)a0 error:(id *)a1;
+- (BOOL)loadEverything:(id *)a0;
+- (void)_pushFileName:(id)a0;
+- (void)_popFileName;
+- (id)loadedXMLFiles;
+- (BOOL)_loadAllPatternsInLoadPaths:(id *)a0;
+- (void)_setPathsForBundle:(id)a0 forLanguages:(id)a1;
+- (void)_setSearchPaths:(id)a0;
+- (void)_setLoadPaths:(id)a0;
+- (BOOL)_tryLoadFileWithName:(id)a0 atPath:(id)a1 error:(id *)a2;
+- (void)_setPathsForBundle:(id)a0 locale:(id)a1;
+- (void)_loadKernelFallbackPath:(id)a0;
+- (id)_signatureWithProvider:(id)a0 andLanguage:(id)a1 andKind:(id)a2;
+- (void)_addToSearchPath:(id)a0;
+- (id)addElementaryPattern:(id)a0;
+- (BOOL)_reallyLoadFileAtPath:(id)a0 error:(id *)a1;
+- (id)_signatureFromXMLDocument:(id)a0;
+- (id)_pathsForBundle:(id)a0 forLanguages:(id)a1;
+- (BOOL)_loadFromSearchPathFileWithName:(id)a0 error:(id *)a1;
+- (id)patternWithName:(id)a0;
+- (void)setTypeCheckingMode:(int)a0;
+- (BOOL)importFileWithName:(id)a0 error:(id *)a1;
+- (id)includedFileURLForName:(id)a0;
+- (void)dumpAll;
+- (id)allPatterns;
+- (BOOL)hasPatternWithName:(id)a0;
+- (id)expressionWithName:(id)a0;
+- (BOOL)allowsRedefinition;
+- (void)setAllowsRedefinition:(BOOL)a0;
+- (id)definePatternWithName:(id)a0 value:(id)a1 info:(id)a2;
+- (void)defineTypeWithName:(id)a0 value:(id)a1 location:(id)a2;
+- (void)addPattern:(id)a0;
+- (void)setRegExpesByName:(id)a0;
+- (id)regExpesByName;
+- (void)addTypingError:(id)a0;
+- (struct __DDCache { } *)createCacheWithSignature:(id)a0;
+- (struct __DDLookupTable { } *)lookupTable;
+- (void)_split;
+- (struct __DDScanner { } *)createScannerWithSignature:(id)a0;
+- (id)ICURulesWithMaxIdentifierRef:(long long *)a0;
+- (struct __DDScanner { } *)createScanner;
+- (BOOL)isICUVariableDefined:(id)a0;
+- (void)defineICUVariableWithName:(id)a0 icuExpression:(id)a1;
+- (id)newDictionaryPatternWithFileName:(id)a0 position:(struct __DDExpressionPosition { int x0; int x1; int x2; int x3; })a1;
+- (id)newNERRequest:(id)a0;
+- (id)newPatternWithString:(id)a0 stringType:(int)a1;
+- (id)newPatternWithOptionalSourceTable:(id)a0;
+- (struct __CFData { } *)copyLexerTableData;
+- (struct { long long x0; long long x1; })ICULexemRanges;
+- (struct __CFDictionary { } *)copyRulesForIdentifier;
+- (struct __CFData { } *)copyLookupTableData;
+
+@end

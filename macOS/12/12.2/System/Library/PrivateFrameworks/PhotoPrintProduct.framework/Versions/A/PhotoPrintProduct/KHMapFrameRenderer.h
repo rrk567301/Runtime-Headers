@@ -1,0 +1,84 @@
+@class MKMapSnapshot, NSRecursiveLock, NSArray, NSSet, KHTreatment, KHConfiguration, NSNumber, KHEnvironment;
+@protocol MapRendererProtocol;
+
+@interface KHMapFrameRenderer : KHFrameRenderer {
+    id<MapRendererProtocol> _mapRenderer;
+    NSArray *_mapMarkerAdapters;
+    NSArray *_mapMarkerConnectors;
+    KHTreatment *_mapMarkerTreatment;
+    KHTreatment *_mapMarkerSelectedTreatment;
+    KHTreatment *_mapCompassTreatment;
+    KHTreatment *_mapTitleTreatment;
+    double _lastRenderScale;
+    double _lastBackingScaleFactor;
+    BOOL _refreshNeeded;
+    BOOL _invalidateMapFrameDefaultMapMarkers;
+    NSRecursiveLock *_renderingLock;
+    NSSet *_lastUserHilitedRegionIds;
+    unsigned long long _mapMotionState;
+    BOOL _mapHUDElementLayoutNeeded;
+    KHTreatment *_connectorTreatmentCurvedUp;
+    KHTreatment *_connectorTreatmentCurvedDown;
+    KHTreatment *_connectorTreatmentStraight;
+    NSNumber *_lastMapStyleConfigurationId;
+    KHConfiguration *_mapStyleConfiguration;
+    struct CGLayer { } *_mapLayer;
+    BOOL _mapLayerInvalidated;
+    struct CGContext { } *_dummyContext;
+    KHEnvironment *_dummyEnvironment;
+    MKMapSnapshot *_mapSnapshot;
+}
+
++ (double)mapUnitZoomForScale:(float)a0;
++ (float)mapScaleForUnitZoom:(double)a0;
++ (id)newLabelTextFrameForMapFrame:(id)a0;
++ (struct CGImage { } *)_createPlaceholderMapImage;
+
+- (void)dealloc;
+- (void)clearCache;
+- (id)_mapRenderer;
+- (void)fillContext:(struct CGContext { } *)a0 environment:(id)a1 scale:(double)a2;
+- (void)loadAttributes;
+- (id)initForFrame:(id)a0;
+- (void)_notifyPlacedPhotosChanged:(id)a0;
+- (void)refreshMapAndHUD;
+- (id)mapRegionIdAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_refreshMapStyleConfiguration;
+- (struct CGPoint { double x0; double x1; })centerLatLongWithPan:(struct { double x0; double x1; BOOL x2; BOOL x3; })a0;
+- (void)_invalidateMapLayer;
+- (id)currentMapTitleFrame;
+- (id)_visibleMapMarkerAdapters;
+- (void)_refreshMapRenderer:(id)a0;
+- (void)_refreshNeeded:(id)a0;
+- (void)_refreshMapCompass;
+- (void)_refreshMapTitle;
+- (void)_refreshMapMarkers:(id)a0;
+- (void)_refreshMapMarkerConnectors;
+- (void)updateMapHUDElementsAtScale:(double)a0;
+- (void)_refreshAtScale:(double)a0;
+- (void)layoutMapHUDElementsAtScale:(double)a0;
+- (void)_renderMapIntoContext:(struct CGContext { } *)a0 environment:(id)a1 scale:(double)a2;
+- (void)_renderMapMarkersIntoContext:(struct CGContext { } *)a0 environment:(id)a1 usingMapSnapshot:(id)a2 scale:(double)a3;
+- (void)_centerAndZoomMapAroundMarkers:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_boundingBoxForVisibleMapMarkerLabelTextFrames;
+- (struct CGPoint { double x0; double x1; })latLongLocationForPoint:(struct CGPoint { double x0; double x1; })a0 scale:(double)a1;
+- (BOOL)_updateMapMarkerConnectors:(id)a0 scale:(double)a1;
+- (void)_updateMapMarkers:(id)a0 scale:(double)a1;
+- (id)_forceRefreshCurrentMapTitleFrame;
+- (BOOL)refreshMapFrameDefaultMarkers;
+- (void)refreshMap;
+- (void)refreshMapHUD;
+- (id)_connectorTreatmentStraight;
+- (id)_connectorTreatmentCurvedDown;
+- (id)_connectorTreatmentCurvedUp;
+- (void)centerAndZoomMapAroundVisibleMarkers;
+- (void)centerAndZoomMapAroundAllMarkers;
+- (id)mapMarkerAtPoint:(struct CGPoint { double x0; double x1; })a0 scale:(double)a1;
+- (id)mapRegionIdAtPoint:(struct CGPoint { double x0; double x1; })a0 scale:(double)a1;
+- (id)mapCenterLatLongForRegionWithId:(id)a0;
+- (void)moveMapRegionLabelWithRegionId:(id)a0;
+- (BOOL)mapTitleCanBeVisible;
+- (void)setMapMotionState:(unsigned long long)a0;
+- (unsigned long long)mapMotionState;
+
+@end

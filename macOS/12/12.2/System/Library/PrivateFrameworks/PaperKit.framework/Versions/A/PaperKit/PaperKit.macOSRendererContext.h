@@ -1,0 +1,6 @@
+@interface PaperKit.macOSRendererContext : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ size;
+    void /* unknown type, empty encoding */ cgContext;
+}
+
+@end

@@ -1,0 +1,82 @@
+@class NSDate, NSString, PLEntry, NSDictionary, PLEntryNotificationOperatorComposition, NSMutableArray, PLXPCListenerOperatorComposition, AudioDevice;
+
+@interface PLAudioAgent : PLAgent
+
+@property int accessoryPowerState;
+@property (readonly) NSMutableArray *nsOutputNotifications;
+@property (readonly) NSMutableArray *nsRoutingNotifications;
+@property (retain) PLEntryNotificationOperatorComposition *accessoryPowerCallback;
+@property (retain) PLXPCListenerOperatorComposition *audioAppXPCListener;
+@property (retain) PLXPCListenerOperatorComposition *screenMirroringXPCListener;
+@property (retain) PLXPCListenerOperatorComposition *speakerAmpXPCListener;
+@property (retain) PLXPCListenerOperatorComposition *hapticsXPCListener;
+@property (retain) PLXPCListenerOperatorComposition *hapticsAssertionXPCListener;
+@property (retain) PLXPCListenerOperatorComposition *shazamRecordingXPCListener;
+@property (retain) PLEntry *entryRoutingOld;
+@property BOOL headsetIsPlayingAudio;
+@property BOOL speakerIsPlayingAudio;
+@property double currentVolume;
+@property (readonly) NSString *audioHardware;
+@property (readonly) NSDictionary *audioPowerModel;
+@property (retain) NSDate *lastAudioStateChangeDate;
+@property (retain, nonatomic) AudioDevice *defaultOutputDevice;
+@property (retain, nonatomic) AudioDevice *defaultInputDevice;
+@property (copy, nonatomic) id /* block */ defaultOutputDeviceHandlerBlock;
+@property (copy, nonatomic) id /* block */ defaultInputDeviceHandlerBlock;
+
++ (void)load;
++ (id)entryEventNoneDefinitions;
++ (id)entryEventIntervalDefinitions;
++ (id)entryEventPointDefinitions;
++ (id)entryEventForwardDefinitions;
++ (id)entryEventBackwardDefinitions;
++ (id)entryAggregateDefinitions;
++ (id)entryEventPointDefinitionAudioApp;
++ (id)entryEventPointDefinitionSpeakerAmp;
++ (id)entryEventPointDefinitionHaptics;
++ (id)entryEventPointDefinitionHapticsAssertion;
++ (id)entryEventForwardDefinitionOutput;
++ (id)entryEventForwardDefinitionRouting;
++ (id)entryEventForwardDefinitionNowPlaying;
++ (id)entryEventForwardDefinitionAudioDevice;
++ (id)entryEventForwardDefinitionMutedTalkerDetection;
++ (id)entryEventIntervalDefinitionShazamRecording;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)volume;
+- (BOOL)active;
+- (void)log;
+- (BOOL)muted;
+- (void)initOperatorDependancies;
+- (void)createCarPlayAccountingEvents:(id)a0;
+- (void)setupAVSystemController;
+- (void)logEventForwardOutput;
+- (void)logEventForwardRouting;
+- (void)handleNowPlayingApplicationIsPlayingDidChange;
+- (id)nowPlayingAppBundleID;
+- (id)returnVolumeOrOutPutCategory:(int)a0;
+- (void)logEventIntervalShazamRecording:(id)a0;
+- (BOOL)initDefaultAudioDevice:(BOOL)a0;
+- (void)addDefaultAudioDeviceListener:(BOOL)a0;
+- (void)createAudioAccountingEvents:(id)a0;
+- (void)createAirPlayAccountingEvents:(id)a0;
+- (void)createBluetoothAccountingEvents:(id)a0;
+- (void)modelAudioPowerSpeaker:(id)a0;
+- (void)modelAudioPower;
+- (int)nowPlayingAppPID;
+- (id)activeRoute;
+- (id)outputCategory;
+- (BOOL)headphonesConnected;
+- (BOOL)headsetHasInput;
+- (id)buildCallBack:(id)a0 withGroup:(BOOL)a1 withHandler:(id /* block */)a2;
+- (void)logEventPointAudioApp:(id)a0;
+- (void)logEventPointSpeakerAmp:(id)a0;
+- (void)logEventPointHaptics:(id)a0;
+- (void)logEventPointHapticsAssertion:(id)a0;
+- (void)logEventForwardAudioDevice:(id)a0;
+- (BOOL)shouldModelAudioPowerSpeakerTemp;
+- (double)modelAudioPowerWithVolume:(double)a0;
+- (void)modelAudioPowerCodec:(id)a0;
+
+@end

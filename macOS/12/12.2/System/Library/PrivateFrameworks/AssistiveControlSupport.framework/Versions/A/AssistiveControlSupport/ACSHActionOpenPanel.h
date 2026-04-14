@@ -1,0 +1,17 @@
+@class NSString, NSDictionary;
+
+@interface ACSHActionOpenPanel : ACSHAction
+
+@property (copy, nonatomic) NSString *panelUUID;
+@property (retain, nonatomic) NSDictionary *panelInfo;
+
++ (id)actionWithPanelUUID:(id)a0;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (void)_configureWithPlistDictionary:(id)a0;
+- (id)paramDictionaryForSaving;
+- (id)paramDescription;
+
+@end

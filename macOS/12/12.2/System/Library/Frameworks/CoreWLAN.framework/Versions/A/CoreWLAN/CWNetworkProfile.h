@@ -1,0 +1,105 @@
+@class NSString, NSArray, NSData, NSDate, NSSet, NSDictionary;
+
+@interface CWNetworkProfile : NSObject <NSCopying, NSMutableCopying, NSSecureCoding> {
+    NSData *_ssidData;
+    unsigned long long _securityType;
+    long long _shareMode;
+    long long _movingAttribute;
+    long long _publicAttribute;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy) NSData *ssidData;
+@property long long security;
+@property (readonly, copy) NSDate *lastConnected;
+@property (copy) NSDate *lastAutoJoinAt;
+@property (copy) NSDate *lastManualJoinAt;
+@property long long captiveNetworkStatus;
+@property BOOL captiveNetwork;
+@property BOOL wasCaptiveNetwork;
+@property BOOL temporarilyDisabled;
+@property BOOL systemMode;
+@property BOOL autoLogin;
+@property BOOL captiveBypass;
+@property BOOL hiddenNetwork;
+@property unsigned long long securityType;
+@property BOOL disabled;
+@property BOOL isPasspoint;
+@property (copy) NSString *domainName;
+@property (copy) NSString *displayName;
+@property (copy) NSArray *roamingConsortiumList;
+@property (copy) NSArray *naiRealmList;
+@property BOOL isServiceProviderRoamingEnabled;
+@property BOOL possiblyHiddenNetwork;
+@property (copy) NSSet *collocatedGroup;
+@property (copy) NSSet *channelHistory;
+@property long long roamingProfileType;
+@property BOOL isPersonalHotspot;
+@property (copy) NSArray *bssidList;
+@property long long shareMode;
+@property long long userRole;
+@property (copy) NSString *payloadUUID;
+@property unsigned long long addedBy;
+@property (copy) NSDate *addedAt;
+@property (copy) NSDate *wasHiddenBefore;
+@property (copy) NSDate *captiveSheetTimestamp;
+@property (copy) NSDate *userPreferredOrderTimestamp;
+@property (copy) NSDate *updatedAt;
+@property (copy) NSDate *discoveredAt;
+@property (copy) NSString *networkGroupID;
+@property unsigned long long networkGroupPriority;
+@property (copy) NSDictionary *userPreferredNetworkNames;
+@property (copy) NSDictionary *userPreferredPasspointDomains;
+@property BOOL privacyProxyEnabled;
+@property long long movingAttribute;
+@property long long publicAttribute;
+@property (readonly, copy) NSString *ssid;
+
++ (id)allNetworkProfiles;
++ (id)networkProfile;
++ (id)__dataWithHexString:(id)a0;
++ (id)minimalNetworkProfileWithID:(id)a0;
++ (id)networkProfileWithNetworkProfile:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)conformsToProtocol:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)init;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)identifier;
+- (id)ssidData;
+- (BOOL)captiveNetwork;
+- (void)setCaptiveNetwork:(BOOL)a0;
+- (unsigned long long)securityType;
+- (long long)security;
+- (void)setSsidData:(id)a0;
+- (id)preferredOrderTimestamp;
+- (void)setSecurity:(long long)a0;
+- (id)externalForm;
+- (unsigned long long)__supportedSecurityType:(unsigned long long)a0;
+- (void)setSecurityType:(unsigned long long)a0;
+- (long long)shareMode;
+- (long long)movingAttribute;
+- (long long)publicAttribute;
+- (id)initWithExternalForm:(id)a0;
+- (void)setShareMode:(long long)a0;
+- (void)setMovingAttribute:(long long)a0;
+- (void)setPublicAttribute:(long long)a0;
+- (id)initWithNetworkProfile:(id)a0;
+- (id)lastConnected;
+- (long long)__compareSecurity:(id)a0;
+- (BOOL)isEqualToNetworkProfile:(id)a0;
+- (BOOL)autoLogin;
+- (void)setAutoLogin:(BOOL)a0;
+- (id)initWithExternalForm:(id)a0 coreWiFiNetworkProfile:(id)a1 includeProperties:(id)a2;
+- (id)coreWiFiNetworkProfile;
+- (long long)isMorePreferredThan:(id)a0;
+- (id)userPreferredTimestampWithNetworkProfile:(id)a0;
+
+@end

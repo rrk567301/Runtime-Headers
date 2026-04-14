@@ -1,0 +1,21 @@
+@class NSURL, KHPhotoLibraryGenericSection;
+
+@interface KHPhotoLibraryFileSystemSource : KHPhotoLibraryGenericSource
+
+@property (readonly, nonatomic) KHPhotoLibraryGenericSection *section;
+@property (readonly, nonatomic) NSURL *fileURL;
+
+- (void).cxx_destruct;
+- (id)identifier;
+- (id)title;
+- (unsigned long long)numberOfSections;
+- (id)initWithFileURL:(id)a0;
+- (id)sectionAtIndex:(unsigned long long)a0;
+- (id)iconImage;
+- (BOOL)canHandleURL:(id)a0;
+- (void)executeHydration;
+- (id)photoWithURL:(id)a0;
+- (id)collectionForPath:(id)a0;
+- (id)acceptedImageExtensions;
+
+@end

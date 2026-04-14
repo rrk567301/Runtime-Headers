@@ -1,0 +1,14 @@
+@interface _MROriginClientPropertiesMessageProtobuf : PBCodable <NSCopying> {
+    double _lastPlayingTimestamp;
+    struct { unsigned char lastPlayingTimestamp : 1; } _has;
+}
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+
+@end

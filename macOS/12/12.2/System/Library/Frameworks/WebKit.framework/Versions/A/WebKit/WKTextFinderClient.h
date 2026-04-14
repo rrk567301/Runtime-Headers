@@ -1,0 +1,24 @@
+@class NSView;
+
+@interface WKTextFinderClient : NSObject {
+    struct NakedPtr<WebKit::WebPageProxy> { struct WebPageProxy *m_ptr; } _page;
+    NSView *_view;
+    struct Deque<WTF::Function<void (NSArray *, bool)>, 0> { unsigned long long m_start; unsigned long long m_end; struct VectorBuffer<WTF::Function<void (NSArray *, bool)>, 0, WTF::FastMalloc> { void *m_buffer; unsigned int m_capacity; unsigned int m_size; } m_buffer; } _findReplyCallbacks;
+    struct Deque<WTF::Function<void (NSImage *)>, 0> { unsigned long long m_start; unsigned long long m_end; struct VectorBuffer<WTF::Function<void (NSImage *)>, 0, WTF::FastMalloc> { void *m_buffer; unsigned int m_capacity; unsigned int m_size; } m_buffer; } _imageReplyCallbacks;
+    BOOL _usePlatformFindUI;
+}
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void)findMatchesForString:(id)a0 relativeToMatch:(id)a1 findOptions:(unsigned long long)a2 maxResults:(unsigned long long)a3 resultCollector:(id /* block */)a4;
+- (void)replaceMatches:(id)a0 withString:(id)a1 inSelectionOnly:(BOOL)a2 resultCollector:(id /* block */)a3;
+- (void)getSelectedText:(id /* block */)a0;
+- (void)selectFindMatch:(id)a0 completionHandler:(id /* block */)a1;
+- (void)scrollFindMatchToVisible:(id)a0;
+- (void)willDestroyView:(id)a0;
+- (id)initWithPage:(struct NakedRef<WebKit::WebPageProxy> { struct WebPageProxy *x0; })a0 view:(id)a1 usePlatformFindUI:(BOOL)a2;
+- (void)getImageForMatchResult:(id)a0 completionHandler:(id /* block */)a1;
+- (void)didFindStringMatchesWithRects:(const void *)a0 didWrapAround:(BOOL)a1;
+- (void)didGetImageForMatchResult:(void *)a0;
+
+@end

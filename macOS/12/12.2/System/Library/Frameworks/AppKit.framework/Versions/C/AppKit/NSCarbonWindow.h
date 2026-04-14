@@ -1,0 +1,85 @@
+@interface NSCarbonWindow : NSWindow {
+    struct OpaqueWindowPtr { } *_windowRef;
+    BOOL _windowRefIsOwned;
+    void /* function */ *_handleEventUPP;
+    struct OpaqueEventHandlerRef { } *_eventHandler;
+    BOOL _passingCarbonWindowActivationEvents;
+    BOOL _forceNotKeyWindowForInputContext;
+    BOOL _handlingCarbonWindowActivationEvents;
+}
+
+@property unsigned int cwFlags;
+
++ (Class)frameViewClassForStyleMask:(unsigned long long)a0;
++ (void)setWindowLevelOfWindowGroupForWindowRef:(struct OpaqueWindowPtr { } *)a0 toLevel:(long long)a1;
+
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (long long)level;
+- (struct OpaqueWindowPtr { } *)windowRef;
+- (BOOL)validateMenuItem:(id)a0;
+- (BOOL)performKeyEquivalent:(id)a0;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 backing:(unsigned long long)a2 defer:(BOOL)a3;
+- (void)setContentView:(id)a0;
+- (void)display;
+- (void)setLevel:(long long)a0;
+- (void)setHidesOnDeactivate:(BOOL)a0;
+- (BOOL)canBecomeKeyWindow;
+- (BOOL)canBecomeMainWindow;
+- (void)sendEvent:(id)a0;
+- (BOOL)_hasWindowRef;
+- (id)_clearModalWindowLevel;
+- (void)becomeKeyWindow;
+- (void)_restoreLevelAfterRunningModal;
+- (void)copy:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })constrainFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toScreen:(id)a1;
+- (void)setHasShadow:(BOOL)a0;
+- (void)setStyleMask:(unsigned long long)a0;
+- (void)selectAll:(id)a0;
+- (void)resignKeyWindow;
+- (void)_commonAwake;
+- (BOOL)reconcileToCarbonWindowBounds;
+- (id)initWithCarbonWindowRef:(struct OpaqueWindowPtr { } *)a0 takingOwnership:(BOOL)a1 disableOrdering:(BOOL)a2;
+- (void)_cleanup;
+- (void)_oldPlaceWindow:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromServer:(BOOL)a1;
+- (void)_setCarbonWindowVisibility:(BOOL)a0;
+- (BOOL)isExcludedFromWindowsMenu;
+- (void)_windowMovedToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_postCarbonWindowActivateEvent:(BOOL)a0 makeKeyWindow:(BOOL)a1;
+- (void)becomeMainWindow;
+- (void)_setEventMask:(unsigned long long)a0;
+- (void)resignMainWindow;
+- (BOOL)_handleEventsTheCarbonWay;
+- (unsigned int)_carbonWindowClass;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })startRectForSheet:(id)a0;
+- (void)clear:(id)a0;
+- (void)cut:(id)a0;
+- (void)paste:(id)a0;
+- (void)redo:(id)a0;
+- (void)undo:(id)a0;
+- (unsigned int)carbonHICommandIDFromActionSelector:(SEL)a0;
+- (void)sendCarbonProcessHICommandEvent:(unsigned int)a0;
+- (unsigned char)sendCarbonUpdateHICommandStatusEvent:(unsigned int)a0 withMenuRef:(struct OpaqueMenuRef { } *)a1 andMenuItemIndex:(unsigned short)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })carbonPlatformWindowBounds;
+- (BOOL)_allowsActiveInputContext;
+- (id)initWithCarbonWindowRef:(struct OpaqueWindowPtr { } *)a0 takingOwnership:(BOOL)a1;
+- (BOOL)_managesWindowRef;
+- (void)_removeWindowRef;
+- (void)_setWindowRef:(struct OpaqueWindowPtr { } *)a0;
+- (void)sendSuperEvent:(id)a0;
+- (void)_cancelKey:(id)a0;
+- (id)_destroyRealWindow:(BOOL)a0;
+- (void)_reallyDoOrderWindow:(long long)a0 relativeTo:(long long)a1 findKey:(BOOL)a2 forCounter:(BOOL)a3 force:(BOOL)a4 isModal:(BOOL)a5;
+- (void)_termWindowIfOwner;
+- (void)_resetDragMargins;
+- (BOOL)worksWhenModal;
+- (void)_setModalWindowLevel;
+- (void)handleCarbonBoundsChange;
+- (int)handleMouseDownEvent:(struct OpaqueEventRef { } *)a0 at:(struct Point { short x0; short x1; })a1 inPart:(short)a2 withMods:(unsigned int)a3;
+- (void)_setForceNotKeyWindowForInputContext:(BOOL)a0;
+- (void)_removeReferencesToCarbonWindowRef;
+- (int)_focusAcquired;
+- (int)_focusRelinquished;
+
+@end

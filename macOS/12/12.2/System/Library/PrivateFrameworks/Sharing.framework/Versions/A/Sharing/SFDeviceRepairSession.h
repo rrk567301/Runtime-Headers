@@ -1,0 +1,49 @@
+@class SFDeviceOperationCDPSetup, NSString, SFDeviceOperationWiFiSetup, SFDevice, NSObject, SFSession;
+@protocol OS_dispatch_queue;
+
+@interface SFDeviceRepairSession : NSObject {
+    BOOL _activateCalled;
+    BOOL _invalidateCalled;
+    unsigned long long _startTicks;
+    int _preflightWiFiEarlyState;
+    int _preflightWiFiState;
+    SFSession *_sfSession;
+    int _sfSessionState;
+    int _pairVerifyState;
+    int _getProblemsState;
+    unsigned long long _problemFlags;
+    BOOL _cdpEnabled;
+    SFDeviceOperationCDPSetup *_cdpSetupOperation;
+    double _cdpSetupSecs;
+    int _cdpState;
+    SFDeviceOperationWiFiSetup *_wifiSetupOperation;
+    int _wifiSetupState;
+    double _wifiSetupSecs;
+    int _finishState;
+}
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (readonly, copy, nonatomic) NSString *idsIdentifier;
+@property (retain, nonatomic) SFDevice *peerDevice;
+@property (copy, nonatomic) id /* block */ progressHandler;
+@property (nonatomic) unsigned int repairFlags;
+@property (nonatomic) unsigned long long triggerMs;
+
+- (void)dealloc;
+- (id)init;
+- (void)invalidate;
+- (void).cxx_destruct;
+- (void)activate;
+- (void)_cleanup;
+- (void)_reportError:(id)a0;
+- (void)_run;
+- (int)_runFinish;
+- (int)_runSFSessionStart;
+- (int)_runPairVerify;
+- (int)_runPreflightWiFiEarly;
+- (int)_runGetProblems;
+- (int)_runPreflightWiFiFull;
+- (int)_runWiFiSetup;
+- (int)_runCDPSetup;
+
+@end

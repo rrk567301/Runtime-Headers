@@ -1,0 +1,33 @@
+@class NSTextField, NSString, NSView, AOSUISpyglassAccountChangeHelper, CNAvatarViewController;
+
+@interface AOSUISpyglassAvatarProfileViewController : AOSUISpyglassBaseViewController <CNAvatarViewDelegate> {
+    AOSUISpyglassAccountChangeHelper *_accountChangeHelper;
+}
+
+@property (weak) NSView *imageWell;
+@property (weak) NSTextField *nameTextField;
+@property (weak) NSTextField *userNameTextField;
+@property (readonly, nonatomic) CNAvatarViewController *avatarViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)_displayName;
+- (id)nibBundle;
+- (void)viewDidLoad;
+- (id)_appleAccount;
+- (id)initWithAccountManager:(id)a0;
+- (void)_startObservingAccountStoreChanges;
+- (id)_avatarViewController;
+- (void)avatarViewController:(id)a0 contactAvatarDidChange:(id)a1;
+- (id)_storeAccount;
+- (void)_accountProfilePictureDidChange:(id)a0;
+- (void)_setupNames;
+- (void)_setupProfileView;
+- (id)_usernameDescriptionString;
+- (void)_loadProfilePictureFromAccount;
+
+@end

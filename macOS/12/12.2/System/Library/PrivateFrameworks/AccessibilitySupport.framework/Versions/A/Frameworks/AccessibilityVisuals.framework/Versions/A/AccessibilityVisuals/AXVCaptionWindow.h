@@ -1,0 +1,35 @@
+@class NSString, NSTextView, AXVCaptionTextView, NSWindow;
+@protocol AXVCaptionWindowActionDelegate;
+
+@interface AXVCaptionWindow : AXVVoiceOverStyleWindow
+
+@property (retain, nonatomic, setter=_setCaptionTextView:) AXVCaptionTextView *_captionTextView;
+@property (nonatomic, setter=_setNumberOfCaptionTextLinesToShow:) long long _numberOfCaptionTextLinesToShow;
+@property (retain, nonatomic, setter=_setCaptionTextHistoryWindow:) NSWindow *_captionTextHistoryWindow;
+@property (retain, nonatomic, setter=_setCaptionTextHistoryTextView:) NSTextView *_captionTextHistoryTextView;
+@property (copy, nonatomic) NSString *captionText;
+@property (nonatomic) double captionFontSize;
+@property (weak, nonatomic) id<AXVCaptionWindowActionDelegate> actionDelegate;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 backing:(unsigned long long)a2 defer:(BOOL)a3;
+- (struct CGSize { double x0; double x1; })windowWillResize:(id)a0 toSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_getResizeEdgeAndCornerThicknesses:(double[8])a0;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_updateFrameSize;
+- (void)_setupStackView;
+- (id)_setupCloseButton;
+- (void)_handleCloseButtonPress;
+- (long long)_numberOfCaptionTextLinesToShowForHeight:(double)a0;
+- (double)_heightAfterAdjustingToSnapToLines:(double)a0;
+- (id)_setupButtonStackViewWithTextBaseline:(double)a0;
+- (void)_pressedHistoryButton;
+- (void)_setupCaptionTextHistoryWindow;
+- (void)_pressCloseCaptionTextHistoryWindow;
+- (void)_setupCaptionTextHistoryTextViewForWindow:(id)a0;
+- (double)_heightToShowNumberOfLines:(long long)a0;
+- (double)_lineHeightForTextView:(id)a0;
+- (id)_setupHistoryButton;
+
+@end

@@ -1,0 +1,70 @@
+@class AKTooManyAttemptsController, AKAuthWebTabView, AKIDPProvidedSignInViewController, AKKeepUsingController, NSImageView, AKServerRequestConfiguration, AKLargeSignInPromptViewController, AKSecondFactorCodeEntryController, NSMutableArray, CDPEnrollViewController, NSString, NSTouchBar, AKIDPHandler, AKNoCodeReceivedController, AKDefaultSignInPromptViewController, NSView;
+
+@interface AKAuthenticationPromptController : AKPromptWindowController <NSTouchBarProvider, AuthWebViewDelegate, AKAppleIDAuthenticationInAppContextPasswordDelegate>
+
+@property (nonatomic) BOOL _currentlyActive;
+@property (retain) NSImageView *highlightingView;
+@property (retain) AKDefaultSignInPromptViewController *signInPromptController;
+@property (retain) AKLargeSignInPromptViewController *bigSignInPromptController;
+@property (retain) AKTooManyAttemptsController *tooManyAttemptsController;
+@property (retain) AKSecondFactorCodeEntryController *secondFactorController;
+@property (retain) AKNoCodeReceivedController *noCodeReceivedController;
+@property (retain) AKKeepUsingController *keepUsingController;
+@property (retain) AKAuthWebTabView *webviewController;
+@property (retain) AKIDPProvidedSignInViewController *idpViewController;
+@property (retain) NSView *signInView;
+@property (retain) NSView *tooManyAttemptsView;
+@property (retain) NSView *secondFactorView;
+@property (retain) NSView *noCodeReceivedView;
+@property (retain) NSView *keepUsingView;
+@property (retain) NSView *webView;
+@property (retain) NSMutableArray *viewStack;
+@property long long previousMode;
+@property (retain) NSView *view;
+@property (retain) NSString *windowTitle;
+@property (weak) NSView *hostView;
+@property (readonly) long long mode;
+@property BOOL useLargePrompt;
+@property (retain) AKServerRequestConfiguration *serverRequestConfiguration;
+@property (retain) id clientInfo;
+@property (retain) NSView *icscView;
+@property (retain) CDPEnrollViewController *iCSCController;
+@property (retain) AKIDPHandler *idpHandler;
+@property (copy) id /* block */ passwordHandler;
+@property (readonly) NSTouchBar *touchBar;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)setMode:(long long)a0;
+- (void)runModal;
+- (void)awakeFromNib;
+- (void)present;
+- (void)switchToView:(id)a0;
+- (void)endWebView:(id)a0;
+- (void)sizeChangedFrom:(struct CGSize { double x0; double x1; })a0 toSize:(struct CGSize { double x0; double x1; })a1 webViewName:(id)a2 callback:(id)a3;
+- (void)loadFailed:(id)a0 withError:(id)a1;
+- (void)skipAndContinueSignIn;
+- (void)context:(id)a0 needsPasswordWithCompletion:(id /* block */)a1;
+- (id)initAtMode:(long long)a0;
+- (void)windowWillClose;
+- (void)_setupHighlightingView;
+- (id)_viewForMode:(long long)a0;
+- (void)_addSubView:(id)a0;
+- (void)settleNewMode;
+- (id)currentViewController;
+- (void)setupViewsForActiveMode;
+- (BOOL)isViewBasedContext;
+- (BOOL)leaveMode;
+- (void)_refreshForMode:(long long)a0;
+- (id)viewControllerForMode:(long long)a0;
+- (id)_signInPrompt;
+- (void)switchToView:(id)a0 fromView:(id)a1;
+- (void)leaveAllModes;
+- (double)animationResizeTime;
+- (void)refreshForMode:(long long)a0;
+
+@end

@@ -1,0 +1,13 @@
+@class NSArray, NSData, NSString;
+
+@interface SARDServerContextUpdateCandidate : SABaseClientBoundCommand
+
+@property (copy, nonatomic) NSArray *mappedDomainEntities;
+@property (copy, nonatomic) NSData *nlContextUpdatePayload;
+@property (copy, nonatomic) NSString *resultCandidateId;
+
+- (id)groupIdentifier;
+- (id)encodedClassName;
+- (BOOL)requiresResponse;
+
+@end

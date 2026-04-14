@@ -1,0 +1,11 @@
+@interface AVInlineTrimControlsViewController : AVTrimControlsViewController
+
+- (double)minimumWidth;
+- (long long)layoutStyle;
+- (id)controlsStyleIdentifier;
+- (id)backgroundBackdropViewMaskImage;
+- (struct CGSize { double x0; double x1; })intrinsicControlsContentViewSize;
+- (struct { double x0; double x1; double x2; double x3; })controlsContentViewMargin;
+- (unsigned long long)preferredTrimViewStyle;
+
+@end

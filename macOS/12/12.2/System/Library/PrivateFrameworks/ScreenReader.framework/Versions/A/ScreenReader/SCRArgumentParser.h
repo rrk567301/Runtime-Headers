@@ -1,0 +1,50 @@
+@class SCRMIGHelper;
+
+@interface SCRArgumentParser : SCRCArgumentParser {
+    BOOL _hasReceivedMessageFromLaunchdStart;
+    BOOL _startedByLaunchd;
+    BOOL _isKeyboardHelpOnlyEnabled;
+    BOOL _shouldSkipSplash;
+    BOOL _isQuickStarted;
+    BOOL _isAutomaticStartAfterLogin;
+    BOOL _disableBootChime;
+    BOOL _bailAsSoonAsPossible;
+    BOOL _isQuickStartRunning;
+    BOOL _shouldShortCircuitSpeechSynthesizer;
+    SCRMIGHelper *_migHelper;
+}
+
++ (id)processIdentifier;
++ (id)versionString;
+
+- (int)run;
+- (void).cxx_destruct;
+- (void)stop;
+- (unsigned long long)_sessionID;
+- (BOOL)_isMacBuddyRunning;
+- (id)initWithArgc:(int)a0 argv:(const char **)a1;
+- (void)stopDueToSigTerm;
+- (void)_setSessionID:(unsigned long long)a0;
+- (void)_initializeStartupOptions:(int)a0;
+- (void)setHasReceivedMessageFromLaunchdStart:(BOOL)a0;
+- (void)_handleCommand:(id)a0 synchronizationHandler:(id /* block */)a1;
+- (void)_stopAndPlayMessage:(BOOL)a0;
+- (id)_setStartedByLaunchd:(id)a0;
+- (id)_setLogMask:(id)a0;
+- (id)_setTargetApplications:(id)a0;
+- (id)_setTestTargetApplicationPIDs:(id)a0;
+- (id)_setKeyboardHelp:(id)a0;
+- (id)_setSkipSplash:(id)a0;
+- (id)_setQuickStart:(id)a0;
+- (id)_setAutomaticStartAfterLogin:(id)a0;
+- (id)_disableBootChime:(id)a0;
+- (unsigned long long)_securitySessionID;
+- (BOOL)wasLastShutdownPlanned;
+- (BOOL)startedByLaunchd;
+- (BOOL)_shouldStartVoiceOver;
+- (void)_tearDownMachServicesWithReturnValue:(int)a0;
+- (BOOL)_isRunningAsRoot;
+- (BOOL)_checkAndRunSplash;
+- (BOOL)_checkAndDisableBootChime;
+
+@end

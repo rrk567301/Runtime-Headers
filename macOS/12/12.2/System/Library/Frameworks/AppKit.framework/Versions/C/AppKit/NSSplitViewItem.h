@@ -1,0 +1,92 @@
+@class NSString, NSViewController, NSAppearance, NSDictionary;
+
+@interface NSSplitViewItem : NSObject <NSAppearanceCustomization, NSAnimatablePropertyContainer, NSCoding> {
+    id _splitViewItemPrivateData;
+    struct { unsigned char _collapsed : 1; unsigned char _canCollapse : 1; unsigned char _isOverlaid : 1; unsigned char _revealsOnEdgeHoverInFullscreen : 1; unsigned char _springLoaded : 1; unsigned char _forceWithinWindowBlending : 1; unsigned int _reserved : 26; } _flags;
+}
+
+@property (retain) NSAppearance *appearance;
+@property (readonly) NSAppearance *effectiveAppearance;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) long long behavior;
+@property (retain) NSViewController *viewController;
+@property (getter=isCollapsed) BOOL collapsed;
+@property BOOL canCollapse;
+@property long long collapseBehavior;
+@property double minimumThickness;
+@property double maximumThickness;
+@property double preferredThicknessFraction;
+@property float holdingPriority;
+@property double automaticMaximumThickness;
+@property (getter=isSpringLoaded) BOOL springLoaded;
+@property BOOL allowsFullHeightLayout;
+@property long long titlebarSeparatorStyle;
+@property (copy) NSDictionary *animations;
+
++ (id)defaultAnimationForKey:(id)a0;
++ (id)splitViewItemWithViewController:(id)a0;
++ (BOOL)automaticallyNotifiesObserversOfCollapsed;
++ (id)sidebarWithViewController:(id)a0;
++ (id)contentListWithViewController:(id)a0;
++ (id)inspectorWithViewController:(id)a0;
++ (id)keyPathsForValuesAffectingSidebar;
++ (id)keyPathsForValuesAffectingEffectiveCollapseBehavior;
+
+- (void)dealloc;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (double)minimumSize;
+- (double)maximumSize;
+- (id)animator;
+- (Class)_animatorClass;
+- (BOOL)isAnimating;
+- (id)animationForKey:(id)a0;
+- (BOOL)canOverlay;
+- (BOOL)_canLiveCollapse;
+- (double)preferredSizeRatio;
+- (void)setHasUserSetSize:(BOOL)a0;
+- (BOOL)isSidebar;
+- (BOOL)_wantsMaterialBackground;
+- (BOOL)isOverlaid;
+- (BOOL)_forceWithinWindowBlending;
+- (long long)effectiveCollapseBehavior;
+- (void)_setOverrideHoldingPriority:(id)a0;
+- (void)setOverlaid:(BOOL)a0;
+- (void)_markAnimationStart;
+- (void)_markAnimationEnd;
+- (float)_effectiveHoldingPriority;
+- (BOOL)canCollapseFromWindowResize;
+- (BOOL)revealsOnEdgeHoverInFullscreen;
+- (void)_uncollapsePreferringOverlay;
+- (void)setBehavior:(long long)a0;
+- (void)_setCollapsed:(BOOL)a0;
+- (double)automaticMaximumSize;
+- (void)setCanCollapseFromWindowResize:(BOOL)a0;
+- (void)setRevealsOnEdgeHoverInFullscreen:(BOOL)a0;
+- (id)_splitViewController;
+- (void)_willChangeCollapsed;
+- (void)_didChangeCollapsed;
+- (id)_overrideHoldingPriority;
+- (void)setSidebar:(BOOL)a0;
+- (BOOL)_canCollapseFromWindowResize;
+- (void)_setCanCollapseFromWindowResize:(BOOL)a0;
+- (BOOL)prefersPreservingSiblingSizesOnCollapse;
+- (void)setPrefersPreservingSiblingSizesOnCollapse:(BOOL)a0;
+- (void)setMinimumSize:(double)a0;
+- (void)setMaximumSize:(double)a0;
+- (void)setAutomaticMaximumSize:(double)a0;
+- (void)setPreferredSizeRatio:(double)a0;
+- (BOOL)prefersImplicitAnimations;
+- (void)setPrefersImplicitAnimations:(BOOL)a0;
+- (BOOL)autoHidesWhenFullscreen;
+- (void)setAutoHidesWhenFullscreen:(BOOL)a0;
+- (BOOL)hasUserSetSize;
+- (BOOL)_hasBaseVibrancyEffect;
+- (void)_setHasBaseVibrancyEffect:(BOOL)a0;
+- (void)_setForceWithinWindowBlending:(BOOL)a0;
+
+@end

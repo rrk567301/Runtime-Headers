@@ -1,0 +1,72 @@
+@interface BrowserDocumentController : NSDocumentController <NSUserInterfaceValidations>
+
+@property (nonatomic) unsigned long long browsingModeForNewDocument;
+@property (readonly, nonatomic) BOOL canShowUnifiedField;
+
++ (id)sharedDocumentController;
+
+- (BOOL)validateUserInterfaceItem:(id)a0;
+- (void)openDocument:(id)a0;
+- (id)typeForContentsOfURL:(id)a0 error:(id *)a1;
+- (unsigned long long)maximumRecentDocumentCount;
+- (id)makeUntitledDocumentOfType:(id)a0 error:(id *)a1;
+- (id)_openableFileExtensions;
+- (id)openDocumentWithContentsOfURL:(id)a0 display:(BOOL)a1;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a2;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1;
+- (id)openEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0;
+- (id)goToURLFromExternalApplication:(id)a0 forcingHTMLMIMEType:(BOOL)a1 openInNewPrivateWindowIfNecessary:(BOOL)a2 bundleIdentifierOfApplicationThatInitiatedNavigation:(id)a3;
+- (id)orderedBrowserDocuments;
+- (void)newTab:(id)a0;
+- (id)frontmostBrowserDocument;
+- (id)frontmostBrowserDocumentPassingTest:(id /* block */)a0;
+- (id)findOrCreateFrontmostBrowserDocument;
+- (void)createPrivateBrowsingDocument:(id)a0;
+- (void)goHome:(id)a0;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 configuration:(id)a1 suppressSidebar:(BOOL)a2 isPopupWindow:(BOOL)a3;
+- (void)openLocation:(id)a0;
+- (BOOL)canGoHome;
+- (void)searchWeb:(id)a0;
+- (void)newTabFromFileMenu:(id)a0;
+- (void)newTabAtEndFromFileMenu:(id)a0;
+- (BOOL)canCreateNewTab;
+- (BOOL)_isNewTabDefaultForWindowUserTabbingPreference;
+- (void)_setUpNewTabOrWindowMenuItem:(id)a0 addOptionFlagModifier:(BOOL)a1;
+- (void)showTopSitesWall:(id)a0;
+- (BOOL)_canShowStartPage;
+- (void)showStartPage:(id)a0;
+- (void)showFavorites:(id)a0;
+- (void)toggleBookmarksEditView:(id)a0;
+- (id)_frontmostBrowserDocumentIfAvailableUsingWindowPolicy:(long long)a0;
+- (void)toggleHistoryInBookmarksView:(id)a0;
+- (BOOL)_canOpenDocument;
+- (id)_goToEachRequest:(id)a0 tabLabels:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a3 forSearch:(BOOL)a4 inNewProcess:(BOOL)a5;
+- (id)_openDocumentWithContentsOfRequest:(id)a0 behind:(BOOL)a1 display:(BOOL)a2 browsingMode:(unsigned long long)a3 isPopupWindow:(BOOL)a4;
+- (id)createAutomationSessionDocument;
+- (id)browserDocuments;
+- (id)_createEmptyBrowserDocumentAndDisplay:(BOOL)a0 behind:(BOOL)a1 loadWindow:(BOOL)a2 suppressSidebar:(BOOL)a3 isPopupWindow:(BOOL)a4 browsingMode:(unsigned long long)a5 websiteDataStore:(id)a6 restoringFromLastSession:(BOOL)a7 initialSize:(struct CGSize { double x0; double x1; })a8;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 isPopupWindow:(BOOL)a1 restoringFromLastSession:(BOOL)a2 initialSize:(struct CGSize { double x0; double x1; })a3;
+- (id)activateFrontmostBrowserDocumentIfAvailable;
+- (BOOL)_browserDocumentIsAvailable:(id)a0 usingWindowPolicy:(long long)a1;
+- (id)goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a3 inNewProcess:(BOOL)a4;
+- (id)_goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a3 forSearch:(BOOL)a4 inNewProcess:(BOOL)a5;
+- (id)goToURL:(id)a0 windowPolicy:(long long)a1 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a2 forSearch:(BOOL)a3;
+- (id)goToRequest:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a3;
+- (void)_newTabInCurrentContext:(BOOL)a0 sender:(id)a1;
+- (id)frontmostNonPopupBrowserDocumentIfAvailableUsingWindowPolicy:(long long)a0 browsingMode:(unsigned long long)a1;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 isPopupWindow:(BOOL)a1;
+- (id)_URLToVisitFromURL:(id)a0;
+- (id)_frontmostBrowserDocumentWithoutTabGroupSelectedIfAvailableUsingWindowPolicy:(long long)a0 browsingMode:(unsigned long long)a1;
+- (void)createAutomationSessionDocument:(id)a0;
+- (BOOL)anyInactiveTabs;
+- (id)createHiddenEmptyBrowserDocument;
+- (id)createHiddenBrowserDocumentForWebExtensionsWithBrowsingMode:(unsigned long long)a0 shouldLoadUserStartPage:(BOOL)a1 isPopupWindow:(BOOL)a2;
+- (id)createHiddenEmptyBrowserDocumentWithBrowsingMode:(unsigned long long)a0 websiteDataStore:(id)a1 suppressSidebar:(BOOL)a2 isPopupWindow:(BOOL)a3;
+- (id)createHiddenEmptyBrowserDocumentWithoutLoadingWindowWithBrowsingMode:(unsigned long long)a0;
+- (id)findOrCreateFrontmostBrowserDocumentIncludingPopups;
+- (id)goToCloudTab:(id)a0 tabLabel:(id)a1 windowPolicy:(long long)a2 tabPlacementHint:(const struct TabPlacementHint { id x0; BOOL x1; } *)a3;
+- (void)enumerateBrowserDocumentsUsingBlock:(id /* block */)a0;
+- (id)tryMultipleURLs:(struct unique_ptr<WTF::Deque<NSURL *, 0>, std::default_delete<WTF::Deque<NSURL *, 0>>> { struct __compressed_pair<WTF::Deque<NSURL *, 0> *, std::default_delete<WTF::Deque<NSURL *, 0>>> { void *x0; } x0; })a0 windowPolicy:(long long)a1 httpReferrer:(id)a2;
+- (id)_URLFromShortcutFile:(id)a0;
+
+@end

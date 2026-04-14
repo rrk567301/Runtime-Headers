@@ -1,0 +1,26 @@
+@class NSString, NSXPCConnection;
+
+@interface CPProfileDomainServiceConnectionHandler : NSObject <CPProfileDomainServiceRequestProtocol>
+
+@property (retain) NSXPCConnection *connection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (BOOL)hostGetProfiles:(id *)a0 forDevice:(BOOL)a1 withPayloadTypes:(id)a2 ignoringProfile:(id)a3 error:(id *)a4;
+- (BOOL)hostGetProfiles:(id *)a0 forDevice:(BOOL)a1 withPayloadTypes:(id)a2 error:(id *)a3;
+- (BOOL)hostWriteSecureSettings:(id)a0 forDevice:(BOOL)a1 domain:(id)a2 error:(id *)a3;
+- (id)hostGetAuthToken:(id)a0 forMDMProfileID:(id)a1;
+- (void)queryServiceCapabilities:(id)a0 reply:(id /* block */)a1;
+- (void)processRequest:(id)a0 reply:(id /* block */)a1;
+- (BOOL)hostWillHaveMultiplePayloadsOfType:(id)a0 afterInstallingProfile:(id)a1 existingProfile:(id)a2;
+- (BOOL)hostGetProfiles:(id *)a0 forDevice:(BOOL)a1 error:(id *)a2;
+- (BOOL)hostGetPayloads:(id *)a0 forDevice:(BOOL)a1 withPayloadTypes:(id)a2 error:(id *)a3;
+- (BOOL)hostUpdateSecureSettingsForDevice:(BOOL)a0 domain:(id)a1 deltas:(id)a2 error:(id *)a3;
+- (id)hostGetAuthToken:(id)a0 forProfile:(id)a1;
+- (id)hostGetAuthToken:(id)a0 forMDMCommandAddlInfo:(id)a1;
+- (BOOL)hostPrivRequest:(id)a0 response:(id *)a1 error:(id *)a2;
+
+@end

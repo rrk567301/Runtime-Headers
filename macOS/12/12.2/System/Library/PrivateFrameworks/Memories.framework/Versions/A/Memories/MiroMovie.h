@@ -1,0 +1,71 @@
+@class NSString, PHAsset, AVPlayerItem, MiroMemory, NSSet, PregenerateHelper, PHAssetCollection, MiroExportController, NSViewController, MiroAutoEditor;
+@protocol MiroMovieDelegate;
+
+@interface MiroMovie : NSObject <ExportDelegate>
+
+@property (retain, nonatomic) MiroMemory *memory;
+@property (retain) AVPlayerItem *playerItem;
+@property (retain) MiroAutoEditor *autoEditor;
+@property (nonatomic) BOOL allowNonPHMemoryForUnitTesting;
+@property (retain, nonatomic) NSString *outputString;
+@property (weak, nonatomic) id associatedPlayerViewController;
+@property (retain, nonatomic) MiroExportController *exportController;
+@property (retain, nonatomic) PregenerateHelper *helper;
+@property (retain, nonatomic) PHAsset *keyAsset;
+@property (retain, nonatomic) PHAssetCollection *collection;
+@property (readonly, nonatomic) NSViewController *playerViewController;
+@property (readonly, nonatomic) NSSet *defaultAssets;
+@property (weak, nonatomic) id<MiroMovieDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)dataRepresentation;
+- (void)setTitle:(id)a0;
+- (float)duration;
+- (long long)mood;
+- (void)setMood:(long long)a0;
+- (id)title;
+- (id)initWithDataRepresentation:(id)a0;
+- (id)subtitle;
+- (void)setSubtitle:(id)a0;
+- (void)setDuration:(float)a0;
+- (double)maximumDuration;
+- (id)production;
+- (void)addAsset:(id)a0;
+- (void)removeAsset:(id)a0;
+- (void)setKeyAsset:(id)a0;
+- (id)keyAsset;
+- (id)initWithAssetCollection:(id)a0;
+- (id)songID;
+- (id)titleStyle;
+- (id)initWithAssetCollection:(id)a0 keyAsset:(id)a1;
+- (void)setSongID:(id)a0;
+- (void)_teardownInternals;
+- (void)didFinishExport;
+- (void)exportController:(id)a0 progressedTo:(float)a1 preventBackslide:(BOOL)a2;
+- (BOOL)isCompelling;
+- (void)prepareForPlayback;
+- (void)cancelPrepareForPlayback;
+- (void)pregenerateMovieWithCompletionHandler:(id /* block */)a0;
+- (void)cancelPregenerateMovie;
+- (id)createPHMemory;
+- (void)_generateProjectWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)_exportProject:(id)a0 presets:(id)a1 progressHandler:(id /* block */)a2 completionHandler:(id /* block */)a3;
+- (id)moodIDmap;
+- (void)generateProjectWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)playerItemWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)exportWithPresets:(id)a0 progressHandler:(id /* block */)a1 completionHandler:(id /* block */)a2;
+- (id)availableSongs;
+- (id)availableTitleStyles;
+- (void)setTitleStyle:(id)a0;
+- (void)removeClip:(id)a0;
+- (void)setRangeOfInterest:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 forClip:(id)a1;
+- (void)setVolume:(unsigned long long)a0 forClip:(id)a1;
+- (id)exportSessionWithPresetName:(id)a0;
+
+@end

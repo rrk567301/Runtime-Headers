@@ -1,0 +1,24 @@
+@class NSString, NSMutableDictionary, BKDeviceTouchID, BiometricKit;
+@protocol BiometricKitUIEnrollResultDelegate, MBSecondPartyHost;
+
+@interface BiometricKitUIEnrollViewController : NSViewController <BiometricKitDelegate> {
+    NSMutableDictionary *_properties;
+}
+
+@property (nonatomic) id<MBSecondPartyHost> secondPartyDelegate;
+@property (retain, nonatomic) BiometricKit *biometricKit;
+@property (retain, nonatomic) BKDeviceTouchID *bkDevice;
+@property (nonatomic) id<BiometricKitUIEnrollResultDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)propertyForKey:(id)a0;
+- (void)setProperty:(id)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (id)templateView;
+- (void)restartEnroll;
+- (void)cancelEnroll;
+
+@end

@@ -1,0 +1,1 @@
+dlerror: dlopen(/System/iOSSupport/usr/lib/swift/libswiftHealthKit.dylib, 0x0002): tried: '/System/iOSSupport/usr/lib/swift/libswiftHealthKit.dylib' (wrong platform to load into process), '/usr/local/lib/libswiftHealthKit.dylib' (no such file), '/usr/lib/libswiftHealthKit.dylib' (no such file)

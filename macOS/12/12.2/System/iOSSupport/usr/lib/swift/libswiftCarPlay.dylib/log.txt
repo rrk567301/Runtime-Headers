@@ -1,0 +1,1 @@
+dlerror: dlopen(/System/iOSSupport/usr/lib/swift/libswiftCarPlay.dylib, 0x0002): tried: '/System/iOSSupport/usr/lib/swift/libswiftCarPlay.dylib' (wrong platform to load into process), '/usr/local/lib/libswiftCarPlay.dylib' (no such file), '/usr/lib/libswiftCarPlay.dylib' (no such file)

@@ -1,0 +1,18 @@
+@class MTLFunctionConstantValues;
+
+@interface MTLDebugFunction : MTLToolsFunction
+
+@property (retain, nonatomic) MTLFunctionConstantValues *constantValues;
+
+- (void)dealloc;
+- (id)formattedDescription:(unsigned long long)a0;
+- (id)importedSymbols;
+- (id)importedLibraries;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)a0;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)a0 reflection:(id *)a1;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)a0 pipelineLibrary:(id)a1;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)a0 reflection:(id *)a1 pipelineLibrary:(id)a2;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)a0 reflection:(id *)a1 binaryArchives:(id)a2;
+- (id)bitcodeData;
+
+@end

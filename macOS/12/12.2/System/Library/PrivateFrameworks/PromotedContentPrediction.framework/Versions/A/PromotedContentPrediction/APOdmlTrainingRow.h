@@ -1,0 +1,3 @@
+@interface APOdmlTrainingRow : NSObject
+
+@end

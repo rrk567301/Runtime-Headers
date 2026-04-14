@@ -1,0 +1,82 @@
+@class NSXPCConnection, MNUserOptions, NSArray, NSString, NSHashTable, MNStartNavigationDetails, geo_isolater, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue, MNNavigationServiceClientInterface;
+
+@interface MNNavigationServiceRemoteProxy : NSObject <MNNavigationServiceProxy> {
+    BOOL _applicationActive;
+    NSXPCConnection *_connection;
+    MNUserOptions *_userOptions;
+    geo_isolater *_clientsLock;
+    NSHashTable *_clients;
+    MNStartNavigationDetails *_startNavigationDetails;
+    NSMutableArray *_interruptionDates;
+    BOOL _isReconnecting;
+    NSArray *_announcementsToIgnore;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    long long _sandboxHandle;
+}
+
+@property (weak, nonatomic) id<MNNavigationServiceClientInterface> delegate;
+@property (readonly, nonatomic) NSArray *interruptionDates;
+@property (readonly, nonatomic) unsigned long long interruptionCount;
+@property (readonly, nonatomic) unsigned long long clientCount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (id)methodSignatureForSelector:(SEL)a0;
+- (void)forwardInvocation:(id)a0;
+- (void).cxx_destruct;
+- (void)setHeadingOrientation:(int)a0;
+- (void)_handleInterruption;
+- (void)openForClient:(id)a0;
+- (void)closeForClient:(id)a0;
+- (void)setGuidancePromptsEnabled:(BOOL)a0;
+- (void)setIsConnectedToCarplay:(BOOL)a0;
+- (void)setDisplayedStepIndex:(unsigned long long)a0;
+- (id)_remoteObjectProxy;
+- (void)_openConnection;
+- (void)_closeConnection;
+- (void)_consumeSandboxExtension:(char *)a0;
+- (void)_releaseSandboxExtension;
+- (void)forceReroute;
+- (void)stopNavigationWithReason:(unsigned long long)a0;
+- (void)navigationServiceProxy:(id)a0 didUpdateNavigationDetails:(id)a1;
+- (void)setRoutesForPreview:(id)a0 selectedRouteIndex:(unsigned long long)a1;
+- (void)startNavigationWithDetails:(id)a0 activeBlock:(id /* block */)a1;
+- (void)updateDestination:(id)a0;
+- (void)resumeOriginalDestination;
+- (void)switchToRoute:(id)a0;
+- (void)setGuidanceType:(unsigned long long)a0;
+- (void)changeUserOptions:(id)a0;
+- (void)repeatCurrentGuidanceWithReply:(id /* block */)a0;
+- (void)repeatCurrentTrafficAlertWithReply:(id /* block */)a0;
+- (void)vibrateForPrompt:(unsigned long long)a0 withReply:(id /* block */)a1;
+- (void)stopCurrentGuidancePrompt;
+- (void)setRideIndex:(unsigned long long)a0 forSegmentIndex:(unsigned long long)a1;
+- (void)setJunctionViewImageWidth:(double)a0 height:(double)a1;
+- (void)disableNavigationCapability:(unsigned long long)a0;
+- (void)enableNavigationCapability:(unsigned long long)a0;
+- (void)acceptReroute:(BOOL)a0 forTrafficIncidentAlert:(id)a1;
+- (void)setTraceIsPlaying:(BOOL)a0;
+- (void)setTracePlaybackSpeed:(double)a0;
+- (void)setTracePosition:(double)a0;
+- (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)a0;
+- (void)recordPedestrianTracePath:(id)a0;
+- (void)interfaceHashesWithHandler:(id /* block */)a0;
+- (void)pauseRealtimeUpdatesForSubscriber:(id)a0;
+- (void)resumeRealtimeUpdatesForSubscriber:(id)a0;
+- (void)checkinForNavigationService:(id /* block */)a0;
+- (void)navigationServiceProxy:(id)a0 willChangeFromState:(unsigned long long)a1 toState:(unsigned long long)a2;
+- (void)navigationServiceProxy:(id)a0 didChangeFromState:(unsigned long long)a1 toState:(unsigned long long)a2;
+- (BOOL)isOpenForClient:(id)a0;
+- (void)_updateConnection;
+- (BOOL)_hasNavigationServiceEntitlement;
+- (BOOL)_shouldReconnectWithInterruptionOnDate:(id)a0;
+- (void)_restoreNavigationSession;
+- (void)_restoreIdleConnection;
+- (void)_startNavigationWithDetails:(id)a0;
+
+@end

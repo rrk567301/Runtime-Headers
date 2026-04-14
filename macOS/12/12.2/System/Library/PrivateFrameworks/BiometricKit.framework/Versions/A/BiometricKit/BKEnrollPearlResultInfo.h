@@ -1,0 +1,3 @@
+@interface BKEnrollPearlResultInfo : BKEnrollResultInfo
+
+@end

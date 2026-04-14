@@ -1,0 +1,31 @@
+@class NSArray, NSDictionary, NSString, ACAccount;
+
+@interface AKAuthorizationRequest : AKCredentialRequest {
+    NSString *_altDSID;
+}
+
+@property (nonatomic) long long existingStatus;
+@property (readonly, nonatomic) ACAccount *internalAuthKitAccount;
+@property (nonatomic) BOOL _isSilentAppTransfer;
+@property (copy, nonatomic) NSArray *requestedScopes;
+@property (copy, nonatomic) NSDictionary *appProvidedData;
+@property (nonatomic) BOOL isEligibleForUpgradeFromPassword;
+@property (copy, nonatomic) NSString *state;
+@property (copy, nonatomic) NSString *nonce;
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *teamID;
+@property (retain, nonatomic) ACAccount *authkitAccount;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)altDSID;
+- (id)_sanitizedCopy;
+- (id)initWithAltDSID:(id)a0;
+
+@end

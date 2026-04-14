@@ -1,0 +1,98 @@
+@class NSArray, NSString;
+
+@interface UIFont : NSFont <NSSecureCoding>
+
+@property (class, readonly, nonatomic) NSArray *familyNames;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSString *textStyleForScaling;
+@property (readonly, nonatomic) double pointSizeForScaling;
+@property (readonly, nonatomic) double maximumPointSizeAfterScaling;
+
++ (id)classFallbacksForKeyedArchiver;
++ (id)fontWithDescriptor:(id)a0 size:(double)a1;
++ (id)systemFontOfSize:(double)a0;
++ (id)fontWithName:(id)a0 size:(double)a1;
++ (id)monospacedDigitSystemFontOfSize:(double)a0 weight:(double)a1;
++ (double)systemFontSize;
++ (id)boldSystemFontOfSize:(double)a0;
++ (double)smallSystemFontSize;
++ (id)systemFontOfSize:(double)a0 weight:(double)a1;
++ (id)monospacedSystemFontOfSize:(double)a0 weight:(double)a1;
++ (id)_sharedFontCache;
++ (id)fontWithName:(id)a0 size:(double)a1 traits:(int)a2;
++ (id)_systemFontsOfSize:(double)a0 traits:(int)a1;
++ (id)_preferredFontForTextStyle:(id)a0 maximumContentSizeCategory:(id)a1 compatibleWithTraitCollection:(id)a2;
++ (id)preferredFontForTextStyle:(id)a0 compatibleWithTraitCollection:(id)a1;
++ (id)_preferredFontForTextStyle:(id)a0 maximumPointSize:(double)a1 compatibleWithTraitCollection:(id)a2;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 variant:(long long)a2 maximumContentSizeCategory:(id)a3 compatibleWithTraitCollection:(id)a4;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 variant:(long long)a2 maximumContentSizeCategory:(id)a3 compatibleWithTraitCollection:(id)a4 pointSize:(double)a5 pointSizeForScaling:(double)a6;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 weight:(id)a2 symbolicTraits:(unsigned int)a3 maximumContentSizeCategory:(id)a4 compatibleWithTraitCollection:(id)a5 pointSize:(double)a6 pointSizeForScaling:(double)a7;
++ (id)_fontWithDescriptor:(id)a0 size:(double)a1 textStyleForScaling:(id)a2 pointSizeForScaling:(double)a3 maximumPointSizeAfterScaling:(double)a4 forIB:(BOOL)a5 legibilityWeight:(long long)a6;
++ (id)_supportedDynamicFontStyles;
++ (BOOL)_isSupportedDynamicFontTextStyle:(id)a0;
++ (double)_pointSize:(double)a0 scaledLikeTextStyle:(id)a1 maximumPointSize:(double)a2 compatibleWithTraitCollection:(id)a3;
++ (double)_pointSize:(double)a0 scaledLikeTextStyle:(id)a1 maximumPointSize:(double)a2 compatibleWithTraitCollection:(id)a3 roundSize:(BOOL)a4;
++ (id)preferredFontForTextStyle:(id)a0;
++ (id)systemFontOfSize:(double)a0 traits:(int)a1;
++ (id)ib_preferredFontForTextStyle:(id)a0;
++ (id)_sharedZeroPointFont;
++ (void)_evictAllItemsFromFontAndFontDescriptorCaches;
++ (id)fontWithFamilyName:(id)a0 traits:(int)a1 size:(double)a2;
++ (id)fontWithMarkupDescription:(id)a0;
++ (id)fontNamesForFamilyName:(id)a0;
++ (id)preferredFontForUsage:(id)a0;
++ (id)preferredFontForUsage:(id)a0 contentSizeCategoryName:(id)a1;
++ (id)_preferredFontForTextStyle:(id)a0 maximumContentSizeCategory:(id)a1;
++ (id)_preferredFontForTextStyle:(id)a0 variant:(long long)a1;
++ (id)_preferredFontForTextStyle:(id)a0 variant:(long long)a1 maximumContentSizeCategory:(id)a2;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 variant:(long long)a2;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 variant:(long long)a2 compatibleWithTraitCollection:(id)a3;
++ (id)_preferredFontForTextStyle:(id)a0 weight:(double)a1;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 weight:(double)a2;
++ (id)_preferredFontForTextStyle:(id)a0 addingSymbolicTraits:(unsigned int)a1;
++ (id)_preferredFontForTextStyle:(id)a0 addingSymbolicTraits:(unsigned int)a1 weight:(double)a2;
++ (id)_preferredFontForTextStyle:(id)a0 addingSymbolicTraits:(unsigned int)a1 design:(id)a2 weight:(double)a3;
++ (id)_preferredFontForTextStyle:(id)a0 design:(id)a1 weight:(double)a2 maximumContentSizeCategory:(id)a3 compatibleWithTraitCollection:(id)a4;
++ (double)_readableWidth;
++ (id)defaultFontForTextStyle:(id)a0;
++ (id)_opticalSystemFontOfSize:(double)a0;
++ (id)_opticalBoldSystemFontOfSize:(double)a0;
++ (id)italicSystemFontOfSize:(double)a0;
++ (id)_thinSystemFontOfSize:(double)a0;
++ (id)_lightSystemFontOfSize:(double)a0;
++ (id)_ultraLightSystemFontOfSize:(double)a0;
++ (id)systemFontOfSize:(double)a0 weight:(double)a1 design:(id)a2;
++ (double)labelFontSize;
++ (void)_setLabelFontSize:(double)a0;
++ (double)buttonFontSize;
++ (void)_setButtonFontSize:(double)a0;
++ (void)_setSmallSystemFontSize:(double)a0;
++ (void)_setSystemFontSize:(double)a0;
+
+- (id)init;
+- (Class)classForCoder;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)_isUIFont;
+- (id)_textStyle;
+- (id)initWithName:(id)a0 size:(double)a1;
+- (id)initWithMarkupDescription:(id)a0;
+- (id)_fontAdjustedForContentSizeCategoryCompatibleWithTraitCollection:(id)a0;
+- (BOOL)_isTextStyleFont;
+- (BOOL)isIBTextStyleFont;
+- (BOOL)isIBFontMetricsScaledFont;
+- (double)_scaledValueForValue:(double)a0;
+- (double)readableWidth;
+- (double)_bodyLeading;
+- (id)initWithFamilyName:(id)a0 traits:(int)a1 size:(double)a2;
+- (id)familyNameForCSSFontFamilyValueForWebKit:(BOOL)a0;
+- (id)markupDescriptionForWebKit:(BOOL)a0 pointSize:(float)a1 sizeUnit:(id)a2;
+- (id)_alternateSystemFonts;
+- (id)_fontAdjustedForCurrentContentSizeCategory;
+- (id)_fontScaledLikeTextStyle:(id)a0 maximumPointSize:(double)a1 compatibleWithTraitCollection:(id)a2 forIB:(BOOL)a3;
+- (id)markupDescription;
+- (id)htmlMarkupDescription;
+- (id)_fontScaledByScaleFactor:(double)a0;
+
+@end

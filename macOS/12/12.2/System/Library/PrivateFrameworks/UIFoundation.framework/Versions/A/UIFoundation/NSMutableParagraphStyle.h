@@ -1,0 +1,70 @@
+@class NSString, NSArray;
+
+@interface NSMutableParagraphStyle : NSParagraphStyle <_NSMutableParagraphStyleMarkdownSettings>
+
+@property (copy) NSString *codeBlockIntentLanguageHint;
+@property (copy, setter=_setPresentationIntents:) NSArray *_presentationIntents;
+@property (copy, setter=_setPresentationIntents:) NSArray *presentationIntents;
+@property (setter=_setListIntentOrdinal:) long long _listIntentOrdinal;
+@property long long listIntentOrdinal;
+@property long long headerLevel;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property double lineSpacing;
+@property double paragraphSpacing;
+@property long long alignment;
+@property double firstLineHeadIndent;
+@property double headIndent;
+@property double tailIndent;
+@property unsigned long long lineBreakMode;
+@property double minimumLineHeight;
+@property double maximumLineHeight;
+@property long long baseWritingDirection;
+@property double lineHeightMultiple;
+@property double paragraphSpacingBefore;
+@property float hyphenationFactor;
+@property BOOL usesDefaultHyphenation;
+@property (copy) NSArray *tabStops;
+@property double defaultTabInterval;
+@property BOOL allowsDefaultTighteningForTruncation;
+@property float tighteningFactorForTruncation;
+@property (copy) NSArray *textBlocks;
+@property (copy) NSArray *textLists;
+@property long long headerLevel;
+@property unsigned long long lineBreakStrategy;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setBaseWritingDirection:(long long)a0;
+- (void)setAlignment:(long long)a0;
+- (void)setFirstLineHeadIndent:(double)a0;
+- (void)setHeadIndent:(double)a0;
+- (void)setTailIndent:(double)a0;
+- (void)setTabStops:(id)a0;
+- (void)setDefaultTabInterval:(double)a0;
+- (void)setLineBreakMode:(unsigned long long)a0;
+- (void)setLineHeightMultiple:(double)a0;
+- (void)setMaximumLineHeight:(double)a0;
+- (void)setMinimumLineHeight:(double)a0;
+- (void)setLineSpacing:(double)a0;
+- (void)setParagraphSpacing:(double)a0;
+- (void)setParagraphSpacingBefore:(double)a0;
+- (void)_setLineBoundsOptions:(unsigned long long)a0;
+- (void)setCompositionLanguage:(long long)a0;
+- (void)setLineBreakStrategy:(unsigned long long)a0;
+- (void)setAllowsDefaultTighteningForTruncation:(BOOL)a0;
+- (void)setTextBlocks:(id)a0;
+- (void)setTextLists:(id)a0;
+- (void)removeTabStop:(id)a0;
+- (void)addTabStop:(id)a0;
+- (void)setUsesDefaultHyphenation:(BOOL)a0;
+- (void)setHyphenationFactor:(float)a0;
+- (void)setParagraphStyle:(id)a0;
+- (void)setTighteningFactorForTruncation:(float)a0;
+- (void)_mutateTabStops;
+- (void)setAllowsHangingPunctuation:(BOOL)a0;
+- (void)setUsesOpticalAlignment:(BOOL)a0;
+- (void)setPresentationIntents:(id)a0;
+
+@end

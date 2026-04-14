@@ -1,0 +1,1 @@
+dlerror: dlopen(/System/iOSSupport/System/Library/AccessibilityBundles/QuickLook.axbundle/Versions/A/QuickLook, 0x0002): tried: '/System/iOSSupport/System/Library/AccessibilityBundles/QuickLook.axbundle/Versions/A/QuickLook' (wrong platform to load into process), '/usr/local/lib/QuickLook' (no such file), '/usr/lib/QuickLook' (no such file)

@@ -1,0 +1,19 @@
+@interface VideosUI.EpicInlineViewController : VUIBaseViewController {
+    void /* unknown type, empty encoding */ collectionImpressioner;
+    void /* unknown type, empty encoding */ shelfViewModel;
+    void /* unknown type, empty encoding */ horizontalCollectionViewModel;
+    void /* unknown type, empty encoding */ lastViewWidth;
+    void /* unknown type, empty encoding */ horizontalStackViewController;
+    void /* unknown type, empty encoding */ scrollViewMonitor;
+}
+
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)vui_loadView;
+- (void)vui_viewDidLayoutSubviews;
+- (void)vui_viewDidAppear:(BOOL)a0;
+- (void)vui_viewDidDisappear:(BOOL)a0;
+- (void)vui_viewWillLayoutSubviews;
+
+@end

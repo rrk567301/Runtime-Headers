@@ -1,0 +1,55 @@
+@interface TPSDefaultsManager : NSObject
+
++ (id)platform;
++ (id)assetURL;
++ (id)deviceModel;
++ (id)requestInterval;
++ (id)requestURL;
++ (BOOL)suppressNotifications;
++ (id)requestLanguage;
++ (id)requestModel;
++ (id)requestPlatform;
++ (id)requestHostURL;
++ (id)requestVersion;
++ (id)assetRequestHostURL;
++ (id)objectDefaultsForKey:(id)a0;
++ (double)timeIntervalDefaultsForKey:(id)a0;
++ (long long)integerDefaultsForKey:(id)a0;
++ (BOOL)boolDefaultsForKey:(id)a0;
++ (double)hintMaxDurationTimeInterval;
++ (double)contextualEventLookBackDaysInSeconds;
++ (double)discoverabilitySuppressionInterval;
++ (double)welcomeNotificationDelay;
++ (double)welcomeNotificationGracePeriod;
++ (double)sessionTimeoutIntervalInSeconds;
++ (long long)triggerMinObservationCount;
++ (long long)discoverabilityOverrideMaxDisplayCount;
++ (long long)crunchingIntervalInDays;
++ (BOOL)allowsHardwareWelcomeNotification;
++ (BOOL)checkOfflineContentOnLaunch;
++ (BOOL)ignoreCloud;
++ (BOOL)ignoreTargetingValidator;
++ (BOOL)showCollectionIntro;
++ (BOOL)showAllCollections;
++ (BOOL)showPagingLabelOnLongPress;
++ (BOOL)resetDataCache;
++ (BOOL)resetDaemonData;
++ (BOOL)suppressTipKitContent;
++ (id)holdoutGroup;
++ (id)hintCustomizationID;
++ (id)contextualEventDaysSinceLastMajorUpdateInSeconds;
++ (id)standardNotificationInterval;
++ (id)featuredCollection;
++ (id)displayContentForContext;
++ (id)assetRatioIdentifier;
++ (id)hintTitle;
++ (id)hintBody;
++ (id)hintActionText;
++ (id)hintActionURL;
++ (id)hintMonitoringEvents;
++ (id)widgetTip;
++ (id)notificationDocument;
++ (id)minVersionForSpatialAudio;
++ (id)lastMajorVersionUpdateDate;
+
+@end

@@ -1,0 +1,32 @@
+@class NSDecimalNumber, NSString;
+
+@interface PKCurrencyAmount : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSDecimalNumber *amount;
+@property (copy, nonatomic) NSString *currency;
+@property (nonatomic) long long exponent;
+@property (copy, nonatomic) NSString *preformattedString;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)formattedStringValue;
+- (BOOL)isCurrency;
+- (long long)compareToCurrencyCode:(id)a0 amount:(id)a1;
+- (id)minimalFormattedStringValue;
+- (id)initWithAmount:(id)a0 currency:(id)a1 exponent:(long long)a2;
+- (id)initWithAmount:(id)a0 exponent:(long long)a1 preformattedString:(id)a2;
+- (id)amountByConvertingToSmallestCommonCurrencyUnit;
+- (BOOL)isEqualToCurrencyAmount:(id)a0;
+- (id)minimalFormattedStringValueInLocale:(id)a0;
+- (id)initWithAmount:(id)a0 currency:(id)a1;
+- (id)absoluteValue;
+- (id)negativeValue;
+
+@end

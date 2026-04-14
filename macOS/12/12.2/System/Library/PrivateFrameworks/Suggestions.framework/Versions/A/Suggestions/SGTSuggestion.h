@@ -1,0 +1,95 @@
+@class NSString, NSArray, NSURL, SGTQueryGenius, SGTCategory, NSImage, SGTSuggestionReserved, NSIndexSet;
+
+@interface SGTSuggestion : NSObject {
+    SGTSuggestionReserved *_reserved;
+}
+
+@property (readonly) NSImage *tokenImage;
+@property (readonly) NSString *tokenTitle;
+@property (readonly) NSImage *imageForMenu;
+@property (readonly) NSString *displayNameForMenu;
+@property (readonly) long long scopeForUI;
+@property (readonly) NSString *suggestionDebugDescription;
+@property (nonatomic) BOOL lastWordMatch;
+@property (readonly, nonatomic) unsigned long long alignmentScore;
+@property (nonatomic) BOOL intermediateResult;
+@property (nonatomic) BOOL forceLastPosition;
+@property (nonatomic) BOOL enforceStrictMatch;
+@property BOOL exactMatch;
+@property (readonly) NSString *displayName;
+@property (readonly) NSArray *attributeNames;
+@property (readonly) NSArray *attributeValues;
+@property (retain) id representedObject;
+@property (copy) NSURL *spotlightScope;
+@property double score;
+@property (readonly) NSString *queryStringFragment;
+@property (readonly) BOOL isTopHit;
+@property (retain) SGTQueryGenius *genius;
+@property (readonly) NSIndexSet *scopes;
+@property long long scope;
+@property (readonly) long long defaultScope;
+@property (retain) SGTCategory *category;
+@property (copy) NSIndexSet *titleHighlights;
+@property (copy) NSIndexSet *uniquifierHighlights;
+@property (copy) NSString *inputString;
+
++ (id)fuzzyAttributesSet;
++ (id)queryStringForSuggestions:(id)a0;
++ (id)queryScopesForSuggestions:(id)a0;
++ (id)searchPhraseForSuggestions:(id)a0;
++ (id)keyPathsForValuesAffectingQueryStringFragment;
++ (id)suggestionWithDisplayName:(id)a0;
++ (id)keyPathsForValuesAffectingSuggestionScopeDescription;
++ (id)keyPathsForValuesAffectingTokenImage;
++ (id)keyPathsForValuesAffectingTokenTitle;
++ (id)keyPathsForValuesAffectingScopeForUI;
++ (id)keyPathsForValuesAffectingSuggestionDebugDescription;
+
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)_identifier;
+- (void)_setDisplayName:(id)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_replacementRange;
+- (id)_propertyListRepresentation;
+- (long long)_suggestionType;
+- (BOOL)isEqualToSuggestion:(id)a0;
+- (id)initWithDisplayName:(id)a0;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5 score:(double)a6 lastWordMatched:(BOOL)a7;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5 score:(double)a6 lastWordMatched:(BOOL)a7 alignmentScore:(unsigned long long)a8;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5 score:(double)a6;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 values:(id)a2 additionalAttributes:(id)a3 representedObject:(id)a4;
+- (BOOL)attributeName:(id)a0 isValidForScope:(long long)a1;
+- (id)_queryStringForAttributeName:(id)a0 values:(id)a1;
+- (id)_queryStringForAttributeName:(id)a0 values:(id)a1 disableNLProcessing:(BOOL)a2;
+- (id)_queryStringForSuggestionUseRawQuery:(BOOL)a0;
+- (id)_originalTypedString;
+- (id)_queryStringForAttributeNames:(id)a0 values:(id)a1 scope:(long long)a2;
+- (id)displayNameForScope:(long long)a0;
+- (long long)scopeForAttributeName:(id)a0;
+- (void)_setReplacementRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)_setOriginalTypedString:(id)a0;
+- (id)_shorterDisplayName;
+- (void)_setUniquifierString:(id)a0;
+- (id)_uniquifierString;
+- (void)_setShowsUniquifier:(BOOL)a0;
+- (BOOL)_showsUniquifier;
+- (id)allAttributeValues;
+- (id)valuesForAttributeWithName:(id)a0;
+- (void)_setRawQueryString:(id)a0;
+- (id)_rawQueryString;
+- (void)_setAdditionalRawQuery:(id)a0;
+- (void)_setAdditionalRawQueryIsOr:(BOOL)a0;
+- (id)_additionalRawQuery;
+- (BOOL)_additionalRawQueryIsOr;
+- (id)suggestionScopeDescription;
+- (BOOL)_shouldNotBeIncludedInRecents;
+- (BOOL)_isTopHitCandidate;
+- (void)_setIsTopHitCandidate:(BOOL)a0;
+- (BOOL)_isRecent;
+- (void)_setIsRecent:(BOOL)a0;
+- (void)_setSuggestionType:(long long)a0;
+- (id)_accessibilityDisplayName;
+
+@end

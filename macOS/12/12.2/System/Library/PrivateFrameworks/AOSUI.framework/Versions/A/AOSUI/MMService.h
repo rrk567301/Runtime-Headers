@@ -1,0 +1,88 @@
+@class NSString, NSImage, NSByteCountFormatter, NSMutableArray, NSWindow;
+
+@interface MMService : NSObject {
+    struct __CFString { } *_accountID;
+    struct __CFString { } *_serviceID;
+    NSWindow *_parentWindow;
+    BOOL _itemEnabled;
+    NSString *_infoButtonLabel;
+    BOOL _alwaysShowOptions;
+    BOOL _optionsButtonEnabled;
+    NSString *_progressString;
+    NSString *_statusString;
+    long long _statusCode;
+    BOOL _determiningStatus;
+    NSImage *_icon;
+}
+
+@property (retain) NSWindow *parentWindow;
+@property BOOL itemEnabled;
+@property (retain, setter=setInfoButtonLabel:) NSString *infoButtonLabel;
+@property BOOL alwaysShowOptions;
+@property (retain) NSString *progressString;
+@property (retain) NSString *statusString;
+@property long long statusCode;
+@property BOOL determiningStatus;
+@property (retain) NSMutableArray *aeArray;
+@property (retain) NSByteCountFormatter *byteCountFormatter;
+@property (readonly, copy) NSString *accountID;
+@property (readonly, copy) NSString *serviceID;
+@property (readonly) NSImage *icon;
+@property (readonly) NSString *displayName;
+@property (readonly) NSString *defaultAppName;
+@property BOOL optionsButtonEnabled;
+@property (readonly) BOOL isPrimary;
+@property (readonly) NSString *accountClass;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (BOOL)isEnabled;
+- (id)valueForProperty:(id)a0;
+- (void)_setEnabled:(BOOL)a0;
+- (void)showMoreInfo:(id)a0;
+- (id)properties;
+- (void)setValue:(id)a0 forProperty:(id)a1;
+- (void)_updateStatus;
+- (BOOL)canEnable;
+- (id)appleAccount;
+- (id)initWithServiceID:(id)a0 forAccount:(id)a1;
+- (BOOL)_isEnabledForDisplay;
+- (void)setEnabled:(BOOL)a0 creating:(BOOL)a1 withWindow:(id)a2 completion:(id /* block */)a3;
+- (id)disableAlertTitle;
+- (id)disableAlertMessage;
+- (id)buttonTitleForAction:(id)a0;
+- (int)optionForAction:(id)a0;
+- (void)setEnabled:(BOOL)a0 withOptions:(int)a1 completion:(id /* block */)a2;
+- (BOOL)hasDataToMerge;
+- (id)enableAlertTitle;
+- (id)enableAlertMessage;
+- (void)mtLogFeature:(id)a0 toggledOn:(BOOL)a1;
+- (BOOL)canEnable:(id *)a0;
+- (BOOL)isSupportedForCurrentUser;
+- (void)_setEnabled:(BOOL)a0 withOptions:(int)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_postServiceStatusChangedNotification;
+- (void)handleAEEvents:(id)a0;
+- (id)mmAccount;
+- (void)invalidateService;
+- (BOOL)_supportsMixedEnableState;
+- (long long)_isEnabledForMixedDisplay;
+- (BOOL)isInactiveOrEnabled;
+- (BOOL)isDataService;
+- (BOOL)hasPreflightAction;
+- (BOOL)supportsSavingLocally;
+- (void)reconcileEnableStatus;
+- (void)setEnabled:(BOOL)a0 creating:(BOOL)a1 withWindow:(id)a2;
+- (void)setEnabled:(BOOL)a0 creating:(BOOL)a1 isPrimary:(BOOL)a2 withWindow:(id)a3;
+- (BOOL)shouldEnableOnLogin;
+- (BOOL)willEnableDataclass;
+- (BOOL)willDisableDataclass;
+- (BOOL)shouldHideEnableButton;
+- (void)_setEnabled:(BOOL)a0 withOptions:(int)a1;
+- (void)setValue:(id)a0 forProperty:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_serviceFailed:(id)a0;
+- (id)fileSizeDescription:(unsigned long long)a0;
+- (void)preflightDSEEnableWithCompletionHandler:(id /* block */)a0;
+- (void)DSEEnableWithCompletionHandler:(id /* block */)a0;
+
+@end

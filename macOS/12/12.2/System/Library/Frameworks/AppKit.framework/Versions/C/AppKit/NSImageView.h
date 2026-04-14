@@ -1,0 +1,92 @@
+@class NSString, NSImage, NSImageSymbolConfiguration, NSFont, NSColor;
+
+@interface NSImageView : NSControl <_NSAsynchronousPreparationDelegate, NSAccessibilityImage, NSMenuItemValidation> {
+    struct { unsigned char _hasImageSubview : 1; unsigned char _usesSubview : 1; unsigned char _hasCachedUsesSubview : 1; unsigned int _unused : 22; unsigned char _rejectsMultiFileDrops : 1; unsigned char _compatibleScalingAndAlignment : 1; unsigned char _reserved : 1; unsigned char _overridesDrawing : 1; unsigned char _allowsCutCopyPaste : 1; unsigned char _editable : 1; unsigned char _placeholderPropertyPrecedence : 1; } _ivFlags;
+    id _target;
+    SEL _action;
+}
+
+@property (copy) NSColor *templateTintColor;
+@property (nonatomic, setter=_setUsesCachedImage:) BOOL _usesCachedImage;
+@property (retain) NSImage *placeholderImage;
+@property (copy) NSFont *symbolFont;
+@property long long symbolScale;
+@property (retain) NSImage *image;
+@property (getter=isEditable) BOOL editable;
+@property unsigned long long imageAlignment;
+@property unsigned long long imageScaling;
+@property unsigned long long imageFrameStyle;
+@property (copy) NSImageSymbolConfiguration *symbolConfiguration;
+@property (copy) NSColor *contentTintColor;
+@property BOOL animates;
+@property BOOL allowsCutCopyPaste;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)imageViewWithImage:(id)a0;
++ (id)imageWellWithImage:(id)a0 target:(id)a1 action:(SEL)a2;
+
+- (void)dealloc;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setEnabled:(BOOL)a0;
+- (void)setTarget:(id)a0;
+- (id)target;
+- (SEL)action;
+- (void)setAction:(SEL)a0;
+- (void)layout;
+- (void)setObjectValue:(id)a0;
+- (BOOL)allowsVibrancy;
+- (BOOL)isOpaque;
+- (BOOL)wantsUpdateLayer;
+- (void)updateLayer;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (id)accessibilityLabel;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)setLayer:(id)a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)awakeFromNib;
+- (void)copy:(id)a0;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (void)setCell:(id)a0;
+- (void)setNeedsDisplayInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)updateCell:(id)a0;
+- (void)keyDown:(id)a0;
+- (unsigned long long)draggingEntered:(id)a0;
+- (void)draggingExited:(id)a0;
+- (BOOL)performDragOperation:(id)a0;
+- (long long)backgroundStyle;
+- (double)firstBaselineOffsetFromTop;
+- (double)lastBaselineOffsetFromBottom;
+- (void)cut:(id)a0;
+- (void)paste:(id)a0;
+- (void)_setBackgroundStyleForSubtree:(long long)a0;
+- (BOOL)_shouldTrackMouseWithEvent:(id)a0;
+- (BOOL)shouldBeTreatedAsInkEvent:(id)a0;
+- (void)concludeDragOperation:(id)a0;
+- (void)registerForDrags;
+- (id)_imageSubview;
+- (void)_setImageSubview:(id)a0;
+- (BOOL)_usesSubview;
+- (void)_updateImageSubview;
+- (void)_updateUsesSubview;
+- (void)delete:(id)a0;
+- (BOOL)_copyImageToPasteboard;
+- (void)_setImageAndNotifyTarget:(id)a0;
+- (BOOL)_rejectsMultiFileDrops;
+- (id)asynchronousPreparation:(id)a0 prepareResultUsingParameters:(id)a1;
+- (void)asynchronousPreparationDidChangePreparedResult:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_drawingRectForImage;
+- (id)_vibrancyFilter;
+- (void)_setRejectsMultiFileDrops:(BOOL)a0;
+- (id)ns_widgetType;
+
+@end
