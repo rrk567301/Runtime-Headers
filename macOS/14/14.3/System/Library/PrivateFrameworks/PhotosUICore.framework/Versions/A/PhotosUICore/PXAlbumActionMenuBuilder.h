@@ -1,0 +1,3 @@
+@interface PXAlbumActionMenuBuilder : NSObject
+
+@end

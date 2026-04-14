@@ -1,0 +1,72 @@
+@class NSNumber;
+
+@interface IMDAttachmentStore : NSObject <RecordStoreProviding, AssetStoreProviding, RecordStoreDeleting>
+
+@property (retain, nonatomic) NSNumber *afterRowForAssets;
+
++ (id)sharedInstance;
++ (void)_askToTapToRadarForErrorString:(id)a0 path:(id)a1;
++ (BOOL)_cloudkitSyncingEnabled;
++ (BOOL)_filesystemIsCaseSensitiveWithPath:(id)a0;
++ (BOOL)fileEligibleForCacheDelete:(id)a0;
++ (BOOL)updateTransferIn:(id)a0 fromGUID:(id)a1 toGUID:(id)a2;
+
+- (id)database;
+- (void)deleteAttachmentsDirectWithPredicate:(id)a0;
+- (BOOL)isSafeToDeleteAttachmentAtPath:(id)a0;
+- (BOOL)_updateAttachmentGUID:(id)a0 withGUID:(id)a1;
+- (void)resetFetchState;
+- (id)_IMTransferGUIDForMessageGUID:(id)a0 andIndex:(unsigned long long)a1;
+- (id)_alternateAttachmentPathIfExists:(id)a0;
+- (void)_hasMarkedAllAttachmentsAsNeedingSync;
+- (struct _IMDAttachmentRecordStruct { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; long long x1; struct __CFArray *x2; } *)_loadAttachmentRecordForGUID:(id)a0;
+- (void)_markAllFailedAttachmentsAsNeedingSync;
+- (void)_markAttachmentWithROWIDAsFailedToUploadToCloudKit:(id)a0;
+- (void)_markTransferAsNotBeingAbleToSyncWithGUID:(id)a0;
+- (void)_needsToMarkAllAttachmentsAsNeedingSync;
+- (id)_newFileTransferFromIMDAttachmentRecordRef:(struct _IMDAttachmentRecordStruct { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; long long x1; struct __CFArray *x2; } *)a0;
+- (void)_reindexMessage:(id)a0 completion:(id /* block */)a1;
+- (void)_removeTransferFromiCloudBackupWithGuid:(id)a0;
+- (void)_resetAttachmentSyncStateForGUID:(id)a0 newSyncState:(long long)a1;
+- (BOOL)_shouldEarlyReturnForWrongItemType:(id)a0;
+- (BOOL)_shouldMarkAllAttachmentsAsNeedingSync;
+- (BOOL)_shouldMarkAttachmentsAsNeedingReupload;
+- (id)_updateAttachmentGUIDIfNeededAndReturnTransfersToForceMarkAsSync:(id)a0 transfersToSyncRowIDs:(id)a1;
+- (BOOL)_updateLegacyTransferGUIDOn:(id)a0 andUpdateMessageIfNeeded:(id)a1 transfersToSync:(id)a2;
+- (id)_updatedMessageBody:(id)a0 replacingGuid:(id)a1 withGuid:(id)a2;
+- (id)attachmentWithGUID:(id)a0;
+- (id)attachmentsFilteredUsingPredicate:(id)a0 limit:(unsigned long long)a1;
+- (id)attachmentsWithGUIDs:(id)a0;
+- (id)batchOfRecordIDsToDeleteWithLimit:(long long)a0 error:(id *)a1;
+- (id)batchOfRecordsMissingAssetsWithLimit:(long long)a0;
+- (id)batchOfRecordsToWriteWithLimit:(long long)a0 error:(id *)a1;
+- (void)clearLocalSyncState:(unsigned long long)a0;
+- (void)clearTombstonesForRecordIDs:(id)a0;
+- (BOOL)deleteAttachmentDataForTransfer:(id)a0;
+- (void)deleteAttachmentSyncToken;
+- (BOOL)deleteAttachmentWithGUID:(id)a0;
+- (BOOL)deleteAttachmentsForMessage:(id)a0;
+- (BOOL)deleteAttachmentsWithGUIDs:(id)a0;
+- (id)fileTransferWithAttachmentRecordRef:(struct _IMDAttachmentRecordStruct { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; long long x1; struct __CFArray *x2; } *)a0;
+- (void)legacyImport:(id)a0;
+- (void)markAllAttachmentsAsNeedingCloudKitSync;
+- (void)markAllAttachmentsAsNotPurgeable;
+- (void)markAttachment:(id)a0 purgeable:(BOOL)a1;
+- (void)markAttachmentPurgeable:(id)a0;
+- (void)markAttachmentUnpurgeable:(id)a0;
+- (void)markFile:(id)a0 asPurgeable:(BOOL)a1;
+- (void)markTransferAsNotSuccessfullyDownloadedWithGUID:(id)a0;
+- (void)recordUpdateFailedWithID:(id)a0 localGUID:(id)a1 error:(id)a2;
+- (void)recordUpdateSucceededWithRecord:(id)a0;
+- (BOOL)removeAttachment:(id)a0 fromMessageWithGUID:(id)a1;
+- (void)resetLocalSyncStateIfAppropriate;
+- (BOOL)storeAttachment:(id)a0 associateWithMessageWithGUID:(id)a1;
+- (BOOL)storeAttachment:(id)a0 associateWithMessageWithGUID:(id)a1 chatGUID:(id)a2 storeAtExternalLocation:(BOOL)a3;
+- (id)syncTokenStore;
+- (void)updateAssetUsingRecord:(id)a0;
+- (BOOL)updateAttachment:(id)a0;
+- (BOOL)updateAttachment:(id)a0 chatGUID:(id)a1 storeAtExternalPath:(BOOL)a2;
+- (BOOL)updateLegacyTransferGUIDIfNeeded:(id)a0 transfersToSync:(id)a1;
+- (BOOL)updateLegacyTransferGUIDOnMessageIfNeeded:(id)a0;
+
+@end

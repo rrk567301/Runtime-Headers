@@ -1,0 +1,3 @@
+@interface VZVirtioGraphicsDevice : VZGraphicsDevice
+
+@end

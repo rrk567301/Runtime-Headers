@@ -1,0 +1,86 @@
+@class NSString, NSDictionary, NSObject, BWStillImageNodeConfiguration;
+@protocol OS_dispatch_queue, DepthProcessor;
+
+@interface BWDepthConverterNode : BWNode {
+    BOOL _streamingGDRFilteringEnabled;
+    BOOL _stillGDRFilteringSupportEnabled;
+    BOOL _streamingSMPFilteringEnabled;
+    BOOL _stillSMPFilteringSupportEnabled;
+    NSDictionary *_sensorIDDictionary;
+    NSDictionary *_cameraInfoByPortType;
+    BOOL _forceCPath;
+    struct { int width; int height; } _inputDepthDimensions;
+    struct opaqueCMFormatDescription { } *_outputFormatDescription;
+    unsigned int _outputFormat;
+    struct { int width; int height; } _outputDimensions;
+    BOOL _backPressureDrivenPipelining;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _identityExtrinsicMatrix;
+    int _depthAccuracy;
+    BOOL _depthLensDistortionCorrectionPolynomialsAvailable;
+    struct { float forwardOrders[8]; float inverseOrders[8]; } _depthLensDistortionCorrectionBasePolynomial;
+    struct { float forwardOrders[8]; float inverseOrders[8]; } _depthLensDistortionCorrectionDynamicPolynomial;
+    float _depthRelativePixelSizeInMicrons;
+    int _baseRotationDegrees;
+    int _rotationDegrees;
+    BOOL _mirroringEnabled;
+    int _horizontalSensorBinningFactor;
+    int _verticalSensorBinningFactor;
+    BOOL _providesUnfilteredDepthAsAttachedMedia;
+    struct opaqueCMFormatDescription { } *_unfilteredDepthFormatDescription;
+    struct OpaqueVTPixelTransferSession { } *_unfilteredDepthTransferSession;
+    BOOL _depthIsAlwaysHighQuality;
+    BOOL _depthOriginatesFromNeuralNetwork;
+    struct __CVBuffer { } *_fixedPointScaledIntermediateBuffer;
+    struct __CVBuffer { } *_fixedPointRotatedIntermediateBuffer;
+    struct __CVBuffer { } *_filteringInputBuffer;
+    struct __CVBuffer { } *_streamingFilteringScaledDepthInputBuffer;
+    struct __CVBuffer { } *_streamingFilteringScaledDepthOutputBuffer;
+    struct __CVBuffer { } *_filteringScaledYUVBuffer;
+    struct __CVBuffer { } *_filteringOutputBuffer;
+    BOOL _conversionAfterFilteringRequired;
+    BOOL _depthFromInfrared;
+    NSString *_depthProcessorClassName;
+    struct CMPhotoScaleAndRotateSession { } *_scaler;
+    id<DepthProcessor> _depthProcessor;
+    int _depthProcessorVersion;
+    int _depthBufferOriginalExifOrientation;
+    int _depthBufferFinalExifOrientation;
+    NSObject<OS_dispatch_queue> *_depthProcessorWorkerQueue;
+    BWStillImageNodeConfiguration *_stillImageNodeConfiguration;
+}
+
++ (void)initialize;
+
+- (void)dealloc;
+- (unsigned int)outputFormat;
+- (void)setOutputFormat:(unsigned int)a0;
+- (int)rotationDegrees;
+- (void)setRotationDegrees:(int)a0;
+- (id)nodeType;
+- (BOOL)mirroringEnabled;
+- (void)setMirroringEnabled:(BOOL)a0;
+- (void)setVerticalSensorBinningFactor:(int)a0;
+- (BOOL)stillGDRFilteringSupportEnabled;
+- (BOOL)stillSMPFilteringSupportEnabled;
+- (int)baseRotationDegrees;
+- (void)didSelectFormat:(id)a0 forInput:(id)a1 forAttachedMediaKey:(id)a2;
+- (int)horizontalSensorBinningFactor;
+- (id)initWithStillImageNodeConfiguration:(id)a0 cameraInfoByPortType:(id)a1 sensorIDDictionary:(id)a2 rgbPersonSegmentationEnabled:(BOOL)a3 depthIsAlwaysHighQuality:(BOOL)a4 depthOriginatesFromNeuralNetwork:(BOOL)a5 backPressureDrivenPipelining:(BOOL)a6;
+- (id)nodeSubType;
+- (struct { int x0; int x1; })outputDimensions;
+- (void)prepareForCurrentConfigurationToBecomeLive;
+- (BOOL)providesUnfilteredDepthAsAttachedMedia;
+- (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 forInput:(id)a1;
+- (void)setBaseRotationDegrees:(int)a0;
+- (void)setHorizontalSensorBinningFactor:(int)a0;
+- (void)setOutputDimensions:(struct { int x0; int x1; })a0;
+- (void)setProvidesUnfilteredDepthAsAttachedMedia:(BOOL)a0;
+- (void)setStillGDRFilteringSupportEnabled:(BOOL)a0;
+- (void)setStillSMPFilteringSupportEnabled:(BOOL)a0;
+- (void)setStreamingGDRFilteringEnabled:(BOOL)a0;
+- (void)setStreamingSMPFilteringEnabled:(BOOL)a0;
+- (BOOL)streamingGDRFilteringEnabled;
+- (BOOL)streamingSMPFilteringEnabled;
+- (int)verticalSensorBinningFactor;
+
+@end

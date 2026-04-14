@@ -1,0 +1,83 @@
+@class CUIKEditingContext, EKUIGadget, EKUIProposedTimeCompositeGadget, EKUIAttendeesGadget, EKUIGadgetContainer, EKDiff, NSString, EKEvent, EKUIStartTimeGadget, CalUIEventViewTouchBar, EKUILocationGadget, EKUITitleCalendarCompositeGadget, EKUIThreeButtonGadget;
+@protocol EKViewApplicationDelegate, EKViewWindowControllerPrivate, EKHidePopover;
+
+@interface EKEventViewControllerDefaultImpl : EKViewController <CalUIEventViewTouchBarDelegate, EKEventViewControllerImpl>
+
+@property (retain) EKUIGadgetContainer *titleLocationContainer;
+@property (retain) EKUITitleCalendarCompositeGadget *titleGadget;
+@property (retain) EKUILocationGadget *locationGadget;
+@property (retain) EKUIProposedTimeCompositeGadget *proposedTimeCompositeGadget;
+@property (retain) EKUIGadgetContainer *dateTimeContainer;
+@property (retain) EKUIStartTimeGadget *startTimeGadget;
+@property (retain) EKUIGadget *attachmentGadget;
+@property (retain) EKUIGadget *urlGadget;
+@property (retain) EKUIAttendeesGadget *attendeesGadget;
+@property (retain) EKUIGadget *notesGadget;
+@property (retain) EKUIThreeButtonGadget *sendRevertGadget;
+@property (retain) EKUIThreeButtonGadget *addIgnoreGadget;
+@property (retain) EKUIThreeButtonGadget *unsubscribeGadget;
+@property (retain) CalUIEventViewTouchBar *eventViewTouchBar;
+@property BOOL footerVisible;
+@property (retain) EKDiff *diffFromCommitted;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<EKViewWindowControllerPrivate> windowController;
+@property (weak) id<EKViewApplicationDelegate> applicationDelegate;
+@property BOOL isProposedEvent;
+@property (readonly) CUIKEditingContext *editingContext;
+@property (retain, nonatomic) EKEvent *event;
+@property (weak) id<EKHidePopover> presentingPopoverController;
+@property BOOL isReadOnly;
+@property BOOL useDynamicSpacing;
+@property long long numOccurrencesSelected;
+
++ (id)emptyPlaceholderTitleString;
++ (id)newPlaceholderTitleString;
+
+- (void).cxx_destruct;
+- (void)applicationWillTerminate:(id)a0;
+- (id)makeTouchBar;
+- (BOOL)performDragOperation:(id)a0;
+- (id)initWithSettings:(id)a0;
+- (void)moveToCalendar:(id)a0;
+- (void)makeFirstResponder;
+- (BOOL)inspectorIsOpen;
+- (id)nopeButtonTitle;
+- (void)toggleInspector;
+- (void)selectTitleText;
+- (BOOL)_settingsAreIncompatibleWithTouchBar;
+- (void)_updateTouchBarFirstResponder:(id)a0;
+- (void)cancelProposedEvent;
+- (BOOL)commitFromCommitButton:(BOOL)a0 shouldClose:(BOOL *)a1;
+- (void)datePickerChanged;
+- (void)datePickerIsChanging;
+- (void)dateTimeFormatChanged;
+- (void)deleteEvent;
+- (void)firstResponderChanged:(id)a0;
+- (BOOL)hasUnsentChanges;
+- (id)inviteesCandidateTouchBar;
+- (id)locationCandidateTouchBar;
+- (void)nopeButtonPressed;
+- (id)oldEvent:(id)a0 didUpdateTo:(id)a1;
+- (id)oldObject:(id)a0 didUpdateTo:(id)a1;
+- (void)reportJunk;
+- (void)respondWithStatus:(long long)a0;
+- (BOOL)saveCompleteChangeWithImpliedCommitDecision:(BOOL)a0;
+- (void)selectInspectorDateTime;
+- (void)selectInspectorInvitees;
+- (void)selectInspectorLocation;
+- (void)selectTitleTextWithTrailingCursor;
+- (void)setLastSnapshottedObject:(id)a0;
+- (BOOL)shouldDisplayAttachments;
+- (BOOL)shouldDisplayURLS;
+- (BOOL)shouldShowInspectorFields;
+- (void)updateContainersWithChanges:(id)a0;
+- (void)updateSuddenTerminationWithNewEvent:(id)a0;
+- (void)updateWithChangesFromEvent:(id)a0;
+- (id)writableCalendars;
+- (void)yupButtonPressed;
+- (id)yupButtonTitle;
+
+@end

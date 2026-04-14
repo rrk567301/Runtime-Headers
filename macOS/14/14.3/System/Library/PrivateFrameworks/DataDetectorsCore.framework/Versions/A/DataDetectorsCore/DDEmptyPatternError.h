@@ -1,0 +1,3 @@
+@interface DDEmptyPatternError : DDErrorRegexp
+
+@end
