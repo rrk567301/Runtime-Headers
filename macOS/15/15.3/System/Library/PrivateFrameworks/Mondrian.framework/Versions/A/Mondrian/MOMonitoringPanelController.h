@@ -1,0 +1,87 @@
+@class NSTextField, NSString, MOMonitoringController, MOUIProgressBar;
+
+@interface MOMonitoringPanelController : NSWindowController <NSWindowDelegate>
+
+@property (retain) MOUIProgressBar *frameRateProgressBar;
+@property (retain) NSTextField *frameRateTextField;
+@property (retain) NSTextField *lowFrameRateTextField;
+@property (retain) NSTextField *processCPUUsageTextField;
+@property (retain) NSTextField *systemCPUUsageTextField;
+@property (retain) NSTextField *diskBytesReadTextField;
+@property (retain) NSTextField *diskBytesWriteTextField;
+@property (retain) NSTextField *processAnonymousSizeTextField;
+@property (retain) NSTextField *processPurgeableSizeTextField;
+@property (retain) NSTextField *physicalMemoryFreeTextField;
+@property (retain) NSTextField *physicalMemoryUsedTextField;
+@property (retain) NSTextField *vmPageOutTextField;
+@property (retain) NSTextField *vmCompressorTextField;
+@property (retain) NSTextField *numberOfItemsTextField;
+@property (retain) NSTextField *numberOfSectionsTextField;
+@property (retain) NSTextField *indexPathsForItemsInRectAverageDurationTextField;
+@property (retain) NSTextField *indexPathsForItemsInRectMaximumDurationTextField;
+@property (retain) NSTextField *prefetchLowThumbnailsPreparationAverageDurationTextField;
+@property (retain) NSTextField *prefetchLowThumbnailsPreparationMaximumDurationTextField;
+@property (retain) NSTextField *numberOfVisibleCellsTextField;
+@property (retain) NSTextField *numberOfContentCellsTextField;
+@property (retain) NSTextField *numberOfSelectedCellsTextField;
+@property (retain) NSTextField *numberOfEmptyCellsTextField;
+@property (retain) NSTextField *numberOfRecentEmptyCellsTextField;
+@property (retain) NSTextField *numberOfLowCellOperationsTextField;
+@property (retain) NSTextField *lastNumberOfLowCellOperationsTextField;
+@property (retain) NSTextField *numberOfBestCellOperationsTextField;
+@property (retain) NSTextField *lastNumberOfBestCellOperationsTextField;
+@property (retain) NSTextField *numberOfLowPrefetchOperationsTextField;
+@property (retain) NSTextField *lastNumberOfLowPrefetchOperationsTextField;
+@property (retain) NSTextField *numberOfBestPrefetchOperationsTextField;
+@property (retain) NSTextField *lastNumberOfBestPrefetchOperationsTextField;
+@property (retain) NSTextField *lowCellOperationAverageDurationTextField;
+@property (retain) NSTextField *lowCellOperationMaximumDurationTextField;
+@property (retain) NSTextField *bestCellOperationAverageDurationTextField;
+@property (retain) NSTextField *bestCellOperationMaximumDurationTextField;
+@property (retain) NSTextField *lowPrefetchOperationAverageDurationTextField;
+@property (retain) NSTextField *lowPrefetchOperationMaximumDurationTextField;
+@property (retain) NSTextField *bestPrefetchOperationAverageDurationTextField;
+@property (retain) NSTextField *bestPrefetchOperationMaximumDurationTextField;
+@property (retain) NSTextField *lowThumbnailGenerationAverageDurationTextField;
+@property (retain) NSTextField *lowThumbnailGenerationMaximumDurationTextField;
+@property (retain) NSTextField *bestThumbnailGenerationAverageDurationTextField;
+@property (retain) NSTextField *bestThumbnailGenerationMaximumDurationTextField;
+@property (retain) NSTextField *rescheduleThumbnailCellOperationsAverageDurationTextField;
+@property (retain) NSTextField *rescheduleThumbnailCellOperationsMaximumDurationTextField;
+@property (retain) NSTextField *numberOfSectionsMemoryCacheAvailableSlotsTextField;
+@property (retain) NSTextField *numberOfSectionsMemoryCacheUsedSlotTextField;
+@property (retain) NSTextField *numberOfItemsMemoryCacheAvailableSlotsTextField;
+@property (retain) NSTextField *numberOfItemsMemoryCacheUsedSlotsTextField;
+@property (retain) NSTextField *numberOfLowThumbnailsMemoryCacheAvailableSlotsTextField;
+@property (retain) NSTextField *numberOfLowThumbnailsMemoryCacheAvailableSlotsSizeTextField;
+@property (retain) NSTextField *numberOfLowThumbnailsMemoryCacheUsedSlotTextField;
+@property (retain) NSTextField *numberOfBestThumbnailsMemoryCacheAvailableSlotsTextField;
+@property (retain) NSTextField *numberOfBestThumbnailsMemoryCacheAvailableSlotsSizeTextField;
+@property (retain) NSTextField *numberOfBestThumbnailsMemoryCacheUsedSlotsTextField;
+@property (retain) NSTextField *lowThumbnailsMemoryCacheGetAverageDurationTextField;
+@property (retain) NSTextField *lowThumbnailsMemoryCacheGetMaximumDurationTextField;
+@property (retain) NSTextField *lowThumbnailsMemoryCacheSetAverageDurationTextField;
+@property (retain) NSTextField *lowThumbnailsMemoryCacheSetMaximumDurationTextField;
+@property (retain) NSTextField *bestThumbnailsMemoryCacheGetAverageDurationTextField;
+@property (retain) NSTextField *bestThumbnailsMemoryCacheGetMaximumDurationTextField;
+@property (retain) NSTextField *bestThumbnailsMemoryCacheSetAverageDurationTextField;
+@property (retain) NSTextField *bestThumbnailsMemoryCacheSetMaximumDurationTextField;
+@property (weak, nonatomic) MOMonitoringController *monitoringController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)panelControllerForMonitoringController:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)close:(id)a0;
+- (BOOL)isVisible;
+- (void)open:(id)a0;
+- (void)windowDidLoad;
+- (void)windowWillClose:(id)a0;
+- (id)_convertBytesToBestReadableFormat:(double)a0;
+- (void)updateWithMeasurements:(id)a0;
+
+@end

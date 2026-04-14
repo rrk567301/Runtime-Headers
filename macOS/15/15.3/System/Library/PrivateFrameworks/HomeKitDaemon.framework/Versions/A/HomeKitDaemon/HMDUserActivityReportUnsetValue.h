@@ -1,0 +1,3 @@
+@interface HMDUserActivityReportUnsetValue : HMDUserActivityReportValue
+
+@end

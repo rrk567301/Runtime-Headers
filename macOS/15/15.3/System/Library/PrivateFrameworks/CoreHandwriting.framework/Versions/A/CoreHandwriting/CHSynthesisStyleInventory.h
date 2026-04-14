@@ -1,0 +1,97 @@
+@class NSMutableDictionary, NSString, NSURL, NSDate, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CHSynthesisStyleInventory : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSMutableDictionary *styles;
+@property (retain, nonatomic) NSMutableDictionary *sampleCountByCharacter;
+@property (readonly, nonatomic) NSURL *inventoryStorageURL;
+@property (retain, nonatomic) NSString *synthesisModelHash;
+@property (nonatomic) BOOL hasInventoryChanged;
+@property (retain, nonatomic) NSDate *lastSavedDate;
+@property (retain, nonatomic) NSMutableDictionary *fastPathCharacterStyles;
+@property (nonatomic) long long characterInventoryVersion;
+@property (nonatomic) long long currentSamplingTimestep;
+@property (readonly, nonatomic) double characterStyleTimestamp;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *_workQueue;
+@property (readonly, nonatomic) BOOL hasAllDigits;
+
++ (id)relativePath;
++ (BOOL)clear;
++ (id)_formatVersion;
++ (id)_defaultInventoryStorageURL;
++ (id)_groupContainerURL;
++ (long long)_longConfigLength;
++ (id)_mathCharacterSet;
++ (long long)_maxInventorySize;
++ (long long)_maxSamplesToStitch;
++ (long long)_minimumSampleCountByCharacter;
++ (long long)_shortConfigLength;
++ (BOOL)isPersonalizedSynthesisModelInitializing;
++ (BOOL)isPersonalizedSynthesisModelReady;
++ (long long)maxStyleSampleLengthForPrompt:(id)a0;
++ (id)personalizedSynthesisModelVersion;
++ (id)remainingCharacterSetFromPromptCharacterSet:(id)a0 withSample:(id)a1;
++ (BOOL)shouldBypassGating;
++ (id)statusWithInventory:(id)a0;
++ (id)stitchStyleSamples:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithURL:(id)a0;
+- (void)reset;
+- (void)addSample:(id)a0;
+- (BOOL)save;
+- (void)_safelyRunBlock:(id /* block */)a0;
+- (void)_unsafeAddSample:(id)a0;
+- (BOOL)_unsafeHasLowSampleCountForCharacters:(id)a0 minimumSampleCount:(long long)a1;
+- (void)_unsafeRemoveSample:(id)a0;
+- (id)_unsafeSamplesWithStylePrediction;
+- (void)_unsafeUpdateCharacterCoverageWithAddedSample:(id)a0;
+- (void)_unsafeUpdateCharacterCoverageWithRemovedSample:(id)a0;
+- (void)addSampleOfSynthesizedCharacter:(id)a0 transcription:(id)a1 key:(unsigned int)a2;
+- (void)addSampleOfSynthesizedCharacter:(id)a0 transcription:(id)a1 key:(unsigned int)a2 version:(long long)a3;
+- (void)addSamplesIfNeededWithTokenizedMathResult:(id)a0 drawing:(id)a1 strokeIdentifiers:(id)a2;
+- (void)addSamplesIfNeededWithTokenizedTextResult:(id)a0 drawing:(id)a1 strokeIdentifiers:(id)a2;
+- (void)addSamplesWithArray:(id)a0;
+- (id)characterCoverage;
+- (void)cleanupFastPathCharacters;
+- (void)clearSamplesEmbeddingVector;
+- (BOOL)containsSampleWithTranscription:(id)a0 strokeIdentifiers:(id)a1;
+- (unsigned long long)countOfStyleSamples;
+- (id)defaultStyleSample;
+- (void)enumerateStyleSamplesUsingBlock:(id /* block */)a0;
+- (id)fastPathCharacterStylesWithVariations;
+- (double)getLastCharacterStyleTimestamp;
+- (id)highestCharacterCoverageStyleSampleForPrompt:(id)a0 styles:(id)a1;
+- (id)initWithStyles:(id)a0 sampleCountByCharacter:(id)a1 storageURL:(id)a2 synthesisModelHash:(id)a3 currentSamplingTimestep:(long long)a4 characterStyleTimestamp:(double)a5 fastPathCharacterStyles:(id)a6 characterInventoryVersion:(long long)a7;
+- (BOOL)isPersonalizationAvailable;
+- (BOOL)isSimpleMathPattern:(id)a0;
+- (BOOL)isTokenAcceptable:(id)a0;
+- (long long)minimumNumberOfSamplesWithStylePrediction;
+- (id)nearestInventorySamplesToSample:(id)a0 prompt:(id)a1 maxStyleSampleLength:(long long)a2;
+- (BOOL)needsStylePredictionUpdate;
+- (void)removeSample:(id)a0;
+- (void)removeSamplesContainingStrokeIdentifiers:(id)a0;
+- (void)removeStyleSamplesIfNeeded;
+- (void)removeStyleSamplesIfNeededWithMaximumSize:(long long)a0 minimumSampleCountByCharacter:(long long)a1;
+- (void)resetCurrentSamplingTimestep;
+- (id)samplesWithoutStylePrediction;
+- (void)saveIfNeeded;
+- (id)shortStringHeuristicStyleSampleForPrompt:(id)a0 styles:(id)a1 maxNumOfSamples:(unsigned long long)a2;
+- (id)styleCharCoverageForInputSample:(id)a0 prompt:(id)a1 maxStyleSampleLength:(long long)a2;
+- (id)styleSampleForInputSample:(id)a0 prompt:(id)a1 samplingAlgorithm:(unsigned long long)a2;
+- (id)styleSampleForInputSample:(id)a0 prompt:(id)a1 samplingAlgorithm:(unsigned long long)a2 maxStyleSampleLength:(long long)a3;
+- (id)styleSampleOptionsForRequest:(id)a0;
+- (id)styleSamplesForInputSample:(id)a0 prompt:(id)a1 samplingAlgorithm:(unsigned long long)a2 maxNumOfSamples:(unsigned long long)a3;
+- (void)updateSamplingCountForSample:(id)a0;
+- (void)updateStylePredictionsWithSamplesToUpdate:(id)a0 toRemove:(id)a1;
+- (void)updateSynthesisModelHash:(id)a0;
+
+@end

@@ -1,0 +1,7 @@
+@interface GameServicesProtocols.OverloadedMethodSchema : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ name;
+    void /* unknown type, empty encoding */ overloads;
+    void /* unknown type, empty encoding */ parameters;
+}
+
+@end

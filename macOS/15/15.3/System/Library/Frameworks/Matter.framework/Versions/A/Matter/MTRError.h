@@ -1,0 +1,3 @@
+@interface MTRError : NSObject
+
+@end

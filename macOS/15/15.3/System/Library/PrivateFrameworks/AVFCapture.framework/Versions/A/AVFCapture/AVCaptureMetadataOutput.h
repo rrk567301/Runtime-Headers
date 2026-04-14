@@ -1,0 +1,92 @@
+@class NSArray, NSString, AVCaptureMetadataOutputInternal, NSObject;
+@protocol AVCaptureMetadataOutputObjectsDelegate, OS_dispatch_queue;
+
+@interface AVCaptureMetadataOutput : AVCaptureOutput <AVCaptureDataOutputDelegateOverride> {
+    AVCaptureMetadataOutputInternal *_internal;
+}
+
+@property (readonly, nonatomic) id<AVCaptureMetadataOutputObjectsDelegate> metadataObjectsDelegate;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *metadataObjectsCallbackQueue;
+@property (readonly, nonatomic) NSArray *availableMetadataObjectTypes;
+@property (copy, nonatomic) NSArray *metadataObjectTypes;
+@property (nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } rectOfInterest;
+@property (readonly, nonatomic) id delegateOverride;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateOverrideCallbackQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)new;
++ (void)initialize;
++ (id)_metadataConstantValueToName:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void)setOfflineVideoStabilizationMotionMetadataObjectTypesAvailable:(BOOL)a0;
+- (BOOL)canAddConnection:(id)a0 failureReason:(id *)a1;
+- (id)_appClipCodesCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_barcodeCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_detectedObjectsCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1 facesArrayOut:(id *)a2 need180DegreeMetadataTransform:(BOOL)a3;
+- (id)_eyeReliefResultCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (void)_handleLocalQueueMessage:(struct FigLocalQueueMessage { int x0; union { struct { struct opaqueCMSampleBuffer *x0; } x0; struct { long long x0; struct opaqueCMFormatDescription *x1; } x1; } x1; })a0;
+- (void)_handleNotification:(id)a0 payload:(id)a1;
+- (id)_legacyFaceCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_lumaHistogramDataCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_metadataIdentifiers;
+- (id)_offlineVISMotionCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (void)_processSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0;
+- (id)_sceneClassificationCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_textRegionsCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (id)_trackedFacesCollectionForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 input:(id)a1;
+- (void)_updateLocalQueue:(struct localQueueOpaque { } *)a0;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (id)connectionMediaTypes;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (BOOL)emitsEmptyObjectDetectionMetadata;
+- (float)faceTrackingFailureFieldOfViewModifier;
+- (long long)faceTrackingMaxFaces;
+- (float)faceTrackingNetworkFailureThresholdMultiplier;
+- (BOOL)isAppClipCodeMetadataObjectTypeAvailable;
+- (BOOL)isAppClipCodeMetadataSupported;
+- (BOOL)isAttentionDetectionEnabled;
+- (BOOL)isAttentionDetectionSupported;
+- (BOOL)isFaceTrackingMetadataObjectTypesAvailable;
+- (BOOL)isFaceTrackingPlusEnabled;
+- (BOOL)isFaceTrackingSupported;
+- (BOOL)isFaceTrackingUsingFaceRecognition;
+- (BOOL)isHeadMetadataObjectTypesAvailable;
+- (BOOL)isHeadMetadataSupported;
+- (BOOL)isHumanHandMetadataObjectTypeAvailable;
+- (BOOL)isHumanHandMetadataSupported;
+- (BOOL)isOfflineVideoStabilizationMotionMetadataObjectTypesAvailable;
+- (BOOL)isOfflineVideoStabilizationMotionMetadataSupported;
+- (BOOL)isSceneClassificationMetadataObjectTypeAvailable;
+- (BOOL)isSceneClassificationMetadataSupported;
+- (BOOL)isTextRegionMetadataObjectTypeAvailable;
+- (BOOL)isTextRegionMetadataSupported;
+- (BOOL)isVideoPreviewHistogramMetadataObjectTypesAvailable;
+- (BOOL)isVideoPreviewHistogramMetadataSupported;
+- (id)metadataIdentifiersForMetadataObjectTypes:(id)a0;
+- (id)metadataObjectTypesForMetadataIdentifiers:(id)a0;
+- (float)objectDetectionTargetFrameRate;
+- (void)setAppClipCodeMetadataObjectTypeAvailable:(BOOL)a0;
+- (void)setAttentionDetectionEnabled:(BOOL)a0;
+- (void)setDelegateOverride:(id)a0 delegateOverrideCallbackQueue:(id)a1;
+- (void)setEmitsEmptyObjectDetectionMetadata:(BOOL)a0;
+- (void)setFaceTrackingFailureFieldOfViewModifier:(float)a0;
+- (void)setFaceTrackingMaxFaces:(long long)a0;
+- (void)setFaceTrackingMetadataObjectTypesAvailable:(BOOL)a0;
+- (void)setFaceTrackingNetworkFailureThresholdMultiplier:(float)a0;
+- (void)setFaceTrackingPlusEnabled:(BOOL)a0;
+- (void)setFaceTrackingUsesFaceRecognition:(BOOL)a0;
+- (void)setHeadMetadataObjectTypesAvailable:(BOOL)a0;
+- (void)setHumanHandMetadataObjectTypeAvailable:(BOOL)a0;
+- (void)setMetadataObjectsDelegate:(id)a0 queue:(id)a1;
+- (void)setSceneClassificationMetadataObjectTypeAvailable:(BOOL)a0;
+- (void)setTargetFrameRate:(float)a0 forMetadataObjectType:(id)a1;
+- (void)setTextRegionMetadataObjectTypeAvailable:(BOOL)a0;
+- (void)setVideoPreviewHistogramMetadataObjectTypesAvailable:(BOOL)a0;
+- (id)supportedMetadataObjectTypesForFrameRateControl;
+
+@end
