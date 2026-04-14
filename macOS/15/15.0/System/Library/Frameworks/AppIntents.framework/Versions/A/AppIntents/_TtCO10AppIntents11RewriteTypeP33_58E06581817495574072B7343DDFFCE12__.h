@@ -1,0 +1,3 @@
+@interface _TtCO10AppIntents11RewriteTypeP33_58E06581817495574072B7343DDFFCE12__ : _TtCs12_SwiftObject
+
+@end

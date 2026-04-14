@@ -1,0 +1,10 @@
+@interface _TtCVV14WorkflowEditor15DrawerSearchBarP33_E51C85E07E6B1A263BBD21DD7A09E88317RepresentableView11Coordinator : NSObject <NSSearchFieldDelegate> {
+    void /* unknown type, empty encoding */ owner;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)control:(id)a0 textView:(id)a1 doCommandBySelector:(SEL)a2;
+- (void)controlTextDidChange:(id)a0;
+
+@end

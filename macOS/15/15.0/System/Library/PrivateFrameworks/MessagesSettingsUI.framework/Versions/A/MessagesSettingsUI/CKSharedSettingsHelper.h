@@ -1,0 +1,21 @@
+@interface CKSharedSettingsHelper : NSObject
+
++ (id)sharedInstance;
++ (id)currentKeepMessages;
++ (BOOL)currentMessageAutoKeepForType;
++ (int)currentMessageAutoKeepOptionForType;
+
+- (BOOL)isRaiseGestureSupported;
+- (BOOL)_isProximityMonitoringSupported;
+- (BOOL)areReadReceiptsEnabled;
+- (id)getAudioMessageAutoKeep;
+- (BOOL)getRaiseToListenEnabled;
+- (BOOL)isCheckInAllowedInRegion;
+- (void)setAudioMessageAutoKeep:(id)a0;
+- (void)setConversationListFilteringEnabled:(BOOL)a0;
+- (void)setRaiseToListenEnabled:(BOOL)a0;
+- (void)setReadReceiptsEnabled:(BOOL)a0;
+- (BOOL)shouldShowCheckInLocationHistorySettings;
+- (BOOL)shouldShowMMS;
+
+@end

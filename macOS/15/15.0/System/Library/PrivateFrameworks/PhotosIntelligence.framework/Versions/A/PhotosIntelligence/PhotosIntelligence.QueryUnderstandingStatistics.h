@@ -1,0 +1,18 @@
+@interface PhotosIntelligence.QueryUnderstandingStatistics : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ isModifiedByUser;
+    void /* unknown type, empty encoding */ retrievedAssetCount;
+    void /* unknown type, empty encoding */ isQueryAmbiguous;
+    void /* unknown type, empty encoding */ userPromptAmbiguityState;
+    void /* unknown type, empty encoding */ isLLMQU;
+    void /* unknown type, empty encoding */ queryContainsPersonEntity;
+    void /* unknown type, empty encoding */ queryContainsActivityEntity;
+    void /* unknown type, empty encoding */ queryContainsTimeEntity;
+    void /* unknown type, empty encoding */ queryContainsLocationEntity;
+    void /* unknown type, empty encoding */ queryContainsTripEntity;
+    void /* unknown type, empty encoding */ queryContainsMusicArtist;
+    void /* unknown type, empty encoding */ queryContainsMusicSong;
+    void /* unknown type, empty encoding */ queryContainsMusicGenre;
+    void /* unknown type, empty encoding */ queryContainsMusicMood;
+}
+
+@end

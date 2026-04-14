@@ -1,0 +1,27 @@
+@class PHChangeHandlingDebugEvent, NSMutableArray;
+
+@interface PHChangeHandlingDebugger : NSObject {
+    unsigned long long _maxPreviousEvents;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _eventLock;
+    PHChangeHandlingDebugEvent *_eventLock_currentEvent;
+    PHChangeHandlingDebugEvent *_eventLock_nextEvent;
+    NSMutableArray *_eventLock_previousEvents;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _activeLock;
+    BOOL _activeLock_isActive;
+    double _activeLock_isActiveTimestamp;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _pendingLock;
+    BOOL _pendingLock_isChangeProcessingPending;
+    double _pendingLock_isChangeProcessingPendingTimestamp;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)stateCaptureDictionary;
+- (id)beginProcessPendingChanges;
+- (void)changeHandlingActiveStateDidChange:(BOOL)a0;
+- (void)endProcessPendingChanges;
+- (id)formattedStringFromTimestamp:(double)a0;
+- (id)initWithMaxPreviousEvents:(unsigned long long)a0;
+- (void)processPendingChangesStateDidChange:(BOOL)a0;
+
+@end

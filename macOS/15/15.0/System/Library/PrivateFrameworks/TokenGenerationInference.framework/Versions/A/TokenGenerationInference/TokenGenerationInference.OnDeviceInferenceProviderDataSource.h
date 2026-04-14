@@ -1,0 +1,3 @@
+@interface TokenGenerationInference.OnDeviceInferenceProviderDataSource : _TtCs12_SwiftObject
+
+@end

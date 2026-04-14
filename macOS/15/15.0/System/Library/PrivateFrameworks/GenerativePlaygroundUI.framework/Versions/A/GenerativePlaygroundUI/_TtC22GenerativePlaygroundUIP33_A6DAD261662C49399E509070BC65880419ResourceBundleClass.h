@@ -1,0 +1,3 @@
+@interface _TtC22GenerativePlaygroundUIP33_A6DAD261662C49399E509070BC65880419ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

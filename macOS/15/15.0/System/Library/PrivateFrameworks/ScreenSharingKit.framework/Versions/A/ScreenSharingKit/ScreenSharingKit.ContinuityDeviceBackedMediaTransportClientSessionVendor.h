@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.ContinuityDeviceBackedMediaTransportClientSessionVendor : _TtCs12_SwiftObject
+
+@end

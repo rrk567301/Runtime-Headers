@@ -1,0 +1,11 @@
+@interface Stickers.StickerSpotlightDelegate : NSCoreDataCoreSpotlightDelegate {
+    void /* unknown type, empty encoding */ logger;
+}
+
+- (void).cxx_destruct;
+- (id)domainIdentifier;
+- (id)bundleIdentifier;
+- (id)attributeSetForObject:(id)a0;
+- (id)initForStoreWithDescription:(id)a0 coordinator:(id)a1;
+
+@end

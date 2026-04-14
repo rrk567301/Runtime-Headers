@@ -1,0 +1,5 @@
+@interface SiriSuggestions.AppInstallAutoCompleteIndexUpdater : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ internalXPCServicesClient;
+}
+
+@end

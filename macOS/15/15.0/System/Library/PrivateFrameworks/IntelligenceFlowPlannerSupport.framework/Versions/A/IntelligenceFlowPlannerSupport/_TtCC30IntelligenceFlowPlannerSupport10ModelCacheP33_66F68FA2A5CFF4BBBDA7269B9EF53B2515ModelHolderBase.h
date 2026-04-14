@@ -1,0 +1,3 @@
+@interface _TtCC30IntelligenceFlowPlannerSupport10ModelCacheP33_66F68FA2A5CFF4BBBDA7269B9EF53B2515ModelHolderBase : _TtCs12_SwiftObject
+
+@end

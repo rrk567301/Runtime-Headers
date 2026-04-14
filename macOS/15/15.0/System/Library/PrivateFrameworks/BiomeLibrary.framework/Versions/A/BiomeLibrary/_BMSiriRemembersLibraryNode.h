@@ -1,0 +1,49 @@
+@interface _BMSiriRemembersLibraryNode : _BMLibraryNode
+
++ (id)identifier;
++ (id)Intent;
++ (id)validKeyPaths;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)sublibraries;
++ (id)ExplicitRequests;
++ (id)HomeHistory;
++ (id)InteractionHistory;
++ (id)syncPolicyForInteractionHistory;
++ (id)AssistantSuggestions;
++ (id)AudioHistory;
++ (id)CallHistory;
++ (id)MessageHistory;
++ (id)spaceAttributionForAudioHistory;
++ (id)configurationForAssistantSuggestions;
++ (id)configurationForAudioHistory;
++ (id)configurationForCallHistory;
++ (id)configurationForExplicitRequests;
++ (id)configurationForHomeHistory;
++ (id)configurationForIntent;
++ (id)configurationForInteractionHistory;
++ (id)configurationForMessageHistory;
++ (id)spaceAttributionForAssistantSuggestions;
++ (id)spaceAttributionForCallHistory;
++ (id)spaceAttributionForExplicitRequests;
++ (id)spaceAttributionForHomeHistory;
++ (id)spaceAttributionForIntent;
++ (id)spaceAttributionForInteractionHistory;
++ (id)spaceAttributionForMessageHistory;
++ (id)storeConfigurationForAssistantSuggestions;
++ (id)storeConfigurationForAudioHistory;
++ (id)storeConfigurationForCallHistory;
++ (id)storeConfigurationForExplicitRequests;
++ (id)storeConfigurationForHomeHistory;
++ (id)storeConfigurationForIntent;
++ (id)storeConfigurationForInteractionHistory;
++ (id)storeConfigurationForMessageHistory;
++ (id)syncPolicyForAssistantSuggestions;
++ (id)syncPolicyForAudioHistory;
++ (id)syncPolicyForCallHistory;
++ (id)syncPolicyForExplicitRequests;
++ (id)syncPolicyForHomeHistory;
++ (id)syncPolicyForIntent;
++ (id)syncPolicyForMessageHistory;
+
+@end

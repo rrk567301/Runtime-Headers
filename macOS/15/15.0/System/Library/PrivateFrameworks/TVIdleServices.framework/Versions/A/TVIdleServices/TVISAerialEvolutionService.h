@@ -1,0 +1,43 @@
+@class TVISAerialServiceConfiguration, TVISAerialServiceDefaults, NSCache, NSBundle, TVISAerialManifest, TVISAerialStore;
+
+@interface TVISAerialEvolutionService : TVISEvolutionServiceTemplate
+
+@property (readonly, nonatomic) TVISAerialServiceConfiguration *configuration;
+@property (readonly, nonatomic) TVISAerialServiceDefaults *defaults;
+@property (readonly, nonatomic) TVISAerialStore *store;
+@property (readonly, nonatomic) NSCache *cachedResumeData;
+@property (retain, nonatomic) TVISAerialManifest *localManifest;
+@property (retain, nonatomic) NSBundle *localizationBundle;
+
++ (id)log;
++ (id)_opportunisticScheduledUpdateFromDate:(id)a0 interval:(long long)a1;
+
+- (void).cxx_destruct;
+- (id)initWithConfiguration:(id)a0;
+- (id)_currentSnapshot;
+- (void)onStart;
+- (BOOL)shouldScheduleUpdateForContext:(unsigned long long)a0;
+- (void)TVISConformanceAerial;
+- (id)_batchDownloadAssets:(id)a0 completion:(id /* block */)a1;
+- (void)_batchDownloadPreviewsWithCompletion:(id /* block */)a0;
+- (id)_downloadAssetWithID:(id)a0 remoteURL:(id)a1 completion:(id /* block */)a2;
+- (id)_downloadAssetsIfNeededWithContext:(unsigned long long)a0 completion:(id /* block */)a1;
+- (id)_downloadedAssetIDs;
+- (void)_fetchRemoteMetadataWithURL:(id)a0 targetFileURL:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_localizationNeedsValidation;
+- (BOOL)_needToDownloadAssetsToMeetMinimum;
+- (id)_purgeableItemsInDirectoryAtURL:(id)a0;
+- (BOOL)_shouldRunScheduledUpdate;
+- (BOOL)_shouldRunValidationUpdate;
+- (void)_updateManifestIfNeededWithData:(id)a0 targetFileURL:(id)a1 isResourceTar:(BOOL)a2;
+- (void)_validateLocalizedStringsBundle:(id)a0 resourcesTarURL:(id)a1;
+- (void)activateCategoryWithID:(id)a0 completion:(id /* block */)a1;
+- (void)deactivateCategoryWithID:(id)a0 completion:(id /* block */)a1;
+- (void)executeUpdate:(id)a0 completion:(id /* block */)a1;
+- (id)generatePurgeableManifest;
+- (id)localCacheBaseURL;
+- (void)queryAllCategoriesWithCompletion:(id /* block */)a0;
+- (id)queryCurrentSnapshotWithError:(id *)a0;
+- (void)willAccessWorkQueue;
+
+@end

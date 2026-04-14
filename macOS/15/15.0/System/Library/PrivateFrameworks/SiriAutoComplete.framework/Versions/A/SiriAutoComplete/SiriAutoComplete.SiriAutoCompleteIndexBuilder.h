@@ -1,0 +1,8 @@
+@interface SiriAutoComplete.SiriAutoCompleteIndexBuilder : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ autoCompleteService;
+    void /* unknown type, empty encoding */ userDefaultsProvider;
+    void /* unknown type, empty encoding */ featureFlagsProvider;
+    void /* unknown type, empty encoding */ eligibilityCriteria;
+}
+
+@end

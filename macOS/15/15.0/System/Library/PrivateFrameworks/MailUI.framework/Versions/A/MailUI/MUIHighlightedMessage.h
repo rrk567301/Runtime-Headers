@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface MUIHighlightedMessage : NSObject {
+    void /* unknown type, empty encoding */ $__lazy_storage_$_sender;
+}
+
+@property (nonatomic, readonly) void /* unknown type, empty encoding */ topLine;
+@property (nonatomic, readonly) void /* unknown type, empty encoding */ messageListItem;
+@property (nonatomic, copy) NSString *sender;
+@property (nonatomic, readonly) long long hash;
+@property (nonatomic, readonly) NSString *description;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithTopLine:(id)a0 messageListItem:(id)a1;
+
+@end
