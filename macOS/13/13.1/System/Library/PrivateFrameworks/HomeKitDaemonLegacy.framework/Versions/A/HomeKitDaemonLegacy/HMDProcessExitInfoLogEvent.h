@@ -1,0 +1,16 @@
+@class NSString, NSDictionary;
+
+@interface HMDProcessExitInfoLogEvent : HMMLogEvent <HMMCoreAnalyticsLogging>
+
+@property (class, readonly) BOOL submitEventWithHistogrammedAggregateHomeDataCommonDimensions;
+@property (class, readonly) BOOL submitEventWithDurationInMilliseconds;
+
+@property (readonly, copy, nonatomic) NSString *exitType;
+@property (readonly, copy, nonatomic) NSString *exitReason;
+@property (readonly, nonatomic) NSString *eventName;
+@property (readonly, nonatomic) NSDictionary *serializedEvent;
+@property (readonly, nonatomic) NSString *accessoryIdentifier;
+@property (readonly, nonatomic) BOOL logEventWithAppendedCommonDimensions;
+
+
+@end

@@ -1,0 +1,3 @@
+@interface PKAccountPromotionCollectionViewCell : NSObject
+
+@end

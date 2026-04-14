@@ -1,0 +1,98 @@
+@class NSMutableDictionary, NSString, AWDLActivator, NSMutableArray, NSObject;
+@protocol APRKStreamRenderingManagerDelegate, OS_dispatch_queue, OS_dispatch_source;
+
+@interface APRKStreamRenderingManager : NSObject {
+    struct AirPlayReceiverServerPrivate { } *_server;
+    NSMutableArray *_renderersArray;
+    NSObject<OS_dispatch_queue> *_isolationQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    BOOL _useCALayerForMirroring;
+    BOOL _shouldForwardLayers;
+    BOOL _usesHomeKitIntegration;
+    BOOL _optimizeAudioRenderingLatency;
+    struct CGSize { double width; double height; } _customDisplaySize;
+    struct CGSize { double width; double height; } _customDisplaySizeMax;
+    unsigned long long _displayHDRMode;
+    unsigned long long _airPlayVideoVersionSupport;
+    long long _permissionTimeout;
+    long long _permissionGrantPeriod;
+    NSMutableDictionary *_permittedClients;
+    NSObject<OS_dispatch_queue> *_permittedClientsQueue;
+    NSObject<OS_dispatch_source> *_permissionGrantTimer;
+    BOOL _permissionEnabled;
+    BOOL _altAdvertisingEnabled;
+    BOOL _assistedModeEnabled;
+    NSString *_passwordString;
+    AWDLActivator *_awdlActivator;
+}
+
+@property (weak, nonatomic) id<APRKStreamRenderingManagerDelegate> delegate;
+@property (readonly, nonatomic) unsigned long long supportedModesMask;
+@property (nonatomic) unsigned long long maxNumberOfConcurrentSessions;
+@property (nonatomic) unsigned long long concurrentPlaybackPolicy;
+@property (nonatomic) BOOL supportRemoteControl;
+@property (nonatomic) unsigned long long preemptionPolicy;
+
++ (id)sharedInstance;
++ (BOOL)getAppHasSetAdvertisingAccessModeEntitlement;
++ (BOOL)setAdvertisingAccessMode:(unsigned long long)a0 withError:(id *)a1;
++ (unsigned long long)getAdvertisingAccessMode;
++ (void)setListeningForAlternateBonjourBrowsing:(BOOL)a0;
++ (BOOL)listeningForAlternateBonjourBrowsing;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)activeRenderers;
+- (void)setDelegateQueue:(id)a0;
+- (id)delegateQueue;
+- (id)allRenderers;
+- (BOOL)demoModeEnabled;
+- (int)startReceiverServer;
+- (int)startReceiverServerWithSupportedRenderingModes:(unsigned long long)a0;
+- (int)stopReceiverServer;
+- (id)rendererForUniqueID:(id)a0;
+- (unsigned long long)activeRenderersCount;
+- (id)allClientNames;
+- (void)setUseCALayerForMirroring:(BOOL)a0;
+- (BOOL)useCALayerForMirroring;
+- (void)setOptimizeAudioRenderingLatency:(BOOL)a0;
+- (BOOL)optimizeAudioRenderingLatency;
+- (void)setCustomDisplaySizeMax:(struct CGSize { double x0; double x1; })a0;
+- (void)setAirPlayVideoVersionSupport:(unsigned long long)a0;
+- (void)setDisplayHDRMode:(unsigned long long)a0;
+- (unsigned long long)displayHDRMode;
+- (unsigned long long)airPlayVideoVersionSupport;
+- (void)setUsesHomeKitIntegration:(BOOL)a0;
+- (BOOL)usesHomeKitIntegration;
+- (void)setDemoModeEnabled:(BOOL)a0;
+- (void)setPermissionTimeout:(long long)a0;
+- (long long)permissionTimeout;
+- (int)forcePINRefresh;
+- (BOOL)systemSupportsWiFiUDM;
+- (void)setAltAdvertisingEnabled:(BOOL)a0;
+- (BOOL)altAdvertisingEnabled;
+- (void)setAssistedModeEnabled:(BOOL)a0;
+- (BOOL)assistedModeEnabled;
+- (id)assistedInfoForAWDL;
+- (id)assistedInfoForIPAddress:(id)a0;
+- (id)createStreamRendererWithUniqueID:(id)a0 clientName:(id)a1 UIController:(struct OpaqueAPReceiverUIController { } *)a2;
+- (void)removeRendererWithUniqueID:(id)a0;
+- (void)setShouldForwardLayers:(BOOL)a0;
+- (BOOL)shouldForwardLayers;
+- (void)processShowGlobalPasscodePromptRequest:(id)a0 withClientName:(id)a1;
+- (void)processHideGlobalPasscodePromptRequest;
+- (BOOL)isAllowedToProceedForClientWithName:(id)a0 clientID:(id)a1;
+- (struct __CFString { } *)_getHDRModeString:(unsigned long long)a0;
+- (int)_startReceiverServerWithSupportedModesMask:(unsigned long long)a0;
+- (id)_rendererForUniqueIDInternal:(id)a0;
+- (void)_setPTPClockEnabled:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_customDisplaySizeFromPrefsWithDefault:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })_customDisplaySizeMaxFromPrefsWithDefault:(struct CGSize { double x0; double x1; })a0;
+- (unsigned long long)_customDisplayHDRModeFromPrefsWithDefault:(unsigned long long)a0;
+- (void)_setAirPlayVideoVersionSupport:(unsigned long long)a0;
+- (void)_initPermittedClients;
+- (BOOL)_isPermittedClient:(id)a0;
+- (void)_addPermittedClient:(id)a0;
+- (void)_setRandomPassword;
+
+@end

@@ -1,0 +1,17 @@
+@class NSString, NSURL;
+
+@interface ICQInlineTipAction : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *buttonTitle;
+@property (copy, nonatomic) NSString *actionName;
+@property (retain, nonatomic) NSURL *actionURL;
+
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

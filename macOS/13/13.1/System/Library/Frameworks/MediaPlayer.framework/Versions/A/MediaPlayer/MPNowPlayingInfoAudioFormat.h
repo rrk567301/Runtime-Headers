@@ -1,0 +1,39 @@
+@class NSString, MRContentItemMetadataAudioFormat;
+
+@interface MPNowPlayingInfoAudioFormat : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) MRContentItemMetadataAudioFormat *mediaRemoteAudioFormat;
+@property (nonatomic) long long tier;
+@property (nonatomic) long long bitrate;
+@property (nonatomic) long long sampleRate;
+@property (nonatomic) long long bitDepth;
+@property (nonatomic) unsigned int codec;
+@property (copy, nonatomic) NSString *groupID;
+@property (copy, nonatomic) NSString *stableVariantID;
+@property (nonatomic, getter=isSpatialized) BOOL spatialized;
+@property (nonatomic, getter=isMultiChannel) BOOL multiChannel;
+@property (nonatomic) unsigned int channelLayout;
+@property (retain, nonatomic) NSString *audioChannelLayoutDescription;
+@property (readonly, nonatomic) long long badging;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)humanDescription;
+- (id)initWithMediaRemoteAudioFormat:(id)a0;
+- (id)debugTierDescription;
+- (id)debugBitRateDescription;
+- (id)debugBitDepthDescription;
+- (id)debugSampleRateDescription;
+- (id)debugCodecDescription;
+- (id)debugChannelCountDescription;
+- (id)debugChannelLayoutDescription;
+- (id)_descriptionForChannelLayoutTag:(unsigned int)a0;
+
+@end

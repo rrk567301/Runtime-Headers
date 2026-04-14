@@ -1,0 +1,27 @@
+@class NSString, LAUIAuthenticationSheetController, LAContext;
+
+@interface SUOSUAuthenticationManager : NSObject <LAUIAuthenticationSheetDelegate>
+
+@property (retain) LAUIAuthenticationSheetController *sheetController;
+@property (retain) NSString *bootstrapTokenString;
+@property (retain) LAContext *localAuthenticationContext;
+@property BOOL localAuthenticationRequired;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)unverifiedDataEntered:(unsigned int)a0 completion:(id /* block */)a1;
+- (BOOL)_isManaged;
+- (id)externalizedContextData;
+- (BOOL)bootstrapTokenAvailable;
+- (BOOL)deviceIsEnrolledInDeKOTA;
+- (void)updateLocalAuthenticationContextWithExternalizedContext:(id)a0;
+- (BOOL)evaluateLocalAuthenticationPolicyWithContext:(id)a0 username:(id)a1 uid:(unsigned int)a2 password:(id)a3 prompt:(id)a4;
+- (BOOL)evaluateLocalAuthenticationPolicyWithContext:(id)a0 username:(id)a1 uid:(unsigned int)a2 password:(id)a3 prompt:(id)a4 mdmInitiated:(BOOL)a5;
+- (BOOL)evaluateLocalAuthenticationPolicyWithContext:(id)a0 username:(id)a1 uid:(unsigned int)a2 password:(id)a3 prompt:(id)a4 mdmInitiated:(BOOL)a5 options:(id)a6 withError:(id *)a7;
+- (void)evaluateLocalAuthenticationContextWithWindow:(id)a0 username:(id)a1 uid:(unsigned int)a2 prompt:(id)a3 options:(id)a4 withCompletion:(id /* block */)a5;
+
+@end

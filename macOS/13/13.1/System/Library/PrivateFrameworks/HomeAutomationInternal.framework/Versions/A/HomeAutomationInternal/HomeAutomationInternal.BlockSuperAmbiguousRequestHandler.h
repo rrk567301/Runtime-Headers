@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockSuperAmbiguousRequestHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

@@ -1,0 +1,34 @@
+@class NSString, NSData;
+
+@interface SIRISETUPSchemaSIRISETUPPHSEnrollmentDigitalZeroDetectionCompleted : SISchemaInstrumentationMessage {
+    struct { unsigned char pageNumber : 1; unsigned char maxNumContinuousZeros : 1; unsigned char maxNumAllowedContinuousZeros : 1; unsigned char isMaxNumContinuousZerosOverThreshold : 1; } _has;
+}
+
+@property (nonatomic) unsigned int pageNumber;
+@property (nonatomic) BOOL hasPageNumber;
+@property (copy, nonatomic) NSString *phraseId;
+@property (nonatomic) BOOL hasPhraseId;
+@property (nonatomic) unsigned int maxNumContinuousZeros;
+@property (nonatomic) BOOL hasMaxNumContinuousZeros;
+@property (nonatomic) unsigned int maxNumAllowedContinuousZeros;
+@property (nonatomic) BOOL hasMaxNumAllowedContinuousZeros;
+@property (nonatomic) BOOL isMaxNumContinuousZerosOverThreshold;
+@property (nonatomic) BOOL hasIsMaxNumContinuousZerosOverThreshold;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (void)deletePageNumber;
+- (void)deletePhraseId;
+- (void)deleteMaxNumContinuousZeros;
+- (void)deleteMaxNumAllowedContinuousZeros;
+- (void)deleteIsMaxNumContinuousZerosOverThreshold;
+
+@end

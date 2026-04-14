@@ -1,0 +1,76 @@
+@class NSView;
+
+@interface IKGLScroller : NSObject {
+    NSView *_owner;
+    struct CGPoint { double x; double y; } _hotPoint;
+    float _hotValue;
+    float _value;
+    float _proportion;
+    float _lineScroll;
+    float _pageScroll;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _frame;
+    SEL _action;
+    id _target;
+    int _portionClicked;
+    int _portionPushed;
+    id _renderer;
+    BOOL _arrowScrolling;
+    int _arrowRepeatCount;
+    BOOL _white;
+    BOOL _bluish;
+}
+
+- (void)dealloc;
+- (id)init;
+- (float)floatValue;
+- (void).cxx_destruct;
+- (id)target;
+- (void)setTarget:(id)a0;
+- (void)setOwner:(id)a0;
+- (void)setAction:(SEL)a0;
+- (SEL)action;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)accessibilityIsIgnored;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)accessibilityIsAttributeSettable:(id)a0;
+- (void)accessibilitySetValue:(id)a0 forAttribute:(id)a1;
+- (id)accessibilityActionNames;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)accessibilityPerformAction:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frame;
+- (void)setFloatValue:(float)a0;
+- (unsigned long long)testPart:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForPart:(unsigned long long)a0;
+- (float)knobProportion;
+- (void)setKnobProportion:(float)a0;
+- (void)_decrementLine:(id)a0;
+- (void)_incrementLine:(id)a0;
+- (void)_decrementPage:(id)a0;
+- (void)_incrementPage:(id)a0;
+- (void)setLineScroll:(float)a0;
+- (float)lineScroll;
+- (void)setPageScroll:(float)a0;
+- (float)pageScroll;
+- (BOOL)white;
+- (double)_scrollHeight;
+- (BOOL)mouseDown:(id)a0 inView:(id)a1;
+- (void)_arrowScrollingCallback;
+- (double)_gutterInset;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_gutterFrame;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_knobFrame;
+- (int)_partAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_arrowScrolling;
+- (void)recoverArrowScrolling;
+- (void)startArrowScrolling;
+- (struct CGPoint { double x0; double x1; })_localPointForEvent:(id)a0 inView:(id)a1;
+- (BOOL)_jumpToHereMode:(id)a0;
+- (BOOL)mouseUp:(id)a0 inView:(id)a1;
+- (BOOL)mouseDragged:(id)a0 inView:(id)a1;
+- (void)drawInView:(id)a0;
+- (void)setWhite:(BOOL)a0;
+- (BOOL)bluish;
+- (void)setBluish:(BOOL)a0;
+
+@end

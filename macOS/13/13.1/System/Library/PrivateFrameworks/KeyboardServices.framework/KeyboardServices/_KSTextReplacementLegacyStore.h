@@ -1,0 +1,98 @@
+@class NSString, NSPersistentStore, NSPersistentStoreCoordinator, NSURL, NSDate, NSObject, NSManagedObjectContext;
+@protocol OS_dispatch_queue, OS_os_transaction;
+
+@interface _KSTextReplacementLegacyStore : NSObject <NSManagedObjectContextFaultingDelegate, _KSTextReplacementSyncProtocol> {
+    NSObject<OS_os_transaction> *_uptimeTransaction;
+}
+
+@property (retain, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (retain, nonatomic) NSPersistentStore *persistentStore;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic) BOOL suspendedForAccountChange;
+@property (nonatomic) BOOL forceMaintenance;
+@property (retain, nonatomic) NSDate *lastMaintenanceDate;
+@property (nonatomic) long long importedSinceMaintenance;
+@property (nonatomic) BOOL pendingSampleShortcutImport;
+@property (retain, nonatomic) NSURL *baseURL;
+@property (nonatomic) BOOL minimumUptimeDidExpire;
+@property (retain, nonatomic) NSDate *persistentStoreDidLoadTime;
+@property (nonatomic) BOOL didScheduleCacheUpdate;
+@property (nonatomic) BOOL shouldUpdateTheCache;
+@property (nonatomic) BOOL ubiquityStoreLoaded;
+@property (retain, nonatomic) NSDate *ubiquityStoreLoadStartTime;
+@property (nonatomic) BOOL shouldDisableCaching;
+@property (copy, nonatomic) NSString *cacheFilePath;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)textReplacementEntriesFromManagedObjects:(id)a0;
++ (id)legacyImportFilePaths;
++ (id)legacyImportWordKeyPairsFromFiles:(id)a0;
++ (id)legacyStorePath;
++ (id)basePersistentStoreURL;
++ (id)cachedStorePath;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)cleanup;
+- (BOOL)save;
+- (id)initWithBaseURL:(id)a0;
+- (long long)context:(id)a0 shouldHandleInaccessibleFault:(id)a1 forObjectID:(id)a2 andTrigger:(id)a3;
+- (id)entityDescription;
+- (void)removeAllEntries;
+- (void)addEntries:(id)a0 removeEntries:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (id)textReplacementEntries;
+- (void)queryTextReplacementsWithCallback:(id /* block */)a0;
+- (void)queryTextReplacementsWithPredicate:(id)a0 callback:(id /* block */)a1;
+- (void)requestSyncWithCompletionBlock:(id /* block */)a0;
+- (void)requestSync:(unsigned long long)a0 withCompletionBlock:(id /* block */)a1;
+- (double)minimumUptimeRemaining;
+- (void)importSampleShortcutsIfNecessary;
+- (void)iCloudAccountDidChange:(id)a0;
+- (void)persistentStoreCoordinatorStoresWillChange:(id)a0;
+- (void)persistentStoreCoordinatorStoresDidChange:(id)a0;
+- (void)persistentStoreDidImportUbiquitousContentChanges:(id)a0;
+- (id)managedObjectModelURL;
+- (void)loadPersistentStoreIfNecessary;
+- (void)unloadPersistentStore;
+- (void)requestMinimumUptime;
+- (void)endMinimumUptime;
+- (void)prepareForMigration;
+- (void)runMaintenanceIncludeLocalVariations:(BOOL)a0;
+- (id)removeEntriesWithPredicate:(id)a0;
+- (id)_deleteTransaction:(id)a0;
+- (id)entriesFromCache:(id *)a0;
+- (void)scheduleCacheUpdate:(id)a0;
+- (BOOL)writeEntriesToCache:(id)a0;
+- (void)insertEntryWithValue:(id)a0;
+- (id)entriesMatchingPredicate:(id)a0 sortDescriptors:(id)a1;
+- (id)entriesMatchingPredicate:(id)a0;
+- (id)entriesUsingSortDescriptors:(id)a0;
+- (id)mergeShortcutsFromContext:(id)a0;
+- (BOOL)_shouldMergeShortcut:(id)a0 phrase:(id)a1 intoContext:(id)a2;
+- (BOOL)_mergeShortcut:(id)a0 phrase:(id)a1 fromContext:(id)a2;
+- (BOOL)migrateEntriesFromStoreAtURL:(id)a0 error:(id *)a1;
+- (void)retirePersistentStoreAtURL:(id)a0;
+- (id)storeURLForMergeAfterUbiquityIdentityChangeFromToken:(id)a0 toToken:(id)a1 withLastKnownToken:(id)a2 shouldDeleteFirst:(BOOL *)a3;
+- (BOOL)mergeEntriesForUbiquityIdentityChangeFromURL:(id)a0 firstDelete:(BOOL)a1;
+- (id)currentStoreIndentity;
+- (BOOL)mergeEntriesFromAllStoresIncludeLocalVariations:(BOOL)a0;
+- (void)didMergeEntriesForOtherLocalPeers:(id)a0;
+- (BOOL)mergeEntriesForUbiquityIdentityChangeIfNecessary;
+- (void)didMergeEntriesForNewUbiquityIdentity:(id)a0;
+- (void)performMaintenanceIfNecessary;
+- (BOOL)needsMaintenance;
+- (void)loadMaintenancePreferencesIfNecessary;
+- (void)didMaintenance;
+- (BOOL)detectAndCleanDuplicatesWithContext:(id)a0;
+- (void)_deleteDuplicatesOfShortcut:(id)a0 phrase:(id)a1 count:(long long)a2 withContext:(id)a3;
+- (void)importLegacyEntries;
+- (void)migrateTellurideData;
+- (void)migrateSundanceData;
+- (void)runLegacyMigration;
+
+@end

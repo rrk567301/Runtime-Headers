@@ -1,0 +1,15 @@
+@class NSString, PKAccountSupportTopicExplanation;
+
+@interface PKAccountSupportTopic : NSObject
+
+@property (readonly, copy, nonatomic) NSString *title;
+@property (readonly, copy, nonatomic) NSString *bodyText;
+@property (readonly, copy, nonatomic) NSString *businessChatTargetDialog;
+@property (readonly, copy, nonatomic) NSString *businessChatPage;
+@property (readonly, nonatomic) PKAccountSupportTopicExplanation *explanation;
+
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)initWithOtherTopicForAccount:(id)a0;
+
+@end

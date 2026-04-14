@@ -1,0 +1,86 @@
+@class ODRecord, NSMutableDictionary;
+
+@interface ODUFrameworkMCXRecord : NSObject {
+    ODRecord *mRecord;
+    NSMutableDictionary *mOverride;
+}
+
++ (id)mcxrecordWithRecord:(id)a0 withOverride:(id)a1;
++ (id)mcxrecordWithRecord:(id)a0;
++ (id)mcxrecordWithOverride:(id)a0;
+
+- (void)dealloc;
+- (unsigned int)uid;
+- (id)recordName;
+- (BOOL)isExternal;
+- (BOOL)isGroup;
+- (id)record;
+- (id)recordType;
+- (id)home;
+- (BOOL)isLocal;
+- (id)nodeName;
+- (id)uuidString;
+- (unsigned int)gid;
+- (BOOL)isUser;
+- (id)bestName;
+- (BOOL)isAdmin;
+- (id)picturePath;
+- (id)originalNodeName;
+- (id)override;
+- (BOOL)setValue:(id)a0 forAttribute:(id)a1;
+- (id)recordDetailsForAttribute:(id)a0;
+- (id)stringValuesForAttribute:(id)a0;
+- (id)dataValuesForAttribute:(id)a0;
+- (id)uniqueStringValuesForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0;
+- (id)firstValueForAttribute:(id)a0 withClass:(Class)a1;
+- (id)firstValueForAttributeIfString:(id)a0;
+- (id)firstValueForAttributeAsData:(id)a0;
+- (id)firstValueForAttributeIfXMLPList:(id)a0;
+- (id)firstValueForAttributeIfXMLArray:(id)a0;
+- (id)firstValueForAttributeIfXMLDictionary:(id)a0;
+- (BOOL)setMCXFlagsDictionary:(id)a0;
+- (BOOL)rawIsAdmin;
+- (BOOL)isComputer;
+- (BOOL)isComputerList;
+- (BOOL)isUserGroup;
+- (BOOL)isComputerGroup;
+- (BOOL)isWorkgroup;
+- (BOOL)isGroupWithMCXSettingsFlag;
+- (id)longName;
+- (id)gidString;
+- (id)uidString;
+- (void)generateUUIDandSID;
+- (id)rawUUIDString;
+- (id)rawNodeName;
+- (BOOL)rawIsLocal;
+- (id)mcxFlags;
+- (id)mcxFlagsDictionary;
+- (BOOL)mcxBoolFlag:(id)a0 withDefault:(BOOL)a1;
+- (BOOL)preventSimultaneousLogin;
+- (id)mcxSettings;
+- (BOOL)hasNetworkHome;
+- (id)homeLoc;
+- (id)originalHome;
+- (BOOL)hasNetworkOriginalHome;
+- (id)originalHomeLoc;
+- (id)timestampString;
+- (double)mcxTimestamp;
+- (BOOL)isMobileRecord;
+- (BOOL)isMobileUserAccount;
+- (BOOL)isMobileComputerAccount;
+- (BOOL)fromCache;
+- (BOOL)boolForAttribute:(id)a0 withDefault:(BOOL)a1;
+- (id)cachedTrustInfoArray;
+- (id)mcxRecordArrayForXMLAttribute:(id)a0;
+- (id)cachedGroups;
+- (id)cachedParents;
+- (id)cachedParentGroups;
+- (id)cachedLocalUserGroups;
+- (id)initWithRecord:(id)a0 withOverride:(id)a1;
+- (id)recordDetailsForAttributes:(id)a0;
+- (id)valuesForAttribute:(id)a0;
+- (BOOL)setValues:(id)a0 forAttribute:(id)a1;
+- (BOOL)removeValuesForAttribute:(id)a0;
+
+@end

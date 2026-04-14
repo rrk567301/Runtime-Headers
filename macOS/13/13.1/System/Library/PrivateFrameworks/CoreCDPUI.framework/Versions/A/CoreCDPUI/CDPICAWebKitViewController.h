@@ -1,0 +1,3 @@
+@interface CDPICAWebKitViewController : AKICAWebKitViewController
+
+@end

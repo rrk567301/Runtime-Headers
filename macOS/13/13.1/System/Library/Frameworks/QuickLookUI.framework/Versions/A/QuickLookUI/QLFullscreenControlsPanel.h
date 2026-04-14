@@ -1,0 +1,16 @@
+@class QLFullscreenController;
+
+@interface QLFullscreenControlsPanel : QLControlsPanel
+
+@property (weak) QLFullscreenController *fullscreenController;
+
+- (void).cxx_destruct;
+- (BOOL)accessibilityIsIgnored;
+- (id)accessibilityParentAttribute;
+- (BOOL)worksWhenModal;
+- (double)animationResizeTime:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)backingScaleFactor;
+- (id)_qlControllerCandidateForPreviewPanel:(id)a0;
+- (BOOL)_qlIgnoreWindowForPreviewPanel:(id)a0;
+
+@end

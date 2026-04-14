@@ -1,0 +1,31 @@
+@class NSView, NSTextField;
+
+@interface SiriUIReviewItemCell : SiriUIContentCollectionViewCell {
+    NSTextField *_commentLabel;
+    NSTextField *_authorLabel;
+    NSView *_ratingView;
+    struct UIOffset { double horizontal; double vertical; } _ratingOffset;
+}
+
+@property (nonatomic) long long characterLimit;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } contentInsets;
+
++ (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })_defaultEdgeInsets;
++ (long long)defaultCharacterLimit;
++ (id)_displayTextForComment:(id)a0 characterLimit:(long long)a1;
++ (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0 withReview:(id)a1 characterLimit:(long long)a2;
++ (id)_commentLabelFont;
++ (id)_authorFontAttribute;
++ (id)_authorDateFontAttribute;
+
+- (void).cxx_destruct;
+- (void)prepareForReuse;
+- (void)layout;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)configureWithReview:(id)a0 ratingView:(id)a1 offset:(struct UIOffset { double x0; double x1; })a2;
+- (void)_setComment:(id)a0;
+- (void)_setRatingView:(id)a0;
+- (void)_setAuthor:(id)a0 andDate:(id)a1 timeZoneId:(id)a2 hasRatingView:(BOOL)a3;
+- (id)_relativeStringFromDate:(id)a0;
+
+@end

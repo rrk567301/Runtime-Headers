@@ -1,0 +1,86 @@
+@class MPDocument, NSMutableDictionary, MPCluster, NSDate;
+
+@interface MPClusterController : NSObject {
+    NSMutableDictionary *mSlides;
+    NSMutableDictionary *mSlideClusters;
+    MPCluster *mAllSlidesCluster;
+    double mMinimumRequiredClusterRating;
+    MPDocument *mAuthoredDocument;
+    NSDate *mOldestSlideTimestamp;
+    NSDate *mNewestSlideTimestamp;
+}
+
++ (id)sharedController;
++ (void)releaseSharedController;
+
+- (void)dealloc;
+- (id)init;
+- (void)flush;
+- (void)setAuthoredDocument:(id)a0;
+- (id)allSlides;
+- (id)allSlidesSortedChronologically;
+- (void)resetAllUsageCounters;
+- (long long)addSlideForPath:(id)a0 withIndex:(long long)a1;
+- (void)addKeywords:(id)a0 forSlide:(id)a1;
+- (id)slideForPath:(id)a0;
+- (id)allSlidesSortedByUsage;
+- (id)allSlidesSortedByPaths:(id)a0;
+- (id)nextLeastUsedSlides:(long long)a0 forLayer:(id)a1 markAsUsed:(BOOL)a2;
+- (id)clusterSlidesSortedChronologically:(id)a0;
+- (id)clusterSlidesSortedByUserDefinedSortOrder:(id)a0 userDefinedSlideOrder:(id)a1;
+- (void)sortClusterSlidesChronologically:(id *)a0;
+- (id)clustersBasedOnOrderedPaths:(id)a0;
+- (void)flushClusters;
+- (id)findBestCluster:(id)a0;
+- (id)findBestCluster:(id)a0 withMaxEffectSize:(long long)a1 idealEffectSize:(long long)a2;
+- (id)findBestChronologicalCluster:(id)a0 startingWithSlide:(id)a1;
+- (id)findBestClusterBasedOnUserDefinedSlideOrder:(id)a0 startingWithSlide:(id)a1;
+- (void)removeAllSingleSlideClusters;
+- (void)updateYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateMonthClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateMonthOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateDayOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateHourOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateMinuteOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateRoundedFiveMinuteOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateRoundedFifteenMinuteOfYearClustersWithDate:(id)a0 ofSlide:(id)a1;
+- (void)updateAllSlidesClusterWithSlide:(id)a0;
+- (id)yearClusters;
+- (id)monthClusters;
+- (id)monthOfYearClusters;
+- (id)dayOfYearClusters;
+- (id)hourOfYearClusters;
+- (id)minuteOfYearClusters;
+- (id)roundedFiveMinuteOfYearClusters;
+- (id)roundedFifteenMinuteOfYearClusters;
+- (id)keywordClusters;
+- (id)locationClusters;
+- (id)userProvidedClusters;
+- (id)yearClusterForAssetAtPath:(id)a0;
+- (id)monthClusterForAssetAtPath:(id)a0;
+- (id)monthOfYearClusterForAssetAtPath:(id)a0;
+- (id)dayOfYearClusterForAssetAtPath:(id)a0;
+- (id)hourOfYearClusterForAssetAtPath:(id)a0;
+- (id)minuteOfYearClusterForAssetAtPath:(id)a0;
+- (id)roundedFiveMinuteOfYearClusterForAssetAtPath:(id)a0;
+- (id)roundedFifteenMinuteOfYearClusterForAssetAtPath:(id)a0;
+- (void)addPaths:(id)a0 toUserDefinedCluster:(id)a1;
+- (void)createLocationClustersForPaths:(id)a0;
+- (id)orderedAndPrioritizedSlideClusters;
+- (id)prioritizedSlideClustersDictionary;
+- (void)updateClusterRatings;
+- (void)updateRatingsForYearClusters;
+- (void)updateRatingsForMonthClusters;
+- (void)updateRatingsForMonthOfYearClusters;
+- (void)updateRatingsForDayOfYearClusters;
+- (void)updateRatingsForHourOfYearClusters;
+- (void)updateRatingsForMinuteOfYearClusters;
+- (void)updateRatingsForRoundedFiveMinuteOfYearClusters;
+- (void)updateRatingsForRoundedFifteenMinuteOfYearClusters;
+- (void)updateRatingsForKeywordClusters;
+- (void)updateRatingsForLocationClusters;
+- (void)dumpClustersStatistics;
+- (void)dumpSlidesStatistics;
+- (void)_removeAllSingleSlideClustersForClusterCategory:(id)a0;
+
+@end

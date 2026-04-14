@@ -1,0 +1,16 @@
+@interface MPSStateResourceList : NSObject {
+    struct ResourceListNode { void /* function */ **x0; struct ResourceListNode *x1; } *_list;
+}
+
++ (id)resourceList;
++ (id)resourceListWithTextureDescriptors:(id)a0;
++ (id)resourceListWithBufferSizes:(unsigned long long)a0;
+
+- (void)dealloc;
+- (id)debugDescription;
+- (id)init;
+- (void)appendTexture:(id)a0;
+- (void)appendTexture:(id)a0 format:(unsigned long long)a1;
+- (void)appendBuffer:(unsigned long long)a0;
+
+@end

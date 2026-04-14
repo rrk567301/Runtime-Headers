@@ -1,0 +1,29 @@
+@class HMUser, NSString, NSUUID, HMHomeManager;
+
+@interface HMIncomingHomeInvitation : HMHomeInvitation
+
+@property (weak, nonatomic) HMHomeManager *homeManager;
+@property (readonly, nonatomic) HMUser *inviter;
+@property (readonly, copy, nonatomic) NSString *homeName;
+@property (readonly, copy, nonatomic) NSUUID *homeUUID;
+
++ (BOOL)supportsSecureCoding;
++ (id)homeInvitationsFromEncodedData:(id)a0 homeManager:(id)a1;
++ (id)homeInvitationsFromData:(id)a0 homeManager:(id)a1;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (void)_unconfigure;
+- (BOOL)_mergeWithNewObject:(id)a0;
+- (void)_unconfigureContext;
+- (void)cancelInviteWithCompletionHandler:(id /* block */)a0;
+- (id)initWithInvitationData:(id)a0 homeManager:(id)a1;
+- (void)__configureWithContext:(id)a0 homeManager:(id)a1;
+- (void)ignoreInviteWithCompletionHandler:(id /* block */)a0;
+- (void)acceptInviteWithCompletionHandler:(id /* block */)a0;
+- (void)acceptInviteWithPresenceAuthStatus:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)reportJunkInviteWithCompletionHandler:(id /* block */)a0;
+- (BOOL)isForPKSharingMessageInvitationWithAppleSharingDict:(id)a0;
+
+@end

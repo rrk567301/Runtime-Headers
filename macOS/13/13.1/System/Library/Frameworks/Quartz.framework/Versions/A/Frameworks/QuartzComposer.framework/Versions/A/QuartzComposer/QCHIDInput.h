@@ -1,0 +1,43 @@
+@class NSString, GFList, QCBooleanPort;
+
+@interface QCHIDInput : QCRunLoopPatch {
+    QCBooleanPort *outputAvailable;
+    NSString *_deviceID;
+    BOOL _exclusive;
+    GFList *_elementPorts;
+    void *_hidDeviceInterface;
+    void *_queueInterface;
+    struct __CFRunLoopSource { } *_hidEventSource;
+    struct __CFDictionary { } *_cookies;
+    struct IONotificationPort { } *_notificationPort;
+    unsigned int _addNotification;
+    unsigned int _removeNotification;
+    BOOL _reset;
+}
+
++ (BOOL)allowsSubpatchesWithIdentifier:(id)a0;
++ (id)stateKeysWithIdentifier:(id)a0;
++ (Class)inspectorClassWithIdentifier:(id)a0;
++ (int)executionModeWithIdentifier:(id)a0;
++ (id)deviceIDList:(BOOL)a0;
++ (id)allElementsForDeviceID:(id)a0;
+
+- (void)dealloc;
+- (id)state;
+- (BOOL)setState:(id)a0;
+- (id)initWithIdentifier:(id)a0;
+- (id)deviceID;
+- (void)setDeviceID:(id)a0;
+- (void)_setUp;
+- (void)_cleanUp;
+- (BOOL)setup:(id)a0;
+- (void)cleanup:(id)a0;
+- (BOOL)execute:(id)a0 time:(double)a1 arguments:(id)a2;
+- (void)_processEvents;
+- (void)setExclusiveAccess:(BOOL)a0;
+- (BOOL)exclusiveAccess;
+- (void)_setNeedsReset;
+- (void)setDeviceElements:(id)a0;
+- (id)deviceElements;
+
+@end

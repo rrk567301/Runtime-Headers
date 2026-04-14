@@ -1,0 +1,14 @@
+@class NSNumber;
+
+@interface MTROtaSoftwareUpdateRequestorClusterProviderLocation : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *providerNodeID;
+@property (copy, nonatomic) NSNumber *endpoint;
+@property (copy, nonatomic) NSNumber *fabricIndex;
+
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+
+@end

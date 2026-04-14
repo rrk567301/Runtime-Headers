@@ -1,0 +1,23 @@
+@class NSView, NSImageView, NSTextField;
+
+@interface CLSNotificationBannerWindow : NSWindow
+
+@property (weak, nonatomic) NSView *contentView;
+@property (weak, nonatomic) NSView *iconContainerView;
+@property (weak, nonatomic) NSImageView *iconView;
+@property (weak, nonatomic) NSTextField *label;
+
++ (id)queue;
++ (id)bundle;
++ (id)semaphore;
++ (id)notificationBannerWithTitle:(id)a0 message:(id)a1;
+
+- (void).cxx_destruct;
+- (void)setIcon:(id)a0;
+- (id)icon;
+- (void)sendEvent:(id)a0;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 display:(BOOL)a1;
+- (void)showWithCompletionHandler:(id /* block */)a0;
+- (void)showForDuration:(double)a0 withCompletionHandler:(id /* block */)a1;
+
+@end

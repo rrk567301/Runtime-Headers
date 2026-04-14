@@ -1,0 +1,33 @@
+@class NSUUID, NSSet, HKCorrelationType, NSMutableDictionary;
+
+@interface HKCorrelation : HKSample {
+    NSMutableDictionary *_objects;
+}
+
+@property (readonly, getter=_UUID) NSUUID *UUID;
+@property (readonly) HKCorrelationType *correlationType;
+@property (readonly, copy) NSSet *objects;
+
++ (BOOL)supportsSecureCoding;
++ (BOOL)_isConcreteObjectClass;
++ (id)correlationWithType:(id)a0 startDate:(id)a1 endDate:(id)a2 objects:(id)a3;
++ (id)correlationWithType:(id)a0 startDate:(id)a1 endDate:(id)a2 objects:(id)a3 metadata:(id)a4;
++ (id)correlationWithType:(id)a0 startDate:(id)a1 endDate:(id)a2 objects:(id)a3 device:(id)a4 metadata:(id)a5;
++ (BOOL)_allowEmptyCorrelations;
+
+- (id)description;
+- (id)_init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)_allTypes;
+- (id)_validateWithConfiguration:(struct HKObjectValidationConfiguration { unsigned long long x0; unsigned int x1; })a0;
+- (void)_addCorrelatedObject:(id)a0;
+- (void)_addCorrelatedObjects:(id)a0;
+- (id)objectsForType:(id)a0;
+- (void)_filterCorrelatedObjectsWithFilterDictionary:(id)a0;
+- (BOOL)_correlatedObjectsMatchFilterDictionary:(id)a0;
+- (BOOL)_containsObjects;
+- (void)_removeAllCorrelatedObjects;
+
+@end

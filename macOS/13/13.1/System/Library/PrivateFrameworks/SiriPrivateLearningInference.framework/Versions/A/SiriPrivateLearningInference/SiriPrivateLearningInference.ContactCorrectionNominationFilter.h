@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.ContactCorrectionNominationFilter : _TtCs12_SwiftObject
+
+@end

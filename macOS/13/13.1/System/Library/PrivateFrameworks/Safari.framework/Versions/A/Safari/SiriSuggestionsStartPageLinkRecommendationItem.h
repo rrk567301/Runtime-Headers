@@ -1,0 +1,54 @@
+@class NSTextField, NSString, NSPressGestureRecognizer, NSView, NSVisualEffectView, StartPageViewItemVisualEffect, NSImage, NSLayoutConstraint, NSImageView, ClickGestureRecognizer;
+@protocol SiriSuggestionsStartPageLinkRecommendationDelegate;
+
+@interface SiriSuggestionsStartPageLinkRecommendationItem : NSCollectionViewItem <NSTextFieldDelegate, DraggableStartPageViewItem> {
+    NSPressGestureRecognizer *_longMousePressRecognizer;
+    ClickGestureRecognizer *_immediateActionRecognizer;
+    NSString *_previousText;
+    id _editingTerminationEventMonitor;
+    NSLayoutConstraint *_iconWidthConstraint;
+    NSLayoutConstraint *_textFieldHeightConstraint;
+    StartPageViewItemVisualEffect *_visualEffectBackground;
+    NSVisualEffectView *_iconEffectView;
+    NSImageView *_iconView;
+    NSImage *_unroundedImage;
+    NSImageView *_overlay;
+    NSView *_boxShadow;
+    BOOL _didBeginDrag;
+}
+
+@property (readonly, nonatomic) NSTextField *titleTextField;
+@property (weak, nonatomic) id<SiriSuggestionsStartPageLinkRecommendationDelegate> delegate;
+@property (nonatomic) BOOL allowsEditing;
+@property (nonatomic) BOOL usesCompactAppearance;
+@property (readonly, nonatomic) double descriptionTextFieldWidth;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)beginEditing;
+- (void).cxx_destruct;
+- (void)prepareForReuse;
+- (void)mouseDown:(id)a0;
+- (id)accessibilityRole;
+- (id)accessibilityLabel;
+- (BOOL)accessibilityPerformShowMenu;
+- (void)rightMouseDown:(id)a0;
+- (void)applyLayoutAttributes:(id)a0;
+- (void)loadView;
+- (void)controlTextDidEndEditing:(id)a0;
+- (void)cancelOperation:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)viewDidLoad;
+- (void)_endEditing;
+- (void)willBeginDragSession;
+- (void)willEndDragSession;
+- (void)_removeOverlay;
+- (void)_didRecognizeImmediateAction:(id)a0;
+- (void)setIconImage:(id)a0 backgroundColor:(id)a1;
+- (void)_updateTitleHeightConstraint;
+- (void)_registerForEditingTermination;
+- (void)_unregisterForEditingTermination;
+
+@end

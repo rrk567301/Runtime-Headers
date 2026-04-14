@@ -1,0 +1,98 @@
+@class NSString, NSArray, AVAssetResourceLoader, NSURL, NSUUID, AVURLAssetInternal;
+
+@interface AVURLAsset : AVAsset <AVContentKeyRecipient, AVContentKeyRecipientInternal> {
+    AVURLAssetInternal *_URLAsset;
+}
+
+@property (readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property (readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property (readonly, nonatomic) NSString *cacheKey;
+@property (readonly, nonatomic) NSArray *variants;
+@property (readonly, nonatomic) AVAssetResourceLoader *resourceLoader;
+@property (readonly, nonatomic) BOOL mayRequireContentKeysForMediaDataProcessing;
+@property (readonly, nonatomic) BOOL mayRequireContentKeysForMediaDataProcessing;
+@property (readonly, copy, nonatomic) NSURL *URL;
+@property (readonly, nonatomic) NSUUID *httpSessionIdentifier;
+
++ (id)_objectWithItemProviderFileURL:(id)a0 typeIdentifier:(id)a1 isInPlace:(BOOL)a2 error:(id *)a3;
++ (id)readableTypeIdentifiersForItemProvider;
++ (id)objectWithItemProviderData:(id)a0 typeIdentifier:(id)a1 error:(id *)a2;
++ (id)writableTypeIdentifiersForItemProvider;
++ (long long)itemProviderVisibilityForRepresentationWithTypeIdentifier:(id)a0;
++ (long long)_preferredRepresentationForItemProviderWritableTypeIdentifier:(id)a0;
++ (long long)_preferredRepresentationForItemProviderReadableTypeIdentifier:(id)a0;
++ (BOOL)isPlayableExtendedMIMEType:(id)a0;
++ (id)URLAssetWithURL:(id)a0 options:(id)a1;
++ (id)_avfValidationPlist;
++ (id)_figStreamingUTIs;
++ (id)_figStreamingMIMETypes;
++ (id)_figFileMIMETypes;
++ (id)_figFilePathExtensions;
++ (id)_figHFSFileTypes;
++ (id)_figFileUTIs;
++ (id)_figMIMETypes;
++ (id)UTTypeIDArrayFromUTTypeArray:(id)a0;
++ (id)_streamingUTTypes;
++ (id)_fileUTTypes;
++ (id)_UTTypes;
++ (id)audiovisualTypes;
++ (id)audiovisualMIMETypes;
++ (id)_initializationOptionsClasses;
++ (id)_getFigAssetCreationOptionsFromURLAssetInitializationOptions:(id)a0 assetLoggingIdentifier:(id)a1 figAssetCreationFlags:(unsigned long long *)a2 error:(id *)a3;
++ (id)instanceIdentifierMapTable;
++ (void)setUserInfoObject:(id)a0 forURLAsset:(id)a1;
++ (id)userInfoObjectForURLAsset:(id)a0;
++ (id)userInfoObjectForURLAssetInstanceIdentifier:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (id)_loadFileRepresentationOfTypeIdentifier:(id)a0 forItemProviderCompletionHandler:(id /* block */)a1;
+- (id)loadDataWithTypeIdentifier:(id)a0 forItemProviderCompletionHandler:(id /* block */)a1;
+- (id)resolvedURL;
+- (unsigned long long)downloadToken;
+- (void)expire;
+- (id)initWithURL:(id)a0 options:(id)a1;
+- (id)tracks;
+- (void)cancelLoading;
+- (void)_addFigAssetNotifications;
+- (void)_removeFigAssetNotifications;
+- (id)_assetInspector;
+- (id)_assetInspectorLoader;
+- (struct OpaqueFigFormatReader { } *)_formatReader;
+- (struct OpaqueFigPlaybackItem { } *)_playbackItem;
+- (Class)_classForTrackInspectors;
+- (id)_absoluteURL;
+- (unsigned long long)referenceRestrictions;
+- (id)lyrics;
+- (void)_tracksDidChange;
+- (BOOL)_requiresInProcessOperation;
+- (BOOL)_hasResourceLoaderDelegate;
+- (id)assetCache;
+- (id)initWithFileURL:(id)a0 offset:(long long)a1 length:(long long)a2 options:(id)a3;
+- (id)_errorForFigNotificationPayload:(struct __CFDictionary { } *)a0 key:(struct __CFString { } *)a1;
+- (void)_ensureAssetDownloadCache;
+- (void)_setAssetInspectorLoader:(id)a0;
+- (Class)_classForFigAssetInspectorLoader;
+- (Class)_classForAssetTracks;
+- (id)creationOptions;
+- (id)contentKeySpecifiersEligibleForPreloading;
+- (id)_managedAssetCache;
+- (id)identifyingTagClass;
+- (id)identifyingTag;
+- (id)originalNetworkContentURL;
+- (id)downloadDestinationURL;
+- (id)SHA1Digest;
+- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
+- (BOOL)_shouldPrepareToOptimizeForExclusivePlayback;
+- (BOOL)_clientURLLoadingRepresentsAccurateNetworkStatistics;
+- (id)_resourceLoaderWithRemoteHandlerContext:(id)a0;
+- (void)_removeUserInfoObject;
+- (void)_setUserInfoObject:(id)a0;
+- (int)_attachToContentKeySession:(id)a0 contentKeyBoss:(struct CMBaseObject { } *)a1 failedSinceAlreadyAttachedToAnotherSession:(BOOL *)a2;
+- (id)contentKeySession;
+- (BOOL)_attachedToExternalContentKeySession;
+- (id)_installHandlerForNSURLSessionConfiguration:(id)a0 queue:(id)a1;
+- (id)_serializableCreationOptions;
+
+@end

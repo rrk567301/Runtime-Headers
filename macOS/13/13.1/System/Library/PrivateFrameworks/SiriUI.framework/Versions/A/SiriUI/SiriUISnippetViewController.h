@@ -1,0 +1,98 @@
+@class NSView, NSViewController, NSString, SAUIConfirmationOptions, NSArray, NSAttributedString, SAUIAppPunchOut;
+@protocol SiriUISnippetViewControllerDelegate, SiriUIReusableView;
+
+@interface SiriUISnippetViewController : SiriUIBaseSnippetViewController <NSCollectionViewDelegate> {
+    NSView<SiriUIReusableView> *_headerView;
+    NSView<SiriUIReusableView> *_footerView;
+    NSView<SiriUIReusableView> *_transparentHeaderView;
+    NSView<SiriUIReusableView> *_transparentFooterView;
+}
+
+@property (nonatomic, getter=_willAnimateConfirmation, setter=_setWillAnimateConfirmation:) BOOL willAnimateConfirmation;
+@property (nonatomic, getter=_willAnimateCancellation, setter=_setWillAnimateCancellation:) BOOL willAnimateCancellation;
+@property (retain, nonatomic, getter=_previousConfirmationOptions, setter=_setPreviousConfirmationOptions:) SAUIConfirmationOptions *previousConfirmationOptions;
+@property (nonatomic) BOOL showHeaderChevron;
+@property (nonatomic, getter=_isProvisional, setter=_setProvisional:) BOOL provisional;
+@property (weak, nonatomic) id<SiriUISnippetViewControllerDelegate> delegate;
+@property (copy, nonatomic) NSViewController *supplementaryHeaderViewController;
+@property (copy, nonatomic) NSString *summaryTitle;
+@property (copy, nonatomic) NSString *summaryImagePath;
+@property (nonatomic) BOOL hasPlatter;
+@property (nonatomic) BOOL hasSash;
+@property (nonatomic) BOOL showAll;
+@property (nonatomic) unsigned long long minimumVisibleRowCount;
+@property (readonly, nonatomic) BOOL canBeShortenedWhenStashed;
+@property (nonatomic, getter=isStashed) BOOL stashed;
+@property (copy, nonatomic) NSAttributedString *attributedTitle;
+@property (copy, nonatomic) NSString *subtitle;
+@property (copy, nonatomic) NSAttributedString *attributedSubtitle;
+@property (nonatomic) BOOL topKeylineHidden;
+@property (copy, nonatomic) NSString *navigationTitle;
+@property (nonatomic, getter=isNavigating) BOOL navigating;
+@property (copy, nonatomic) NSArray *requestContext;
+@property (retain, nonatomic) SAUIAppPunchOut *headerPunchOut;
+@property (retain, nonatomic) SAUIAppPunchOut *snippetPunchOut;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } defaultViewInsets;
+@property (nonatomic) BOOL wantsConfirmationInsets;
+@property (readonly, nonatomic) BOOL isFullWindowWidth;
+@property (nonatomic) BOOL isTransparent;
+@property (nonatomic, getter=isLoading) BOOL loading;
+@property (nonatomic, getter=isConfirmed) BOOL confirmed;
+@property (nonatomic, getter=isCancelled) BOOL cancelled;
+@property (readonly, nonatomic, getter=isVirgin) BOOL virgin;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isDragInProgress;
+
+- (void).cxx_destruct;
+- (void)prepareForReuse;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)reloadData;
+- (id)_headerView;
+- (void)collectionView:(id)a0 draggingSession:(id)a1 willBeginAtPoint:(struct CGPoint { double x0; double x1; })a2 forItemsAtIndexPaths:(id)a3;
+- (void)collectionView:(id)a0 draggingSession:(id)a1 endedAtPoint:(struct CGPoint { double x0; double x1; })a2 dragOperation:(unsigned long long)a3;
+- (id)_privateDelegate;
+- (id)_footerView;
+- (void)cancelButtonTapped:(id)a0;
+- (double)desiredHeightForHeaderView;
+- (double)desiredHeightForFooterView;
+- (double)desiredHeightForTransparentHeaderView;
+- (double)desiredHeightForTransparentFooterView;
+- (id)_transparentHeaderView;
+- (id)_transparentFooterView;
+- (void)configureForConversationStorable:(id)a0;
+- (void)configureReusableHeaderView:(id)a0;
+- (Class)headerViewClass;
+- (void)siriDidLayoutSnippetView;
+- (Class)transparentFooterViewClass;
+- (void)configureReusableTransparentFooterView:(id)a0;
+- (Class)transparentHeaderViewClass;
+- (Class)footerViewClass;
+- (BOOL)removedAfterDialogProgresses;
+- (void)_setVirgin:(BOOL)a0;
+- (long long)_pinAnimationType;
+- (long long)_insertionAnimation;
+- (long long)_replacementAnimation;
+- (void)headerTapped:(id)a0;
+- (void)confirmButtonTapped:(id)a0;
+- (BOOL)isMemoryIntensive;
+- (BOOL)_hasConfirmationOrCancelledInsets;
+- (BOOL)_hasConfirmationButtons;
+- (void)_snippetViewControllerWillBeRemoved;
+- (id)alternativeAceCommandsToPerformIfNotExposingViews;
+- (void)willCancel;
+- (void)willConfirm;
+- (void)siriWillLayoutSnippetView;
+- (void)setManageBackgroundColor:(BOOL)a0;
+- (void)_cellDidLayoutSubviews;
+- (void)configureReusableFooterView:(id)a0;
+- (void)configureReusableTransparentHeaderView:(id)a0;
+- (id)_createReusableViewIfNeededWithClass:(Class)a0;
+- (void)_snippetPunchOutButtonTapped;
+- (unsigned long long)snippetDragSourceTypes;
+- (void)backNavigationButtonPressed;
+
+@end

@@ -1,0 +1,18 @@
+@interface CDSession : NSObject
+
+@property (readonly) unsigned long long clientId;
+
++ (id)sharedSessionWithClientId:(unsigned long long)a0;
+
+- (id)init;
+- (id)initWithClientId:(unsigned long long)a0;
+- (id)initWithClientId:(unsigned long long)a0 enableCaching:(BOOL)a1;
+- (id)attributeNamesWithError:(id *)a0;
+- (id)budgetNamesWithError:(id *)a0;
+- (id)attributeForName:(id)a0 type:(long long)a1 error:(id *)a2;
+- (id)budgetForName:(id)a0 type:(long long)a1 error:(id *)a2;
+- (id)registerAttributeWithName:(id)a0 type:(long long)a1 dataProtectionClass:(id)a2 error:(id *)a3;
+- (id)representationStringFromAttribute:(id)a0 value:(id)a1 error:(id *)a2;
+- (id)getDevices;
+
+@end

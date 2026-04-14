@@ -1,0 +1,82 @@
+@class AMSBag, NSObject, NSString, AMSProcessInfo, NSDate, IMMutableBagKeySet, AMSSnapshotBag;
+@protocol OS_dispatch_queue;
+
+@interface IMURLBag : NSObject <AMSBagProtocol>
+
+@property (retain, nonatomic) AMSBag *liveBag;
+@property (retain) AMSSnapshotBag *currentSnapshot;
+@property (retain) IMMutableBagKeySet *keySet;
+@property (retain) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic) unsigned long long failedUpdateAttempts;
+@property (nonatomic) long long downloadLimitPodcast;
+@property (nonatomic) long long downloadLimitVideoPodcast;
+@property (nonatomic) double libraryShowFetchThresholdDefaultValue;
+@property (readonly, getter=isExpired) BOOL expired;
+@property (readonly) NSDate *expirationDate;
+@property (readonly, copy) NSString *profile;
+@property (readonly, copy) NSString *profileVersion;
+@property (readonly, copy, nonatomic) AMSProcessInfo *processInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)registerBagKeys:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)boolForKey:(id)a0;
+- (id)URLForKey:(id)a0;
+- (id)stringForKey:(id)a0;
+- (id)arrayForKey:(id)a0;
+- (id)dictionaryForKey:(id)a0;
+- (id)integerForKey:(id)a0;
+- (id)doubleForKey:(id)a0;
+- (id)metricsDictionary;
+- (id)bag;
+- (void)createSnapshotWithCompletion:(id /* block */)a0;
+- (id)trustedDomains;
+- (id)metricsURL;
+- (id)mescalCertificateURL;
+- (id)mescalSetupURL;
+- (id)mescalSignedActions;
+- (id)mescalSignSapRequests;
+- (id)mescalSignSapResponses;
+- (id)personalizedLookupURL;
+- (id)unpersonalizedLookupURL;
+- (void)updateWithNewBag:(id)a0;
+- (void)scheduleBagUpdateOnDate:(id)a0;
+- (void)updateBagOnCurrentQueue;
+- (void)reportAConcernURLWithCompletion:(id /* block */)a0;
+- (id)metricsSessionDurationPageRender;
+- (id)metricsSamplingPercentageUsersPageRender;
+- (id)metricsSamplingPercentageUsersLog;
+- (id)metricsSessionDurationLog;
+- (id)metricsImpressionableThreshold;
+- (id)metricsImpressionableViewablePercentage;
+- (id)metricsFastImpressionTimeout;
+- (id)backgroundFetchInterval;
+- (id)libraryShowFetchThreshold;
+- (id)podcastsMediaAPIHostUrl;
+- (id)mediaTaskCountryCode;
+- (id)tokenServiceUrl;
+- (id)personalizedChannelPollingInterval;
+- (id)podcastsLicenseCert;
+- (id)podcastsLicenseStreamingStart;
+- (id)podcastsLicenseStreamingRenew;
+- (id)podcastsLicenseStreamingStop;
+- (id)podcastsLicenseOfflineStart;
+- (id)podcastsLicenseOfflineRenew;
+- (id)podcastsLicenseOfflineStop;
+- (id)podcastsLicenseOfflineStopNonce;
+- (id)pushNotificationRegistration;
+- (id)reportAConcernURL;
+- (unsigned long long)explicitContentBadgeTreatment;
+- (id)storefrontSupportsColdStart;
+- (id)coldStartLandOnListenNow;
+- (id)syncValueForKey:(id)a0;
+- (id)syncStringForKey:(id)a0;
+- (void)_registerBagKeysIfNeeded;
+
+@end

@@ -1,0 +1,86 @@
+@class CBHIDEventManager, NSMutableDictionary, NightModeControl, SLSBrightnessControlClient, NSString, NSObject, HIDManager;
+@protocol OS_os_log, OS_dispatch_queue, OS_dispatch_source;
+
+@interface BLControl : NSObject {
+    NSObject<OS_os_log> *_logHandle;
+    NightModeControl *_nightModeControl;
+    NSObject<OS_dispatch_queue> *_queue;
+    id /* block */ _callback;
+    NSObject<OS_dispatch_source> *_CDInitTimer;
+    BOOL _CDReady;
+    unsigned int _pmRootDomainService;
+    unsigned long long _userActiveNotificationHandle;
+    unsigned int _clamshellNotification;
+    struct IONotificationPort { } *_clamshellNotifyPort;
+    BOOL _clamshellClosed;
+    BOOL _ecoModeState;
+    int _ecoModeNotificationToken;
+    id /* block */ _ecoModeNotificationHandler;
+    NSMutableDictionary *_displayContainers;
+    NSMutableDictionary *_keyboardContainers;
+    HIDManager *_keyboardBacklightHIDManager;
+    BOOL _userActive;
+    SLSBrightnessControlClient *_SLSClient;
+    NSString *_currentUser;
+    long long _displayState;
+    unsigned char _displayPowerState;
+    CBHIDEventManager *_hidEventManager;
+    struct __SCDynamicStore { } *_SCDynamicStore;
+    struct { long long x0; void *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *_SCDynamicStoreContext;
+    unsigned long long _chargerState;
+    BOOL _nsPresetDisable;
+}
+
++ (unsigned long long)getCBPowerEventForSLSPowerEvent:(unsigned char)a0;
++ (long long)getCBDisplaysLogicalStateForSLSLogicalState:(long long)a0;
+
+- (void)dealloc;
+- (id)init;
+- (BOOL)start;
+- (void)stop;
+- (id)copyPropertyInternalForKey:(id)a0;
+- (id)copyIdentifiers;
+- (void)registerNotificationBlock:(id /* block */)a0;
+- (id)copyStatusInfo;
+- (void)updateClamshellState:(BOOL)a0;
+- (void)addClientsToHIDEventManager;
+- (id)copyPropertyWithKey:(id)a0 client:(id)a1;
+- (id)copyPropertyWithSimpleKey:(id)a0 client:(id)a1;
+- (BOOL)setInternalPropertyWithKey:(id)a0 property:(id)a1;
+- (BOOL)setPropertyWithKey:(id)a0 property:(id)a1 client:(id)a2;
+- (BOOL)_setPropertyWithKey:(id)a0 property:(id)a1 client:(id)a2;
+- (BOOL)setPropertyWithSimpleKey:(id)a0 property:(id)a1 client:(id)a2;
+- (BOOL)userChange:(id)a0;
+- (BOOL)openSKLClient;
+- (void)closeSKLClient;
+- (void)handleSKLClientNotificationWithType:(unsigned long long)a0 andPayload:(id)a1;
+- (void)displayPowerStateUpdate:(unsigned char)a0;
+- (void)displayLogicalStateUpdate:(long long)a0;
+- (void)handleSkyLightOnline;
+- (void)handleSkyLightOffline;
+- (BOOL)addDisplayContainerForBrightnessControl:(id)a0;
+- (BOOL)removeDisplayContainerForBrightnessControl:(id)a0;
+- (void)clearDisplaySet;
+- (void)callBlockWithProperty:(id)a0 value:(id)a1;
+- (void)updatePresetConfiguration;
+- (id)copyDisplayList;
+- (id)copyDisplayInfo;
+- (BOOL)setupNightShift;
+- (void)teardownNightShift;
+- (void)handleClamshellStateChange:(BOOL)a0;
+- (void)startClamshellMonitoring;
+- (void)stopClamshellMonitoring;
+- (void)startUserActivityMonitoring;
+- (void)stopUserActivityMonitoring;
+- (void)handleUserIsActiveStateChange:(BOOL)a0;
+- (void)startChargerStateMonitoring;
+- (void)stopChargerStateMonitoring;
+- (void)chargerStateChanged;
+- (unsigned long long)retrieveChargerState;
+- (void)startEcoModeStateMonitoring;
+- (void)stopEcoModeStateMonitoring;
+- (BOOL)initKeyboardBacklightHIDManager;
+- (void)keyboardBacklightHIDDeviceArrived:(id)a0;
+- (void)keyboardBacklightHIDDeviceRemoved:(id)a0;
+
+@end

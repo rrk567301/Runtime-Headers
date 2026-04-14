@@ -1,0 +1,45 @@
+@class NSSet, NSString, NSURL, NSOperationQueue, PLBackgroundJobService, PLLazyObject;
+
+@interface PLServerPhotoLibraryBundle : PLPhotoLibraryBundle <NSFilePresenter> {
+    Class _libraryServicesDelegateClass;
+    PLBackgroundJobService *_backgroundJobService;
+    NSOperationQueue *_presentedItemOperationQueue;
+    PLLazyObject *_lazyTouchCoalescer;
+}
+
+@property (readonly, copy) NSURL *presentedItemURL;
+@property (readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property (readonly, copy) NSURL *primaryPresentedItemURL;
+@property (readonly) NSSet *observedPresentedItemUbiquityAttributes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)close;
+- (void).cxx_destruct;
+- (void)relinquishPresentedItemToReader:(id /* block */)a0;
+- (void)relinquishPresentedItemToWriter:(id /* block */)a0;
+- (void)savePresentedItemChangesWithCompletionHandler:(id /* block */)a0;
+- (void)accommodatePresentedItemDeletionWithCompletionHandler:(id /* block */)a0;
+- (void)presentedItemDidMoveToURL:(id)a0;
+- (void)accommodatePresentedSubitemDeletionAtURL:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)shouldRelinquishToWriterOfSubitemAtURL:(id)a0;
+- (void)touch;
+- (void)shutdownWithReason:(id)a0;
+- (id)transferAssets:(id)a0 toBundle:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (id)transferPersons:(id)a0 toBundle:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (id)newAssetsdClient;
+- (id)newChangePublisher;
+- (id)newLibraryServicesManager;
+- (id)newBoundAssetsdServicesTable;
+- (id)boundAssetsdServices;
+- (BOOL)bindAssetsdService:(id)a0 error:(id *)a1;
+- (void)unbindAssetsdService:(id)a0;
+- (id)initWithLibraryURL:(id)a0 bundleController:(id)a1 backgroundJobService:(id)a2 libraryServicesDelegateClass:(Class)a3;
+- (id)_newTouchCoalescer;
+- (void)_touch;
+- (void)invalidateClientConnectionsWithReason:(id)a0;
+- (void)clearShutdownReason;
+
+@end

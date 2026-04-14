@@ -1,0 +1,9 @@
+@interface KNPdfGridExporter : KNPdfExporter
+
+- (id)initWithDocumentRoot:(id)a0;
+- (BOOL)incrementPage;
+- (BOOL)drawCurrentPageInContext:(struct CGContext { } *)a0 viewScale:(double)a1 unscaledClipRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 createPage:(BOOL)a3;
+- (void)createPage:(BOOL)a0 inContext:(struct CGContext { } *)a1 withRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectBySubtractingPageMarginsFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+
+@end

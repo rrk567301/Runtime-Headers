@@ -1,0 +1,40 @@
+@class NSArray, NSString, NSObject;
+@protocol CRKASMRoster, CRKASMUserFetching, CRKASMRosterProviding;
+
+@interface CRKASMSuspendableRosterProvider : NSObject <CRKASMUserFetching, CRKASMUserDirectory, CRKASMUserDirectoryIterator, CRKASMRosterProviding>
+
+@property (readonly, nonatomic) id /* block */ generator;
+@property (retain, nonatomic) NSObject<CRKASMRosterProviding> *underlyingRosterProvider;
+@property (retain, nonatomic) id<CRKASMRoster> roster;
+@property (nonatomic, getter=isPopulated) BOOL populated;
+@property (copy, nonatomic) NSArray *locationsWithManagePermissions;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<CRKASMUserFetching> userFetcher;
+
+- (void)dealloc;
+- (void)resume;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)suspend;
+- (void)refresh;
+- (id)initWithGenerator:(id /* block */)a0;
+- (void)fetchASMUsersWithIdentifiers:(id)a0 completion:(id /* block */)a1;
+- (id)observedKeyPaths;
+- (void)createCourseWithProperties:(id)a0 completion:(id /* block */)a1;
+- (void)updateCourseWithIdentifier:(id)a0 properties:(id)a1 completion:(id /* block */)a2;
+- (BOOL)ingestCertificates:(id)a0 forTrustedUserIdentifier:(id)a1 error:(id *)a2;
+- (void)fetchNextUsersWithCompletion:(id /* block */)a0;
+- (void)removeCourseWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (id)studentDirectoryForLocationIDs:(id)a0;
+- (id)instructorDirectoryForLocationIDs:(id)a0;
+- (id)iteratorForSearchString:(id)a0 sortingGivenNameFirst:(BOOL)a1 pageSize:(long long)a2;
+- (BOOL)hasRosterProvider;
+- (id)noRosterProviderError;
+- (void)latchDefaultValues;
+- (void)startObservingUnderlyingProvider;
+- (void)stopObservingUnderlyingProvider;
+
+@end

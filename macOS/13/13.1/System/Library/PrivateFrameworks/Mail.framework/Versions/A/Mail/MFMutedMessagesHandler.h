@@ -1,0 +1,9 @@
+@interface MFMutedMessagesHandler : NSObject
+
++ (void)handleMutedMessages:(id)a0 store:(id)a1;
++ (void)handleMessages:(id)a0 store:(id)a1;
++ (void)handleMessages:(id)a0 changeManager:(id)a1;
++ (void)setArchiveOrDeleteMutedMessages:(BOOL)a0;
++ (BOOL)archiveOrDeleteMutedMessages;
+
+@end

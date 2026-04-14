@@ -1,0 +1,26 @@
+@class NSData, MTSchemaMTError;
+
+@interface MTSchemaMTBatchRequestFailed : SISchemaInstrumentationMessage {
+    struct { unsigned char numParagraphFailures : 1; } _has;
+}
+
+@property (nonatomic) unsigned int numParagraphFailures;
+@property (nonatomic) BOOL hasNumParagraphFailures;
+@property (retain, nonatomic) MTSchemaMTError *error;
+@property (nonatomic) BOOL hasError;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteNumParagraphFailures;
+- (void)deleteError;
+
+@end

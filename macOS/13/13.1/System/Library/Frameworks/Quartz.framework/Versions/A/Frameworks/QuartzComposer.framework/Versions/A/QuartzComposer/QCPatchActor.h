@@ -1,0 +1,81 @@
+@class QCInspector, NSView, QCPatch, NSTableColumn, QCTableView;
+
+@interface QCPatchActor : GFNodeActor {
+    NSView *noSettingsView;
+    NSView *noPublishingView;
+    NSView *notApplicableView;
+    NSView *noParametersView;
+    NSView *publishingView;
+    QCTableView *inputsTableView;
+    QCTableView *outputsTableView;
+    NSTableColumn *_inputsKeyColumn;
+    NSTableColumn *_outputsKeyColumn;
+    QCPatch *_currentPatch;
+    QCInspector *_currentInspector;
+    void *_unused2[4];
+}
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)init;
+- (long long)numberOfRowsInTableView:(id)a0;
+- (id)tableView:(id)a0 objectValueForTableColumn:(id)a1 row:(long long)a2;
+- (void)tableView:(id)a0 setObjectValue:(id)a1 forTableColumn:(id)a2 row:(long long)a3;
+- (unsigned long long)tableView:(id)a0 validateDrop:(id)a1 proposedRow:(long long)a2 proposedDropOperation:(unsigned long long)a3;
+- (BOOL)tableView:(id)a0 acceptDrop:(id)a1 row:(long long)a2 dropOperation:(unsigned long long)a3;
+- (BOOL)tableView:(id)a0 shouldEditTableColumn:(id)a1 row:(long long)a2;
+- (BOOL)tableView:(id)a0 writeRows:(id)a1 toPasteboard:(id)a2;
+- (struct CGSize { double x0; double x1; })sizeForNode:(id)a0;
+- (id)_portForPoint:(struct CGPoint { double x0; double x1; })a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 outBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a3;
+- (id)portForPoint:(struct CGPoint { double x0; double x1; })a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (struct CGPoint { double x0; double x1; })pointForPort:(id)a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)drawNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 view:(id)a2;
+- (BOOL)trackMouse:(id)a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 view:(id)a3;
+- (id)menuForNode:(id)a0 view:(id)a1;
+- (id)setupInspectorViewsForNode:(id)a0;
+- (void)resetInspectorViews;
+- (id)tooltipStringForPoint:(struct CGPoint { double x0; double x1; })a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 tooltipBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a3;
+- (id)_titleTextAttributesForNode:(id)a0;
+- (id)_portTextAttributesForNode:(id)a0;
+- (id)_colorForNode:(id)a0;
+- (void)_makeCGPathForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (struct CGColor { } *)_overlayColorForNode:(id)a0 view:(id)a1;
+- (id)_portIsConnected:(id)a0 view:(id)a1;
+- (void)_setLayer:(id)a0;
+- (void)_updatedParameters:(id)a0;
+- (void)_updatedPorts:(id)a0;
+- (void)_updatedState:(id)a0;
+- (void)_explodeSubgraph:(id)a0;
+- (void)_parent:(id)a0;
+- (void)_local:(id)a0;
+- (void)_external:(id)a0;
+- (void)_refactor:(id)a0;
+- (BOOL)pointInConsumerOrderRect:(struct CGPoint { double x0; double x1; })a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (BOOL)pointInTitleRect:(struct CGPoint { double x0; double x1; })a0 inNode:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)setTitle:(id)a0 forNode:(id)a1;
+- (id)inspectorForPatch:(id)a0;
+- (id)tableView:(id)a0 portForRow:(long long)a1;
+- (id)parametersViewForPatch:(id)a0;
+- (id)parametersViewForPatch:(id)a0;
+- (void)_drawTitle:(id)a0 inContext:(struct CGContext { } *)a1 atPoint:(struct CGPoint { double x0; double x1; })a2 withAttributes:(id)a3;
+- (void)_drawString:(id)a0 inContext:(struct CGContext { } *)a1 atPoint:(struct CGPoint { double x0; double x1; })a2 withAttributes:(id)a3;
+- (id)_patchTypeTextAttributesForNode:(id)a0;
+- (void)_makeSelectionPathForNode:(id)a0 border:(float)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 inContext:(struct CGContext { } *)a3;
+- (void)_drawBackgroundGradientLayerForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 reflectionHeight:(double)a2 inContext:(struct CGContext { } *)a3;
+- (void)_drawHighLightForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (void)_drawSelectionForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (void)_drawNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (double)_drawBadgeForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (double)_drawOrderForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (void)_drawTitleForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inContext:(struct CGContext { } *)a2;
+- (void)_drawNameForPort:(id)a0 node:(id)a1 atPoint:(struct CGPoint { double x0; double x1; })a2 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 inContext:(struct CGContext { } *)a4;
+- (struct CGLayer { } *)_createPortRingWithColor:(struct CGColor { } *)a0 inContext:(struct CGContext { } *)a1 zoom:(double)a2;
+- (void)_drawPortsForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 view:(id)a2 inContext:(struct CGContext { } *)a3;
+- (void)_drawPortColorsForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 view:(id)a2 inContext:(struct CGContext { } *)a3;
+- (void)_drawOverlayForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 stroke:(BOOL)a2 view:(id)a3 inContext:(struct CGContext { } *)a4;
+- (void)_drawOverlayForNode:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 view:(id)a2 inContext:(struct CGContext { } *)a3;
+- (struct { unsigned char x0[16]; } *)nodeMD5List:(id)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 view:(id)a2 zoom:(double)a3 outCount:(unsigned long long *)a4;
+- (BOOL)dragsOnPortForNode:(id)a0;
+
+@end

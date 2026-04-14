@@ -1,0 +1,98 @@
+@class NSObject, NSString, NSMutableString, NSMutableSet, NSMutableDictionary, AnalyticsWorkspace, ImpoExpoService;
+@protocol OS_dispatch_queue, CLIPSShimDelegate;
+
+@interface CLIPSShim : NSObject {
+    AnalyticsWorkspace *_clipsWorkspace;
+    ImpoExpoService *_ieService;
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (nonatomic) unsigned int strongAddressType;
+@property (nonatomic) void *environment;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } consoleNameRegex;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } dumpStringRegex;
+@property (retain, nonatomic) NSMutableString *dumpedString;
+@property (retain, nonatomic) NSMutableString *consoleContents;
+@property (retain, nonatomic) NSString *currentCommand;
+@property (nonatomic) unsigned long long commandStringLoc;
+@property (retain, nonatomic) NSMutableSet *clipsHeldObjects;
+@property (retain, nonatomic) NSMutableDictionary *invocationMap;
+@property (retain, nonatomic) NSMutableDictionary *pendingOTAUpdates;
+@property (weak, nonatomic) id<CLIPSShimDelegate> delegate;
+@property (readonly, nonatomic) NSMutableDictionary *modules;
+
++ (id)sharedInstance;
++ (struct _CCCryptor { } *)cryptor;
++ (id)decodeAndInflateCLIPSString:(id)a0;
++ (id)decryptCLIPSData:(id)a0 forModule:(id)a1;
++ (id)dataSectionNameForModule:(id)a0;
++ (id)createDecryptedCLPData:(const void *)a0 length:(unsigned long long)a1;
+
+- (void)dealloc;
+- (id)init;
+- (long long)run;
+- (void).cxx_destruct;
+- (void)setQueue:(id)a0;
+- (void)reset;
+- (void)clear;
+- (void)log:(id)a0;
+- (void)reportError:(id)a0;
+- (long long)run:(long long)a0;
+- (long long)memoryUsed;
+- (void)retractFact:(void *)a0;
+- (void)deactivateModule:(id)a0;
+- (BOOL)initializeWorkspace;
+- (id)currentRuleName;
+- (void)setCommandString:(id)a0;
+- (id)objectFromMultifieldArg:(void *)a0 start:(long long)a1 end:(long long)a2;
+- (id)objectForDO:(struct dataObject { void *x0; unsigned short x1; void *x2; long long x3; long long x4; struct dataObject *x5; } *)a0;
+- (void)registerCallbackFunction:(id)a0 selector:(SEL)a1 target:(id)a2;
+- (void)addCallbackInvocation:(id)a0 invocation:(id)a1;
+- (void)removeCallbackInvocation:(id)a0;
+- (void *)addObjectToEnvironment:(id)a0;
+- (id)consoleBuffer;
+- (void)logMemoryStatistics:(id)a0;
+- (void)logMemoryStatistics:(id)a0 verboseOnly:(BOOL)a1;
+- (long long)releaseAllFreeMemory;
+- (BOOL)conservePrettyPrintMemory:(BOOL)a0;
+- (id)dumpEngineStatusWithContext:(id)a0;
+- (id)swapConsoleBuffer:(id)a0;
+- (id)moduleNames;
+- (void)logFacts:(long long)a0;
+- (void)_logFactsForModule:(id)a0 limit:(long long)a1 when:(long long)a2;
+- (BOOL)factIsImportant:(id)a0;
+- (id)printedFacts:(id)a0 limit:(long long)a1;
+- (id)moduleRulesByName:(id)a0;
+- (BOOL)addModuleNamed:(id)a0 withConstruct:(id)a1;
+- (BOOL)addNewConstruct:(id)a0;
+- (BOOL)loadConstructsForModule:(id)a0;
+- (id)parseCLIPSModuleInfoFromConstructs:(id)a0;
+- (id)stringFromConstructsLoadState:(long long)a0;
+- (id)otaUpdatePlatformStringForDeviceClass:(long long)a0;
+- (long long)constructLoadStateForModule:(id)a0;
+- (void)updateAllModuleInfos;
+- (void)updateModuleInfoForModule:(id)a0 slotValues:(id)a1;
+- (id)factDictionaryForFact:(void *)a0;
+- (id)factStringForFactDictionary:(id)a0;
+- (void)unloadConstructsForModule:(id)a0 unconditionally:(BOOL)a1;
+- (id)loadDataSection:(id)a0;
+- (void)setOTAUpdate:(id)a0 version:(id)a1 module:(id)a2;
+- (int)executeBatchCommand:(id)a0 module:(id)a1;
+- (void)executeCommand:(id)a0 moduleName:(id)a1;
+- (void)retainFact:(void *)a0;
+- (void)releaseFact:(void *)a0;
+- (void *)assertFactString:(id)a0 moduleName:(id)a1;
+- (id)currentModule;
+- (id)setCurrentModule:(id)a0;
+- (void)pushFocus:(id)a0;
+- (unsigned long long)factCount;
+- (void *)getNextFact:(void *)a0;
+- (id)getValueForSlotNamed:(id)a0 fromFact:(void *)a1;
+- (void)performOnFactsWithDeftemplateName:(id)a0 usingBlock:(id /* block */)a1;
+- (id)matchFactsWithDeftemplateName:(id)a0 withSlotKeyValues:(id)a1;
+- (void)listAllDeftemplates;
+- (void *)deftemplateNamed:(id)a0 moduleName:(id)a1;
+- (id)deftemplatesMatchingPrefix:(id)a0;
+- (id)slotsStringForTemplate:(id)a0 fromDictionary:(id)a1 moduleName:(id)a2;
+
+@end

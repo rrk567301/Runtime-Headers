@@ -1,0 +1,23 @@
+@class CKDPFieldActionReplaceListRange, CKDPFieldActionInsertIntoList, CKDPFieldActionDeleteListRange;
+
+@interface CKDPFieldAction : PBCodable <NSCopying>
+
+@property (readonly, nonatomic) BOOL hasInsertIntoList;
+@property (retain, nonatomic) CKDPFieldActionInsertIntoList *insertIntoList;
+@property (readonly, nonatomic) BOOL hasDeleteListRange;
+@property (retain, nonatomic) CKDPFieldActionDeleteListRange *deleteListRange;
+@property (readonly, nonatomic) BOOL hasReplaceListRange;
+@property (retain, nonatomic) CKDPFieldActionReplaceListRange *replaceListRange;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+
+@end

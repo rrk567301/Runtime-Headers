@@ -1,0 +1,63 @@
+@class TVPPlaylist, NSArray, NSView, VUIAppContext, VUIImageProxy, NSString, NSColor;
+
+@interface VUIMediaInfo : NSObject <NSCopying>
+
+@property (retain, nonatomic) TVPPlaylist *tvpPlaylist;
+@property (retain, nonatomic) NSArray *videosPlayables;
+@property (nonatomic) BOOL overridesStartTimeWithResumeTime;
+@property (nonatomic) unsigned long long playbackStartReason;
+@property (nonatomic) unsigned long long playbackContext;
+@property (nonatomic) unsigned long long intent;
+@property (retain, nonatomic) NSView *contentView;
+@property (retain, nonatomic) NSColor *backgroundColor;
+@property (copy, nonatomic) NSArray *imageProxies;
+@property (copy, nonatomic) NSArray *imageThemes;
+@property (nonatomic, getter=isGradientDisabled) BOOL gradientDisabled;
+@property (retain, nonatomic) TVPPlaylist *playlist;
+@property (retain, nonatomic) NSView *overlayView;
+@property (readonly, nonatomic) BOOL hasProgress;
+@property (nonatomic) double primaryVideoAspectRatio;
+@property (nonatomic) BOOL showsSecondaryVideoView;
+@property (nonatomic, getter=isAutomaticPlaybackStart) BOOL automaticPlaybackStart;
+@property (nonatomic, getter=isAutomaticPlaybackStop) BOOL automaticPlaybackStop;
+@property (nonatomic) unsigned long long playbackStopReason;
+@property (nonatomic) BOOL restrictionsAlreadyUnlocked;
+@property (nonatomic) BOOL shouldDelayLoadingImage;
+@property (retain, nonatomic) VUIAppContext *appContext;
+@property (nonatomic) BOOL allowsPictureInPicture;
+@property (nonatomic) double playbackDelayInterval;
+@property (retain, nonatomic) VUIImageProxy *alphaImageProxy;
+@property (retain, nonatomic) NSString *alphaLayerAccessibilityText;
+
++ (id)playbackURLOverrideForOriginalURL:(id)a0 adamID:(id)a1 canonicalID:(id)a2;
++ (id)_playbackOverridesForURL:(id)a0 adamID:(id)a1 canonicalID:(id)a2;
++ (id)_playlistFromMPMediaItems:(id)a0 playbackContext:(unsigned long long)a1;
++ (id)_storeMediaItemFromMPMediaItem:(id)a0 playbackContext:(unsigned long long)a1;
++ (long long)_videoResolutionFromMPVideoQuality:(long long)a0;
++ (long long)_videoDynamimcRangeFromMPColorCapability:(long long)a0;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)_hlsURLUpdatedWithBingeWatchingParamFromURL:(id)a0;
+- (id)initWithPlaybackContext:(unsigned long long)a0 videosPlayables:(id)a1 imageProxies:(id)a2 storeDictionary:(id)a3;
+- (void)setUserPlaybackInitiationDate:(id)a0 openURLCompletionDate:(id)a1;
+- (void)_updatePlaybackStartReason;
+- (id)_tvpRatingDomainFromUTSRatingDomain:(id)a0;
+- (id)_playlistFromVideosPlayables:(id)a0 andStoreDictionary:(id)a1;
+- (id)_storeMediaItemFromVideosPlayable:(id)a0 andStoreDictionary:(id)a1;
+- (id)_auxMediaItemFromVideosPlayable:(id)a0;
+- (void)_populateMediaItem:(id)a0 withMetadataFromVideosPlayable:(id)a1;
+- (void)_populateMediaItem:(id)a0 withMetadataOverrides:(id)a1;
+- (void)_populateMediaItem:(id)a0 withResumeTimeInfoFromPlayable:(id)a1;
+- (id)_tvpMediaTypeFromPlayable:(id)a0;
+- (id)_hlsURLEnsuringDsidQueryParamIsPresentFromURL:(id)a0;
+- (id)initWithPlaybackContext:(unsigned long long)a0 mpMediaItems:(id)a1;
+- (id)initWithPlaybackContext:(unsigned long long)a0 playlist:(id)a1;
+- (id)initWithPlaybackContext:(unsigned long long)a0 vuiMediaItems:(id)a1;
+- (id)_playlistForVUIMediaItems:(id)a0 playbackContext:(unsigned long long)a1;
+
+@end

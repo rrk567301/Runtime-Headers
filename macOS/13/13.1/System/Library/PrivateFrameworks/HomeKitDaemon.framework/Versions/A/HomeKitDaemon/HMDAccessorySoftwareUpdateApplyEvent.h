@@ -1,0 +1,20 @@
+@class NSString, NSDictionary, HMDAccessoryMetricVendorDetails, HMFSoftwareVersion;
+
+@interface HMDAccessorySoftwareUpdateApplyEvent : HMMLogEvent <HMMCoreAnalyticsLogging>
+
+@property (class, readonly) BOOL submitEventWithHistogrammedAggregateHomeDataCommonDimensions;
+@property (class, readonly) BOOL submitEventWithDurationInMilliseconds;
+
+@property (readonly) HMDAccessoryMetricVendorDetails *metricVendorDetails;
+@property (readonly) HMFSoftwareVersion *stagedVersion;
+@property (readonly) unsigned long long advertisedDuration;
+@property (readonly) unsigned long long totalAllowedDuration;
+@property (readonly) long long status;
+@property (readonly, nonatomic) NSString *eventName;
+@property (readonly, nonatomic) NSDictionary *serializedEvent;
+@property (readonly, nonatomic) NSString *accessoryIdentifier;
+@property (readonly, nonatomic) BOOL logEventWithAppendedCommonDimensions;
+
++ (id)eventWithMetricVendorDetails:(id)a0 stagedVersion:(id)a1 advertisedDuration:(unsigned long long)a2 totalAllowedDuration:(unsigned long long)a3 status:(long long)a4;
+
+@end

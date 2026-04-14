@@ -1,0 +1,26 @@
+@class MSOID, NSData;
+
+@interface MSAlgorithmIdentifier : NSObject
+
+@property (readonly) struct AlgorithmIdentifier { struct heim_oid { unsigned long long x0; unsigned int *x1; } x0; struct heim_base_data *x1; } *asn1AlgId;
+@property (readonly) MSOID *algorithm;
+@property (readonly) NSData *parameters;
+
++ (id)algorithmIdentifierWithOID:(id)a0;
++ (id)algorithmIdentifierWithAsn1AlgId:(struct AlgorithmIdentifier { struct heim_oid { unsigned long long x0; unsigned int *x1; } x0; struct heim_base_data *x1; } *)a0 error:(id *)a1;
++ (id)digestAlgorithmWithSignatureAlgorithm:(id)a0 error:(id *)a1;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (struct AlgorithmIdentifier { struct heim_oid { unsigned long long x0; unsigned int *x1; } x0; struct heim_base_data *x1; } *)encode;
+- (id)initWithOID:(id)a0;
+- (id)initWithOID:(id)a0 parameters:(id)a1;
+- (id)initDigestAlgorithmWithSignatureAlgorithm:(id)a0 error:(id *)a1;
+- (id)initWithAsn1AlgId:(struct AlgorithmIdentifier { struct heim_oid { unsigned long long x0; unsigned int *x1; } x0; struct heim_base_data *x1; } *)a0 error:(id *)a1;
+- (id)signatureAlgorithmWithDigestAlgorithm:(id)a0 error:(id *)a1;
+- (unsigned int)ccAlgorithm:(id *)a0;
+- (unsigned int)ccMode:(id *)a0;
+
+@end

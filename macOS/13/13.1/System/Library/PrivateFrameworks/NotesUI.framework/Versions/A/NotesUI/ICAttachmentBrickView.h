@@ -1,0 +1,81 @@
+@class NSHashTable, LPLinkView, NSString, ICAddAttachmentsManagerAttachmentInfo, NSColor, NSLayoutConstraint, ICAttachment, NSRegularExpression;
+
+@interface ICAttachmentBrickView : NSView <LPLinkViewDelegate, LPAudioPlayer>
+
+@property (retain, nonatomic) LPLinkView *linkView;
+@property (readonly, nonatomic) unsigned long long type;
+@property (retain, nonatomic) NSLayoutConstraint *widthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *heightConstraint;
+@property (retain, nonatomic) NSHashTable *audioPlayerClients;
+@property (nonatomic) unsigned long long playerState;
+@property (nonatomic) float playbackProgress;
+@property (nonatomic) BOOL didSendResizeNotification;
+@property (nonatomic) BOOL waitingForMetadata;
+@property (readonly, nonatomic) BOOL isMetadataComplete;
+@property (retain, nonatomic) NSRegularExpression *highlightPatternRegex;
+@property (weak, nonatomic) ICAttachment *attachment;
+@property (weak, nonatomic) ICAddAttachmentsManagerAttachmentInfo *shareExtensionAttachmentInfo;
+@property (nonatomic) BOOL selected;
+@property (nonatomic, getter=isInsideSystemPaper) BOOL insideSystemPaper;
+@property (copy, nonatomic) NSColor *highlightColor;
+@property (readonly, nonatomic) double effectiveLayoutCornerRadius;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } computedSize;
+@property (readonly, nonatomic) NSString *typeDescriptionForAccessibility;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) float progress;
+@property (readonly, nonatomic) unsigned long long state;
+
++ (struct CGSize { double x0; double x1; })defaultBrickSize;
++ (BOOL)usesSmallSizeForAttachment:(id)a0 withMetadata:(id)a1 type:(unsigned long long)a2 insideSystemPaper:(BOOL)a3;
++ (struct CGSize { double x0; double x1; })sizeForAttachment:(id)a0 usesSmallSize:(BOOL)a1;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)pause;
+- (void)prepareForReuse;
+- (void)reset;
+- (void)addClient:(id)a0;
+- (void)removeClient:(id)a0;
+- (id)initWithType:(unsigned long long)a0;
+- (void)reloadData;
+- (id)accessibilityLabel;
+- (BOOL)isAccessibilityElement;
+- (id)accessibilityValue;
+- (void)play;
+- (id)accessibilityElements;
+- (void)updateTitle;
+- (void)linkView:(id)a0 didFetchMetadata:(id)a1;
+- (id)_linkView:(id)a0 playerForAudio:(id)a1;
+- (void)togglePlayPause;
+- (void)attachmentDidLoadNotification:(id)a0;
+- (void)attachmentPreviewImagesDidUpdateNotification:(id)a0;
+- (void)initialAttachmentPreviewDidLoad:(id)a0;
+- (void)didFailFetchingMetadataNotification:(id)a0;
+- (void)mediaDidLoadNotification:(id)a0;
+- (void)accentColorDidChange;
+- (void)progressChangedNotification:(id)a0;
+- (void)playbackStartedNotification:(id)a0;
+- (void)playbackPausedNotification:(id)a0;
+- (void)playbackStoppedNotification:(id)a0;
+- (void)updateSearchHighlighting;
+- (void)updateSelectionColor;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })quickLookSourceFrameOnScreen;
+- (id)quickLookTransitionImageWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0;
+- (void)resetPlaybackProgressAndState;
+- (void)updateAudioClientsState:(unsigned long long)a0;
+- (void)updateAudioClientsProgress:(float)a0;
+- (void)displaySynapseAttachmentPreview;
+- (void)displayRemoteAttachmentPreview;
+- (void)displayGenericURLPreview;
+- (void)displayFilePreview;
+- (void)displayScannedDocumentsPreview;
+- (void)displayUnsupportedAttachmentPreview;
+- (void)updateUIWithMetadata:(id)a0;
+- (void)adjustSizeIfNecessary;
+- (void)notifyClientsAboutSizeChagesIfNecessary;
+- (void)constrainViews;
+
+@end

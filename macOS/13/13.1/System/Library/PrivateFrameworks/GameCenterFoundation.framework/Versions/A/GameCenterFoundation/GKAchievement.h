@@ -1,0 +1,51 @@
+@class NSString, GKAchievementInternal, GKGame, NSDate, GKPlayer;
+
+@interface GKAchievement : NSObject <NSCopying, NSCoding, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *playerID;
+@property (retain) GKAchievementInternal *internal;
+@property (copy) NSDate *lastReportedDate;
+@property (getter=isHidden) BOOL hidden;
+@property (readonly, copy) NSString *groupIdentifier;
+@property (retain) GKGame *game;
+@property (copy) NSString *identifier;
+@property double percentComplete;
+@property (readonly, getter=isCompleted) BOOL completed;
+@property BOOL showsCompletionBanner;
+@property (readonly) GKPlayer *player;
+
++ (BOOL)instancesRespondToSelector:(SEL)a0;
++ (id)instanceMethodSignatureForSelector:(SEL)a0;
++ (void)loadAchievementsWithCompletionHandler:(id /* block */)a0;
++ (void)loadAchievementsForGameV2:(id)a0 player:(id)a1 includeUnreported:(BOOL)a2 includeHidden:(BOOL)a3 withCompletionHandler:(id /* block */)a4;
++ (void)loadAchievementsForGameV2:(id)a0 players:(id)a1 includeUnreported:(BOOL)a2 includeHidden:(BOOL)a3 withCompletionHandler:(id /* block */)a4;
++ (void)loadAchievementWithID:(id)a0 forGame:(id)a1 players:(id)a2 complete:(id /* block */)a3;
++ (void)resetAchievementsWithCompletionHandler:(id /* block */)a0;
++ (void)reportAchievements:(id)a0 withCompletionHandler:(id /* block */)a1;
++ (void)reportAchievements:(id)a0 whileScreeningChallenges:(BOOL)a1 withEligibleChallenges:(id)a2 withCompletionHandler:(id /* block */)a3;
+
+- (BOOL)respondsToSelector:(SEL)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)methodSignatureForSelector:(SEL)a0;
+- (id)forwardingTargetForSelector:(SEL)a0;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)valueForUndefinedKey:(id)a0;
+- (id)initWithIdentifier:(id)a0;
+- (void)setValue:(id)a0 forUndefinedKey:(id)a1;
+- (id)initWithInternalRepresentation:(id)a0;
+- (id)playerID;
+- (id)initWithInternalRepresentation:(id)a0 playerID:(id)a1;
+- (id)initWithIdentifier:(id)a0 player:(id)a1;
+- (id)initWithIdentifier:(id)a0 forPlayer:(id)a1;
+- (void)reportAchievementWithCompletionHandler:(id /* block */)a0;
+- (id)_achievementDescription;
+
+@end

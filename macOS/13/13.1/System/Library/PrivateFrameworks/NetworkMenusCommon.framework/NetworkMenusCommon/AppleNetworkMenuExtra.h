@@ -1,0 +1,86 @@
+@class NSMenu, NSFileHandle, NSString, NSArray, NSMenuItem, AppleNetworkMenuExtraView, NSOperationQueue, NSBundle, NSMutableArray;
+
+@interface AppleNetworkMenuExtra : NSMenuExtra <NSMenuDelegate> {
+    NSBundle *mBundle;
+    NSMutableArray *mImages;
+    NSArray *mAlternateImages;
+    NSMenu *mMenu;
+    NSMenuItem *mShowStatusMenuItem;
+    NSMenuItem *mShowTimeMenuItem;
+    NSMenuItem *mNoConfigsMenuItem;
+    struct __SCPreferences { } *mPrefs;
+    struct __CFRunLoopSource { } *mRunLoopSource;
+    NSFileHandle *mFileHandle;
+    AppleNetworkMenuExtraView *mMenuBarView;
+    NSArray *mControllers;
+    BOOL mProcessingPrefChanges;
+    NSOperationQueue *mRefreshQueue;
+    NSMutableArray *mUnprocessedSCControllers;
+    NSMutableArray *mUnprocessedNEControllers;
+    NSArray *mNEControllers;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedNetworkExtensionServiceQueue;
+
+- (void)dealloc;
+- (void *)copyValueForKey:(id)a0;
+- (id)menu;
+- (struct __SCPreferences { } *)preferences;
+- (id)initWithBundle:(id)a0;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)menu:(id)a0 willHighlightItem:(id)a1;
+- (void)willUnload;
+- (id)localizedString:(id)a0;
+- (void)storeValue:(void *)a0 forKey:(id)a1;
+- (BOOL)convertedForNewUI;
+- (id)AXValue;
+- (void)noopAction:(id)a0;
+- (void)loadImages;
+- (id)getImage:(id)a0;
+- (void)runSelfTest:(unsigned long long)a0 duration:(double)a1;
+- (void)createMenu;
+- (void)refreshAll;
+- (void)delayedSetup;
+- (void)refreshForPreferencesChange:(id)a0;
+- (void)resetPreferences;
+- (void)a_launchThirdPartyVPNApplication:(id)a0;
+- (void)a_showTimeInMenuBar:(id)a0;
+- (void)a_showStatusInMenuBar:(id)a0;
+- (void)a_launchNetworkPrefs:(id)a0;
+- (void)a_showSpecificTimeInMenuBar:(id)a0;
+- (void)loadMenuBarView;
+- (void)initializeNetworkExtensionChangeQueueMonitoring;
+- (void)initializeDynamicStoreMonitoring;
+- (void)registerForPrefsFileChangeNotifications;
+- (void)handleDynamicStoreChangedNotification:(id)a0;
+- (struct __SCNetworkService { } *)serviceInList:(id)a0 withID:(id)a1;
+- (void)refreshServicesAndControllers;
+- (void)processControllers;
+- (void)releaseMenuItems;
+- (id)timeMenuForServiceControllers:(id)a0;
+- (BOOL)isServiceConfigured:(struct __SCNetworkService { } *)a0;
+- (BOOL)boolValueForKey:(id)a0 noValueReturns:(BOOL)a1;
+- (BOOL)processingPreferenceChanges;
+- (void)setProcessingPreferenceChanges:(BOOL)a0;
+- (void)updateMenuWidth;
+- (BOOL)interfaceTypeHasSubtypes:(id)a0;
+- (id)keyForShowTimeMenuTitleString;
+- (id)keyForShowSpecificTimeMenuTitleString;
+- (id)keyForShowStatusMenuTitleString;
+- (id)localizedMenuNameString;
+- (id)localizedNoConfigsString;
+- (id)imageNameArray;
+- (id)networkPrefSectionName;
+- (BOOL)supportsInterfaceType:(id)a0;
+- (BOOL)supportsInterfaceSubtype:(id)a0;
+- (BOOL)supportsNetworkExtension;
+- (id)systemConfigurationRawServices;
+- (void)reloadSystemConfigurationControllers;
+- (void)reloadNetworkExtensionControllers;
+
+@end

@@ -1,0 +1,52 @@
+@class NSImage, NSColor;
+
+@interface CalUILayerBackedView : NSView
+
+@property (retain) NSImage *image;
+@property (retain) NSColor *backgroundColor;
+@property struct CGSize { double width; double height; } contentSize;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } contentsCenter;
+@property BOOL settableIsOpaque;
+@property (nonatomic) BOOL overrideAllowsVibrancy;
+@property (nonatomic) BOOL overrideAllowsVibrancyValue;
+@property BOOL acceptsFirstResponderStatus;
+@property (copy) id /* block */ updateLayerBlock;
+
++ (id)view;
++ (id)viewWithColor:(id)a0 isOpaque:(BOOL)a1;
++ (id)viewWithSRGBRed:(double)a0 green:(double)a1 blue:(double)a2;
++ (id)viewWithSRGBRed:(double)a0 green:(double)a1 blue:(double)a2 alpha:(double)a3;
++ (id)viewWithImage:(id)a0 isOpaque:(BOOL)a1;
++ (id)viewWithImage:(id)a0;
++ (void)updateContentsAttributesForView:(id)a0 image:(id)a1 contentCenter:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
++ (void)disableAnimatedActionsForLayer:(id)a0 excludingPosition:(BOOL)a1 excludingBounds:(BOOL)a2;
++ (void)disableAnimatedActionsForLayer:(id)a0 excludingPosition:(BOOL)a1;
++ (void)disableAnimatedActionsForLayer:(id)a0;
+
+- (void).cxx_destruct;
+- (void)setMaskedCorners:(unsigned long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (BOOL)allowsVibrancy;
+- (BOOL)isOpaque;
+- (void)updateLayer;
+- (BOOL)acceptsFirstResponder;
+- (BOOL)accessibilityIsIgnored;
+- (void)setCornerRadius:(double)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (id)initWithImage:(id)a0;
+- (id)initWithColor:(id)a0 isOpaque:(BOOL)a1;
+- (id)initWithSRGBRed:(double)a0 green:(double)a1 blue:(double)a2 alpha:(double)a3;
+- (id)initWithSRGBRed:(double)a0 green:(double)a1 blue:(double)a2;
+- (id)initWithImage:(id)a0 isOpaque:(BOOL)a1;
+- (void)setOverrideAllowsVibrancy:(BOOL)a0 value:(BOOL)a1;
+- (void)setIntrinsicContentSize:(struct CGSize { double x0; double x1; })a0;
+- (void)setContentsBackgroundColor:(id)a0;
+- (void)setContentsImage:(id)a0;
+- (void)setContentsImage:(id)a0 contentCenter:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)setContentsImageImmediate:(id)a0;
+- (void)setContentsImageImmediate:(id)a0 contentCenter:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)updateContentsAttributes;
+- (void)disableAnimatedLayerActions;
+
+@end

@@ -1,0 +1,103 @@
+@class MCPlug, MPAudioPlaylist, NSString, NSMutableDictionary, NSColor, NSMutableArray, MCContainerParallelizer, MPTransition, MPLayer;
+
+@interface MPEffectContainer : NSObject <MPActionableSupportInternal, NSSecureCoding, NSCopying, MPFilterSupport, MPAudioSupport, MPActionableSupport> {
+    MCPlug *_containerPlug;
+    MCContainerParallelizer *_containerParallelizer;
+    NSMutableArray *_effects;
+    NSMutableArray *_filters;
+    NSMutableDictionary *_attributes;
+    MPLayer *_parentLayer;
+    MPAudioPlaylist *_audioPlaylist;
+    BOOL _transitionDisconnected;
+    double _startTime;
+    NSString *_uuid;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSColor *backgroundColor;
+@property (nonatomic) struct CGColor { } *backgroundCGColor;
+@property (retain, nonatomic) MPTransition *transition;
+@property (nonatomic) double duration;
+
++ (BOOL)automaticallyNotifiesObserversForKey:(id)a0;
++ (id)effectContainer;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)uuid;
+- (void)cleanup;
+- (id)container;
+- (long long)index;
+- (double)startTime;
+- (void)setStartTime:(double)a0;
+- (void)dump;
+- (id)objectSpecifier;
+- (id)objectID;
+- (id)filters;
+- (void)setBackgroundColor:(id)a0;
+- (id)backgroundColor;
+- (id)effects;
+- (void)addFilters:(id)a0;
+- (void)addFilter:(id)a0;
+- (void)setParentLayer:(id)a0;
+- (id)parentLayer;
+- (void)addEffect:(id)a0;
+- (void)addEffects:(id)a0;
+- (long long)slideCount;
+- (void)removeAllEffects;
+- (id)parentDocument;
+- (id)audioPlaylist;
+- (void)removeAllFilters;
+- (id)fullDebugLog;
+- (void)copyVars:(id)a0;
+- (void)setAudioPlaylist:(id)a0;
+- (void)insertFilters:(id)a0 atIndex:(long long)a1;
+- (void)removeFiltersAtIndices:(id)a0;
+- (void)moveFiltersFromIndices:(id)a0 toIndex:(long long)a1;
+- (id)plug;
+- (id)plugID;
+- (void)copyFilters:(id)a0;
+- (void)copyAudioPlaylist:(id)a0;
+- (id)nearestLayerGroup;
+- (long long)countOfFilters;
+- (id)objectInFiltersAtIndex:(long long)a0;
+- (void)insertObject:(id)a0 inFiltersAtIndex:(long long)a1;
+- (void)removeObjectFromFiltersAtIndex:(long long)a0;
+- (void)replaceObjectInFiltersAtIndex:(long long)a0 withObject:(id)a1;
+- (void)insertEffects:(id)a0 atIndex:(long long)a1;
+- (void)removeEffectsAtIndices:(id)a0;
+- (void)moveEffectsFromIndices:(id)a0 toIndex:(long long)a1;
+- (void)setBackgroundColorString:(id)a0;
+- (double)introTransitionDuration;
+- (double)outroTransitionDuration;
+- (double)findMinDuration;
+- (void)disconnectTransition;
+- (void)reconnectTransition;
+- (BOOL)isTransitionConnected;
+- (void)copyEffects:(id)a0;
+- (void)copyTransition:(id)a0;
+- (void)adjustPhasesWithDuration:(double)a0;
+- (void)setContainerPlug:(id)a0;
+- (void)setContainerParallelizer:(id)a0;
+- (void)setContainerEffect:(id)a0;
+- (BOOL)shouldBeParallelizer;
+- (void)convertFromParallelizerToEffectContainer;
+- (void)convertFromEffectContainerToParallelizer;
+- (void)calculateDurationToSmallest:(BOOL)a0;
+- (void)setUserInfoAttribute:(id)a0 forKey:(id)a1;
+- (id)userInfoAttributeForKey:(id)a0;
+- (long long)textCount;
+- (long long)countOfEffects;
+- (id)objectInEffectsAtIndex:(long long)a0;
+- (void)insertObject:(id)a0 inEffectsAtIndex:(long long)a1;
+- (void)removeObjectFromEffectsAtIndex:(long long)a0;
+- (void)replaceObjectInEffectsAtIndex:(long long)a0 withObject:(id)a1;
+- (id)scriptingTransition;
+- (void)setScriptingTransition:(id)a0;
+
+@end

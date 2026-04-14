@@ -1,0 +1,71 @@
+@class NSString, KNShow, KNRecordingSyncMaintainer;
+@protocol KNDocumentRootDelegate;
+
+@interface KNDocumentRoot : TSADocumentRoot <TSWPDrawableOLC, TSKModel, TSTResolverContainerNameProvider> {
+    BOOL _isObservingRecording;
+}
+
+@property (retain, nonatomic) KNRecordingSyncMaintainer *recordingSyncMaintainer;
+@property (weak, nonatomic) id<KNDocumentRootDelegate> delegate;
+@property (retain, nonatomic) KNShow *show;
+@property (readonly, nonatomic) BOOL isShowcastAllowed;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)localizeModelObject:(id)a0 withTemplateBundle:(id)a1 andLocale:(id)a2;
+
+- (void)dealloc;
+- (void)setDelegate:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithContext:(id)a0;
+- (unsigned long long)applicationType;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)setTheme:(id)a0;
+- (id)theme;
+- (id)stylesheet;
+- (void)willClose;
+- (id)childEnumerator;
+- (BOOL)isSharedReadOnly;
+- (void)documentDidLoad;
+- (void)setThemeForTemplateImport:(id)a0;
+- (void)prepareForSavingAsTemplate;
+- (id)protected_defaultTextPresetOrdering;
+- (BOOL)isMultiPageForQuickLook;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)upgradeTextStylesForUnityAfterSingleStylesheetUpgrade;
+- (void)setUiState:(id)a0;
+- (void)setDocumentLocale:(id)a0;
+- (id)resolverContainerNameForResolver:(id)a0;
+- (id)nameForResolverContainer:(id)a0;
+- (id)resolverContainerForName:(id)a0 caseSensitive:(BOOL)a1;
+- (id)resolverContainerNamesMatchingPrefix:(id)a0;
+- (id)resolverMatchingName:(id)a0 contextResolver:(id)a1;
+- (id)resolverMatchingName:(id)a0 contextContainerName:(id)a1;
+- (id)resolversMatchingPrefix:(id)a0;
+- (BOOL)shouldShowFloatingCommentInfo:(id)a0;
+- (double)stickyCommentScaleMultiplier;
+- (void)p_thumbnailUpgradeForUnity20SlideNodes:(id)a0 andMasterSlideNodess:(id)a1;
+- (id)knDelegate;
+- (void)setStylesheetForUpgradeToSingleStylesheet:(id)a0;
+- (id)freehandDrawingToolkitUIState;
+- (id)createViewStateRootForContinuation:(BOOL)a0;
+- (id)stylesToNotResizeInStylesheet:(id)a0;
+- (id)slideNodeForClearedShow;
+- (id)UIStateForChart:(id)a0;
+- (void)setUIState:(id)a0 forChart:(id)a1;
+- (id)warningLocationDescriptionForAffectedObjects:(id)a0 sortingInfo:(id *)a1;
+- (long long)compareLocationSortingInfo:(id)a0 toSortingInfo:(id)a1;
+- (void)preprocessForSaveAsTheme;
+- (BOOL)validateUIState:(id)a0;
+- (unsigned long long)writingDirectionForStorage;
+- (BOOL)validateSlideNode:(id)a0;
+- (void)p_applicationWillResignActive:(id)a0;
+- (void)p_applicationDidBecomeActive:(id)a0;
+- (void)p_hyperlinkAndBreadcrumbUpgradeForUnity20SlideNodes:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchiver:(id)a0;
+
+@end

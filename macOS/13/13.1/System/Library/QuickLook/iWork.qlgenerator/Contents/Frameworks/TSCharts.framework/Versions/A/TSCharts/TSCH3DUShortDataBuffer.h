@@ -1,0 +1,19 @@
+@interface TSCH3DUShortDataBuffer : TSCH3DVectorDataBuffer {
+    struct vector<TSCH3D::PODType<unsigned short>, std::allocator<TSCH3D::PODType<unsigned short>>> { void *__begin_; void *__end_; struct __compressed_pair<TSCH3D::PODType<unsigned short> *, std::allocator<TSCH3D::PODType<unsigned short>>> { void *__value_; } __end_cap_; } _container;
+}
+
+@property (readonly, nonatomic) void *container;
+
+- (unsigned long long)count;
+- (id)initWithCapacity:(unsigned long long)a0;
+- (const void *)data;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (unsigned long long)components;
+- (void)clear;
+- (int)componentType;
+- (unsigned long long)componentByteSize;
+- (void)fillCapacity;
+- (id)elementsAtIndices:(id)a0;
+
+@end

@@ -1,0 +1,16 @@
+@class NSNumber, NSArray;
+
+@interface MTRScenesClusterGetSceneMembershipResponseParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *status;
+@property (copy, nonatomic) NSNumber *capacity;
+@property (copy, nonatomic) NSNumber *groupId;
+@property (copy, nonatomic) NSArray *sceneList;
+@property (copy, nonatomic) NSNumber *timedInvokeTimeoutMs;
+
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+
+@end

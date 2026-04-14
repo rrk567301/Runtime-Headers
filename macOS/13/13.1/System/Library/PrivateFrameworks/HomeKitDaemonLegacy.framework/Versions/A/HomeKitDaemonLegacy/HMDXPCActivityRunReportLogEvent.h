@@ -1,0 +1,19 @@
+@class NSString, NSDictionary;
+
+@interface HMDXPCActivityRunReportLogEvent : HMMLogEvent <HMMCoreAnalyticsLogging>
+
+@property (class, readonly) BOOL submitEventWithHistogrammedAggregateHomeDataCommonDimensions;
+@property (class, readonly) BOOL submitEventWithDurationInMilliseconds;
+
+@property (readonly, nonatomic) NSString *activityName;
+@property (readonly, nonatomic) long long activityDefinedIntervalInMinutes;
+@property (readonly, nonatomic) BOOL activityShouldWake;
+@property (readonly, nonatomic) long long activityRunHourOfDay;
+@property (readonly, nonatomic) long long activityTimeSinceLastRunInMinutes;
+@property (readonly, nonatomic) NSString *eventName;
+@property (readonly, nonatomic) NSDictionary *serializedEvent;
+@property (readonly, nonatomic) NSString *accessoryIdentifier;
+@property (readonly, nonatomic) BOOL logEventWithAppendedCommonDimensions;
+
+
+@end

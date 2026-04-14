@@ -1,0 +1,52 @@
+@interface NSTableHeaderCell : NSTextFieldCell
+
+- (id)init;
+- (BOOL)isOpaque;
+- (id)accessibilityParameterizedAttributeNames;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilitySubroleAttribute;
+- (BOOL)accessibilityIsSubroleAttributeSettable;
+- (id)accessibilityActionNames;
+- (id)accessibilityActionDescription:(id)a0;
+- (id)accessibilityElementWithParent:(id)a0;
+- (BOOL)_needRedrawOnWindowChangedKeyState;
+- (id)accessibilityTitleAttribute;
+- (BOOL)accessibilityIsTitleAttributeSettable;
+- (struct CGSize { double x0; double x1; })cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawInteriorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)drawWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)highlight:(BOOL)a0 withFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })drawingRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_convertToText:(id)a0;
+- (id)_controlContentStyleInView:(id)a0;
+- (int)_vibrancyBlendModeForControlView:(id)a0;
+- (BOOL)_textDimsWhenDisabled;
+- (id)_currentFont;
+- (struct __CFString { } *)_coreUIState;
+- (id)_indicatorImage;
+- (void)_setSortable:(BOOL)a0;
+- (BOOL)_shouldDrawRightSeparatorInView:(id)a0;
+- (struct __CFDictionary { } *)_coreUIBezelDrawOptionsWithView:(id)a0 highlighted:(BOOL)a1 nextColumnAfterOneBeingDrawnIsSelected:(BOOL)a2;
+- (void)_drawBezelWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 highlighted:(BOOL)a1 inView:(id)a2;
+- (void)_drawGroupViewBackgroundWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 highlighted:(BOOL)a1 inView:(id)a2;
+- (void)_drawThemeContents:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 highlighted:(BOOL)a1 inView:(id)a2;
+- (void)_updateFont;
+- (void)_adjustFontSize;
+- (BOOL)_shouldShowHighlightForSort;
+- (struct __CFDictionary { } *)_coreUISortIndicatorDrawOptionsWithView:(id)a0 ascending:(BOOL)a1;
+- (void)_drawSortIndicatorIfNecessaryWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)drawSortIndicatorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1 ascending:(BOOL)a2 priority:(long long)a3;
+- (id)_currentSortIndicatorImage;
+- (BOOL)_useRTL;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })sortIndicatorRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_setSortable:(BOOL)a0 showSortIndicator:(BOOL)a1 ascending:(BOOL)a2 priority:(long long)a3 highlightForSort:(BOOL)a4;
+- (void)_alignFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 withDataCellForView:(id)a1;
+- (BOOL)_shouldLeaveSpaceForSortIndicator;
+- (BOOL)_canSupportTallerHeight;
+- (void)_setIndicatorImage:(id)a0;
+- (BOOL)accessibilityIsSortButton;
+- (id)accessibilitySortDirectionAttribute;
+- (BOOL)accessibilityIsSortDirectionAttributeSettable;
+
+@end

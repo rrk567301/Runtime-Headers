@@ -1,0 +1,97 @@
+@class NSString, NSArray, QCSCN_Material;
+
+@interface QCSCN_Geometry : NSObject <QCSCN_Animatable, QCSCN_BoundingVolume, NSCopying> {
+    id _geometryReserved;
+}
+
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSArray *materials;
+@property (readonly, nonatomic) long long geometryElementCount;
+@property (retain, nonatomic) QCSCN_Material *firstMaterial;
+
++ (id)propertyKeys;
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)a0;
++ (BOOL)isKeyExcludedFromWebScript:(const char *)a0;
++ (id)webScriptNameForSelector:(SEL)a0;
++ (id)argumentsForSelector:(SEL)a0;
++ (Class)typeForProperty:(id)a0;
++ (int)_baseTypeForProperty:(id)a0;
++ (id)geometryWithSources:(id)a0 elements:(id)a1;
++ (id)geometryWithGeometryRef:(struct __C3DGeometry { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DMesh *x2; struct __C3DMesh *x3; struct __CFArray *x4; struct __CFArray *x5; void /* function */ *x6; } *)a0;
+
+- (void)dealloc;
+- (id)copy;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)finalize;
+- (id)identifier;
+- (id)valueForUndefinedKey:(id)a0;
+- (void)setIdentifier:(id)a0;
+- (void)addAnimation:(id)a0 forKey:(id)a1;
+- (void)removeAnimationForKey:(id)a0;
+- (void)removeAllAnimations;
+- (id)animationKeys;
+- (void)setMaterial:(id)a0;
+- (id)material;
+- (id)animationForKey:(id)a0;
+- (int)primitiveType;
+- (void)addAnimation:(id)a0;
+- (void)setPrimitiveType:(int)a0;
+- (id)propertyKeys;
+- (struct __C3DAnimationTarget { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; void *x2; int x3; int x4; struct __CFString *x5; struct __CFArray *x6; } *)targetForKey:(id)a0;
+- (struct __C3DAnimationManager { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFArray *x1; struct __CFDictionary *x2; struct __CFDictionary *x3; struct __CFDictionary *x4; struct __CFSet *x5; struct __CFArray *x6; BOOL x7; BOOL x8; double x9; double x10; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x11; int x12; int x13; } *)animationManager;
+- (void)pauseAnimationForKey:(id)a0;
+- (void)resumeAnimationForKey:(id)a0;
+- (void)_syncEntityObjCModel;
+- (void)_sceneRefDidChange;
+- (void)__removeAnimationForKey:(id)a0;
+- (void)removeAllAnimationsBeforeDying:(void *)a0;
+- (void)_syncObjCAnimations;
+- (void)_pauseAnimation:(BOOL)a0 forKey:(id)a1;
+- (void)_syncObjCModel;
+- (struct __C3DScene { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DNode *x2; struct __C3DAnimationManager *x3; double x4; double x5; double x6; double x7; struct __CFDictionary *x8; struct _SCNVector3 { double x0; double x1; double x2; } x9; struct __C3DFXDeformerManager *x10; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x11; } *)sceneRef;
+- (void *)__CFObject;
+- (void)setSceneRef:(struct __C3DScene { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DNode *x2; struct __C3DAnimationManager *x3; double x4; double x5; double x6; double x7; struct __CFDictionary *x8; struct _SCNVector3 { double x0; double x1; double x2; } x9; struct __C3DFXDeformerManager *x10; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x11; } *)a0;
+- (void)_jsInsertMaterial:(id)a0 atIndex:(id)a1;
+- (void)removeMaterial:(id)a0;
+- (void)replaceMaterial:(id)a0 with:(id)a1;
+- (id)materialWithName:(id)a0;
+- (id)geometrySourcesForSemantic:(id)a0;
+- (id)_jsGeometryElementCount;
+- (id)_jsGeometryElementAtIndex:(id)a0;
+- (id)getBoundingBox;
+- (id)getBoundingSphere;
+- (BOOL)getBoundingBoxMin:(struct _SCNVector3 { double x0; double x1; double x2; } *)a0 max:(struct _SCNVector3 { double x0; double x1; double x2; } *)a1;
+- (BOOL)getBoundingSphereCenter:(struct _SCNVector3 { double x0; double x1; double x2; } *)a0 radius:(double *)a1;
+- (id)initWithGeometryRef:(struct __C3DGeometry { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DMesh *x2; struct __C3DMesh *x3; struct __CFArray *x4; struct __CFArray *x5; void /* function */ *x6; } *)a0;
+- (id)initPresentationGeometryWithGeometryRef:(struct __C3DGeometry { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DMesh *x2; struct __C3DMesh *x3; struct __CFArray *x4; struct __CFArray *x5; void /* function */ *x6; } *)a0;
+- (id)geometryDescription;
+- (id)__geometryClassStorage;
+- (struct __C3DGeometry { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DMesh *x2; struct __C3DMesh *x3; struct __CFArray *x4; struct __CFArray *x5; void /* function */ *x6; } *)geometryRef;
+- (void)setGeometryRef:(struct __C3DGeometry { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; struct __CFDictionary *x1; } x0; struct __C3DSceneID *x1; struct __C3DMesh *x2; struct __C3DMesh *x3; struct __CFArray *x4; struct __CFArray *x5; void /* function */ *x6; } *)a0;
+- (id)edgeAntialiasing;
+- (void)edgeAntialiasingDidChange;
+- (id)presentationGeometry;
+- (id)geometrySourceForSemantic:(id)a0;
+- (void)setMorphableSourceSemantics:(id)a0;
+- (id)morphableSourceSemantics;
+- (id)geometryElementAtIndex:(long long)a0;
+- (id)keyForNodeAttributes;
+- (void)_expand;
+- (void)_didAddMaterial:(id)a0;
+- (id)_materialWithName:(id)a0;
+- (unsigned long long)countOfMaterials;
+- (id)objectInMaterialsAtIndex:(unsigned long long)a0;
+- (void)insertObject:(id)a0 inMaterialsAtIndex:(unsigned long long)a1;
+- (void)removeObjectFromMaterialsAtIndex:(unsigned long long)a0;
+- (void)replaceObjectInMaterialsAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (id)mutableMaterials;
+- (id)_firstMaterial;
+- (void)insertMaterial:(id)a0 atIndex:(unsigned long long)a1;
+- (void)removeMaterialAtIndex:(unsigned long long)a0;
+- (void)replaceMaterialAtIndex:(unsigned long long)a0 withMaterial:(id)a1;
+- (void)removeAllMaterials;
+- (BOOL)parseKeyPath:(id)a0 intoDestination:(id *)a1 remainingPath:(id *)a2;
+
+@end

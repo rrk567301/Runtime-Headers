@@ -1,0 +1,20 @@
+@class NSString;
+
+@interface PRSDictionaryResult : SFSearchResult_SpotlightExtras
+
+@property (retain) NSString *dictionaryId;
+@property (retain) NSString *definitionId;
+@property (retain) NSString *query;
+
+- (void).cxx_destruct;
+- (int)type;
+- (id)URL;
+- (id)uniqueIdentifier;
+- (id)category;
+- (id)groupName;
+- (id)pathForApplicationToOpen;
+- (BOOL)isLocalResult;
+- (unsigned long long)resultOpenOptions;
+- (id)initWithDisplayName:(id)a0 definitionId:(id)a1 dictionaryId:(id)a2 query:(id)a3;
+
+@end

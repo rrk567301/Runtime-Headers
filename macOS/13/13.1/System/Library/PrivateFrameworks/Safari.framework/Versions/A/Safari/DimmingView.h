@@ -1,0 +1,37 @@
+@class CABasicAnimation;
+@protocol DimmingViewDelegate;
+
+@interface DimmingView : NSView {
+    CABasicAnimation *_pendingAnimation;
+}
+
+@property (weak, nonatomic) id<DimmingViewDelegate> delegate;
+
++ (double)animationDuration;
++ (id)dimmedBackgroundColor;
++ (id)undimmedBackgroundColor;
+
+- (void).cxx_destruct;
+- (void)mouseDown:(id)a0;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)rightMouseDown:(id)a0;
+- (void)scrollWheel:(id)a0;
+- (void)viewDidMoveToSuperview;
+- (void)mouseDragged:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)magnifyWithEvent:(id)a0;
+- (void)rightMouseUp:(id)a0;
+- (void)rightMouseDragged:(id)a0;
+- (void)otherMouseDown:(id)a0;
+- (void)otherMouseDragged:(id)a0;
+- (void)otherMouseUp:(id)a0;
+- (void)rotateWithEvent:(id)a0;
+- (void)smartMagnifyWithEvent:(id)a0;
+- (void)swipeWithEvent:(id)a0;
+- (void)dimWithCompletionHandler:(id /* block */)a0;
+- (void)undimWithCompletionHandler:(id /* block */)a0;
+- (void)_informDelegateAboutRelevantInteraction;
+
+@end

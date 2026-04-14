@@ -1,0 +1,16 @@
+@class PDFPageRangePrivate;
+
+@interface PDFPageRange : NSObject {
+    PDFPageRangePrivate *_private;
+}
+
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })range;
+- (void)setRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)setPage:(id)a0;
+- (id)page;
+- (id)initWithPage:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+
+@end

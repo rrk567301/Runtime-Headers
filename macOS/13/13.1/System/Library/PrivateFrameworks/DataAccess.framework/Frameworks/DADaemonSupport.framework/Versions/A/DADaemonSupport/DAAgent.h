@@ -1,0 +1,38 @@
+@class DAAccount, DATrustHandler, NSString;
+
+@interface DAAgent : NSObject <DAReachabilityClient>
+
+@property (retain, nonatomic) DAAccount *account;
+@property (nonatomic) double lastRetryTimeout;
+@property (nonatomic) BOOL syncWhenReachable;
+@property (copy, nonatomic) id /* block */ networkReachableBlock;
+@property (nonatomic) BOOL isWaitingForPassword;
+@property (nonatomic) BOOL isMonitoring;
+@property (readonly, nonatomic) DATrustHandler *trustHandler;
+@property (readonly, nonatomic) NSString *publicDescription;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)startMonitoring;
+- (id)initWithAccount:(id)a0;
+- (void)shutdown;
+- (id)stateString;
+- (void)networkReachable;
+- (int)preferredEventDaysToSync;
+- (int)preferredToDoDaysToSync;
+- (void)saveXpcActivity:(id)a0;
+- (void)observeReachabilityWithBlock:(id /* block */)a0;
+- (void)stopObservingReachability;
+- (void)requestAgentStopMonitoringWithCompletionBlock:(id /* block */)a0;
+- (void)refreshFolderListRequireChangedFolders:(BOOL)a0 isUserRequested:(BOOL)a1;
+- (void)syncFolderIDs:(id)a0 forDataclasses:(long long)a1 isUserRequested:(BOOL)a2;
+- (void)processMeetingRequestDatas:(id)a0 deliveryIdsToClear:(id)a1 deliveryIdsToSoftClear:(id)a2 inFolderWithId:(id)a3 callback:(id /* block */)a4;
+- (id)getDAAccount;
+- (id)hostToObserveForDAReachability:(id)a0;
+- (BOOL)shouldBeMonitoringReachability;
+- (void)startOrStopMonitoringReachability:(BOOL)a0;
+
+@end

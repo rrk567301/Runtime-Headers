@@ -1,0 +1,46 @@
+@class VCAudioStreamGroupCommon, TimingCollection, VCAudioCaptionsCoordinator;
+@protocol VCMediaStreamSyncSource;
+
+@interface VCAudioStreamReceiveGroup : VCMediaStreamReceiveGroup <VCAudioStreamGroup> {
+    VCAudioStreamGroupCommon *_common;
+    struct tagVCAudioStreamGroupPriorityInfo { BOOL isAudioActive; unsigned int audioActiveProbabilityThreshold; unsigned int audioInactiveProbabilityThreshold; unsigned int audioActiveAccumulationThreshold; unsigned int audioInactiveAccumulationThreshold; unsigned int audioActiveCount; unsigned int lastAudioPriority; unsigned int refreshCounter; } _mediaPriorityInfo;
+    void /* function */ *_didPullSamplesCallback;
+    void *_didPullSamplesCallbackContext;
+    BOOL _receivingEndToEndStream;
+    float _averageOutputPower;
+    unsigned long long _speakerProcsCalled;
+    unsigned long long _syncTargetCalled;
+    TimingCollection *_perfTimers;
+    BOOL _haveReportedPerfTimers;
+}
+
+@property (readonly) id<VCMediaStreamSyncSource> syncSource;
+@property (retain, nonatomic) VCAudioCaptionsCoordinator *captionsCoordinator;
+@property (nonatomic, setter=setMuted:) BOOL isMuted;
+@property (readonly, nonatomic) int deviceRole;
+@property (setter=setPowerSpectrumEnabled:) BOOL isPowerSpectrumEnabled;
+
+- (void)dealloc;
+- (id)stopCapture;
+- (id)initWithConfig:(id)a0;
+- (id)startCapture;
+- (void)didStart;
+- (BOOL)configureStreams;
+- (void)setReportingAgent:(struct opaqueRTCReporting { } *)a0;
+- (void)mediaStream:(id)a0 didReceiveNewMediaKeyIndex:(id)a1;
+- (BOOL)setDeviceRole:(int)a0 operatingMode:(int)a1;
+- (void)collectAndLogChannelMetrics:(struct { unsigned int x0; unsigned int x1[5]; unsigned int x2; double x3; struct CGSize { double x0; double x1; } x4; double x5; unsigned int x6; double x7; unsigned int x8; unsigned int x9; } *)a0;
+- (void)setActiveStreamIDs:(id)a0;
+- (void)setOptedInStreamID:(id)a0;
+- (id)willStart;
+- (void)didStop;
+- (BOOL)addSyncDestination:(id)a0;
+- (BOOL)removeSyncDestination:(id)a0;
+- (void)setMuteOnStreams;
+- (BOOL)isAudioExpected;
+- (void)vcMediaStream:(id)a0 remoteMediaStalled:(BOOL)a1 duration:(double)a2;
+- (void)vcMediaStream:(id)a0 didSwitchToAudioStreamWithID:(unsigned short)a1;
+- (void)vcMediaStream:(id)a0 didReceiveFirstFrameWithTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+- (void)reportParticipantsPerfTimingsOnce;
+
+@end

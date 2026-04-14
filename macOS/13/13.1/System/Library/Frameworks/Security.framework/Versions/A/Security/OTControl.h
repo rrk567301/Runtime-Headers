@@ -1,0 +1,84 @@
+@class NSXPCConnection;
+
+@interface OTControl : NSObject
+
+@property (retain) NSXPCConnection *connection;
+@property BOOL sync;
+@property BOOL synchronous;
+
++ (id)controlObject:(id *)a0;
++ (id)controlObject:(BOOL)a0 error:(id *)a1;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)reset:(id /* block */)a0;
+- (void)appleAccountSignedIn:(id)a0 reply:(id /* block */)a1;
+- (void)appleAccountSignedOut:(id)a0 reply:(id /* block */)a1;
+- (void)notifyIDMSTrustLevelChangeForAltDSID:(id)a0 reply:(id /* block */)a1;
+- (void)rpcEpochWithArguments:(id)a0 configuration:(id)a1 reply:(id /* block */)a2;
+- (void)rpcPrepareIdentityAsApplicantWithArguments:(id)a0 configuration:(id)a1 reply:(id /* block */)a2;
+- (void)rpcVoucherWithArguments:(id)a0 configuration:(id)a1 peerID:(id)a2 permanentInfo:(id)a3 permanentInfoSig:(id)a4 stableInfo:(id)a5 stableInfoSig:(id)a6 reply:(id /* block */)a7;
+- (void)rpcJoinWithArguments:(id)a0 configuration:(id)a1 vouchData:(id)a2 vouchSig:(id)a3 reply:(id /* block */)a4;
+- (void)status:(id)a0 reply:(id /* block */)a1;
+- (void)fetchEgoPeerID:(id)a0 reply:(id /* block */)a1;
+- (void)fetchCliqueStatus:(id)a0 configuration:(id)a1 reply:(id /* block */)a2;
+- (void)fetchTrustStatus:(id)a0 configuration:(id)a1 reply:(id /* block */)a2;
+- (void)startOctagonStateMachine:(id)a0 reply:(id /* block */)a1;
+- (void)resetAndEstablish:(id)a0 resetReason:(long long)a1 reply:(id /* block */)a2;
+- (void)establish:(id)a0 reply:(id /* block */)a1;
+- (void)leaveClique:(id)a0 reply:(id /* block */)a1;
+- (void)removeFriendsInClique:(id)a0 peerIDs:(id)a1 reply:(id /* block */)a2;
+- (void)peerDeviceNamesByPeerID:(id)a0 reply:(id /* block */)a1;
+- (void)fetchAllViableBottles:(id)a0 reply:(id /* block */)a1;
+- (void)restoreFromBottle:(id)a0 entropy:(id)a1 bottleID:(id)a2 reply:(id /* block */)a3;
+- (void)fetchEscrowContents:(id)a0 reply:(id /* block */)a1;
+- (void)createRecoveryKey:(id)a0 recoveryKey:(id)a1 reply:(id /* block */)a2;
+- (void)joinWithRecoveryKey:(id)a0 recoveryKey:(id)a1 sosSuccess:(BOOL)a2 reply:(id /* block */)a3;
+- (void)healthCheck:(id)a0 skipRateLimitingCheck:(BOOL)a1 reply:(id /* block */)a2;
+- (void)waitForOctagonUpgrade:(id)a0 reply:(id /* block */)a1;
+- (void)postCDPFollowupResult:(id)a0 success:(BOOL)a1 type:(id)a2 error:(id)a3 reply:(id /* block */)a4;
+- (void)tapToRadar:(id)a0 description:(id)a1 radar:(id)a2 reply:(id /* block */)a3;
+- (void)refetchCKKSPolicy:(id)a0 reply:(id /* block */)a1;
+- (void)setCDPEnabled:(id)a0 reply:(id /* block */)a1;
+- (void)getCDPStatus:(id)a0 reply:(id /* block */)a1;
+- (void)fetchEscrowRecords:(id)a0 source:(long long)a1 reply:(id /* block */)a2;
+- (void)setUserControllableViewsSyncStatus:(id)a0 enabled:(BOOL)a1 reply:(id /* block */)a2;
+- (void)fetchUserControllableViewsSyncStatus:(id)a0 reply:(id /* block */)a1;
+- (void)resetAccountCDPContents:(id)a0 reply:(id /* block */)a1;
+- (void)setLocalSecureElementIdentity:(id)a0 secureElementIdentity:(id)a1 reply:(id /* block */)a2;
+- (void)removeLocalSecureElementIdentityPeerID:(id)a0 secureElementIdentityPeerID:(id)a1 reply:(id /* block */)a2;
+- (void)fetchTrustedSecureElementIdentities:(id)a0 reply:(id /* block */)a1;
+- (void)setAccountSetting:(id)a0 setting:(id)a1 reply:(id /* block */)a2;
+- (void)fetchAccountSettings:(id)a0 reply:(id /* block */)a1;
+- (void)fetchAccountWideSettings:(id)a0 reply:(id /* block */)a1;
+- (void)persistAccountSettings:(id)a0 setting:(id)a1 reply:(id /* block */)a2;
+- (void)waitForPriorityViewKeychainDataRecovery:(id)a0 reply:(id /* block */)a1;
+- (void)createCustodianRecoveryKey:(id)a0 uuid:(id)a1 reply:(id /* block */)a2;
+- (void)joinWithCustodianRecoveryKey:(id)a0 custodianRecoveryKey:(id)a1 reply:(id /* block */)a2;
+- (void)preflightJoinWithCustodianRecoveryKey:(id)a0 custodianRecoveryKey:(id)a1 reply:(id /* block */)a2;
+- (void)removeCustodianRecoveryKey:(id)a0 uuid:(id)a1 reply:(id /* block */)a2;
+- (void)createInheritanceKey:(id)a0 uuid:(id)a1 reply:(id /* block */)a2;
+- (void)generateInheritanceKey:(id)a0 uuid:(id)a1 reply:(id /* block */)a2;
+- (void)storeInheritanceKey:(id)a0 ik:(id)a1 reply:(id /* block */)a2;
+- (void)joinWithInheritanceKey:(id)a0 inheritanceKey:(id)a1 reply:(id /* block */)a2;
+- (void)preflightJoinWithInheritanceKey:(id)a0 inheritanceKey:(id)a1 reply:(id /* block */)a2;
+- (void)removeInheritanceKey:(id)a0 uuid:(id)a1 reply:(id /* block */)a2;
+- (void)tlkRecoverabilityForEscrowRecordData:(id)a0 recordData:(id)a1 source:(long long)a2 reply:(id /* block */)a3;
+- (void)deliverAKDeviceListDelta:(id)a0 reply:(id /* block */)a1;
+- (void)setMachineIDOverride:(id)a0 machineID:(id)a1 reply:(id /* block */)a2;
+- (void)invalidateEscrowCache:(id)a0 reply:(id /* block */)a1;
+- (id)initWithConnection:(id)a0 sync:(BOOL)a1;
+- (id)getConnection:(id /* block */)a0;
+- (void)restore:(id)a0 dsid:(id)a1 secret:(id)a2 escrowRecordID:(id)a3 reply:(id /* block */)a4;
+- (void)signingKey:(id /* block */)a0;
+- (void)octagonSigningPublicKey:(id /* block */)a0;
+- (void)encryptionKey:(id /* block */)a0;
+- (void)octagonEncryptionPublicKey:(id /* block */)a0;
+- (void)listOfRecords:(id /* block */)a0;
+- (void)listOfEligibleBottledPeerRecords:(id /* block */)a0;
+- (void)preflightBottledPeer:(id)a0 dsid:(id)a1 reply:(id /* block */)a2;
+- (void)launchBottledPeer:(id)a0 bottleID:(id)a1 reply:(id /* block */)a2;
+- (void)scrubBottledPeer:(id)a0 bottleID:(id)a1 reply:(id /* block */)a2;
+- (void)status:(id)a0 context:(id)a1 reply:(id /* block */)a2;
+
+@end

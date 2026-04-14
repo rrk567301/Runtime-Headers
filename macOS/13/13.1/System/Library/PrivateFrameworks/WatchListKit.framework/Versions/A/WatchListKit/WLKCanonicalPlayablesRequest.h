@@ -1,0 +1,14 @@
+@class NSString;
+
+@interface WLKCanonicalPlayablesRequest : WLKRequest
+
+@property (readonly, copy, nonatomic) NSString *canonicalID;
+@property (readonly, copy, nonatomic) NSString *statsID;
+
+- (void).cxx_destruct;
+- (void)makeRequestWithCompletion:(id /* block */)a0 canonicalType:(long long)a1;
+- (void)makeRequestWithCompletion:(id /* block */)a0;
+- (id)initWithCanonicalID:(id)a0;
+- (id)initWithStatsID:(id)a0;
+
+@end

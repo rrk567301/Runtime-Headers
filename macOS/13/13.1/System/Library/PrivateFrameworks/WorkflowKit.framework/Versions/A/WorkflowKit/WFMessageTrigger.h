@@ -1,0 +1,27 @@
+@class NSString, NSArray;
+
+@interface WFMessageTrigger : WFTrigger
+
+@property (retain, nonatomic) NSString *selectedContents;
+@property (retain, nonatomic) NSArray *selectedSenders;
+@property (retain, nonatomic) NSArray *selectedSendersStrings;
+
++ (BOOL)supportsSecureCoding;
++ (id)localizedDisplayName;
++ (long long)triggerBacking;
++ (BOOL)isAllowedToRunAutomatically;
++ (id)displayGlyphTintColor;
++ (id)localizedDisplayExplanation;
++ (id)displayGlyph;
++ (id)messagesGreen;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)localizedDescriptionWithConfigurationSummary;
+- (id)localizedPastTenseDescription;
+- (id)localizedDescriptionWithConfigurationSummaryWithCount:(unsigned long long)a0;
+- (BOOL)hasValidConfiguration;
+
+@end

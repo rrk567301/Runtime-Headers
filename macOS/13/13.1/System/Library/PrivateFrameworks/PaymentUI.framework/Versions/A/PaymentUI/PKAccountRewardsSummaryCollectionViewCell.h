@@ -1,0 +1,3 @@
+@interface PKAccountRewardsSummaryCollectionViewCell : NSObject
+
+@end
