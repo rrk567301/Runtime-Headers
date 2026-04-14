@@ -1,0 +1,23 @@
+@class NSString, NSMapTable, NSArray, NSDictionary, NSNumber;
+
+@interface HMBModelQuery : HMFObject
+
+@property (readonly, nonatomic) NSMapTable *preparedQueries;
+@property (readonly, nonatomic) NSString *sqlPredicate;
+@property (readonly, nonatomic) NSArray *sqlColumns;
+@property (readonly, nonatomic) unsigned long long maximumRowsPerSelect;
+@property (readonly, nonatomic) NSNumber *initialSequence;
+@property (readonly, nonatomic) NSDictionary *arguments;
+@property (retain, nonatomic) Class modelClass;
+@property (readonly, nonatomic) NSString *sqlSelect;
+@property (readonly, nonatomic) NSDictionary *argumentFields;
+@property (readonly, nonatomic) NSDictionary *encodedDefaultValuesByArgumentName;
+@property (readonly, nonatomic) BOOL hasExpectedIndexes;
+
+- (id)description;
+- (void).cxx_destruct;
+- (id)prepareOnTable:(id)a0;
+- (id)initWithSQLPredicate:(id)a0 sqlColumns:(id)a1 initialSequence:(id)a2 maximumRowsPerSelect:(unsigned long long)a3 arguments:(id)a4;
+- (id)performQueryOn:(id)a0 arguments:(id)a1;
+
+@end

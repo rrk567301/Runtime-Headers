@@ -1,0 +1,84 @@
+@class NSObject, CDPContext, NSXPCConnection, CDPInheritanceTrustController, CDPDPCSController;
+@protocol CDPStateUIProviderInternal, CDPDSecureBackupControl, CDPDSecureBackupDisableCapable, CDPDCircleControl, OS_dispatch_queue, CDPDSecureBackupEnableCapable;
+
+@interface CDPDStateMachine : NSObject <CDPDSecureBackupDelegate, CDPDCircleDelegate> {
+    id<CDPDSecureBackupDisableCapable> _secureBackupDisableController;
+    CDPInheritanceTrustController *_inheritanceTrustController;
+    NSXPCConnection *_connection;
+    NSObject<OS_dispatch_queue> *_cdpdStatemachineDefaultQueue;
+}
+
+@property (retain, nonatomic) id<CDPDSecureBackupControl> secureBackupController;
+@property (retain, nonatomic) id<CDPDSecureBackupEnableCapable> secureBackupEnableController;
+@property (retain, nonatomic) id<CDPDCircleControl> circleController;
+@property (retain, nonatomic) CDPDPCSController *pcsController;
+@property (retain, nonatomic) CDPContext *context;
+@property (retain, nonatomic) id<CDPStateUIProviderInternal> uiProvider;
+@property (nonatomic) BOOL attemptedCDPEnable;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithContext:(id)a0 uiProvider:(id)a1;
+- (void)handleCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)repairCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)shouldPerformRepairWithOptionForceFetch:(BOOL)a0 completion:(id /* block */)a1;
+- (id)_predicateForRecordUpgradeCheck;
+- (void)_enableSOSViews;
+- (BOOL)_needsSOSRepair;
+- (void)reportCDPEntryEventWithContext:(id)a0;
+- (void)_attemptBackupRecoveryByPromptingForRemoteSecretWithLocalSecret:(id)a0 localSecretType:(unsigned long long)a1 useSecureBackupCachedSecret:(BOOL)a2 circleJoinResult:(id)a3 completion:(id /* block */)a4;
+- (void)_attemptBackupRecoveryWithLocalSecret:(id)a0 type:(unsigned long long)a1 useSecureBackupCachedSecret:(BOOL)a2 circleJoinResult:(id)a3 completion:(id /* block */)a4;
+- (void)_attemptBeneficiaryTrustWithInheritanceKey:(id)a0 retryCount:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)_attemptCDPEnable:(id /* block */)a0;
+- (void)_authenticatedRepairCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (BOOL)_checkSecureBackupCachedSecretValue;
+- (void)_confirmCDPEligibilityWithCompletion:(id /* block */)a0;
+- (void)_continueShouldPerformRepairWithOptionForceFetch:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_disableRecoveryKeyWithCompletion:(id /* block */)a0;
+- (BOOL)_eligibleForSilentAuthenticatedRepair;
+- (BOOL)_eligibleToSkipAuth;
+- (void)_enableCustodianRecoveryIfAvailableForContext:(id)a0;
+- (void)_enableSecureBackupWithCircleJoinResult:(id)a0 completion:(id /* block */)a1;
+- (void)_enableSecureBackupWithJoinResult:(id)a0 completion:(id /* block */)a1;
+- (void)_enrollOrDisableCDPAfterEnabledStateVerified:(id /* block */)a0;
+- (void)_handleBeneficiaryTrustWithCompletion:(id /* block */)a0;
+- (void)_handleCloudDataProtectionStateWithCompletion:(id /* block */)a0;
+- (void)_handleInteractiveRecoveryFlowWithCircleJoinResult:(id)a0 completion:(id /* block */)a1;
+- (void)_handlePreflightError:(id)a0 completion:(id /* block */)a1;
+- (void)_handleiCDPStatusCheckError:(id)a0 completion:(id /* block */)a1;
+- (void)_initDependenciesWithContext:(id)a0;
+- (BOOL)_isEligibleForSOSJoin;
+- (BOOL)_isInSOSCircle;
+- (void)_joinSOSAsynchronouslyFromHandleCloudDataProtectionIfRequired;
+- (void)_joinSOSFromRepairCloudDataProtectionIfRequiredWithCompletion:(id /* block */)a0;
+- (BOOL)_localDeviceHasLocalSecret;
+- (id)_makeCDPEntryEventWithContext:(id)a0;
+- (id)_makeEscrowRecordControllerWithCurrentContext;
+- (id)_makeSOSCompatibilityModeEnableEvent:(BOOL)a0 error:(id)a1;
+- (void)_performInteractivelyAuthenticatedRepair:(id /* block */)a0;
+- (void)_performSilentlyAuthenticatedRepair:(id /* block */)a0;
+- (void)_postFollowUpForSecureBackupCacheInvalidationError;
+- (void)_postRecoveryEnableSecureBackupWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)_predicateForRecordUpgradeCheckIgnoringBottled;
+- (id)_predicateForRepair;
+- (void)_preflightAccountStateWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)_recoverSecureBackupWithCircleJoinResult:(id)a0 completion:(id /* block */)a1;
+- (id)_recoveryFlowControllerForKeychainSyncSystem:(long long)a0 recoveryContext:(id)a1;
+- (void)_refreshAndAuthenticateWithContext:(id)a0;
+- (void)_resetAccountCDPStateWithCompletion:(id /* block */)a0;
+- (void)_shouldPerformAuthenticatedRepairWithOptionForceFetch:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_updateCDPEnableEventWithError:(id)a0 error:(id)a1 didEnable:(BOOL)a2;
+- (void)_updateSOSCompatibilityMode;
+- (void)circleController:(id)a0 secureBackupRecordsArePresentWithCompletion:(id /* block */)a1;
+- (id)circlePeerIDForSecureBackupController:(id)a0;
+- (id)contextForController:(id)a0;
+- (id)initWithContext:(id)a0 connection:(id)a1;
+- (id)initWithContext:(id)a0 uiProvider:(id)a1 connection:(id)a2;
+- (void)promptForAdoptionOfMultipleICSCWithCompletion:(id /* block */)a0;
+- (void)promptForLocalSecretWithCompletion:(id /* block */)a0;
+- (void)resetAccountCDPStateWithCompletion:(id /* block */)a0;
+- (id)secureChannelContextForController:(id)a0;
+- (BOOL)shouldAllowCDPEnrollment;
+- (BOOL)synchronizeCircleViewsForSecureBackupContext:(id)a0;
+
+@end

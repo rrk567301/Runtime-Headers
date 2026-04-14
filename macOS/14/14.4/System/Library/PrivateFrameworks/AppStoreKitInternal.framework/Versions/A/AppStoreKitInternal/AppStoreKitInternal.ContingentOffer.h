@@ -1,0 +1,19 @@
+@interface AppStoreKitInternal.ContingentOffer : AppStoreKitInternal.AppPromotion {
+    void /* unknown type, empty encoding */ backgroundArtwork;
+    void /* unknown type, empty encoding */ branchArtwork;
+    void /* unknown type, empty encoding */ mediaOverlayStyle;
+    void /* unknown type, empty encoding */ backgroundVideo;
+    void /* unknown type, empty encoding */ title;
+    void /* unknown type, empty encoding */ subtitle;
+    void /* unknown type, empty encoding */ badge;
+    void /* unknown type, empty encoding */ label;
+    void /* unknown type, empty encoding */ description;
+    void /* unknown type, empty encoding */ additionalInfo;
+    void /* unknown type, empty encoding */ supportsStreamlinedBuy;
+    void /* unknown type, empty encoding */ branchIAPLockup;
+    void /* unknown type, empty encoding */ trunkLockup;
+    void /* unknown type, empty encoding */ branchAppLockup;
+    void /* unknown type, empty encoding */ learnMoreTitle;
+}
+
+@end

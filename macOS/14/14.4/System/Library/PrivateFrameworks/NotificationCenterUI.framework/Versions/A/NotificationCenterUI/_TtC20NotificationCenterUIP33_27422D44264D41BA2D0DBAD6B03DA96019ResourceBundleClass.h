@@ -1,0 +1,3 @@
+@interface _TtC20NotificationCenterUIP33_27422D44264D41BA2D0DBAD6B03DA96019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,54 @@
+@interface SearchUIUtilities : NSObject
+
++ (id)localizedStringForKey:(id)a0;
++ (BOOL)isIpad;
++ (id)focusGroupIdentifier;
++ (BOOL)deviceSupportsRotation;
++ (void)dispatchAsyncIfNecessary:(id /* block */)a0;
++ (void)dispatchMainIfNecessary:(id /* block */)a0;
++ (BOOL)isWideScreen;
++ (double)onePixelForCurrentScreenResolution;
++ (void)performAnimatableChanges:(id /* block */)a0;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
++ (double)standardTableCellContentInset;
++ (BOOL)isMinimizedHardwareKeyboardMode;
++ (double)standardCompactHorizontalMargin;
++ (id)addAspectRatioConstraintForSize:(struct CGSize { double x0; double x1; })a0 toView:(id)a1;
++ (BOOL)appIsValidForBundleIdentifier:(id)a0;
++ (id)bundleIdentifierForApp:(unsigned long long)a0;
++ (BOOL)bundleIdentifierIsBlockedForScreenTimeExpiration:(id)a0;
++ (BOOL)canShowViewController:(id)a0;
++ (id)defaultBrowserBundleIdentifier;
++ (BOOL)deviceIsAuthenticated;
++ (BOOL)downloadDemotedAppIfNecessaryForBundleIdentifier:(id)a0 presentingViewControllerForExplanationAlert:(id)a1;
++ (id)environmentForDelegate:(id)a0;
++ (void)fetchURLForCoreSpotlightIdentifier:(id)a0 fileProviderIdentifier:(id)a1 completionHandler:(id /* block */)a2;
++ (void)fetchURLForFileResult:(id)a0 completionHandler:(id /* block */)a1;
++ (id)fileProviderItemIDForCoreSpotlightIdentifier:(id)a0 fileProviderIdentifier:(id)a1;
++ (id)fileProviderItemIDForFileResult:(id)a0;
++ (id)fmfHandlesFromContact:(id)a0;
++ (id)hyphenatableStringForString:(id)a0;
++ (double)imageAccessoryAdditionalCompactHorizontalMargin;
++ (id)imageForBlockedApp;
++ (BOOL)isAppInstalledWithBundleId:(id)a0;
++ (BOOL)isLargeIpad;
++ (BOOL)isPortraitForWindow:(id)a0;
++ (id)openApplicationOptions;
++ (void)openInFinder:(unsigned long long)a0 withString:(id)a1;
++ (void)openOffloadedFileURL:(id)a0;
++ (void)openPunchout:(id)a0;
++ (void)openPunchout:(id)a0 completion:(id /* block */)a1;
++ (void)openURL:(id)a0 withCompletion:(id /* block */)a1;
++ (void)playNegativeHaptic;
++ (id)pointerKeyMapTable;
++ (void)requestClipInstallWithURL:(id)a0 completion:(id /* block */)a1;
++ (void)requestDeviceUnlock:(id /* block */)a0;
++ (void)requestDeviceUnlockWithSuccessHandler:(id /* block */)a0;
++ (BOOL)resultBlockedForScreenTime:(id)a0;
++ (BOOL)resultIsSiriAction:(id)a0;
++ (id)stringForSFRichText:(id)a0;
++ (id)stringForSFRichTextArray:(id)a0;
++ (id)stringHandlesFromContact:(id)a0;
+
+@end

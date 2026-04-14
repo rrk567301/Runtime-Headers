@@ -1,0 +1,3 @@
+@interface _TtCE18TimeMachinePrivateCSo8NSBundleP33_E64AD731828540F19CEAEC860DCE3FB611MarkerClass : _TtCs12_SwiftObject
+
+@end

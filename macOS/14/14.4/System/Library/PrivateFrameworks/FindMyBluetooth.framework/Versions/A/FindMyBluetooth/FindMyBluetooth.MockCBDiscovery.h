@@ -1,0 +1,7 @@
+@interface FindMyBluetooth.MockCBDiscovery : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ id;
+    void /* unknown type, empty encoding */ scanContinuation;
+    void /* unknown type, empty encoding */ mockScanResponder;
+}
+
+@end

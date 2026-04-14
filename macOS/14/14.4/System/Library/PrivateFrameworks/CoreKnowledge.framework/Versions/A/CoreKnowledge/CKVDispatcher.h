@@ -1,0 +1,41 @@
+@class SEMIndexSiteManager, NSString, CESRSpeechProfileSiteManager, CCSetChangeXPCListener, CCDataSiteManager, NSObject, CCDonateConnectionFactory, NSXPCListener, CCDonateRequestManager, CKVTaskManager;
+@protocol OS_dispatch_queue, CKVAdminServiceProvider;
+
+@interface CKVDispatcher : NSObject <NSXPCListenerDelegate> {
+    NSObject<OS_dispatch_queue> *_queue;
+    CCSetChangeXPCListener *_setChangeListener;
+    CCDonateConnectionFactory *_donateConnectionFactory;
+    NSObject<CKVAdminServiceProvider> *_adminServiceProvider;
+    CKVTaskManager *_taskManager;
+    CCDonateRequestManager *_donateRequestManager;
+    CCDataSiteManager *_dataSiteManager;
+    SEMIndexSiteManager *_indexSiteManager;
+    CESRSpeechProfileSiteManager *_speechProfileSiteManager;
+}
+
+@property (readonly, nonatomic) NSXPCListener *donateServiceListener;
+@property (readonly, nonatomic) NSXPCListener *adminServiceListener;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedDispatcher;
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)registerXPCActivities;
+- (BOOL)_adminServiceShouldAcceptNewConnection:(id)a0;
+- (BOOL)_donateServiceShouldAcceptNewConnection:(id)a0;
+- (id)_listenerWithMachServiceName:(id)a0 delegate:(id)a1;
+- (void)handleBridgeActivityUpdate:(id)a0;
+- (BOOL)handleDarwinNotificationEventWithName:(id)a0;
+- (BOOL)handleDistributedNotificationEventWithName:(id)a0;
+- (id)initWithQueue:(id)a0 dataSiteManager:(id)a1 donateConnectionFactory:(id)a2 adminServiceProvider:(id)a3 taskManager:(id)a4 indexSiteManager:(id)a5 speechProfileSiteManager:(id)a6;
+- (void)notifyChangeToSets:(id)a0;
+- (void)runMaintenanceWithShouldDefer:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)runMigration:(id /* block */)a0;
+- (void)setupXPCListeners;
+
+@end
