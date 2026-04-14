@@ -1,0 +1,9 @@
+@interface SiriSetup.LocalDataSource : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ siriEnabled;
+    void /* unknown type, empty encoding */ voiceTriggerEnabled;
+    void /* unknown type, empty encoding */ siriInCallEnabled;
+    void /* unknown type, empty encoding */ siriVoice;
+    void /* unknown type, empty encoding */ siriLanguage;
+}
+
+@end

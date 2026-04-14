@@ -1,0 +1,6 @@
+@interface SetupKit.SKBluetoothAdvertiserMock : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _configuration;
+    void /* unknown type, empty encoding */ _environment;
+}
+
+@end

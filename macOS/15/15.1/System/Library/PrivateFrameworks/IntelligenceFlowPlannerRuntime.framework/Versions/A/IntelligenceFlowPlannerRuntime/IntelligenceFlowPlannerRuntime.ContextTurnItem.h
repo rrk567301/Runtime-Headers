@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.ContextTurnItem : IntelligenceFlowPlannerRuntime.ResultTurnItem
+
+@end

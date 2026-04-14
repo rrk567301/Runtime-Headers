@@ -1,0 +1,56 @@
+@interface WebAccessibilityObjectWrapper : WebAccessibilityObjectWrapperBase
+
+- (id)path;
+- (void)detach;
+- (id)_accessibilityParentForSubview:(id)a0;
+- (id)accessibilityActionDescription:(id)a0;
+- (id)accessibilityActionNames;
+- (unsigned long long)accessibilityArrayAttributeCount:(id)a0;
+- (id)accessibilityArrayAttributeValues:(id)a0 index:(unsigned long long)a1 maxCount:(unsigned long long)a2;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityAttributeValue:(id)a0 forParameter:(id)a1;
+- (id)accessibilityFocusedUIElement;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (unsigned long long)accessibilityIndexOfChild:(id)a0;
+- (BOOL)accessibilityIsAttributeSettable:(id)a0;
+- (BOOL)accessibilityIsIgnored;
+- (id)accessibilityParameterizedAttributeNames;
+- (void)accessibilityPerformAction:(id)a0;
+- (int)accessibilityPresenterProcessIdentifier;
+- (BOOL)accessibilityReplaceRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 withText:(id)a1;
+- (void)accessibilitySetValue:(id)a0 forAttribute:(id)a1;
+- (BOOL)accessibilityShouldUseUniqueId;
+- (BOOL)accessibilitySupportsOverriddenAttributes;
+- (id)attachmentView;
+- (void)accessibilityPerformPressAction;
+- (void)_accessibilityPerformIncrementAction;
+- (void)_accessibilityScrollToGlobalPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_accessibilitySetValue:(id)a0 forAttribute:(id)a1;
+- (id)_associatedPluginParent;
+- (struct __AXTextMarker { } *)textMarkerForTextMarker:(struct __AXTextMarker { } *)a0 atUnit:(int)a1;
+- (void)_accessibilityPerformDecrementAction;
+- (void)_accessibilityPerformPressAction;
+- (void)_accessibilityScrollToMakeVisibleWithSubFocus:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_accessibilityShowContextMenu;
+- (id)_additionalAccessibilityAttributeNames:(const void *)a0;
+- (id)remoteAccessibilityParentObject;
+- (id)_associatedPluginParentWith:(const void *)a0;
+- (long long)_indexForTextMarker:(struct __AXTextMarker { } *)a0;
+- (struct __AXTextMarker { } *)_textMarkerForIndex:(long long)a0;
+- (BOOL)accessibilityInsertText:(id)a0;
+- (void)accessibilityPerformDecrementAction;
+- (void)accessibilityPerformIncrementAction;
+- (void)accessibilityPerformShowMenuAction;
+- (id)accessibilityPlatformMathSubscriptKey;
+- (id)accessibilityPlatformMathSuperscriptKey;
+- (void)accessibilityScrollToVisible;
+- (id)bezierPathFromPath:(struct CGPath { } *)a0;
+- (void)detachIsolatedObject:(int)a0;
+- (id)intersectionWithSelectionRange;
+- (struct __AXTextMarkerRange { } *)lineTextMarkerRangeForTextMarker:(struct __AXTextMarker { } *)a0 forUnit:(int)a1;
+- (struct __AXTextMarkerRange { } *)selectedTextMarkerRange;
+- (struct __AXTextMarkerRange { } *)textMarkerRangeAtTextMarker:(struct __AXTextMarker { } *)a0 forUnit:(int)a1;
+- (id)windowElement:(id)a0;
+
+@end

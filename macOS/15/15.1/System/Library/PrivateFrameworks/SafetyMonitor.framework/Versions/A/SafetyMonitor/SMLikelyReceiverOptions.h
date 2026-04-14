@@ -1,0 +1,17 @@
+@interface SMLikelyReceiverOptions : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) BOOL requireEligibility;
+@property (readonly, nonatomic) BOOL requireContact;
+@property (readonly, nonatomic) BOOL requireNonBlockedContact;
+@property (readonly, nonatomic) BOOL requireOnlyFavoritedHandles;
+
++ (id)defaultOptions;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)hasNoFilters;
+- (id)initWithRequireEligibility:(BOOL)a0 requireContact:(BOOL)a1 requireNonBlockedContact:(BOOL)a2 requireOnlyFavoritedHandles:(BOOL)a3;
+
+@end

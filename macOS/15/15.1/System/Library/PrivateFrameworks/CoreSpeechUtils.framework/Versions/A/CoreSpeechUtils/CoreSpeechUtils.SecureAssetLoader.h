@@ -1,0 +1,6 @@
+@interface CoreSpeechUtils.SecureAssetLoader : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ active;
+    void /* unknown type, empty encoding */ lock;
+}
+
+@end

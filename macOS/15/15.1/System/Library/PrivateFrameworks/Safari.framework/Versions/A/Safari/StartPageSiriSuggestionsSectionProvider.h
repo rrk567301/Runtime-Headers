@@ -1,0 +1,76 @@
+@class _WelcomeView, NSString, NSArray, ForYouRecommendationMediator, NSAppearance, WBSSiteMetadataManager, NSMapTable;
+@protocol StartPageCollectionSectionProviderDelegate, StartPageSiriSuggestionsSectionProviderDelegate;
+
+@interface StartPageSiriSuggestionsSectionProvider : NSObject <StartPageFullDescriptionViewItemDelegate, StartPageCollectionSectionProvider> {
+    NSArray *_currentRecommendations;
+    WBSSiteMetadataManager *_siteMetadataManager;
+    NSMapTable *_recommendationMetadataTokens;
+    _WelcomeView *_welcomeView;
+    _WelcomeView *_welcomeViewTemplate;
+    BOOL _isVisible;
+    BOOL _hideEmptyItemView;
+}
+
+@property (nonatomic) BOOL usesPrivateBrowsing;
+@property (retain, nonatomic) ForYouRecommendationMediator *recommendationMediator;
+@property (weak, nonatomic) id<StartPageSiriSuggestionsSectionProviderDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSString *identifier;
+@property (weak, nonatomic) id<StartPageCollectionSectionProviderDelegate> sectionProviderDelegate;
+@property (readonly, nonatomic) BOOL usesCompactAppearance;
+@property (retain, nonatomic) NSAppearance *backgroundAppearance;
+@property (readonly, copy, nonatomic) NSArray *draggedTypes;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)collectionView:(id)a0 willDisplayItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (long long)_numberOfItems;
+- (long long)_sectionIndex;
+- (id)_sectionIndexSet;
+- (void)collectionView:(id)a0 didEndDisplayingItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (id)collectionView:(id)a0 itemForRepresentedObjectAtIndexPath:(id)a1;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)reloadData;
+- (void)viewDidAppear;
+- (void)viewWillDisappear;
+- (void)_cleanUp;
+- (id)_debugToolTipForRecommendation:(id)a0;
+- (id)_browserWindowController;
+- (void)_didSelectWelcomeViewCloseButton:(id)a0;
+- (void)_didUpdateSiriSuggestionsVisibility;
+- (id)_enqueueLeadImageRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (id)_enqueueSiteMetadataRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (id)_enqueueTouchIconRequestForRecommendationItem:(id)a0 title:(id)a1 url:(id)a2;
+- (void)_fetchHandoffResult;
+- (BOOL)_hasContentToDisplay;
+- (void)_incrementWelcomeViewTimesShownCounterIfApplicableBy:(unsigned long long)a0;
+- (BOOL)_isSectionVisible;
+- (void)_makeWelcomeViewTemplateIfNeeded;
+- (id)_makeWelcomeViewWithCollectionView:(id)a0 atIndexPath:(id)a1;
+- (void)_navigateToRecommendation:(id)a0 withPolicy:(long long)a1;
+- (unsigned long long)_numberOfTimesWelcomeViewHasBeenShown;
+- (BOOL)_recommendationsAreVisuallyIdentical:(id)a0;
+- (BOOL)_shouldShowWelcomeView;
+- (id)_tabPlacementHint;
+- (void)_updateCurrentRecommendations:(id)a0;
+- (void)_updateCurrentRecommendationsAndReloadSection:(id)a0;
+- (void)_updateRecommendationsForTopics:(id)a0;
+- (void)_updateWelcomeView;
+- (id)_welcomeString;
+- (id)accessibilityIdentifierForSection:(long long)a0;
+- (id)accessibilityTitleForSection:(long long)a0;
+- (long long)columnTypeForLayoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (id)initWithCompactAppearance:(BOOL)a0;
+- (id)layoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (void)navigateToSiriSuggestion:(id)a0;
+- (void)setUpReusableViewsUsingRegister:(id)a0;
+- (void)startPageFullDescriptionViewItem:(id)a0 showContextMenuWithEvent:(id)a1;
+- (id)titleConfigurationForSection:(long long)a0;
+- (void)willReuseItem:(id)a0;
+
+@end

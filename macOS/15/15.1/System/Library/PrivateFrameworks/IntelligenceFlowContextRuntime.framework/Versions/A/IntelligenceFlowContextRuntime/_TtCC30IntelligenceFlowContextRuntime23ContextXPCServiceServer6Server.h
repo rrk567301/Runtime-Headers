@@ -1,0 +1,18 @@
+@interface _TtCC30IntelligenceFlowContextRuntime23ContextXPCServiceServer6Server : NSObject <LXContextXPCProtocol> {
+    void /* unknown type, empty encoding */ clientApplicationIdentifier;
+    void /* unknown type, empty encoding */ transaction;
+    void /* unknown type, empty encoding */ contextRetrieverSetup;
+    void /* unknown type, empty encoding */ encoder;
+    void /* unknown type, empty encoding */ decoder;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)dumpUIContextFromCacheWith:(id /* block */)a0;
+- (void)refreshAndRetrieveWithContextTypes:(id)a0 with:(id /* block */)a1;
+- (void)refreshWithContextTypes:(id)a0 interactionId:(id)a1 with:(id /* block */)a2;
+- (void)retrieveContextValuesWithContextTypes:(id)a0 timeout:(id)a1 with:(id /* block */)a2;
+- (void)retrieveContextValuesWithQuery:(id)a0 with:(id /* block */)a1;
+- (void)retrieveRequiredContextValuesWith:(id /* block */)a0;
+
+@end

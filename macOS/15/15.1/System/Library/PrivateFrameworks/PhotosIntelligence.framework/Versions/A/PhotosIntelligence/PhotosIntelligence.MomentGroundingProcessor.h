@@ -1,0 +1,8 @@
+@interface PhotosIntelligence.MomentGroundingProcessor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ logger;
+    void /* unknown type, empty encoding */ photoLibrary;
+    void /* unknown type, empty encoding */ dateFormatter;
+    void /* unknown type, empty encoding */ storyGenerationCache;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.PostInstallAvailabilityUpdateTask : _TtCs12_SwiftObject
+
+@end
