@@ -1,0 +1,3 @@
+@interface ITLibModelSongKind : ITLibModelKind
+
+@end

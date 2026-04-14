@@ -1,0 +1,51 @@
+@interface _BMPhotosLibraryNode : _BMLibraryNode
+
++ (id)identifier;
++ (id)Delete;
++ (id)validKeyPaths;
++ (id)Engagement;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)sublibraries;
++ (id)Map;
++ (id)AutonamingSuggestions;
++ (id)Edit;
++ (id)Favorite;
++ (id)Live;
++ (id)Search;
++ (id)Share;
++ (id)storeConfigurationForEngagement;
++ (id)Memories;
++ (id)Picker;
++ (id)UserAnalytics;
++ (id)configurationForDelete;
++ (id)configurationForEdit;
++ (id)configurationForEngagement;
++ (id)configurationForFavorite;
++ (id)configurationForLive;
++ (id)configurationForMap;
++ (id)configurationForPicker;
++ (id)configurationForSearch;
++ (id)configurationForShare;
++ (id)configurationForUserAnalytics;
++ (id)storeConfigurationForDelete;
++ (id)storeConfigurationForEdit;
++ (id)storeConfigurationForFavorite;
++ (id)storeConfigurationForLive;
++ (id)storeConfigurationForMap;
++ (id)storeConfigurationForPicker;
++ (id)storeConfigurationForSearch;
++ (id)storeConfigurationForShare;
++ (id)storeConfigurationForUserAnalytics;
++ (id)syncPolicyForDelete;
++ (id)syncPolicyForEdit;
++ (id)syncPolicyForEngagement;
++ (id)syncPolicyForFavorite;
++ (id)syncPolicyForLive;
++ (id)syncPolicyForMap;
++ (id)syncPolicyForPicker;
++ (id)syncPolicyForSearch;
++ (id)syncPolicyForShare;
++ (id)syncPolicyForUserAnalytics;
+
+@end

@@ -1,0 +1,13 @@
+@interface VideosUI.LibrarySidebarFamilySharingDataProvider : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ memberID;
+    void /* unknown type, empty encoding */ title;
+    void /* unknown type, empty encoding */ menuRequests;
+    void /* unknown type, empty encoding */ collectionRequests;
+    void /* unknown type, empty encoding */ menuItems;
+    void /* unknown type, empty encoding */ menuItem;
+    void /* unknown type, empty encoding */ templateViewModel;
+    void /* unknown type, empty encoding */ collectionViewModelMap;
+}
+
+@end

@@ -1,0 +1,7 @@
+@interface _TtCC22AudioAnalyticsExternal17MacOSVolumeWorker16MacOSAudioDevice : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ id;
+    void /* unknown type, empty encoding */ isMuted;
+    void /* unknown type, empty encoding */ volume;
+}
+
+@end

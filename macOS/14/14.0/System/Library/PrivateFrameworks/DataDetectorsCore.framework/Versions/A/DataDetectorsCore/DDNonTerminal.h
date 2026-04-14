@@ -1,0 +1,30 @@
+@class NSString, DDGrammar, DDBinderInfo, NSMutableArray;
+
+@interface DDNonTerminal : NSObject {
+    NSMutableArray *_productions;
+    DDBinderInfo *_info;
+    long long _nonTerminalID;
+    DDGrammar *_grammar;
+    struct __DDIndexSet { } *_followSet;
+}
+
+@property (copy) NSString *name;
+@property BOOL matchesEpsilon;
+@property BOOL skippable;
+@property BOOL forceNonSkippable;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (void)appendDescription:(id)a0 withIndexRef:(long long *)a1;
+- (void)setProductions:(id)a0;
+- (void)_reallyAddProductionWithSymbols:(id)a0 location:(id)a1;
+- (void)addProductionWithSymbols:(id)a0 location:(id)a1;
+- (void)appendLocationDescription:(id)a0 withIndexRef:(long long *)a1;
+- (id)asSymbols;
+- (id)binderInfo;
+- (id)initWithName:(id)a0 inGrammar:(id)a1;
+- (id)productions;
+- (void)setBinderInfo:(id)a0;
+
+@end

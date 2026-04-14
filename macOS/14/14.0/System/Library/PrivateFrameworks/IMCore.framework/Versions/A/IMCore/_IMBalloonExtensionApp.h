@@ -1,0 +1,29 @@
+@class LSPlugInKitProxy, NSExtension;
+
+@interface _IMBalloonExtensionApp : IMBalloonApp
+
+@property (retain, nonatomic) NSExtension *extension;
+@property (retain, nonatomic) LSPlugInKitProxy *proxy;
+
+- (void).cxx_destruct;
+- (id)applicationType;
+- (id)version;
+- (BOOL)isEnabled;
+- (BOOL)isLaunchProhibited;
+- (id)itemID;
+- (id)plugin;
+- (void)setIsEnabled:(BOOL)a0;
+- (id)initWithPluginBundle:(id)a0 extension:(id)a1;
+- (id)appStoreGenreID;
+- (id)appStoreGenre;
+- (id)appStoreSubgenres;
+- (id)initWithPluginBundle:(id)a0 extension:(id)a1 pluginKitProxyClass:(Class)a2 proxy:(id)a3;
+- (id)initWithPluginBundle:(id)a0 pluginKitProxy:(id)a1 extension:(id)a2;
+- (BOOL)isBetaPlugin;
+- (BOOL)isPreDawnAndAppStoreStickerGenre;
+- (BOOL)isStickerPackOnly;
+- (BOOL)showInBrowser;
+- (BOOL)showInSendMenu;
+- (BOOL)showableInBrowser;
+
+@end

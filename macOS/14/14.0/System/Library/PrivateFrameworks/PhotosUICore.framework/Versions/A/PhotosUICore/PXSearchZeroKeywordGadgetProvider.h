@@ -1,0 +1,3 @@
+@interface PXSearchZeroKeywordGadgetProvider : PXGadgetProvider
+
+@end

@@ -1,0 +1,15 @@
+@class NSArray;
+
+@interface COMTAlarmReadAction : COMTAction
+
+@property (readonly, copy, nonatomic) NSArray *targetIdentifiers;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithTargetIdentifiers:(id)a0;
+
+@end

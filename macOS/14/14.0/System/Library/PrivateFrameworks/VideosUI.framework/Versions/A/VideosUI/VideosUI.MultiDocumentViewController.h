@@ -1,0 +1,29 @@
+@interface VideosUI.MultiDocumentViewController : VideosUI.DocumentViewController <VideosUI.VUIDeeplinkURLHandlingInterceptor> {
+    void /* unknown type, empty encoding */ parentDocumentDataSource;
+    void /* unknown type, empty encoding */ parentTitleContextDataKey;
+    void /* unknown type, empty encoding */ segmentsContextDataKey;
+    void /* unknown type, empty encoding */ segmentsContextDataTitleKey;
+    void /* unknown type, empty encoding */ segmentsContextDataIdentifierKey;
+    void /* unknown type, empty encoding */ placeholderInteractor;
+    void /* unknown type, empty encoding */ placeholderDocument;
+    void /* unknown type, empty encoding */ segments;
+    void /* unknown type, empty encoding */ parentTitle;
+    void /* unknown type, empty encoding */ documentInteractors;
+    void /* unknown type, empty encoding */ interactorObservers;
+    void /* unknown type, empty encoding */ selectedDocumentIndex;
+    void /* unknown type, empty encoding */ multiLoadingViewManager;
+    void /* unknown type, empty encoding */ internalPerformanceReporters;
+    void /* unknown type, empty encoding */ templateViewControllers;
+    void /* unknown type, empty encoding */ allowsDocumentSelection;
+}
+
+- (BOOL)deeplinkURLWasHandled:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)vui_viewDidAppear:(BOOL)a0;
+- (void)vui_viewDidDisappear:(BOOL)a0;
+- (void)vui_viewDidLayoutSubviews;
+- (void)vui_viewWillAppear:(BOOL)a0;
+- (void)vui_viewWillDisappear:(BOOL)a0;
+
+@end

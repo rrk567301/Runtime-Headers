@@ -1,0 +1,17 @@
+@interface FCTaskScheduler : NSObject
+
++ (id)lowPriorityOperationQueue;
++ (id)backgroundDownloadOperationQueue;
++ (void)disableOptionalPrefetching;
++ (void)enableBackgroundDownloadsInSpiteOfHighPriorityTasks;
++ (void)executeOptionalPrefetchBlock:(id /* block */)a0;
++ (id)lowPriorityQueue;
++ (void)popHighPriorityTaskInFlight;
++ (void)pushHighPriorityTaskInFlight;
++ (void)scheduleLowPriorityAsyncBlock:(id /* block */)a0;
++ (void)scheduleLowPriorityBlock:(id /* block */)a0;
++ (void)scheduleLowPriorityBlockForMainThread:(id /* block */)a0;
++ (void)scheduleLowPriorityOperation:(id)a0;
++ (void)scheduleOptionalPrefetchBlock:(id /* block */)a0;
+
+@end

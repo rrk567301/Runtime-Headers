@@ -1,0 +1,31 @@
+@class ITLibrary, NSCharacterSet;
+
+@interface ITLibAMPModelKindMapper : NSObject {
+    ITLibrary *_library;
+    NSCharacterSet *_capitalizedLetters;
+}
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)localeDidChange;
+- (id)initWithLibrary:(id)a0;
+- (id)_artistsForResponse:(id)a0 needsItems:(BOOL)a1;
+- (id)_albumsForResponse:(id)a0 needsItems:(BOOL)a1;
+- (id)_albumsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2;
+- (id)_albumsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2 needsTitledSections:(BOOL)a3;
+- (id)_artistsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2;
+- (id)_artistsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2 needsTitledSections:(BOOL)a3;
+- (BOOL)_checkPropertyFilters:(id)a0 forMediaItem:(id)a1;
+- (id)_genresForResponse:(id)a0 needsTitledSections:(BOOL)a1;
+- (id)_itemsForResponse:(id)a0 needsItems:(BOOL)a1;
+- (id)_itemsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2;
+- (id)_itemsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2 needsTitledSections:(BOOL)a3;
+- (id)_playlistsForResponse:(id)a0 needsItems:(BOOL)a1;
+- (id)_playlistsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2;
+- (id)_playlistsForResponse:(id)a0 needsItems:(BOOL)a1 propertyFilters:(id)a2 needsTitledSections:(BOOL)a3;
+- (void)_registerForLocaleNotification;
+- (id)_titledSectionNameFromSectionItem:(id)a0;
+- (id)processAMPLibResponse:(id)a0 fromAMPLibRequest:(id)a1;
+- (id)processAMPLibSearchResponse:(id)a0 fromAMPLibSearchRequest:(id)a1;
+
+@end
