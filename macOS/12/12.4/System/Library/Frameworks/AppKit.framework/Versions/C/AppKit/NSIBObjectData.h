@@ -1,0 +1,56 @@
+@class NSMapTable, NSString, NSMutableSet, NSIBObjectDataAuxilary, NSMutableArray;
+
+@interface NSIBObjectData : NSObject <NSCoding> {
+    id rootObject;
+    NSMapTable *objectTable;
+    NSMapTable *nameTable;
+    NSMutableSet *visibleWindows;
+    NSMutableArray *connections;
+    id firstResponder;
+    id fontManager;
+    NSMapTable *oidTable;
+    unsigned long long nextOid;
+    NSMapTable *classTable;
+    NSMapTable *instantiatedObjectTable;
+    NSString *targetFramework;
+    id _document;
+    NSIBObjectDataAuxilary *_objectDataAuxilary;
+}
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setRootObject:(id)a0;
+- (id)rootObject;
+- (id)connections;
+- (void)setConnections:(id)a0;
+- (id)firstResponder;
+- (id)instantiateObject:(id)a0;
+- (BOOL)shouldEncodeDesigntimeData;
+- (void)nibInstantiateWithOwner:(id)a0 topLevelObjects:(id)a1;
+- (void)nibInstantiateWithOwner:(id)a0 options:(id)a1 topLevelObjects:(id)a2;
+- (void)_addEarlyDecodingObjectsFromObjectList:(id)a0 toConnections:(id)a1;
+- (void)_removeEarlyDecodingObjectConnectionsFromConnections:(id)a0;
+- (id)visibleWindows;
+- (void)setVisibleWindows:(id)a0;
+- (id)targetFramework;
+- (void)setTargetFramework:(id)a0;
+- (long long)nextObjectID;
+- (void)setNextObjectID:(unsigned long long)a0;
+- (void)setFirstResponder:(id)a0;
+- (id)objectTable;
+- (id)nameTable;
+- (id)oidTable;
+- (id)classTable;
+- (void)setShouldEncodeDesigntimeData:(BOOL)a0;
+- (void)nibInstantiateWithOwner:(id)a0;
+- (void)_encodeObjectValuedMapTable:(id)a0 withCoder:(id)a1;
+- (void)_encodeIntValuedMapTable:(id)a0 withCoder:(id)a1;
+- (void)_assignObjectIds;
+- (void)_encodeMapTable:(id)a0 forTypes:(const char *)a1 withCoder:(id)a2;
+- (void)_readVersion0:(id)a0;
+
+@end

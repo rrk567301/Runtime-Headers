@@ -1,0 +1,88 @@
+@class NSImageView, LUI2ScrollView, NSTimer, NSString, NSLayoutConstraint, LUIStripView, NSButton;
+@protocol LUI2UserListDelegate, LUI2UserListDataSource;
+
+@interface LUI2UserListViewController : LUI2ViewController <LUIStripViewDelegate, LUIStripViewDataSource> {
+    id<LUI2UserListDataSource> _dataSource;
+    id<LUI2UserListDelegate> _delegate;
+}
+
+@property BOOL delegateSupportsIndexOfUserMatchingSearchString;
+@property BOOL delegateSupportsIdentifierForUser;
+@property BOOL delegateSupportsAvatarOfUser;
+@property BOOL delegateSupportsAvatarBackgroundColorDescriptionOfUser;
+@property BOOL delegateSupportsAvatarCropTransformOfUser;
+@property BOOL delegateSupportsAvatarStickerConfigurationOfUser;
+@property BOOL delegateSupportsAvatarInitialPoseUser;
+@property BOOL delegateSupportsAvatarCoordinator;
+@property BOOL delegateSupportsAvatarsCanSleep;
+@property double userWidth;
+@property NSLayoutConstraint *widthConstraint;
+@property long long numUsers;
+@property (retain) NSImageView *leftShadow;
+@property (retain) NSImageView *rightShadow;
+@property (retain) NSTimer *avatarIdleTimer;
+@property (getter=isIdle) BOOL idle;
+@property (readonly) LUI2ScrollView *scrollView;
+@property (readonly) LUIStripView *stripView;
+@property (readonly) NSButton *prevButton;
+@property (readonly) NSButton *nextButton;
+@property id<LUI2UserListDataSource> dataSource;
+@property id<LUI2UserListDelegate> delegate;
+@property (readonly) BOOL isFocusedOnUser;
+@property (readonly) id focusedUser;
+@property (readonly) long long selectedUser;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)delegate;
+- (void)setDelegate:(id)a0;
+- (void)setEnabled:(BOOL)a0;
+- (void)viewDidLayout;
+- (id)dataSource;
+- (void)reloadData;
+- (void)setDataSource:(id)a0;
+- (void)mouseEntered:(id)a0;
+- (void)viewWillLayout;
+- (void)viewDidLoad;
+- (void)viewDidAppear;
+- (id)viewForPopover;
+- (BOOL)stripView:(id)a0 shouldSelectItemAtIndex:(long long)a1;
+- (long long)numberOfItemsInStripView:(id)a0;
+- (id)stripView:(id)a0 itemForColumn:(long long)a1;
+- (long long)stripView:(id)a0 indexOfItemMatchingSearchString:(id)a1;
+- (void)showAvatarIdle;
+- (void)showAvatarSelected;
+- (void)_startAvatarIdleTimer;
+- (void)showAvatarLoginFailure;
+- (void)showAvatarLoginSuccess;
+- (void)showAvatarPasswordEntry;
+- (void)showAvatarPicker;
+- (double)_widthForMaxUsers:(long long)a0;
+- (long long)_maxUsersForMainScreen;
+- (id)_currentAvatar;
+- (void)_transitionToIdle;
+- (void)showAvatarPickerAfterDelay:(double)a0;
+- (void)_transitionToSelected:(long long)a0;
+- (void)_transitionToMouseInteractionWithAvatar:(id)a0;
+- (void)_userPressed:(id)a0;
+- (void)_updatePrevNextButtons;
+- (BOOL)_voiceOverEnabled;
+- (void)_updateWidthConstraint;
+- (void)_allowTransitionsInView:(id)a0 ofUser:(id)a1 andAvatar:(id)a2;
+- (void)_removeAvatarFromUserView:(id)a0;
+- (void)_transitionToPickerFromItemAtIndex:(long long)a0;
+- (void)_prevButtonPressed:(id)a0;
+- (void)_nextButtonPressed:(id)a0;
+- (void)_userSelected:(id)a0;
+- (void)_stripViewPositionChanged:(id)a0;
+- (id)_userViewForAvatarView:(id)a0;
+- (void)endFocusOnUser;
+- (void)focusOnUserAtIndex:(long long)a0;
+- (void)setUserLoggedInIndicatorAtIndex:(long long)a0 hidden:(BOOL)a1;
+- (void)setUserNameAtIndex:(long long)a0 hidden:(BOOL)a1;
+- (void)setUserPictureAtIndex:(long long)a0 hidden:(BOOL)a1;
+
+@end

@@ -1,0 +1,86 @@
+@class NSSet, NSArray, NSMutableOrderedSet, NSURL, NSRunLoop;
+
+@interface TMSession : NSObject
+
+@property (readonly) long long options;
+@property (retain) id daSession;
+@property (retain) NSRunLoop *sessionRunLoop;
+@property (readonly) NSMutableOrderedSet *backups;
+@property (readonly) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } backupsLock;
+@property (retain) NSSet *cachedBackupDates;
+@property (retain) NSURL *currentMachineStoreURL;
+@property (copy) id /* block */ backupMountedBlock;
+@property (copy) id /* block */ backupUnmountedBlock;
+@property (readonly) NSArray *browsableBackupDates;
+@property (readonly) NSURL *dataVolumeMountPoint;
+
++ (long long)volumeTypeForMountPoint:(id)a0;
++ (id)cache;
++ (id)_replaceBackupPathForBackedUpItemPath:(id)a0 newBackupPath:(id)a1;
++ (id)_inferBackupRootPathFromBackedUpItemPath:(id)a0;
++ (id)browsingSessionForTMVolumeMountPoint:(id)a0 error:(id *)a1;
++ (id)_inferOriginalPathFromBackedUpItemPath:(id)a0;
++ (id)_backupRelativePathFromBackedUpItemPath:(id)a0;
++ (void)clearROSPCache;
++ (id)_pathInBackupForVolumeRelativePath:(id)a0 volumeName:(id)a1 volumeUUID:(id)a2 pathToBackup:(id)a3;
++ (id)sessionTable;
++ (id)sessionForTMVolumeMountPoint:(id)a0 options:(long long)a1 error:(id *)a2;
++ (void)setSession:(id)a0 forMountPoint:(id)a1;
++ (BOOL)_connectToBackupd:(id *)a0 connectionBlock:(id /* block */)a1;
++ (id)testBackupProxy;
++ (BOOL)_connectToBackupd:(id *)a0 timeout:(unsigned long long)a1 connectionBlock:(id /* block */)a2;
++ (id)existingSessionForMountPoint:(id)a0;
++ (id)browsingSessionForTMVolumeMountPoint:(id)a0 options:(long long)a1 error:(id *)a2;
++ (id)deleteBackupForMountPoint:(id)a0 date:(id)a1 error:(id *)a2;
++ (id)deleteInProgressBackupsForMountPoint:(id)a0 error:(id *)a1;
++ (void)setTestBackupProxy:(id)a0;
++ (BOOL)volumeTypeSupportsStoringSpotlightIndex:(long long)a0;
++ (id)_inheritanceHistoryForBackupURL:(id)a0;
++ (id)currentVolumeUUIDForHistoricVolumeUUID:(id)a0 usingInheritanceHistory:(id)a1;
++ (id)migrationSessionForTMVolumeMountPoint:(id)a0 error:(id *)a1;
++ (id)ROSPVolumeStoreInfoCache;
++ (id)remappingCache;
++ (id)inheritanceHistoryCache;
++ (void)clearPathMappingCaches;
++ (id)currentSystemVolume;
++ (id)currentDataVolume;
++ (id)_mountDestinationForDestinationID:(id)a0 error:(id *)a1;
++ (id)_volumeUUIDForVolumeStoreAtURL:(id)a0;
++ (struct TMBackupPathRanges { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; struct _NSRange { unsigned long long x0; unsigned long long x1; } x2; struct _NSRange { unsigned long long x0; unsigned long long x1; } x3; struct _NSRange { unsigned long long x0; unsigned long long x1; } x4; BOOL x5; })_backupPathRangesInPath:(id)a0;
++ (id)_machineStoreURLForBackupURL:(id)a0;
++ (id)currentDataVolumeUUID;
++ (id)_pathInBackupForVolumeRelativePath:(id)a0 volumeName:(id)a1 volumeUUID:(id)a2 pathToBackup:(id)a3 currentDataVolumeName:(id)a4 currentDataVolumeUUID:(id)a5 currentSystemVolumeName:(id)a6 currentSystemVolumeUUID:(id)a7 firmLinkMap:(id)a8;
++ (id)_cachedVolumeStorePathForVolumeUUID:(id)a0 backupURL:(id)a1;
++ (id)_tryVolumeNameRemapInBackupForVolumeName:(id)a0 volumeUUID:(id)a1 backupURL:(id)a2;
++ (id)_tryROSPVolumeNameRemapInBackupForVolumeUUID:(id)a0 backupURL:(id)a1 currentDataVolumeUUID:(id)a2 currentSystemVolumeName:(id)a3;
++ (id)_tryUUIDSearchInBackupURL:(id)a0 forVolumeUUID:(id)a1 alternateSystemUUID:(id)a2 inheritanceHistory:(id)a3;
++ (id)_failOverVolumeStoreNameForVolumeRelativePath:(id)a0 volumeName:(id)a1 volumeUUID:(id)a2 currentDataVolumeName:(id)a3 currentDataVolumeUUID:(id)a4 currentSystemVolumeName:(id)a5 currentSystemVolumeUUID:(id)a6 firmLinkMap:(id)a7;
++ (void)cacheVolumeStoreName:(id)a0 forVolumeUUID:(id)a1 backupURL:(id)a2;
++ (BOOL)checkAndSetIsInCurrentSystemDataVolumeForPath:(id)a0 ranges:(struct TMBackupPathRanges { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; struct _NSRange { unsigned long long x0; unsigned long long x1; } x2; struct _NSRange { unsigned long long x0; unsigned long long x1; } x3; struct _NSRange { unsigned long long x0; unsigned long long x1; } x4; BOOL x5; })a1;
++ (id)currentDataVolumeMountPoint;
++ (id)_browsingSessionForDestinationID:(id)a0 error:(id *)a1;
++ (id)_originalLocationForBackedUpItem:(id)a0 error:(id *)a1;
++ (id)_synthesizedDirectoryPathForBackupPath:(id)a0 backupMountPoint:(id)a1;
++ (id)cachedBackupDatesForDestinationID:(id)a0;
++ (id)calculateUniqueSizeForBackupDate:(id)a0 liveVolume:(id)a1 allowCachedValue:(BOOL)a2 error:(id *)a3;
++ (id)calculateTotalSizeForBackupDate:(id)a0 liveVolume:(id)a1 allowCachedValue:(BOOL)a2 error:(id *)a3;
++ (void)setCurrentROSPDataVolumeUUID:(id)a0;
++ (void)setCurrentROSPDataVolumeMountPoint:(id)a0;
++ (void)setNextVolumeStoreVolumeUUID:(id)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)browsableBackupEnumerator:(id *)a0;
+- (id)_synthesizeLegacyBackupDB:(id *)a0;
+- (id)initWithLiveVolumeMountPoint:(id)a0 options:(long long)a1;
+- (BOOL)_prepareBackupsForTMVolumeMountPoint:(id)a0 options:(long long)a1 error:(id *)a2;
+- (BOOL)finishSession:(id *)a0;
+- (id)completeBackupInfoEnumerator:(id *)a0;
+- (id)_readyBackupForDate:(id)a0 error:(id *)a1;
+- (const struct __DADissenter { } *)_copyUnmountDissenterForDisk:(struct __DADisk { } *)a0;
+- (id)_enumeratorForMountedBackupsForMachineStoreInfo:(id)a0;
+- (id)machineStoreInfoEnumerator:(id *)a0;
+- (id)latestVolumeStoreInfoEnumeratorForMachineStoreInfo:(id)a0 error:(id *)a1;
+- (id)enumeratorForVolumeStoreInfosMatchingVolumeStoreInfo:(id)a0 error:(id *)a1;
+
+@end

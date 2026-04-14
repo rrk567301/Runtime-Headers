@@ -1,0 +1,75 @@
+@class VUIImageView, NSString, NSView, VUILabel, NSColor;
+
+@interface VUIButton : NSControl <VUILabelBaselineProtocol>
+
+@property (retain, nonatomic) VUIImageView *imagesViewDefaultState;
+@property (retain, nonatomic) VUIImageView *imagesViewHighlightedState;
+@property (retain, nonatomic) VUIImageView *backgroundImagesViewDefaultState;
+@property (retain, nonatomic) VUIImageView *backgroundImagesViewHighlightedState;
+@property (retain, nonatomic) NSView *backgroundImageView;
+@property (retain, nonatomic) NSView *backdropView;
+@property (copy, nonatomic) NSString *groupName;
+@property (nonatomic) BOOL hasDisclaimerText;
+@property (nonatomic) double width;
+@property (nonatomic) double height;
+@property (nonatomic) unsigned long long buttonType;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } padding;
+@property (retain, nonatomic) NSColor *buttonBackgroundColor;
+@property (retain, nonatomic) NSColor *highlightColor;
+@property (nonatomic) double cornerRadius;
+@property (nonatomic) double minWidth;
+@property (nonatomic) double minHeight;
+@property (nonatomic) double maxWidth;
+@property (nonatomic) double maxHeight;
+@property (retain, nonatomic) VUILabel *textContentView;
+@property (retain, nonatomic) VUIImageView *imageView;
+@property (nonatomic) double imageMaxWidth;
+@property (nonatomic) double imageMaxHeight;
+@property (retain, nonatomic) NSColor *imageTintColor;
+@property (retain, nonatomic) NSColor *imageHighlightColor;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } imageMargin;
+@property (nonatomic) BOOL imageTrailsTextContent;
+@property (copy, nonatomic) id /* block */ selectActionHandler;
+@property (retain, nonatomic) NSColor *adjustmentModeNormalTintColor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)layout;
+- (BOOL)isFlipped;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)setCornerRadius:(double)a0;
+- (void)setHighlighted:(BOOL)a0;
+- (void)mouseDown:(id)a0;
+- (id)accessibilityRole;
+- (BOOL)isAccessibilityElement;
+- (id)accessibilityTitle;
+- (double)cornerRadius;
+- (BOOL)_hasTitle;
+- (BOOL)_hasImage;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (BOOL)_hasBackgroundImage;
+- (void)_updateLayout;
+- (void)_configure;
+- (void)_buttonTapped:(id)a0;
+- (void)setVuiBackgroundColor:(id)a0;
+- (id)initWithType:(unsigned long long)a0 interfaceStyle:(unsigned long long)a1;
+- (struct CGSize { double x0; double x1; })vui_layoutSubviews:(struct CGSize { double x0; double x1; })a0 computationOnly:(BOOL)a1;
+- (double)bottomMarginWithBaselineMargin:(double)a0;
+- (double)topMarginWithBaselineMargin:(double)a0;
+- (double)topMarginToLabel:(id)a0 withBaselineMargin:(double)a1;
+- (void)vui_prepareForReuse;
+- (double)vui_baselineOffsetFromBottom;
+- (void)vui_traitCollectionDidChange:(id)a0;
+- (struct CGSize { double x0; double x1; })_computeSizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })_imageSizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_setupPrimaryWithUberBackdropView;
+- (struct CGPoint { double x0; double x1; })_centerWithViewSize:(struct CGSize { double x0; double x1; })a0 withParentSize:(struct CGSize { double x0; double x1; })a1;
+- (void)setImageView:(id)a0 forHighlightedState:(BOOL)a1;
+- (void)setBackgroundImage:(id)a0 forHighlightedState:(BOOL)a1;
+- (void)configureWithLayoutProperties;
+
+@end

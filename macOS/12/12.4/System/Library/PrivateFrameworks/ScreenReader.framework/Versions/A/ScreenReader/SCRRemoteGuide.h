@@ -1,0 +1,64 @@
+@class NSArray, SCRGuideItem, NSSet, SCRElementRotorManager, NSMutableArray, SCRChooserItemResult, SCRElement, SCRApplication;
+
+@interface SCRRemoteGuide : SCRGuide
+
+@property (retain, nonatomic) SCRElementRotorManager *rotorManager;
+@property (retain, nonatomic) SCRApplication *application;
+@property (retain, nonatomic) SCRElement *containerElement;
+@property (readonly, nonatomic) SCRGuideItem *loadingGuideItem;
+@property (retain, nonatomic) NSArray *localTypeAheadGuideItems;
+@property (retain, nonatomic) NSMutableArray *remoteResults;
+@property (retain, nonatomic) NSMutableArray *remoteGuideItems;
+@property (retain, nonatomic) NSMutableArray *remoteTypeAheadResults;
+@property (retain, nonatomic) NSMutableArray *remoteTypeAheadGuideItems;
+@property (nonatomic) BOOL _allowTypeAhead;
+@property (nonatomic) BOOL isCreatingMoreRemoteGuideItems;
+@property (nonatomic) BOOL isFinishedCreatingAllRemoteGuideItems;
+@property (nonatomic) BOOL isFinishedCreatingAllRemoteTypeAheadGuideItems;
+@property (readonly, nonatomic) SCRChooserItemResult *lastRemoteResult;
+@property (readonly, nonatomic) SCRChooserItemResult *firstRemoteResult;
+@property (readonly, nonatomic) SCRChooserItemResult *lastRemoteTypeAheadResult;
+@property (retain, nonatomic) NSSet *searchKeys;
+@property (readonly, nonatomic) BOOL isLoadingItems;
+@property (readonly, nonatomic) BOOL isDisplayingContentChooser;
+@property (nonatomic) BOOL isCreatingAllLocalGuideItems;
+@property (nonatomic) BOOL isFinishedCreatingAllLocalGuideItems;
+@property (nonatomic) BOOL isBidirectionalDynamicLoadStyle;
+@property (nonatomic) BOOL isRotorAdvanceAllowed;
+@property (nonatomic) BOOL supportsContentChooser;
+
+- (void).cxx_destruct;
+- (void)reload;
+- (void)dispatchAddRemoteResultsForRemoteGuideInfo:(id)a0;
+- (void)dispatchAddRemoteTypeAheadResultsForSearchKeys:(id)a0 remoteTypeAheadResults:(id)a1 remoteTypeAheadGuideItems:(id)a2 typeAheadString:(id)a3 limit:(id)a4;
+- (id)guideItems;
+- (BOOL)handleEvent:(id)a0 request:(id)a1;
+- (void)dispatchAddLocalGuideItems:(id)a0 rotorType:(id)a1;
+- (BOOL)currentRotorHasRotorType:(id)a0;
+- (void)selectItemAtIndex:(unsigned long long)a0 indexForView:(unsigned long long)a1;
+- (id)initWithApplication:(id)a0 containerElement:(id)a1 title:(id)a2;
+- (void)dispatchAddRemoteGuideItemsWithLimit:(long long)a0;
+- (void)dispatchAddRemoteGuideItemsWithLimit:(long long)a0 direction:(long long)a1;
+- (void)addTopBoundaryOutputToRequest:(id)a0;
+- (BOOL)handleItemSelection:(id)a0 outputRequest:(id)a1;
+- (void)handleTypeAheadWithKey:(id)a0 request:(id)a1;
+- (void)updateSearchKeysWithRotorType:(id)a0;
+- (id)initWithApplication:(id)a0 containerElement:(id)a1 title:(id)a2 rotorManager:(id)a3 menuWindow:(id)a4 cursor:(id)a5;
+- (BOOL)_isHandlingTypeAhead;
+- (id)_remoteGuideSearchKeysForRotorType:(id)a0;
+- (BOOL)_isShowingTypeAhead;
+- (void)_addLocalGuideItems:(id)a0 rotorType:(id)a1;
+- (void)selectGuideItemAtIndex:(unsigned long long)a0 shouldGenerateOutput:(BOOL)a1;
+- (void)_addRemoteResultsForGuideInfo:(id)a0;
+- (void)_addRemoteGuideItemsWithLimit:(id)a0 direction:(id)a1;
+- (void)_addRemoteTypeAheadResultsForSearchKeys:(id)a0 remoteTypeAheadResults:(id)a1 remoteTypeAheadGuideItems:(id)a2 typeAheadString:(id)a3 limit:(id)a4;
+- (BOOL)_shouldAddRemoteGuideItems;
+- (void)addAllLocalGuideItems;
+- (void)_selectGuideItemAtIndex:(unsigned long long)a0 request:(id)a1;
+- (void)_updateStatusWithItemCount:(long long)a0 isFinishedLoading:(BOOL)a1 request:(id)a2;
+- (void)_cancelRemoteOperation;
+- (void)_updateGuideViewTitleWithTypeAheadString:(id)a0;
+- (id)_filteredGuideItemsWithGuideItems:(id)a0 containingTitleString:(id)a1;
+- (void)dispatchCancelRemoteOperation;
+
+@end

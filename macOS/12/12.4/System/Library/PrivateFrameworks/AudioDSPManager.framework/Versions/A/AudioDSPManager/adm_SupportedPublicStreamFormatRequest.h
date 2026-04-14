@@ -1,0 +1,24 @@
+@class NSString;
+
+@interface adm_SupportedPublicStreamFormatRequest : NSObject <NSSecureCoding, dspd_SupportedPublicStreamFormatRequest> {
+    struct unique_ptr<dspd::StreamDescription, std::default_delete<dspd::StreamDescription>> { struct __compressed_pair<dspd::StreamDescription *, std::default_delete<dspd::StreamDescription>> { struct StreamDescription *__value_; } __ptr_; } _streamDescriptionPtr;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) struct StreamDescription { unsigned long long x0; unsigned long long x1; struct vector<unsigned long long, std::allocator<unsigned long long>> { unsigned long long *x0; unsigned long long *x1; struct __compressed_pair<unsigned long long *, std::allocator<unsigned long long>> { unsigned long long *x0; } x2; } x2; struct Terminal_Identifier { struct basic_string<char, std::char_traits<char>, std::allocator<char>> { struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x0; unsigned long long x1; unsigned int x2; } x3; struct AudioFormat { struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } x0; struct ChannelLayout { unsigned int x0; struct optional<std::bitset<32>> { union { char x0; struct bitset<32UL> { unsigned long long x0; } x1; } x0; BOOL x1; } x1; struct optional<std::vector<AudioChannelDescription>> { union { char x0; struct vector<AudioChannelDescription, std::allocator<AudioChannelDescription>> { struct AudioChannelDescription *x0; struct AudioChannelDescription *x1; struct __compressed_pair<AudioChannelDescription *, std::allocator<AudioChannelDescription>> { struct AudioChannelDescription *x0; } x2; } x1; } x0; BOOL x1; } x2; } x1; } x4; struct StreamDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } x5; struct vector<std::tuple<aura::AudioFormat, std::set<std::tuple<double, double>>>, std::allocator<std::tuple<aura::AudioFormat, std::set<std::tuple<double, double>>>>> { void *x0; void *x1; struct __compressed_pair<std::tuple<aura::AudioFormat, std::set<std::tuple<double, double>>> *, std::allocator<std::tuple<aura::AudioFormat, std::set<std::tuple<double, double>>>>> { void *x0; } x2; } x6; int x7; } streamDescription;
+@property (nonatomic) struct DeviceDescription { unsigned long long mDeviceDescriptionID; struct vector<unsigned long long, std::allocator<unsigned long long>> { unsigned long long *__begin_; unsigned long long *__end_; struct __compressed_pair<unsigned long long *, std::allocator<unsigned long long>> { unsigned long long *__value_; } __end_cap_; } mStreamDescriptionIDs; struct StringRef { struct ObjectRef<const __CFString *> { struct __CFString *mCFObject; } mObject; } mUID; struct HardwareInfo { struct optional<applesauce::CF::StringRef> { union { char __null_state_; struct StringRef { struct ObjectRef<const __CFString *> { struct __CFString *mCFObject; } mObject; } __val_; } ; BOOL __engaged_; } mHardwareName; struct optional<applesauce::CF::StringRef> { union { char __null_state_; struct StringRef { struct ObjectRef<const __CFString *> { struct __CFString *mCFObject; } mObject; } __val_; } ; BOOL __engaged_; } mModelName; struct optional<applesauce::CF::StringRef> { union { char __null_state_; struct StringRef { struct ObjectRef<const __CFString *> { struct __CFString *mCFObject; } mObject; } __val_; } ; BOOL __engaged_; } mManufacturerName; } mHardwareInfo; double mSampleRate; struct vector<std::tuple<double, double>, std::allocator<std::tuple<double, double>>> { void *__begin_; void *__end_; struct __compressed_pair<std::tuple<double, double> *, std::allocator<std::tuple<double, double>>> { void *__value_; } __end_cap_; } mSupportedSampleRates; unsigned int mInputLatency; unsigned int mOutputLatency; unsigned int mInputSafetyOffset; unsigned int mOutputSafetyOffset; } deviceDescription;
+@property (nonatomic) struct vector<dspd::PortDescription, std::allocator<dspd::PortDescription>> { struct PortDescription *__begin_; struct PortDescription *__end_; struct __compressed_pair<dspd::PortDescription *, std::allocator<dspd::PortDescription>> { struct PortDescription *__value_; } __end_cap_; } portDescriptions;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+
+@end

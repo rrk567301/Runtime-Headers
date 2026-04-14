@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AutomateHomeNeedsDisambiguationStrategy : _TtCs12_SwiftObject
+
+@end

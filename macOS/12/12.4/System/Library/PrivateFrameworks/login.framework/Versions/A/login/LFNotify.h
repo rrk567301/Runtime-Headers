@@ -1,0 +1,17 @@
+@class LFListener, NSMutableDictionary, LFConnection;
+
+@interface LFNotify : NSObject
+
+@property LFConnection *connection;
+@property LFListener *listener;
+@property (retain) NSMutableDictionary *tokenMap;
+
+- (void)dealloc;
+- (id)init;
+- (id)initWithConnection:(id)a0;
+- (id)initWithListener:(id)a0;
+- (id)_nameForSelector:(SEL)a0 inProtocol:(id)a1;
+- (void)_registerProtocolMethods;
+- (void)sendSelector:(SEL)a0;
+
+@end

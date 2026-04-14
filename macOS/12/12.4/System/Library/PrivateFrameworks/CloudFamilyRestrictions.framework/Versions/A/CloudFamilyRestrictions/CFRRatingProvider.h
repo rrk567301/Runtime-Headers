@@ -1,0 +1,20 @@
+@class NSDictionary, NSArray;
+
+@interface CFRRatingProvider : NSObject
+
+@property (retain, nonatomic) NSDictionary *ratingProviders;
+@property (retain, nonatomic) NSDictionary *providerKeyForSetting;
+@property (retain, nonatomic) NSDictionary *disallowStringForProviderKey;
+@property (retain, nonatomic) NSDictionary *allowStringForProviderKey;
+@property (readonly, nonatomic) NSArray *supportedCountryCodes;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)ratingsForCountryCode:(id)a0 mediaFeature:(id)a1;
+- (id)ratingForRank:(long long)a0 country:(id)a1 mediaFeature:(id)a2;
+- (id)minimumRatingForProviderKey:(id)a0;
+- (id)maximumRatingForProviderKey:(id)a0;
+- (id)ratingsForCountryCode:(id)a0 contentSetting:(id)a1;
+- (id)ratingForRank:(long long)a0 country:(id)a1 contentSetting:(id)a2;
+
+@end

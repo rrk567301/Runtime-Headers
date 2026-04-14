@@ -1,0 +1,32 @@
+@interface PLAssetsdLibraryInternalClient : PLAssetsdBaseClient
+
+- (void)resetLimitedLibraryAccessForApplication:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)repairMemoriesWithUUIDs:(id)a0 error:(id *)a1;
+- (void)setWidgetTimelineGeneratedForDisplaySize:(struct CGSize { double x0; double x1; })a0 completionHandler:(id /* block */)a1;
+- (void)markPersonAsNeedingKeyFace:(id)a0 completionHandler:(id /* block */)a1;
+- (void)applySearchIndexUpdates:(id)a0 completionHandler:(id /* block */)a1;
+- (void)applySearchIndexGraphUpdates:(id)a0 supportingData:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)synchronouslyGetSizeOfResourcesToUploadByCPL:(long long *)a0 error:(id *)a1;
+- (void)waitForSearchIndexExistence:(id /* block */)a0;
+- (void)getAssetCountsWithReply:(id /* block */)a0;
+- (void)reloadMomentGenerationOptions;
+- (void)deleteiTunesSyncedContentWithCompletionHandler:(id /* block */)a0;
+- (void)setFetchFilterWithAssets:(id)a0 forApplication:(id)a1 withAuditToken:(struct { unsigned int x0[8]; })a2 completionHandler:(id /* block */)a3;
+- (void)forceRunBackgroundJobsOnLibraryPath:(id)a0 priority:(int)a1 completionHandler:(id /* block */)a2;
+- (void)coreAnalyticsLibrarySummaryDataWithCompletionHandler:(id /* block */)a0;
+- (BOOL)invalidateBehavioralScoreOnAllAssetsWithError:(id *)a0;
+- (void)getSearchIndexProgress:(id /* block */)a0;
+- (BOOL)synchronouslyGetLibrarySizesFromDB:(BOOL)a0 sizes:(id *)a1 error:(id *)a2;
+- (void)getLibrarySizesFromDB:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)updateAssetLocationDataWithUUID:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)synchronouslyMarkPersonAsNeedingKeyFace:(id)a0 error:(id *)a1;
+- (BOOL)setKeywords:(id)a0 forAssetWithUUID:(id)a1;
+- (BOOL)invalidateReverseLocationDataOnAllAssetsWithError:(id *)a0;
+- (BOOL)registerBackgroundJobServiceIfNecessaryOnLibraryPath:(id)a0 error:(id *)a1;
+- (unsigned long long)getBackgroundJobServiceStateWithError:(id *)a0;
+- (id)getBackgroundJobServiceStatusCenterDumpWithError:(id *)a0;
+- (id)getBackgroundJobServiceBundlesInQueueDictionaryWithError:(id *)a0;
+- (BOOL)backgroundJobServiceRemoveAllBundleRecordsFromProcessingSet:(id *)a0;
+- (id)metricsForLibraryAtURL:(id)a0 syncedAssetCount:(unsigned long long *)a1 nonSyncedAssetCount:(unsigned long long *)a2 error:(id *)a3;
+
+@end

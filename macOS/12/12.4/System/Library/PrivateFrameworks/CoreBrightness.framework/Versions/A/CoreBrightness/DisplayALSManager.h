@@ -1,0 +1,77 @@
+@class NSString, CBDisplayModuleMacOS, AmbientLightSensorStats, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source, OS_os_log;
+
+@interface DisplayALSManager : NSObject {
+    NSObject<OS_dispatch_queue> *_queue;
+    struct ALSStruct { float currentValue; float e1; float e1Sensor; float e2; float e2Sensor; float eThresh; float bl1; float bl2; BOOL autoEnabled; } _als;
+    struct DisplayStruct { CBDisplayModuleMacOS *displayModule; float displayIncrement; BOOL needsBrightnessSmoothing; float minimumLinearBrightness; float maximumLinearBrightness; float currentFadeTarget; NSObject<OS_dispatch_source> *fadeTimer; NSObject<OS_dispatch_source> *alsIdleTimer; NSObject<OS_dispatch_source> *forceUpdateTimer; float magsafeFactor; struct MagSafeReduction { BOOL enabled; float linearBrightnessLimit; float luxThreshold; } magSafeReduction; struct DynamicSlider { BOOL supported; NSObject<OS_dispatch_source> *fadeTimer; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } range; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } rangeBattery; struct *currentRange; float currentTargetFactor; } dynamicSlider; BOOL freezeBrightnessUpdates; NSString *uniqueID; } _display;
+    struct __CFString { } *_IOPMDynamicStoreSettingsKey;
+    struct __SCDynamicStore { } *_SCDynamicStore;
+    struct { long long x0; void *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *_SCDynamicStoreContext;
+    int _currentReducedBrightnessSetting;
+    AmbientLightSensorStats *_alsStats;
+    BOOL _ecoModeState;
+    int _ecoModeNotificationToken;
+    id /* block */ _ecoModeNotificationHandler;
+    unsigned int _powerNotifierRootIOKitPort;
+    struct IONotificationPort { } *_powerNotifierPortRef;
+    unsigned int _powerNotifierObject;
+    BOOL _removedMagSafeOnSleep;
+    NSObject<OS_os_log> *_logHandle;
+}
+
+- (void)dealloc;
+- (BOOL)start;
+- (void)setQueue:(id)a0;
+- (void)stop;
+- (void)setAutoBrightnessEnabled:(BOOL)a0;
+- (void)startEcoModeStateMonitoring;
+- (void)stopEcoModeStateMonitoring;
+- (void)setDynamicSliderConfigurationValues:(id)a0;
+- (void)setMagsafeRestrictionConfigurationValues:(id)a0;
+- (BOOL)cacheDisplayAlgorithmParameters;
+- (BOOL)loadPreferences;
+- (void)setDisplayModuleAutoEnabled;
+- (void)setDisplayModuleAlsCurve;
+- (void)unregisterForSystemNotifications;
+- (void)stopFade;
+- (void)updateALSParameters;
+- (void)handleALSUpdate:(float)a0;
+- (void)registerForSystemNotifications;
+- (void)registerSleepWakeNotifications;
+- (void)unregisterSleepWakeNotifications;
+- (BOOL)updateDynamicSliderState:(BOOL)a0 battery:(BOOL)a1;
+- (void)saveTogglePreference;
+- (int)getAdjustedLinearBrightness:(float *)a0;
+- (float)getAdjustedMinLinearBrightness;
+- (float)getAdjustedMaxLinearBrightness;
+- (void)updateDynamicThreshold;
+- (void)saveCurvePreferences;
+- (void)startMagsafeMonitoring;
+- (void)stopMagsafeMonitoring;
+- (int)magsafeBrightnessLevel;
+- (void)setMagsafeBrightnessLevel:(int)a0;
+- (void)setInitialMagsafeState;
+- (void)forceUpdateDynamicSlider;
+- (BOOL)updateDynamicSlider:(float)a0;
+- (void)stopDynamicSliderFade;
+- (BOOL)updateDynamicSliderWithLux:(float)a0 force:(BOOL)a1;
+- (void)setDynamicSliderWithFade:(float)a0 length:(float)a1;
+- (void)startALSIdleTimer;
+- (float)linearBrightnessForLux:(float)a0;
+- (void)setPerceptualBrightnessWithFade:(float)a0 length:(float)a1;
+- (int)setAdjustedLinearBrightness:(float)a0;
+- (void)forceUpdate:(unsigned int)a0;
+- (unsigned long long)curveVersion;
+- (id)initWithDisplayModule:(id)a0;
+- (void)userBrightnessChanged;
+- (void)commitUserBrightnessChange;
+- (BOOL)autoBrightnessEnabled;
+- (void)magsafeStateChanged:(id)a0;
+- (float)linearBrightness;
+- (id)copyMagsafeRestrictionConfiguration;
+- (void)updateMagsafeRestrictionConfiguration:(id)a0;
+- (id)copyDynamicSliderConfiguration;
+- (void)updateDynamicSliderConfiguration:(id)a0;
+
+@end

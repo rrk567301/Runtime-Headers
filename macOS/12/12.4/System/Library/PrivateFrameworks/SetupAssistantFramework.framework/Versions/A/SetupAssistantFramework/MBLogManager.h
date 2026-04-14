@@ -1,0 +1,16 @@
+@class NSObject;
+@protocol OS_os_log;
+
+@interface MBLogManager : NSObject
+
+@property (retain) NSObject<OS_os_log> *connObj;
+@property BOOL legacyLoggingEnabled;
+
++ (id)sharedManager;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)logType:(int)a0 inFunction:(const char *)a1 atLine:(int)a2 withString:(id)a3;
+- (void)logType:(int)a0 inFunction:(const char *)a1 atLine:(int)a2 withFormat:(id)a3;
+
+@end

@@ -1,0 +1,24 @@
+@class NSObject, NSString, NSMutableArray, CECFakeInterfaceListener;
+@protocol CoreRCInterfaceControllerDelegate, OS_dispatch_queue;
+
+@interface CoreRCInterfaceController : NSObject <CoreRCInterfaceListenerDelegate>
+
+@property (readonly, nonatomic) CECFakeInterfaceListener *fakeInterfaceListener;
+@property (nonatomic) id<CoreRCInterfaceControllerDelegate> delegate;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSMutableArray *interfaceListeners;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void)startOnQueue:(id)a0;
+- (void)interfaceListener:(id)a0 didAddInterface:(id)a1;
+- (void)interfaceListener:(id)a0 didRemoveInterface:(id)a1;
+- (id)firstInterface;
+- (BOOL)addInterfaceListenerClass:(Class)a0;
+- (BOOL)addBundlesFromPaths:(id)a0 expectedClass:(Class)a1;
+
+@end

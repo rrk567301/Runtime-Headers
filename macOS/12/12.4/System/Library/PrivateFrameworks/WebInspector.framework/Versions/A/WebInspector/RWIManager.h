@@ -1,0 +1,93 @@
+@class NSString, SimDeviceSet, NSSet, NSMutableDictionary, SimServiceContext, RWINotificationManager, RWIBaseManager, RWITarget, RWIApplication, NSObject;
+@protocol _RWIRelayToClientMessageReceiver, RWIManagerDelegate, OS_dispatch_queue;
+
+@interface RWIManager : NSObject <RWIBaseManagerDelegate> {
+    RWIBaseManager *_baseManager;
+    NSMutableDictionary *_debuggers;
+    NSMutableDictionary *_pendingPartialIncomingMessageData;
+    struct _AMDeviceNotificationContext { } *_notificationRef;
+    unsigned long long _resubscribeAttemptCount;
+    unsigned int _powerConnection;
+    unsigned int _powerNotifier;
+    struct IONotificationPort { } *_powerNotificationPort;
+    NSObject<OS_dispatch_queue> *_simulatorAccessQueue;
+    SimServiceContext *_simulatorService;
+    SimDeviceSet *_simulatorDevices;
+    struct optional<unsigned long long> { union { char __null_state_; unsigned long long __val_; } ; BOOL __engaged_; } _simulatorDeviceSetNotificationHandler;
+}
+
+@property (readonly, nonatomic) NSObject<_RWIRelayToClientMessageReceiver> *messageReceiver;
+@property (readonly, nonatomic) RWINotificationManager *notificationManager;
+@property (weak, nonatomic) id<RWIManagerDelegate> delegate;
+@property (readonly, nonatomic) NSSet *targets;
+@property (readonly, nonatomic) NSSet *readyTargets;
+@property (readonly, nonatomic) NSSet *capableTargets;
+@property (readonly, nonatomic) NSSet *activeInspectors;
+@property (readonly, nonatomic) RWITarget *currentTarget;
+@property (readonly, nonatomic) RWIApplication *currentApplication;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void)_systemDidWake;
+- (void)_systemWillSleep;
+- (unsigned long long)registerNotificationHandlerOnQueue:(id)a0 handler:(id /* block */)a1;
+- (BOOL)unregisterNotificationHandler:(unsigned long long)a0 error:(id *)a1;
+- (void)openInspectorWithConfiguration:(id)a0 forDebuggable:(id)a1 completionHandler:(id /* block */)a2;
+- (void)wakeUpDebuggablesForApplication:(id)a0;
+- (void)createDrivableForSession:(id)a0 usingApplication:(id)a1;
+- (id)currentMachine;
+- (void)targetHasBasicInformation:(id)a0;
+- (void)didAddDebuggable:(id)a0;
+- (void)willRemoveDebuggable:(id)a0;
+- (void)serviceConnectionClosed:(id)a0;
+- (void)receivedData:(id)a0 forDestination:(id)a1;
+- (void)requestDriver:(id)a0 shouldBeActive:(BOOL)a1 forwardIfUnhandled:(BOOL)a2;
+- (void)automaticInspectionCandidate:(id)a0 sessionIdentifier:(id)a1;
+- (void)serviceConnectionDidClose:(id)a0;
+- (void)unmanageDriver:(id)a0;
+- (void)updateDriver:(id)a0 toState:(id)a1;
+- (void)socketSend:(id)a0 fromDebugger:(id)a1;
+- (void)socketDidCloseFromDebugger:(id)a0;
+- (void)socketSetupForDebugger:(id)a0 pauseImmediately:(BOOL)a1;
+- (void)indicateDebuggable:(id)a0 enabled:(BOOL)a1;
+- (void)socketSetupForSession:(id)a0;
+- (void)socketDidCloseFromSession:(id)a0;
+- (void)socketSend:(id)a0 fromSession:(id)a1;
+- (BOOL)_registerForDeviceNotifications;
+- (void)_registerForPowerNotifications;
+- (void)_registerForSimulatorNotifications;
+- (void)_createInitialTargets;
+- (void)_unregisterForDeviceNotifications;
+- (void)_unregisterForPowerNotifications;
+- (void)_unregisterForSimulatorNotifications;
+- (void)_createCurrentMachineTarget;
+- (void)_handleSimulatorDeviceSetNotification:(id)a0;
+- (void)_processSimulatorWithChangedState:(id)a0;
+- (BOOL)_isConnectedToAnyLegacySimulator;
+- (void)_sendTargetRemovedEvent:(id)a0;
+- (void)_sendTargetAddedEvent:(id)a0;
+- (void)_removeDeviceRef:(struct _AMDevice { } *)a0;
+- (void)_addDeviceRef:(struct _AMDevice { } *)a0;
+- (void)_removeDevices;
+- (void)_resubscribeForDeviceNotifications;
+- (id)_deviceForAMDeviceRef:(struct _AMDevice { } *)a0;
+- (void)_removeDevice:(id)a0;
+- (void)_removeCurrentMachineTarget;
+- (void)_serviceConnectionClosed:(id)a0;
+- (id)_debuggerForDestination:(id)a0;
+- (id)_drivableForDestination:(id)a0;
+- (void)deviceNotification:(struct _AMDeviceNotificationInfo { struct _AMDevice *x0; int x1; struct _AMDeviceNotificationContext *x2; } *)a0;
+- (void)powerNotification:(unsigned int)a0 argument:(void *)a1;
+- (unsigned long long)registerNotificationHandler:(id /* block */)a0;
+- (id)manageDriver:(id)a0 forTarget:(id)a1;
+- (id)openChannelForDebuggable:(id)a0 error:(id *)a1;
+
+@end

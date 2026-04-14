@@ -1,0 +1,92 @@
+@class NSArray;
+
+@interface VKLabelMarker : VKMarker {
+    struct shared_ptr<md::LabelMarker> { struct LabelMarker *__ptr_; struct __shared_weak_count *__cntrl_; } _labelMarker;
+}
+
+@property (nonatomic) BOOL isDragged;
+@property (readonly, nonatomic) NSArray *shields;
+@property (readonly, nonatomic) NSArray *transitSystems;
+@property (readonly, nonatomic) NSArray *dataIconImageKeys;
+@property (readonly, nonatomic) NSArray *iconImageKeys;
+@property (readonly, nonatomic) NSArray *imageKeys;
+@property (readonly, nonatomic) NSArray *relatedTexts;
+@property (readonly, nonatomic) NSArray *relatedSubTexts;
+
++ (id)markerWithLabelMarker:(const void *)a0;
+
+- (void).cxx_destruct;
+- (id)locale;
+- (id).cxx_construct;
+- (struct { double x0; double x1; })coordinate;
+- (BOOL)isVisible;
+- (unsigned long long)elementCount;
+- (struct Box<double, 2> { struct Matrix<double, 2, 1> { double x0[2]; } x0; struct Matrix<double, 2, 1> { double x0[2]; } x1; })_bounds;
+- (BOOL)isSelectable;
+- (id)text;
+- (BOOL)isSelected;
+- (BOOL)hasBusinessID;
+- (unsigned long long)businessID;
+- (id)trafficCamera;
+- (BOOL)isTransit;
+- (id)mapRegion;
+- (unsigned long long)animationID;
+- (int)featureType;
+- (unsigned long long)venueID;
+- (float)buildingFaceAzimuth;
+- (id)featureHandles;
+- (id)incident;
+- (id)routeInfo;
+- (BOOL)isLabelHitAtScreenPoint:(struct CGPoint { double x0; double x1; })a0 selectableLabelsOnly:(BOOL)a1;
+- (BOOL)isFlyoverTour;
+- (BOOL)isTransitLine;
+- (unsigned long long)countFeatureIDs;
+- (id)featureAnnotation;
+- (int)selectionType;
+- (unsigned long long)venueBuildingID;
+- (unsigned long long)venueLevelID;
+- (short)venueFloorOrdinal;
+- (unsigned long long)venueComponentID;
+- (BOOL)isOneWayArrow;
+- (BOOL)isTrafficIncident;
+- (BOOL)isRouteEta;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })calloutAnchorRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })screenCollisionBounds;
+- (BOOL)isCluster;
+- (int)sortKey;
+- (const void *)labelMarkerImpl;
+- (struct { double x0; double x1; double x2; })coordinate3D;
+- (id)initWithLabelMarkerPtr:(const void *)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_calloutAnchorRect:(BOOL)a0;
+- (id)subtext;
+- (float)buildingHeight;
+- (BOOL)hasBuildingFaceAzimuth;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })lateralCalloutAnchorRect;
+- (BOOL)isOnRoute;
+- (BOOL)isAlongSelectedTransitLine;
+- (BOOL)isTextVisible;
+- (BOOL)isTrafficCamera;
+- (BOOL)isRouteWaypoint;
+- (BOOL)isRouteAnnotation;
+- (BOOL)isVenueButton;
+- (BOOL)isTransitAccessPoint;
+- (const unsigned long long *)featureIDs;
+- (short)venueLookInsideFloorOrdinal;
+- (BOOL)hasVenueLookInsideFloorOrdinal;
+- (unsigned char)venueComponentType;
+- (BOOL)positionOfInterest:(struct { double x0; double x1; } *)a0 zoom:(float *)a1;
+- (id)waypointInfo;
+- (id)routeAnnotations;
+- (void)setLabelPressed:(BOOL)a0;
+- (void)setIsPickedIconDrawnExternally:(BOOL)a0;
+- (struct CGPoint { double x0; double x1; })calloutAnchorPointWithSnapToPixels:(BOOL)a0;
+- (unsigned char)pickedLabelBalloonBehavior;
+- (id)debugAnchorPointString;
+- (BOOL)isLeafCluster;
+- (id)clusterContentBounds;
+- (unsigned long long)clusterFeatureCount;
+- (id)clusterFeatureAnnotations;
+- (BOOL)isClusterChild;
+- (id)parentClusterLabelMarker;
+
+@end

@@ -1,0 +1,86 @@
+@class NSDictionary, NSMutableDictionary;
+
+@interface ADMPowerActivityManager : NSObject {
+    NSMutableDictionary *_powerPreferences;
+    NSDictionary *_upsShutdownLevels;
+    struct IONotificationPort { } *_ioNotificationPort;
+    unsigned int _ioNotifier;
+}
+
++ (id)sharedPowerActivityManager;
+
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (void)registerPMFeatureChangedNotification;
+- (void)unregisterPMFeatureChangedNotification;
+- (id)_powerPreferences;
+- (id)_valueForKey:(id)a0 powerSource:(id)a1;
+- (void)_setValue:(id)a0 forKey:(id)a1 powerSource:(id)a2;
+- (void)cancelAllRepeatingPowerEvents;
+- (void)scheduleRepeatingPowerEvent:(id)a0;
+- (id)upsActivityProfile;
+- (void)writeUPSSettings:(id)a0 forKey:(id)a1;
+- (void)refreshUPSShutdownLevels;
+- (BOOL)supportsHDRLowPower;
+- (BOOL)isHDRLowPowerEnabled;
+- (void)setHDRLowPowerEnabled:(BOOL)a0;
+- (void)_refreshPowerPreferences;
+- (void)updateProfilesAndSendNotification;
+- (BOOL)hasBattery;
+- (unsigned long long)displaySleepsFor:(id)a0;
+- (unsigned long long)diskSleeps:(id)a0;
+- (unsigned long long)systemSleeps:(id)a0;
+- (void)setMinutesUntilDisplaySleeps:(unsigned long long)a0 for:(id)a1;
+- (void)setMinutesUntilDiskSleeps:(unsigned long long)a0 for:(id)a1;
+- (void)setMinutesUntilSystemSleeps:(unsigned long long)a0 for:(id)a1;
+- (BOOL)supportsProModeFor:(id)a0;
+- (BOOL)proModeFor:(id)a0;
+- (void)setProMode:(BOOL)a0 for:(id)a1;
+- (BOOL)supportsEcoModeFor:(id)a0;
+- (unsigned long long)ecoModeFor:(id)a0;
+- (void)setEcoMode:(unsigned long long)a0 for:(id)a1;
+- (BOOL)supportsDarkWakeFor:(id)a0;
+- (BOOL)supportsEnablePowerButtonSleepFor:(id)a0;
+- (BOOL)supportsWakeOnLANFor:(id)a0;
+- (BOOL)supportsWakeOnRingFor:(id)a0;
+- (BOOL)supportsAutoRestartFor:(id)a0;
+- (BOOL)supportsReducedCPUSpeedFor:(id)a0;
+- (BOOL)supportsDynamicPowerStep:(id)a0;
+- (BOOL)supportsLowerDisplayBrightnessFor:(id)a0;
+- (BOOL)supportsSleepUsesDimFor:(id)a0;
+- (BOOL)supportsRestartOnHangFor:(id)a0;
+- (BOOL)supportsVACT;
+- (BOOL)darkWakeFor:(id)a0;
+- (BOOL)enablePowerButtonSleepFor:(id)a0;
+- (BOOL)wakesOnLANFor:(id)a0;
+- (BOOL)wakesOnRingFor:(id)a0;
+- (BOOL)autoRestartsFor:(id)a0;
+- (BOOL)reducedCPUSpeedFor:(id)a0;
+- (BOOL)dynamicPowerStepFor:(id)a0;
+- (BOOL)lowerDisplayBrightnessFor:(id)a0;
+- (BOOL)sleepUsesDimFor:(id)a0;
+- (BOOL)restartsOnHang:(id)a0;
+- (BOOL)isVACTEnabled;
+- (void)setDarkWake:(BOOL)a0 for:(id)a1;
+- (void)setEnablePowerButtonSleep:(BOOL)a0 for:(id)a1;
+- (void)setWakesOnLAN:(BOOL)a0 for:(id)a1;
+- (void)setWakesOnRing:(BOOL)a0 for:(id)a1;
+- (void)setAutoRestarts:(BOOL)a0 for:(id)a1;
+- (void)setReducedCPUSpeed:(BOOL)a0 for:(id)a1;
+- (void)setDynamicPowerStep:(BOOL)a0 for:(id)a1;
+- (void)setLowerDisplayBrightness:(BOOL)a0 for:(id)a1;
+- (void)setSleepUsesDim:(BOOL)a0 for:(id)a1;
+- (void)setRestartsOnHang:(BOOL)a0 for:(id)a1;
+- (void)setVACTEnabled:(BOOL)a0;
+- (id)repeatingPowerEvents;
+- (BOOL)hasUPS;
+- (BOOL)upsSupportsShutdownKey:(id)a0;
+- (BOOL)upsShutdownEnabledForKey:(id)a0;
+- (void)setUPSShutdownEnabled:(BOOL)a0 forKey:(id)a1;
+- (unsigned long long)upsShutdownValueForKey:(id)a0;
+- (void)setUPSShutdownValue:(unsigned long long)a0 forKey:(id)a1;
+- (void)restoreDefaultSettingsForPowerSource:(id)a0;
+- (BOOL)usingDefaultSettingsForPowerSource:(id)a0;
+
+@end

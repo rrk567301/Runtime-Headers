@@ -1,0 +1,84 @@
+@class CalDisjointDateRange, NSMutableDictionary, NSMutableSet, EKCalendarStoreBackingStore, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface EKBackingStoreAccounting : NSObject {
+    BOOL _allEventsReceipt;
+    BOOL _allRemindersReceipt;
+    BOOL _allRemindersWithDueDatesReceipt;
+    BOOL _allCompletedRemindersReceipt;
+    BOOL _allIncompletedRemindersReceipt;
+    BOOL _allRemindersWithContactIdentifier;
+    unsigned long long _cachePruneCount;
+    NSMutableDictionary *_externalIdentifierMap;
+    NSMutableSet *_calendarIdentifiersWithAllEventsCached;
+}
+
+@property (copy, nonatomic) CalDisjointDateRange *cachedEventsInRange;
+@property (weak, nonatomic) EKCalendarStoreBackingStore *backingStore;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *fetchSerialQueue;
+@property (nonatomic) unsigned long long receiptGeneration;
+@property (readonly, nonatomic) NSMutableSet *itemIdentifiers;
+@property (readonly, nonatomic) NSMutableSet *calendarIdentifiersWithAllRemindersCached;
+@property (readonly, nonatomic) NSMutableSet *generalLookupPredicates;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)initWithBackingStore:(id)a0;
+- (id)copyForBackingStore:(id)a0;
+- (void)clearAll;
+- (BOOL)shrinkCachedRangeTo:(id)a0;
+- (void)updateIdentifierReceipts:(id)a0;
+- (void)updateExternalIdentifierReceipts:(id)a0;
+- (void)cacheWasPruned;
+- (id)accountedForAllEventsInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 calendarsBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)accountedForAllRemindersInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 calendarsBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)accountedForEventsInCalendars:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)accountedForRemindersInCalendars:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)accountedForRemindersWithDueDatesInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 fetchBlock:(id /* block */)a2 updateBlock:(id /* block */)a3;
+- (id)accountedForRemindersWithContactIdentifiersInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 fetchBlock:(id /* block */)a2 updateBlock:(id /* block */)a3;
+- (id)accountedForCompletedRemindersInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 fetchBlock:(id /* block */)a2 updateBlock:(id /* block */)a3;
+- (id)accountedForIncompletedRemindersInQueue:(id)a0 lookupCachedBlock:(id /* block */)a1 fetchBlock:(id /* block */)a2 updateBlock:(id /* block */)a3;
+- (id)accountedForOccurrencesWithIdentifiers:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (BOOL)occurrenceExternalIdentifierAccountedFor:(id)a0;
+- (id)accountedForOccurrencesWithExternalIdentifier:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (void)removeReceiptForOccurrenceExternalIdentifier:(id)a0;
+- (id)accountedForEventsWithGeneralLookupPredicate:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)uncachedRangeForRange:(id)a0;
+- (id)accountedForEventsInRange:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 calendarsBlock:(id /* block */)a3 fetchBlock:(id /* block */)a4 updateBlock:(id /* block */)a5 fetchedMasters:(id)a6;
+- (void)removeReceiptForOccurrenceIdentifier:(id)a0;
+- (BOOL)allRemindersAccountedFor;
+- (BOOL)allRemindersWithDueDatesAccountedFor;
+- (BOOL)allCompletedRemindersAccountedFor;
+- (BOOL)allIncompletedRemindersAccountedFor;
+- (BOOL)allEventsAccountedFor;
+- (void)addReceiptsForOccurrences:(id)a0;
+- (void)addReceiptForAllEvents;
+- (void)addReceiptForAllReminders;
+- (void)addReceiptForAllRemindersWithDueDates;
+- (void)addReceiptForAllCompletedReminders;
+- (void)addReceiptForAllIncompletedReminders;
+- (void)addReceiptsForGeneralLookupPredicates:(id)a0;
+- (void)addReceiptForRemindersInCalendars:(id)a0;
+- (void)addReceiptForEventsInCalendars:(id)a0;
+- (void)addReceiptsForOccurrenceIdentifiers:(id)a0;
+- (void)addReceiptsForOccurrenceExternalIdentifiers:(id)a0;
+- (BOOL)occurrenceIdentifierAccountedFor:(id)a0;
+- (void)addReceiptForOccurrenceIdentifier:(id)a0;
+- (void)_accountForObjectCheckBlock:(id /* block */)a0 lookupCachedBlock:(id /* block */)a1 fetchContainersBlock:(id /* block */)a2 fetchObjectsBlock:(id /* block */)a3 updateBlock:(id /* block */)a4 addReceiptBlock:(id /* block */)a5 queue:(id)a6;
+- (id)unaccountedForIdentifiersIn:(id)a0;
+- (void)_accountForMultipleObjectsCheckBlock:(id /* block */)a0 lookupCachedBlock:(id /* block */)a1 fetchContainersBlock:(id /* block */)a2 fetchObjectsBlock:(id /* block */)a3 updateBlock:(id /* block */)a4 addReceiptBlock:(id /* block */)a5 queue:(id)a6;
+- (id)_mapOfExternalIdentifiersForOccurrences:(id)a0;
+- (void)addReceiptForRange:(id)a0;
+- (BOOL)eventDateRangeAccountedFor:(id)a0;
+- (BOOL)generalLookupPredicateAccountedFor:(id)a0;
+- (void)addReceiptForGeneralLookupPredicate:(id)a0;
+- (BOOL)eventsInCalendarsAccountedFor:(id)a0;
+- (void)addReceiptForAllRemindersWithContactIdentifier;
+- (BOOL)remindersInCalendarsAccountedFor:(id)a0;
+- (void)addReceiptForOccurrenceExternalIdentifier:(id)a0 internalIdentifiers:(id)a1;
+- (id)accountedForOccurrenceWithIdentifier:(id)a0 queue:(id)a1 lookupCachedBlock:(id /* block */)a2 fetchBlock:(id /* block */)a3 updateBlock:(id /* block */)a4;
+- (id)unaccountedForExternalIdentifiersIn:(id)a0;
+- (void)addReceiptForOccurrence:(id)a0;
+
+@end

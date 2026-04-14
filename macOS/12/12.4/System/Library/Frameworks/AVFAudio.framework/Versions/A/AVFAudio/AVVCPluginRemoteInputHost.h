@@ -1,0 +1,20 @@
+@class AVVoiceController, NSMutableArray;
+@protocol AVAudioRemoteInputPlugin;
+
+@interface AVVCPluginRemoteInputHost : NSObject <AVAudioRemoteInputPluginDelegate> {
+    NSMutableArray<AVAudioRemoteInputPlugin> *mPlugins;
+    AVVoiceController *mMotherController;
+}
+
+- (void)dealloc;
+- (id)allBundles:(id *)a0;
+- (void)setParentVoiceController:(id)a0;
+- (id)mockPluginEndpoint;
+- (void)inputPlugin:(id)a0 didPublishDevice:(id)a1;
+- (void)inputPlugin:(id)a0 didUnpublishDevice:(id)a1;
+- (id)initializePlugins;
+- (void)invalidatePlugins;
+- (id)findDeviceWithIdentifier:(id)a0;
+- (id)findFirstBluetoothDevice;
+
+@end

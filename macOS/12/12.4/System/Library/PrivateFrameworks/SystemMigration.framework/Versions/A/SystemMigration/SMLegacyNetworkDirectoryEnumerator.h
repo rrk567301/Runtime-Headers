@@ -1,0 +1,43 @@
+@class NSNumber, NSMutableArray, SMPathWithAttributes, NSURL, NSArray, NSObject, SMNetworkSourceProxy;
+@protocol SMSystem_FileManagerProtocol;
+
+@interface SMLegacyNetworkDirectoryEnumerator : NSDirectoryEnumerator <SMPathEnumerationProtocol>
+
+@property (weak) SMNetworkSourceProxy *proxy;
+@property (weak) NSObject<SMSystem_FileManagerProtocol> *fileSystem;
+@property (retain) NSURL *startingPath;
+@property (retain) NSNumber *startingDeviceID;
+@property (retain) NSMutableArray *directoryStack;
+@property (retain) NSMutableArray *directoryEntriesStack;
+@property (retain) NSMutableArray *indexStack;
+@property (retain) SMPathWithAttributes *currentDirectory;
+@property (retain) NSArray *currentDirectoryEntries;
+@property (retain) SMPathWithAttributes *currentPathInDirectory;
+@property unsigned long long currentPathInDirectoryIndex;
+@property BOOL postOrderDirectory;
+@property BOOL doneEnumerating;
+@property BOOL currentDirectoryNeedsReading;
+@property BOOL allowCrossDeviceTraversal;
+@property (readonly) BOOL supportsFastEnumeration;
+@property BOOL useTrueOnDiskSizes;
+
+- (id)nextObject;
+- (void).cxx_destruct;
+- (void)skipDescendants;
+- (BOOL)hasNext;
+- (BOOL)isCurrentPathADirectory;
+- (BOOL)isPostorderDirectory;
+- (unsigned long long)filesystemSizeOfCurrentPath;
+- (void)readCurrentDirectoryContents;
+- (void)popDirectoryStack;
+- (void)pushDirectoryStack;
+- (BOOL)isPreorderDirectory;
+- (BOOL)isCurrentPathARegularDirectory;
+- (BOOL)isCurrentPathABundle;
+- (BOOL)isCurrentPathAPlatformBinary;
+- (BOOL)isCurrentPathARegularFile;
+- (id)bundleInfoAtCurrentPath;
+- (unsigned long long)skipDescendantsReturningSizeAndCount:(unsigned long long *)a0;
+- (id)initWithProxy:(id)a0 fileSystem:(id)a1 atRelativePath:(id)a2;
+
+@end

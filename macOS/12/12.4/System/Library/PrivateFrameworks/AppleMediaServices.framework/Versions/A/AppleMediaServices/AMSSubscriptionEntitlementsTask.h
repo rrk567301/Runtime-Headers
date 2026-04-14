@@ -1,0 +1,21 @@
+@interface AMSSubscriptionEntitlementsTask : AMSTask
+
+@property long long cachePolicy;
+@property BOOL extendedCarrierCheck;
+@property long long mediaType;
+
++ (id)updateCacheForMediaType:(long long)a0 account:(id)a1 data:(id)a2;
++ (unsigned long long)_segmentForMediaType:(long long)a0 error:(id *)a1;
+
+- (id)initWithMediaType:(long long)a0;
+- (id)_fetchEntitlementsFromIC;
+- (id)_fetchEntitlementsFromASD;
+- (id)performExternalLookup;
+- (BOOL)_shouldIgnoreCaches;
+- (id)_reloadASDSubscriptionForSegment:(unsigned long long)a0 controller:(id)a1;
+- (BOOL)_shouldIgnoreRemoteData;
+- (id)_queryCachedASDSubscriptionForSegment:(unsigned long long)a0 controller:(id)a1 reloadIfNeeded:(BOOL)a2;
+- (id)_resultFromASDEntitlements:(id)a0;
+- (id)_resultFromICResponse:(id)a0;
+
+@end

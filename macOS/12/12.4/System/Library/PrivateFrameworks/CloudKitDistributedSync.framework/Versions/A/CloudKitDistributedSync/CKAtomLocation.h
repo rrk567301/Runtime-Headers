@@ -1,0 +1,3 @@
+@interface CKAtomLocation : CKMergeableValueID
+
+@end

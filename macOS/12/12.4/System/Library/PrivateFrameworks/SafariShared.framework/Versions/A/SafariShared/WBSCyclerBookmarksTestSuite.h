@@ -1,0 +1,36 @@
+@class NSArray, NSString, WBSCyclerTestSuiteBookmarkAuxiliary, WBSCyclerOperationContext, WBSCyclerItemListRepresentation;
+
+@interface WBSCyclerBookmarksTestSuite : NSObject <WBSCyclerTestSuite> {
+    WBSCyclerOperationContext *_operationContext;
+    WBSCyclerTestSuiteBookmarkAuxiliary *_bookmarkAuxiliary;
+    unsigned long long _iterationCount;
+    WBSCyclerItemListRepresentation *_expectedTopLevelBookmarksFromPreviousIteration;
+}
+
+@property (readonly, copy, nonatomic) NSArray *operations;
+@property (readonly, copy, nonatomic) NSArray *relativeProbabilitiesForOperations;
+@property (readonly, nonatomic, getter=isFinished) BOOL finished;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)setValue:(id)a0 forConfigurationKey:(id)a1;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)tearDown;
+- (BOOL)canHandleRequest:(id)a0;
+- (void)setUp;
+- (void)_validateServerBookmarksWithTarget:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_errorWithCode:(long long)a0 userInfo:(id)a1;
+- (void)_validateServerBookmarksAfterInitialSyncWithTarget:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_validateServerBookmarksWithTarget:(id)a0 initialBookmarks:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_validateServerBookmarksAfterClearingLocallyWithTarget:(id)a0 initialBookmarks:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_performCloudKitSecondaryMigrationAfterClearingBookmarksWithTarget:(id)a0 initialBookmarks:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_performFinalServerBookmarkValidationAfterClearingAndSyncingWithInitialBookmarks:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_descriptionForErrorCode:(long long)a0;
+- (void)runWithTarget:(id)a0 completionHandler:(id /* block */)a1;
+- (void)handleRequest:(id)a0 withTarget:(id)a1 completionHandler:(id /* block */)a2;
+
+@end

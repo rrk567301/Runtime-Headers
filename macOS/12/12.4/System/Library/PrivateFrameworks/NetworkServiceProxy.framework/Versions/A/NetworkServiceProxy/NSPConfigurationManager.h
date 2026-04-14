@@ -1,0 +1,86 @@
+@class NSTimer, NSString, NWPath, NSURLSession, NSDate, NSDictionary, NSObject, NSPConfiguration;
+@protocol OS_dispatch_source, NSPConfigurationManagerDelegate;
+
+@interface NSPConfigurationManager : NSObject
+
+@property (weak) NSObject<NSPConfigurationManagerDelegate> *delegate;
+@property (retain, nonatomic) NSPConfiguration *configuration;
+@property (retain, nonatomic) NSTimer *resurrectionTimer;
+@property (retain, nonatomic) NSTimer *enableCheckTimer;
+@property (nonatomic) BOOL isConfigFetchRequestPending;
+@property (nonatomic) unsigned long long generation;
+@property (retain, nonatomic) NWPath *path;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *configFetchRetryTimer;
+@property (nonatomic) unsigned long long configFetchRetryAttempt;
+@property (nonatomic) BOOL configFetchOnNetworkChange;
+@property (retain, nonatomic) NSURLSession *configFetchSession;
+@property (retain, nonatomic) NSDate *configFetchRetryDate;
+@property (nonatomic) BOOL useDefaultInterface;
+@property (nonatomic) unsigned long long configFetchSuccessCount;
+@property (nonatomic) unsigned long long configFetchFailedCount;
+@property (nonatomic) unsigned long long effectiveUserTier;
+@property (retain, nonatomic) NSString *trueClientIPAddress;
+@property (retain, nonatomic) NSDictionary *networkCharacteristics;
+
++ (id)reasonToString:(unsigned long long)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)currentConfiguration;
+- (void)updateConfiguration:(id)a0;
+- (void)setup;
+- (id)diagnostics;
+- (id)networkInterface;
+- (id)initWithDelegate:(id)a0 configuration:(id)a1;
+- (void)resetTimers;
+- (unsigned long long)effectiveTier;
+- (BOOL)setUserTier:(unsigned long long)a0;
+- (void)refreshConfigurationFetchWithReason:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)resetPendingFetches;
+- (void)setupResurrectionTimer;
+- (void)setupEnableCheckTimer;
+- (void)setUserEventAgentConfigurationFetchParameters;
+- (void)resetConfiguration;
+- (void)setGeohashOverride:(id)a0;
+- (void)setProxyAccountType:(unsigned long long)a0;
+- (void)configurationRestart;
+- (void)setupURLSession;
+- (void)checkConfigurationFetchRequired;
+- (BOOL)setupTimers;
+- (void)cleanupURLSession;
+- (void)refreshConfigurationWithReason:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (id)mergeProxyTrafficStateWithCurrentPolicy;
+- (id)configuredPrivacyProxyPolicy;
+- (id)copyPolicyConditionsFromPrivacyProxyPolicy:(id)a0;
+- (void)configurationEnabledStateUpdated;
+- (void)cloudSubscriptionCheckChanged;
+- (void)trialConfigurationVersionChanged;
+- (void)resurrectionDateUpdated;
+- (void)userTierChanged;
+- (void)userPreferredTierChanged;
+- (void)effectiveUserTierChanged;
+- (void)proxyTokenFetchStateUpdated;
+- (void)authenticationInfoUpdated;
+- (void)proxiesInfoUpdated;
+- (void)policiesUpdated:(BOOL)a0;
+- (void)geohashSettingsChanged;
+- (void)configurationUpdated;
+- (void)retryNetworkFetch;
+- (unsigned long long)configurationSubscriberPoliciesCount;
+- (void)configurationFetched;
+- (void)setConfigurationFetchRetryTimer:(unsigned long long)a0;
+- (void)fetchPrivacyProxyConfigurationFile:(id)a0 interface:(id)a1 eTag:(id)a2 accessToken:(id)a3 reason:(unsigned long long)a4 completionHandler:(id /* block */)a5;
+- (void)configurationFetchFailure:(id)a0 error:(id)a1;
+- (void)fetchURL:(id)a0 interface:(id)a1 eTag:(id)a2 requestType:(int)a3 session:(id)a4 accessToken:(id)a5 reason:(unsigned long long)a6 completionHandler:(id /* block */)a7;
+- (void)resetConfigurationManager;
+- (void)setConfigurationTrialVersion:(long long)a0;
+- (void)configurationEnabled:(BOOL)a0;
+- (void)setGeohashSharingPreference:(BOOL)a0;
+- (BOOL)getGeohashSharingPreference;
+- (unsigned long long)getPrivacyProxyAccountType;
+- (void)setProxyTrafficState:(unsigned long long)a0 proxyTraffic:(unsigned long long)a1;
+- (void)handlePathChange:(id)a0;
+- (void)publishDailyConfigurationStats;
+- (void)copyProxyInfo:(id)a0;
+
+@end

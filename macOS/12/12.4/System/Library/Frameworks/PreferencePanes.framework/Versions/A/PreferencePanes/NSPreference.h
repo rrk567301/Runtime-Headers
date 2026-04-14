@@ -1,0 +1,77 @@
+@class NSPrefTabsController, NSArray, NSDictionary, NSCFPrefManager, NSMutableArray;
+
+@interface NSPreference : NSPreferencePane {
+    NSPrefTabsController *_prefTabsController;
+    BOOL _isDirty;
+    BOOL _isEditable;
+    NSCFPrefManager *_prefs;
+    NSMutableArray *_relevantDomains;
+    NSArray *_macManagerSettings;
+    NSDictionary *_taggedControls;
+}
+
+- (id)objectForKey:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (id)stringForKey:(id)a0;
+- (long long)integerForKey:(id)a0;
+- (id)initWithBundle:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1 inDomain:(id)a2;
+- (id)objectForKey:(id)a0 inDomain:(id)a1;
+- (float)floatForKey:(id)a0;
+- (double)doubleForKey:(id)a0;
+- (void)setInteger:(long long)a0 forKey:(id)a1;
+- (void)setFloat:(float)a0 forKey:(id)a1;
+- (void)setDouble:(double)a0 forKey:(id)a1;
+- (void)setString:(id)a0 forKey:(id)a1;
+- (BOOL)isEditable;
+- (void)setEditable:(BOOL)a0;
+- (void)synchronizePrefs;
+- (long long)integerForKey:(id)a0 inDomain:(id)a1;
+- (void)setInteger:(long long)a0 forKey:(id)a1 inDomain:(id)a2;
+- (id)stringForKey:(id)a0 inDomain:(id)a1;
+- (void)setString:(id)a0 forKey:(id)a1 inDomain:(id)a2;
+- (void)deleteValueForKey:(id)a0;
+- (void)didHide;
+- (BOOL)booleanForKey:(id)a0;
+- (void)didSelect;
+- (void)didUnselect;
+- (void)willSelect;
+- (void)willUnselect;
+- (void)didBecomeActive;
+- (void)willBecomeActive;
+- (void)willResignActive;
+- (void)didResignActive;
+- (unsigned long long)shouldUnselect;
+- (void)willHide;
+- (void)willUnhide;
+- (void)didUnhide;
+- (void)applyMacManagerSettings;
+- (id)_findControlWithTag:(long long)a0 inView:(id)a1;
+- (void)_addDisabledControls:(id)a0;
+- (id)findControlWithTag:(long long)a0;
+- (void)_buildListOfDisabledControls;
+- (void)reflectEditableState;
+- (void)switchToPanel:(id)a0 anchor:(id)a1;
+- (void)setBoolean:(BOOL)a0 forKey:(id)a1 inDomain:(id)a2;
+- (BOOL)booleanForKey:(id)a0 inDomain:(id)a1;
+- (void)setFloat:(float)a0 forKey:(id)a1 inDomain:(id)a2;
+- (float)floatForKey:(id)a0 inDomain:(id)a1;
+- (void)setDouble:(double)a0 forKey:(id)a1 inDomain:(id)a2;
+- (double)doubleForKey:(id)a0 inDomain:(id)a1;
+- (void)deleteValueForKey:(id)a0 inDomain:(id)a1;
+- (void)addRelevantDomain:(id)a0;
+- (id)relevantDomainAtIndex:(long long)a0;
+- (long long)numberOfRelevantDomains;
+- (void)deleteRelevantDomainAtIndex:(long long)a0;
+- (void)deleteAllRelevantDomains;
+- (void)makeDirty;
+- (void)switchToPanel:(id)a0;
+- (void)setSuddenTerminationEnabled:(BOOL)a0;
+- (void)toggleTouchBarControlStripCustomizationPalette;
+- (void)setBoolean:(BOOL)a0 forKey:(id)a1;
+- (void)runSelfTest:(unsigned long long)a0 duration:(double)a1;
+- (void)encodeRestorableState:(id)a0;
+- (void)restoreState:(id)a0;
+
+@end

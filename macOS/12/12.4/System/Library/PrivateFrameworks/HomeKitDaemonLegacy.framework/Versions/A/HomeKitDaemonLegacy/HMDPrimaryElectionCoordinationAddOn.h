@@ -1,0 +1,23 @@
+@class NSString;
+@protocol HMDPrimaryResidentElectionAddOnDelegate;
+
+@interface HMDPrimaryElectionCoordinationAddOn : NSObject <HMDPrimaryResidentElectionAddOn>
+
+@property (weak) id<HMDPrimaryResidentElectionAddOnDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)start;
+- (id)initWithContext:(id)a0;
+- (void)stop;
+- (id)dumpState;
+- (void)registerForMessages;
+- (void)performElection;
+- (void)performElectionWithReason:(unsigned long long)a0;
+- (void)primaryResidentChanged:(id)a0 previousResidentDevice:(id)a1;
+- (void)didAddCurrentDevice;
+
+@end

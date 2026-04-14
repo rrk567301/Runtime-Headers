@@ -1,0 +1,26 @@
+@class NSValue;
+
+@interface _NSViewBackingLayer : _NSBackingLayer {
+    NSValue *_view;
+    unsigned char _isPresentationLayer : 1;
+}
+
++ (id)defaultValueForKey:(id)a0;
+
+- (void)dealloc;
+- (void)display;
+- (void)setSublayerTransform:(struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })a0;
+- (void)setTransform:(struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })a0;
+- (void)layoutSublayers;
+- (void)_renderForegroundInContext:(struct CGContext { } *)a0;
+- (void)setLayoutManager:(id)a0;
+- (void)setNeedsLayout;
+- (void)NS_suggestedContentsScaleDidChange;
+- (void)layerDidBecomeVisible:(BOOL)a0;
+- (id)initWithLayer:(id)a0;
+- (void)_appkitViewBackingLayerUniqueMethod;
+- (void)NS_invalidatePreparedContentRect;
+- (void)NS_prepareContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawInContext:(struct CGContext { } *)a0;
+
+@end

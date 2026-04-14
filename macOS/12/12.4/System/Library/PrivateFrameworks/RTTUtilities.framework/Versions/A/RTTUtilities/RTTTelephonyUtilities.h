@@ -1,0 +1,96 @@
+@class AXDispatchTimer, NSString, NSArray, CTXPCServiceSubscriptionContext, NSSet, CoreTelephonyClient, CTXPCContexts, NSMutableDictionary, NSObject, CNContactStore, NSNumber, ACAccountStore;
+@protocol OS_dispatch_queue;
+
+@interface RTTTelephonyUtilities : NSObject <CoreTelephonyClientCarrierBundleDelegate, TUCallCapabilitiesDelegatePrivate, TUCallCapabilitiesDelegate> {
+    ACAccountStore *_accountStore;
+    NSNumber *_callCapabilitiesSupportsTelephonyCalls;
+    AXDispatchTimer *_icloudAccountConsolidator;
+    AXDispatchTimer *_icloudRelayConsolidator;
+}
+
+@property (nonatomic) BOOL headphoneJackSupportsTTY;
+@property (retain, nonatomic) CoreTelephonyClient *telephonyClient;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *telephonyUpdateQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *accountStoreQueue;
+@property (retain) CTXPCServiceSubscriptionContext *defaultVoiceContext;
+@property (retain) NSSet *allVoiceContexts;
+@property unsigned long long activeContextCount;
+@property (retain) NSNumber *callCapabilitiesSupportsTelephonyCalls;
+@property (retain) NSArray *cachedSubscriptionContexts;
+@property (retain) CTXPCContexts *cachedActiveContexts;
+@property (retain, nonatomic) NSMutableDictionary *phoneNumberInfoCache;
+@property (retain, nonatomic) CNContactStore *contactStore;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedUtilityProvider;
++ (BOOL)relayIsSupported;
++ (BOOL)isRTTSupportedForContext:(id)a0;
++ (BOOL)isRTTSupported;
++ (BOOL)isTTYSupportedForContext:(id)a0;
++ (BOOL)isTTYSupported;
++ (BOOL)hardwareTTYIsSupportedForContext:(id)a0;
++ (BOOL)hardwareTTYIsSupported;
++ (BOOL)softwareTTYIsSupportedForContext:(id)a0;
++ (BOOL)softwareTTYIsSupported;
++ (void)performCallCenterTask:(id /* block */)a0;
++ (id)sharedCallCenter;
++ (BOOL)isRelayRTTSupported;
++ (BOOL)isOnlyRTTSupportedForContext:(id)a0;
++ (BOOL)shouldUseRTTForContext:(id)a0;
++ (id)relayPhoneNumber;
++ (BOOL)isOnlyRTTSupported;
++ (id)relayPhoneNumberForContext:(id)a0;
++ (BOOL)TTYHardwareEnabledForAnyActiveContext;
++ (BOOL)TTYSoftwareEnabledForAnyActiveContext;
++ (BOOL)shouldUseRTT;
++ (long long)currentSupportedTextingType;
++ (BOOL)relayIsSupportedForContext:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)subscriptionInfoDidChange;
+- (void)activeSubscriptionsDidChange;
+- (id)activeContexts;
+- (BOOL)contactIsTTYContact:(id)a0;
+- (BOOL)relayIsSupported;
+- (void)didChangeTelephonyCallingSupport;
+- (void)didChangeRelayCallingCapabilities;
+- (void)didChangeRelayCallingAvailability;
+- (void)didChangeOutgoingRelayCallerID;
+- (BOOL)isTTYSupportedForContext:(id)a0;
+- (unsigned long long)currentPreferredTransportMethodForContext:(id)a0;
+- (unsigned long long)currentPreferredTransportMethod;
+- (BOOL)reloadRelayPhoneNumbers;
+- (void)setTTYDictionaryAvailability:(BOOL)a0;
+- (BOOL)isTTYOverIMSSupportedForContext:(id)a0;
+- (id)relayNumberForContext:(id)a0;
+- (void)reloadDefaultVoiceContext;
+- (void)listenForCloudRelayChanges;
+- (void)updateHeadphoneState;
+- (id)phoneNumberForContext:(id)a0;
+- (id)subscriptionContexts;
+- (id)phoneNumberFromUUID:(id)a0;
+- (void)purgePhoneNumberInfoCache;
+- (void)carrierSettingsDidChange;
+- (id)getCarrierValueForKeyHierarchy:(id)a0 andContext:(id)a1;
+- (id)getCarrierValueForKey:(id)a0 andContext:(id)a1;
+- (BOOL)currentProcessHandlesCloudRelay;
+- (void)iCloudRTTRelayDidChange:(id)a0;
+- (void)iCloudAccountDidChange:(id)a0;
+- (BOOL)relayRTTIsSupported;
+- (void)headphoneStateChangedNotification:(id)a0;
+- (void)_processiCloudAccountForRTT;
+- (id)myPhoneNumber;
+- (id)ttyMeContact;
+- (BOOL)contactPathIsMe:(id)a0;
+- (id)contactPathForCall:(id)a0;
+- (id)labelFromUUID:(id)a0;
+- (BOOL)answerRTTCallAsMutedForCall:(id)a0;
+- (BOOL)deviceIsTinker;
+- (id)contextForCall:(id)a0;
+
+@end

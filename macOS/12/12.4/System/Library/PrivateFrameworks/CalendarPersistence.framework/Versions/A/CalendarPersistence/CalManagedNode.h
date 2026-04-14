@@ -1,0 +1,86 @@
+@class NSString, CalManagedPublication;
+
+@interface CalManagedNode : CalManagedObject
+
+@property (retain) NSString *title;
+@property (retain) NSString *notes;
+@property (retain) CalManagedPublication *publication;
+@property long long checked;
+@property int order;
+@property (readonly) BOOL isPublished;
+@property (readonly) BOOL isCalDAVPublished;
+@property (readonly) BOOL isShared;
+@property (readonly) BOOL isSharedByMe;
+@property (readonly) BOOL isSharedToMe;
+@property (readonly) BOOL isSubscribed;
+@property (retain) NSString *color;
+@property (retain) NSString *symbolicColorName;
+@property (retain) NSString *uid;
+@property (readonly) NSString *type;
+@property (readonly) NSString *path;
+@property (readonly) BOOL keepSyncRecordLocal;
+@property BOOL isEnabled;
+@property BOOL omitSyncRecord;
+@property (readonly) BOOL isDeletable;
+@property (readonly) BOOL isEventContainer;
+@property (readonly) BOOL isTaskContainer;
+@property (readonly) BOOL isRefreshable;
+@property (readonly) BOOL isRenameable;
+@property (readonly) BOOL isColorEditable;
+@property (readonly) BOOL isWritable;
+@property (readonly) BOOL supportsAttendeeSearch;
+@property (readonly) BOOL supportsCalDAVPublish;
+@property (readonly) BOOL supportsPublishing;
+@property (readonly) BOOL supportsSharing;
+
++ (id)pathExtension;
++ (id)entityName;
++ (id)fetchRequestWithUID:(id)a0 inManagedObjectContext:(id)a1;
++ (id)firstNodeInNodes:(id)a0 ordered:(long long)a1 passingTest:(id /* block */)a2;
++ (id)infoDictionaries;
++ (id)nodeWithHighestOrder:(id)a0 passingTest:(id /* block */)a1;
++ (id)infoDictionaryForNodeWithDirectoryName:(id)a0;
++ (id)infoDictionaryDirectoryNameForNodeWithInfoDictionary:(id)a0;
++ (id)_infoDictionaryPathForNodeWithDirectoryName:(id)a0;
++ (id)infoDictionaryDirectoryPathForNodeWithInfoDictionary:(id)a0;
++ (id)nodeWithHighestOrder:(id)a0;
++ (id)infoDictionaryForNodeWithUID:(id)a0;
++ (id)infoDictionaryPathForNodeWithInfoDictionary:(id)a0;
+
+- (long long)compare:(id)a0;
+- (void).cxx_destruct;
+- (id)relativePath;
+- (id)session;
+- (id)color;
+- (void)setColor:(id)a0;
+- (id)properties;
+- (void)willRefresh:(BOOL)a0;
+- (void)awakeFromFetch;
+- (id)iCalendarDocumentWithOptions:(unsigned long long)a0;
+- (id)lastOperationError;
+- (id)_makeSession;
+- (void)deactivateSession;
+- (BOOL)wantsSession;
+- (void)activateSession;
+- (void)refreshSession;
+- (void)refreshSession:(long long)a0;
+- (id)iCalendarDocumentWithID:(id)a0 name:(id)a1 description:(id)a2 color:(id)a3 options:(unsigned long long)a4;
+- (id)_iCalendarDocumentForCalendars:(id)a0 calendarID:(id)a1 name:(id)a2 description:(id)a3 color:(id)a4 options:(unsigned long long)a5;
+- (id)subscriptionOrPublishURL;
+- (id)nodesInNamespace;
+- (void)setNeedsPublish:(BOOL)a0;
+- (long long)compareTitle:(id)a0;
+- (id)nodesForOrdering;
+- (long long)notificationCountForClass:(Class)a0;
+- (BOOL)_isTitleInUse:(id)a0 nodes:(id)a1;
+- (void)updateOrderToFirstOrderWithNodesForOrdering:(id)a0;
+- (void)updateOrderToLastOrderWithNodesForOrdering:(id)a0;
+- (void)updateOrderToOrder:(int)a0 withNodesForOrdering:(id)a1;
+- (void)_updateOrderToOrder:(int)a0 shouldUseFirstOrder:(BOOL)a1 shouldUseLastOrder:(BOOL)a2 nodesForOrdering:(id)a3;
+- (BOOL)isTitleInUse:(id)a0;
+- (id)titleWithPrefix:(id)a0;
+- (void)updateOrderToFirstOrder;
+- (void)updateOrderToLastOrder;
+- (void)updateOrderToOrder:(int)a0;
+
+@end

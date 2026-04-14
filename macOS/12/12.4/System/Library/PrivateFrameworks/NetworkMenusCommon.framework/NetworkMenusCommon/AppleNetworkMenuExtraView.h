@@ -1,0 +1,74 @@
+@class NSDate, NSTimer, NSArray, NSAppearance, AppleNetworkMenuExtraServiceController, NSBundle, NSMenuExtra, NSNumber;
+
+@interface AppleNetworkMenuExtraView : NSView {
+    NSArray *mImages;
+    NSArray *mAlternateImages;
+    NSAppearance *mTextImagesAppearance;
+    NSArray *mTextImages;
+    NSArray *mAlternateTextImages;
+    NSBundle *mBundle;
+    AppleNetworkMenuExtraServiceController *mServiceController;
+    NSMenuExtra *mMenuExtra;
+    BOOL mShowTimer;
+    BOOL mShowAnimatedStatus;
+    BOOL mForceTimersOff;
+    BOOL mDecreaseFrameSize;
+    NSTimer *mStateTimer;
+    NSTimer *mSizeTimer;
+    NSTimer *mConnectedTimer;
+    NSDate *mStateReferenceTime;
+    NSDate *mSizeStartTime;
+    NSDate *mLastIconChangeTime;
+    long long mFrameNumber;
+    long long mFrameCount;
+    double mMaxWidth;
+    NSNumber *mConnectionStartTime;
+    double mSleepStartTime;
+    long long mSleepTimeAdditionalSeconds;
+}
+
+- (void)dealloc;
+- (BOOL)isOpaque;
+- (void)display;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (long long)elapsedTime;
+- (void)setConnectionStartTime:(id)a0;
+- (id)localizedString:(id)a0;
+- (BOOL)showTimer;
+- (id)serviceController;
+- (void)stopTimers;
+- (void)setServiceController:(id)a0;
+- (void)setMenuExtra:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 andBundle:(id)a1;
+- (void)setImageArray:(id)a0;
+- (void)setAlternateImageArray:(id)a0;
+- (void)setShowTimer:(BOOL)a0;
+- (void)setShowAnimatedStatus:(BOOL)a0;
+- (void)initializeTimerConstants;
+- (void)drawSelf;
+- (void)startStateTimer;
+- (void)showAnimatedView;
+- (void)showConnectedView;
+- (void)showNonAnimatedView;
+- (BOOL)showAnimatedStatus;
+- (void)stopConnectedTimer;
+- (void)stopStateTimer;
+- (void)changeFrameSize;
+- (void)startSizeTimer:(SEL)a0;
+- (void)stopSizeTimer;
+- (void)changeFrameSizeForConnectedView;
+- (void)startConnectedTimer;
+- (void)drawNonAnimatedView:(long long)a0;
+- (void)drawConnectedView:(long long)a0;
+- (void)drawAnimatedView:(long long)a0;
+- (void)drawAnimated:(long long)a0;
+- (void)loadTextImagesIfNeeded;
+- (id)getTimeImage:(long long)a0 isMenuDown:(BOOL)a1;
+- (id)stringAttributes:(BOOL)a0;
+- (id)getTextImage:(id)a0 withAttributes:(id)a1 isTime:(BOOL)a2;
+- (long long)getStringWidth:(id)a0 withAttributes:(id)a1 isTime:(BOOL)a2;
+- (id)imageArray;
+- (id)alternateImageArray;
+- (id)menuExtra;
+
+@end

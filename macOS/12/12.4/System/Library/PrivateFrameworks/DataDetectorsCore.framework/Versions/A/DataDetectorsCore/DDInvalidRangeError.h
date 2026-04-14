@@ -1,0 +1,3 @@
+@interface DDInvalidRangeError : DDErrorRegexp
+
+@end

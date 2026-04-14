@@ -1,0 +1,43 @@
+@class NSString, NSArray;
+
+@interface PA2DBufferTiledBacking : NSObject <PA2DBufferBacking> {
+    unsigned long long _width;
+    unsigned long long _height;
+    int _format;
+    struct CGColorSpace { } *_colorSpace;
+    unsigned long long _tileWidth;
+    unsigned long long _tileHeight;
+    NSArray *_tiles;
+}
+
+@property (nonatomic) struct CGColorSpace { } *colorSpace;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (struct PFIntSize_st { unsigned long long x0; unsigned long long x1; })size;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (unsigned long long)width;
+- (unsigned long long)height;
+- (int)format;
+- (struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })extent;
+- (unsigned long long)tileCount;
+- (void)getPixelsForROI:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 destPtr:(void *)a1 destPtrRowBytes:(long long)a2;
+- (unsigned long long)tilesWide;
+- (unsigned long long)tilesHigh;
+- (void)forEachImmutableTileInROI:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 processor:(id /* block */)a1;
+- (void)processConstPixelsInArea:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 processor:(id)a1;
+- (void)forEachMutableTileInROI:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 processor:(id /* block */)a1;
+- (void)processPixelsInArea:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 processor:(id)a1;
+- (void)setPixelsForROI:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 srcPtr:(const void *)a1 srcPtrRowBytes:(long long)a2;
+- (id)initWithSize:(unsigned long long)a0 :(unsigned long long)a1 tileSize:(unsigned long long)a2 :(unsigned long long)a3 format:(int)a4 fill:(void *)a5 colorSpace:(struct CGColorSpace { } *)a6;
+- (struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })tileBoundsAtIndex:(unsigned long long)a0;
+- (id)_newEmptyTiles:(unsigned long long)a0 fill:(id)a1;
+- (id)newEmptyTileWithLength:(unsigned long long)a0 format:(int)a1 fill:(id)a2;
+- (void)foreachTileInROI:(struct PFIntRect_st { struct PFIntPoint_st { long long x0; long long x1; } x0; struct PFIntSize_st { unsigned long long x0; unsigned long long x1; } x1; })a0 processor:(id /* block */)a1;
+- (id)initWithSize:(unsigned long long)a0 :(unsigned long long)a1 tileSize:(unsigned long long)a2 :(unsigned long long)a3 format:(int)a4;
+
+@end

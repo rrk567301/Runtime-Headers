@@ -1,0 +1,15 @@
+@class NSDictionary, NSArray;
+
+@interface HMDAccessorySettingsEventHelper : NSObject {
+    NSDictionary *_keyPathMap;
+    NSArray *_keyPaths;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)remoteEventAllowedForKeyPath:(id)a0 deviceType:(unsigned long long)a1 userType:(unsigned long long)a2;
+- (id)initWithKeyPathMap:(id)a0 keyPathList:(id)a1;
+- (unsigned long long)remoteUserAccessControlForTopic:(id)a0;
+- (unsigned long long)remoteDeviceAccessControlForTopic:(id)a0;
+
+@end

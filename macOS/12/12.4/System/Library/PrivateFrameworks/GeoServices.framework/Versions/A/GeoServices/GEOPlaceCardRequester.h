@@ -1,0 +1,25 @@
+@class NSObject;
+@protocol OS_dispatch_queue;
+
+@interface GEOPlaceCardRequester : NSObject {
+    NSObject<OS_dispatch_queue> *_requestQ;
+}
+
++ (id)sharedRequester;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)clearCache;
+- (void)cancelRequest:(id)a0;
+- (unsigned long long)shrinkBySizeSync:(unsigned long long)a0;
+- (id)_createServerConnection;
+- (id)requestIdentifiers:(id)a0 resultProviderID:(int)a1 traits:(id)a2 options:(unsigned long long)a3 auditToken:(id)a4 throttleToken:(id)a5 networkActivity:(id /* block */)a6 requesterHandler:(id /* block */)a7;
+- (void)fetchAllCacheEntriesWithRequesterHandler:(id /* block */)a0;
+- (id)requestPhoneNumbers:(id)a0 allowCellularDataForLookup:(BOOL)a1 traits:(id)a2 auditToken:(id)a3 throttleToken:(id)a4 networkActivity:(id /* block */)a5 requesterHandler:(id /* block */)a6;
+- (void)trackPlaceData:(id)a0;
+- (id)performPlaceDataRequest:(id)a0 traits:(id)a1 cachePolicy:(unsigned long long)a2 timeout:(double)a3 auditToken:(id)a4 throttleToken:(id)a5 networkActivity:(id /* block */)a6 requesterHandler:(id /* block */)a7;
+- (void)calculateFreeableSpaceWithHandler:(id /* block */)a0;
+- (unsigned long long)calculateFreeableSpaceSync;
+- (void)shrinkBySize:(unsigned long long)a0 finished:(id /* block */)a1;
+
+@end

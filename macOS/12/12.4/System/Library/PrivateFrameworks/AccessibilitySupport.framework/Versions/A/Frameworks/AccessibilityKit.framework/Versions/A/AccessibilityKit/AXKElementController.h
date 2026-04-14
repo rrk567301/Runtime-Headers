@@ -1,0 +1,82 @@
+@class AXFUIElement, NSArray, AXKApplicationController;
+
+@interface AXKElementController : NSObject
+
+@property (retain, nonatomic) AXFUIElement *representedElement;
+@property (weak, nonatomic) AXKElementController *parentController;
+@property (retain, nonatomic) NSArray *childControllers;
+@property (retain, nonatomic) NSArray *navigationOrderChildControllers;
+@property (retain, nonatomic, setter=_setHorizontallyOrderedChildControllers:) NSArray *_horizontallyOrderedChildControllers;
+@property (retain, nonatomic, setter=_setVerticallyOrderedChildControllers:) NSArray *_verticallyOrderedChildControllers;
+@property (nonatomic) unsigned long long layoutHash;
+@property (nonatomic) BOOL _didRegisterSelectedChildrenChangedNotification;
+@property (nonatomic) BOOL isMenuController;
+@property (retain, nonatomic) AXKElementController *menuControllerSelectedItem;
+@property (retain, nonatomic) AXKElementController *menuControllerSubMenuController;
+@property (readonly, weak, nonatomic) AXKApplicationController *applicationController;
+@property (readonly, nonatomic) NSArray *horizontallyOrderedChildControllers;
+@property (readonly, nonatomic) NSArray *verticallyOrderedChildControllers;
+@property (readonly, nonatomic, getter=isSelectable) BOOL selectable;
+@property (readonly, nonatomic, getter=isSelected) BOOL selected;
+@property (readonly, copy, nonatomic) NSArray *selectedChildControllers;
+@property (readonly, nonatomic) NSArray *supportedActions;
+
++ (void)cancelPreviousPerformRequestsWithTarget:(id)a0 selector:(SEL)a1 object:(id)a2;
++ (void)cancelPreviousPerformRequestsWithTarget:(id)a0;
++ (Class)controllerClassForElement:(id)a0;
++ (void)registerControllerBaseClass:(Class)a0;
++ (void)registerControllerClass:(Class)a0 applicationIdentifier:(id)a1 role:(id)a2 subrole:(id)a3 predicate:(id /* block */)a4;
++ (void)registerControllerClass:(Class)a0 role:(id)a1 subrole:(id)a2;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (void)performSelector:(SEL)a0 withObject:(id)a1 afterDelay:(double)a2 inModes:(id)a3;
+- (void)performSelector:(SEL)a0 withObject:(id)a1 afterDelay:(double)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounds;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })visibleBounds;
+- (BOOL)addObserver:(id)a0 selector:(SEL)a1 name:(id)a2;
+- (id)defaultAction;
+- (BOOL)hasKeyboardFocus;
+- (BOOL)performDefaultAction;
+- (id)spokenDescription;
+- (void)pruneObservers;
+- (void)setSelected:(BOOL)a0 exclusive:(BOOL)a1;
+- (id)initWithRepresentedElement:(id)a0 applicationController:(id)a1;
+- (BOOL)removeObserver:(id)a0 selector:(SEL)a1 name:(id)a2;
+- (id)performBlockOnApplicationQueue:(id /* block */)a0;
+- (void)cancelApplicationQueueOperations;
+- (id)_elementCacheValue;
+- (void)resignedKeyboardFocus;
+- (void)becameKeyboardFocused;
+- (id)menuControllerParent;
+- (id)menuControllerRoot;
+- (BOOL)shouldIncludeControllerInPromotedHierarchy;
+- (BOOL)shouldIncludeChildControllersInPromotedHierarchy;
+- (BOOL)needToRebuildChildControllers;
+- (id)_childControllersToIncludeInPromotedHierarchy;
+- (id)_navigationOrderChildControllersToIncludeInPromotedHierarchy;
+- (BOOL)shouldPromoteChildControllers;
+- (id)unpromotedParentController;
+- (BOOL)rebuildMapIfNeeded;
+- (id)_orderedArrayFromUnorderedElements:(id)a0 ordering:(id)a1;
+- (void)_buildMap;
+- (void)_menuControllerSelectedChildrenChangedHandler:(id)a0;
+- (BOOL)canSetSelectedChildControllers;
+- (BOOL)hasRowBasedChildControllers;
+- (BOOL)deselectChildControllers;
+- (BOOL)selectChildController:(id)a0 exclusive:(BOOL)a1;
+- (BOOL)deselectChildController:(id)a0;
+- (BOOL)setSelectedChildControllers:(id)a0;
+- (id)performBlockOnApplicationQueue:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (id)ancestorElementControllerWithPredicate:(id /* block */)a0;
+- (id)unpromotedChildControllers;
+- (BOOL)hasSpokenDescription;
+- (id)spokenDescriptionWithOptions:(unsigned long long)a0;
+- (BOOL)canHaveKeyboardFocus;
+- (void)setKeyboardFocus:(BOOL)a0;
+- (BOOL)supportsActivateAction;
+- (BOOL)performActivateAction;
+
+@end

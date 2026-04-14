@@ -1,0 +1,19 @@
+@class NSString, BMStoreStream;
+
+@interface BMWebUsageStream : NSObject <BMSourceStream, BMStreamDeleting, BMTimeBasedPublisherStream> {
+    BMStoreStream *_storeStream;
+}
+
+@property (readonly, nonatomic) NSString *identifier;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)source;
+- (id)publisherFromStartTime:(double)a0;
+- (id)publisherWithStartTime:(id)a0 endTime:(id)a1 maxEvents:(id)a2 lastN:(id)a3 reversed:(BOOL)a4;
+- (void)deleteLocalAndRemoteEventsWithReason:(unsigned long long)a0 usingPredicateBlock:(id /* block */)a1;
+- (id)publisherWithStartTime:(id)a0 endTime:(id)a1 maxEvents:(id)a2 reversed:(BOOL)a3;
+- (void)deleteEventsWithPredicate:(id /* block */)a0;
+- (void)deleteLocalAndRemoteEventsWithPredicateBlock:(id /* block */)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface PAAVItem : PAItem
+
+@end

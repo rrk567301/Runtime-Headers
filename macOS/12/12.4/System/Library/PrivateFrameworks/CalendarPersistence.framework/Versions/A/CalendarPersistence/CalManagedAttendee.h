@@ -1,0 +1,80 @@
+@class NSString, NSDictionary, NSURL, CalManagedEvent, NSDate, NSManagedObjectID;
+
+@interface CalManagedAttendee : CalManagedObject <EKProtocolParticipant>
+
+@property (retain) CalManagedEvent *myAttendeeForEvent;
+@property (retain) NSURL *address;
+@property (retain) NSString *commonName;
+@property (retain) NSString *role;
+@property (retain) NSString *status;
+@property (retain) NSString *scheduleStatus;
+@property (retain) NSString *scheduleAgent;
+@property (retain) NSString *emailAddress;
+@property (retain) NSString *phoneNumber;
+@property (retain) NSString *inviterName;
+@property (retain) NSString *proposalStatus;
+@property (retain) NSDate *proposalStartDate;
+@property (retain) NSDate *proposalEndDate;
+@property (retain) NSDate *statusModifiedDate;
+@property int type;
+@property BOOL omitSyncRecord;
+@property BOOL deleteSyncRecord;
+@property BOOL rsvp;
+@property BOOL includedInAllResponded;
+@property BOOL scheduleForceSend;
+@property BOOL isSelfInvited;
+@property (readonly) BOOL hasMail;
+@property (readonly, retain) NSString *justEmailAddress;
+@property (readonly, retain) NSString *addressForCommonName;
+@property (retain) CalManagedEvent *event;
+@property (retain) NSString *likenessDataString;
+@property (readonly, getter=isOrganizer) BOOL organizer;
+@property (readonly, nonatomic) NSString *comment;
+@property (readonly, nonatomic) NSURL *URL;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) BOOL isCurrentUserForSharing;
+@property (readonly, nonatomic) BOOL isCurrentUserForScheduling;
+@property (readonly, nonatomic) NSString *scheduleStatusString;
+@property (readonly, nonatomic) NSString *encodedLikenessData;
+@property (readonly, nonatomic) BOOL canBeConvertedToFullObject;
+@property (readonly, nonatomic) BOOL isPartialObject;
+@property (readonly, nonatomic) NSDictionary *preFrozenRelationshipObjects;
+@property (readonly, nonatomic) NSManagedObjectID *managedObjectID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)entityName;
++ (void)addAttendeePrefetchToCalendarItemFetch:(id)a0;
++ (void)addAttendeeCommentPrefetchToCalendarItemFetch:(id)a0;
+
+- (void)willRefresh:(BOOL)a0;
+- (BOOL)validateForInsert:(id *)a0;
+- (BOOL)validateForUpdate:(id *)a0;
+- (void)willSave;
+- (BOOL)isCurrentUser;
+- (BOOL)replyRequested;
+- (id)inviterNameString;
+- (id)proposedStartDateUnadjustedFromUTC;
+- (id)proposedEndDateUnadjustedFromUTC;
+- (id)proposalStatusString;
+- (void)setProposedStartDateUnadjustedFromUTC:(id)a0;
+- (void)setProposalStatusString:(id)a0;
+- (void)setInviterNameString:(id)a0;
+- (void)importiCalendarProperty:(id)a0 inComponent:(id)a1 fromDocument:(id)a2 inCalendar:(id)a3;
+- (id)_iCalendarElementWithOptions:(unsigned long long)a0;
+- (id)uniqueKeyForObject;
+- (id)enclosingSource;
+- (id)keysOnlyRelevantToNetworkDetails;
+- (void)_updateLikenessPropertiesForSave;
+- (id)contextForValidationError;
+- (BOOL)validateForWrite:(id *)a0;
+- (id)attributesToCompareForMerge;
+- (id)_attendeesComment;
+- (id)attributesToApplyForMerge;
+- (BOOL)needsReplyIgnoringIsOrganizerMe;
+- (void)setProposedEndUnadjustedFromUTC:(id)a0;
+- (void)updateWithEntity:(id)a0 omitSyncRecord:(BOOL)a1;
+
+@end

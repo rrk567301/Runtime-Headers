@@ -1,0 +1,75 @@
+@class NSURL, NSDictionary, NSButton, FIFinderView, NSBox, NSLayoutConstraint, NSSavePanelAlertStyleContentView, NSString, FITagEditorView, NSAlert, NSView, NSArray, NSTextField;
+@protocol NSOpenSavePanelDelegate;
+
+@interface NSSavePanelAuxiliary : NSObject {
+    SEL modalDelegateDidEndSelector;
+    void *contextInfo;
+    id modalDelegate;
+    NSAlert *currentAlert;
+    id<NSOpenSavePanelDelegate> delegate;
+    unsigned char openProgressIndicatorScheduled : 1;
+    unsigned char _runningAsASheet : 1;
+    unsigned char _useAlertStyle : 1;
+    unsigned char _retained : 1;
+    unsigned char _showNewDocumentButton : 1;
+    unsigned char _showRevertOriginalDocumentButton : 1;
+    unsigned char _revertOriginalDocumentChanges : 1;
+    unsigned char _showTagField : 1;
+    unsigned char _clientWillSetTags : 1;
+    unsigned char _clientSetADirectory : 1;
+    unsigned char _runningAsAService : 1;
+    unsigned char _showOptionsButton : 1;
+    unsigned char _canSendSynchronousMessagesToRemote : 1;
+    unsigned char _animatingExpandCollapse : 1;
+    unsigned char _iCloudOpenPanel : 1;
+    unsigned char _customTitleSet : 1;
+    unsigned char _showFormatsPopup : 1;
+    unsigned char _hideExtensions : 1;
+    unsigned short _reserved : 13;
+    id /* block */ _completionHandler;
+    NSButton *_dontSaveButton;
+    NSButton *_newDocumentButton;
+    NSButton *_optionsButton;
+    NSButton *_revertOriginalDocumentButton;
+    NSBox *_navBottomSeparator;
+    NSBox *_accessoryBottomSeparator;
+    NSSavePanelAlertStyleContentView *_alertStyleContentView;
+    NSSavePanelAlertStyleContentView *_verticalAlertStyleContentView;
+    NSLayoutConstraint *_alertLeadingTextAlignmentConstraint;
+    NSLayoutConstraint *_extrasSeparatorConstraint;
+    double _alertStyleMinWidth;
+    FIFinderView *_finderKitView;
+    NSURL *_lastFinderKitDirectoryURL;
+    NSArray *_lastFinderKitSelectedURLs;
+    NSArray *_enabledFileTypes;
+    NSArray *_fauxFilePackageTypes;
+    NSURL *_overwritingAlertSuppressionURL;
+    NSView *_tagFieldContainer;
+    NSTextField *_tagFieldLabel;
+    NSView *_tagFieldProxy;
+    FITagEditorView *_tagField;
+    NSArray *_tags;
+    NSArray *_initialTags;
+    NSDictionary *_formatsPopupDictionary;
+    NSString *_saveFormatType;
+    NSString *_lastNameFieldText;
+    const char *_sandboxPermissions;
+    NSDictionary *_sandboxExtensions;
+    NSArray *_beginWithFileNames;
+    int _remotePID;
+    struct { unsigned int val[8]; } _auditToken;
+    struct CGSize { double width; double height; } _remoteAccessoryViewDesiredSize;
+    NSLayoutConstraint *_navPanelWidthConstraint;
+    NSLayoutConstraint *_accessoryViewForcedHeightConstraint;
+    NSLayoutConstraint *_accessoryViewForcedWidthConstraint;
+    NSLayoutConstraint *_marginConstraint1;
+    NSLayoutConstraint *_marginConstraint2;
+    NSLayoutConstraint *_marginConstraint3;
+    NSLayoutConstraint *_marginConstraint4;
+    NSLayoutConstraint *_finderKitMarginConstraint;
+    NSLayoutConstraint *_tagFieldLabelVertCenteringConstraint;
+}
+
+- (void).cxx_destruct;
+
+@end

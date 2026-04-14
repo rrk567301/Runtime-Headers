@@ -1,0 +1,76 @@
+@class CoreCalendarSource, NSMutableDictionary, NSDictionary, NSMutableArray;
+
+@interface CALAbstractEntity : NSObject <NSCoding> {
+    NSMutableDictionary *_properties;
+    NSMutableArray *_subcomponents;
+    CoreCalendarSource *_originRepository;
+    id _privateID;
+    NSMutableDictionary *_changelist;
+    NSMutableArray *_subcomponentschangelist;
+    int _status;
+    int _commitcount;
+    NSDictionary *_unrecognizedProperties;
+}
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (void)reset;
+- (BOOL)detached;
+- (BOOL)dirty;
+- (id)properties;
+- (void)setProperties:(id)a0;
+- (id)dirtyProperties;
+- (void)setProperty:(id)a0;
+- (id)propertyForName:(id)a0;
+- (void)_setProperties:(id)a0;
+- (BOOL)hasProperty:(id)a0;
+- (id)repository;
+- (BOOL)isAddressMe:(id)a0;
+- (id)subComponents;
+- (id)checkValidity;
+- (void)removeProperty:(id)a0;
+- (void)setCommitStatus:(int)a0;
+- (void)setRepository:(id)a0;
+- (void)markAsClean;
+- (id)dirtyPropertyForName:(id)a0;
+- (int)commitStatus;
+- (void)actualCommitInManagedObjectContext:(id)a0;
+- (BOOL)isEqualToEntity:(id)a0;
+- (BOOL)isEqualToEntity:(id)a0 ignoreProperties:(id)a1 useCommittedValues:(BOOL)a2;
+- (id)committedPropertyForName:(id)a0;
+- (BOOL)hasDirtyProperty:(id)a0;
+- (id)_dirtyPropertiesNames;
+- (void)restoreAsClean;
+- (void)addSubComponent:(id)a0 duplicateCheck:(BOOL)a1;
+- (void)addSubComponent:(id)a0;
+- (BOOL)isAddressMe:(id)a0 ignoreMeCard:(BOOL)a1;
+- (void)addPropertyValue:(id)a0 withValue:(id)a1;
+- (void)removePropertyValue:(id)a0 forName:(id)a1;
+- (BOOL)isValidStatus:(int)a0;
+- (void)commitInManagedObjectContext:(id)a0;
+- (void)deleteFromRepositoryInManagedObjectContext:(id)a0;
+- (void)moveToRepository:(id)a0 inManagedObjectContext:(id)a1;
+- (BOOL)hasDirtySubcomponent;
+- (id)deletedProperties;
+- (BOOL)hasDirtyPropertyAmong:(id)a0;
+- (BOOL)hasPrivateID;
+- (id)privateID;
+- (void)removeSubComponent:(id)a0;
+- (BOOL)hasSubComponents;
+- (id)dirtySubComponents;
+- (id)deletedSubComponents;
+- (void)copyPropertiesFrom:(id)a0;
+- (void)removeAllPropertiesWithKeys:(id)a0;
+- (void)keepOnlyPropertiesWithKeys:(id)a0;
+- (void)removeAllSubComponentsOfClasses:(id)a0;
+- (void)keepOnlySubComponentsOfClasses:(id)a0;
+- (Class)correspondingOccurrenceClass;
+- (BOOL)isOwnerAddress:(id)a0;
+- (BOOL)isOwnerAddress:(id)a0 ignoreMeCard:(BOOL)a1;
+
+@end

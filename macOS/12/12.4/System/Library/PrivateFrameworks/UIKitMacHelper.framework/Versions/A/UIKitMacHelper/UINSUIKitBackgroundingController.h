@@ -1,0 +1,83 @@
+@class NSMutableDictionary, NSString, NSMutableSet, NSMutableArray;
+@protocol UINSUIKitBackgroundingControllerDelegate;
+
+@interface UINSUIKitBackgroundingController : NSObject
+
+@property (retain, nonatomic) NSMutableSet *knownScenes;
+@property (retain, nonatomic) NSMutableDictionary *sceneStates;
+@property (nonatomic) BOOL uiAppIsForeground;
+@property (nonatomic) BOOL uiAppIsActive;
+@property (retain, nonatomic) NSMutableArray *sceneStateChangeQueue;
+@property (nonatomic) BOOL isDequeueing;
+@property (nonatomic) BOOL hasOngoingForegroundingBatch;
+@property (nonatomic) BOOL hasOngoingBackgroundingBatch;
+@property (retain, nonatomic) NSString *sceneTrackedForTransition;
+@property (nonatomic) long long trackedSceneTargetState;
+@property (copy, nonatomic) id /* block */ sceneTransitionCompletionHandler;
+@property (nonatomic) BOOL isForcingAppWideBackgroundState;
+@property (nonatomic) BOOL nsAppWideBackgroundingRequestedExplicitly;
+@property (nonatomic) BOOL isLoginSessionInactive;
+@property (nonatomic) BOOL areSceneStateChangesFrozen;
+@property (retain, nonatomic) NSMutableDictionary *shadowStates;
+@property (nonatomic) unsigned long long freezeRequestCount;
+@property (retain, nonatomic) NSMutableSet *scenesWeSlammedToBackgroundFromForegroundActive;
+@property (retain, nonatomic) NSMutableSet *scenesWeSlammedToBackgroundFromForegroundInactive;
+@property (weak, nonatomic) id<UINSUIKitBackgroundingControllerDelegate> delegate;
+
++ (BOOL)_wasBackgroundLaunched;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)_startObserving;
+- (id)_sceneUtilities;
+- (void)transitionUIAppThroughBackgroundStateIfNecessary;
+- (void)makeUIAppBackgroundIfNecessary;
+- (void)restoreSceneForegroundState;
+- (void)requestSceneForegroundActive:(id)a0;
+- (void)requestSceneForegroundInactive:(id)a0;
+- (void)requestSceneBackground:(id)a0;
+- (void)requestStateChangeFreeze;
+- (void)requestStateChangeThaw;
+- (void)_enqueueStateFreezingIfNecessaryAndDequeue:(BOOL)a0;
+- (void)_updateAppWideBackgroundStateSlammingNotifyingDelegate:(BOOL)a0;
+- (void)_enqueueMakeSceneForegroundActive:(id)a0;
+- (void)_startDequeueingIfNecessary;
+- (void)_enqueueMakeSceneForegroundInactive:(id)a0;
+- (void)_enqueueMakeSceneBackground:(id)a0;
+- (void)_enqueueStateThawingIfNecessaryAndDequeue:(BOOL)a0;
+- (void)_uiAppWillForeground:(id)a0;
+- (void)_uiAppDidBackground:(id)a0;
+- (void)_uiAppDidActivate:(id)a0;
+- (void)_uiAppWillDeactivate:(id)a0;
+- (void)_sceneWillConnect:(id)a0;
+- (void)_sceneDidDisconnect:(id)a0;
+- (void)_sceneWillEnterForeground:(id)a0;
+- (void)_sceneDidEnterBackground:(id)a0;
+- (void)_sceneDidActivate:(id)a0;
+- (void)_sceneWillDeactivate:(id)a0;
+- (void)_userSwitchedIntoLoginSession:(id)a0;
+- (void)_userSwitchedOutOfLoginSession:(id)a0;
+- (void)_cancelSceneTrackingAndContinue;
+- (void)_checkTrackedSceneForTargetState:(id)a0;
+- (void)_enqueueSlamAllScenesToBackgroundNotifyingDelegate:(BOOL)a0;
+- (void)_enqueueRestoreScenesToForegroundNotifyingDelegate:(BOOL)a0;
+- (void)_enqueueBackgroundingBatchStart;
+- (BOOL)_isSceneForegroundActive:(id)a0;
+- (BOOL)_isSceneForegroundInactive:(id)a0;
+- (void)_enqueueBackgroundingBatchEnd;
+- (void)_enqueueForegroundingBatchStart;
+- (BOOL)_isSceneBackground:(id)a0;
+- (void)_enqueueForegroundingBatchEnd;
+- (void)_continueDequeueing;
+- (void)_changeSceneStateThenContinueDequeueingForSceneWithIdentifier:(id)a0 newState:(long long)a1;
+- (void)_applyShadowStatesForAllScenesThenContinueDequeueing;
+- (void)_dequeueNextSceneChange;
+- (BOOL)_hasEnqueuedSceneChanges;
+- (void)_setShadowStateForSceneWithIdentifier:(id)a0 newState:(long long)a1;
+- (id)_stringForState:(long long)a0;
+- (void)_sendSceneStateChangeRequestForSceneIdentifier:(id)a0 newState:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)_applyOneShadowStateWithCompletion:(id /* block */)a0;
+- (void)_trackSceneUntilTargetStateIsReached:(id)a0 targetState:(long long)a1 completionHandler:(id /* block */)a2;
+- (long long)_stateForScene:(id)a0;
+
+@end

@@ -1,0 +1,98 @@
+@class NSMutableDictionary, NSXPCConnection, NSString, NSMutableSet, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue;
+
+@interface WAClient : NSObject {
+    NSMutableDictionary *_interestedMessageIdentifiers;
+    NSMutableDictionary *_configuredMessageIdentifiers;
+}
+
+@property (retain, nonatomic) NSXPCConnection *conn;
+@property (retain, nonatomic) NSMutableDictionary *configChangeDelegatesPerGroupType;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *replyQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queryableQueue;
+@property (retain, nonatomic) NSMutableArray *queuedInvocations;
+@property (retain, nonatomic) NSMutableDictionary *registeredQueryableHandlerBlocks;
+@property (nonatomic) double connectionRecoveryStartTime;
+@property (nonatomic) unsigned char daemonConnectionValid;
+@property (nonatomic) unsigned char blockDaemonConnection;
+@property (copy, nonatomic) id /* block */ recoveryTickBlock;
+@property (retain, nonatomic) NSString *tokenForThisClient;
+@property (retain, nonatomic) NSString *identifierForThisClient;
+@property (retain, nonatomic) NSMutableSet *registeredGroupTypes;
+@property (retain, nonatomic) NSMutableDictionary *configuredMessageIdentifiers;
+@property (retain, nonatomic) NSMutableDictionary *interestedMessageIdentifiers;
+
++ (id)sharedClient;
++ (id)sharedClientWithIdentifier:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)_initPrivate;
+- (void)_reregister;
+- (void)registerMessageGroup:(long long)a0 andReply:(id /* block */)a1;
+- (void)getMessageForUUID:(id)a0 andReply:(id /* block */)a1;
+- (void)getNewMessageForKey:(id)a0 groupType:(long long)a1 withCopy:(id)a2 andReply:(id /* block */)a3;
+- (void)getNewMessageForKey:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)getMessagesModelForGroupType:(long long)a0 andReply:(id /* block */)a1;
+- (void)submitMessage:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)submitWiFiAnalyticsMessage:(id)a0 andReply:(id /* block */)a1;
+- (void)ingestMessage:(id)a0 andReply:(id /* block */)a1;
+- (void)triggerQueryForNWActivity:(long long)a0 andReply:(id /* block */)a1;
+- (void)convertWiFiStatsIntoPercentile:(id)a0 analysisGroup:(long long)a1 groupTarget:(id)a2 andReply:(id /* block */)a3;
+- (void)triggerDatapathDiagnosticsAndCollectUpdates:(long long)a0 waMessage:(id)a1 andReply:(id /* block */)a2;
+- (void)killDaemonAndReply:(id /* block */)a0;
+- (void)clearMessageStoreAndReply:(id /* block */)a0;
+- (void)trapCrashMiniTracerDumpReadyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1;
+- (void)lqmCrashTracerNotifyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1;
+- (void)lqmCrashTracerReceiveBlock:(id)a0 forInterfaceWithName:(id)a1 andReply:(id /* block */)a2;
+- (void)trigger11axPerfStudyAndReply:(id /* block */)a0;
+- (void)setDeviceAnalyticsConfiguration:(id)a0 andReply:(id /* block */)a1;
+- (void)getDeviceAnalyticsConfigurationAndReply:(id /* block */)a0;
+- (void)summarizeDeviceAnalyticsForNetwork:(id)a0 maxAgeInDays:(unsigned long long)a1 andReply:(id /* block */)a2;
+- (void)getDpsStatsandReply:(id /* block */)a0;
+- (void)triggerDeviceAnalyticsStoreMigrationAndReply:(id /* block */)a0;
+- (void)sendMemoryPressureRequestAndReply:(id /* block */)a0;
+- (void)_registerMessageGroup:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (id /* block */)_getConnectionIssueHandlerBlock;
+- (void)_dequeueInvocation:(id)a0;
+- (void)_getNewMessageForKey:(id)a0 groupType:(long long)a1 withCopy:(id)a2 andReply:(id /* block */)a3 queuedInvocation:(id)a4;
+- (void)_getMessageForUUID:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_ingestMessage:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_submitMessage:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_submitWiFiAnalyticsMessage:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_registerForQueryableMessageWithIdentifierDict:(id)a0 groupType:(long long)a1 withHandlerBlock:(id /* block */)a2 andReply:(id /* block */)a3 queuedInvocation:(id)a4;
+- (void)_triggerQueryForNWActivity:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)convertWiFiStatsIntoPercentile:(id)a0 analysisGroup:(long long)a1 groupTarget:(id)a2 andReply:(id /* block */)a3 queuedInvocation:(id)a4;
+- (void)_triggerDatapathDiagnosticsAndCollectUpdates:(long long)a0 waMessage:(id)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_getDpsStatsandReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_killDaemonAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_clearMessageStoreAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_getMessagesModelForGroupType:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_sendMemoryPressureRequestAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_removeAllQueuedInvocations;
+- (void)_wakeUpNotificationForThisClientReceived:(id)a0;
+- (void)_startConnectionRecovery;
+- (void)_replyAllWithTimeoutErrorAndRemove;
+- (void)_connectionRecoveryTick;
+- (void)_connectionRecovered;
+- (void)_connectionTimedOut;
+- (void)_establishDaemonConnection;
+- (void)_setConfigChangeDelegateForGroupType:(long long)a0 queuedInvocation:(id)a1;
+- (void)_trapCrashMiniTracerDumpReadyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_lqmCrashTracerNotifyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_lqmCrashTracerReceiveBlock:(id)a0 forInterfaceWithName:(id)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_trigger11axPerfStudyAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_setDeviceAnalyticsConfiguration:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_getDeviceAnalyticsConfigurationAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)summarizeDeviceAnalyticsForNetwork:(id)a0 maxAgeInDays:(unsigned long long)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_triggerDeviceAnalyticsStoreMigrationAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)registerForQueryableMessageWithIdentifierDict:(id)a0 groupType:(long long)a1 withHandlerBlock:(id /* block */)a2 andReply:(id /* block */)a3;
+- (void)submitQueriedMetricWithIdentifierDict:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)configuredMessagesDidChange:(id)a0 andInterestedMessageIDs:(id)a1 forGroupType:(long long)a2;
+- (void)setConfigChangedDelegate:(id)a0 forGroupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)fakeDaemonConnectionDead:(unsigned char)a0;
+
+@end
