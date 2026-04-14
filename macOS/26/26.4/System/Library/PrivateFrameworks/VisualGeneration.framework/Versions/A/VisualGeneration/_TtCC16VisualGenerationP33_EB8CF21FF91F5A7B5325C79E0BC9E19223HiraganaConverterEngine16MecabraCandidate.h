@@ -1,0 +1,5 @@
+@interface _TtCC16VisualGenerationP33_EB8CF21FF91F5A7B5325C79E0BC9E19223HiraganaConverterEngine16MecabraCandidate : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ candidate;
+}
+
+@end

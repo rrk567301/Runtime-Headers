@@ -1,0 +1,3 @@
+@interface _TtCO20SiriMessagesUICommon17AutoSendUtilitiesP33_2E2A9A0FA4C3173F760CF52B329219EB5Dummy : _TtCs12_SwiftObject
+
+@end

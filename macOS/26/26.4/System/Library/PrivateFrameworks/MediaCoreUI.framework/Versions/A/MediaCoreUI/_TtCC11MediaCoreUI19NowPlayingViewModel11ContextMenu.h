@@ -1,0 +1,6 @@
+@interface _TtCC11MediaCoreUI19NowPlayingViewModel11ContextMenu : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _isVisible;
+    void /* unknown type, empty encoding */ _$observationRegistrar;
+}
+
+@end

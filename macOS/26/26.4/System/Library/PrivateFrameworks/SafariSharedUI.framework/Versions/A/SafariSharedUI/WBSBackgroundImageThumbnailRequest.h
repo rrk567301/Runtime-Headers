@@ -1,0 +1,3 @@
+@interface WBSBackgroundImageThumbnailRequest : WBSBackgroundImageContentRequest
+
+@end

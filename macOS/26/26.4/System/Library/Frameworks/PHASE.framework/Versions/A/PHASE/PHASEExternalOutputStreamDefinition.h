@@ -1,0 +1,26 @@
+@class AVAudioFormat, NSDictionary, PHASEExternalStreamCollection;
+
+@interface PHASEExternalOutputStreamDefinition : NSObject
+
+@property (readonly, nonatomic) long long streamType;
+@property (readonly, nonatomic) AVAudioFormat *format;
+@property (readonly, nonatomic) unsigned int maximumFramesToRender;
+@property (readonly, nonatomic) unsigned int audioSessionToken;
+@property (readonly, nonatomic) NSDictionary *properties;
+@property (readonly, nonatomic) PHASEExternalStreamCollection *streamCollection;
+@property (readonly, nonatomic) unsigned long long streamIndex;
+
++ (id)new;
+
+- (void)setFormat:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)description;
+- (void)setMaximumFramesToRender:(unsigned int)a0;
+- (id)initWithStreamCollection:(id)a0 index:(unsigned long long)a1 format:(id)a2 maximumFramesToRender:(unsigned int)a3 audioSessionToken:(unsigned int)a4;
+- (id)initWithStreamCollection:(id)a0 index:(unsigned long long)a1 format:(id)a2 maximumFramesToRender:(unsigned int)a3 audioSessionToken:(unsigned int)a4 properties:(id)a5;
+- (id)initWithStreamType:(long long)a0 format:(id)a1 maximumFramesToRender:(unsigned int)a2;
+- (id)initWithStreamType:(long long)a0 format:(id)a1 maximumFramesToRender:(unsigned int)a2 audioSessionToken:(unsigned int)a3;
+- (id)initWithStreamType:(long long)a0 format:(id)a1 maximumFramesToRender:(unsigned int)a2 audioSessionToken:(unsigned int)a3 properties:(id)a4;
+
+@end

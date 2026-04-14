@@ -1,0 +1,3 @@
+@interface _TtCC11AnteroAgent8GMEEvent20PartFunctionResponse : _TtCC11AnteroAgent8GMEEvent12PartFunction
+
+@end

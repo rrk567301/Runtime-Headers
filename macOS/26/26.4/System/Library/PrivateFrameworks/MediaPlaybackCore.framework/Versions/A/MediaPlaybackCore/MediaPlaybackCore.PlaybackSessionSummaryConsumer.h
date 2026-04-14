@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface MediaPlaybackCore.PlaybackSessionSummaryConsumer : NSObject <MPCPlaybackEngineEventConsumer> {
+    void /* unknown type, empty encoding */ currentSession;
+    void /* unknown type, empty encoding */ playbackEngine;
+    void /* unknown type, empty encoding */ subscription;
+    void /* unknown type, empty encoding */ store;
+}
+
+@property (class, nonatomic, readonly) NSString *identifier;
+@property (class, nonatomic, readonly) unsigned int preferredQoSClass;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)subscribeToEventStream:(id)a0;
+- (void)unsubscribeFromEventStream:(id)a0;
+
+@end

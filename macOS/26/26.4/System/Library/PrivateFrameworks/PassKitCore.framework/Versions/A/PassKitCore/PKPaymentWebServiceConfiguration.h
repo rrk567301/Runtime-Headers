@@ -1,0 +1,98 @@
+@class NSDictionary, NSURL, NSNumber;
+
+@interface PKPaymentWebServiceConfiguration : NSObject <NSSecureCoding> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSNumber *_version;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy) NSDictionary *configuration;
+@property (readonly, copy) NSURL *configurationURL;
+
+- (BOOL)browseProvisioningBankAppsEnabledForRegion:(id)a0;
+- (id)paymentSetupBrowsableProductTypesForRegion:(id)a0;
+- (id)contactFormatConfiguration;
+- (id)primaryFeaturedNetworkForRegion:(id)a0;
+- (BOOL)shouldEnableTransitServiceCheckInForRegion:(id)a0;
+- (id)marketGeoRegionNotificationNetworkThresholdsForRegion:(id)a0;
+- (unsigned long long)autofillForegroundEligibilityCheckMaxCount:(id)a0;
+- (double)deviceCheckInIntervalForRegion:(id)a0;
+- (id)_regionsForOSVersion:(id)a0 deviceClass:(id)a1 platform:(id)a2 supportedRegions:(BOOL)a3;
+- (double)howToUseWalletAssetPrefetchTimeIntervalForRegion:(id)a0;
+- (id)paymentRelayServiceURLForRegion:(id)a0;
+- (id)_featuresFromDictionary:(id)a0 withRegion:(id)a1 osVersion:(id)a2 deviceClass:(id)a3;
+- (id)betaPaymentNetworkVersionsForRegion:(id)a0;
+- (BOOL)accountServiceEnabledForRegion:(id)a0;
+- (id)heroImageManifestURLForRegion:(id)a0;
+- (id)unsupportedRegionsForOSVersion:(id)a0 deviceClass:(id)a1;
+- (id)supportedRegionsForOSVersion:(id)a0 deviceClass:(id)a1 platform:(id)a2;
+- (id)paymentServicesURLForRegion:(id)a0;
+- (id)marketGeoRegionNotificationTimeRangeForRegion:(id)a0;
+- (BOOL)hasFeaturesSupportedForRegion:(id)a0 osVersion:(id)a1 deviceClass:(id)a2;
+- (id)relayServerHostsToHandleUniversalLinksForRegion:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (double)cashStickersAssetPrefetchTimeIntervalForRegion:(id)a0;
+- (id)unsupportedRegionsForOSVersion:(id)a0 deviceClass:(id)a1 platform:(id)a2;
+- (id)featuresForRegion:(id)a0;
+- (id)featureWithType:(long long)a0 inRegion:(id)a1;
+- (BOOL)provisioningProximityVerificationInSetupAssistantEnabledForRegion:(id)a0;
+- (double)paymentSetupFeaturesCacheUpdateIntervalForRegion:(id)a0;
+- (double)dynamicAssetPrefetchTimeIntervalForRegion:(id)a0;
+- (BOOL)quickAccessForMoreRemovePassEnabled;
+- (BOOL)userCanResetCloudStoreApplePayViewForRegion:(id)a0;
+- (id)defaultServerURL;
+- (id)_lock_unsupported_region:(id)a0;
+- (BOOL)AMPNonDefaultBehaviourDisabledForRegion:(id)a0;
+- (void).cxx_destruct;
+- (id)_lock_globalFeaturesForOSVersion:(id)a0 deviceClass:(id)a1;
+- (double)paymentOfferCatalogVersionChangeUpdatePeriodForRegion:(id)a0;
+- (id)betaPaymentNetworksForRegion:(id)a0;
+- (BOOL)deviceCheckInDisabledForRegion:(id)a0;
+- (id)paymentSetupFeaturedNetworksForRegion:(id)a0;
+- (BOOL)regionHasProvisioningEnablementPercentage:(id)a0;
+- (id)discoveryManifestURLForRegion:(id)a0;
+- (id)allowedRelayServerHostsForRegion:(id)a0;
+- (BOOL)buddyManualProvisioningEnabledForRegion:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)hasFeatureRequiringRegistrationInRegion:(id)a0 osVersion:(id)a1 deviceClass:(id)a2;
+- (double)deviceUpgradeTaskEnablementPercentageForRegion:(id)a0;
+- (BOOL)buddyProvisioningEnabledForRegion:(id)a0;
+- (id)supportedRegionsForOSVersion:(id)a0 deviceClass:(id)a1;
+- (BOOL)tapToProvisionEnabledForRegion:(id)a0;
+- (id)_lock_featuresForRegion:(id)a0 osVersion:(id)a1 deviceClass:(id)a2;
+- (id)init;
+- (id)brokerURLForRegion:(id)a0;
+- (id)initWithConfiguration:(id)a0 url:(id)a1;
+- (id)_lock_regions;
+- (id)unsupportedWebPaymentConfigurations;
+- (BOOL)paymentTransactionIconsEnabledForRegion:(id)a0;
+- (double)provisioningEnablementPercentageForRegion:(id)a0;
+- (BOOL)tapToProvisionFirstProvisioningEnabledForRegion:(id)a0;
+- (id)_lock_region:(id)a0;
+- (id)marketsURL;
+- (id)relayServerHostForRegion:(id)a0;
+- (double)sharingMessageCacheTimeToLiveInterval;
+- (id)credentialTypesRequiringMetadata;
+- (BOOL)cameraFirstProvisioningEnabledForRegion:(id)a0;
+- (BOOL)suppressCardholderNameFieldForRegion:(id)a0;
+- (id)supportedFeatureOfType:(long long)a0 inRegion:(id)a1 osVersion:(id)a2 deviceClass:(id)a3 didFailOSVersionRequirements:(BOOL *)a4;
+- (id)stationCodeProvidersUsingLocalLookup;
+- (BOOL)cameraProvisioningEnabledForRegion:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)applyServiceEnabledForRegion:(id)a0;
+- (BOOL)_lock_supportedForOSVersion:(id)a0 inRegionDictionary:(id)a1 deviceClass:(id)a2 platform:(id)a3;
+- (id)numberOfDaysBetweenMapsReprocessingForRegion:(id)a0;
+- (id)_lock_featuresForRegion:(id)a0;
+- (id)paymentServicesMerchantURLForRegion:(id)a0;
+- (BOOL)remotePaymentsRequiredForVoiceover;
+- (id)unsupportedProvisioningExtensions;
+- (long long)paymentOfferCatalogVersionForRegion:(id)a0;
+- (id)applyServiceFeaturesForRegion:(id)a0;
+- (BOOL)manualProvisioningEnabledForRegion:(id)a0;
+- (unsigned long long)notificationAuthorizationPromptPresentationCount;
+- (id)_lock_unsupported_regions;
+- (BOOL)peerPaymentEnabledForRegion:(id)a0;
+
+@end

@@ -1,0 +1,83 @@
+@class HDCloudSyncPeriodicActivityScheduler, HDProfile, HDCloudSyncAccountProvider, HDCloudSyncSubscriptionNotificationHandler, NSObject, HDDaemon, HDCloudSyncStatusProvider, NSMutableArray, NSString, HDOneShotBackgroundTask, HDCloudSyncManagerTaskQueue, NSArray, HKObserverSet, NSProgress;
+@protocol OS_dispatch_queue;
+
+@interface HDCloudSyncCoordinator : NSObject <HDCloudSyncManagerTaskQueueDelegate, HDDiagnosticObject, HDHealthDaemonReadyObserver, HDDatabaseJournalMergeObserver, HDProfileReadyObserver> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    BOOL _lock_cloudSyncEnabled;
+    BOOL _lock_hasComputedCloudSyncEnabled;
+    BOOL _lock_cloudSyncSupportEnabled;
+    BOOL _lock_cloudSyncSupportValueLoaded;
+    BOOL _lock_syncInProgress;
+    HDCloudSyncManagerTaskQueue *_syncTaskQueue;
+    NSProgress *_activeSyncProgress;
+    NSMutableArray *_activeSyncCompletions;
+    NSString *_latestSyncStartLog;
+    NSString *_latestSyncEndLog;
+    NSMutableArray *_progressCompletionBlocks;
+    unsigned long long _lock_subcriptionSyncOptions;
+    HDOneShotBackgroundTask *_clientGatedSyncBackgroundTask;
+    HKObserverSet *_observers;
+    HDOneShotBackgroundTask *_sharedSummaryPushBackgroundTask;
+    double _lock_nextAvailableOperationStartTime;
+    NSArray *_lock_stateSyncEntityClasses;
+    HDProfile *_unitTest_primaryProfileOverride;
+}
+
+@property (readonly, weak, nonatomic) HDDaemon *daemon;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) HDCloudSyncAccountProvider *accountProvider;
+@property (readonly, nonatomic) HDCloudSyncSubscriptionNotificationHandler *subscriptionNotificationHandler;
+@property (readonly, nonatomic) HDCloudSyncPeriodicActivityScheduler *periodicActivityScheduler;
+@property (readonly, nonatomic) HDCloudSyncStatusProvider *syncStatusProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithDaemon:(id)a0;
+- (id)mergeCloudSyncJournalsWithCompletion:(id /* block */)a0;
+- (void)clearClientSyncRequestsQueue;
+- (void)unitTest_setAccountProvider:(id)a0;
+- (id)stateSyncDomainForSubscriptionIdentifier;
+- (void)profileDidBecomeReady:(id)a0;
+- (id)progressOfActiveSyncTask;
+- (long long)compareTask:(id)a0 withTask:(id)a1 queue:(id)a2;
+- (void)scheduleSharedSummaryPushWithMaximumDelay:(double)a0;
+- (void)databaseJournalMergeDidCompleteForProfile:(id)a0 type:(long long)a1;
+- (void)prepareAllProfilesForPeriodicSyncAndRestore;
+- (id)unitTest_clientGatedSyncBackgroundTask;
+- (void)addManagerTask:(id)a0;
+- (id)mergeCloudSyncJournalsAndNotifyObservers:(id)a0 syncRequestCompleted:(id)a1 success:(BOOL)a2 error:(id)a3;
+- (void)unitTest_setPrimaryProfileOverride:(id)a0;
+- (id)syncAllProfilesWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)notifyObservers:(id)a0 syncRequestCompleted:(id)a1 success:(BOOL)a2 error:(id)a3;
+- (id)_mergeCloudSyncJournalsForProfile:(id)a0 taskTree:(id)a1;
+- (double)nextCloudKitOperationDelay;
+- (id)_mergeCloudSyncJournalsWithTaskTree:(id)a0;
+- (void)daemonReady:(id)a0;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (BOOL)shouldSyncProfile:(id)a0;
+- (id)fetchCloudDescriptionWithContext:(id)a0 updateCacheAndPrepareForSync:(BOOL)a1 completion:(id /* block */)a2;
+- (BOOL)canPerformCloudSyncWithError:(id *)a0;
+- (void)syncAllProfilesViaGatedBackgroundTask:(BOOL)a0 context:(id)a1 reason:(id)a2 completion:(id /* block */)a3;
+- (void)addObserver:(id)a0;
+- (id)diagnosticDescription;
+- (id)initWithDaemon:(id)a0 configureAccountProvider:(BOOL)a1;
+- (void)unitTest_performClientGatedSyncActivity:(id /* block */)a0;
+- (void)cloudSyncSupportStatusDidChange;
+- (BOOL)scheduleSyncForAllProfilesViaGatedBackgroundTask:(BOOL)a0 context:(id)a1 reason:(id)a2 error:(id *)a3;
+- (void)unitTest_setStateSyncEntityClasses:(id)a0;
+- (void)unitTest_setPeriodicActivityScheduler:(id)a0;
+- (id)resetAllProfilesWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)addCloudSyncProgressCompletion:(id /* block */)a0;
+- (void)removeObserver:(id)a0;
+- (BOOL)markAllClientSyncRequestsAsInProgress:(id *)a0;
+- (BOOL)hasActiveSyncTask;
+- (void)notifyObservers:(id)a0 syncRequestStarted:(id)a1 withProgress:(id)a2;
+- (id)stateSyncEntityClasses;
+- (void)dealloc;
+- (void)unitTest_setClientGatedSyncBackgroundTask:(id)a0;
+- (void)delayNextCloudKitOperation:(double)a0;
+
+@end

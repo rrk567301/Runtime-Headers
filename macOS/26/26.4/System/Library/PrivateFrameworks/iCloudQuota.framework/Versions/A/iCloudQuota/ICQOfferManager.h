@@ -1,0 +1,90 @@
+@class NSTimer, NSMutableDictionary, ICQUnfairLock;
+
+@interface ICQOfferManager : NSObject {
+    NSTimer *_regularOfferInvalidationTimer;
+    NSTimer *_premiumOfferInvalidationTimer;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *cachedOffers;
+@property (retain, nonatomic) NSMutableDictionary *registeredDarwinNotifications;
+@property (retain, nonatomic) ICQUnfairLock *cachedOffersLock;
+@property (retain, nonatomic) NSMutableDictionary *dismissedRecommendations;
+
++ (id)defaultBundleIdentifier;
++ (id)sharedOfferManager;
++ (id)stringWithPlaceholderFormat:(id)a0 alternateString:(id)a1;
++ (BOOL)_legacyBuddyOfferMightNeedPresenting;
++ (id)ckBackupDeviceID;
++ (BOOL)buddyOfferMightNeedPresenting;
++ (id)defaultPlaceholderKeys;
+
+- (void)setSimulatedDeviceStorageAlmostFull:(BOOL)a0;
+- (BOOL)isSimulatedDeviceStorageAlmostFull;
+- (BOOL)isDeviceStorageAlmostFull;
+- (id)photosLibrarySize;
+- (void)_funnelCloudServerOfferForAccount:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)teardownCachedPremiumOffer;
+- (void)teardownCachedOffers;
+- (id)currentPremiumOfferForBundleIdentifier:(id)a0;
+- (void)removeCachedOfferForType:(long long)a0;
+- (void)forcePostFollowup;
+- (void)setBuddyOfferEnabled:(BOOL)a0;
+- (id)cachedOfferForType:(long long)a0;
+- (void)updateOfferId:(id)a0 buttonId:(id)a1 info:(id)a2 completion:(id /* block */)a3;
+- (BOOL)fetchOfferIfNeeded;
+- (void)_setupTimerForRegularOfferInvalidationDate:(id)a0;
+- (void)getEventOfferWithOptions:(id)a0 completion:(id /* block */)a1;
+- (id)_premiumOptions;
+- (void)setCachedOfferForType:(long long)a0 daemonOffer:(id)a1 bundleIdentifier:(id)a2;
+- (void)_getOfferForBundleIdentifier:(id)a0 options:(id)a1 offerContext:(id)a2 completion:(id /* block */)a3;
+- (BOOL)_shouldUseOffer:(id)a0 forBundleIdentifier:(id)a1;
+- (void)_registerForDarwinNotification:(id)a0;
+- (void)_teardownPremiumOfferInvalidationTimer;
+- (void)setSimulatedPhotosLibrarySize:(id)a0;
+- (void)getPremiumOfferForBundleIdentifier:(id)a0 offerContext:(id)a1 completion:(id /* block */)a2;
+- (void)clearFollowups;
+- (void)_refetchRegularOffer;
+- (void)teardownCachedEventOffer;
+- (void)dismissRecommendationForBundleId:(id)a0;
+- (void)getPremiumOfferWithCompletion:(id /* block */)a0;
+- (void)teardownCachedOffer;
+- (void)getPremiumOfferAndOpportunityBubbleWithCompletion:(id /* block */)a0;
+- (void)_setupTimerForInvalidationDate:(id)a0 forType:(long long)a1;
+- (void)_handlePushReceivedDarwinNotificationRequestType:(long long)a0;
+- (void)appLaunchLinkDidPresentForBundleIdentifier:(id)a0;
+- (void)postBackupRestoredOffer:(id /* block */)a0;
+- (void)getOfferForBundleIdentifier:(id)a0 offerContext:(id)a1 completion:(id /* block */)a2;
+- (void)_getOfferForAccount:(id)a0 bundleIdentifier:(id)a1 options:(id)a2 offerContext:(id)a3 completion:(id /* block */)a4;
+- (BOOL)shouldPresentAppLaunchLink:(id)a0;
+- (BOOL)didDismissRecommendationForBundleId:(id)a0;
+- (void)postOfferType:(id)a0;
+- (void)_teardownInvalidationTimerForRequestType:(long long)a0;
+- (void)_unregisterForAllDarwinNotifications;
+- (void).cxx_destruct;
+- (void)getOfferWithCompletion:(id /* block */)a0;
+- (id)currentOfferForBundleIdentifier:(id)a0;
+- (void)teardownCachedBuddyOffer;
+- (BOOL)isBuddyOfferEnabled;
+- (void)_teardownRegularOfferInvalidationTimer;
+- (id)init;
+- (void)getDefaultOfferWithCompletion:(id /* block */)a0;
+- (void)_refetchDefaultOffer;
+- (void)getOfferForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)_firedPremiumOfferInvalidationTimer:(id)a0;
+- (id)currentPremiumOffer;
+- (void)getPremiumOfferForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)_setupTimerForPremiumOfferInvalidationDate:(id)a0;
+- (BOOL)_offerTypeMatchesRequestOptions:(id)a0 offer:(id)a1;
+- (id)currentDefaultOffer;
+- (id)simulatedPhotosLibrarySize;
+- (id)_currentOfferForBundleIdentifier:(id)a0 options:(id)a1;
+- (void)postBuddyOfferType:(id)a0;
+- (void)dealloc;
+- (id)_refreshOfferWithDaemonOfferDict:(id)a0 offerRequestType:(long long)a1 bundleId:(id)a2;
+- (void)getPremiumOfferAndOpportunityBubbleForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (id)currentOffer;
+- (void)_unregisterForDarwinNotification:(id)a0;
+- (void)_firedRegularOfferInvalidationTimer:(id)a0;
+- (void)_refetchPremiumOffer;
+
+@end

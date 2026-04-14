@@ -1,0 +1,19 @@
+@class NSString, NSDictionary, BlastDoorMBDBrandLogo;
+
+@interface BlastDoorRelayReachabilityHandleResult : NSObject {
+    void /* unknown type, empty encoding */ relayReachabilityHandleResult;
+}
+
+@property (nonatomic, readonly) NSString *description;
+@property (nonatomic, readonly) NSString *handleID;
+@property (nonatomic, readonly) NSString *service;
+@property (nonatomic, readonly) BOOL isReachable;
+@property (nonatomic, readonly) BOOL supportsEncryption;
+@property (nonatomic, readonly) NSDictionary *persistentMenu;
+@property (nonatomic, readonly) NSDictionary *brandInfo;
+@property (nonatomic, readonly) BlastDoorMBDBrandLogo *brandLogo;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

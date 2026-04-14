@@ -1,0 +1,3 @@
+@interface _TtCOO8SwiftMLS3MLS8Identity26PermissiveIdentityProvider : _TtCs12_SwiftObject
+
+@end

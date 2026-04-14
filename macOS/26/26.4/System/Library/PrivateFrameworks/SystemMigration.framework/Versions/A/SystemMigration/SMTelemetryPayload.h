@@ -1,0 +1,59 @@
+@class NSString;
+
+@interface SMTelemetryPayload : NSObject
+
+@property (copy, nonatomic) NSString *telemetryType;
+@property (nonatomic) unsigned int sessionID;
+@property (copy, nonatomic) NSString *runType;
+@property (copy, nonatomic) NSString *sourceModel;
+@property (copy, nonatomic) NSString *sourceVersion;
+@property (copy, nonatomic) NSString *initialConnectionType;
+@property (nonatomic) BOOL isPreReboot;
+@property (nonatomic) long long numberOfUsersMigrated;
+@property (copy, nonatomic) NSString *originatingApplication;
+@property (nonatomic) BOOL isManagedRun;
+@property (copy, nonatomic) NSString *windowsSessionID;
+@property (nonatomic) BOOL isSuccess;
+@property (nonatomic) BOOL isCompleted;
+@property (nonatomic) BOOL stopRequested;
+@property (nonatomic) BOOL isFatalFailure;
+@property (copy, nonatomic) NSString *errorSignature;
+@property (copy, nonatomic) NSString *stateTracker;
+@property (nonatomic) long long suspendCount;
+@property (nonatomic) long long disconnectCount;
+@property (nonatomic) unsigned long long estimatedDataSize;
+@property (nonatomic) unsigned long long estimatedFileCount;
+@property (nonatomic) unsigned long long actualDataSize;
+@property (nonatomic) unsigned long long actualFileCount;
+@property (nonatomic) double pathingDuration;
+@property (nonatomic) double totalDuration;
+@property (nonatomic) double attemptPeerToPeerStepDuration;
+@property (nonatomic) double commitDeferredSandboxStepDuration;
+@property (nonatomic) double migrateAutoLoginUserStepDuration;
+@property (nonatomic) double migrateFilesStepDuration;
+@property (nonatomic) double migrateGroupsStepDuration;
+@property (nonatomic) double shoveStepDuration;
+@property (nonatomic) double migrateSystemInfoStepDuration;
+@property (nonatomic) double migrateUserAccountsStepDuration;
+@property (nonatomic) double migrateUserHomesStepDuration;
+@property (nonatomic) double windowsMigrateUserAccountsStepDuration;
+@property (nonatomic) double windowsMigrateUserComponentsStepDuration;
+@property (nonatomic) double windowsImportUserDataStepDuration;
+@property (nonatomic) double windowsMigrateSystemComponentsStepDuration;
+@property (nonatomic) double windowsMigrateOtherComponentsStepDuration;
+@property (nonatomic) double windowsMigrateFilesStepDuration;
+@property (copy, nonatomic) NSString *incompatibleBundleID;
+@property (copy, nonatomic) NSString *incompatibleBundleName;
+@property (nonatomic) BOOL copiesNetworkSettings;
+@property (nonatomic) BOOL copiesTimeZoneSettings;
+@property (nonatomic) BOOL copiesMachineSettings;
+@property (nonatomic) BOOL copiesSecuritySettings;
+@property (nonatomic) BOOL copiesPrinterSettings;
+@property (nonatomic) BOOL copiesCustomFiles;
+@property (nonatomic) BOOL copiesUsers;
+@property (nonatomic) BOOL copiesHomeDirectories;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

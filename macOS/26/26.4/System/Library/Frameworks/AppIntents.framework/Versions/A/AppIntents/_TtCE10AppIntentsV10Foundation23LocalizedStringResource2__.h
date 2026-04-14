@@ -1,0 +1,3 @@
+@interface _TtCE10AppIntentsV10Foundation23LocalizedStringResource2__ : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,26 @@
+@class NSString;
+
+@interface NTPBScoringCohort : PBCodable <NSCopying> {
+    struct { unsigned char clicks : 1; unsigned char impressions : 1; unsigned char rawClicks : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasIdentifier;
+@property (retain, nonatomic) NSString *identifier;
+@property (nonatomic) BOOL hasClicks;
+@property (nonatomic) double clicks;
+@property (nonatomic) BOOL hasRawClicks;
+@property (nonatomic) double rawClicks;
+@property (nonatomic) BOOL hasImpressions;
+@property (nonatomic) double impressions;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+- (void)dealloc;
+
+@end

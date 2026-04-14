@@ -1,0 +1,26 @@
+@class TSCEDependencyTracker, NSDate;
+
+@interface TSCECellDirtier : NSObject {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _dirtyingLock;
+    struct unordered_map<TSCEInternalCellReference, TSCECountedInternalCellRefSet *, std::hash<TSCEInternalCellReference>, std::equal_to<TSCEInternalCellReference>, std::allocator<std::pair<const TSCEInternalCellReference, TSCECountedInternalCellRefSet *>>> { struct __hash_table<std::__hash_value_type<TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, std::__unordered_map_hasher<TSCEInternalCellReference, std::pair<const TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, std::hash<TSCEInternalCellReference>, std::equal_to<TSCEInternalCellReference>>, std::__unordered_map_equal<TSCEInternalCellReference, std::pair<const TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, std::equal_to<TSCEInternalCellReference>, std::hash<TSCEInternalCellReference>>, std::allocator<std::pair<const TSCEInternalCellReference, TSCECountedInternalCellRefSet *>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, void *> *> *>>> { struct { void **__ptr_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, void *> *> *>> { struct { unsigned long long __size_; } ; } __deleter_; } ; } __bucket_list_; struct { struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSCEInternalCellReference, TSCECountedInternalCellRefSet *>, void *> *> { void *__next_; } __first_node_; } ; struct { unsigned long long __size_; } ; struct { float __max_load_factor_; } ; } __table_; } _dependentsToDirtyByFromRef;
+}
+
+@property (nonatomic) BOOL dirtyingInProgress;
+@property (readonly, nonatomic) TSCEDependencyTracker *dependTracker;
+@property (readonly, nonatomic) BOOL isDoneDirtying;
+@property (readonly, nonatomic) NSDate *startTime;
+@property (readonly, nonatomic) double timeout;
+@property (readonly, nonatomic) struct TSCEInternalCellReference { struct TSUCellCoord { unsigned int row; unsigned short column; BOOL _preserveRow; BOOL _preserveColumn; } coordinate; unsigned short tableID; unsigned short reserved; } startCellRef;
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (BOOL)_dirtyCellsWithNoLockForSeconds:(double)a0 fromStartTime:(id)a1;
+- (void *)dependentsToDirtyByFromRef;
+- (BOOL)dirtyCellsForSeconds:(double)a0 fromStartTime:(id)a1;
+- (void)dirtyCellsNow;
+- (BOOL)dirtyNewCellRef:(const struct TSCEInternalCellReference { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; unsigned short x1; unsigned short x2; } *)a0 forSeconds:(double)a1 fromStartTime:(id)a2;
+- (id)initWithDependencyTracker:(id)a0;
+- (void)startDirtyingCellRef;
+- (void)stopDirtyingCellRef;
+
+@end

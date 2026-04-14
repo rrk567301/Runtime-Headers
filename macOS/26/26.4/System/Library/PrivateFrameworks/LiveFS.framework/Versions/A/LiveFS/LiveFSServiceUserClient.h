@@ -1,0 +1,3 @@
+@interface LiveFSServiceUserClient : FSServiceUserClient
+
+@end

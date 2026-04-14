@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerSupport.SearchAgentFeatureStoreLogger : _TtCs12_SwiftObject
+
+@end

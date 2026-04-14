@@ -1,0 +1,3 @@
+@interface _TtC16AppIntentSchemasP33_E3CD0602FE037CED6E6F17CAED62AEE219ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

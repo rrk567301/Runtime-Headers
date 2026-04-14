@@ -1,0 +1,26 @@
+@class AMSCircularBuffer;
+
+@interface AMSStreamHTTPArchiveEntryController : NSObject
+
+@property (class, readonly) AMSCircularBuffer *buffer;
+
++ (void)initialize;
++ (id)_harFileURLsInPath:(id)a0;
++ (id)_createNewFileWithFileName:(id)a0 outputDirectory:(id)a1 error:(id *)a2;
++ (void)ams_streamEntriesToDisk;
++ (void)_performCombiningFiles:(id)a0 toStream:(id)a1;
++ (void)_moveTemporaryFileURL:(id)a0 toFinalFileURL:(id)a1;
++ (void)_updateMaxBufferSize;
++ (void)ams_addEntriesForTaskInfo:(id)a0;
++ (void)_streamToDiskWithEntries:(id)a0;
++ (BOOL)_writeHeaderToStream:(id)a0;
++ (id)_headerData;
++ (id)ams_combineEntriesForPath:(id)a0 error:(id *)a1;
++ (id)_footerData;
++ (BOOL)_shouldWriteEntryDirectlyToDiskForURLString:(id)a0;
++ (void)_writeEntries:(id)a0 toStream:(id)a1;
++ (BOOL)_writeFooterToStream:(id)a0;
++ (id)_createNewFileNameForCombining:(BOOL)a0 extension:(id)a1;
++ (BOOL)_writeData:(id)a0 enumeratingBytesToStream:(id)a1;
+
+@end

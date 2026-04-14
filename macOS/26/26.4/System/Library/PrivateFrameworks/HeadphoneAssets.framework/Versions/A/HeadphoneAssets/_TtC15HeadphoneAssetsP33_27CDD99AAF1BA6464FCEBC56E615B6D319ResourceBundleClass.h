@@ -1,0 +1,3 @@
+@interface _TtC15HeadphoneAssetsP33_27CDD99AAF1BA6464FCEBC56E615B6D319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC21UserNotificationsCore14ServiceManager17XPCEventInterface : _TtCs12_SwiftObject
+
+@end

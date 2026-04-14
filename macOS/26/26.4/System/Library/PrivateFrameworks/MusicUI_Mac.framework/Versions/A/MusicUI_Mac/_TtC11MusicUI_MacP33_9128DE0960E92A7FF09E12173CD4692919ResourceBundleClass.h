@@ -1,0 +1,3 @@
+@interface _TtC11MusicUI_MacP33_9128DE0960E92A7FF09E12173CD4692919ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

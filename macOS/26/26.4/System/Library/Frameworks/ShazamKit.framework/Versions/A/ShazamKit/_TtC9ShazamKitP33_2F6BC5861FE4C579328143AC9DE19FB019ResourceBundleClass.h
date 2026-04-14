@@ -1,0 +1,3 @@
+@interface _TtC9ShazamKitP33_2F6BC5861FE4C579328143AC9DE19FB019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

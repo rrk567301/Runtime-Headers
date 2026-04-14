@@ -1,0 +1,22 @@
+@class NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface VCQoSMonitorManager : VCObject {
+    NSMutableDictionary *_sources;
+    NSObject<OS_dispatch_queue> *_xpcCommandQueue;
+    long long _reportingInterval;
+}
+
++ (id)sharedInstance;
+
+- (void)deregisterBlocksForService;
+- (void)registerBlocksForService;
+- (id)init;
+- (void)dealloc;
+- (BOOL)doesQoSSourceExistForStreamToken:(id)a0;
+- (void)registerQoSReportingSourceForToken:(long long)a0;
+- (void)unregisterQoSReportingSourceForToken:(long long)a0;
+- (void)updateEventDrivenQoSReport:(id)a0 toClientsWithToken:(long long)a1;
+- (void)updateQoSReport:(id)a0 toClientsWithToken:(long long)a1;
+
+@end

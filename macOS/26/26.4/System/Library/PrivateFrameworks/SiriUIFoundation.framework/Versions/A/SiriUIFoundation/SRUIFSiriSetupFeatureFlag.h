@@ -1,0 +1,3 @@
+@interface SRUIFSiriSetupFeatureFlag : NSObject
+
+@end

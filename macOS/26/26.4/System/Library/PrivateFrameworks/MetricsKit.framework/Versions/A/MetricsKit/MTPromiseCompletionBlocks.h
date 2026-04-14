@@ -1,0 +1,18 @@
+@class NSMutableArray;
+
+@interface MTPromiseCompletionBlocks : NSObject {
+    NSMutableArray *_completionBlocks;
+    BOOL _shouldCallImmediately;
+}
+
+- (void)addCompletionBlock:(id /* block */)a0;
+- (void)addErrorBlock:(id /* block */)a0;
+- (void)callErrorBlock:(id /* block */)a0 withPromiseResult:(id)a1;
+- (void)addSuccessBlock:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)flushCompletionBlocksWithPromiseResult:(id)a0;
+- (void)callCompletionBlock:(id /* block */)a0 withPromiseResult:(id)a1;
+- (void)callSuccessBlock:(id /* block */)a0 withPromiseResult:(id)a1;
+
+@end

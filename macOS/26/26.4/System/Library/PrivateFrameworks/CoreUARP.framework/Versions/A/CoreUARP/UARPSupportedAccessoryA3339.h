@@ -1,0 +1,13 @@
+@class UARPAccessoryHardwareHID;
+
+@interface UARPSupportedAccessoryA3339 : UARPSupportedAccessoryMagicKeyboard {
+    UARPAccessoryHardwareHID *hwID;
+}
+
++ (unsigned short)productID;
++ (id)appleModelNumber;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

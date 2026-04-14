@@ -1,0 +1,3 @@
+@interface CoreEmbeddedSpeechRecognition.CESAContextualEntityRetriever : _TtCs12_SwiftObject
+
+@end

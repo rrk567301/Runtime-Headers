@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerSupport.SharedAssistantSchemaProvider : _TtCs12_SwiftObject
+
+@end

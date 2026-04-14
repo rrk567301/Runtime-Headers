@@ -1,0 +1,82 @@
+@class NSString, MTXPCConnectionProvider, MTMetrics, NSNotificationCenter, MTTimerManagerExportedObject, MTTimerCache;
+@protocol MTTimerManagerIntentSupport;
+
+@interface MTTimerManager : NSObject <MTTimerManagerProviding, MTTimerManagerIntentSupport, MTUserDefaultNotificationObserver>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<MTTimerManagerIntentSupport> timerManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) MTTimerManagerExportedObject *exportedObject;
+@property (readonly, nonatomic) MTXPCConnectionProvider *connectionProvider;
+@property (retain, nonatomic) MTMetrics *metrics;
+@property (retain, nonatomic) MTTimerCache *cache;
+@property (retain, nonatomic) NSNotificationCenter *notificationCenter;
+@property (readonly, nonatomic) BOOL donatesAppIntents;
+@property (readonly, nonatomic) id notificationObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)warmUp;
++ (double)defaultDuration;
++ (void)setDefaultDuration:(double)a0;
+
+- (id)nextTimer;
+- (void)checkIn;
+- (id)addTimer:(id)a0;
+- (id)timers;
+- (id)updateTimer:(id)a0;
+- (id)removeTimer:(id)a0;
+- (BOOL)startCurrentTimerWithDurationSync:(double)a0;
+- (id)resumeCurrentTimer;
+- (void)_getCachedTimersWithFuture:(id)a0 finishBlock:(id /* block */)a1;
+- (id)_runningTimerFromCurrentTimer:(id)a0 withDuration:(double)a1;
+- (BOOL)_updateCurrentTimerWithStateSync:(unsigned long long)a0;
+- (id)latestDuration;
+- (id)addFavoriteDuration:(id)a0;
+- (id)pauseCurrentTimer;
+- (void)loadAllDurationsWithCompletion:(id /* block */)a0;
+- (id)getCurrentTimerSync;
+- (id)timerSyncWithIdentifier:(id)a0;
+- (id)dismissTimerWithIdentifier:(id)a0;
+- (id)startCurrentTimerWithDuration:(double)a0;
+- (id)initWithConnectionProvider:(id)a0 metrics:(id)a1 notificationCenter:(id)a2;
+- (BOOL)stopCurrentTimerSync;
+- (id)initWithMetrics:(id)a0 donatesAppIntents:(BOOL)a1;
+- (id)stopCurrentTimer;
+- (id)timersSync;
+- (id)repeatTimerWithIdentifier:(id)a0;
+- (id)addRecentDuration:(id)a0;
+- (void).cxx_destruct;
+- (id)timerWithIdentifier:(id)a0;
+- (id)removeRecentDuration:(id)a0;
+- (id)getQueryDurations:(id /* block */)a0 withFuture:(id)a1;
+- (id)defaultDurations;
+- (id)favoriteDurations;
+- (id)removeFavoriteDuration:(id)a0;
+- (id)init;
+- (void)reconnect;
+- (id)_updateTimer:(id)a0 doSynchronous:(BOOL)a1;
+- (BOOL)resumeCurrentTimerSync;
+- (id)_updateCurrentTimerWithState:(unsigned long long)a0;
+- (id)initWithConnectionProvider:(id)a0 metrics:(id)a1;
+- (id)_initWithConnectionProvidingBlock:(id /* block */)a0 metrics:(id)a1 donatesAppIntents:(BOOL)a2;
+- (BOOL)pauseCurrentTimerSync;
+- (id)nextTimersForDate:(id)a0 maxCount:(unsigned long long)a1;
+- (id)_initWithConnectionProvidingBlock:(id /* block */)a0 metrics:(id)a1 donatesAppIntents:(BOOL)a2 notificationCenter:(id)a3;
+- (id)initWithMetrics:(id)a0;
+- (id)currentTimer;
+- (id)_validateCanStartTimer:(id)a0;
+- (void)dealloc;
+- (id)saveLatestDuration:(id)a0;
+- (id)initWithAppIntentDonations:(BOOL)a0;
+- (id)recentDurations;
+
+@end

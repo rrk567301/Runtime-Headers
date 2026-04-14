@@ -1,0 +1,25 @@
+@class NSString, GEOApplicationAuditToken;
+
+@interface GEONavdClientInfo : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *canonicalName;
+@property (copy, nonatomic) NSString *uniqueClientId;
+@property (retain, nonatomic) GEOApplicationAuditToken *auditToken;
+
++ (id)clientInfoForNavdPredictions;
+
+- (BOOL)isNavdClientInfo;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCanonicalName:(id)a0 instanceId:(unsigned long long)a1 auditToken:(id)a2;
+- (unsigned long long)hash;
+- (id)initWithCanonicalName:(id)a0 instanceId:(unsigned long long)a1;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isCalendarClientInfo;
+
+@end

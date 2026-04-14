@@ -1,0 +1,15 @@
+@class NSUUID, NSString;
+
+@interface PKHMAccessory : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSUUID *uniqueIdentifier;
+@property (retain, nonatomic) NSString *name;
+
+- (id)initWithUniqueIdentifier:(id)a0 name:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

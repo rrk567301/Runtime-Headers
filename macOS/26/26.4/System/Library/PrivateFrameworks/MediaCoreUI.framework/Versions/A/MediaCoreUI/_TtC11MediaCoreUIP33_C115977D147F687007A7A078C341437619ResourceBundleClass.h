@@ -1,0 +1,3 @@
+@interface _TtC11MediaCoreUIP33_C115977D147F687007A7A078C341437619ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

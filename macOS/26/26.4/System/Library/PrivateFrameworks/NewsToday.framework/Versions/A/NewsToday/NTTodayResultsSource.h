@@ -1,0 +1,33 @@
+@class NSObject, NSString, FCAsyncSerialQueue;
+@protocol FCCacheInvalidationManagerType, NTGroupingServiceType, FCItemExposureRegistryType, NTTodayBannerValidator, FCContentContext, FCFeedPersonalizerFactoryType, FCReadablePrivateDataStorage, NTTodayResultsFetchDescriptor;
+
+@interface NTTodayResultsSource : NSObject <NTTodayResultsSource>
+
+@property (readonly, copy, nonatomic) id<NTTodayResultsFetchDescriptor> fetchDescriptor;
+@property (readonly, nonatomic) id<FCFeedPersonalizerFactoryType> feedPersonalizerFactory;
+@property (readonly, nonatomic) id<NTGroupingServiceType> groupingService;
+@property (readonly, nonatomic) id<FCCacheInvalidationManagerType> cacheInvalidationManager;
+@property (readonly, nonatomic) id<NTTodayBannerValidator> todayBannerValidator;
+@property (readonly, nonatomic) id<FCItemExposureRegistryType> articleExposureRegistry;
+@property (readonly, nonatomic) id<FCReadablePrivateDataStorage> privateDataStorage;
+@property (readonly, nonatomic) id<FCContentContext> contentContext;
+@property (readonly, nonatomic) FCAsyncSerialQueue *serialQueue;
+@property (nonatomic, getter=hasFlushingBeenEnabled) BOOL flushingHasBeenEnabled;
+@property (retain, nonatomic) NSObject *latestResultRecordsHoldToken;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)placeholderResultsWithFetchDescriptor:(id)a0 contentContext:(id)a1 operationInfo:(id)a2;
+
+- (void)_fetchTodayModuleDescriptorsWithContentRequest:(id)a0 requireRefreshedAppConfig:(BOOL)a1 qualityOfService:(long long)a2 completion:(id /* block */)a3;
+- (void)fetchModuleDescriptorsWithCompletion:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)initWithFetchDescriptor:(id)a0 feedPersonalizerFactory:(id)a1 groupingService:(id)a2 cacheInvalidationManager:(id)a3 todayBannerValidator:(id)a4 articleExposureRegistry:(id)a5 privateDataStorage:(id)a6 contentContext:(id)a7 fetchQueue:(id)a8;
+- (id)placeholderResultsWithOperationInfo:(id)a0;
+- (id)init;
+- (void)_fetchLatestResultsWithOperationInfo:(id)a0 prefetchedContent:(id)a1 completion:(id /* block */)a2;
+- (void)fetchLatestResultsWithOperationInfo:(id)a0 completion:(id /* block */)a1;
+
+@end

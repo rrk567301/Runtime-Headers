@@ -1,0 +1,3 @@
+@interface _TtCC11AnteroAgent8GMEEvent8PartText : _TtCC11AnteroAgent8GMEEvent4Part
+
+@end

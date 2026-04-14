@@ -1,0 +1,3 @@
+@interface CCMultiViewSourceCamera : NSObject
+
+@end

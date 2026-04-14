@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore36MutableAccessoryActivityActionsStore : _TtCC9ChronoKit19ChronoMetadataStore29AccessoryActivityActionsStore
+
+@end

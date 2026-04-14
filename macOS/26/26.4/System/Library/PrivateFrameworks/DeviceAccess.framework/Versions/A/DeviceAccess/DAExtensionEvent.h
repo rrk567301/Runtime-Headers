@@ -1,0 +1,3 @@
+@interface DAExtensionEvent : DAEventExtension
+
+@end

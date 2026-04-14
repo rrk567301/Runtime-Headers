@@ -1,0 +1,26 @@
+@class MXCleanUtil, MXPayloadValidator;
+@protocol MXClientUtilProtocol, MXDeliveryDataCacherProtocol, MXDiagnosticServicesProtocol, MXSourceDataCacherProtocol, MXBundleUtilProtocol, MXSourcePathUtilProtocol, MXDeliveryPathUtilProtocol, MXMetricServicesProtocol, MXStorageUtilProtocol;
+
+@interface MXDependencyFactory : NSObject
+
+@property (readonly) id<MXStorageUtilProtocol> storageUtil;
+@property (readonly) id<MXSourcePathUtilProtocol> sourcePathUtil;
+@property (readonly) id<MXSourceDataCacherProtocol> sourceDataCacher;
+@property (readonly) id<MXMetricServicesProtocol> metricServices;
+@property (readonly) id<MXDiagnosticServicesProtocol> diagnosticServices;
+@property (readonly) id<MXBundleUtilProtocol> bundleUtil;
+@property (readonly) id<MXDeliveryPathUtilProtocol> deliveryPathUtil;
+@property (readonly) id<MXDeliveryDataCacherProtocol> deliveryDataCacher;
+@property (readonly) id<MXClientUtilProtocol> clientUtil;
+@property (readonly) MXCleanUtil *cleanUtil;
+@property (readonly) MXPayloadValidator *payloadValidator;
+
++ (id)shared;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)handlerForMXSourceWithDelegate:(id)a0;
+- (void)_initIvar;
+- (id)handlerForMXCoreWithDelegate:(id)a0;
+
+@end

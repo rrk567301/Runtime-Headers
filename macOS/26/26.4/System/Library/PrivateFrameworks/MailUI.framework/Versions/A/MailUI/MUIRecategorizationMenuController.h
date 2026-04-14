@@ -1,0 +1,15 @@
+@class MUIRecategorizationViewModel;
+
+@interface MUIRecategorizationMenuController : NSObject <NSMenuDelegate>
+
+@property (nonatomic, weak) void /* function */ delegate;
+@property (nonatomic, readonly) MUIRecategorizationViewModel *viewModel;
+
+- (id)initWithDelegate:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)menuNeedsUpdate:(id)a0;
+- (id)menuForSourceType:(long long)a0;
+- (void)updateCategoryBucket:(id)a0;
+
+@end

@@ -1,0 +1,5 @@
+@interface LegalAndRegulatorySettingsSupport.NetworkImageModel : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _state;
+}
+
+@end

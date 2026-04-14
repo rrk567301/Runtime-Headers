@@ -1,0 +1,3 @@
+@interface _TtCO6IMCore12ImportExport27DownloadableAttachmentBatch : _TtCO6IMCore12ImportExport34DownloadableMessageAttachmentBatch
+
+@end

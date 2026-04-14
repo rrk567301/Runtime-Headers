@@ -1,0 +1,3 @@
+@interface MPSNDArrayMultiaryKernelHost : MPSNDArrayMultiaryBaseHost
+
+@end

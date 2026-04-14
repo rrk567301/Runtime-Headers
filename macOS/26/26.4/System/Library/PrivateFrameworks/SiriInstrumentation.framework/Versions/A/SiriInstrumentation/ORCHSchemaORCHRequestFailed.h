@@ -1,0 +1,32 @@
+@class NSData, SISchemaErrorInfo;
+
+@interface ORCHSchemaORCHRequestFailed : SISchemaInstrumentationMessage {
+    struct { unsigned char errorCode : 1; unsigned char errorDomain : 1; unsigned char orchErrorCode : 1; } _has;
+}
+
+@property (nonatomic) int errorCode;
+@property (nonatomic) BOOL hasErrorCode;
+@property (nonatomic) int errorDomain;
+@property (nonatomic) BOOL hasErrorDomain;
+@property (nonatomic) int orchErrorCode;
+@property (nonatomic) BOOL hasOrchErrorCode;
+@property (retain, nonatomic) SISchemaErrorInfo *error;
+@property (nonatomic) BOOL hasError;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteErrorCode;
+- (void)deleteError;
+- (void)deleteErrorDomain;
+- (void)deleteOrchErrorCode;
+
+@end

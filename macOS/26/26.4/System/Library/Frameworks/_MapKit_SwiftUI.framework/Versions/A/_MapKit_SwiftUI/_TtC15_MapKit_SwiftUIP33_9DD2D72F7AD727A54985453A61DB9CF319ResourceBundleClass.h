@@ -1,0 +1,3 @@
+@interface _TtC15_MapKit_SwiftUIP33_9DD2D72F7AD727A54985453A61DB9CF319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

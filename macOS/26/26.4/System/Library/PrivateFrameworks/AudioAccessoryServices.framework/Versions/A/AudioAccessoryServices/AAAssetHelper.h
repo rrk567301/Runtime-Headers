@@ -1,0 +1,15 @@
+@interface AAAssetHelper : NSObject
+
++ (id)_bluetoothProductDefaultAsset:(unsigned int)a0;
++ (id)_bluetoothProductIDToAsset:(unsigned int)a0;
++ (id)_bluetoothProductIDToAsset:(unsigned int)a0 withColor:(unsigned char)a1;
++ (id)_bluetoothProductIDToCaseAsset:(unsigned int)a0 withColor:(unsigned char)a1;
++ (id)_bluetoothProductIDToCaseDefaultAsset:(unsigned int)a0;
++ (unsigned char)_getDefaultColorCode:(unsigned int)a0;
++ (BOOL)_productCaseHasColors:(unsigned int)a0;
++ (BOOL)_productHasColors:(unsigned int)a0;
++ (id)bluetoothProductIDToAsset:(unsigned int)a0 withColor:(unsigned char)a1 isCase:(BOOL)a2;
++ (BOOL)productColorAssetExists:(unsigned int)a0 withColor:(unsigned char)a1;
++ (BOOL)productHasColors:(unsigned int)a0 isCase:(BOOL)a1;
+
+@end

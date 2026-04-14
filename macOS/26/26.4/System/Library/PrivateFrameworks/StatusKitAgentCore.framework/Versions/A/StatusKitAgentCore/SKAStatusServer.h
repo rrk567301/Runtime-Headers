@@ -1,0 +1,86 @@
+@class NSXPCListener, NSMutableDictionary, NSString, NSArray, NSMutableArray, NSObject;
+@protocol SKAChannelManaging, SKALocalDatabaseProviding, SKACloudDatabaseProviding, SKAPresenceManaging, SKAStatusReceivingManaging, OS_dispatch_queue, SKAFirewallManaging, SKAStatusEncryptionManaging, SKAInvitationManaging, SKAMessagingProviding, SKAStatusPublishingManaging, SKAStatusSubscriptionManaging, SKACloudDatabaseManaging, SKAPresenceMigrationManaging, SKAServerBagProviding, SKALocalDatabaseManaging;
+
+@interface SKAStatusServer : NSObject <NSXPCListenerDelegate, SKADatabaseProvidingDelegate, SKAStatusReceivingManagingDelegate, SKACloudDatabaseManagingDelegate, SKAInvitationManagingDelegate, SKAStatusPublishingServiceClientDelegate, SKAStatusSubscriptionServiceClientDelegate, SKAPresenceClientDelegate, SKAPresenceManagingDelegate, SKACloudDatabaseProvidingDelegate, SKAMessagingProvidingDelegate, SKAChannelManagingDelegate, SKAIDSDeviceProviding>
+
+@property (retain, nonatomic) id<SKAPresenceMigrationManaging> presenceMigrationManager;
+@property (retain, nonatomic) NSXPCListener *publishingServiceListener;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *publishingServiceConnectionQueue;
+@property (retain, nonatomic) NSMutableArray *publishingServiceConnectedClientProxies;
+@property (retain, nonatomic) NSXPCListener *subscriptionServiceListener;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *subscriptionServiceConnectionQueue;
+@property (retain, nonatomic) NSMutableArray *subscriptionServiceConnectedClientProxies;
+@property (retain, nonatomic) NSXPCListener *presenceListener;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *presenceConnectionQueue;
+@property (retain, nonatomic) NSMutableArray *onQueue_presenceConnectedClientProxies;
+@property (retain, nonatomic) NSMutableDictionary *onQueue_pendingCompletionsByPresenceIdentifier;
+@property (retain, nonatomic) id<SKACloudDatabaseManaging> cloudDatabaseManager;
+@property (retain, nonatomic) id<SKALocalDatabaseManaging> localDatabaseManager;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *invitationManagerMessagingQueue;
+@property (retain, nonatomic) id<SKAMessagingProviding> invitationMessagingProvider;
+@property (retain, nonatomic) id<SKAInvitationManaging> invitationManager;
+@property (retain, nonatomic) id<SKAChannelManaging> channelManager;
+@property (retain, nonatomic) id<SKAStatusPublishingManaging> publishingManager;
+@property (retain, nonatomic) id<SKAStatusSubscriptionManaging> subscriptionManager;
+@property (retain, nonatomic) id<SKAPresenceManaging> presenceManager;
+@property (retain, nonatomic) id<SKAStatusEncryptionManaging> encryptionManager;
+@property (retain, nonatomic) id<SKAStatusReceivingManaging> statusReceivingManager;
+@property (retain, nonatomic) id<SKAServerBagProviding> serverBag;
+@property (retain, nonatomic) id<SKAFirewallManaging> firewallManager;
+@property (nonatomic) BOOL trafficModeEnabled;
+@property (retain, nonatomic) id<SKACloudDatabaseProviding> cloudDatabaseProvider;
+@property (retain, nonatomic) id<SKALocalDatabaseProviding> localDatabaseProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSArray *idsDevices;
+
++ (id)sharedInstance;
++ (id)logger;
++ (id)_pushEnvironment;
++ (BOOL)_inTextTrafficMode;
++ (void)_logDatabaseSize;
+
+- (void)logState;
+- (void)shutdown;
+- (id)registerIDSDeviceChangedObserver:(id /* block */)a0;
+- (void)invitationManager:(id)a0 didRevokeInvitationOnChannel:(id)a1;
+- (void)databaseDidReceiveRemoteChangesForChannels:(id)a0;
+- (void)channelManager:(id)a0 failedToSubscribeToChannel:(id)a1 withError:(id)a2;
+- (id)initWithCloudDatabaseProvider:(id)a0 localDatabaseProvider:(id)a1 invitationMessagingProvider:(id)a2 accountProvider:(id)a3 serverBag:(id)a4 messageDelivery:(id)a5 apsConnection:(id)a6 trafficModeEnabled:(BOOL)a7 publishingServiceListener:(id)a8 subscriptionServiceListener:(id)a9 presenceListener:(id)a10;
+- (id)_onQueue_clientForPresenceIdentifier:(id)a0;
+- (void)enumeratePresenceClientsWithIdentifier:(id)a0 usingBlock:(id /* block */)a1;
+- (void)networkBecameReachable;
+- (id)_senderHandlesForChannel:(id)a0;
+- (void)databaseAccountStatusChangedForReason:(long long)a0;
+- (void)publishingServiceClientWasInvalidated:(id)a0;
+- (void)service:(id)a0 didReceiveIncomingMessage:(id)a1 fromID:(id)a2 fromMergeID:(id)a3 toID:(id)a4 messageGuid:(id)a5;
+- (void)databaseManager:(id)a0 didCreateChannel:(id)a1;
+- (void)invitationManager:(id)a0 didReceiveInvitationWithType:(long long)a1 forChannel:(id)a2 withExistingChannel:(id)a3;
+- (void)_cleanupPresentDevicesWithoutActiveChannels;
+- (void)service:(id)a0 outgoingMessageWithIdentifier:(id)a1 fromID:(id)a2 toID:(id)a3 didSendWithSuccess:(BOOL)a4;
+- (void)refreshAssertionsForPresenceIdentifier:(id)a0 existingChannelIdentifier:(id)a1;
+- (void)presenceManager:(id)a0 didReceiveUpdatedPresentDevices:(id)a1 persistentDevices:(id)a2 forPresenceIdentifier:(id)a3;
+- (void)initialCloudKitImportReceived:(id)a0;
+- (void)donateReceivedStatusToBiomeOnChannel:(id)a0;
+- (BOOL)_subscriptionServiceListener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)presenceManager:(id)a0 didCreateChannel:(id)a1;
+- (void)statusReceivingManager:(id)a0 didReceiveStatusUpdate:(id)a1 onChannel:(id)a2;
+- (void)drainUpdatesForPresenceIdentifier:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)_publishingServiceListener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)unregisterIDSDeviceChangedObserver:(id)a0;
+- (id)init;
+- (void)channelManager:(id)a0 didReceiveData:(id)a1 onChannel:(id)a2 identifier:(unsigned long long)a3 dateReceived:(id)a4 dateExpired:(id)a5;
+- (void)_setupMaintenanceActivity;
+- (void)subscriptionServiceClientWasInvalidated:(id)a0;
+- (void)invitationManager:(id)a0 didRollChannelFromExistingChannel:(id)a1;
+- (void)presenceManager:(id)a0 didRequestToRollChannel:(id)a1;
+- (void)performMaintenanceWithCompletion:(id /* block */)a0;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)presenceClientWasInvalidated:(id)a0;
+- (BOOL)_presenceServiceListener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (BOOL)_shouldDonateToBiomeForStatusTypeIdentifier:(id)a0;
+
+@end

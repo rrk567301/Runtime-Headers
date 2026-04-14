@@ -1,0 +1,26 @@
+@class NSLocale;
+
+@interface _LTLanguageStatusObservation : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSLocale *locale;
+@property (readonly, nonatomic) BOOL isIndeterminateProgress;
+@property (readonly, nonatomic) double progress;
+@property (readonly, nonatomic) unsigned long long downloadSize;
+@property (readonly, nonatomic) long long status;
+@property (readonly, nonatomic) unsigned long long sources;
+@property (readonly, nonatomic) long long rank;
+
++ (id)describeObservations:(id)a0;
+
+- (long long)compare:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (id)initWithLocale:(id)a0 progress:(double)a1 downloadSize:(unsigned long long)a2 status:(long long)a3 rank:(long long)a4;
+- (id)initWithLocale:(id)a0 progress:(double)a1 downloadSize:(unsigned long long)a2 status:(long long)a3 sources:(unsigned long long)a4 rank:(long long)a5;
+
+@end

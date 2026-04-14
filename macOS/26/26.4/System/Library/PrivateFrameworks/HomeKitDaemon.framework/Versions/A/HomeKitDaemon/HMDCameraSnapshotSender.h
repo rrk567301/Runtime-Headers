@@ -1,0 +1,18 @@
+@class NSObject, NSUUID, HMDAccessory, NSString, HMDCameraSnapshotSessionInfo, HMDDevice;
+@protocol OS_dispatch_queue;
+
+@interface HMDCameraSnapshotSender : HMFObject <HMFLogging>
+
+@property (readonly, nonatomic) NSUUID *uniqueIdentifier;
+@property (readonly, nonatomic) HMDDevice *device;
+@property (readonly, weak, nonatomic) HMDAccessory *accessory;
+@property (readonly, nonatomic) HMDCameraSnapshotSessionInfo *snapshotSessionInfo;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+@end

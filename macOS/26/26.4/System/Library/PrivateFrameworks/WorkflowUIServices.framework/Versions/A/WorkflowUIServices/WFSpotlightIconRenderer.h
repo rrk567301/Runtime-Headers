@@ -1,0 +1,8 @@
+@interface WFSpotlightIconRenderer : NSObject
+
++ (void)emptyCache;
++ (id)loadIconFromData:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
+
+- (id)init;
+
+@end

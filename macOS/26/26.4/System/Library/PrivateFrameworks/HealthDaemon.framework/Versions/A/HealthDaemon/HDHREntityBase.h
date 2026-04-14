@@ -1,0 +1,7 @@
+@interface HDHREntityBase : HDSampleEntity
+
++ (const struct { id x0; id x1; unsigned char x2; } *)columnDefinitionsWithCount:(unsigned long long *)a0;
++ (BOOL)isConcreteEntity;
++ (BOOL)isBackedByTable;
+
+@end

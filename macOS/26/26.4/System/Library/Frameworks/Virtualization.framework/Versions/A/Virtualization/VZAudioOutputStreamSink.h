@@ -1,0 +1,14 @@
+@class NSString;
+
+@interface VZAudioOutputStreamSink : NSObject <_VZVirtualMachineConfigurationEncodable>
+
+@property (readonly) struct expected<std::variant<VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host>, NSError *> { struct __conditional_no_unique_address<true, std::__expected_base<std::variant<VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host>, NSError *>::__repr> { struct __repr { struct __conditional_no_unique_address<false, std::__expected_base<std::variant<VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host>, NSError *>::__union_t> { union __union_t { struct variant<VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host> { struct __impl<VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host> { union __union<std::__variant_detail::_Trait::_TriviallyAvailable, 0UL, VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host> { char x0; struct __alt<0UL, VzCore::VirtualMachineConfiguration::AudioDevices::Stream::Attachments::Host> { struct Host { } x0; } x1; union __union<std::__variant_detail::_Trait::_TriviallyAvailable, 1UL> { } x2; } x0; unsigned int x1; } x0; } x0; id x1; } x0; } x0; BOOL x1; } x0; } x0; } _attachment;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_init;
+- (struct expected<NSDictionary *, NSError *> { struct __conditional_no_unique_address<true, std::__expected_base<NSDictionary *, NSError *>::__repr> { struct __repr { struct __conditional_no_unique_address<false, std::__expected_base<NSDictionary *, NSError *>::__union_t> { union __union_t { id x0; id x1; } x0; } x0; BOOL x1; } x0; } x0; })encodeWithEncoder:(id)a0;
+
+@end

@@ -1,0 +1,97 @@
+@class NSNumber, PLContentChanges, NSDictionary, PLManagedObjectContext, NSMutableArray, NSMutableSet, NSObject, NSNotificationCenter, PLChangeList;
+@protocol OS_dispatch_queue;
+
+@interface PLChangeNotificationCenter : NSObject {
+    BOOL _isProcessingRemoteDidSave;
+    int _cameraPreviewChangeListenerCount;
+    NSNumber *_cameraPreviewChangedToken;
+    NSObject<OS_dispatch_queue> *_notificationHandlingQueue;
+    NSMutableArray *_snapshots;
+    PLChangeList *_changedAlbumLists;
+    PLContentChanges *_albumListsContent;
+    PLChangeList *_changedAlbums;
+    PLContentChanges *_albumsContent;
+    PLChangeList *_changedAssets;
+    NSMutableSet *_assetsWithCloudCommentChanges;
+    PLContentChanges *_momentsContent;
+    PLChangeList *_changedMoments;
+    PLChangeList *_changedCloudFeedEntries;
+    PLManagedObjectContext *_moc;
+    NSMutableArray *_enqueuedNotifications;
+    NSDictionary *_remoteNotificationData;
+    BOOL _isOverloaded;
+    NSMutableSet *_overloadedObjects;
+}
+
+@property (readonly, retain, nonatomic) NSNotificationCenter *backingCenter;
+@property (readonly, nonatomic) BOOL _shouldForceFetchingAlbumsToReload;
+
++ (id)defaultCenter;
++ (id)allManagedObjectKeysStrategyWithContext:(id)a0;
++ (void)forceFetchingAlbumReload;
++ (void)assertIsCompatibleWithObjectModel:(id)a0;
++ (void)getInsertedAssetCount:(unsigned long long *)a0 deletedAssetCount:(unsigned long long *)a1 updatedAssets:(id)a2 fromContextDidChangeNotification:(id)a3;
+
+- (void)removeAssetContainerListChangeObserver:(id)a0 containerList:(id)a1;
+- (void)addCloudCommentsChangeObserver:(id)a0 asset:(id)a1;
+- (void)postShouldReloadNotificationWithPhotoLibrary:(id)a0;
+- (id)_keysOfInterestForObject:(id)a0;
+- (void)addAssetContainerListChangeObserver:(id)a0 containerList:(id)a1;
+- (void)_enqueueNotification:(id)a0 object:(id)a1 userInfoWithObjects:(const id *)a2 forKeys:(const id *)a3 count:(unsigned long long)a4;
+- (void)_enqueueAlbumNotifications;
+- (void)managedObjectContext:(id)a0 willProcessRemoteContextSave:(id)a1 usingObjectIDs:(BOOL)a2 isCoalescedEvent:(BOOL)a3;
+- (void)processContextDidChangeNotification:(id)a0;
+- (void)_enqueueAssetContainerListChangeNotification:(id)a0;
+- (id)_attributesOfInterestForObject:(id)a0;
+- (void)removeCloudFeedEntriesObserver:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)managedObjectContextWillBeOverloaded:(id)a0 withNotificationData:(id)a1 usingObjectIDs:(BOOL)a2;
+- (void)_evaluateUpdatedAssets;
+- (id)_takeSnapshotOfObject:(id)a0;
+- (void)_enqueueAssetChangeNotification;
+- (void)addCloudFeedEntriesObserver:(id)a0;
+- (id)_takeSnapshotOfObject:(id)a0 useCommitedValues:(BOOL)a1;
+- (void)removeInvitationRecordsObserver:(id)a0;
+- (id)_takeSnapshotFromCommittedValuesOfObject:(id)a0;
+- (void)_enqueueAssetContainerChangeNotification:(id)a0;
+- (void)addAssetChangeObserver:(id)a0;
+- (id)descriptionOfSplitChanges;
+- (id)addObserverForName:(id)a0 object:(id)a1 queue:(id)a2 usingBlock:(id /* block */)a3;
+- (void)_enqueueAlbumListNotifications;
+- (void)addInvitationRecordsObserver:(id)a0;
+- (void)_evaluateContainersWithUpdatedContent;
+- (void)enumerateIndexMappingCachesForObject:(id)a0 withBlock:(id /* block */)a1;
+- (void).cxx_destruct;
+- (id)_orderedRelationshipsOfInterestForObject:(id)a0;
+- (void)_takeSnapshotsFromContext:(id)a0 forRemoteContextSaveNotification:(id)a1 usingObjectIDs:(BOOL)a2;
+- (void)_postEnqueuedNotifications;
+- (void)removeObserver:(id)a0 name:(id)a1 object:(id)a2;
+- (id)_toOneRelationshipsOfInterestForObject:(id)a0;
+- (void)_splitContextDidChangeNotification:(id)a0;
+- (void)_enqueueAlbumChangeNotification:(id)a0;
+- (void)removeAssetContainerChangeObserver:(id)a0 container:(id)a1;
+- (id)init;
+- (void)_enqueueCloudFeedEntriesChangeNotifications;
+- (void)removeAssetChangeObserver:(id)a0;
+- (void)_cleanupState;
+- (void)removeShouldReloadObserver:(id)a0;
+- (void)addAssetContainerChangeObserver:(id)a0 container:(id)a1;
+- (void)_enqueueNotification:(id)a0 object:(id)a1 userInfo:(id)a2;
+- (void)_sendNotificationsForSplitChanges;
+- (void)removeObserver:(id)a0;
+- (void)removeCloudCommentsChangeObserver:(id)a0 asset:(id)a1;
+- (void)_enqueuePhotoLibraryNotifications;
+- (void)_enqueueInvitationRecordsChangeNotification:(id)a0;
+- (void)addObserver:(id)a0 selector:(SEL)a1 name:(id)a2 object:(id)a3;
+- (void)_enqueueMomentChangeNotifications;
+- (void)processContextDidSaveObjectIDsNotification:(id)a0;
+- (void)_enqueueCloudCommentsNotifications;
+- (void)enqueueNotification:(id)a0;
+- (void)addShouldReloadObserver:(id)a0;
+- (void)managedObjectContext:(id)a0 didProcessRemoteContextSave:(id)a1 usingObjectIDs:(BOOL)a2;
+- (void)dealloc;
+- (BOOL)_isInterestedInUpdatesOfObject:(id)a0;
+- (void)managedObjectContextWasOverloaded:(id)a0 withNotificationData:(id)a1 usingObjectIDs:(BOOL)a2;
+- (id)_snapshotForObject:(id)a0;
+
+@end

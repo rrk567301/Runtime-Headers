@@ -1,0 +1,13 @@
+@class NSNumber;
+
+@interface MTRLaundryWasherModeClusterModeTagStruct : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *mfgCode;
+@property (copy, nonatomic) NSNumber *value;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)description;
+
+@end

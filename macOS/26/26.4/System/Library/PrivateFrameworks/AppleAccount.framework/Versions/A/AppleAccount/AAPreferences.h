@@ -1,0 +1,55 @@
+@interface AAPreferences : NSObject
+
++ (BOOL)simulate2FAFA;
++ (id)getTrustedContactsPreflightInfo;
++ (BOOL)shouldEnableAccountUserNotifications;
++ (BOOL)isSimulateUnhealthyCustodianEnabled;
++ (BOOL)isCustomHealthCheckIntervalEnabled;
++ (BOOL)isSignInSecurityRedesignMacOSEnabled;
++ (long long)customMaintenanceIntervalMinutes;
++ (BOOL)shouldShowAccountContacts;
++ (BOOL)shouldSkipRecoveryInfoRecordStorage;
++ (BOOL)isLCInviteAcceptanceEnabled;
++ (BOOL)shouldEnableUnifyRenewCredentials;
++ (void)setCustomHealthFailureReachabilityIntervalMinutes:(long long)a0;
++ (void)setNeverSkipCustodianCheckEnabled:(BOOL)a0;
++ (void)setCustomMaintenanceIntervalEnabled:(BOOL)a0;
++ (void)setHealthCheckTTREnabled:(BOOL)a0;
++ (void)setCustodianInfo:(id)a0;
++ (BOOL)isIdentityKitEnabled;
++ (BOOL)shouldSkipIdMSKeyUpdate;
++ (BOOL)isMomentsDataclassEnabled;
++ (BOOL)_os_feature_enabled_Journal_macOS;
++ (BOOL)isCustomMaintenanceIntervalEnabled;
++ (void)setCustomHealthCheckIntervalMinutes:(long long)a0;
++ (BOOL)shouldSkipIdMSFinalizeCustodian;
++ (long long)customHealthCheckVersion;
++ (void)setCustomHealthCheckIntervalEnabled:(BOOL)a0;
++ (BOOL)isNeverSkipCustodianCheckEnabled;
++ (BOOL)shouldUseUnifiedLoginEndpoint;
++ (void)setMultipleFullAccountsEnabled:(BOOL)a0;
++ (void)setLCInviteAcceptanceEnabled:(BOOL)a0;
++ (void)setSimulateUnhealthyCustodianEnabled:(BOOL)a0;
++ (id)getCustodianInfo;
++ (BOOL)isYorktownEnabled;
++ (BOOL)disableADPStateHealing;
++ (BOOL)isMultipleFullAccountsEnabled;
++ (BOOL)isLCMessageExtensionEnabled;
++ (void)setShouldShowAccountContacts:(BOOL)a0;
++ (void)setDisableADPStateHealing:(BOOL)a0;
++ (void)setCustomMaintenanceIntervalMinutes:(long long)a0;
++ (void)setExperimentalModeEnabled:(BOOL)a0;
++ (BOOL)_os_feature_enabled_Journal_iPadOS;
++ (BOOL)isExperimentalModeEnabled;
++ (BOOL)isHealthCheckTTREnabled;
++ (void)setCustomHealthCheckVersion:(long long)a0;
++ (long long)customHealthCheckReachabilityIntervalMinutes;
++ (BOOL)isRunningInStoreDemoMode;
++ (void)setShouldUseUnifiedLoginEndpoint:(BOOL)a0;
++ (long long)customHealthCheckIntervalMinutes;
++ (void)setTrustedContactsPreflightInfo:(id)a0;
++ (BOOL)isRCUpsellEnabled;
++ (BOOL)isSignInSecurityRedesignEnabled;
++ (BOOL)isRCInSettingsEnabled;
+
+@end

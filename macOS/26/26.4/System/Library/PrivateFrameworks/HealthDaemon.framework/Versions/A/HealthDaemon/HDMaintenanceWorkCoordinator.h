@@ -1,0 +1,41 @@
+@class HDContentProtectionManager, NSString, HDAssertionManager, NSMutableSet, HDAnalyticsSubmissionCoordinator, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface HDMaintenanceWorkCoordinator : NSObject <HDAssertionObserver, HDMaintenanceOperationDelegate, HDContentProtectionObserver, HDDiagnosticObject> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSObject<OS_dispatch_queue> *_managementQueue;
+    NSObject<OS_dispatch_queue> *_maintenanceWorkQueue;
+    BOOL _suspended;
+    NSMutableArray *_pendingOperations;
+    NSMutableArray *_pendingLockingOperations;
+    NSMutableSet *_activeOperations;
+    NSMutableSet *_operationsWithPeriodicActivity;
+    NSObject<OS_dispatch_source> *_timeoutSource;
+    NSObject<OS_dispatch_source> *_deferralCheckSource;
+    HDAnalyticsSubmissionCoordinator *_analyticsCoordinator;
+    HDAssertionManager *_assertionManager;
+    HDContentProtectionManager *_contentProtectionManager;
+}
+
+@property (readonly) BOOL suspended;
+@property (readonly) unsigned long long pendingCount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)assertionManager:(id)a0 assertionInvalidated:(id)a1;
+- (void)contentProtectionStateChanged:(long long)a0 previousState:(long long)a1;
+- (void)enqueueMaintenanceOperation:(id)a0;
+- (id)initWithAnalyticsCoordinator:(id)a0 contentProtectionManager:(id)a1;
+- (void)startOperationImmediately:(id)a0;
+- (void)cancelAllOperations;
+- (void)operationDidFinish:(id)a0;
+- (BOOL)startNextOperationWithNameImmediately:(id)a0;
+- (void).cxx_destruct;
+- (void)enqueueMaintenanceOperation:(id)a0 withPeriodicActivity:(id)a1;
+- (id)diagnosticDescription;
+- (id)takeMaintenanceSuspensionAssertionForOwner:(id)a0;
+- (void)dealloc;
+
+@end

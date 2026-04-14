@@ -1,0 +1,5 @@
+@interface JetEngine.NotificationsListener : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ tokenLookup;
+}
+
+@end

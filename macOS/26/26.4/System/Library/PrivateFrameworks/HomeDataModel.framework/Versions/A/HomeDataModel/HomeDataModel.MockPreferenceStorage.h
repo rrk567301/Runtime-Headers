@@ -1,0 +1,8 @@
+@interface HomeDataModel.MockPreferenceStorage : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ lock;
+    void /* unknown type, empty encoding */ stringStorage;
+    void /* unknown type, empty encoding */ boolStorage;
+    void /* unknown type, empty encoding */ notificationName;
+}
+
+@end

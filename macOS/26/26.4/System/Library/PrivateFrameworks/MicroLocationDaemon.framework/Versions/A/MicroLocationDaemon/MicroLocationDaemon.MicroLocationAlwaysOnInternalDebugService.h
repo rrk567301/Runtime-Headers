@@ -1,0 +1,3 @@
+@interface MicroLocationDaemon.MicroLocationAlwaysOnInternalDebugService : _TtCs12_SwiftObject
+
+@end

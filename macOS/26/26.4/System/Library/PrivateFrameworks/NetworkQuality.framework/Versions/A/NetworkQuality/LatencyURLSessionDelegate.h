@@ -1,0 +1,82 @@
+@class NSError, NSString, NetworkQualityConfiguration, NSOperationQueue, NetworkQualityExecutionsResult, NetworkQualityExecutions, NSObject, NSMutableArray, NSURLRequest, NSMutableSet;
+@protocol OS_nw_endpoint;
+
+@interface LatencyURLSessionDelegate : NSObject <NSURLSessionDataDelegate> {
+    NetworkQualityConfiguration *_config;
+    NSMutableArray *_sessions;
+    NSMutableArray *_tasks;
+    NSMutableArray *_metrics;
+    NSMutableArray *_workingMetrics;
+    NSURLRequest *_request;
+    NSError *_error;
+    NSObject<OS_nw_endpoint> *_testEndpoint;
+    id /* block */ _completionHandler;
+    id /* block */ _saturationHandler;
+    id /* block */ _cancelCompletionHandler;
+    NSOperationQueue *_queue;
+    NetworkQualityExecutionsResult *_results;
+    NetworkQualityExecutions *_execution;
+    NSString *_tcpKey;
+    NSString *_tlsKey;
+    NSString *_reqrespKey;
+    NSString *_selfKey;
+    NSString *_testName;
+    BOOL _canceled;
+    int _exitCriteriaCounter;
+    unsigned long long _totalProbes;
+    unsigned long long _probesCompleted;
+    unsigned long long _parallel;
+    unsigned long long _totalRequests;
+    unsigned long long _failedRequests;
+    unsigned long long _maxFailuresAllowed;
+    unsigned long long _httpErrors;
+    unsigned long long _connectionErrors;
+    unsigned long long _dnsErrors;
+    unsigned long long _sslErrors;
+    unsigned long long _otherErrors;
+    unsigned long long _recoveredErrors;
+    unsigned long long _recoveryAttempts;
+    NSMutableArray *_networkErrorsArray;
+    NSMutableArray *_errorDetailsArray;
+    NSMutableSet *_tasksWithHttpErrors;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)URLSession:(id)a0 didReceiveChallenge:(id)a1 completionHandler:(id /* block */)a2;
+- (void)URLSession:(id)a0 task:(id)a1 didReceiveChallenge:(id)a2 completionHandler:(id /* block */)a3;
+- (void)URLSession:(id)a0 task:(id)a1 willPerformHTTPRedirection:(id)a2 newRequest:(id)a3 completionHandler:(id /* block */)a4;
+- (void)URLSession:(id)a0 didBecomeInvalidWithError:(id)a1;
+- (void)cancel;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)errorDetails;
+- (unsigned long long)httpErrors;
+- (id)categoryString:(unsigned long long)a0;
+- (void)cancelWithCompletionHandler:(id /* block */)a0;
+- (BOOL)metExitCriteria;
+- (unsigned long long)recoveredErrors;
+- (void)attemptRecovery:(unsigned long long)a0;
+- (unsigned long long)calculateMaxFailuresAllowed;
+- (void)captureDetailedError:(id)a0 context:(id)a1 recovered:(BOOL)a2;
+- (unsigned long long)categorizeError:(id)a0;
+- (void)clearErrorArrays;
+- (void)collectIdleLatencyMetricsFromTransactionMetrics:(id)a0 atMetricIndex:(int)a1 fromFullMetrics:(id)a2;
+- (unsigned long long)connectionErrors;
+- (int)didFinishCollectingMetrics:(id)a0 task:(id)a1;
+- (unsigned long long)dnsErrors;
+- (id)enrichErrorWithURL:(id)a0 url:(id)a1;
+- (void)executeTaskWithRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)handleNetworkError:(id)a0;
+- (void)incrementErrorCount:(unsigned long long)a0;
+- (id)initWithConfiguration:(id)a0 testName:(id)a1 queue:(id)a2 testEndpoint:(id)a3 resultsObject:(id)a4 resultsDelegate:(id)a5 tcpKey:(id)a6 tlsKey:(id)a7 reqrespKey:(id)a8 selfKey:(id)a9;
+- (id)networkErrors;
+- (void)populateErrorCounts;
+- (void)resetMeasurementState;
+- (void)shareProgress;
+- (void)waitForSaturation:(id /* block */)a0;
+
+@end

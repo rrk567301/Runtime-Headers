@@ -1,0 +1,98 @@
+@class NSString, , __end_;
+
+@interface CSMemoryMappingCache : NSObject {
+    unsigned int _count;
+    unsigned long long _total_mapped_size;
+    struct _CSRange { unsigned long long location; unsigned long long length; } _dsc_range;
+    unsigned long long _dsc_slide;
+    struct OrderedMemoryMappings { struct set<CSMemoryMapping *, CompareMappedRegionNode, std::allocator<CSMemoryMapping *>> { struct __tree<CSMemoryMapping *, CompareMappedRegionNode, std::allocator<CSMemoryMapping *>> { void *__begin_node_; struct { struct __tree_end_node<std::__tree_node_base<void *> *> { void *__left_; } __end_node_; } ; struct { unsigned long long __size_; } ; } __tree_; } _map; struct __tree_const_iterator<CSMemoryMapping *, std::__tree_node<CSMemoryMapping *, void *> *, long> { void *__ptr_; } _last_accessed_element; } _root_map;
+    struct vector<CSMemoryMapping *, std::allocator<CSMemoryMapping *>> { __end_ **__begin_;  **x0; struct { id *__cap_; } x1; } _reclaimed_nodes;
+    unsigned int _task;
+    unsigned int _suspension_token;
+    unsigned int _suspension_count;
+    BOOL _touch_regions;
+    id /* block */ _region_info_block;
+    NSString *_purpose_label;
+    struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _lock;
+    struct unique_ptr<CSCppCoreFileMetadata, std::default_delete<CSCppCoreFileMetadata>> { struct { struct CSCppCoreFileMetadata *__ptr_; } ; } _core_file_metadata;
+}
+
+@property (readonly, nonatomic) BOOL is64Bit;
+@property (readonly, nonatomic) NSString *coreFileProcName;
+@property (readonly, nonatomic) NSString *coreFileProcPath;
+@property (readonly, nonatomic) NSString *coreFileParentProcName;
+@property (readonly, nonatomic) NSString *coreFileParentProcPath;
+@property (readonly, nonatomic) BOOL coreFileHasInfoForMemoryAnalysis;
+@property (readonly, nonatomic) BOOL coreFileIsExclavecore;
+@property (readonly, nonatomic) BOOL coreFileIsExclave;
+
++ (void)initialize;
++ (id)lookUpMappedMemoryCacheForTask:(unsigned int)a0;
++ (id)getMappedMemoryCacheForTask:(unsigned int)a0 purposeLabel:(id)a1;
++ (void)releaseMappedMemoryCacheForTask:(unsigned int)a0;
+
+- (id)mappingForAddress:(unsigned long long)a0 size:(unsigned long long)a1 error:(id *)a2;
+- (void)clear;
+- (void)withBytesFromAddress:(unsigned long long)a0 size:(unsigned long long)a1 block:(id /* block */)a2;
+- (void)setRegionInfoBlock:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)mappingSliceForAddress:(unsigned long long)a0 size:(unsigned long long)a1 error:(id *)a2;
+- (id).cxx_construct;
+- (BOOL)copyBytesFromAddress:(unsigned long long)a0 size:(unsigned long long)a1 to:(void *)a2 error:(id *)a3;
+- (void)dealloc;
+- (BOOL)getCoreFileLedgerPhysFootprint:(unsigned long long *)a0;
+- (void)enumerateCoreFileDumpedRegions:(id /* block */)a0;
+- (BOOL)getCoreFilePid:(int *)a0;
+- (BOOL)coreFileMachVmPageRangeQuery:(unsigned long long)a0 size:(unsigned long long)a1 dispositions:(unsigned long long)a2 dispositionsCount:(unsigned long long *)a3 usePhysFootprint:(BOOL)a4 error:(id *)a5;
+- (BOOL)coreFileMachVmPurgableControlForAddress:(unsigned long long)a0 control:(int)a1 state:(int *)a2;
+- (BOOL)coreFileMachVmRegionRecurseSubmap64:(unsigned long long *)a0 size:(unsigned long long *)a1 nestingDepth:(unsigned int *)a2 info:(struct vm_region_submap_info_64 { int x0; int x1; unsigned int x2; unsigned long long x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned short x10; unsigned char x11; unsigned char x12; int x13; int x14; unsigned int x15; unsigned short x16; unsigned short x17; unsigned int x18; unsigned long long x19; } *)a3 error:(id *)a4;
+- (BOOL)coreFileMachVmRegionRecurseSubmapShort64:(unsigned long long *)a0 size:(unsigned long long *)a1 nestingDepth:(unsigned int *)a2 info:(struct vm_region_submap_short_info_64 { int x0; int x1; unsigned int x2; unsigned long long x3; unsigned int x4; unsigned int x5; unsigned short x6; unsigned char x7; unsigned char x8; int x9; int x10; unsigned int x11; unsigned short x12; unsigned short x13; } *)a3 error:(id *)a4;
+- (id)coreFileRegionFilenameForAddress:(unsigned long long)a0;
+- (void)enumerateMappingsWithBlock:(id /* block */)a0;
+- (id)existingMappingForAddress:(unsigned long long)a0 size:(unsigned long long)a1 fullyContainedOnly:(BOOL)a2;
+- (BOOL)getCoreFileAddressingMask:(unsigned long long *)a0;
+- (BOOL)getCoreFileArchitecture:(struct _CSArchitecture { int x0; int x1; } *)a0;
+- (BOOL)getCoreFileArgsLen:(int *)a0;
+- (BOOL)getCoreFileDirtyFlags:(int *)a0;
+- (BOOL)getCoreFileDyldAllImageInfosAddr:(unsigned long long *)a0;
+- (BOOL)getCoreFileDyldSharedCacheRange:(struct _CSRange { unsigned long long x0; unsigned long long x1; } *)a0;
+- (BOOL)getCoreFileExclaveVmFlagsForAddress:(unsigned long long)a0 exclaveVmFlags:(unsigned int *)a1;
+- (BOOL)getCoreFileLedgerAlternateAccounting:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerAlternateAccountingCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerGraphicsFootprint:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerGraphicsFootprintCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerInternal:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerInternalCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerIokitMapped:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerMediaFootprint:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerMediaFootprintCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerNetworkNonvolatile:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerNetworkNonvolatileCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerNeuralFootprint:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerNeuralFootprintCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerPageTable:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerPhysFootprintLifetimeMax:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerPurgeableNonvolatile:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerPurgeableNonvolatileCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerTaggedFootprint:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerTaggedFootprintCompressed:(unsigned long long *)a0;
+- (BOOL)getCoreFileLedgerWiredMem:(unsigned long long *)a0;
+- (BOOL)getCoreFileOwnedVmObjects:(struct { unsigned long long x0; struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; struct { unsigned char x0 : 1; unsigned char x1 : 3; unsigned char x2 : 2; } x6; } x1[0]; } *)a0 ownedObjectsByteCount:(unsigned long long *)a1;
+- (BOOL)getCoreFilePPid:(int *)a0;
+- (BOOL)getCoreFileProcArgc:(int *)a0;
+- (BOOL)getCoreFileProcFlags:(unsigned int *)a0;
+- (BOOL)getCoreFileProcStarttimeSec:(unsigned long long *)a0;
+- (BOOL)getCoreFileProcStarttimeUSec:(unsigned long long *)a0;
+- (BOOL)getCoreFileUdataPtrs:(unsigned long long *)a0 udataPtrsCount:(unsigned long long *)a1;
+- (BOOL)getCoreFileUserstack:(unsigned long long *)a0;
+- (BOOL)getStateForThread:(unsigned int)a0 flavor:(int)a1 oldState:(unsigned int *)a2 oldStateCnt:(unsigned int *)a3 error:(id *)a4;
+- (BOOL)getTaskThreads:(unsigned int **)a0 count:(unsigned int *)a1 error:(id *)a2;
+- (id)initWithCoreFilePath:(id)a0 label:(id)a1 error:(id *)a2;
+- (id)initWithTask:(unsigned int)a0 touchMappedRegions:(BOOL)a1;
+- (id)initWithTask:(unsigned int)a0 touchMappedRegions:(BOOL)a1 label:(id)a2;
+- (id)initWithoutExclaveMetadataForCoreFileWithPath:(id)a0 label:(id)a1 error:(id *)a2;
+- (int)readPointerFromAddress:(unsigned long long)a0 outValue:(unsigned long long *)a1;
+- (BOOL)resumeTargetWithError:(id *)a0;
+- (BOOL)suspendTargetWithError:(id *)a0;
+
+@end

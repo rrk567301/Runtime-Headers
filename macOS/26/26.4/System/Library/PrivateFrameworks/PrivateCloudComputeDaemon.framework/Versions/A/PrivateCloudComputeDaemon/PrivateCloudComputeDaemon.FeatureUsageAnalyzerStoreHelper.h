@@ -1,0 +1,8 @@
+@interface PrivateCloudComputeDaemon.FeatureUsageAnalyzerStoreHelper : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ storeURL;
+    void /* unknown type, empty encoding */ fileHandle;
+    void /* unknown type, empty encoding */ logger;
+    void /* unknown type, empty encoding */ queue;
+}
+
+@end

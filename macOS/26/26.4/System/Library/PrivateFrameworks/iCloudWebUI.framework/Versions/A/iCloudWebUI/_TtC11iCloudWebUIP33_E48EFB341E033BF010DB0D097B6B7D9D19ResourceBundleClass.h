@@ -1,0 +1,3 @@
+@interface _TtC11iCloudWebUIP33_E48EFB341E033BF010DB0D097B6B7D9D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

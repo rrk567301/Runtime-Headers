@@ -1,0 +1,3 @@
+@interface MediaContinuityKit.AVConferenceBackedRemoteVideoClientVendor : _TtCs12_SwiftObject
+
+@end

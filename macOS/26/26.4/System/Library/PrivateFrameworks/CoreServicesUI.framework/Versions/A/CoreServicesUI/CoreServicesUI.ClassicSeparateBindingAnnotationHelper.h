@@ -1,0 +1,3 @@
+@interface CoreServicesUI.ClassicSeparateBindingAnnotationHelper : CoreServicesUI.SeparateBindingAnnotationHelper
+
+@end

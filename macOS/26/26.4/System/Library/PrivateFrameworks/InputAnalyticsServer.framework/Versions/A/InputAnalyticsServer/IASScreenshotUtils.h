@@ -1,0 +1,3 @@
+@interface IASScreenshotUtils : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_ta_IntelligenceText : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

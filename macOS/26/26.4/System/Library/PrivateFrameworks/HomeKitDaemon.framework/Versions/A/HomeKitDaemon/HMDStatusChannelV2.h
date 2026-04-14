@@ -1,0 +1,94 @@
+@class NSHashTable, NSString, HMFTimer, NSDate, NSSet, NSData, NSDictionary, NSObject, HMFNetMonitor, NSNumber, HMDStatusChannelSubscriptionDetailsLogEvent;
+@protocol HMDIdsIdentifierProvider, HMDSKPresenceV2, HMFTimerProvider, OS_dispatch_queue, HMDSKPresenceChannelMetadata, HMDSKPresenceProviderV2, HMMUptimeProvider, HMMLogEventSubmitting;
+
+@interface HMDStatusChannelV2 : NSObject <HMFLogging, HMFTimerDelegate, HMDSKPresenceDelegateV2, HMFNetMonitorDelegate, HMDStatusChannelProtocolV2, HMDSDumpState> {
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (readonly, nonatomic) id<HMDSKPresenceV2> presenceChannel;
+@property (retain, nonatomic) id<HMDSKPresenceChannelMetadata> channelMetadata;
+@property (readonly, copy, nonatomic) NSString *channelName;
+@property (readonly, nonatomic) NSHashTable *statusDelegates;
+@property (readonly, nonatomic) HMFNetMonitor *netMonitor;
+@property (readonly, nonatomic) id<HMDIdsIdentifierProvider> idsIdentifierProvider;
+@property (readonly, nonatomic) id<HMFTimerProvider> timerProvider;
+@property (readonly, nonatomic) id<HMDSKPresenceProviderV2> presenceProvider;
+@property (readonly, nonatomic) id<HMMUptimeProvider> uptimeProvider;
+@property (retain) HMFTimer *subscribeRetryTimer;
+@property (retain) HMFTimer *unsubscribeRetryTimer;
+@property (retain) HMFTimer *publishRetryTimer;
+@property (retain) HMFTimer *stopPublishRetryTimer;
+@property (retain) HMFTimer *publishDebounceTimer;
+@property (retain) HMFTimer *postRegainNetworkConnectivityTimer;
+@property (retain) HMFTimer *assertionLogTimer;
+@property (readonly, nonatomic) id<HMMLogEventSubmitting> logEventSubmitter;
+@property (nonatomic) BOOL started;
+@property (nonatomic) BOOL subscribed;
+@property (nonatomic) BOOL receivedInitialChannelState;
+@property (retain) NSDate *lastObserveTimestamp;
+@property (retain) NSNumber *lastObserveDeviceCount;
+@property (retain) NSDate *lastPublishTimestamp;
+@property (retain) NSDate *lastStopPublishTimestamp;
+@property (retain) NSDate *lastConnectivityChangeTimestamp;
+@property (retain, nonatomic) NSDictionary *localPayload;
+@property (nonatomic) unsigned long long lastPublishRequestPriority;
+@property (nonatomic) double subscriptionStartTime;
+@property (retain, nonatomic) HMDStatusChannelSubscriptionDetailsLogEvent *subscriptionDetailsEvent;
+@property (readonly, nonatomic) BOOL isConnected;
+@property (readonly) NSSet *currentPresentRecords;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSData *metadataForChannel;
+
++ (id)logCategory;
+
+- (void)networkMonitorIsUnreachable:(id)a0;
+- (void)networkMonitorIsReachable:(id)a0;
+- (void)timerDidFire:(id)a0;
+- (void).cxx_destruct;
+- (id)logIdentifier;
+- (id)dumpStateWithPrivacyLevel:(unsigned long long)a0;
+- (void)dealloc;
+- (void)stopWithCompletion:(id /* block */)a0;
+- (void)_addDelegate:(id)a0;
+- (id)_createTimerWithTimeout:(double)a0;
+- (id)_createBackoffTimerWithMinimumTimeInterval:(double)a0 maximumTimeInterval:(double)a1;
+- (void)_stopPublishing;
+- (void)_assertPresenceWithIsRetry:(BOOL)a0 publishPriority:(unsigned long long)a1;
+- (void)_createMetricsForSubscriptionCompleteWithIsRetry:(BOOL)a0 startTime:(double)a1 error:(id)a2;
+- (void)_deassertPresenceWithIsRetry:(BOOL)a0;
+- (void)_handleAssertionLogTimerFired;
+- (void)_handlePresentDevicesChangedForPresence:(id)a0;
+- (void)_handleSubscriptionCompleteWithIsRetry:(BOOL)a0;
+- (void)_informNetworkChange:(BOOL)a0;
+- (void)_logSubscriptionMetricsWithReceivedUpdateFromChannel:(BOOL)a0;
+- (id)_recordsFromPresence:(id)a0;
+- (void)_requestPublishShouldDebounce:(BOOL)a0 publishPriority:(unsigned long long)a1;
+- (void)_startAssertionLogTimer;
+- (void)_startPublishRetryTimer;
+- (void)_startSubscriptionRetryTimer;
+- (void)_stopAssertionLogTimer;
+- (void)_stopPostRegainNetworkConnectivityTimer;
+- (void)_stopPublishRetryTimer;
+- (void)_stopSubscriptionRetryTimer;
+- (void)_submitPublishLogEventWithError:(id)a0 isRetry:(BOOL)a1;
+- (void)_subscribeToStatusKitWithIsRetry:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_unsubscribeFromStatusKitWithIsRetry:(BOOL)a0;
+- (unsigned long long)actualPriorityForIncomingPublishWithPriority:(unsigned long long)a0;
+- (void)addDelegate:(id)a0 withCompletion:(id /* block */)a1;
+- (void)createMetadataWithCompletion:(id /* block */)a0;
+- (id)initWithChannelIdentifier:(id)a0 queue:(id)a1 logEventSubmitter:(id)a2 idsIdentifierProvider:(id)a3;
+- (id)initWithChannelIdentifier:(id)a0 queue:(id)a1 netMonitor:(id)a2 timerProvider:(id)a3 presenceProvider:(id)a4 uptimeProvider:(id)a5 logEventSubmitter:(id)a6 idsIdentifierProvider:(id)a7;
+- (void)presence:(id)a0 persistentDevicesChanged:(id)a1;
+- (id)presencePayloadWithPriority:(unsigned long long)a0;
+- (void)presentDevicesChangedForPresence:(id)a0;
+- (void)publishPersistentPayload:(id)a0 completion:(id /* block */)a1;
+- (void)publishPresencePayload:(id)a0 priority:(unsigned long long)a1 shouldDebounce:(BOOL)a2 withCompletion:(id /* block */)a3;
+- (void)rollToChannelWithMetadata:(id)a0 completion:(id /* block */)a1;
+- (void)setSubscriptionPriority:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)startWithMetadata:(id)a0 completion:(id /* block */)a1;
+- (void)stopPublishingWithCompletion:(id /* block */)a0;
+
+@end

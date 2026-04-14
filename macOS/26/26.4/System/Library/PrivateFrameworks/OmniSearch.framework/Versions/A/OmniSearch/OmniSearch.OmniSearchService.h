@@ -1,0 +1,19 @@
+@interface OmniSearch.OmniSearchService : NSObject {
+    void /* unknown type, empty encoding */ maxPerSourceLimit;
+    void /* unknown type, empty encoding */ maxPerSourceLimitOverride;
+    void /* unknown type, empty encoding */ searchServices;
+    void /* unknown type, empty encoding */ answerResolver;
+    void /* unknown type, empty encoding */ omniSearchQueryParser;
+    void /* unknown type, empty encoding */ cerberusController;
+    void /* unknown type, empty encoding */ answerSynthesisController;
+    void /* unknown type, empty encoding */ featureFlagService;
+    void /* unknown type, empty encoding */ resultHydrator;
+    void /* unknown type, empty encoding */ requestedPropertyController;
+    void /* unknown type, empty encoding */ spanMatcher;
+    void /* unknown type, empty encoding */ intermediateCallback;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

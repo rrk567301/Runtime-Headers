@@ -1,0 +1,22 @@
+@class NSUUID, AFSettingsConnection;
+
+@interface CESRSpeechProfileSelfHelper : NSObject {
+    NSUUID *_componentId;
+    AFSettingsConnection *_settingsConnection;
+}
+
++ (int)_categoryForString:(id)a0;
++ (id)_cleanupMetricsWithIsIngestionEnabled:(BOOL)a0 numEntitiesContainingEmoji:(unsigned int)a1 numEntitiesContainingSpecialCharacters:(unsigned int)a2 numEntitiesCleaned:(unsigned int)a3;
++ (id)_entityMetricsFromNumEntitiesPerCategory:(id)a0;
++ (id)_extractionMetricsWithIsIngestionEnabled:(BOOL)a0 isExtractionSetupSuccessful:(BOOL)a1 numEntitiesExtractionAttempted:(unsigned int)a2 numEntitiesContainingExtractions:(unsigned int)a3 numEntitiesExtracted:(unsigned int)a4;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)logASRSpeechProfileUpdateEndedWithTotalNumEntitiesReceived:(unsigned int)a0 entityMetrics:(id)a1 entityCleanupMetrics:(id)a2 entityExtractionMetrics:(id)a3;
+- (void)logASRSpeechProfileUpdateEndedWithUserDataMetrics:(id)a0;
+- (void)logASRSpeechProfileUpdateFailedWithReason:(int)a0;
+- (void)logASRSpeechProfileUpdateStarted;
+- (void)wrapAndEmitTopLevelEvent:(id)a0;
+- (void)wrapAndEmitTopLevelEvent:(id)a0 shouldEmitDIMContext:(BOOL)a1;
+
+@end

@@ -1,0 +1,29 @@
+@class NSString, HDCodableSyncIdentity, HDCodableMessageVersion;
+
+@interface HDCodableSignedClinicalDataIssuer : PBCodable <NSCopying>
+
+@property (readonly, nonatomic) BOOL hasTitle;
+@property (retain, nonatomic) NSString *title;
+@property (readonly, nonatomic) BOOL hasSubtitle;
+@property (retain, nonatomic) NSString *subtitle;
+@property (readonly, nonatomic) BOOL hasIdentifier;
+@property (retain, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) BOOL hasWellKnownURL;
+@property (retain, nonatomic) NSString *wellKnownURL;
+@property (readonly, nonatomic) BOOL hasMessageVersion;
+@property (retain, nonatomic) HDCodableMessageVersion *messageVersion;
+@property (readonly, nonatomic) BOOL hasSyncIdentity;
+@property (retain, nonatomic) HDCodableSyncIdentity *syncIdentity;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+
+@end

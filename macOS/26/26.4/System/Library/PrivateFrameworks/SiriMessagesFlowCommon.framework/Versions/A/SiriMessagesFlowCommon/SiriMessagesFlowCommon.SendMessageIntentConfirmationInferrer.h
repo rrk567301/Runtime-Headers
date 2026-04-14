@@ -1,0 +1,3 @@
+@interface SiriMessagesFlowCommon.SendMessageIntentConfirmationInferrer : _TtCs12_SwiftObject
+
+@end

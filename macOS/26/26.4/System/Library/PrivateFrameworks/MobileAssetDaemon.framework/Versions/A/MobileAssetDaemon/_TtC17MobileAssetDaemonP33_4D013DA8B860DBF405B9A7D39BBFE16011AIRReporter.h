@@ -1,0 +1,3 @@
+@interface _TtC17MobileAssetDaemonP33_4D013DA8B860DBF405B9A7D39BBFE16011AIRReporter : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,80 @@
+@class NSString, TPSNotificationController, NSDictionary, TPSWidgetController, TPSExperiment, TPSTipStatusController, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue, TPSTipsManagerDelegate;
+
+@interface TPSTipsManager : NSObject <TPSWidgetControllerDelegate, TPSDeviceProfileDataSource>
+
+@property (nonatomic) BOOL contextualTipsInactive;
+@property (retain, nonatomic) TPSTipStatusController *tipStatusController;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue;
+@property (retain, nonatomic) NSMutableArray *sessionItems;
+@property (copy, nonatomic) TPSExperiment *experiment;
+@property (copy, nonatomic) NSString *rulesVersion;
+@property (retain, nonatomic) TPSWidgetController *widgetController;
+@property (weak, nonatomic) id<TPSTipsManagerDelegate> delegate;
+@property (retain, nonatomic) NSDictionary *cachedUserGuideMap;
+@property (retain, nonatomic) NSString *lastFetchedLanguage;
+@property (retain, nonatomic) TPSNotificationController *notificationController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)immediateNotificationIdentifierForType:(unsigned long long)a0;
++ (id)rulesVersion;
++ (BOOL)deviceLocalesContainLanguage:(id)a0;
++ (BOOL)needImmediateNotificationForType:(unsigned long long)a0;
++ (void)resetContentUpdatedNotificationDate;
++ (void)removeWidgetUpdateDate;
++ (id)experiment;
++ (void)presentReentryNotificationIfNeeded;
++ (BOOL)tipKitProcessingEligible;
++ (void)removeWelcomeDocumentCache;
++ (void)removeExperimentCache;
++ (BOOL)supportsFeaturedCollection;
+
+- (void)deleteAllSearchableItemsWithCompletionHandler:(id /* block */)a0;
+- (void)processTipDocumentsDictionary:(id)a0 completionHandler:(id /* block */)a1;
+- (void)contentForVariantIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (id)welcomeCollectionFromContentPackage:(id)a0;
+- (void)updateSupplementalIdentifiersForIdentifier:(id)a0 fromDictionary:(id)a1;
+- (id)updatedHMTCollectionSectionMapFromMap:(id)a0 featuredCollections:(id)a1;
+- (id)categorizedMapWithDocumentMap:(id)a0;
+- (void)userGuideMapWithUserGuideCollection:(id)a0 tipMap:(id)a1 completionHandler:(id /* block */)a2;
+- (void)contentWithMetaDictionary:(id)a0 documentsDictionary:(id)a1 processTipKitContent:(BOOL)a2 contextualEligibility:(BOOL)a3 widgetEligibility:(BOOL)a4 notificationEligibility:(BOOL)a5 userGuideEligibility:(BOOL)a6 preferredNotificationIdentifiers:(id)a7 completionHandler:(id /* block */)a8;
+- (void)processTipsDeliveryInfo:(id)a0 deliveryInfoMap:(id)a1 targetingCache:(id)a2 completionHandler:(id /* block */)a3;
+- (BOOL)isHardwareWelcome;
+- (id)initWithTipStatusController:(id)a0;
+- (BOOL)hasWidgetDocument;
+- (id)filteredPayload:(id)a0 forDocumentIds:(id)a1;
+- (id)buildCollectionLabelLookupMap:(id)a0;
+- (void)_updateExperimentCache;
+- (void)clearCachedUserGuides;
+- (void)processCollection:(id)a0 collectionsMap:(id)a1 deliveryInfoMap:(id)a2 ignoreSection:(BOOL)a3 completionHandler:(id /* block */)a4;
+- (id)collectionStatusForCollection:(id)a0;
+- (id)createFilteredPayload:(id)a0 withTipIds:(id)a1 fromTipDeliveryInfoMap:(id)a2;
+- (id)updateDocumentContent:(id)a0 withClientConditions:(id)a1 metadata:(id)a2 checklistCompletedConditions:(id)a3 usingDictionary:(id)a4;
+- (void)reindexAllSearchableItemsWithCompletionHandler:(id /* block */)a0;
+- (id)filteredPayload:(id)a0 forCollectionIds:(id)a1;
+- (BOOL)isContentIdentifierHoldoutCamp:(id)a0;
+- (void).cxx_destruct;
+- (void)processClientConditions:(id)a0 targetingCache:(id)a1 completionHandler:(id /* block */)a2;
+- (id)hmtFeaturedCollectionsWithCollectionMap:(id)a0 collectionDeliveryInfoMap:(id)a1 deliveryInfoMap:(id)a2;
+- (BOOL)checklistCollectionHasMinSuggestedTips:(id)a0 tipMap:(id)a1;
+- (id)processUserGuidesFromContentPackage:(id)a0;
+- (void)postContentUpdatedNotificationIfNeeded;
+- (void)reindexSearchableItemsWithIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (void)finalEligibleContentWithCollectionData:(id)a0 tipData:(id)a1 deliveryInfoMap:(id)a2 metadata:(id)a3 completionHandler:(id /* block */)a4;
+- (BOOL)shouldPerformWidgetUpdate;
+- (BOOL)widgetController:(id)a0 validForDocument:(id)a1 documentDeliveryInfoMap:(id)a2 deliveryInfoMap:(id)a3;
+- (void)requestWithURL:(id)a0 identifier:(id)a1 attributionIdentifier:(id)a2 requestType:(id)a3 priority:(float)a4 shouldDeferBlock:(id /* block */)a5 completionHandler:(id /* block */)a6;
+- (void)contentFromOrigin:(BOOL)a0 systemEducationRequest:(BOOL)a1 processTipKitContent:(BOOL)a2 contextualEligibility:(BOOL)a3 widgetEligibility:(BOOL)a4 notificationEligibility:(BOOL)a5 preferredNotificationIdentifiers:(id)a6 shouldDeferBlock:(id /* block */)a7 limitToCollectionIds:(id)a8 limitToDocumentIds:(id)a9 completionHandler:(id /* block */)a10;
+- (id)welcomeDocumentFromContentPackage:(id)a0;
+- (id)collectionSectionsFromCollectionMap:(id)a0 exclude:(id)a1;
+- (void)updateContentIfOverrideImmediately:(BOOL)a0;
+- (id)collectionSectionsWithEligibleCollectionSections:(id)a0 collectionSectionMap:(id)a1 featuredCollection:(id)a2;
+- (void)_updatePauseStatus:(BOOL)a0;
+- (id)extractTipIdsFromCollections:(id)a0 usingLookupMap:(id)a1;
+- (id)collectionSectionMapWithCollections:(id)a0 availableCollectionSections:(id)a1 collectionIdToCollectionLabelMap:(id)a2;
+- (id)featureCollectionFromCollectionMap:(id)a0 collectionOrder:(id)a1 tipMap:(id)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCO20SiriMessagesUICommon20AnnounceMessageUtilsP33_547C845A6B6D94D07A38930F0506C3A05Dummy : _TtCs12_SwiftObject
+
+@end

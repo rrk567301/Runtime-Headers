@@ -1,0 +1,16 @@
+@class NSString, BMStoreStream;
+
+@interface ATXDigestOnboardingAppSelectionLoggingBiomeStream : NSObject <BMStream, BMSourceStream> {
+    BMStoreStream *_inner;
+}
+
+@property (readonly, nonatomic) NSString *identifier;
+
+- (id)initWithStoreConfig:(id)a0;
+- (id)publisherFromStartTime:(double)a0;
+- (id)source;
+- (void).cxx_destruct;
+- (id)init;
+- (void)deleteAllEvents;
+
+@end

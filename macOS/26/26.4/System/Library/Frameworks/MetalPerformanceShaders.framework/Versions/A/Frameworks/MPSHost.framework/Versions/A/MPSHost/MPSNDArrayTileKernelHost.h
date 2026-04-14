@@ -1,0 +1,3 @@
+@interface MPSNDArrayTileKernelHost : MPSNDArrayUnaryKernelHost
+
+@end

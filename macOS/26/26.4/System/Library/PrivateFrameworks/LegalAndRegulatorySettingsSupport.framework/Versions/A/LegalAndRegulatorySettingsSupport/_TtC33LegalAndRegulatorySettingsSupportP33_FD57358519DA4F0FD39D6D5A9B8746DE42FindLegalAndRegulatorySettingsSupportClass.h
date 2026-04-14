@@ -1,0 +1,3 @@
+@interface _TtC33LegalAndRegulatorySettingsSupportP33_FD57358519DA4F0FD39D6D5A9B8746DE42FindLegalAndRegulatorySettingsSupportClass : _TtCs12_SwiftObject
+
+@end

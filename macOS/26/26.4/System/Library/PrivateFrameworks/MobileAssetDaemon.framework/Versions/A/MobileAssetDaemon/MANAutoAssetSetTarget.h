@@ -1,0 +1,20 @@
+@class NSString, NSArray;
+
+@interface MANAutoAssetSetTarget : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSString *minTargetOSVersion;
+@property (retain, nonatomic) NSString *maxTargetOSVersion;
+@property (retain, nonatomic) NSArray *autoAssetEntries;
+
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)copy;
+- (void).cxx_destruct;
+- (id)summary;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (id)initForMinTargetOSVersion:(id)a0 toMaxTargetOSVersion:(id)a1 asEntriesWhenTargeting:(id)a2;
+
+@end

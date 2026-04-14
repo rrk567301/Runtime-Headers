@@ -1,0 +1,18 @@
+@class NSMutableDictionary;
+
+@interface CTNFAState : NSObject {
+    id _CTdata;
+    NSMutableDictionary *_CTinternalEdges;
+}
+
+@property (readonly, nonatomic) id data;
+@property (nonatomic) BOOL final;
+
+- (id)initWithData:(id)a0;
+- (void).cxx_destruct;
+- (id)edges;
+- (id)description;
+- (void)addEdgeWithSymbol:(id)a0 toState:(id)a1;
+- (id)followingStatesWithSymbol:(id)a0;
+
+@end

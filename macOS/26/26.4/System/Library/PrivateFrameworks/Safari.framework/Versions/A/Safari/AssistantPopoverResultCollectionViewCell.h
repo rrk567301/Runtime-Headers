@@ -1,0 +1,92 @@
+@class NSTextField, NSString, NSView, NSFont, NSArray, NSStackView, ReaderAppearanceViewController, NSTextView, NSLayoutConstraint, NSParagraphStyle;
+@protocol AssistantPopoverViewControllerDelegate, AssistantPopoverResultCollectionViewCellDelegate;
+
+@interface AssistantPopoverResultCollectionViewCell : NSCollectionViewItem <NSTextViewDelegate, NSTextFieldDelegate> {
+    NSStackView *_contentView;
+    NSTextField *_titleTextField;
+    NSTextField *_bodyTextField;
+    NSStackView *_summaryDisclaimerTextWrappingView;
+    NSTextField *_summaryDisclaimerTextField;
+    NSView *_bodyContentView;
+    NSView *_backgroundView;
+    NSView *_selectionView;
+    NSStackView *_actionButtonStackView;
+    NSView *_viewShadow;
+    NSTextView *_bodyTextView;
+    NSString *_currentSummaryText;
+    NSString *_textUsedForSummarization;
+    NSLayoutConstraint *_leadingConstraint;
+    NSLayoutConstraint *_trailingConstraint;
+    NSLayoutConstraint *_leadingButtonsConstraint;
+    NSLayoutConstraint *_trailingButtonsConstraint;
+    NSLayoutConstraint *_contentDistanceToTopBackgroundConstraint;
+    NSLayoutConstraint *_contentDistanceToBottomBackgroundConstraint;
+    ReaderAppearanceViewController *_readerAppearanceViewController;
+    NSFont *_bodyTextFieldFont;
+    NSFont *_summaryHeaderFont;
+    NSParagraphStyle *_bodyParagraphStyle;
+    NSArray *_actionButtons;
+}
+
+@property (class, readonly, nonatomic) NSString *identifier;
+
+@property (weak, nonatomic) id<AssistantPopoverResultCollectionViewCellDelegate> delegate;
+@property (readonly, nonatomic) long long type;
+@property (weak, nonatomic) id<AssistantPopoverViewControllerDelegate> assistantPopoverDelegate;
+@property (retain, nonatomic) NSLayoutConstraint *topConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *bottomConstraint;
+@property (retain, nonatomic, setter=setSummaryDisclaimer:) NSString *summaryDisclaimer;
+@property (readonly, nonatomic) BOOL isShowingPlaceholder;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)mouseUp:(id)a0;
+- (void)viewDidAppear;
+- (void)textDidChange:(id)a0;
+- (void)loadView;
+- (void)setSummary:(id)a0;
+- (void)setType:(long long)a0;
+- (void)prepareForReuse;
+- (void)setActionButtons:(id)a0;
+- (void).cxx_destruct;
+- (void)mouseDown:(id)a0;
+- (id)preferredLayoutAttributesFittingAttributes:(id)a0;
+- (void)setBodyText:(id)a0;
+- (void)dealloc;
+- (void)rightMouseDown:(id)a0;
+- (BOOL)textField:(id)a0 textView:(id)a1 clickedOnLink:(id)a2 atIndex:(unsigned long long)a3;
+- (void)viewDidDisappear;
+- (void)_invalidateCollectionViewLayout;
+- (void)setResultTitle:(id)a0;
+- (void)_copySummaryToClipboard:(id)a0;
+- (id)_createFullSummaryAttributedString:(id)a0 includeNewline:(BOOL)a1;
+- (void)_readerConfigurationChanged;
+- (void)_reportSummarizationConcern:(id)a0;
+- (void)_setupActionButtonStackView;
+- (void)_setupBodyContentView;
+- (void)_setupBodyTextField;
+- (void)_setupBodyTextView;
+- (void)_setupSummaryDisclaimerTextField;
+- (void)_setupTitleTextField;
+- (BOOL)_shouldPresentReaderForEvent:(id)a0 inView:(id)a1;
+- (void)_submitFeedbackWithAction:(long long)a0;
+- (void)_submitThumbsDown:(id)a0;
+- (void)_submitThumbsUp:(id)a0;
+- (id)_summaryFooterAttributes;
+- (id)_summaryHeaderAttributedString;
+- (id)_summaryHeaderAttributedStringWithCustomHeader:(id)a0 specialSymbolName:(id)a1;
+- (id)_summaryTextAttributes;
+- (id)_summaryTextOnlyAttributedString:(id)a0;
+- (id)_titleFontForReaderCard:(id)a0;
+- (void)_updateButtonColorForReaderTheme:(long long)a0;
+- (void)setPersistedOnDemandSummary:(id)a0 header:(id)a1 symbol:(id)a2 footer:(id)a3;
+- (void)setReaderTextUsedForSummarizationForFeedback:(id)a0;
+- (void)showFinalSummary:(id)a0 header:(id)a1 symbol:(id)a2 footer:(id)a3 readerTextUsedForSummarization:(id)a4;
+- (void)showSummaryPlaceholderWithHeader:(id)a0 symbol:(id)a1;
+- (void)updateReaderCardAppearance;
+- (void)updateSummaryCard:(id)a0 header:(id)a1 symbol:(id)a2 footer:(id)a3;
+- (void)updateSummaryCardAppearance;
+
+@end

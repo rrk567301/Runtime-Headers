@@ -1,0 +1,45 @@
+@class NSString, SCNView, PKPeerPayment3DStore, NSArray, PKPeerPayment3DScene, NSMutableArray;
+
+@interface PKPeerPayment3DTextView : NSView {
+    SCNView *_sceneView;
+    PKPeerPayment3DScene *_scene;
+    double _sceneWidthUnits;
+    double _sceneHeightUnits;
+    NSMutableArray *_performHandlers;
+    double _dynamicRollPitchMix;
+    double _startAnimationTime;
+    double _animationDuration;
+    double _lastRenderTime;
+    BOOL _liveMotionEnabled;
+    BOOL _willAnimate;
+    BOOL _snapshotRequested;
+    BOOL _usedForSnapshotting;
+    unsigned long long _framesFullyRendered;
+    PKPeerPayment3DStore *_3DStore;
+    BOOL _layoutRequested;
+    NSArray *_charactersToDraw;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (readonly, nonatomic) unsigned long long renderStyle;
+@property (readonly, copy, nonatomic) NSString *text;
+
++ (id)supportedCharacterSet;
+
+- (void)resizeSubviewsWithOldSize:(struct CGSize { double x0; double x1; })a0;
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)setText:(id)a0;
+- (void)dealloc;
+- (void)renderer:(id)a0 updateAtTime:(double)a1;
+- (void)layoutText;
+- (void)renderer:(id)a0 didRenderScene:(id)a1 atTime:(double)a2;
+- (void /* unknown type, empty encoding */)_fakeAnimationRollPitchWithElapsedTime:(double)a0;
+- (id)generatedSnapshot;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 renderStyle:(unsigned long long)a1 usedForSnapshotting:(BOOL)a2;
+- (void)loadCharactersAndLayout;
+- (void)performPostRender:(id /* block */)a0;
+- (void)setMotionEffectEnabled:(BOOL)a0 animated:(BOOL)a1;
+- (void)updateSceneUnits;
+
+@end

@@ -1,0 +1,3 @@
+@interface MKFStatusChannelDatabaseID : MKFModelDatabaseID
+
+@end

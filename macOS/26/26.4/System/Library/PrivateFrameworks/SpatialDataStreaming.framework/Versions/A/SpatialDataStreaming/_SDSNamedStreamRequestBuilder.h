@@ -1,0 +1,16 @@
+@class AFBBufferBuilder;
+
+@interface _SDSNamedStreamRequestBuilder : NSObject {
+    AFBBufferBuilder *_owner;
+    struct NamedStreamRequestBuilder { struct FlatBufferBuilder *x0; unsigned int x1; } *_bldr;
+}
+
+- (void)setName:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (void)setConnectionId:(unsigned int)a0;
+- (void)setDataLayoutList:(id)a0;
+- (void)setMaxItemsPerMessage:(unsigned int)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC18ReplicatorServices8Database23MutableZoneVersionStore : _TtCC18ReplicatorServices8Database16ZoneVersionStore
+
+@end

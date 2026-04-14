@@ -1,0 +1,3 @@
+@interface TokenGenerationCore.PromptPreprocessingTemplateV6_1Convention : _TtCs12_SwiftObject
+
+@end

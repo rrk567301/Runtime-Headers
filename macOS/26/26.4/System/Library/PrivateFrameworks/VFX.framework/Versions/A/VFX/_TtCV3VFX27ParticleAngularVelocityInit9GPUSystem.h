@@ -1,0 +1,3 @@
+@interface _TtCV3VFX27ParticleAngularVelocityInit9GPUSystem : VFX.ParticleEmitterGPUSystemStorage
+
+@end

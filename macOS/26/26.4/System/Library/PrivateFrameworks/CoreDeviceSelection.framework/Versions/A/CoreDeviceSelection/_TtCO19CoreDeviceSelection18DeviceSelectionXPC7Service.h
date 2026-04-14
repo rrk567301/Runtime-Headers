@@ -1,0 +1,7 @@
+@interface _TtCO19CoreDeviceSelection18DeviceSelectionXPC7Service : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ id;
+    void /* unknown type, empty encoding */ actorSystem;
+    void /* unknown type, empty encoding */ signalStore;
+}
+
+@end

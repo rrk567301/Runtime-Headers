@@ -1,0 +1,43 @@
+@class br_pacer, NSString, NSMutableDictionary, NSMutableSet, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface BRCCloudDocsAppsMonitor : NSObject <BRCAppListMonitorDelegate> {
+    NSMutableDictionary *_cloudDocsAppLibrariesByAppID;
+    NSMutableDictionary *_appIDsByAppLibraryID;
+    NSMutableSet *_observers;
+    NSMutableSet *_pendingBundleIDsToRefetch;
+    br_pacer *_refetchPacer;
+    br_pacer *_incrementalRefetchPacer;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_fetchInstalledAppsQueue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
+    BOOL _hasFetchedInitialApps;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)cloudDocsAppsMonitor;
+
+- (void)dumpToContext:(id)a0;
+- (void)_dumpCloudDocsAppLibrariesByAppIDToContext:(id)a0;
+- (void)_dumpAppIDsByAppLibraryIDToContext:(id)a0;
+- (BOOL)isApplicationInstalledForContainerID:(id)a0;
+- (id)allApplicationIdentifiers;
+- (BOOL)hasFetchedInitialApps;
+- (void).cxx_destruct;
+- (id)containerIDsForApplicationIdentifier:(id)a0;
+- (void)addObserver:(id)a0;
+- (void)appListDidUpdateForBundleIDs:(id)a0;
+- (void)_refetchPendingApps;
+- (id)init;
+- (void)_refetchApps;
+- (void)forceRefetchAppList;
+- (void)removeObserver:(id)a0;
+- (void)_updateMappingsAndNotifyObservers:(id)a0 appIDsByAppLibraryID:(id)a1 markInitialFetch:(BOOL)a2;
+- (void)_start;
+- (id)applicationIdentifiersForContainerID:(id)a0;
+
+@end

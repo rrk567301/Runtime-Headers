@@ -1,0 +1,18 @@
+@class NSArray;
+
+@interface REMHashtagsDataViewInvocation_fetchByObjectID : REMStoreInvocation <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSArray *objectIDs;
+@property (nonatomic) BOOL allowConcealedObjects;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithObjectIDs:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+
+@end

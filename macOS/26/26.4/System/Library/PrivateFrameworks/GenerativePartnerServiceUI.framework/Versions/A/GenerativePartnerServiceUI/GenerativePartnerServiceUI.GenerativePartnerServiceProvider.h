@@ -1,0 +1,3 @@
+@interface GenerativePartnerServiceUI.GenerativePartnerServiceProvider : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerSupport.IntelligenceFlowTransformationLogger : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16AppSubscriptionsCSo8NSBundleP33_521135F690D94475F5DDB57C2D09285D20BundleRetrievalClass : _TtCs12_SwiftObject
+
+@end

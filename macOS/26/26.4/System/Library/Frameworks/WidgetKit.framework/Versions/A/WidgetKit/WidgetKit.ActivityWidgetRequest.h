@@ -1,0 +1,13 @@
+@interface WidgetKit.ActivityWidgetRequest : NSObject <NSSecureCoding> {
+    void /* unknown type, empty encoding */ fileHandle;
+    void /* unknown type, empty encoding */ _innerRequest;
+}
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+
+@end

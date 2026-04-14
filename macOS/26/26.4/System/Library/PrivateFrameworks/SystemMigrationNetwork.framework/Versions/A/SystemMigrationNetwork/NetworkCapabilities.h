@@ -1,0 +1,13 @@
+@interface NetworkCapabilities : NSObject
+
++ (unsigned long long)localCapabilities;
++ (id)briefDescriptionForCapabilities:(unsigned long long)a0;
++ (unsigned long long)fastestMethodForFamily:(unsigned long long)a0 inCapabilities:(unsigned long long)a1;
++ (unsigned long long)fillInPotentialCapabilitiesFrom:(unsigned long long)a0;
++ (id)descriptionForCapabilities:(unsigned long long)a0;
++ (unsigned long long)detectEnablingPortCapabilities;
++ (unsigned long long)detectEthernetCapabilities;
++ (unsigned long long)detectThunderboltCapabilities;
++ (unsigned long long)detectWifiCapabilities;
+
+@end

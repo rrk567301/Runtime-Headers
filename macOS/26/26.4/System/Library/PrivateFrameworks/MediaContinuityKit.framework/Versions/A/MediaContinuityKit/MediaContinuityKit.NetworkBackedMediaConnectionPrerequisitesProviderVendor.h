@@ -1,0 +1,3 @@
+@interface MediaContinuityKit.NetworkBackedMediaConnectionPrerequisitesProviderVendor : _TtCs12_SwiftObject
+
+@end

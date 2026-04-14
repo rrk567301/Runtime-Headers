@@ -1,0 +1,3 @@
+@interface _TtCC19HealthOrchestration24DeviceLockStateComponentP33_9CE09D65466F1537917167384F6031B721LockStateObserverShim : _TtCs12_SwiftObject
+
+@end

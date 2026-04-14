@@ -1,0 +1,3 @@
+@interface _TtC20TextAnimationSupportP33_657D22395713CAD7256B4961568BDA1C20AnyAttributeModifier : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,33 @@
+@class NSString, NSData;
+
+@interface ASRSchemaASRIntermediateUtteranceInfoTier1 : SISchemaInstrumentationMessage
+
+@property (copy, nonatomic) NSString *unrepairedPostItn;
+@property (nonatomic) BOOL hasUnrepairedPostItn;
+@property (copy, nonatomic) NSString *phoneticMatchInput;
+@property (nonatomic) BOOL hasPhoneticMatchInput;
+@property (copy, nonatomic) NSString *phoneticMatchOutput;
+@property (nonatomic) BOOL hasPhoneticMatchOutput;
+@property (copy, nonatomic) NSString *loggableSharedUserId;
+@property (nonatomic) BOOL hasLoggableSharedUserId;
+@property (copy, nonatomic) NSString *loggableUserIdHash;
+@property (nonatomic) BOOL hasLoggableUserIdHash;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteLoggableSharedUserId;
+- (void)deleteLoggableUserIdHash;
+- (void)deletePhoneticMatchInput;
+- (void)deletePhoneticMatchOutput;
+- (void)deleteUnrepairedPostItn;
+
+@end

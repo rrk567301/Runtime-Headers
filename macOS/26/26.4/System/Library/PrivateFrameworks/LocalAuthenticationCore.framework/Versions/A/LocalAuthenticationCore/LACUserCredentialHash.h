@@ -1,0 +1,18 @@
+@class NSUUID, LACUserPasswordHash;
+
+@interface LACUserCredentialHash : NSObject <NSSecureCoding, NSCoding> {
+    void /* unknown type, empty encoding */ properties;
+}
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic, readonly) LACUserPasswordHash *passwordHash;
+@property (nonatomic, readonly) NSUUID *uuid;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (id)initWithUUID:(id)a0 passwordHash:(id)a1;
+
+@end

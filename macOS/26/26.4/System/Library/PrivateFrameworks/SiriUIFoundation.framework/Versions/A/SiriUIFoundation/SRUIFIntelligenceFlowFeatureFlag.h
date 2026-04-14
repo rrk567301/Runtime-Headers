@@ -1,0 +1,3 @@
+@interface SRUIFIntelligenceFlowFeatureFlag : NSObject
+
+@end

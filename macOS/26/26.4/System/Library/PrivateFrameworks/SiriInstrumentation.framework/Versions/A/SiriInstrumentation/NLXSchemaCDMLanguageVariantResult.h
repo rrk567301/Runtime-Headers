@@ -1,0 +1,27 @@
+@class NSArray, NSData, NLXSchemaCDMParser;
+
+@interface NLXSchemaCDMLanguageVariantResult : SISchemaInstrumentationMessage
+
+@property (copy, nonatomic) NSArray *multilingualVariants;
+@property (retain, nonatomic) NLXSchemaCDMParser *cdmParser;
+@property (nonatomic) BOOL hasCdmParser;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteCdmParser;
+- (void)addMultilingualVariants:(id)a0;
+- (void)clearMultilingualVariants;
+- (void)deleteMultilingualVariants;
+- (id)multilingualVariantsAtIndex:(unsigned long long)a0;
+- (unsigned long long)multilingualVariantsCount;
+
+@end

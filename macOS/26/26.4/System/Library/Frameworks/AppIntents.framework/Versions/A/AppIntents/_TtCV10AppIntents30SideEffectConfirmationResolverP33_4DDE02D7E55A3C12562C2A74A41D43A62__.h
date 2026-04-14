@@ -1,0 +1,3 @@
+@interface _TtCV10AppIntents30SideEffectConfirmationResolverP33_4DDE02D7E55A3C12562C2A74A41D43A62__ : _TtCs12_SwiftObject
+
+@end

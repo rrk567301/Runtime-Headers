@@ -1,0 +1,3 @@
+@interface _TtC7MusicUIP33_BB65568263192D7CB4184776B087016819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

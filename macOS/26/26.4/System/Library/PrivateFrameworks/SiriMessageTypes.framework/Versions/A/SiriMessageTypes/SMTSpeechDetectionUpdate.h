@@ -1,0 +1,31 @@
+@class NSString, SMTSpeechDetectionMetadata;
+
+@interface SMTSpeechDetectionUpdate : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) BOOL speechDetected;
+@property (readonly, nonatomic) BOOL isSameUser;
+@property (readonly, nonatomic) BOOL isInvocationUser;
+@property (readonly, copy, nonatomic) NSString *lastTRPCandidateId;
+@property (readonly, nonatomic) long long processedAudioDurationMs;
+@property (readonly, nonatomic) long long trailingSilenceDurationMs;
+@property (readonly, nonatomic) unsigned long long wordCount;
+@property (readonly, copy, nonatomic) SMTSpeechDetectionMetadata *speechMetadata;
+@property (readonly, nonatomic) BOOL isManualMode;
+
++ (id)newWithBuilder:(id /* block */)a0;
+
+- (id)mutatedCopyWithMutator:(id /* block */)a0;
+- (id)initWithBuilder:(id /* block */)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_descriptionWithIndent:(unsigned long long)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (id)init;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+
+@end

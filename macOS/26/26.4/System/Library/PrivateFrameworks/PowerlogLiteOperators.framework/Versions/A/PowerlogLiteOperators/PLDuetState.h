@@ -1,0 +1,16 @@
+@class NSDictionary, NSMutableArray, NSDate;
+
+@interface PLDuetState : NSObject
+
+@property (retain) NSDate *startDate;
+@property (retain) NSDate *endDate;
+@property double cpuSeconds;
+@property (retain) NSMutableArray *overlappingStates;
+@property (retain) NSDictionary *info;
+
+- (double)duration;
+- (void).cxx_destruct;
+- (id)init;
+- (id)description;
+
+@end

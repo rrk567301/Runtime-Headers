@@ -1,0 +1,24 @@
+@class _RequestRewriter, NSString;
+@protocol CNContactPosterDataStore, CNContactPosterUnifiedContactIdentifierExpansion;
+
+@interface CNContactPosterDataUnifiedContactExpandingDecorator : NSObject <CNContactPosterDataStore>
+
+@property (readonly) id<CNContactPosterDataStore> store;
+@property (readonly) id<CNContactPosterUnifiedContactIdentifierExpansion> expander;
+@property (readonly) _RequestRewriter *requestRewriter;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)executeFetchRequest:(id)a0 error:(id *)a1;
+- (long long)countForFetchRequest:(id)a0 error:(id *)a1;
+- (BOOL)executeCreateRequest:(id)a0 error:(id *)a1;
+- (BOOL)executeDeleteRequest:(id)a0 error:(id *)a1;
+- (BOOL)executeUpdateRequest:(id)a0 error:(id *)a1;
+- (id)initWithPosterDataStore:(id)a0;
+- (id)initWithPosterDataStore:(id)a0 contactStore:(id)a1;
+- (id)initWithPosterDataStore:(id)a0 identifierExpander:(id)a1;
+
+@end

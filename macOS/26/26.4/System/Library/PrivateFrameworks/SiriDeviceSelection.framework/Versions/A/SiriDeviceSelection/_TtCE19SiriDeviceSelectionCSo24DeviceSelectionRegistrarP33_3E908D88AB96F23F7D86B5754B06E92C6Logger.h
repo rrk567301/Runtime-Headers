@@ -1,0 +1,3 @@
+@interface _TtCE19SiriDeviceSelectionCSo24DeviceSelectionRegistrarP33_3E908D88AB96F23F7D86B5754B06E92C6Logger : _TtCs12_SwiftObject
+
+@end

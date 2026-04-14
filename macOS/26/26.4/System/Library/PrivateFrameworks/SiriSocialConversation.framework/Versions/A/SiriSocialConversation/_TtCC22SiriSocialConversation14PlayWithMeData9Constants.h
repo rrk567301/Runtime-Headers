@@ -1,0 +1,3 @@
+@interface _TtCC22SiriSocialConversation14PlayWithMeData9Constants : _TtCs12_SwiftObject
+
+@end

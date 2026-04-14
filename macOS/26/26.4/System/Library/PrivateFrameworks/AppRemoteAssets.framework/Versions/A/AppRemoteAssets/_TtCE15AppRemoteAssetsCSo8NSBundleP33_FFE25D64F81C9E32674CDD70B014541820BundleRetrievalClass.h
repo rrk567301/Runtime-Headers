@@ -1,0 +1,3 @@
+@interface _TtCE15AppRemoteAssetsCSo8NSBundleP33_FFE25D64F81C9E32674CDD70B014541820BundleRetrievalClass : _TtCs12_SwiftObject
+
+@end

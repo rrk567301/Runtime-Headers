@@ -1,0 +1,3 @@
+@interface VSTBundle : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI17PasteboardUtility9Directory : _TtCV7SwiftUI17PasteboardUtility4File
+
+@end

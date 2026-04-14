@@ -1,0 +1,18 @@
+@class NSString, NSURL, NSData;
+@protocol PKIdentityDocumentDescriptor;
+
+@interface PKIdentityRequest : NSObject
+
+@property (copy, nonatomic) NSString *applicationIdentifierOverride;
+@property (copy, nonatomic) NSString *merchantNameOverride;
+@property (copy, nonatomic) NSURL *merchantPrivacyPolicyOverride;
+@property (nonatomic) long long merchantLogoOverride;
+@property (retain, nonatomic) id<PKIdentityDocumentDescriptor> descriptor;
+@property (copy, nonatomic) NSData *nonce;
+@property (copy, nonatomic) NSString *merchantIdentifier;
+@property (copy, nonatomic) NSString *usageDescriptionKey;
+
+- (void).cxx_destruct;
+- (id)description;
+
+@end

@@ -1,0 +1,3 @@
+@interface XCTTPCRuntimeIssue : XCTOSFaultRuntimeIssue
+
+@end

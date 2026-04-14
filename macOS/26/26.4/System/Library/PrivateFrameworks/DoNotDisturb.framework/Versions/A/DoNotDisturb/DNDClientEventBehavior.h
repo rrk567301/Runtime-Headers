@@ -1,0 +1,26 @@
+@class NSString, NSUUID, DNDClientEventDetails;
+
+@interface DNDClientEventBehavior : NSObject <NSCopying, NSSecureCoding> {
+    unsigned long long _cachedHash;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy) NSString *redactedDescription;
+@property (readonly, nonatomic) unsigned long long resolutionReason;
+@property (readonly, nonatomic) long long intelligentBehavior;
+@property (readonly, copy, nonatomic) NSUUID *activeModeUUID;
+@property (readonly, copy) DNDClientEventDetails *eventDetails;
+@property (readonly) unsigned long long interruptionSuppression;
+
+- (id)initWithEventDetails:(id)a0 interruptionSuppression:(unsigned long long)a1 intelligentBehavior:(long long)a2 resolutionReason:(unsigned long long)a3 activeModeUUID:(id)a4;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)_descriptionForRedacted:(BOOL)a0;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+
+@end

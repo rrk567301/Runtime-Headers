@@ -1,0 +1,3 @@
+@interface ULCoLocationAnchorGenerator : NSObject
+
+@end

@@ -1,0 +1,8 @@
+@interface HMDAppleAccountSettingsMessageFilter : HMFMessageFilter
+
++ (id)logCategory;
++ (long long)filterMessage:(id)a0 withPolicies:(id)a1 error:(id *)a2;
++ (id)appleAccountSettingsOverride;
++ (void)setAppleAccountSettingsOverride:(id)a0;
+
+@end

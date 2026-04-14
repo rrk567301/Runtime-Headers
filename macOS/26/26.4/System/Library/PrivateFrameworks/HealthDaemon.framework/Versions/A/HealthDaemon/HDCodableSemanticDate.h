@@ -1,0 +1,23 @@
+@class NSString;
+
+@interface HDCodableSemanticDate : PBCodable <NSCopying> {
+    struct { unsigned char date : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasKeyPath;
+@property (retain, nonatomic) NSString *keyPath;
+@property (nonatomic) BOOL hasDate;
+@property (nonatomic) double date;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+
+@end

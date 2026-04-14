@@ -1,0 +1,3 @@
+@interface LiveFSUserClient : FSUserClient
+
+@end

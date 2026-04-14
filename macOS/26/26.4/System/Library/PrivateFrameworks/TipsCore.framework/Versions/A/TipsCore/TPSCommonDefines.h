@@ -1,0 +1,104 @@
+@class TPSTipStatusController, NSString, NSMutableDictionary, NSMutableArray, NSDate, NSObject, NSUserDefaults;
+@protocol OS_dispatch_queue;
+
+@interface TPSCommonDefines : NSObject {
+    NSMutableArray *_cloudDevices;
+    NSString *_userLanguage;
+}
+
+@property (class, readonly, nonatomic) BOOL isMacSetupEnvironmentUser;
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue;
+@property (retain, nonatomic) NSMutableDictionary *collectionStatusMap;
+@property (nonatomic) int maxVersion;
+@property (nonatomic) BOOL supportsUIApplication;
+@property (readonly, nonatomic) BOOL tipsAccessAllowed;
+@property (readonly, nonatomic) long long daysSinceLastMajorVersionUpdate;
+@property (retain, nonatomic) NSString *majorVersion;
+@property (retain, nonatomic) NSDate *lastMajorVersionUpdateDate;
+@property (retain, nonatomic) NSString *model;
+@property (copy, nonatomic) NSString *language;
+@property (copy, nonatomic) NSString *userLanguage;
+@property (readonly, nonatomic) NSUserDefaults *appGroupDefaults;
+@property (retain, nonatomic) NSMutableDictionary *appBundleIDMap;
+@property (readonly, nonatomic) long long assetRatioType;
+@property (retain, nonatomic) TPSTipStatusController *tipStatusController;
+
++ (id)deviceClass;
++ (BOOL)isInternalDevice;
++ (id)notificationBundleIdentifier;
++ (int)buttonType;
++ (id)sharedInstance;
++ (BOOL)isInternal;
++ (BOOL)isRecordValid:(id)a0;
++ (id)productVersion;
++ (double)displayScale;
++ (id)deviceName;
++ (BOOL)isCellularChinaSKUDevice;
++ (BOOL)supportsCloudDeviceUserGuide;
++ (id)spotlightBundleIdentifier;
++ (BOOL)isAppRestrictedWithBundleIdentifier:(id)a0;
++ (id)deviceGuideIdentifier;
++ (id)hardwareWelcomeCollectionIdentifier;
++ (BOOL)isSeniorUser;
++ (id)switcherWelcomeCollectionIdentifier;
++ (id)clientBundleIdentifier;
++ (id)deviceSymbol;
++ (BOOL)isInternalBuild;
++ (BOOL)supportsOpenSensitiveURL;
++ (BOOL)callerIsTipsdWithSource:(id)a0;
++ (BOOL)isChecklistCollectionWithIdentifier:(id)a0;
++ (id)softwareWelcomeCollectionIdentifier;
++ (BOOL)isAppValidWithBundleIdentifier:(id)a0;
++ (BOOL)isMacUI;
++ (BOOL)supportsFaceID;
++ (int)maxRequestVersion;
++ (BOOL)supportsEntitlement:(id)a0;
++ (id)deviceMarketingName;
++ (id)mainBundleIdentifier;
++ (id)savedTipsCollectionIdentifier;
++ (BOOL)hardwareChanged;
++ (id)appGroupIdentifier;
++ (BOOL)isWatchUI;
++ (BOOL)isPadUI;
++ (id)tipsCoreFrameworkBundle;
++ (BOOL)isPhoneUI;
++ (id)deviceFamily;
++ (id)osBuild;
++ (BOOL)isVisionUI;
++ (BOOL)supportsUserGuide;
++ (id)_tipStatusArchivalURL;
++ (id)checklistCollectionIdentifier;
+
+- (void)activatedCollection:(id)a0;
+- (void)clearDataCache;
+- (id)collectionIdentifierToUseForCollectionIdentifiers:(id)a0;
+- (BOOL)containsAnyTips:(id)a0;
+- (long long)daysSinceLastMajorVersionUpdate;
+- (void)updateCollectionStatus:(unsigned long long)a0 collections:(id)a1;
+- (BOOL)containsAnyCollections:(id)a0;
+- (void)activatedCollections:(id)a0;
+- (void)syncCollectionStatusMap;
+- (id)appBundleIDForInstalledAppWithIdentifier:(id)a0;
+- (void).cxx_destruct;
+- (id)activateDateForCollectionIdentifier:(id)a0;
+- (id)userLanguage;
+- (void)setLastMajorVersionUpdateDate:(id)a0;
+- (id)collectionStatusForCollectionIdentifier:(id)a0;
+- (id)collectionIdentifierForCurrentUserType;
+- (id)init;
+- (id)reloadAppGroupDefaults;
+- (long long)userType;
+- (void)featuredCollection:(id)a0;
+- (void)resetCollectionStatusMap;
+- (BOOL)hasLocaleChanged;
+- (id)archivedTipStatuses;
+- (id)dateForCollectionIdentifier:(id)a0 dateType:(unsigned long long)a1;
+- (void)setUserLanguage:(id)a0;
+- (void)deleteTipStatusArchivalDirectory;
+- (void)notifiedCollection:(id)a0;
+- (id)lastMajorVersionUpdateDate;
+- (void)reloadModelInformation;
+- (void)viewedCollection:(id)a0;
+
+@end

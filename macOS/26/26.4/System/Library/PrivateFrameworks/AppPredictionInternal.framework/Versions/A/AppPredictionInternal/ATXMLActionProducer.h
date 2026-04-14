@@ -1,0 +1,30 @@
+@class NSString;
+
+@interface ATXMLActionProducer : NSObject {
+    NSString *_cacheBasePath;
+}
+
++ (id)consumerSubTypesToUpdate;
++ (id)predictionChunksForActionResults:(id)a0;
+
+- (id)lockscreenActionsFromPredictions:(id)a0;
+- (id)_cachePathForConsumerSubtype:(unsigned char)a0;
+- (id)produceActions;
+- (void)updateBlendingLayerForWatchAppSettings;
+- (void)readCacheAndSendFilteredResultsToBlendingForConsumerSubType:(unsigned char)a0;
+- (void)updateBlendingLayerForSpotlight;
+- (id)consumerSubTypesToInvalidateForTTL:(double)a0 disabledConsumerSubTypes:(id)a1 shouldOverrideRefreshRateForDisabledConsumerSubTypes:(BOOL)a2;
+- (void)updateBlendingLayerForSettings;
+- (void).cxx_destruct;
+- (void)updateBlendingLayerForHomeScreen;
+- (void)updateBlendingLayerForLockscreen;
+- (id)_getActionsFromCacheForConsumerSubType:(unsigned char)a0 cacheFileData:(id)a1;
+- (void)invalidateCacheForConsumerSubTypes:(id)a0 featureCache:(id)a1;
+- (void)updateBlendingLayerForAllConsumerSubTypes;
+- (id)init;
+- (BOOL)_writeIntermediateCacheForConsumerSubType:(unsigned char)a0 actionPredictionCandidates:(id)a1 remainingPredictionItems:(void *)a2;
+- (BOOL)writeCacheIfNotExistsForConsumerSubType:(unsigned char)a0;
+- (void)updateBlendingLayerForConsumerSubType:(unsigned char)a0;
+- (void)invalidateCacheForConsumerSubType:(unsigned char)a0 actionPredictionCandidates:(id)a1 remainingPredictionItems:(struct vector<ATXPredictionItem, std::allocator<ATXPredictionItem>> { struct ATXPredictionItem *x0; struct ATXPredictionItem *x1; struct { struct ATXPredictionItem *x0; } x2; })a2;
+
+@end

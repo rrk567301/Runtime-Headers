@@ -1,0 +1,9 @@
+@interface ICAtomicLRUCache : ICLRUCache
+
+- (id)objectForKey:(id)a0;
+- (void)removeObjectForKey:(id)a0;
+- (void)removeAllObjects;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (id)allKeys;
+
+@end

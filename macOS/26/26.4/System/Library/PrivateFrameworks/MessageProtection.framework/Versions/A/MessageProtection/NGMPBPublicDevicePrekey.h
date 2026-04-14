@@ -1,0 +1,22 @@
+@class NSData;
+
+@interface NGMPBPublicDevicePrekey : PBCodable <NSCopying>
+
+@property (retain, nonatomic) NSData *prekey;
+@property (retain, nonatomic) NSData *prekeySignature;
+@property (nonatomic) double timestamp;
+@property (readonly, nonatomic) BOOL hasTetraPreKey;
+@property (retain, nonatomic) NSData *tetraPreKey;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)description;
+- (void)writeTo:(id)a0;
+
+@end

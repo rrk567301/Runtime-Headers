@@ -1,0 +1,35 @@
+@class NSString, TSPDocumentResourceInfo;
+@protocol TSUResourceFileURLProvider, TSUResourceRequest;
+
+@interface TSPDocumentResourceFileDataStorage : TSPFileDataStorage <TSPDataStorageDownloadable, TSPDocumentResourceDataStorageInfo> {
+    id<TSUResourceFileURLProvider, TSUResourceRequest> _resourceRequest;
+    TSPDocumentResourceInfo *_documentResourceInfo;
+}
+
+@property (readonly, nonatomic) id<TSUResourceRequest> resourceRequest;
+@property (readonly, nonatomic) TSPDocumentResourceInfo *documentResourceInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)downloadProgress;
+- (struct CGSize { double x0; double x1; })pixelSize;
+- (id)fileURL;
+- (unsigned long long)length;
+- (BOOL)canDownload;
+- (void).cxx_destruct;
+- (id)init;
+- (BOOL)isReadable;
+- (unsigned long long)encodedLength;
+- (BOOL)needsDownload;
+- (id)fallbackColor;
+- (id)documentResourceLocator;
+- (void)performReadWithAccessor:(id /* block */)a0;
+- (id)storageForDataCopyFromOtherContext;
+- (void)didAddDownloadObserverWithData:(id)a0;
+- (BOOL)archiveInfoMessage:(void *)a0 archiver:(id)a1 packageWriter:(id)a2;
+- (id)initWithResourceRequest:(id)a0 documentResourceInfo:(id)a1;
+- (unsigned long long)materializedLength;
+
+@end

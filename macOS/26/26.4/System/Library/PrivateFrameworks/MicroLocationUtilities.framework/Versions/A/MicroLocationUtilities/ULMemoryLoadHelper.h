@@ -1,0 +1,14 @@
+@interface ULMemoryLoadHelper : NSObject {
+    struct rusage_info_v4 { unsigned char ri_uuid[16]; unsigned long long ri_user_time; unsigned long long ri_system_time; unsigned long long ri_pkg_idle_wkups; unsigned long long ri_interrupt_wkups; unsigned long long ri_pageins; unsigned long long ri_wired_size; unsigned long long ri_resident_size; unsigned long long ri_phys_footprint; unsigned long long ri_proc_start_abstime; unsigned long long ri_proc_exit_abstime; unsigned long long ri_child_user_time; unsigned long long ri_child_system_time; unsigned long long ri_child_pkg_idle_wkups; unsigned long long ri_child_interrupt_wkups; unsigned long long ri_child_pageins; unsigned long long ri_child_elapsed_abstime; unsigned long long ri_diskio_bytesread; unsigned long long ri_diskio_byteswritten; unsigned long long ri_cpu_time_qos_default; unsigned long long ri_cpu_time_qos_maintenance; unsigned long long ri_cpu_time_qos_background; unsigned long long ri_cpu_time_qos_utility; unsigned long long ri_cpu_time_qos_legacy; unsigned long long ri_cpu_time_qos_user_initiated; unsigned long long ri_cpu_time_qos_user_interactive; unsigned long long ri_billed_system_time; unsigned long long ri_serviced_system_time; unsigned long long ri_logical_writes; unsigned long long ri_lifetime_max_phys_footprint; unsigned long long ri_instructions; unsigned long long ri_cycles; unsigned long long ri_billed_energy; unsigned long long ri_serviced_energy; unsigned long long ri_interval_max_phys_footprint; unsigned long long ri_runnable_time; } _rusage;
+    int _pid;
+}
+
++ (id)formatBytes:(double)a0;
+
+- (double)load;
+- (void)reset;
+- (id)init;
+- (void)measure;
+- (double)peakLoad;
+
+@end

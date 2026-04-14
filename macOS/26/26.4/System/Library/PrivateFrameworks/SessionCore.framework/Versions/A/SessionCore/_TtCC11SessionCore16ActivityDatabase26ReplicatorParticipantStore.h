@@ -1,0 +1,3 @@
+@interface _TtCC11SessionCore16ActivityDatabase26ReplicatorParticipantStore : _TtCC11SessionCore16ActivityDatabase16DatabaseAccessor
+
+@end

@@ -1,0 +1,21 @@
+@class NSArray;
+
+@interface EMTSegmentInfo : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSArray *sourceTokenIDs;
+@property (retain, nonatomic) NSArray *targetTokenIDs;
+@property (nonatomic) BOOL isStable;
+@property (nonatomic) BOOL isSourceSideBoundary;
+
++ (id)segmentInfo;
++ (id)segmentInfoWithData:(const void *)a0;
+
+- (struct SegmentInfo { int x0; int x1; BOOL x2; BOOL x3; BOOL x4; struct vector<int, std::allocator<int>> { int *x0; int *x1; struct { int *x0; } x2; } x5; struct vector<int, std::allocator<int>> { int *x0; int *x1; struct { int *x0; } x2; } x6; })getData;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

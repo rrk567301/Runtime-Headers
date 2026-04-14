@@ -1,0 +1,91 @@
+@class HMFTimer, HMDHAPAccessory, HMDCameraProfileSettingsManager, NSDictionary, HMDCameraRecordingManager, HMDCameraClipUserNotificationCenter, NSMutableArray, HMDService, HMDCameraRecordingReachabilityEventManager, NSString, NSSet, HMDCameraStreamSnapshotHandler, HMDPredicateUtilities, _HMCameraUserSettings, HMDCameraSnapshotManager, HMFNetMonitor, HMDHome, HMDCameraClipManager, NSNotificationCenter, NSUUID;
+@protocol HMDCameraBulletinBoard, HMDFeaturesDataSource, HMDCameraProfileSwiftExtensions;
+
+@interface HMDCameraProfile : HMDAccessoryProfile <HMDCameraCloudStorageCapable, HMDCameraSettingProactiveReaderDelegate, HMFNetMonitorDelegate, HMFTimerDelegate, HMDCameraSignificantEventNotificationObserver, HMDCameraClipManagerDelegate>
+
+@property (class, retain) id<HMDCameraBulletinBoard> bulletinBoardOverride;
+@property (class, readonly) id<HMDCameraBulletinBoard> bulletinBoard;
+
+@property (nonatomic, readonly) NSUUID *cameraIdentifier;
+@property (nonatomic, readonly) NSString *cloudZoneName;
+@property (nonatomic, readonly) long long cloudStorageVersion;
+@property (nonatomic, readonly) HMDHome *home;
+@property (readonly, copy) NSString *urlString;
+@property (readonly, copy) NSDictionary *assistantObject;
+@property (readonly) NSSet *cameraStreamManagers;
+@property (readonly) HMDCameraSnapshotManager *snapshotManager;
+@property (readonly) HMDCameraStreamSnapshotHandler *streamSnapshotHandler;
+@property (readonly) NSMutableArray *settingProactiveReaders;
+@property (readonly) HMFNetMonitor *networkMonitor;
+@property (readonly) HMDCameraProfileSettingsManager *cameraSettingsManager;
+@property (readonly) HMDCameraRecordingReachabilityEventManager *reachabilityEventManager;
+@property (readonly) HMDCameraClipUserNotificationCenter *clipUserNotificationCenter;
+@property (readonly) NSNotificationCenter *notificationCenter;
+@property (retain) HMFTimer *recordingEventsCleanupTimer;
+@property (readonly, nonatomic) id<HMDFeaturesDataSource> featuresDataSource;
+@property (retain) HMDPredicateUtilities *predicateUtilities;
+@property (retain) HMDCameraRecordingManager *cameraRecordingManager;
+@property (copy) id /* block */ recordingEventsCleanupTimerFactory;
+@property (copy) id /* block */ recordingManagerFactory;
+@property (readonly, nonatomic, getter=isMicrophonePresent) BOOL microphonePresent;
+@property (readonly, nonatomic, getter=isSpeakerPresent) BOOL speakerPresent;
+@property (readonly) _HMCameraUserSettings *currentSettings;
+@property (readonly) HMDCameraClipManager *clipManager;
+@property (readonly) HMDService *recordingManagementService;
+@property (readonly, weak) HMDHAPAccessory *hapAccessory;
+@property (retain) id<HMDCameraProfileSwiftExtensions> swiftExtensions;
+@property (readonly, nonatomic, getter=isCameraRecordingFeatureSupported) BOOL supportsCameraRecordingFeature;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)supportsSecureCoding;
++ (id)logCategory;
++ (id)messageBindingForDispatcher:(id)a0 message:(id)a1 receiver:(id)a2;
+
+- (void)networkMonitorIsUnreachable:(id)a0;
+- (void)setUp;
+- (void)networkMonitorIsReachable:(id)a0;
+- (void)timerDidFire:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)registerForMessages;
+- (id)attributeDescriptions;
+- (void).cxx_destruct;
+- (id)dumpStateWithPrivacyLevel:(unsigned long long)a0;
+- (void)configureSwiftExtensions;
+- (void)unconfigure;
+- (void)dealloc;
+- (void)removeCloudData;
+- (BOOL)_areFaceClassificationNotificationsSuppressedForSignificantEvent:(id)a0;
+- (void)_createCameraRecordingManager;
+- (void)_handleNegotiateStreamRequest:(id)a0;
+- (void)_handleStreamControlRequest:(id)a0;
+- (void)_postNotificationForUpdatedSignificantEvent:(id)a0 allClipSignificantEvents:(id)a1 caption:(id)a2 notificationReasons:(unsigned long long)a3;
+- (void)_setControlSupport;
+- (void)_setUpBulletinNotificationManagerObserver;
+- (BOOL)_shouldNotifyForSignificantEvent:(id)a0 notificationReasons:(unsigned long long)a1;
+- (id)cameraCloudStorageCapableForClipManager:(id)a0;
+- (void)cameraSettingProactiveReaderDidCompleteRead:(id)a0;
+- (void)clipManager:(id)a0 didDeleteClipWithUUID:(id)a1;
+- (id)clipManager:(id)a0 didRequestImportWithData:(id)a1;
+- (void)clipManager:(id)a0 didUpdateSignificantEvent:(id)a1;
+- (void)clipManagerDidDisableCloudStorage:(id)a0;
+- (void)clipManagerDidEncounterDisabledCloudStorage:(id)a0;
+- (void)clipManagerDidStart:(id)a0;
+- (void)clipManagerDidStartUp:(id)a0;
+- (void)clipManagerDidStop:(id)a0;
+- (void)handleCameraProfileSettingsDidChangeNotification:(id)a0;
+- (void)handleResidentsChangedNotification:(id)a0;
+- (void)initSwiftExtensionsWithAccessory:(id)a0 uniqueIdentifier:(id)a1;
+- (id)initWithAccessory:(id)a0 services:(id)a1 msgDispatcher:(id)a2 workQueue:(id)a3 home:(id)a4 settingsManager:(id)a5;
+- (id)initWithAccessory:(id)a0 services:(id)a1 recordingManagementService:(id)a2 msgDispatcher:(id)a3 workQueue:(id)a4 home:(id)a5 settingsManager:(id)a6 uniqueIdentifier:(id)a7 clipManager:(id)a8 clipUserNotificationCenter:(id)a9 reachabilityEventManager:(id)a10 networkMonitor:(id)a11 streamSnapshotHandler:(id)a12 snapshotManager:(id)a13 cameraStreamManagers:(id)a14 notificationCenter:(id)a15 featuresDataSource:(id)a16;
+- (void)initiateCertificateSigningRequestWithCompletion:(id /* block */)a0;
+- (void)notificationManager:(id)a0 didReceiveNotificationForCameraSignificantEventIdentifier:(id)a1 notificationReasons:(unsigned long long)a2;
+- (void)provisionCameraWithCMAFIngestUsingPublishingPointURL:(id)a0 serverCertificates:(id)a1 expirationDate:(id)a2 completion:(id /* block */)a3;
+- (void)provisionCameraWithClientCertificate:(id)a0 signedByRootCertificate:(id)a1 completion:(id /* block */)a2;
+- (id)swiftExtensionsMessageBindingForMessage:(id)a0;
+- (void)tearDownWithReplacementCameraProfile:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface IMDPersistence.BackgroundStorageInspectorScheduler : IMDPersistence.StorageInspectorScheduler
+
+@end

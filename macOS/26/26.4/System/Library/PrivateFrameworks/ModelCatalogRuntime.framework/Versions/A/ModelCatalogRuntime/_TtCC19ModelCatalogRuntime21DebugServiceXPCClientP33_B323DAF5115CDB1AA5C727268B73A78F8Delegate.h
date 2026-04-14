@@ -1,0 +1,3 @@
+@interface _TtCC19ModelCatalogRuntime21DebugServiceXPCClientP33_B323DAF5115CDB1AA5C727268B73A78F8Delegate : _TtCs12_SwiftObject
+
+@end

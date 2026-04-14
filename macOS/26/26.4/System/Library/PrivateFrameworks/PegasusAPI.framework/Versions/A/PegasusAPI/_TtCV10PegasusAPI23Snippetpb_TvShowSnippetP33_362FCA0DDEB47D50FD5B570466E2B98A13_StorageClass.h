@@ -1,0 +1,48 @@
+@interface _TtCV10PegasusAPI23Snippetpb_TvShowSnippetP33_362FCA0DDEB47D50FD5B570466E2B98A13_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _id;
+    void /* unknown type, empty encoding */ _canonicalID;
+    void /* unknown type, empty encoding */ _title;
+    void /* unknown type, empty encoding */ _description_p;
+    void /* unknown type, empty encoding */ _contentRating;
+    void /* unknown type, empty encoding */ _thumbnail;
+    void /* unknown type, empty encoding */ _genres;
+    void /* unknown type, empty encoding */ _availabilities;
+    void /* unknown type, empty encoding */ _actors;
+    void /* unknown type, empty encoding */ _premieredNetwork;
+    void /* unknown type, empty encoding */ _premiereDate;
+    void /* unknown type, empty encoding */ _finaleDate;
+    void /* unknown type, empty encoding */ _commonSense;
+    void /* unknown type, empty encoding */ _appleOriginal;
+    void /* unknown type, empty encoding */ _runtimeInMinutes;
+    void /* unknown type, empty encoding */ _children;
+    void /* unknown type, empty encoding */ _parent;
+    void /* unknown type, empty encoding */ _seasonNumber;
+    void /* unknown type, empty encoding */ _episodeNumber;
+    void /* unknown type, empty encoding */ _type;
+    void /* unknown type, empty encoding */ _coverArt;
+    void /* unknown type, empty encoding */ _episodeNumberFloat;
+    void /* unknown type, empty encoding */ _wikiID;
+    void /* unknown type, empty encoding */ _imdbID;
+    void /* unknown type, empty encoding */ _rottenTomatoesURL;
+    void /* unknown type, empty encoding */ _parentSeasonName;
+    void /* unknown type, empty encoding */ _localizedGenres;
+    void /* unknown type, empty encoding */ _characterNames;
+    void /* unknown type, empty encoding */ _siribaseID;
+    void /* unknown type, empty encoding */ _directors;
+    void /* unknown type, empty encoding */ _trailersV2;
+    void /* unknown type, empty encoding */ _castAndCrew;
+    void /* unknown type, empty encoding */ _boost;
+    void /* unknown type, empty encoding */ _engTokens;
+    void /* unknown type, empty encoding */ _isAnnTier;
+    void /* unknown type, empty encoding */ _isIm;
+    void /* unknown type, empty encoding */ _isStereo;
+    void /* unknown type, empty encoding */ _kgInternalID;
+    void /* unknown type, empty encoding */ _adamIds;
+    void /* unknown type, empty encoding */ _nlsResultDescription;
+    void /* unknown type, empty encoding */ _latestEpisodeDate;
+    void /* unknown type, empty encoding */ _relevanceScoreForHintsValidation;
+    void /* unknown type, empty encoding */ _recommendedAge;
+    void /* unknown type, empty encoding */ _cardFeatures;
+}
+
+@end

@@ -1,0 +1,21 @@
+@interface PHMomentList : PHCollectionList
+
++ (id)propertiesToFetchWithHint:(unsigned long long)a0;
++ (id)managedEntityName;
++ (id)transformValueExpression:(id)a0 forKeyPath:(id)a1;
++ (id)identifierCode;
++ (id)entityKeyMap;
++ (BOOL)managedObjectSupportsTrashedState;
++ (id)fetchType;
+
+- (id)localizedTitle;
+- (id)description;
+- (BOOL)hasLocationInfo;
+- (BOOL)hasLocalizedTitle;
+- (Class)changeRequestClass;
+- (BOOL)collectionHasFixedOrder;
+- (long long)collectionListType;
+- (id)initWithFetchDictionary:(id)a0 propertyHint:(unsigned long long)a1 photoLibrary:(id)a2;
+- (id)localizedLocationNames;
+
+@end

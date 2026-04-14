@@ -1,0 +1,71 @@
+@class NSString, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SUCorePersistedState : NSObject
+
+@property (nonatomic) BOOL defaultLevelLogging;
+@property (retain, nonatomic) NSMutableDictionary *persistedState;
+@property (retain, nonatomic) NSString *persistencePath;
+@property (retain, nonatomic) NSString *versionPolicyLayer;
+@property (retain, nonatomic) NSString *versionSUCore;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *persistedStateQueue;
+
+- (id)stringForKey:(id)a0;
+- (id)objectForKey:(id)a0 ofClass:(Class)a1;
+- (id)dictionaryForKey:(id)a0;
+- (id)dataForKey:(id)a0;
+- (void)persistString:(id)a0 forKey:(id)a1;
+- (id)_keyNameForPersistedStateType:(int)a0;
+- (void)removePersistedState;
+- (void)persistDictionary:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (unsigned long long)ullForKey:(id)a0 forType:(int)a1;
+- (void)persistString:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (BOOL)booleanForKey:(id)a0;
+- (void)persistObject:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (id)_createEmptyPersistedState;
+- (void)persistObject:(id)a0 forKey:(id)a1;
+- (void)persistDate:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (void)persistULL:(unsigned long long)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (id)persistedContentsType;
+- (id)stringForKey:(id)a0 forType:(int)a1;
+- (void)_writePersistedState;
+- (void)persistData:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (void)persistDictionary:(id)a0 forKey:(id)a1;
+- (BOOL)booleanForKey:(id)a0 forType:(int)a1;
+- (void)persistString:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (unsigned long long)ullForKey:(id)a0;
+- (void)persistBoolean:(BOOL)a0 forKey:(id)a1;
+- (void)persistState;
+- (id)initWithDispatchQueue:(id)a0 withPersistencePath:(id)a1 forPolicyVersion:(id)a2;
+- (void)persistDictionary:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (void)persistObject:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (id)secureCodedObjectForKey:(id)a0 ofClass:(Class)a1 forType:(int)a2;
+- (id)persistedPolicyVersion;
+- (BOOL)isPersistedStateLoaded;
+- (id)secureCodedObjectForKey:(id)a0 ofClass:(Class)a1 encodeClasses:(id)a2;
+- (void)persistDate:(id)a0 forKey:(id)a1;
+- (void)persistULL:(unsigned long long)a0 forKey:(id)a1;
+- (void)persistBoolean:(BOOL)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (void).cxx_destruct;
+- (id)secureCodedObjectForKey:(id)a0 ofClass:(Class)a1;
+- (id)objectForKey:(id)a0 ofClass:(Class)a1 forType:(int)a2;
+- (id)dictionaryForKey:(id)a0 forType:(int)a1;
+- (void)persistBoolean:(BOOL)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (id)summary;
+- (void)persistSecureCodedObject:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (BOOL)loadPersistedState;
+- (id)dateForKey:(id)a0;
+- (id)description;
+- (id)initWithDispatchQueue:(id)a0 withPersistencePath:(id)a1 forPolicyVersion:(id)a2 issuingDefaultLevelLogging:(BOOL)a3;
+- (void)persistULL:(unsigned long long)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (void)persistSecureCodedObject:(id)a0 forKey:(id)a1;
+- (void)persistData:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (id)persistedCoreVersion;
+- (void)persistDate:(id)a0 forKey:(id)a1 forType:(int)a2 shouldPersist:(BOOL)a3;
+- (id)dateForKey:(id)a0 forType:(int)a1;
+- (id)dataForKey:(id)a0 forType:(int)a1;
+- (void)persistSecureCodedObject:(id)a0 forKey:(id)a1 shouldPersist:(BOOL)a2;
+- (id)secureCodedObjectForKey:(id)a0 ofClass:(Class)a1 encodeClasses:(id)a2 forType:(int)a3;
+- (void)persistData:(id)a0 forKey:(id)a1;
+
+@end

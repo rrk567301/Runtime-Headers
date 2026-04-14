@@ -1,0 +1,15 @@
+@class _HKWorkoutTrainingLoadCollectionQueryServerConfiguration;
+
+@interface HDWorkoutTrainingLoadCollectionQueryServer : HDQueryServer
+
+@property (readonly, copy, nonatomic) _HKWorkoutTrainingLoadCollectionQueryServerConfiguration *trainingLoadCollectionQueryServerConfiguration;
+
++ (Class)queryClass;
++ (id)requiredEntitlements;
+
+- (void).cxx_destruct;
+- (id)initWithUUID:(id)a0 configuration:(id)a1 client:(id)a2 delegate:(id)a3;
+- (void)_queue_start;
+- (id)_queue_fetchTrainingLoadCollectionWithError:(id *)a0;
+
+@end

@@ -1,0 +1,82 @@
+@class JSValue;
+
+@interface MusicUI_Mac.JSHostCapabilities : NSObject <_TtP11MusicUI_MacP33_83E7F13230A1BA16917C976F26C7EDFB24JSHostCapabilitiesExport_> {
+    void /* unknown type, empty encoding */ _hasGlobalNavigationStack;
+    void /* unknown type, empty encoding */ _attributedDateRange;
+    void /* unknown type, empty encoding */ _shelfPagination;
+    void /* unknown type, empty encoding */ _popoverSelector;
+    void /* unknown type, empty encoding */ _playlistDetailPagination;
+    void /* unknown type, empty encoding */ _socialCapabilities;
+    void /* unknown type, empty encoding */ _singPlaylistEnhancements;
+    void /* unknown type, empty encoding */ _isSingDeviceSupported;
+    void /* unknown type, empty encoding */ _isSingConnectivitySupported;
+    void /* unknown type, empty encoding */ _isSingPlaylistConnectDevicesActionSupported;
+    void /* unknown type, empty encoding */ _performPlaylistCollaborationRequestActionParsing;
+    void /* unknown type, empty encoding */ _favoriting;
+    void /* unknown type, empty encoding */ _homeTitle;
+    void /* unknown type, empty encoding */ _newTitle;
+    void /* unknown type, empty encoding */ _yuma;
+    void /* unknown type, empty encoding */ _pageMapping;
+    void /* unknown type, empty encoding */ _playActivityPushNotifications;
+    void /* unknown type, empty encoding */ _accountHub;
+    void /* unknown type, empty encoding */ _recentlyPlayedPlaylistFolders;
+    void /* unknown type, empty encoding */ _searchLandingUpsell;
+    void /* unknown type, empty encoding */ _chartsPage;
+    void /* unknown type, empty encoding */ _replayWebView;
+    void /* unknown type, empty encoding */ _presentAlertAction;
+    void /* unknown type, empty encoding */ _canShowLiveRadioGrid;
+    void /* unknown type, empty encoding */ _horizontalLiveRadioPosterLayout;
+    void /* unknown type, empty encoding */ _replayInApp;
+    void /* unknown type, empty encoding */ _socialProfileHorizontalLockupSection;
+    void /* unknown type, empty encoding */ _navigationBarSubtitle;
+    void /* unknown type, empty encoding */ _libraryHydratedPosterLockups;
+    void /* unknown type, empty encoding */ _artworkOmittingSearchSuggestionItem;
+    void /* unknown type, empty encoding */ _topSearchLockupCanDisplayCalendarArtwork;
+    void /* unknown type, empty encoding */ _chinlessPosters;
+    void /* unknown type, empty encoding */ _concerts;
+    void /* unknown type, empty encoding */ _chinlessPostersV2;
+    void /* unknown type, empty encoding */ _mappedDeepLinkFlowActions;
+    void /* unknown type, empty encoding */ _concerto;
+}
+
+@property (nonatomic, retain) JSValue *hasGlobalNavigationStack;
+@property (nonatomic, retain) JSValue *attributedDateRange;
+@property (nonatomic, retain) JSValue *shelfPagination;
+@property (nonatomic, retain) JSValue *popoverSelector;
+@property (nonatomic, retain) JSValue *playlistDetailPagination;
+@property (nonatomic, retain) JSValue *socialCapabilities;
+@property (nonatomic, retain) JSValue *singPlaylistEnhancements;
+@property (nonatomic, retain) JSValue *isSingDeviceSupported;
+@property (nonatomic, retain) JSValue *isSingConnectivitySupported;
+@property (nonatomic, retain) JSValue *isSingPlaylistConnectDevicesActionSupported;
+@property (nonatomic, retain) JSValue *performPlaylistCollaborationRequestActionParsing;
+@property (nonatomic, retain) JSValue *favoriting;
+@property (nonatomic, retain) JSValue *homeTitle;
+@property (nonatomic, retain) JSValue *newTitle;
+@property (nonatomic, retain) JSValue *yuma;
+@property (nonatomic, retain) JSValue *pageMapping;
+@property (nonatomic, retain) JSValue *playActivityPushNotifications;
+@property (nonatomic, retain) JSValue *accountHub;
+@property (nonatomic, retain) JSValue *recentlyPlayedPlaylistFolders;
+@property (nonatomic, retain) JSValue *searchLandingUpsell;
+@property (nonatomic, retain) JSValue *chartsPage;
+@property (nonatomic, retain) JSValue *replayWebView;
+@property (nonatomic, retain) JSValue *presentAlertAction;
+@property (nonatomic, retain) JSValue *canShowLiveRadioGrid;
+@property (nonatomic, retain) JSValue *horizontalLiveRadioPosterLayout;
+@property (nonatomic, retain) JSValue *replayInApp;
+@property (nonatomic, retain) JSValue *socialProfileHorizontalLockupSection;
+@property (nonatomic, retain) JSValue *navigationBarSubtitle;
+@property (nonatomic, retain) JSValue *libraryHydratedPosterLockups;
+@property (nonatomic, retain) JSValue *artworkOmittingSearchSuggestionItem;
+@property (nonatomic, retain) JSValue *topSearchLockupCanDisplayCalendarArtwork;
+@property (nonatomic, retain) JSValue *chinlessPosters;
+@property (nonatomic, retain) JSValue *concerts;
+@property (nonatomic, retain) JSValue *chinlessPostersV2;
+@property (nonatomic, retain) JSValue *mappedDeepLinkFlowActions;
+@property (nonatomic, retain) JSValue *concerto;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

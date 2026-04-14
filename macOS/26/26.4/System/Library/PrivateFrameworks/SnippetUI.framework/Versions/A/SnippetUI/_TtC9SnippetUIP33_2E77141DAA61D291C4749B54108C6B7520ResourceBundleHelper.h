@@ -1,0 +1,3 @@
+@interface _TtC9SnippetUIP33_2E77141DAA61D291C4749B54108C6B7520ResourceBundleHelper : _TtCs12_SwiftObject
+
+@end

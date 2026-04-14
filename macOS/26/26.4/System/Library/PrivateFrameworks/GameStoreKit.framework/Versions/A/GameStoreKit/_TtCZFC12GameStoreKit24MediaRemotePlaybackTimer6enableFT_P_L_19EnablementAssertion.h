@@ -1,0 +1,3 @@
+@interface _TtCZFC12GameStoreKit24MediaRemotePlaybackTimer6enableFT_P_L_19EnablementAssertion : _TtCs12_SwiftObject
+
+@end

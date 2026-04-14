@@ -1,0 +1,3 @@
+@interface _TtCE26SiriDeviceSelectionSignalsCSo31DeviceSelectionSignalsRegistrarP33_ECEECED39D7010560F2DBC7DC43CBA309Registrar : _TtCs12_SwiftObject
+
+@end

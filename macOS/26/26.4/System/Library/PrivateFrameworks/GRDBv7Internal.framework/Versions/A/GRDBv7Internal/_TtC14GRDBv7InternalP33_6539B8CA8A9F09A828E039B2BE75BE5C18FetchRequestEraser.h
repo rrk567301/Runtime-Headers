@@ -1,0 +1,3 @@
+@interface _TtC14GRDBv7InternalP33_6539B8CA8A9F09A828E039B2BE75BE5C18FetchRequestEraser : _TtCs12_SwiftObject
+
+@end

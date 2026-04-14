@@ -1,0 +1,3 @@
+@interface _TtC19SiriDeviceSelectionP33_831DC12062E39C300709D8AC6B21E50D14SignalDonation : _TtCs12_SwiftObject
+
+@end

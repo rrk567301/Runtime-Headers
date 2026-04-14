@@ -1,0 +1,20 @@
+@interface ContactsUICore.ContactCardHeaderSwiftUIViewModel : NSObject <CNUIContactCardActionsObserver> {
+    void /* unknown type, empty encoding */ _contact;
+    void /* unknown type, empty encoding */ _actionsProvider;
+    void /* unknown type, empty encoding */ _isEmergencyContact;
+    void /* unknown type, empty encoding */ _isBlocked;
+    void /* unknown type, empty encoding */ _isDowntimeWhitelisted;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_contactFormatter;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_personNameFormatter;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_handleNameFormatter;
+    void /* unknown type, empty encoding */ blockedHeader;
+    void /* unknown type, empty encoding */ emergencyHeader;
+    void /* unknown type, empty encoding */ downtimeHeader;
+    void /* unknown type, empty encoding */ _$observationRegistrar;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)actionsUpdated;
+
+@end

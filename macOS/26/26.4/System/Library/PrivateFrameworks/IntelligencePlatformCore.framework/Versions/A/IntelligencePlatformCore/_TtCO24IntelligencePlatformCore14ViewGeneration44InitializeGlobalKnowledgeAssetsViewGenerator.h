@@ -1,0 +1,3 @@
+@interface _TtCO24IntelligencePlatformCore14ViewGeneration44InitializeGlobalKnowledgeAssetsViewGenerator : _TtCs12_SwiftObject
+
+@end

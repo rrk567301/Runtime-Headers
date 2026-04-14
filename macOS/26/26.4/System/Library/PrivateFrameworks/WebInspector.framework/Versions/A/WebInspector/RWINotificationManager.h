@@ -1,0 +1,18 @@
+@class NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface RWINotificationManager : NSObject <RWINotifier>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *handlersQueue;
+@property (retain, nonatomic) NSMutableDictionary *handlers;
+@property (nonatomic) unsigned long long nextRegistrationID;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *sendQueue;
+
+- (void)sendNotification:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (unsigned long long)registerNotificationHandlerOnQueue:(id)a0 handler:(id /* block */)a1;
+- (BOOL)unregisterNotificationHandler:(unsigned long long)a0 error:(id *)a1;
+- (unsigned long long)registerNotificationHandler:(id /* block */)a0;
+
+@end

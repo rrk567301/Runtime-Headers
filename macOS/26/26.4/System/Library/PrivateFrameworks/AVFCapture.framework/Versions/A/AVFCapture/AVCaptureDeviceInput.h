@@ -1,0 +1,95 @@
+@class AVCaptureDeviceInputInternal, AVCaptureDevice, AVExternalSyncDevice;
+
+@interface AVCaptureDeviceInput : AVCaptureInput {
+    AVCaptureDeviceInputInternal *_internal;
+}
+
+@property (readonly, nonatomic) AVCaptureDevice *device;
+@property (nonatomic) BOOL unifiedAutoExposureDefaultsEnabled;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } videoMinFrameDurationOverride;
+@property (readonly, nonatomic, getter=isLockedVideoFrameDurationSupported) BOOL lockedVideoFrameDurationSupported;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } activeLockedVideoFrameDuration;
+@property (readonly, nonatomic, getter=isExternalSyncSupported) BOOL externalSyncSupported;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } activeExternalSyncVideoFrameDuration;
+@property (readonly, nonatomic) AVExternalSyncDevice *externalSyncDevice;
+@property (nonatomic) long long multichannelAudioMode;
+@property (readonly, nonatomic, getter=isWindNoiseRemovalSupported) BOOL windNoiseRemovalSupported;
+@property (nonatomic, getter=isWindNoiseRemovalEnabled) BOOL windNoiseRemovalEnabled;
+@property (readonly, nonatomic, getter=isAudioZoomSupported) BOOL audioZoomSupported;
+@property (nonatomic, getter=isAudioZoomEnabled) BOOL audioZoomEnabled;
+@property (readonly, nonatomic, getter=isCinematicVideoCaptureSupported) BOOL cinematicVideoCaptureSupported;
+@property (nonatomic, getter=isCinematicVideoCaptureEnabled) BOOL cinematicVideoCaptureEnabled;
+@property (nonatomic) float simulatedAperture;
+
++ (void)initialize;
++ (id)deviceInputWithDevice:(id)a0 error:(id *)a1;
+
+- (void)_handleNotification:(id)a0 payload:(id)a1;
+- (struct OpaqueCMClock { } *)clock;
+- (void)setPortraitLightingEffectStrength:(float)a0;
+- (BOOL)isAudioCaptureModeSupported:(long long)a0;
+- (BOOL)isCameraCalibrationDataDeliveryEnabled;
+- (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)attachSafelyToFigCaptureSession:(struct OpaqueFigCaptureSession { } *)a0;
+- (void)handleChangedActiveFormat:(id)a0 forDevice:(id)a1;
+- (void)_resetSimulatedAperture;
+- (void)_applyVideoMinFrameDurationOverride;
+- (id)notReadyError;
+- (void)setBuiltInMicrophoneStereoAudioCaptureEnabled:(BOOL)a0;
+- (BOOL)isMultichannelAudioModeSupported:(long long)a0;
+- (float)portraitLightingEffectStrength;
+- (BOOL)_authorizedToUseDeviceAndRequestIfNecessary:(id)a0;
+- (BOOL)isMaxGainOverrideSupported;
+- (id)videoDevice;
+- (void)_sourceFormatDidChange:(struct opaqueCMFormatDescription { } *)a0;
+- (void)setSensitiveContentAnalyzerXPCObject:(id)a0;
+- (id)initWithDevice:(id)a0 error:(id *)a1;
+- (void)setBackgroundBlurAllowed:(BOOL)a0;
+- (BOOL)isBackgroundBlurAllowed;
+- (void)_updateLockedVideoFrameDurationSupported;
+- (void)_resetVideoMinFrameDurationOverride;
+- (void)_resetPortraitLightingEffectStrength;
+- (void)unfollowExternalSyncDevice;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)_updateExternalSyncSupported;
+- (long long)audioCaptureMode;
+- (BOOL)isBackgroundReplacementAllowed;
+- (void)setAudioCaptureMode:(long long)a0;
+- (BOOL)_isSpatialVideoCaptureEnabledOnMFO:(id)a0;
+- (void)updateSupportedProperties;
+- (void)setSession:(id)a0;
+- (void)setStudioLightingAllowed:(BOOL)a0;
+- (void)_resetActiveLockedVideoFrameDurationWithFormatChanged:(BOOL)a0;
+- (BOOL)isBuiltInMicrophoneStereoAudioCaptureEnabled;
+- (void)_applyActiveExternalSyncVideoFrameDuration;
+- (void)setGenlockSignalCompensationDelay:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)_bumpChangeSeedForFirstPortWithMediaType:(id)a0;
+- (id)multiCamPorts;
+- (BOOL)isStudioLightingAllowed;
+- (BOOL)sensitiveContentAnalyzerEnabled;
+- (id)portsWithMediaType:(id)a0 sourceDeviceType:(id)a1 sourceDevicePosition:(long long)a2;
+- (float)maxGainOverride;
+- (void)setRemoteIOOutputFormat:(id)a0;
+- (void)setMaxGainOverride:(float)a0;
+- (void)_applyActiveLockedVideoFrameDuration;
+- (id)init;
+- (BOOL)reactionEffectsAllowed;
+- (BOOL)isCenterStageAllowed;
+- (void)setReactionEffectsAllowed:(BOOL)a0;
+- (BOOL)isVisionDataDeliveryEnabled;
+- (BOOL)isBuiltInMicrophoneStereoAudioCaptureSupported;
+- (id)remoteIOOutputFormat;
+- (void)setCenterStageAllowed:(BOOL)a0;
+- (id)description;
+- (void)setSensitiveContentAnalyzerEnabled:(BOOL)a0;
+- (void)_resetCinematicVideoCaptureSupported;
+- (void)setBackgroundReplacementAllowed:(BOOL)a0;
+- (void)setCameraCalibrationDataDeliveryEnabled:(BOOL)a0;
+- (long long)_audioCaptureModeForMultichannelAudioMode:(long long)a0;
+- (void)followExternalSyncDevice:(id)a0 videoFrameDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 delegate:(id)a2;
+- (void)setVisionDataDeliveryEnabled:(BOOL)a0;
+- (id)sensitiveContentAnalyzerXPCObject;
+- (void)dealloc;
+- (id)ports;
+
+@end

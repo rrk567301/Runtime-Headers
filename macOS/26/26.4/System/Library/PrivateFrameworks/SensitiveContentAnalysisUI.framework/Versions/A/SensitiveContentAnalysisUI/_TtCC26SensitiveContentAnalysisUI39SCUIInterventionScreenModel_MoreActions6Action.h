@@ -1,0 +1,14 @@
+@class NSString;
+
+@interface _TtCC26SensitiveContentAnalysisUI39SCUIInterventionScreenModel_MoreActions6Action : NSObject <SCUIInterventionScreenActionProtocol> {
+    void /* unknown type, empty encoding */ titleKey;
+}
+
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) BOOL primary;
+@property (nonatomic, readonly) long long actionID;
+
+- (void).cxx_destruct;
+- (id)init;
+
+@end

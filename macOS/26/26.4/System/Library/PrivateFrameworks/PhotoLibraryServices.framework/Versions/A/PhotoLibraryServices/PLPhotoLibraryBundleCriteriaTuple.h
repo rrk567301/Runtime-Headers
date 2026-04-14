@@ -1,0 +1,13 @@
+@class PLPhotoLibraryBundle, PLBackgroundJobCriteria;
+
+@interface PLPhotoLibraryBundleCriteriaTuple : NSObject
+
+@property (readonly, nonatomic) PLPhotoLibraryBundle *bundle;
+@property (readonly, nonatomic) PLBackgroundJobCriteria *criteria;
+@property (readonly, nonatomic) id /* block */ progressBlock;
+
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithBundle:(id)a0 withCriteria:(id)a1 withProgressReportBlock:(id /* block */)a2;
+
+@end

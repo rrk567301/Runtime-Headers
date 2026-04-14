@@ -1,0 +1,3 @@
+@interface HMMMMessageDestinationBase : NSObject
+
+@end

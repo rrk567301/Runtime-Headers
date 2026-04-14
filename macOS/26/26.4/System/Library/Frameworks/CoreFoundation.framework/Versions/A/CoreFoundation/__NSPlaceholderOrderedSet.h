@@ -1,0 +1,19 @@
+@interface __NSPlaceholderOrderedSet : NSMutableOrderedSet
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
+
+- (void)removeObjectAtIndex:(unsigned long long)a0;
+- (unsigned long long)indexOfObject:(id)a0;
+- (id)initWithObjects:(const id *)a0 count:(unsigned long long)a1;
+- (id)initWithCapacity:(unsigned long long)a0;
+- (void)replaceObjectAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (void)insertObject:(id)a0 atIndex:(unsigned long long)a1;
+- (id)retain;
+- (id)objectAtIndex:(unsigned long long)a0;
+- (id)init;
+- (unsigned long long)count;
+- (oneway void)release;
+- (void)dealloc;
+- (unsigned long long)retainCount;
+
+@end

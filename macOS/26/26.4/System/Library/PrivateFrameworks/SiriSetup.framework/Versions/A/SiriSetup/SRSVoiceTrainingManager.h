@@ -1,0 +1,35 @@
+@class NSString, SSRVTUITrainingManager, NSMutableSet;
+@protocol SRSTrainingManagerDelegate;
+
+@interface SRSVoiceTrainingManager : NSObject <SSRVTUITrainingManagerDelegate> {
+    SSRVTUITrainingManager *_trainingManager;
+    NSMutableSet *_playedSoundEffects;
+}
+
+@property (weak, nonatomic) id<SRSTrainingManagerDelegate> delegate;
+@property (nonatomic) BOOL snrCheckEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initWithLanguageCode:(id)a0;
+- (void)stopRMS;
+- (void)VTUITrainingManagerFeedLevel:(float)a0;
+- (void)VTUITrainingManagerPartialTextDetected:(id)a0;
+- (void)cleanupWithCompletion:(id /* block */)a0;
+- (void)getAudioSessionID:(id /* block */)a0;
+- (void)playSoundsEffect:(long long)a0;
+- (void)setRecordingStartHostTime:(unsigned long long)a0;
+- (void)setSuspendAudio:(BOOL)a0;
+- (void)startRMS;
+- (void)trainUtterance:(long long)a0 shouldUseASR:(BOOL)a1 completion:(id /* block */)a2;
+- (id)voiceProfile;
+- (void)cancelTrainingForSessionId:(long long)a0;
+- (long long)convertStatus:(int)a0;
+- (int)convertToAudioTone:(long long)a0;
+- (id)initWithLanguageCode:(id)a0 withSharedUserId:(id)a1;
+- (void)trainUtterance:(long long)a0 shouldUseASR:(BOOL)a1 loggingUUID:(id)a2 completion:(id /* block */)a3;
+
+@end

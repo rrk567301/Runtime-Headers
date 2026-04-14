@@ -1,0 +1,3 @@
+@interface TextUnderstandingRuntime.TapToRadarNotificationPosterDataSource : _TtCs12_SwiftObject
+
+@end

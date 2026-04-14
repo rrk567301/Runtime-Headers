@@ -1,0 +1,31 @@
+@class NSDictionary, NSString, TUNearbyDeviceHandleCapabilities;
+
+@interface TUNearbyDeviceHandle : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } accessorLock;
+@property (readonly, nonatomic) NSDictionary *knownIdentifiersByHandleType;
+@property (readonly, nonatomic) NSDictionary *plistRepresentation;
+@property (readonly, copy, nonatomic) NSString *name;
+@property (readonly, nonatomic) long long deviceModel;
+@property (readonly, nonatomic) TUNearbyDeviceHandleCapabilities *capabilities;
+
+- (id)initWithType:(long long)a0 identifier:(id)a1 name:(id)a2 capabilities:(id)a3;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)identifierWithType:(long long)a0;
+- (BOOL)isEquivalentToDeviceHandle:(id)a0;
+- (id)initWithName:(id)a0 knownIdentifiers:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithType:(long long)a0 identifier:(id)a1 name:(id)a2;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)isEqualToDeviceHandle:(id)a0;
+- (id)initWithName:(id)a0 knownIdentifiers:(id)a1 deviceModel:(long long)a2;
+- (id)identifierDescription;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (id)initWithName:(id)a0 knownIdentifiers:(id)a1 deviceModel:(long long)a2 capabilities:(id)a3;
+
+@end

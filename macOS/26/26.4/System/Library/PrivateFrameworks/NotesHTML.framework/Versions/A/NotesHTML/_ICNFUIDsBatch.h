@@ -1,0 +1,12 @@
+@class NSMutableIndexSet;
+
+@interface _ICNFUIDsBatch : NSObject
+
+@property (retain, nonatomic) NSMutableIndexSet *uids;
+@property (nonatomic) unsigned int expectedLength;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)description;
+
+@end

@@ -1,0 +1,28 @@
+@class NSPredicate, NSExpression;
+
+@interface NSTernaryExpression : NSExpression {
+    NSPredicate *_predicate;
+    NSExpression *_trueExpression;
+    NSExpression *_falseExpression;
+}
+
++ (BOOL)supportsSecureCoding;
+
+- (id)_keypathsForDerivedPropertyValidation:(id *)a0;
+- (id)predicate;
+- (unsigned long long)expressionType;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_expressionWithSubstitutionVariables:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)allowEvaluation;
+- (id)predicateFormat;
+- (id)expressionValueWithObject:(id)a0 context:(id)a1;
+- (void)acceptVisitor:(id)a0 flags:(unsigned long long)a1;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+- (id)falseExpression;
+- (id)initWithPredicate:(id)a0 trueExpression:(id)a1 falseExpression:(id)a2;
+- (id)trueExpression;
+
+@end

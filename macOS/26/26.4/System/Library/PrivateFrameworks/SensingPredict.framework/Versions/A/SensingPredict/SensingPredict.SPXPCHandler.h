@@ -1,0 +1,7 @@
+@interface SensingPredict.SPXPCHandler : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ incomingMessageHandlerLock;
+    void /* unknown type, empty encoding */ cancellationHandlerLock;
+    void /* unknown type, empty encoding */ session;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.TextSafetyConfigurationRuntime : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC12GameStoreKitP33_B57BC6FB57D3B0294780B1B2EE79F6EF19ShaderLibraryHelper : _TtCs12_SwiftObject
+
+@end

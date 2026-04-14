@@ -1,0 +1,81 @@
+@class NSUUID, HMDDataStreamFragment, HMDCameraRecordingSessionTimelineManager, NSDate, NSObject, NSDictionary, HMFActivity, HMIVideoFragment, HMDCameraProfile, NSString, HMDCameraRecordingSessionVariantFragmentManager, NSNumber, NSData, HMDCameraRecordingSessionSignificantEventManager, HMIVideoAnalyzerFragmentResult;
+@protocol HMDCameraRecordingSessionVideoAnalyzer, HMDCameraClipUploading, HMDCameraFragmentHandlingDelegate, OS_dispatch_queue, HMDCameraRecordingSessionFactory;
+
+@interface HMDCameraRecordingSession : HMFObject <HMFLogging, HMDCameraRecordingSessionVideoAnalyzerDelegate, HMDCameraClipUploadingDelegate, HMDCameraRecordingSessionVariantFragmentManagerDelegate, HMDCameraFragmentHandling>
+
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) HMDCameraProfile *camera;
+@property (readonly, copy) NSString *logIdentifier;
+@property (readonly) id<HMDCameraRecordingSessionFactory> factory;
+@property (readonly) id<HMDCameraRecordingSessionVideoAnalyzer> videoAnalyzer;
+@property (readonly) HMFActivity *sessionActivity;
+@property (readonly) HMDCameraRecordingSessionSignificantEventManager *significantEventManager;
+@property (readonly) HMDCameraRecordingSessionVariantFragmentManager *timelapseFragmentManager;
+@property (readonly) unsigned long long recordingEventTriggers;
+@property BOOL noMoreFragmentsAvailable;
+@property (getter=isActive) BOOL active;
+@property unsigned long long currentFragmentNumber;
+@property unsigned long long pendingFragmentsCount;
+@property struct { long long value; int timescale; unsigned int flags; long long epoch; } clipStartTime;
+@property struct { long long value; int timescale; unsigned int flags; long long epoch; } timelapseClipStartTime;
+@property (retain) id<HMDCameraClipUploading> clipUploader;
+@property (retain) id<HMDCameraClipUploading> timelapseClipUploader;
+@property (retain) HMDDataStreamFragment *cameraVideoInitFragment;
+@property (retain) HMIVideoFragment *introFragment;
+@property (retain) HMIVideoAnalyzerFragmentResult *introAnalyzerResult;
+@property (retain) NSData *analysisVideoInitData;
+@property (retain) NSData *analysisTimelapseVideoInitData;
+@property (copy) NSNumber *remainingRecordingExtensionDuration;
+@property (copy) NSString *sessionDirectoryPath;
+@property (getter=isConfigured) BOOL configured;
+@property (retain) NSString *zoneName;
+@property (retain) NSUUID *clipUUID;
+@property (retain) NSDate *firstFragmentDate;
+@property (readonly, copy) NSUUID *identifier;
+@property (readonly) double configuredFragmentDuration;
+@property (readonly) HMDCameraRecordingSessionTimelineManager *timelineManager;
+@property (weak) id<HMDCameraFragmentHandlingDelegate> delegate;
+@property (readonly, copy) NSDictionary *stateDump;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void)configure;
+- (id)attributeDescriptions;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)activityZones;
+- (void)_writeFragment:(id)a0;
+- (BOOL)_shouldEndSessionAfterFragment:(id)a0;
+- (void)handleFragment:(id)a0;
+- (BOOL)_createSessionDirectory;
+- (void)_endSessionWithError:(id)a0;
+- (void)_finishCurrentClipUploader;
+- (void)_finishCurrentTimelapseClipUploader;
+- (void)_handleDidFailAnalysisWithError:(id)a0;
+- (void)_handleFragmentResult:(id)a0;
+- (BOOL)_isHKSV3Camera;
+- (BOOL)_isValidFirstSessionFragment:(id)a0;
+- (BOOL)_isValidNonFirstSessionFragment:(id)a0;
+- (void)_notifyForAnalyzerResult:(id)a0 fragment:(id)a1 timeOffsetWithinClip:(double)a2 recordingEventTriggers:(unsigned long long)a3;
+- (void)_notifyForSignificantEvent:(id)a0 recordingEventTriggers:(unsigned long long)a1 fragmentNumber:(unsigned long long)a2;
+- (BOOL)_shouldRecordFragmentWithAnalyzerResult:(id)a0 sequenceNumber:(unsigned long long)a1 recordingEventTriggers:(unsigned long long)a2 fragmentAnalyzedEvent:(id)a3;
+- (void)_submitNotificationSuccessMetricWithRecordingEventTriggers:(unsigned long long)a0 fragmentNumber:(unsigned long long)a1;
+- (void)_uploadFragment:(id)a0 withDuration:(double)a1 clipFinalizedBecauseMaxDurationExceeded:(BOOL)a2;
+- (void)_uploadTimelapseFragment:(id)a0;
+- (BOOL)activityZonesIncludedForSignificantEventDetection;
+- (void)analyzer:(id)a0 didAnalyzeFragmentWithResult:(id)a1;
+- (void)analyzer:(id)a0 didAnalyzeFrameWithResult:(id)a1;
+- (void)analyzer:(id)a0 didCreateTimelapseFragment:(id)a1;
+- (void)analyzer:(id)a0 didFailWithError:(id)a1;
+- (void)clipUploaderDidFail:(id)a0;
+- (void)handleMotionActive:(BOOL)a0;
+- (void)handleNoMoreFragmentsAvailableWithError:(id)a0;
+- (id)initWithWorkQueue:(id)a0 camera:(id)a1 hapAccessory:(id)a2 home:(id)a3 configuredFragmentDuration:(double)a4 timelineManager:(id)a5;
+- (id)initWithWorkQueue:(id)a0 camera:(id)a1 hapAccessory:(id)a2 home:(id)a3 configuredFragmentDuration:(double)a4 timelineManager:(id)a5 factory:(id)a6;
+- (void)variantFragmentManager:(id)a0 didSelectVariantFragment:(id)a1 overlapsFullFragment:(BOOL)a2;
+
+@end

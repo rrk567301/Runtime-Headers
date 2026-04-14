@@ -1,0 +1,13 @@
+@interface FLItemChangeObserver : NSObject {
+    int _notifyToken;
+    id /* block */ _itemChangeObserver;
+}
+
++ (id)observerWithChangeHandler:(id /* block */)a0;
+
+- (void)setItemChangeHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)timerUpdated;
+- (void)dealloc;
+
+@end

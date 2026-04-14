@@ -1,0 +1,3 @@
+@interface _TtC7MusicUIP33_D423B14B8D1791DBFE0F476C43032E1A18AbstractBindingBox : _TtCs12_SwiftObject
+
+@end

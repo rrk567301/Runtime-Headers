@@ -1,0 +1,43 @@
+@class HMDAccountRegistry, NSString, HMFFuture, HMFPromise;
+@protocol HMDHomeMembershipVerifier, HMDRemoteMessageTransportReachabilityDelegate;
+
+@interface HMDRemoteMessageTransport : HMFMessageTransport <HMFLogging, HMDDumpState>
+
+@property (readonly, nonatomic) HMFFuture *startFuture;
+@property (readonly, nonatomic) HMFPromise *startPromise;
+@property (readonly, nonatomic) int transportType;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) double defaultTimeout;
+@property (readonly, nonatomic) unsigned long long maximumNumberOfRetries;
+@property (readonly, nonatomic) double retryInterval;
+@property (readonly, nonatomic) HMDAccountRegistry *accountRegistry;
+@property (readonly, nonatomic, getter=isSecure) BOOL secure;
+@property (readonly, nonatomic) long long qualityOfService;
+@property (weak, nonatomic) id<HMDRemoteMessageTransportReachabilityDelegate> reachabilityDelegate;
+@property (readonly, weak, nonatomic) id<HMDHomeMembershipVerifier> homeMembershipVerifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (unsigned long long)restriction;
++ (id)logCategory;
++ (id)remoteMessageFromMessage:(id)a0 secure:(BOOL)a1 accountRegistry:(id)a2;
++ (id)remoteMessageTransportsForProductInfo:(id)a0;
+
+- (id)initWithAccountRegistry:(id)a0;
+- (BOOL)isValidMessage:(id)a0;
+- (BOOL)canSendMessage:(id)a0;
+- (id)remoteMessageFromMessage:(id)a0;
+- (void).cxx_destruct;
+- (id)dumpStateWithPrivacyLevel:(unsigned long long)a0;
+- (id)init;
+- (id)start;
+- (void)configureWithHomeMembershipVerifier:(id)a0;
+- (unsigned long long)numRetries;
+- (long long)compareCapability:(id)a0 key:(id)a1 withCapability:(id)a2;
+- (BOOL)doesResponse:(id)a0 matchAllCapabilities:(id)a1;
+- (id)matchResponse:(id)a0 requestedCapabilities:(id)a1;
+- (void)postDidReceiveRemoteMessageWithNoListenerFromDevice:(id)a0;
+
+@end

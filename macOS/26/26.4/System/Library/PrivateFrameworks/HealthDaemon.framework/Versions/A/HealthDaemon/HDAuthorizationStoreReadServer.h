@@ -1,0 +1,31 @@
+@class NSString;
+
+@interface HDAuthorizationStoreReadServer : HDStandardTaskServer <HKAuthorizationStoreReadServer, HDAuthorizationObserver>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)taskIdentifier;
++ (BOOL)validateClient:(id)a0 error:(id *)a1;
++ (id)requiredEntitlements;
+
+- (id)remoteInterface;
+- (id)exportedInterface;
+- (void)remote_fetchAuthorizationContextForPromptSession:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchAuthorizationRecordsForSourceBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchAuthorizationRecordsForType:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchAuthorizationStatusesForDocumentType:(id)a0 sourceBundleIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)remote_fetchAuthorizationStatusesForHealthConceptIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchAuthorizationStatusesForSampleUUID:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchConceptAuthorizationContextForPromptSession:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchConceptAuthorizationRecordsForSource:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchSourcesRequestingAuthorizationForTypes:(id)a0 completion:(id /* block */)a1;
+- (void)remote_fetchSourcesWithExistingAuthorizationsForHealthConceptDomain:(id)a0 completion:(id /* block */)a1;
+- (void)remote_registerObserverForBundleIdentifier:(id)a0;
+- (void)remote_unregisterObserverForBundleIdentifier:(id)a0;
+- (void)remote_validateRecalibrateEstimatesRequestRecord:(id)a0 completion:(id /* block */)a1;
+- (void)authorizationsUpdatedForBundleIdentifier:(id)a0 authorizationRecords:(id)a1;
+
+@end

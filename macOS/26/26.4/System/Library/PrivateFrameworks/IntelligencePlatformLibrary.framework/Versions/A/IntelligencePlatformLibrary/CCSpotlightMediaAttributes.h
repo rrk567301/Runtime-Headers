@@ -1,0 +1,96 @@
+@class NSString, NSArray, NSDate;
+
+@interface CCSpotlightMediaAttributes : CCItemMessage {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _decodeLock;
+    BOOL _lazyDecoding;
+    BOOL _isDecoded;
+    BOOL _hasRaw_contentCreationDate;
+    double _raw_contentCreationDate;
+    BOOL _hasRaw_contentModificationDate;
+    double _raw_contentModificationDate;
+    BOOL _hasRaw_downloadedDate;
+    double _raw_downloadedDate;
+    BOOL _hasRaw_lastUsedDate;
+    double _raw_lastUsedDate;
+    BOOL _hasRaw_addedDate;
+    double _raw_addedDate;
+}
+
+@property (readonly, nonatomic) BOOL contentRating;
+@property (readonly, nonatomic) NSString *comment;
+@property (readonly, nonatomic) NSDate *contentCreationDate;
+@property (readonly, nonatomic) NSDate *contentModificationDate;
+@property (readonly, nonatomic) NSArray *contentSources;
+@property (readonly, nonatomic) NSString *copyright;
+@property (readonly, nonatomic) NSDate *downloadedDate;
+@property (readonly, nonatomic) NSArray *editors;
+@property (readonly, nonatomic) NSDate *lastUsedDate;
+@property (readonly, nonatomic) NSArray *participants;
+@property (readonly, nonatomic) NSArray *projects;
+@property (readonly, nonatomic) NSDate *addedDate;
+@property (readonly, nonatomic) NSArray *codecs;
+@property (readonly, nonatomic) NSArray *contactKeywords;
+@property (readonly, nonatomic) unsigned int deliveryType;
+@property (nonatomic) BOOL hasDeliveryType;
+@property (readonly, nonatomic) unsigned long long duration;
+@property (nonatomic) BOOL hasDuration;
+@property (readonly, nonatomic) NSArray *mediaTypes;
+@property (readonly, nonatomic) NSArray *organizations;
+@property (readonly, nonatomic) BOOL streamable;
+@property (nonatomic) BOOL hasStreamable;
+@property (readonly, nonatomic) double totalBitRate;
+@property (nonatomic) BOOL hasTotalBitRate;
+@property (readonly, nonatomic) double audioBitRate;
+@property (nonatomic) BOOL hasAudioBitRate;
+@property (readonly, nonatomic) NSString *version;
+@property (readonly, nonatomic) double videoBitRate;
+@property (nonatomic) BOOL hasVideoBitRate;
+@property (readonly, nonatomic) NSArray *contributors;
+@property (readonly, nonatomic) NSArray *languages;
+@property (readonly, nonatomic) NSArray *publishers;
+@property (readonly, nonatomic) NSString *rights;
+@property (readonly, nonatomic) NSString *role;
+@property (readonly, nonatomic) NSArray *coverage;
+@property (readonly, nonatomic) NSString *director;
+@property (readonly, nonatomic) NSString *genre;
+@property (readonly, nonatomic) NSString *information;
+@property (readonly, nonatomic) BOOL local;
+@property (nonatomic) BOOL hasLocal;
+@property (readonly, nonatomic) NSString *originalFormat;
+@property (readonly, nonatomic) NSString *originalSource;
+@property (readonly, nonatomic) NSArray *performers;
+@property (readonly, nonatomic) unsigned long long playCount;
+@property (nonatomic) BOOL hasPlayCount;
+@property (readonly, nonatomic) NSString *producer;
+@property (readonly, nonatomic) double rating;
+@property (nonatomic) BOOL hasRating;
+@property (readonly, nonatomic) NSString *ratingDescription;
+@property (readonly, nonatomic) NSString *url;
+@property (readonly, nonatomic) NSString *urlDescription;
+@property (readonly, nonatomic) unsigned int contentRating;
+@property (nonatomic) BOOL hasContentRating;
+
++ (unsigned short)itemType;
++ (id)descriptionForTypeIdentifier:(unsigned short)a0;
++ (Class)contentMessageClass;
++ (Class)metaContentMessageClass;
++ (unsigned short)typeIdentifierForDescription:(id)a0;
+
+- (id)initWithData:(id)a0 error:(id *)a1;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (id)jsonDictionary;
+- (void).cxx_destruct;
+- (id)addedDate;
+- (id)contentModificationDate;
+- (id)lastUsedDate;
+- (id)contentCreationDate;
+- (id)downloadedDate;
+- (BOOL)decodeFieldValuesFromData:(id)a0 error:(id *)a1;
+- (BOOL)ensureDecodedWithError:(id *)a0;
+- (void)enumerateFieldsUsingBlock:(id /* block */)a0 parentFieldType:(unsigned short)a1;
+- (id)initLazyDecodedWithTrustedItemMessageData:(id)a0 error:(id *)a1;
+- (id)initWithItemMessageData:(id)a0 error:(id *)a1;
+- (id)initWithComment:(id)a0 contentCreationDate:(id)a1 contentModificationDate:(id)a2 contentSources:(id)a3 copyright:(id)a4 downloadedDate:(id)a5 editors:(id)a6 lastUsedDate:(id)a7 participants:(id)a8 projects:(id)a9 addedDate:(id)a10 codecs:(id)a11 contactKeywords:(id)a12 deliveryType:(id)a13 duration:(id)a14 mediaTypes:(id)a15 organizations:(id)a16 streamable:(id)a17 totalBitRate:(id)a18 audioBitRate:(id)a19 version:(id)a20 videoBitRate:(id)a21 contributors:(id)a22 languages:(id)a23 publishers:(id)a24 rights:(id)a25 role:(id)a26 contentRating:(id)a27 coverage:(id)a28 director:(id)a29 genre:(id)a30 information:(id)a31 local:(id)a32 originalFormat:(id)a33 originalSource:(id)a34 performers:(id)a35 playCount:(id)a36 producer:(id)a37 rating:(id)a38 ratingDescription:(id)a39 url:(id)a40 error:(id *)a41;
+- (id)initWithComment:(id)a0 contentCreationDate:(id)a1 contentModificationDate:(id)a2 contentSources:(id)a3 copyright:(id)a4 downloadedDate:(id)a5 editors:(id)a6 lastUsedDate:(id)a7 participants:(id)a8 projects:(id)a9 addedDate:(id)a10 codecs:(id)a11 contactKeywords:(id)a12 deliveryType:(id)a13 duration:(id)a14 mediaTypes:(id)a15 organizations:(id)a16 streamable:(id)a17 totalBitRate:(id)a18 audioBitRate:(id)a19 version:(id)a20 videoBitRate:(id)a21 contributors:(id)a22 languages:(id)a23 publishers:(id)a24 rights:(id)a25 role:(id)a26 coverage:(id)a27 director:(id)a28 genre:(id)a29 information:(id)a30 local:(id)a31 originalFormat:(id)a32 originalSource:(id)a33 performers:(id)a34 playCount:(id)a35 producer:(id)a36 rating:(id)a37 ratingDescription:(id)a38 url:(id)a39 urlDescription:(id)a40 contentRating:(id)a41 error:(id *)a42;
+
+@end

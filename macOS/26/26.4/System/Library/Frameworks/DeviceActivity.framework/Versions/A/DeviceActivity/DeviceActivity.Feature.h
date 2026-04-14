@@ -1,0 +1,10 @@
+@interface DeviceActivity.Feature : NSObject
+
+@property (class, nonatomic, readonly) BOOL isDataAccessEnabled;
+@property (class, nonatomic, readonly) BOOL isDeviceActivityEnabled;
+@property (class, nonatomic, readonly) BOOL isDeviceActivityBiomeEnabled;
+@property (class, nonatomic, readonly) BOOL isDeviceActivityUIEnabled;
+
+- (id)init;
+
+@end

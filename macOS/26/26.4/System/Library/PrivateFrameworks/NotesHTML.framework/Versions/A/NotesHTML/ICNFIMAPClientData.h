@@ -1,0 +1,19 @@
+@class NSMutableData, NSMutableString;
+
+@interface ICNFIMAPClientData : NSObject
+
+@property (retain) NSMutableData *data;
+@property (retain) NSMutableString *commandString;
+@property (retain) ICNFIMAPClientData *nextData;
+@property struct _NSRange { unsigned long long location; unsigned long long length; } dontLogRange;
+@property BOOL isFrozen;
+
+- (void)freeze;
+- (id)initWithData:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)addDataArgument:(id)a0 literalPlus:(BOOL)a1;
+- (void)addStringArgument:(id)a0;
+- (id)initWithStringWaitingForArguments:(id)a0;
+
+@end

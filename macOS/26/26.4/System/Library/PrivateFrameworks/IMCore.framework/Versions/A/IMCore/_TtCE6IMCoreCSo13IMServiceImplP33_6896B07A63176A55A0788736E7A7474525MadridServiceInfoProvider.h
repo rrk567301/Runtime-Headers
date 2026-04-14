@@ -1,0 +1,3 @@
+@interface _TtCE6IMCoreCSo13IMServiceImplP33_6896B07A63176A55A0788736E7A7474525MadridServiceInfoProvider : _TtCs12_SwiftObject
+
+@end

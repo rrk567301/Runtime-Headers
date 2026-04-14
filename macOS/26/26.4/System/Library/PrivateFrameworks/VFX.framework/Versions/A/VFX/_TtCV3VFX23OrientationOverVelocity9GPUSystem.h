@@ -1,0 +1,3 @@
+@interface _TtCV3VFX23OrientationOverVelocity9GPUSystem : VFX.ParticleEmitterGPUSystemStorage
+
+@end

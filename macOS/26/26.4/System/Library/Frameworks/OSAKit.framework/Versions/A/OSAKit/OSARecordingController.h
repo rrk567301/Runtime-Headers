@@ -1,0 +1,18 @@
+@class OSAScriptController;
+
+@interface OSARecordingController : NSObject {
+    OSAScriptController *_controller;
+    unsigned int _recordedScript;
+}
+
++ (id)sharedRecordingController;
+
+- (void)setController:(id)a0;
+- (id)controller;
+- (id)init;
+- (void)dealloc;
+- (void)handleRecordedTextAppleEvent:(id)a0 withReplyEvent:(id)a1;
+- (void)startRecordingForController:(id)a0;
+- (void)stopRecordingForController:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC15_MapKit_SwiftUIP33_12B12234844B097CF3C8872E2C690CB119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

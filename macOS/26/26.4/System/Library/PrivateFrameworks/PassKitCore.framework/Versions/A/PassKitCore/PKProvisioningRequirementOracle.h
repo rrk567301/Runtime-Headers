@@ -1,0 +1,12 @@
+@class _PKProvisioningRequirementOracle;
+
+@interface PKProvisioningRequirementOracle : NSObject {
+    _PKProvisioningRequirementOracle *_underlying;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)recoverableRequirements;
+- (id)requirementsForAddSecureElementPassConfiguration:(id)a0;
+
+@end

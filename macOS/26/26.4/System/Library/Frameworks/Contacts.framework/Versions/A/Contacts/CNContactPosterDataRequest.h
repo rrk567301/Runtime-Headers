@@ -1,0 +1,3 @@
+@interface CNContactPosterDataRequest : NSObject
+
+@end

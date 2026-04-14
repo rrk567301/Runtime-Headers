@@ -1,0 +1,15 @@
+@class NSArray;
+
+@interface Safari.BookmarksSidebarTableRecentlySavedCarousel : Safari.BookmarksSidebarTableCarouselView {
+    void /* unknown type, empty encoding */ linkPreviewMetadataProvider;
+    void /* function */ items;
+}
+
+@property (nonatomic, copy) NSArray *items;
+
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+
+@end

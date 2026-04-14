@@ -1,0 +1,10 @@
+@interface SiriAnalyticsDataCollectionPolicyClockObserver : NSObject {
+    void /* unknown type, empty encoding */ dataCollectionPolicy;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithSiriConfiguration:(id)a0 metastore:(id)a1;
+- (void)rootClockCreatedWithClockIdentifier:(id)a0 completion:(id /* block */)a1;
+
+@end
