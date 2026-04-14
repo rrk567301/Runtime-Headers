@@ -1,0 +1,30 @@
+@class NSTimer, NSString, CALayer;
+
+@interface CPKCategoryButton : NSButton {
+    CALayer *highlightLayer;
+}
+
+@property (nonatomic) unsigned long long pageIndex;
+@property (nonatomic) unsigned long long iconIndex;
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (retain, nonatomic) NSTimer *hoveringTimer;
+@property (copy, nonatomic) NSString *tooltipIdentifier;
+
++ (id)categoryButtonWithSizeBoundedToImage:(id)a0;
+
+- (BOOL)selected;
+- (void)mouseEntered:(id)a0;
+- (void)updateLayer;
+- (void)mouseExited:(id)a0;
+- (void).cxx_destruct;
+- (void)mouseUp:(id)a0;
+- (BOOL)isFlipped;
+- (void)updateTrackingAreas;
+- (BOOL)wantsLayer;
+- (BOOL)wantsUpdateLayer;
+- (void)hideTooltip;
+- (void)startHoveringTimerWithDuration:(double)a0;
+- (void)showTooltip;
+- (void)stopHoveringTimer;
+
+@end

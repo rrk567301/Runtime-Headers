@@ -1,0 +1,14 @@
+@interface FMFWildcardGestureRecognizer : NSGestureRecognizer
+
+@property (copy, nonatomic) id /* block */ pressureCallback;
+@property (copy, nonatomic) id /* block */ touchesBeganCallback;
+@property (copy, nonatomic) id /* block */ touchesEndedCallback;
+
+- (void)mouseDown:(id)a0;
+- (void).cxx_destruct;
+- (void)mouseUp:(id)a0;
+- (id)init;
+- (void)magnifyWithEvent:(id)a0;
+- (void)pressureChangeWithEvent:(id)a0;
+
+@end

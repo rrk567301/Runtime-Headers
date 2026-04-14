@@ -1,0 +1,28 @@
+@class NSString, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface EFQueueScheduler : NSObject <EFSuspendableScheduler, EFAssertableScheduler> {
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (readonly) BOOL prefersImmediateExecution;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)assertIsExecuting:(BOOL)a0;
+- (void)performSyncBarrierBlock:(id /* block */)a0;
+- (id)initWithQueue:(id)a0;
+- (void)performSyncBlock:(id /* block */)a0;
+- (id)performCancelableBlock:(id /* block */)a0;
+- (void)performVoucherPreservingBlock:(id /* block */)a0;
+- (id)performWithObject:(id)a0;
+- (void)suspend;
+- (id)afterDelay:(double)a0 performBlock:(id /* block */)a1;
+- (void)resume;
+- (void).cxx_destruct;
+- (id)init;
+- (void)performBlock:(id /* block */)a0;
+
+@end

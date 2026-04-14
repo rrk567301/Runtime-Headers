@@ -1,0 +1,3 @@
+@interface NSFocusScrollingHelper : NSObject
+
+@end

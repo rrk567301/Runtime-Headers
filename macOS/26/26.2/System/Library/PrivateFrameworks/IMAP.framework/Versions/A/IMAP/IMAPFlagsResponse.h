@@ -1,0 +1,12 @@
+@class NSSet;
+
+@interface IMAPFlagsResponse : IMAPResponse
+
+@property (copy, nonatomic) NSSet *flags;
+
++ (BOOL)handlesResponseWithName:(const char *)a0 ofLength:(unsigned long long)a1;
+
+- (void).cxx_destruct;
+- (id)description;
+
+@end

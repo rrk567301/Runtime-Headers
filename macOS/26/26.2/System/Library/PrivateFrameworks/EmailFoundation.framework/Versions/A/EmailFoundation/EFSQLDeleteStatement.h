@@ -1,0 +1,19 @@
+@class NSString, NSMutableArray;
+@protocol EFSQLValueExpressable;
+
+@interface EFSQLDeleteStatement : NSObject {
+    NSString *_table;
+    NSMutableArray *_orderExpressions;
+}
+
+@property (retain, nonatomic) id<EFSQLValueExpressable> where;
+@property (nonatomic) unsigned long long limit;
+@property (readonly, copy, nonatomic) NSString *queryString;
+
+- (id)initWithTable:(id)a0;
+- (void)orderByColumn:(id)a0 ascending:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)orderBy:(id)a0 ascending:(BOOL)a1;
+- (id)initWithTable:(id)a0 where:(id)a1;
+
+@end

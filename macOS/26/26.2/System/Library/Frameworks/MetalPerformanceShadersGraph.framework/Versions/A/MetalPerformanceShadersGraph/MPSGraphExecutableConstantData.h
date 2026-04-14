@@ -1,0 +1,18 @@
+@class NSURL, NSDictionary;
+
+@interface MPSGraphExecutableConstantData : MPSGraphObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) NSURL *mpsgraphPackageURL;
+@property (retain) NSDictionary *ioSurfaces;
+
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initForRequest:(id)a0;
+- (void)loadResources:(id)a0;
+- (void)extendWithRequest:(id)a0;
+- (void)loadIntoResourceManager:(void *)a0;
+
+@end

@@ -1,0 +1,13 @@
+@class NSNumber, NSString;
+
+@interface MTRTimeSynchronizationClusterTimeZoneStatusEvent : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *offset;
+@property (copy, nonatomic) NSString *name;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)description;
+- (id)init;
+
+@end

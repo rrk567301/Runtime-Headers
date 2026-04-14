@@ -1,0 +1,13 @@
+@interface MAAutoAssetSuspendResumeForSoftwareUpdateStatusResponseInfo : MAAutoAssetSuspendResumeForSoftwareUpdateResponseInfo
+
+@property (readonly, nonatomic) long long status;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)initWithStatus:(long long)a0;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (id)summary;
+
+@end

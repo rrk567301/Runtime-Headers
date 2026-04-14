@@ -1,0 +1,12 @@
+@interface DGGNGDefringeOperation : DGOperation
+
++ (id)attributes;
++ (id)inputKeys;
++ (id)outputKeys;
++ (id)_stringsTableName;
+
+- (id)initWithOperation:(id)a0;
+- (id)_filter;
+- (id)init;
+
+@end

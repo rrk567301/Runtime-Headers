@@ -1,0 +1,22 @@
+@class NSString, CSAudioPowerMeter;
+
+@interface CSAudioPowerProvider : NSObject <CSAudioPowerService> {
+    CSAudioPowerMeter *_powerMeter;
+    float _cachedAvgPower;
+    float _cachedPeakPower;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void).cxx_destruct;
+- (void)processAudioChunk:(id)a0;
+- (id)init;
+- (void)getAudioPowerUpdateWithCompletion:(id /* block */)a0;
+- (void)processAudioChunkForTV:(id)a0;
+
+@end

@@ -1,0 +1,11 @@
+@class NSSet;
+
+@interface VoiceActions.aa_encoder_125141826_nocropInput : _TtCs12_SwiftObject <MLFeatureProvider> {
+    void /* unknown type, empty encoding */ input_wav;
+}
+
+@property (nonatomic, readonly) NSSet *featureNames;
+
+- (id)featureValueForName:(id)a0;
+
+@end

@@ -1,0 +1,26 @@
+@class NSTextLayoutFragment, NSString, NSTextParagraphAnchoredAttachment, NSTextView;
+
+@interface _NSTextParagraphAnchoredAttachmentView : NSView <NSTextViewportRenderingSurface> {
+    NSTextView *_textView;
+    NSTextLayoutFragment *_textLayoutFragment;
+}
+
+@property (readonly, weak) NSTextParagraphAnchoredAttachment *anchoredAttachment;
+@property (weak) NSTextLayoutFragment *textLayoutFragment;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)textLayoutFragment;
+- (void)layout;
+- (void).cxx_destruct;
+- (void)setTextLayoutFragment:(id)a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isFlipped;
+- (void)dealloc;
+- (unsigned long long)autoresizingMask;
+- (id)initWithTextView:(id)a0 anchoredAttachment:(id)a1;
+- (BOOL)shouldBeArchived;
+
+@end

@@ -1,0 +1,26 @@
+@class NSArray, NSDictionary;
+
+@interface CSEventListenerTasksManager : NSObject {
+    NSArray *_delegates;
+    NSDictionary *_tasks;
+}
+
++ (void)initialize;
++ (id)sharedInstance;
++ (void)setTurboModeOnForUnitTest;
+
+- (void).cxx_destruct;
+- (_Atomic BOOL *)allowed;
+- (BOOL)turboMode;
+- (void)setTurboMode:(BOOL)a0;
+- (void)startTaskForIndexType:(unsigned int)a0 delegate:(id)a1;
+- (void)registerEventListenerDelegates:(id)a0;
+- (BOOL)alwaysAllowed:(id)a0;
+- (void)endJobForDelegate:(id)a0;
+- (void)endTaskForIndexType:(unsigned int)a0 delegate:(id)a1;
+- (void)eventListenerManagerSetupScheduler;
+- (void)launchIntensiveTasks;
+- (void)launchQueryUpdatesTasks;
+- (BOOL)taskAllowedForName:(id)a0 eventType:(int)a1 indexType:(unsigned int)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface LegalAndRegulatorySettingsSupport.DeviceGestaltCapabilities : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore31RemoteActivitySubscriptionStore : _TtCC9ChronoKit19ChronoMetadataStore16DatabaseAccessor
+
+@end

@@ -1,0 +1,36 @@
+@class NSString;
+
+@interface PTPDataPacket : NSObject {
+    struct _PTPRange { unsigned long long location; unsigned long long length; } _range;
+    id _data;
+}
+
+@property (nonatomic) unsigned short operationCode;
+@property (nonatomic) unsigned int transactionID;
+@property (nonatomic) long long bufferSize;
+@property (nonatomic) long long offsetInBuffer;
+@property (nonatomic) long long bytesTransferred;
+@property (copy, nonatomic) NSString *filepath;
+@property (nonatomic) BOOL unlinkWhenDone;
+@property (retain, nonatomic) id data;
+@property (retain, nonatomic) id dataSource;
+@property (nonatomic) int fd;
+
+- (int)setRange:(struct _PTPRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void).cxx_destruct;
+- (struct _PTPRange { unsigned long long x0; unsigned long long x1; })range;
+- (id)description;
+- (void)dealloc;
+- (id)contentForUSB;
+- (id)initWithUSBBuffer:(void *)a0;
+- (id)contentForUSBUsingBuffer:(void *)a0 capacity:(unsigned int)a1;
+- (long long)copyDataToWrappedBytes:(id)a0 forTransport:(unsigned short)a1 fromOffset:(unsigned long long)a2;
+- (long long)copyFromBuffer:(void *)a0 numBytes:(long long)a1;
+- (long long)copyHeaderToWrappedBytes:(id)a0 forTransport:(unsigned short)a1;
+- (long long)copyToBuffer:(void *)a0 numBytes:(long long)a1;
+- (long long)copyToWrappedBytes:(id)a0 forTransport:(unsigned short)a1;
+- (id)initWithOperationCode:(unsigned short)a0 transactionID:(unsigned int)a1 andData:(id)a2;
+- (id)initWithOperationCode:(unsigned short)a0 transactionID:(unsigned int)a1 andDataSource:(id)a2;
+- (id)initWithOperationCode:(unsigned short)a0 transactionID:(unsigned int)a1 andFilepath:(id)a2;
+
+@end

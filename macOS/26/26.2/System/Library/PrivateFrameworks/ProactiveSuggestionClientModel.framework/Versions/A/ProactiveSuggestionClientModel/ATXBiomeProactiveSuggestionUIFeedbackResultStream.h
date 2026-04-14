@@ -1,0 +1,17 @@
+@class NSString, BMStoreStream;
+
+@interface ATXBiomeProactiveSuggestionUIFeedbackResultStream : NSObject <BMStream, BMSourceStream> {
+    BMStoreStream *_inner;
+}
+
+@property (readonly, nonatomic) NSString *identifier;
+
+- (void)sendEvent:(id)a0;
+- (id)initWithStoreConfig:(id)a0;
+- (id)publisherWithStartTime:(id)a0 endTime:(id)a1;
+- (id)publisherFromStartTime:(double)a0;
+- (id)source;
+- (void).cxx_destruct;
+- (id)init;
+
+@end

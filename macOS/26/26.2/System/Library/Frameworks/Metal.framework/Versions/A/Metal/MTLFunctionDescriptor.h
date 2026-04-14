@@ -1,0 +1,44 @@
+@class NSString, NSArray, MTLFunctionConstantValues, NSDictionary;
+
+@interface MTLFunctionDescriptor : NSObject <NSCopying> {
+    struct MTLFunctionDescriptorPrivate { NSString *name; NSString *specializedName; unsigned long long options; MTLFunctionConstantValues *constantValues; NSArray *binaryArchives; BOOL applyFunctionConstants; NSArray *privateFunctions; } _private;
+    unsigned long long _pipelineOptions;
+    NSDictionary *_pluginData;
+}
+
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *specializedName;
+@property (copy, nonatomic) MTLFunctionConstantValues *constantValues;
+@property (nonatomic) unsigned long long options;
+@property (copy, nonatomic) NSArray *binaryArchives;
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (id)functionDescriptor;
++ (id)alloc;
+
+- (void)setPluginData:(id)a0;
+- (unsigned long long)pipelineOptions;
+- (void)setPipelineOptions:(unsigned long long)a0;
+- (id)pluginData;
+- (void)setOptions:(unsigned long long)a0;
+- (struct { unsigned char x0[32]; })hashStableWithFunction:(id)a0;
+- (void)setName:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)constantValues;
+- (BOOL)applyFunctionConstants;
+- (void)setPrivateFunctions:(id)a0;
+- (id)formattedDescription:(unsigned long long)a0;
+- (void)setSpecializedName:(id)a0;
+- (unsigned long long)options;
+- (id)description;
+- (id)name;
+- (void)setConstantValues:(id)a0;
+- (id)specializedName;
+- (id)init;
+- (void)setApplyFunctionConstants:(BOOL)a0;
+- (id)privateFunctions;
+- (void)dealloc;
+
+@end

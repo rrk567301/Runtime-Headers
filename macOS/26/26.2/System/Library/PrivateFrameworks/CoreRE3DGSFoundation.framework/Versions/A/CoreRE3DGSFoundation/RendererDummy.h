@@ -1,0 +1,3 @@
+@interface RendererDummy : NSObject
+
+@end

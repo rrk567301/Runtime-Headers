@@ -1,0 +1,3 @@
+@interface _TtCO22PhotosSpatialMediaCore12SpatialPhoto28OcclusionDepthDebugCollector : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface AuthenticationServices.ASAccountUpgradeInformationProviderImplementation : _TtCs12_SwiftObject
+
+@end

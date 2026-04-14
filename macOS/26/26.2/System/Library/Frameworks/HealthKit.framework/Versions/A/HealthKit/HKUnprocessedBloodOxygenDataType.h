@@ -1,0 +1,3 @@
+@interface HKUnprocessedBloodOxygenDataType : HKSampleType
+
+@end

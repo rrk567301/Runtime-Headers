@@ -1,0 +1,3 @@
+@interface _TtCV3VFX24ParticleTextureFrameInit9GPUSystem : VFX.ParticleEmitterGPUSystemStorage
+
+@end

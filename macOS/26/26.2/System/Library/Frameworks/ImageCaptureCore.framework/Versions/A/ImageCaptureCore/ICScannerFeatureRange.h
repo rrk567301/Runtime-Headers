@@ -1,0 +1,17 @@
+@interface ICScannerFeatureRange : ICScannerFeature {
+    id _rvProps;
+}
+
+@property double currentValue;
+@property (readonly) double defaultValue;
+@property (readonly) double minValue;
+@property (readonly) double maxValue;
+@property (readonly) double stepSize;
+
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithDictionary:(id)a0;
+- (double)getValidatedValue:(double)a0;
+- (id)oldAndNewSettings:(id)a0;
+
+@end

@@ -1,0 +1,18 @@
+@class NSMutableArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CCSetChangeXPCEventHandler : NSObject
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSMutableArray *listeners;
+
++ (id)sharedInstance;
+
+- (void)removeListener:(id)a0;
+- (void)addListener:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)_handleXPCEvent:(id)a0;
+- (void)_setupEventHandlingWithListener:(id)a0;
+
+@end

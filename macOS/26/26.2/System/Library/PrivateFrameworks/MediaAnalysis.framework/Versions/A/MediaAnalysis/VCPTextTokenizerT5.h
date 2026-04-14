@@ -1,0 +1,10 @@
+@interface VCPTextTokenizerT5 : VCPTextTokenizer {
+    struct unique_ptr<sentencepiece::SentencePieceProcessor, std::default_delete<sentencepiece::SentencePieceProcessor>> { struct { struct SentencePieceProcessor *__ptr_; } ; } _processor;
+}
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)init;
+- (id)encode:(id)a0;
+
+@end

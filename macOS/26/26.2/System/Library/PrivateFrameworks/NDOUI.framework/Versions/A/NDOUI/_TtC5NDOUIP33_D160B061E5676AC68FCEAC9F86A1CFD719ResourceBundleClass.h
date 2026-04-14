@@ -1,0 +1,3 @@
+@interface _TtC5NDOUIP33_D160B061E5676AC68FCEAC9F86A1CFD719ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC31AppleMediaServicesUIKitInternalP33_297A11C5A86412DCD7AC75485E099E3D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

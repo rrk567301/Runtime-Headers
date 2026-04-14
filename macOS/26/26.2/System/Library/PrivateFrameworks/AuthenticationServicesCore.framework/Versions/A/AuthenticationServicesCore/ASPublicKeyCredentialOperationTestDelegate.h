@@ -1,0 +1,26 @@
+@class NSString;
+
+@interface ASPublicKeyCredentialOperationTestDelegate : NSObject <ASPublicKeyCredentialManagerDelegate>
+
+@property (copy, nonatomic) id /* block */ didCompletionRegistrationCallback;
+@property (readonly, nonatomic) BOOL isAutoFillOperation;
+@property (readonly, nonatomic) BOOL isCABLEAuthenticatorRequest;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)didReceiveError:(long long)a0;
+- (void)didCompleteAssertionWithCredential:(id)a0 error:(id)a1;
+- (void)didCompleteRegistrationWithCredential:(id)a0 error:(id)a1;
+- (void)didEnterCorrectPIN;
+- (void)didFetchPlatformLoginChoices:(id)a0;
+- (void)didFetchSecurityKeyLoginChoices:(id)a0;
+- (void)presentCABLESheetWithCompletionHandler:(id /* block */)a0;
+- (void)requestNewPINWithMinLength:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)requestPINWithRemainingRetries:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (BOOL)urlMatchesRequestOrigin:(id)a0;
+- (id)viewServiceListenerEndpoint;
+
+@end

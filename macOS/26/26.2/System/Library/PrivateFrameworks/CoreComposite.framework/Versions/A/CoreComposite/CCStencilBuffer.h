@@ -1,0 +1,3 @@
+@interface CCStencilBuffer : NSObject
+
+@end

@@ -1,0 +1,38 @@
+@class CBPeripheralManager, NSUUID, NSDictionary, NSString, NSObject, WPAdvertisingRequest;
+@protocol OS_dispatch_queue;
+
+@interface WPDObjectDiscoveryManager : WPDManager <CBPeripheralManagerDelegate, WPDObjectDiscoveryAdvertiser>
+
+@property (readonly, weak) NSObject<OS_dispatch_queue> *serverQueue;
+@property (retain) CBPeripheralManager *peripheralManager;
+@property BOOL advertising;
+@property (retain) WPAdvertisingRequest *advertRequest;
+@property (weak) NSUUID *advertClientUUID;
+@property (retain) NSDictionary *advertOptions;
+@property unsigned long long advertHash;
+@property (readonly, nonatomic) BOOL advAllowlisted;
+@property (readonly) BOOL scanning;
+@property BOOL scanningDisabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)cleanup;
+- (id)removeAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (BOOL)updateAdvertisingOptionsWithError:(id *)a0;
+- (id)updateAdvertiser;
+- (void)peripheralManager:(id)a0 didStopAdvertisingWithError:(id)a1;
+- (id)generateStateDumpStrings;
+- (void)stopAdvertiser;
+- (void)removeAdvertisingRequestsForClient:(id)a0;
+- (void).cxx_destruct;
+- (void)resetAdvertiser;
+- (void)update;
+- (void)peripheralManagerDidStartAdvertising:(id)a0 error:(id)a1;
+- (id)initWithServer:(id)a0;
+- (void)startAdvertiser;
+- (id)addAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (BOOL)advertOptionsChanged:(id)a0;
+
+@end

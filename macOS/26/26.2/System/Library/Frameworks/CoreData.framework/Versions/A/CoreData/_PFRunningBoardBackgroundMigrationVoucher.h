@@ -1,0 +1,3 @@
+@interface _PFRunningBoardBackgroundMigrationVoucher : _PFBackgroundRuntimeVoucher
+
+@end

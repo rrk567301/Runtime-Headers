@@ -1,0 +1,15 @@
+@interface _TtCC6Safari40CompletionListCollectionViewSearchUIItemP33_3E02F67DE46C7ECE4006B5957ECEB52929SearchUIItemAccessibilityView : NSView {
+    void /* unknown type, empty encoding */ indexInCompletionList;
+    void /* unknown type, empty encoding */ collectionViewItem;
+}
+
+- (id)initWithCoder:(id)a0;
+- (id)accessibilityRole;
+- (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isAccessibilityElement;
+- (long long)accessibilityIndex;
+- (BOOL)isAccessibilityEnabled;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+
+@end

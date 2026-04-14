@@ -1,0 +1,12 @@
+@interface WFFilesystemStateManager : NSObject {
+    void /* unknown type, empty encoding */ fileStateWorkQueue;
+    void /* unknown type, empty encoding */ database;
+}
+
++ (BOOL)isDirectoryCountBelowLimitFor:(id)a0 ignoringSubfolders:(BOOL)a1;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithDatabase:(id)a0 workQueue:(id)a1;
+
+@end

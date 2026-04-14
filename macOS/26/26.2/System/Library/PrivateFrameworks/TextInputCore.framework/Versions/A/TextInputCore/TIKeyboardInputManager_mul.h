@@ -1,0 +1,97 @@
+@class NSDictionary, TIKeyboardFeatureSpecialization;
+
+@interface TIKeyboardInputManager_mul : TIKeyboardInputManager {
+    BOOL _isSuspended;
+    BOOL _choseSecondaryPrev;
+}
+
+@property (nonatomic) BOOL choseSecondary;
+@property (readonly, nonatomic) TIKeyboardFeatureSpecialization *keyboardFeatureSpecializationSecondary;
+@property (nonatomic) long long reasonForFreezing;
+@property (readonly, nonatomic) BOOL shouldDynamicallySwitchBetweenPrimaryAndSecondary;
+@property (nonatomic) long long indexOfLastDynamicSwitch;
+@property (nonatomic) BOOL shouldAutocapitalizeCandidates;
+@property (nonatomic) struct USet { } *validUSetForAutocorrection;
+@property (nonatomic) struct USet { } *validUSetForAutocorrectionSecondary;
+@property (readonly, nonatomic) NSDictionary *keyLayoutMap;
+@property (readonly, nonatomic) NSDictionary *keyLayoutMapReverse;
+
++ (id)generateKeyLayoutMap;
++ (id)generateKeyLayoutMapReverse;
++ (id)generateKeyLayoutMapReverseV2;
++ (id)generateKeyLayoutMapV2;
++ (int)primaryScriptForLanguageWithRegion:(id)a0;
++ (id)textContentTypesPreferringSecondaryInputMode;
+
+- (BOOL)usesRetrocorrection;
+- (void)clearInput;
+- (BOOL)isUsingMultiscript;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })acceptableRangeFromRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 inText:(id)a1 withSelectionLocation:(unsigned long long)a2;
+- (void)keyLayoutDidChangeTo:(id)a0;
+- (unsigned int)lexiconIDForInputMode:(id)a0;
+- (void)updateChoseSecondaryOnBackspaceIntoWord;
+- (id)getPlainCandidate;
+- (id)alternativeInputMode;
+- (id)lexiconLocaleOfString:(id)a0 inputMode:(id)a1;
+- (BOOL)validEnglishTransformerMultilingualConfig;
+- (id)internalStringToExternal:(id)a0 ignoreCompositionDisabled:(BOOL)a1;
+- (void *)languageModelContainer;
+- (BOOL)isHighMemoryManager;
+- (id)typedStringForEmptyAutocorrection;
+- (void)setInput:(id)a0 withIndex:(unsigned int)a1;
+- (id)internalStringToExternal:(id)a0;
+- (id)sentencePrefixingCharacters;
+- (void)chooseBetterInputMethod;
+- (id)chosenInputMode;
+- (struct vector<KB::LexiconInfo, std::allocator<KB::LexiconInfo>> { struct *x0; struct *x1; struct { struct *x0; } x2; })lexiconInformationVector;
+- (void)suspend;
+- (float)weightForInputMode:(id)a0;
+- (id)getCurrentExternalStringGiven:(BOOL)a0;
+- (void)setInput:(id)a0;
+- (id)keyLayoutMapAsNearbyKeys;
+- (void)resume;
+- (id)externalStringToInternal:(id)a0;
+- (void).cxx_destruct;
+- (id)listOfModelLocalesFromActiveInputModes;
+- (id)modelLoaderForModelLocaleMapping:(id)a0 customResourcePaths:(id)a1 dynamicResourcePath:(id)a2 usesLinguisticContext:(BOOL)a3 isMultiLingualModeEnabled:(BOOL)a4 validEnglishTransformerMultilingualConfig:(BOOL)a5;
+- (void)didUpdateInputModes:(id)a0;
+- (BOOL)updateLanguageModelForKeyboardState;
+- (id)getBetterLexiconLocale:(BOOL *)a0;
+- (void)loadDictionaries;
+- (BOOL)adjustLexiconInfoIfNeeded:(struct { struct String { unsigned short x0; unsigned short x1; unsigned short x2; unsigned char x3; char *x4; char x5[16]; } x0; struct String { unsigned short x0; unsigned short x1; unsigned short x2; unsigned char x3; char *x4; char x5[16]; } x1; struct String { unsigned short x0; unsigned short x1; unsigned short x2; unsigned char x3; char *x4; char x5[16]; } x2; struct String { unsigned short x0; unsigned short x1; unsigned short x2; unsigned char x3; char *x4; char x5[16]; } x3; struct String { unsigned short x0; unsigned short x1; unsigned short x2; unsigned char x3; char *x4; char x5[16]; } x4; unsigned int x5; BOOL x6; float x7; } *)a0 givenInputMode:(id)a1;
+- (void)handleAlternativeInput:(id)a0 givenCandidate:(id)a1;
+- (id)secondaryInputMode;
+- (BOOL)isUsingMultilingual;
+- (void)handleInputMethodChoiceFreezeGivenInput:(id)a0;
+- (id)externalStringToInternal:(id)a0 ignoreCompositionDisabled:(BOOL)a1;
+- (BOOL)emphasizesAlternativeInput;
+- (BOOL)shouldPassAlternativeInputAsPrediction:(id)a0 isRecognized:(BOOL)a1;
+- (id)handleKeyboardInput:(id)a0;
+- (void)updateInputContext;
+- (id)sentenceTrailingCharacters;
+- (void)updateAutocorrectionListGivenOutdatedInput:(id)a0 andUpdatedInput:(id)a1;
+- (id)generateTypingAutocorrectionsWithCandidateRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)initWithConfig:(id)a0 keyboardState:(id)a1;
+- (BOOL)acceptsCharacter:(unsigned int)a0;
+- (id)clauseDelimitingCharacters;
+- (id)externalStringToInternal:(id)a0 ignoreCompositionDisabled:(BOOL)a1 useReverseMap:(BOOL)a2;
+- (id)wordSeparatorForCandidate:(id)a0;
+- (void)updateLanguagePriors;
+- (id)keyboardConfiguration;
+- (id)internalStringToSecondaryExternal:(id)a0;
+- (BOOL)stringIsRecognizedByAlternativeIM:(id)a0;
+- (BOOL)shouldDynamicallySwitchBetweenPrimaryAndSecondaryWrapper;
+- (BOOL)shouldUpdateDictionary;
+- (void)handleCandidateAutocapitalization;
+- (void)handleClearSessionGivenInput:(id)a0;
+- (id)sentenceDelimitingCharacters;
+- (id)resourceInputModes;
+- (BOOL)containsActiveLanguage:(id)a0 language:(id)a1;
+- (void)didUpdateInputModeProbabilities:(id)a0;
+- (id)candidateArray:(id)a0 withCandidateUniquelyInsertedToFront:(id)a1;
+- (void)enumerateInputModesWithBlock:(id /* block */)a0;
+- (id)modelLocaleToInputModeMapping;
+- (id)currentExternalString;
+- (long long)supportedReasonsForInputMethodChoiceFreeze;
+
+@end

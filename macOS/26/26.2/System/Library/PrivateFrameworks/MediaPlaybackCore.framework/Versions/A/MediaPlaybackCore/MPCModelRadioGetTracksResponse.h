@@ -1,0 +1,12 @@
+@class MPSectionedCollection;
+
+@interface MPCModelRadioGetTracksResponse : NSObject
+
+@property (readonly, nonatomic) long long tracklistAction;
+@property (readonly, copy, nonatomic) MPSectionedCollection *tracks;
+
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithTracks:(id)a0 tracklistAction:(long long)a1;
+
+@end

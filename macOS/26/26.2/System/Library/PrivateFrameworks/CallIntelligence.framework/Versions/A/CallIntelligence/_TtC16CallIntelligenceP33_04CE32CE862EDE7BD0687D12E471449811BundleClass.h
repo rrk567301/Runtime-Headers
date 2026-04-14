@@ -1,0 +1,3 @@
+@interface _TtC16CallIntelligenceP33_04CE32CE862EDE7BD0687D12E471449811BundleClass : _TtCs12_SwiftObject
+
+@end

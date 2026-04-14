@@ -1,0 +1,3 @@
+@interface VCExperimentDefinitions : NSObject
+
+@end

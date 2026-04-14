@@ -1,0 +1,56 @@
+@interface AAPreferences : NSObject
+
++ (void)setCustomMaintenanceIntervalEnabled:(BOOL)a0;
++ (BOOL)isRCInSettingsEnabled;
++ (BOOL)isMomentsDataclassEnabled;
++ (void)setDisableADPStateHealing:(BOOL)a0;
++ (BOOL)isIdentityKitEnabled;
++ (BOOL)isRunningInStoreDemoMode;
++ (BOOL)_os_feature_enabled_Journal_iPadOS;
++ (void)setMultipleFullAccountsEnabled:(BOOL)a0;
++ (BOOL)simulate2FAFA;
++ (BOOL)isHealthCheckTTREnabled;
++ (BOOL)isSimulateUnhealthyCustodianEnabled;
++ (BOOL)isSignInSecurityRedesignEnabled;
++ (BOOL)shouldEnableAccountUserNotifications;
++ (void)setCustomHealthCheckIntervalMinutes:(long long)a0;
++ (void)setShouldUseUnifiedLoginEndpoint:(BOOL)a0;
++ (long long)customHealthCheckReachabilityIntervalMinutes;
++ (void)setCustomMaintenanceIntervalMinutes:(long long)a0;
++ (void)setCustomHealthCheckIntervalEnabled:(BOOL)a0;
++ (BOOL)isLCMessageExtensionEnabled;
++ (BOOL)isLCInviteAcceptanceEnabled;
++ (void)setExperimentalModeEnabled:(BOOL)a0;
++ (BOOL)shouldSkipIdMSFinalizeCustodian;
++ (BOOL)_os_feature_enabled_Journal_macOS;
++ (void)setHealthCheckTTREnabled:(BOOL)a0;
++ (BOOL)isYorktownEnabled;
++ (BOOL)isNeverSkipCustodianCheckEnabled;
++ (BOOL)shouldSkipIdMSKeyUpdate;
++ (BOOL)shouldSkipRecoveryInfoRecordStorage;
++ (BOOL)shouldShowAccountContacts;
++ (void)setCustomHealthFailureReachabilityIntervalMinutes:(long long)a0;
++ (BOOL)shouldUseUnifiedLoginEndpoint;
++ (void)setLCInviteAcceptanceEnabled:(BOOL)a0;
++ (id)getCustodianInfo;
++ (BOOL)shouldEnableFastSignIn;
++ (BOOL)isSignInSecurityRedesignMacOSEnabled;
++ (void)setShouldShowAccountContacts:(BOOL)a0;
++ (long long)customHealthCheckIntervalMinutes;
++ (void)setNeverSkipCustodianCheckEnabled:(BOOL)a0;
++ (id)getTrustedContactsPreflightInfo;
++ (long long)customMaintenanceIntervalMinutes;
++ (BOOL)isCustomMaintenanceIntervalEnabled;
++ (void)setSimulateUnhealthyCustodianEnabled:(BOOL)a0;
++ (BOOL)isCustomHealthCheckIntervalEnabled;
++ (BOOL)shouldEnableUnifyRenewCredentials;
++ (BOOL)isExperimentalModeEnabled;
++ (void)setCustomHealthCheckVersion:(long long)a0;
++ (long long)customHealthCheckVersion;
++ (void)setCustodianInfo:(id)a0;
++ (BOOL)isRCUpsellEnabled;
++ (BOOL)disableADPStateHealing;
++ (void)setTrustedContactsPreflightInfo:(id)a0;
++ (BOOL)isMultipleFullAccountsEnabled;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC11WeatherCoreP33_31EE8C75DD026BF5B6FAA0789B4D5B9619SavedLocationsActor : _TtCs12_SwiftObject
+
+@end

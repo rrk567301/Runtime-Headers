@@ -1,0 +1,28 @@
+@class NSString, UTType, NSURL, NSSet, NSNumber;
+
+@interface IMCollaborationNoticeMetadata : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) long long type;
+@property (retain, nonatomic) NSNumber *typeNumber;
+@property (retain, nonatomic) NSString *bundleIdentifier;
+@property (retain, nonatomic) NSURL *contentURL;
+@property (retain, nonatomic) NSString *contentTitle;
+@property (retain, nonatomic) UTType *contentType;
+@property (retain, nonatomic) NSString *messageGUID;
+@property (retain, nonatomic) NSSet *targetChatGUIDs;
+
++ (id)metadataWithType:(long long)a0 bundleIdentifier:(id)a1 contentURL:(id)a2 contentTitle:(id)a3 contentType:(id)a4 messageGUID:(id)a5;
++ (id)metadataWithType:(long long)a0 bundleIdentifier:(id)a1 contentURL:(id)a2 contentTitle:(id)a3 contentType:(id)a4 messageGUID:(id)a5 targetChatGUIDs:(id)a6;
+
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithNoticeType:(long long)a0 bundleIdentifier:(id)a1 contentURL:(id)a2 contentTitle:(id)a3 contentType:(id)a4 messageGUID:(id)a5 targetChatGUIDs:(id)a6;
+
+@end

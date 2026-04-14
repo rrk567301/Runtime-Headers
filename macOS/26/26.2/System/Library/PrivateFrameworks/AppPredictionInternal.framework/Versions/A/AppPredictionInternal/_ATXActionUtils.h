@@ -1,0 +1,54 @@
+@interface _ATXActionUtils : NSObject
+
++ (id)atxActionFromProactiveSuggestion:(id)a0;
++ (BOOL)isNSUAType:(id)a0;
++ (id)getActivityTypeFromNSUAType:(id)a0;
++ (id)stringForSpecificGeohash:(long long)a0;
++ (int)timeBucketFromZeroToTwentyFour:(unsigned long long)a0;
++ (id)stringForSpecificTimeDOWLocation:(id)a0 timeZone:(id)a1 geohash:(long long)a2;
++ (void)resetActionPredictions;
++ (id)markTodayInTitleAndUserActivityString:(id)a0 withActionKey:(id)a1;
++ (double)computeNormalizedBetaDistEngagementScoreWithPriorAlpha:(int)a0 priorBeta:(int)a1 confirms:(double)a2 rejects:(double)a3 totalConfirms:(double)a4 totalRejects:(double)a5;
++ (void)resetDocumentPredictions;
++ (id)stringForCoarseTimePOWLocation:(id)a0 timeZone:(id)a1 coarseGeohash:(long long)a2;
++ (void)prefillActionSlotDatabase;
++ (long long)localHourOfDayFromDate:(id)a0;
++ (BOOL)uniqueRecipientsMatchedBetweenIntent:(id)a0 andIntent:(id)a1;
++ (id)limitParameterCombinations:(id)a0 limit:(int)a1;
++ (id)filterContainersWithNilAction:(id)a0;
++ (BOOL)shouldPredictRecipient:(id)a0 withDate:(id)a1 andRecipientDate:(id)a2;
++ (BOOL)isINStartCallIntentSupportedForAction:(id)a0;
++ (id)getActionTypesFromActionKeys:(id)a0;
++ (id)timeOfDayAndDayOfWeekForDate:(id)a0 timeZone:(id)a1;
++ (id)stringForDayOfWeek:(id)a0 timeZone:(id)a1;
++ (id)getBundleIdsFromActionKeys:(id)a0;
++ (id)stringForCoarseGeohash:(long long)a0;
++ (id)recipientFromMessageIntent:(id)a0;
++ (void)fetchDataAndUpdateContentAttributeSetForAction:(id)a0;
++ (id)atxActionsFromProactiveSuggestions:(id)a0;
++ (int)timeBucketFromZeroToTwentyFour:(id)a0 timeZone:(id)a1;
++ (id)partOfWeekStringForDate:(id)a0;
++ (BOOL)isTitleEquivalenceBetweenAction:(id)a0 other:(id)a1;
++ (id)stringForZoom7Geohash:(long long)a0;
++ (BOOL)shouldAcceptAudioOrVideoCallIntent:(id)a0;
++ (id /* block */)actionKeyFilterForCandidateBundleIds:(id)a0 candidateActionTypes:(id)a1 blacklist:(id)a2;
++ (void)prefillActionHistograms;
++ (id)stringForTwoHourTimeWindow:(id)a0 timeZone:(id)a1;
++ (BOOL)isCallIntentEquivalenceBetweenAction:(id)a0 other:(id)a1;
++ (BOOL)isActionKey:(id)a0;
++ (void)resetHistogramsAndRemoveUICaches;
++ (BOOL)shouldAcceptMessageContent:(id)a0;
++ (id)getBundleIdAndActionTypeFromActionKey:(id)a0;
++ (id)slotSetsForAction:(id)a0 intentCache:(id)a1;
++ (id)stringForTimeOfDayAndDayOfWeek:(id)a0 timeZone:(id)a1;
++ (BOOL)isContainmentBetweenAction:(id)a0 other:(id)a1;
++ (id)sha256hex:(id)a0;
++ (id)swapUserActivityString:(id)a0 withActionKey:(id)a1 withNewTitle:(id)a2 withNewDateString:(id)a3;
++ (id)getActionTypeFromActionKey:(id)a0;
++ (id)slotSetsForAction:(id)a0;
++ (double)calculateWeightWith:(unsigned long long)a0 strength:(double)a1 docLength:(unsigned long long)a2;
++ (id)firstIntent:(id)a0 inAppLaunchSession:(id)a1;
++ (id)_extractValueInKeyValueBlob:(id)a0 withKey:(id)a1;
++ (id)getBundleIdFromActionKey:(id)a0;
+
+@end

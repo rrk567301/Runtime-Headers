@@ -1,0 +1,3 @@
+@interface _TtC19FlightUtilitiesCoreP33_82CA416D011F476DE6B2459D8021B5EC10ProxyActor : _TtCs12_SwiftObject
+
+@end

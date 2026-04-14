@@ -1,0 +1,3 @@
+@interface _TtC18PhotosUIFoundationP33_5214685B53A16C97B3CC417B9CE5B9CB19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

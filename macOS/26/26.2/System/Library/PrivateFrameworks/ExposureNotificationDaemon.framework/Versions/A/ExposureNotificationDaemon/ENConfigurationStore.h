@@ -1,0 +1,88 @@
+@class NSString, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface ENConfigurationStore : NSObject
+
+@property (readonly, copy, nonatomic) NSString *directoryPath;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *storeQueue;
+@property (nonatomic) BOOL developerServerConfiguration;
+@property (copy, nonatomic) NSString *regionIdentifierOverride;
+
++ (id)legacyAppCacheURL;
+
+- (id)_serverConfigurationForRegion:(id)a0;
+- (id)configurationCacheURL;
+- (void)allRegionConfigurationsWithCompletion:(id /* block */)a0;
+- (BOOL)_saveServerConfigurationResponse:(id)a0 error:(id *)a1;
+- (id)serverConfigurationResponseForRegion:(id)a0;
+- (id)localeForRegion:(id)a0;
+- (BOOL)saveTemporaryServerConfigurations:(id)a0 error:(id *)a1;
+- (id)downloadConfigurationForRegion:(id)a0;
+- (id)_agencyConfigurationForRegion:(id)a0;
+- (id)regionCacheURL;
+- (id)fileURLforCountrySubdivisionList:(id)a0;
+- (id)_localeIdentifiersForRegion:(id)a0;
+- (id)_regionHashForRegion:(id)a0;
+- (id)agencyConfigurationForRegion:(id)a0;
+- (void)allAgencyServerRegionConfigurationsWithCompletion:(id /* block */)a0;
+- (void)allCachedCountryCodesServerResponseWithDirectoryURL:(id)a0 handler:(id /* block */)a1;
+- (id)_localeForRegion:(id)a0;
+- (void)allRegionServerConfigurationsWithCompletion:(id /* block */)a0;
+- (id)fileURLForCountryRegionHash:(id)a0;
+- (BOOL)regionSupportsSubdivisions:(id)a0;
+- (id)subdivisionListCacheURL;
+- (id)allCachedCountries;
+- (void)enumerateCachedRegionServerConfigurationsWithHandler:(id /* block */)a0;
+- (id)allRegionServerConfigurationsForCountryCode:(id)a0;
+- (id)initWithDirectoryPath:(id)a0;
+- (id)systemConfigurationCacheURL;
+- (BOOL)removeConfigurationsForRegionCode:(id)a0 error:(id *)a1;
+- (id)subdivisionListForRegion:(id)a0;
+- (void)clearTemporaryCountrySubdivisionList;
+- (id)developerSubdivisionListCacheURL;
+- (void).cxx_destruct;
+- (id)serverConfigurationForRegion:(id)a0;
+- (BOOL)_saveRegionHash:(id)a0 region:(id)a1 error:(id *)a2;
+- (id)_existingConfigurationForRegionPath:(id)a0;
+- (id)_existingConfigurationForRegion:(id)a0;
+- (BOOL)_removeSubdivisionListForRegion:(id)a0 error:(id *)a1;
+- (id)allRegionConfigurations;
+- (BOOL)_saveRegionConfiguration:(id)a0 error:(id *)a1;
+- (id)allCachedRegions;
+- (BOOL)saveRegionConfiguration:(id)a0 error:(id *)a1;
+- (void)prefsChanged;
+- (BOOL)saveServerConfigurationResponse:(id)a0 error:(id *)a1;
+- (id)legacyAppConfiguationForMobileCountryCode:(id)a0;
+- (BOOL)removeSubdivisionListForRegion:(id)a0 error:(id *)a1;
+- (id)_serverConfigurationResponseForRegion:(id)a0;
+- (id)serverExposureConfigurationForRegion:(id)a0;
+- (BOOL)_saveCountrySubdivisionList:(id)a0 country:(id)a1 error:(id *)a2;
+- (id)_configurationForRegion:(id)a0;
+- (id)localeIdentifiersForRegion:(id)a0;
+- (id)regionFromServerResponse:(id)a0;
+- (id)cachedAppConfiguationForBundleID:(id)a0 forRegionID:(id)a1;
+- (BOOL)removeConfigurationsForRegion:(id)a0 includingSubdivisions:(BOOL)a1 error:(id *)a2;
+- (id)fileURLforRegionServerConfiguration:(id)a0;
+- (id)serverConfigurationCacheURL;
+- (id)regionHashForRegion:(id)a0;
+- (void)allCachedServerResponseConfigurationsWithCountryCode:(id)a0 completion:(id /* block */)a1;
+- (id)_serverConfigurationResponseForFileURL:(id)a0;
+- (void)allCachedServerResponseConfigurationsWithCompletion:(id /* block */)a0;
+- (id)_subdivisionListForRegion:(id)a0;
+- (id)serverSubdivisionListCacheURL;
+- (BOOL)saveCountrySubdivisionList:(id)a0 region:(id)a1 error:(id *)a2;
+- (id)developerConfigurationsURL;
+- (void)_enumerateCachedServerResponseConfigurationsWithDirectoryURL:(id)a0 prefix:(id)a1 handler:(id /* block */)a2;
+- (id)init;
+- (id)_allCachedServerResponseConfigurationsWithPrefix:(id)a0;
+- (void)enumerateCachedRegionServerConfigurationsWithCountryCode:(id)a0 handler:(id /* block */)a1;
+- (void)resetStore;
+- (id)configurationForRegion:(id)a0;
+- (id)fileURLforRegionConfiguration:(id)a0;
+- (BOOL)saveRegionHash:(id)a0 region:(id)a1 error:(id *)a2;
+- (BOOL)saveTemporaryCountrySubdivisionList:(id)a0 region:(id)a1 error:(id *)a2;
+- (id)_directoryURLForCachedConfigurations;
+- (id)allRegionServerConfigurations;
+- (void)clearTemporaryServerConfigurations;
+
+@end

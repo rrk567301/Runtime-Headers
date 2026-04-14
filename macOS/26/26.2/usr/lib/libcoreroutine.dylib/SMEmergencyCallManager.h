@@ -1,0 +1,25 @@
+@class NSHashTable, TUCallCenter, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SMEmergencyCallManager : NSObject
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSHashTable *observers;
+@property (retain, nonatomic) TUCallCenter *callCenter;
+
+- (void)setup;
+- (void)_removeObserver:(id)a0;
+- (void)removeObserver:(id)a0;
+- (void)_setup;
+- (void)addObserver:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)_addObserver:(id)a0;
+- (BOOL)_isEmergencyCallOngoing;
+- (void)_notifyObserversForEmergencyCallEnded;
+- (void)_notifyObserversForEmergencyCallStarted;
+- (void)_onTUCallCenterCallStatusChangedNotification:(id)a0;
+- (void)fetchIsEmergencyCallOngoingWithHandler:(id /* block */)a0;
+- (void)onTUCallCenterCallStatusChangedNotification:(id)a0;
+
+@end

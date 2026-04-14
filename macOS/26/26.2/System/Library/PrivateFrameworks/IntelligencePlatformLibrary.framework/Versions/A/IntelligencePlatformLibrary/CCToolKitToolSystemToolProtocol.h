@@ -1,0 +1,85 @@
+@class CCToolKitToolSystemToolProtocolSynthesizedToolProtocol, CCToolKitToolSystemToolProtocolShowInAppStringSearchResults, CCToolKitToolSystemToolProtocolIntentSideEffect, CCToolKitToolSystemToolProtocolAppIntent, CCToolKitToolSystemToolProtocolSiriKitIntent, CCToolKitToolSystemToolProtocolConditionallyEnabled, CCToolKitToolSystemToolProtocolEntityUpdating, CCToolKitToolSystemToolProtocolAssistantSchema, CCToolKitToolSystemToolProtocolPlayVideo, CCToolKitToolSystemToolProtocolPropertyUpdater;
+
+@interface CCToolKitToolSystemToolProtocol : CCItemMessage
+
+@property (readonly, nonatomic) unsigned int unk;
+@property (readonly, nonatomic) unsigned int undoable;
+@property (readonly, nonatomic) unsigned int sessionStarting;
+@property (readonly, nonatomic) unsigned int urlRepresentable;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolConditionallyEnabled *conditionallyEnabled;
+@property (readonly, nonatomic) unsigned int foregroundContinuable;
+@property (readonly, nonatomic) unsigned int changeBinarySetting;
+@property (readonly, nonatomic) unsigned int requiresMdmChecks;
+@property (readonly, nonatomic) unsigned int cut;
+@property (readonly, nonatomic) unsigned int copyProtocol;
+@property (readonly, nonatomic) unsigned int paste;
+@property (readonly, nonatomic) unsigned int cancel;
+@property (readonly, nonatomic) unsigned int resize;
+@property (readonly, nonatomic) unsigned int scroll;
+@property (readonly, nonatomic) unsigned int undo;
+@property (readonly, nonatomic) unsigned int zoom;
+@property (readonly, nonatomic) unsigned int closeEntity;
+@property (readonly, nonatomic) unsigned int createEntity;
+@property (readonly, nonatomic) unsigned int cutEntity;
+@property (readonly, nonatomic) unsigned int deleteEntity;
+@property (readonly, nonatomic) unsigned int duplicateEntity;
+@property (readonly, nonatomic) unsigned int favoriteEntity;
+@property (readonly, nonatomic) unsigned int openEntity;
+@property (readonly, nonatomic) unsigned int previewEntity;
+@property (readonly, nonatomic) unsigned int saveEntity;
+@property (readonly, nonatomic) unsigned int putEntityInContainer;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolPlayVideo *playVideo;
+@property (readonly, nonatomic) unsigned int audioStarting;
+@property (readonly, nonatomic) unsigned int audioRecording;
+@property (readonly, nonatomic) unsigned int pushToTalkTransmission;
+@property (readonly, nonatomic) unsigned int startDive;
+@property (readonly, nonatomic) unsigned int startWorkout;
+@property (readonly, nonatomic) unsigned int pauseWorkout;
+@property (readonly, nonatomic) unsigned int resumeWorkout;
+@property (readonly, nonatomic) unsigned int enterMarkup;
+@property (readonly, nonatomic) unsigned int exitMarkup;
+@property (readonly, nonatomic) unsigned int focusConfiguration;
+@property (readonly, nonatomic) unsigned int widgetConfiguration;
+@property (readonly, nonatomic) unsigned int search;
+@property (readonly, nonatomic) unsigned int showSearchResultsInApp;
+@property (readonly, nonatomic) unsigned int showStringSearchResultsInApp;
+@property (readonly, nonatomic) unsigned int showInAppSearchResults;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolShowInAppStringSearchResults *showInAppStringSearchResults;
+@property (readonly, nonatomic) unsigned int moveSpatial;
+@property (readonly, nonatomic) unsigned int navigateSequentially;
+@property (readonly, nonatomic) unsigned int sting;
+@property (readonly, nonatomic) unsigned int toggle;
+@property (readonly, nonatomic) unsigned int cameraCapture;
+@property (readonly, nonatomic) unsigned int staccatoLongPress;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolEntityUpdating *entityUpdating;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolPropertyUpdater *propertyUpdater;
+@property (readonly, nonatomic) unsigned int sendMail;
+@property (readonly, nonatomic) unsigned int setMailMessageIsRead;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolSiriKitIntent *siriKitIntent;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolIntentSideEffect *intentSideEffect;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolAssistantSchema *assistantSchema;
+@property (readonly, nonatomic) unsigned int rewriteWritingTool;
+@property (readonly, nonatomic) unsigned int proofreadWritingTool;
+@property (readonly, nonatomic) unsigned int assistantInvocable;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolAppIntent *appIntent;
+@property (readonly, nonatomic) unsigned int systemFrameworkIntent;
+@property (readonly, nonatomic) CCToolKitToolSystemToolProtocolSynthesizedToolProtocol *synthesizedTool;
+@property (readonly, nonatomic) unsigned int progressReporting;
+@property (readonly, nonatomic) unsigned int controlConfiguration;
+@property (readonly, nonatomic) unsigned int valueSetting;
+@property (readonly, nonatomic) unsigned int entityGetter;
+@property (readonly, nonatomic) unsigned int kindType;
+
++ (unsigned short)itemType;
++ (id)descriptionForTypeIdentifier:(unsigned short)a0;
++ (Class)contentMessageClass;
++ (Class)metaContentMessageClass;
+
+- (void).cxx_destruct;
+- (id)jsonDictionary;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (void)enumerateFieldsUsingBlock:(id /* block */)a0 parentFieldType:(unsigned short)a1;
+- (BOOL)initializeFieldValuesFromData:(id)a0 error:(id *)a1;
+- (id)initWithKind:(id)a0 kindType:(unsigned int)a1 error:(id *)a2;
+
+@end

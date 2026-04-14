@@ -1,0 +1,14 @@
+@class NSData;
+
+@interface NFPeerPaymentEnrollmentRequest : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSData *alternateDSID;
+
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+
+@end

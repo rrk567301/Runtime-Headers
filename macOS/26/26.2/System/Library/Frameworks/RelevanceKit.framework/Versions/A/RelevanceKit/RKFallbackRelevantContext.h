@@ -1,0 +1,13 @@
+@interface RKFallbackRelevantContext : RKRelevantContext
+
++ (BOOL)supportsSecureCoding;
+
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (id)init;
+- (id)analyticsDescription;
+
+@end

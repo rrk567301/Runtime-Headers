@@ -1,0 +1,20 @@
+@class MTL4FunctionDescriptor, MTL4StaticLinkingDescriptor;
+
+@interface MTL4ComputePipelineDescriptor : MTL4PipelineDescriptor
+
+@property (copy, nonatomic) MTL4FunctionDescriptor *computeFunctionDescriptor;
+@property (nonatomic) BOOL threadGroupSizeIsMultipleOfThreadExecutionWidth;
+@property (nonatomic) unsigned long long maxTotalThreadsPerThreadgroup;
+@property (nonatomic) struct { unsigned long long width; unsigned long long height; unsigned long long depth; } requiredThreadsPerThreadgroup;
+@property (nonatomic) BOOL supportBinaryLinking;
+@property (copy, nonatomic) MTL4StaticLinkingDescriptor *staticLinkingDescriptor;
+@property (nonatomic) long long supportIndirectCommandBuffers;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)reset;
+- (id)init;
+- (void)dealloc;
+
+@end

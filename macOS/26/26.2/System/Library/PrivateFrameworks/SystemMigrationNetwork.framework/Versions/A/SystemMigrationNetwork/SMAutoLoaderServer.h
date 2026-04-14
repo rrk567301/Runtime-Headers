@@ -1,0 +1,3 @@
+@interface SMAutoLoaderServer : SMNNetworkSourceServer
+
+@end

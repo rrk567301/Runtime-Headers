@@ -1,0 +1,16 @@
+@class PHAssetCollection, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface PXStoryCompanionTimelineRequestConfiguration : NSObject <NSCopying>
+
+@property (nonatomic) long long songsProducerKind;
+@property (retain, nonatomic) PHAssetCollection *assetCollection;
+@property (nonatomic) struct CGSize { double width; double height; } viewportSize;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithAssetCollection:(id)a0 viewportSize:(struct CGSize { double x0; double x1; })a1;
+
+@end

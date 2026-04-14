@@ -1,0 +1,14 @@
+@class NSMutableDictionary, VCAudioRuleCollection;
+
+@interface VCMediaStreamMultiwayConfigAudio : VCMediaStreamMultiwayConfig
+
+@property (retain, nonatomic) VCAudioRuleCollection *audioRules;
+@property (nonatomic) unsigned int preferredMediaBitrate;
+@property (readonly, nonatomic) NSMutableDictionary *v2CodecConfigurations;
+@property (nonatomic) BOOL enableACC24ForGFT;
+
+- (id)init;
+- (void)dealloc;
+- (void)addV2CodecConfiguration:(id)a0;
+
+@end

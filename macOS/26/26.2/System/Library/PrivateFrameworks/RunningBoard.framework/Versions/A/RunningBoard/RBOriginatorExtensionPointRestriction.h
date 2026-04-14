@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface RBOriginatorExtensionPointRestriction : RBDomainRestriction {
+    NSString *_extensionPoint;
+}
+
++ (id)domainRestrictionForDictionary:(id)a0 withError:(id *)a1;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)allowsContext:(id)a0 withError:(id *)a1;
+- (void).cxx_destruct;
+- (id)description;
+- (id)allEntitlements;
+- (id)dictionaryRepresentation;
+- (id)_initWithExtensionPoint:(id)a0;
+
+@end

@@ -1,0 +1,16 @@
+@class NSNumber;
+
+@interface DGGNGSharpenOperation : DGOperation
+
+@property (copy, nonatomic) NSNumber *inputSharpness;
+
++ (id)attributes;
++ (id)inputKeys;
++ (id)outputKeys;
++ (id)_stringsTableName;
+
+- (id)initWithOperation:(id)a0;
+- (id)init;
+- (void)dealloc;
+
+@end

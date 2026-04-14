@@ -1,0 +1,38 @@
+@class TRIPBMessage;
+
+@interface TRIPBUInt64Array : NSObject <NSCopying> {
+    TRIPBMessage *_autocreator;
+    unsigned long long *_values;
+    unsigned long long _capacity;
+}
+
+@property (readonly, nonatomic) unsigned long long count;
+
++ (id)arrayWithValue:(unsigned long long)a0;
++ (id)array;
++ (id)arrayWithCapacity:(unsigned long long)a0;
++ (id)arrayWithValueArray:(id)a0;
+
+- (void)removeAll;
+- (void)addValue:(unsigned long long)a0;
+- (void)enumerateValuesWithOptions:(unsigned long long)a0 usingBlock:(id /* block */)a1;
+- (unsigned long long)valueAtIndex:(unsigned long long)a0;
+- (unsigned long long)hash;
+- (void)replaceValueAtIndex:(unsigned long long)a0 withValue:(unsigned long long)a1;
+- (BOOL)isEqual:(id)a0;
+- (void)enumerateValuesWithBlock:(id /* block */)a0;
+- (id)initWithValues:(const unsigned long long *)a0 count:(unsigned long long)a1;
+- (void)internalResizeToCapacity:(unsigned long long)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)addValues:(const unsigned long long *)a0 count:(unsigned long long)a1;
+- (void)removeValueAtIndex:(unsigned long long)a0;
+- (id)initWithValueArray:(id)a0;
+- (void)addValuesFromArray:(id)a0;
+- (id)description;
+- (id)init;
+- (void)insertValue:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)exchangeValueAtIndex:(unsigned long long)a0 withValueAtIndex:(unsigned long long)a1;
+- (id)initWithCapacity:(unsigned long long)a0;
+- (void)dealloc;
+
+@end

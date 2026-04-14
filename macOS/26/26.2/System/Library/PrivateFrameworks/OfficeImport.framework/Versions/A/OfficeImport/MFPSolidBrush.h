@@ -1,0 +1,13 @@
+@class OITSUColor;
+
+@interface MFPSolidBrush : MFPBrush {
+    OITSUColor *mColor;
+}
+
+- (id)initWithColor:(id)a0;
+- (id)color;
+- (void)setColor:(id)a0;
+- (void).cxx_destruct;
+- (void)fillPath:(id)a0;
+
+@end

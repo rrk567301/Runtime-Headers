@@ -1,0 +1,90 @@
+@class NSTimer, NSMutableDictionary, ICQUnfairLock;
+
+@interface ICQOfferManager : NSObject {
+    NSTimer *_regularOfferInvalidationTimer;
+    NSTimer *_premiumOfferInvalidationTimer;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *cachedOffers;
+@property (retain, nonatomic) NSMutableDictionary *registeredDarwinNotifications;
+@property (retain, nonatomic) ICQUnfairLock *cachedOffersLock;
+@property (retain, nonatomic) NSMutableDictionary *dismissedRecommendations;
+
++ (id)stringWithPlaceholderFormat:(id)a0 alternateString:(id)a1;
++ (id)sharedOfferManager;
++ (BOOL)_legacyBuddyOfferMightNeedPresenting;
++ (BOOL)buddyOfferMightNeedPresenting;
++ (id)defaultBundleIdentifier;
++ (id)ckBackupDeviceID;
++ (id)defaultPlaceholderKeys;
+
+- (void)setBuddyOfferEnabled:(BOOL)a0;
+- (id)cachedOfferForType:(long long)a0;
+- (void)_registerForDarwinNotification:(id)a0;
+- (void)_refetchRegularOffer;
+- (void)teardownCachedOffer;
+- (void)_teardownPremiumOfferInvalidationTimer;
+- (void)teardownCachedBuddyOffer;
+- (void)getOfferWithCompletion:(id /* block */)a0;
+- (void)getPremiumOfferAndOpportunityBubbleWithCompletion:(id /* block */)a0;
+- (id)_refreshOfferWithDaemonOfferDict:(id)a0 offerRequestType:(long long)a1 bundleId:(id)a2;
+- (void)teardownCachedOffers;
+- (void)clearFollowups;
+- (void)getEventOfferWithOptions:(id)a0 completion:(id /* block */)a1;
+- (void)postBuddyOfferType:(id)a0;
+- (void)postOfferType:(id)a0;
+- (id)currentOffer;
+- (void)updateOfferId:(id)a0 buttonId:(id)a1 info:(id)a2 completion:(id /* block */)a3;
+- (void)_funnelCloudServerOfferForAccount:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)removeCachedOfferForType:(long long)a0;
+- (id)currentOfferForBundleIdentifier:(id)a0;
+- (void)forcePostFollowup;
+- (BOOL)fetchOfferIfNeeded;
+- (id)_premiumOptions;
+- (void)getPremiumOfferForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)teardownCachedPremiumOffer;
+- (BOOL)isBuddyOfferEnabled;
+- (id)currentPremiumOfferForBundleIdentifier:(id)a0;
+- (void)_unregisterForAllDarwinNotifications;
+- (BOOL)didDismissRecommendationForBundleId:(id)a0;
+- (void).cxx_destruct;
+- (void)appLaunchLinkDidPresentForBundleIdentifier:(id)a0;
+- (void)getDefaultOfferWithCompletion:(id /* block */)a0;
+- (void)_handlePushReceivedDarwinNotificationRequestType:(long long)a0;
+- (void)getOfferForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)_setupTimerForRegularOfferInvalidationDate:(id)a0;
+- (void)_unregisterForDarwinNotification:(id)a0;
+- (id)simulatedPhotosLibrarySize;
+- (void)getOfferForBundleIdentifier:(id)a0 offerContext:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_offerTypeMatchesRequestOptions:(id)a0 offer:(id)a1;
+- (void)_refetchDefaultOffer;
+- (BOOL)isSimulatedDeviceStorageAlmostFull;
+- (void)teardownCachedEventOffer;
+- (void)dismissRecommendationForBundleId:(id)a0;
+- (id)currentPremiumOffer;
+- (void)setSimulatedDeviceStorageAlmostFull:(BOOL)a0;
+- (void)getPremiumOfferAndOpportunityBubbleForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)_refetchPremiumOffer;
+- (BOOL)_shouldUseOffer:(id)a0 forBundleIdentifier:(id)a1;
+- (void)_firedPremiumOfferInvalidationTimer:(id)a0;
+- (void)getPremiumOfferWithCompletion:(id /* block */)a0;
+- (void)postBackupRestoredOffer:(id /* block */)a0;
+- (id)photosLibrarySize;
+- (void)_getOfferForBundleIdentifier:(id)a0 options:(id)a1 offerContext:(id)a2 completion:(id /* block */)a3;
+- (void)_teardownInvalidationTimerForRequestType:(long long)a0;
+- (void)setSimulatedPhotosLibrarySize:(id)a0;
+- (void)setCachedOfferForType:(long long)a0 daemonOffer:(id)a1 bundleIdentifier:(id)a2;
+- (void)_setupTimerForInvalidationDate:(id)a0 forType:(long long)a1;
+- (id)currentDefaultOffer;
+- (id)init;
+- (void)_firedRegularOfferInvalidationTimer:(id)a0;
+- (void)_getOfferForAccount:(id)a0 bundleIdentifier:(id)a1 options:(id)a2 offerContext:(id)a3 completion:(id /* block */)a4;
+- (void)getPremiumOfferForBundleIdentifier:(id)a0 offerContext:(id)a1 completion:(id /* block */)a2;
+- (BOOL)shouldPresentAppLaunchLink:(id)a0;
+- (BOOL)isDeviceStorageAlmostFull;
+- (void)_teardownRegularOfferInvalidationTimer;
+- (void)dealloc;
+- (id)_currentOfferForBundleIdentifier:(id)a0 options:(id)a1;
+- (void)_setupTimerForPremiumOfferInvalidationDate:(id)a0;
+
+@end

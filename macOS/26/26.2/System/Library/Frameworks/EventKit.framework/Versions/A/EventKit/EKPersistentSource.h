@@ -1,0 +1,81 @@
+@class NSString, NSNumber, EKFrozenReminderSource;
+
+@interface EKPersistentSource : EKPersistentObject
+
+@property (readonly, nonatomic) NSString *UUID;
+@property (nonatomic) long long sourceTypeRaw;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSNumber *defaultAlarmOffset;
+@property (copy, nonatomic) NSString *externalID;
+@property (copy, nonatomic) NSString *externalModificationTag;
+@property (nonatomic) BOOL disabled;
+@property (nonatomic) BOOL onlyCreatorCanModify;
+@property (nonatomic) int preferredEventPrivateValue;
+@property (nonatomic) int strictestEventPrivateValue;
+@property (retain, nonatomic) NSString *UUID;
+@property (retain) EKFrozenReminderSource *reminderSource;
+
++ (id)relations;
++ (id)defaultPropertiesToLoad;
++ (id)propertyKeyForUniqueIdentifier;
++ (Class)meltedClass;
+
+- (id)constraints;
+- (void)setCreatorBundleID:(id)a0;
+- (void)setFlags:(int)a0;
+- (id)constraintsName;
+- (void)setPendingPersonaIdentifierForNewSource:(id)a0;
+- (id)notes;
+- (BOOL)onlyCreatorCanModify;
+- (id)title;
+- (void)setFlags2:(int)a0;
+- (id)lastSyncStartDate;
+- (void)setConstraintsName:(id)a0;
+- (id)ownerName;
+- (id)pendingPersonaIdentifierForNewSource;
+- (int)flags;
+- (void)setNotes:(id)a0;
+- (void)setOwnerName:(id)a0;
+- (void)setOnlyCreatorCanModify:(BOOL)a0;
+- (void)setLastSyncEndDate:(id)a0;
+- (void)setDefaultAllDayAlarmOffset:(id)a0;
+- (int)displayOrder;
+- (long long)sourceTypeRaw;
+- (id)creatorBundleID;
+- (id)defaultAllDayAlarmOffset;
+- (id)delegatedAccountOwnerStoreID;
+- (id)appGroupIdentifier;
+- (void)setShowsNotifications:(BOOL)a0;
+- (id)defaultAlarmOffset;
+- (BOOL)showsNotifications;
+- (void)setExternalModificationTag:(id)a0;
+- (void)setStrictestEventPrivateValueRaw:(int)a0;
+- (void).cxx_destruct;
+- (id)cachedExternalInfoData;
+- (void)setPreferredEventPrivateValueRaw:(int)a0;
+- (int)preferredEventPrivateValueRaw;
+- (void)setAppGroupIdentifier:(id)a0;
+- (int)entityType;
+- (int)flags2;
+- (id)lastSyncEndDate;
+- (void)setDelegatedAccountOwnerStoreID:(id)a0;
+- (id)description;
+- (BOOL)disabled;
+- (int)strictestEventPrivateValueRaw;
+- (id)syncError;
+- (void)setTitle:(id)a0;
+- (int)managedConfigurationAccountAccess;
+- (void)setSyncError:(id)a0;
+- (void)setDisabled:(BOOL)a0;
+- (void)setDisplayOrder:(int)a0;
+- (void)setExternalID:(id)a0;
+- (void)setLastSyncStartDate:(id)a0;
+- (void)setCachedExternalInfoData:(id)a0;
+- (void)setCreatorCodeSigningIdentity:(id)a0;
+- (void)setSourceTypeRaw:(long long)a0;
+- (id)externalModificationTag;
+- (id)externalID;
+- (void)setDefaultAlarmOffset:(id)a0;
+- (id)creatorCodeSigningIdentity;
+
+@end

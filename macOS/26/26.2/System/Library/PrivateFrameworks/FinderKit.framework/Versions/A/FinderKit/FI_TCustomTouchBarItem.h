@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface FI_TCustomTouchBarItem : NSCustomTouchBarItem <TMarkTornDown>
+
+@property (getter=isTornDown) BOOL tornDown;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setViewController:(id)a0;
+- (void)setView:(id)a0;
+- (void)dealloc;
+- (void)aboutToTearDown;
+- (void)aboutToTearDownViewAndController;
+
+@end

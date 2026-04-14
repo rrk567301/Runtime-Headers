@@ -1,0 +1,41 @@
+@class NSCalendar, NSDate;
+
+@interface HMMDateProvider : NSObject {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    double _currentDayStartTime;
+    double _currentDayEndTime;
+    NSDate *_currentDayStartDate;
+}
+
+@property (class, readonly, nonatomic) NSCalendar *gmtCalendar;
+@property (class, readonly, nonatomic) HMMDateProvider *sharedInstance;
+
+@property (readonly, nonatomic) NSCalendar *localCalendar;
+@property (readonly, copy, nonatomic) NSDate *currentDate;
+
++ (id)calendarForTimeZone:(id)a0;
++ (id)startOfDayForDate:(id)a0;
++ (id)datesOfPreviousWeeks:(long long)a0 forDate:(id)a1;
++ (long long)daysFromDate:(id)a0 toDate:(id)a1;
++ (id)startOfCurrentMonthForDate:(id)a0;
++ (id)startOfDateByAddingDayCount:(long long)a0 toDate:(id)a1;
++ (id)startOfWeekForDate:(id)a0;
++ (id)dateFromYear:(long long)a0 month:(long long)a1 day:(long long)a2;
++ (id)datesOfPreviousMonthForDate:(id)a0;
++ (long long)dayNumberOfWeekForDate:(id)a0;
++ (id)startOfPreviousMonthForDate:(id)a0;
+
+- (void).cxx_destruct;
+- (id)init;
+- (long long)currentDayNumberOfWeek;
+- (long long)localHourOfDay;
+- (id)startOfCurrentDay;
+- (id)startOfCurrentWeek;
+- (id)startOfDayByAddingDayCount:(long long)a0;
+- (id)datesOfPreviousMonth;
+- (id)initWithLocalTimeZone:(id)a0;
+- (id)startOfCurrentMonth;
+- (id)startOfCurrentYear;
+- (id)startOfPreviousMonth;
+
+@end

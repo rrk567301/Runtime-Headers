@@ -1,0 +1,14 @@
+@interface PXStoryViewChromeTitleConfiguration : NSObject <NSCopying>
+
+@property (nonatomic) long long textAlignment;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } margins;
+@property (nonatomic) BOOL hidden;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (id)initWithTextAlignment:(long long)a0 margins:(struct NSEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (id)initWithTextAlignment:(long long)a0 margins:(struct NSEdgeInsets { double x0; double x1; double x2; double x3; })a1 hidden:(BOOL)a2;
+
+@end

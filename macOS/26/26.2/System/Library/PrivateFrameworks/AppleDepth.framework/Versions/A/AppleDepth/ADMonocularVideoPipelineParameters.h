@@ -1,0 +1,3 @@
+@interface ADMonocularVideoPipelineParameters : ADPipelineParameters
+
+@end

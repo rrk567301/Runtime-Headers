@@ -1,0 +1,3 @@
+@interface FBSSerialQueue : BSServiceQueue
+
+@end

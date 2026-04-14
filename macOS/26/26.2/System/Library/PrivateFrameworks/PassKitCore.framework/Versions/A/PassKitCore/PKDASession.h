@@ -1,0 +1,22 @@
+@class NSString;
+@protocol PKSessionDelegate;
+
+@interface PKDASession : NSObject <PKSession> {
+    _Atomic unsigned int _sessionState;
+}
+
+@property (readonly, nonatomic) unsigned long long state;
+@property (weak, nonatomic) id<PKSessionDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)endSession;
+- (id)initWithDelegate:(id)a0;
+- (void)setState:(unsigned long long)a0;
+- (void)dealloc;
+- (BOOL)startSession;
+
+@end
