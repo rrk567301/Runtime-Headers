@@ -1,0 +1,43 @@
+@class NSString, SGReminder;
+@protocol SGSuggestionDelegate;
+
+@interface SGReminderSuggestionBase : NSObject <SGSuggestion, SGSuggestionCategory, SGSuggestionExtensions> {
+    SGReminder *_reminder;
+    NSString *_notes;
+}
+
+@property (weak, nonatomic) id<SGSuggestionDelegate> suggestionDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)url;
+- (id)location;
+- (id)title;
+- (id)userActivity;
+- (id)locationString;
+- (id)notes;
+- (id)dueDateComponents;
+- (id)primaryActionTitle;
+- (id)suggestionCategoryTitle;
+- (id)suggestionTitle;
+- (id)suggestionCategory;
+- (id)suggestionPrimaryAction;
+- (id)suggestionDismissAction;
+- (id)suggestionSubtitle;
+- (id)suggestionAttributedSubtitle;
+- (long long)suggestionActionButtonType;
+- (id)suggestionCategoryId;
+- (id)suggestionCategoryImage;
+- (id)suggestionCategoryTitleForItems:(id)a0;
+- (id)suggestionCategorySubtitleForItems:(id)a0;
+- (id)suggestionCategoryLocalizedCountOfItems:(id)a0;
+- (id)suggestionsSecondTitle;
+- (BOOL)wantsExtendedDetailOnlyView;
+- (long long)locationProximity;
+- (id)initWithRealtimeReminder:(id)a0;
+- (id)realtimeSuggestion;
+
+@end

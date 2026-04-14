@@ -1,0 +1,3 @@
+@interface APOdmlServerResponse : NSObject
+
+@end

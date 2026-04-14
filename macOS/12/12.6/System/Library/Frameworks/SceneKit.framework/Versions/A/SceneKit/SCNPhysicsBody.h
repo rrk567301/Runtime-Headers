@@ -1,0 +1,101 @@
+@class SCNNode, SCNPhysicsShape;
+
+@interface SCNPhysicsBody : NSObject <NSCopying, NSSecureCoding> {
+    SCNNode *_node;
+    double _mass;
+    double _charge;
+    double _friction;
+    double _restitution;
+    double _rollingFriction;
+    SCNPhysicsShape *_physicsShape;
+    long long _type;
+    double _damping;
+    struct SCNVector4 { double x; double y; double z; double w; } _angularVelocity;
+    double _angularDamping;
+    struct SCNVector3 { double x; double y; double z; } _velocityFactor;
+    struct SCNVector3 { double x; double y; double z; } _angularVelocityFactor;
+    struct SCNVector3 { double x; double y; double z; } _velocity;
+    BOOL _ignoreGravity;
+    double _linearRestingThreshold;
+    double _angularRestingThreshold;
+    BOOL _explicitMomentOfInertia;
+    struct SCNVector3 { double x; double y; double z; } _momentOfInertia;
+    struct SCNVector3 { double x; double y; double z; } _centerOfMassOffset;
+    unsigned long long _categoryBitMask;
+    unsigned long long _collisionBitMask;
+    unsigned long long _contactTestBitMask;
+    BOOL _allowsResting;
+    BOOL _isDefaultShape;
+    void *_body;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) long long type;
+@property (nonatomic) double mass;
+@property (nonatomic) struct SCNVector3 { double x0; double x1; double x2; } momentOfInertia;
+@property (nonatomic) BOOL usesDefaultMomentOfInertia;
+@property (nonatomic) double charge;
+@property (nonatomic) double friction;
+@property (nonatomic) double restitution;
+@property (nonatomic) double rollingFriction;
+@property (retain, nonatomic) SCNPhysicsShape *physicsShape;
+@property (readonly, nonatomic) BOOL isResting;
+@property (nonatomic) BOOL allowsResting;
+@property (nonatomic) struct SCNVector3 { double x0; double x1; double x2; } velocity;
+@property (nonatomic) struct SCNVector4 { double x0; double x1; double x2; double x3; } angularVelocity;
+@property (nonatomic) double damping;
+@property (nonatomic) double angularDamping;
+@property (nonatomic) struct SCNVector3 { double x0; double x1; double x2; } velocityFactor;
+@property (nonatomic) struct SCNVector3 { double x0; double x1; double x2; } angularVelocityFactor;
+@property (nonatomic) unsigned long long categoryBitMask;
+@property (nonatomic) unsigned long long collisionBitMask;
+@property (nonatomic) unsigned long long contactTestBitMask;
+@property (nonatomic, getter=isAffectedByGravity) BOOL affectedByGravity;
+@property (nonatomic) double continuousCollisionDetectionThreshold;
+@property (nonatomic) struct SCNVector3 { double x0; double x1; double x2; } centerOfMassOffset;
+@property (nonatomic) double linearRestingThreshold;
+@property (nonatomic) double angularRestingThreshold;
+
++ (id)SCNUID_enumForProperty:(id)a0;
++ (id)SCNUID_creationOptions;
++ (id)SCNUID_instanciateWithOption:(id)a0;
++ (id)bodyWithType:(long long)a0 shape:(id)a1;
++ (id)staticBody;
++ (id)dynamicBody;
++ (id)kinematicBody;
+
+- (id)copy;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (void)_activate;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)_owner;
+- (void *)_handle;
+- (struct __C3DScene { } *)sceneRef;
+- (void)clearAllForces;
+- (void)resetTransform;
+- (void)_removeOwner;
+- (void)_ownerWillDie;
+- (void)_setOwner:(id)a0;
+- (void *)_createBody;
+- (id)initWithType:(long long)a0 shape:(id)a1;
+- (struct btCollisionShape { void /* function */ **x0; int x1; void *x2; } *)_shapeHandleWithShape:(id)a0 owner:(id)a1;
+- (void)moveToTransform:(struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })a0;
+- (void)_didDecodeSCNPhysicsBody:(id)a0;
+- (BOOL)respondsToCollision;
+- (void)setLinearSleepingThreshold:(double)a0;
+- (double)linearSleepingThreshold;
+- (void)setAngularSleepingThreshold:(double)a0;
+- (double)angularSleepingThreshold;
+- (double)continuousCollisionDetection;
+- (void)applyForce:(struct SCNVector3 { double x0; double x1; double x2; })a0 impulse:(BOOL)a1;
+- (void)applyForce:(struct SCNVector3 { double x0; double x1; double x2; })a0 atPosition:(struct SCNVector3 { double x0; double x1; double x2; })a1 impulse:(BOOL)a2;
+- (void)applyTorque:(struct SCNVector4 { double x0; double x1; double x2; double x3; })a0 impulse:(BOOL)a1;
+- (void)setResting:(BOOL)a0;
+- (void)resetToTransform:(struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; })a0;
+- (void)moveToPosition:(struct SCNVector3 { double x0; double x1; double x2; })a0;
+- (void)rotateToAxisAngle:(struct SCNVector4 { double x0; double x1; double x2; double x3; })a0;
+
+@end

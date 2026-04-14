@@ -1,0 +1,14 @@
+@class NSLocalSavePanel;
+
+@interface NSNavNameFieldFormatter : NSFormatter {
+    NSLocalSavePanel *_panel;
+    BOOL _autoAddExtensionToNextInput;
+}
+
+- (id)stringForObjectValue:(id)a0;
+- (BOOL)getObjectValue:(id *)a0 forString:(id)a1 errorDescription:(id *)a2;
+- (BOOL)isPartialStringValid:(id *)a0 proposedSelectedRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a1 originalString:(id)a2 originalSelectedRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3 errorDescription:(id *)a4;
+- (id)initWithPanel:(id)a0;
+- (void)setAutoAddExtensionToNextInput:(BOOL)a0;
+
+@end

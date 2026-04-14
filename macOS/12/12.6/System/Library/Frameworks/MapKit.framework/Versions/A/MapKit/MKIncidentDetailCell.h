@@ -1,0 +1,31 @@
+@class MKIncidentTextView, NSString, NSImage, NSLayoutConstraint, NSDate, _MKUILabel, MKImageView;
+
+@interface MKIncidentDetailCell : MKTableViewCell <MKMultiLineLabelContainer> {
+    _MKUILabel *_titleLabel;
+    MKImageView *_iconImageView;
+    MKIncidentTextView *_descriptionLabel;
+    _MKUILabel *_lastUpdatedLabel;
+    NSLayoutConstraint *_titleFirstBaselineToTopConstraint;
+    NSLayoutConstraint *_descriptionLastBaselineToBottomConstraint;
+    NSLayoutConstraint *_lastUpdatedFirstBaselineToDescriptionFirstBaselineConstraint;
+    NSLayoutConstraint *_lastUpdatedLastBaselineToBottomConstraint;
+}
+
+@property (copy, nonatomic) NSString *title;
+@property (retain, nonatomic) NSImage *icon;
+@property (copy, nonatomic) NSString *incidentDescription;
+@property (retain, nonatomic) NSDate *lastUpdated;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)updateConstraints;
+- (id)initWithReuseIdentifier:(id)a0;
+- (void)infoCardThemeChanged;
+- (id)multilineTextFieldsWithinContainer;
+- (void)_setConstraints;
+- (void)_updateLastUpdatedLabel;
+
+@end

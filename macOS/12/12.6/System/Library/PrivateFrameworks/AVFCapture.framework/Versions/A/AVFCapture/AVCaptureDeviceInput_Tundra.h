@@ -1,0 +1,37 @@
+@class AVCaptureDeviceInputInternal_Tundra, AVCaptureDevice_Tundra;
+
+@interface AVCaptureDeviceInput_Tundra : AVCaptureInput_Tundra {
+    AVCaptureDeviceInputInternal_Tundra *_internal;
+}
+
+@property (readonly, nonatomic) AVCaptureDevice_Tundra *device;
+@property (nonatomic) BOOL unifiedAutoExposureDefaultsEnabled;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } videoMinFrameDurationOverride;
+
++ (void)initialize;
++ (id)deviceInputWithDevice:(id)a0 error:(id *)a1;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithDevice:(id)a0 error:(id *)a1;
+- (id)ports;
+- (id)notReadyError;
+- (void)graphWillStartForSession:(id)a0;
+- (void)removeInputUnitsForInputPort:(id)a0 fromGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2;
+- (BOOL)addInputUnitsForInputPort:(id)a0 toGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2 error:(id *)a3;
+- (int)graphNodeForInputPort:(id)a0;
+- (unsigned int)unitOutputNumberForInputPort:(id)a0;
+- (int)clockProviderNodeForInputPort:(id)a0;
+- (void)sessionWillUseOutputDecompressionOptions:(id)a0 forPort:(id)a1;
+- (BOOL)_authorizedToUseDeviceAndRequestIfNecessary:(id)a0;
+- (id)portsWithMediaType:(id)a0 sourceDeviceType:(id)a1 sourceDevicePosition:(long long)a2;
+- (BOOL)isCenterStageAllowed;
+- (void)setCenterStageAllowed:(BOOL)a0;
+- (BOOL)isBackgroundBlurAllowed;
+- (void)setBackgroundBlurAllowed:(BOOL)a0;
+- (struct OpaqueCMClock { } *)inputClock;
+- (void)_refreshDALDeviceBackgroundBlurActive;
+
+@end

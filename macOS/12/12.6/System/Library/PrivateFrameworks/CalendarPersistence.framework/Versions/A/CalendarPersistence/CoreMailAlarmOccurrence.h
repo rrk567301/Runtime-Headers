@@ -1,0 +1,3 @@
+@interface CoreMailAlarmOccurrence : CoreAlarmOccurrence
+
+@end

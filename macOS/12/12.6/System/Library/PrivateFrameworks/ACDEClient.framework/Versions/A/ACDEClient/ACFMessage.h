@@ -1,0 +1,91 @@
+@class NSString, NSMutableDictionary;
+
+@interface ACFMessage : NSObject <ACFGeneralMessageProtocol, ACFErrorReportingProtocol> {
+    NSMutableDictionary *_mutableInfo;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)message;
++ (id)messageWithInfo:(id)a0;
++ (id)messageWithIdentifier:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)objectForKey:(id)a0;
+- (void)removeObjectForKey:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)error;
+- (id)identifier;
+- (id)initWithInfo:(id)a0;
+- (id)info;
+- (void)setIdentifier:(id)a0;
+- (void)setInfo:(id)a0;
+- (void)setError:(id)a0;
+- (id)userName;
+- (id)serviceName;
+- (void)setUserName:(id)a0;
+- (void)setServiceName:(id)a0;
+- (id)applicationName;
+- (id)personId;
+- (void)setPersonId:(id)a0;
+- (id)realm;
+- (long long)errorCode;
+- (id)publicKeyVersion;
+- (void)setPublicKeyVersion:(id)a0;
+- (id)appID;
+- (void)setAppID:(id)a0;
+- (void)setApplicationName:(id)a0;
+- (void)setRealm:(id)a0;
+- (id)sessionToken;
+- (void)setSessionToken:(id)a0;
+- (id)personID;
+- (void)setPersonID:(id)a0;
+- (id)errorMessage;
+- (void)clearError;
+- (id)principal;
+- (void)setPrincipal:(id)a0;
+- (id)appIDKey;
+- (void)setAppIDKey:(id)a0;
+- (id)serviceTicketString;
+- (void)setServiceTicketString:(id)a0;
+- (id)serviceHost;
+- (void)setServiceHost:(id)a0;
+- (id)serverResponseTimeout;
+- (void)setServerResponseTimeout:(id)a0;
+- (id)serviceApplicationId;
+- (void)setServiceApplicationId:(id)a0;
+- (id)serviceApplicationIdKey;
+- (void)setServiceApplicationIdKey:(id)a0;
+- (id)encryptedContent;
+- (void)setEncryptedContent:(id)a0;
+- (id)encryptedContentHMAC;
+- (void)setEncryptedContentHMAC:(id)a0;
+- (id)shouldUseHSAToken;
+- (void)setShouldUseHSAToken:(id)a0;
+- (id)app2SVRequired;
+- (void)setApp2SVRequired:(id)a0;
+- (id)user2SVEnrolled;
+- (void)setUser2SVEnrolled:(id)a0;
+- (BOOL)isInApp2SVEnabledOption;
+- (void)setIsInApp2SVEnabledOption:(BOOL)a0;
+- (BOOL)ignoreHSASessionInKeychain;
+- (void)setIgnoreHSASessionInKeychain:(BOOL)a0;
+- (BOOL)doNotSaveHSASessionInKeychain;
+- (void)setDoNotSaveHSASessionInKeychain:(BOOL)a0;
+- (BOOL)suppressPasswordExpiryErrorOnSignIn;
+- (void)setSuppressPasswordExpiryErrorOnSignIn:(BOOL)a0;
+- (id)mutableInfo;
+- (int)senderProcessID;
+- (void)setSenderProcessID:(int)a0;
+- (id)senderProcessName;
+- (void)setSenderProcessName:(id)a0;
+- (id)senderPortName;
+- (void)setSenderPortName:(id)a0;
+
+@end

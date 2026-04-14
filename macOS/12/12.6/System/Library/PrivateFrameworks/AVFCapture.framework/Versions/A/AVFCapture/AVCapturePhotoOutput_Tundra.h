@@ -1,0 +1,93 @@
+@class NSArray, AVCapturePhotoOutputInternal_Tundra, AVCapturePhotoSettings_Tundra;
+
+@interface AVCapturePhotoOutput_Tundra : AVCaptureOutput_Tundra {
+    AVCapturePhotoOutputInternal_Tundra *_internal;
+}
+
+@property (readonly, nonatomic) NSArray *preparedPhotoSettingsArray;
+@property (readonly, nonatomic) NSArray *availablePhotoPixelFormatTypes;
+@property (readonly, nonatomic) NSArray *availablePhotoCodecTypes;
+@property (readonly, nonatomic, getter=isAppleProRAWSupported) BOOL appleProRAWSupported;
+@property (nonatomic, getter=isAppleProRAWEnabled) BOOL appleProRAWEnabled;
+@property (readonly, nonatomic) NSArray *availableRawPhotoPixelFormatTypes;
+@property (readonly, nonatomic) NSArray *availablePhotoFileTypes;
+@property (readonly, nonatomic) NSArray *availableRawPhotoFileTypes;
+@property (nonatomic) long long maxPhotoQualityPrioritization;
+@property (readonly, nonatomic, getter=isStillImageStabilizationSupported) BOOL stillImageStabilizationSupported;
+@property (readonly, nonatomic) BOOL isStillImageStabilizationScene;
+@property (readonly, nonatomic, getter=isVirtualDeviceFusionSupported) BOOL virtualDeviceFusionSupported;
+@property (readonly, nonatomic, getter=isDualCameraFusionSupported) BOOL dualCameraFusionSupported;
+@property (readonly, nonatomic, getter=isVirtualDeviceConstituentPhotoDeliverySupported) BOOL virtualDeviceConstituentPhotoDeliverySupported;
+@property (readonly, nonatomic, getter=isDualCameraDualPhotoDeliverySupported) BOOL dualCameraDualPhotoDeliverySupported;
+@property (nonatomic, getter=isVirtualDeviceConstituentPhotoDeliveryEnabled) BOOL virtualDeviceConstituentPhotoDeliveryEnabled;
+@property (nonatomic, getter=isDualCameraDualPhotoDeliveryEnabled) BOOL dualCameraDualPhotoDeliveryEnabled;
+@property (readonly, nonatomic, getter=isCameraCalibrationDataDeliverySupported) BOOL cameraCalibrationDataDeliverySupported;
+@property (readonly, nonatomic) NSArray *supportedFlashModes;
+@property (readonly, nonatomic, getter=isAutoRedEyeReductionSupported) BOOL autoRedEyeReductionSupported;
+@property (readonly, nonatomic) BOOL isFlashScene;
+@property (copy, nonatomic) AVCapturePhotoSettings_Tundra *photoSettingsForSceneMonitoring;
+@property (nonatomic, getter=isHighResolutionCaptureEnabled) BOOL highResolutionCaptureEnabled;
+@property (readonly, nonatomic) unsigned long long maxBracketedCapturePhotoCount;
+@property (readonly, nonatomic, getter=isLensStabilizationDuringBracketedCaptureSupported) BOOL lensStabilizationDuringBracketedCaptureSupported;
+@property (readonly, nonatomic, getter=isLivePhotoCaptureSupported) BOOL livePhotoCaptureSupported;
+@property (nonatomic, getter=isLivePhotoCaptureEnabled) BOOL livePhotoCaptureEnabled;
+@property (nonatomic, getter=isLivePhotoCaptureSuspended) BOOL livePhotoCaptureSuspended;
+@property (nonatomic, getter=isLivePhotoAutoTrimmingEnabled) BOOL livePhotoAutoTrimmingEnabled;
+@property (readonly, nonatomic) NSArray *availableLivePhotoVideoCodecTypes;
+@property (readonly, nonatomic, getter=isContentAwareDistortionCorrectionSupported) BOOL contentAwareDistortionCorrectionSupported;
+@property (nonatomic, getter=isContentAwareDistortionCorrectionEnabled) BOOL contentAwareDistortionCorrectionEnabled;
+
++ (void)initialize;
++ (id)new;
++ (BOOL)isBayerRAWPixelFormat:(unsigned int)a0;
++ (BOOL)isAppleProRAWPixelFormat:(unsigned int)a0;
++ (id)JPEGPhotoDataRepresentationForJPEGSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 previewPhotoSampleBuffer:(struct opaqueCMSampleBuffer { } *)a1;
++ (struct __CFDictionary { } *)_copyAttachmentsAndPropagateFaceRegionsToExifAuxDictionaryForSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0;
++ (BOOL)isBayerRawPixelFormat:(unsigned int)a0;
++ (BOOL)isDemosaicedRawPixelFormat:(unsigned int)a0;
++ (id)DNGPhotoDataRepresentationForRawSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 previewPhotoSampleBuffer:(struct opaqueCMSampleBuffer { } *)a1;
+
+- (void)dealloc;
+- (id)init;
+- (id)connectionMediaTypes;
+- (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)a0;
+- (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)a0;
+- (BOOL)isDepthDataDeliveryEnabled;
+- (void)setDepthDataDeliveryEnabled:(BOOL)a0;
+- (BOOL)canAddConnectionForMediaType:(id)a0;
+- (id)applicationAnalytics;
+- (void)removeOutputUnitsForConnection:(id)a0 fromGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2;
+- (int)connectionGraphNodeForConnection:(id)a0;
+- (BOOL)addOutputUnitsForConnection:(id)a0 toGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2 error:(id *)a3;
+- (int)videoDecompressionRequirementForConnection:(id)a0;
+- (unsigned int)connectionUnitInputNumberForConnection:(id)a0;
+- (id)videoDecompressionSettingsForVideoConnection:(id)a0;
+- (void)_updateVideoDecompressorNodeForConnection:(id)a0;
+- (BOOL)supportsVideoMirroringForConnection:(id)a0;
+- (BOOL)supportsVideoOrientationForConnection:(id)a0;
+- (BOOL)supportsVideoFieldModeForConnection:(id)a0;
+- (BOOL)supportsVideoMinFrameDurationForConnection:(id)a0;
+- (BOOL)supportsVideoMaxFrameDurationForConnection:(id)a0;
+- (long long)defaultVideoFieldModeForConnection:(id)a0;
+- (BOOL)isPortraitEffectsMatteDeliveryEnabled;
+- (void)setPortraitEffectsMatteDeliveryEnabled:(BOOL)a0;
+- (id)enabledSemanticSegmentationMatteTypes;
+- (void)setEnabledSemanticSegmentationMatteTypes:(id)a0;
+- (BOOL)isDepthDataDeliverySupported;
+- (id)_videoDecompressionSettings;
+- (void)_receiveSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0;
+- (id)availableSemanticSegmentationMatteTypes;
+- (void)capturePhotoWithSettings:(id)a0 delegate:(id)a1;
+- (void)setPreparedPhotoSettingsArray:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)isDemosaicedRawSupported;
+- (BOOL)isDemosaicedRawEnabled;
+- (void)setDemosaicedRawEnabled:(BOOL)a0;
+- (id)supportedPhotoPixelFormatTypesForFileType:(id)a0;
+- (id)supportedPhotoCodecTypesForFileType:(id)a0;
+- (id)supportedRawPhotoPixelFormatTypesForFileType:(id)a0;
+- (BOOL)isPortraitEffectsMatteDeliverySupported;
+- (void)_handleSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 imageRequest:(id)a1;
+- (void)_consumerStart;
+- (void)_consumerStop;
+
+@end

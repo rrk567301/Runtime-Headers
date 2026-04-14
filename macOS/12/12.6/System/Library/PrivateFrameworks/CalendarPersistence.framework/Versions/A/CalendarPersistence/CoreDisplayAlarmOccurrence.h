@@ -1,0 +1,3 @@
+@interface CoreDisplayAlarmOccurrence : CoreAlarmOccurrence
+
+@end

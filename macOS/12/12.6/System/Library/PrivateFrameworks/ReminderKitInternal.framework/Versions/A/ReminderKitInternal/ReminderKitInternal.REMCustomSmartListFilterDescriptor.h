@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface ReminderKitInternal.REMCustomSmartListFilterDescriptor : NSObject <NSSecureCoding> {
+    void /* unknown type, empty encoding */ hashtags;
+    void /* unknown type, empty encoding */ date;
+    void /* unknown type, empty encoding */ time;
+    void /* unknown type, empty encoding */ priorities;
+    void /* unknown type, empty encoding */ flagged;
+    void /* unknown type, empty encoding */ location;
+}
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic, readonly) NSString *description;
+
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

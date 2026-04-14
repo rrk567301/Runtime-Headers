@@ -1,0 +1,19 @@
+@class VZMacMachineIdentifier, VZMacAuxiliaryStorage, VZMacHardwareModel;
+
+@interface VZMacPlatformConfiguration : VZPlatformConfiguration {
+    BOOL _productionModeEnabled;
+}
+
+@property (getter=_isProductionModeEnabled, setter=_setProductionModeEnabled:) BOOL _productionModeEnabled;
+@property (copy) VZMacHardwareModel *hardwareModel;
+@property (copy) VZMacMachineIdentifier *machineIdentifier;
+@property (retain) VZMacAuxiliaryStorage *auxiliaryStorage;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (struct expected<std::variant<VzCore::VirtualMachineConfiguration::Platforms::Generic, VzCore::VirtualMachineConfiguration::Platforms::Mac>, NSError *> { union storage<std::variant<VzCore::VirtualMachineConfiguration::Platforms::Generic, VzCore::VirtualMachineConfiguration::Platforms::Mac>, NSError *> { char x0; struct variant<VzCore::VirtualMachineConfiguration::Platforms::Generic, VzCore::VirtualMachineConfiguration::Platforms::Mac> { struct __impl<VzCore::VirtualMachineConfiguration::Platforms::Generic, VzCore::VirtualMachineConfiguration::Platforms::Mac> { union __union<std::__variant_detail::_Trait::_Available, 0UL, VzCore::VirtualMachineConfiguration::Platforms::Generic, VzCore::VirtualMachineConfiguration::Platforms::Mac> { char x0; struct __alt<0UL, VzCore::VirtualMachineConfiguration::Platforms::Generic> { struct Generic { int x0; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 1UL, VzCore::VirtualMachineConfiguration::Platforms::Mac> { char x0; struct __alt<1UL, VzCore::VirtualMachineConfiguration::Platforms::Mac> { struct Mac { unsigned int x0; struct FileDescriptor { int x0; } x1; struct Identifier { unsigned long long x0; BOOL x1; } x2; int x3; unsigned int x4; unsigned int x5; BOOL x6; struct basic_string<char, std::char_traits<char>, std::allocator<char>> { struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x7; struct optional<std::string> { union { char x0; struct basic_string<char, std::char_traits<char>, std::allocator<char>> { struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x1; } x0; BOOL x1; } x8; struct optional<std::string> { union { char x0; struct basic_string<char, std::char_traits<char>, std::allocator<char>> { struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x1; } x0; BOOL x1; } x9; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 2UL> { } x2; } x2; } x0; unsigned int x1; } x0; } x1; id x2; } x0; BOOL x1; })_platform;
+- (struct expected<void, NSError *> { union storage<void, NSError *> { char x0; id x1; } x0; BOOL x1; })validate;
+- (struct expected<NSDictionary *, NSError *> { union storage<NSDictionary *, NSError *> { char x0; id x1; id x2; } x0; BOOL x1; })encodeWithEncoder:(id)a0;
+
+@end

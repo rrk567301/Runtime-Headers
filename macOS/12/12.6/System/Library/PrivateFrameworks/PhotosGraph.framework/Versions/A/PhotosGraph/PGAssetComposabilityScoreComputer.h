@@ -1,0 +1,22 @@
+@class PHPhotoLibrary;
+
+@interface PGAssetComposabilityScoreComputer : NSObject {
+    PHPhotoLibrary *_photoLibrary;
+    BOOL _computeDiptychScores;
+    BOOL _computeTriptychScores;
+}
+
+@property (readonly) double bestDistance;
+@property (readonly) double identicalSimilarityThreshold;
+@property (readonly) double semanticalSimilarityThreshold;
+
+- (void).cxx_destruct;
+- (id)initForTesting;
+- (id)initWithPhotoLibrary:(id)a0 options:(id)a1;
+- (id)composabilityScoresOfAssetsForLocalIdentifiers:(id)a0;
+- (double)composabilityScoreWithAssetDistance:(double)a0;
+- (id)sceneprintWithAsset:(id)a0;
+- (double)_distanceBetweenSceneprint:(id)a0 andSceneprint:(id)a1;
+- (double)composabilityScoreWithAssetDistance:(double)a0 andDistance:(double)a1 andDistance:(double)a2;
+
+@end

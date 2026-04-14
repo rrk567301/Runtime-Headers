@@ -1,0 +1,3 @@
+@interface SDProfileUtilities : NSObject
+
+@end

@@ -1,0 +1,30 @@
+@class NSObject, NSString, EKEventStore;
+@protocol OS_os_log, PowerUISignalMonitorDelegate;
+
+@interface PowerUICalendarSignalMonitor : NSObject <PowerUISignalMonitor>
+
+@property (retain, nonatomic) EKEventStore *calendar;
+@property (retain, nonatomic) id<PowerUISignalMonitorDelegate> delegate;
+@property (retain, nonatomic) NSObject<OS_os_log> *log;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)monitorWithDelegate:(id)a0;
++ (id)monitorWithDelegate:(id)a0 trialManager:(id)a1 withContext:(id)a2 withKnowledgeStore:(id)a3;
+
+- (void).cxx_destruct;
+- (void)startMonitoring;
+- (void)stopMonitoring;
+- (unsigned long long)signalID;
+- (id)requiredFullChargeDate;
+- (id)detectedSignals;
+- (id)initWithDelegate:(id)a0 trialManager:(id)a1 withContext:(id)a2 withKnowledgeStore:(id)a3;
+- (void)sourceInformationChangedNotification:(id)a0;
+- (BOOL)isEventEligible:(id)a0 AtTime:(id)a1;
+- (id)upcomingEvents;
+- (id)nextFlightEventWithEvents:(id)a0;
+- (id)nextRelevantDeadlineWithEvents:(id)a0;
+
+@end

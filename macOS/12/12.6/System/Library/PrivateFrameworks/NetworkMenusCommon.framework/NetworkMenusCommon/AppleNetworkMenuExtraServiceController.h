@@ -1,0 +1,84 @@
+@class NSMenuItem, NSString, AppleNetworkMenuHeaderView, NSURL, NSArray, NSView, NSDictionary, NSTimer, NSBundle, NSMutableArray, NSNumber;
+
+@interface AppleNetworkMenuExtraServiceController : NSObject {
+    NSString *mServiceID;
+    NSBundle *mBundle;
+    NSURL *mApplicationURL;
+    NSMenuItem *mHeaderMenuItem;
+    NSMutableArray *mMenuItems;
+    BOOL mHeaderEnabled;
+    BOOL mShouldShowTimer;
+    NSString *mSelectedConfigID;
+    struct __SCPreferences { } *mPrefs;
+    struct __SCNetworkConnection { } *mConnectionRef;
+    struct __CFRunLoopSource { } *mRunLoopSource;
+    NSNumber *mConnectionStartTime;
+    double kSleepStartTime;
+    long long kSleepTimeAdditionalSeconds;
+    long long mConnectionRetryCount;
+    NSDictionary *mStatusStrings;
+    NSArray *mImages;
+    NSArray *mAlternateImages;
+    NSView *mMenuBarView;
+    NSTimer *mStatusCheckTimer;
+    NSTimer *mFailSafeTimer;
+    BOOL mInitializing;
+    BOOL mUnloading;
+    long long mStatus;
+    int mConnectionState;
+}
+
+@property (retain) AppleNetworkMenuHeaderView *headerView;
+
+- (void)dealloc;
+- (int)connectionType;
+- (struct __SCPreferences { } *)preferences;
+- (void)disconnect;
+- (id)serviceName;
+- (void)connect;
+- (BOOL)isConnected;
+- (int)connectionState;
+- (void)setPreferences:(struct __SCPreferences { } *)a0;
+- (id)applicationDisplayName;
+- (id)serviceID;
+- (void)setShouldShowTimer:(BOOL)a0;
+- (id)applicationURL;
+- (id)menuItems;
+- (id)connectionStartTime;
+- (id)headerMenuItem;
+- (void)setMenuWidth:(double)a0;
+- (id)selectedConfiguration;
+- (void)setSelectedConfiguration:(id)a0;
+- (id)initWithServiceID:(id)a0 andBundle:(id)a1;
+- (void)refreshConnectionState;
+- (void)refreshStatus;
+- (void)refreshHeaderView;
+- (void)refreshMenuItems;
+- (void)a_changeCurrentlySelectedPreference:(id)a0;
+- (void)prepareToUnload;
+- (void)a_connectOrDisconnect:(id)a0;
+- (void)updateViewIfHighlighted;
+- (BOOL)isThirdPartyVPN;
+- (void)setMenuBarView:(id)a0;
+- (double)desiredMenuWidth;
+- (void)handleDynamicStoreChangedNotification:(id)a0;
+- (void)storeConfigID:(id)a0;
+- (struct __SCNetworkConnection { } *)connectionRef;
+- (int)p_connectionStatus:(struct __SCNetworkConnection { } *)a0;
+- (struct __SCUserPreferencesRef { } *)userPrefsForUniqueID:(id)a0;
+- (void)p_startStatusCheckTimer;
+- (void)storeLastConnectedServiceID:(id)a0;
+- (void)p_stopStatusCheckTimer;
+- (void)p_teardownConnection;
+- (struct __SCNetworkService { } *)serviceRefWithRefresh:(BOOL)a0;
+- (id)connectionTypeKey;
+- (id)connectionSubType;
+- (void)p_initializeConnection;
+- (void)p_initializeDynamicStoreMonitoring;
+- (id)machinePrefs;
+- (void)p_scheduleConnectionWithRunloop:(BOOL)a0;
+- (void)p_performStatusCheck;
+- (void)handleStateChangedNotification:(int)a0;
+- (void)refreshConnectionRef;
+
+@end

@@ -1,0 +1,3 @@
+@interface CalStoreRemoteCALWeeklyRecurrence : CalStoreRemoteCoreRecurrenceRule
+
+@end

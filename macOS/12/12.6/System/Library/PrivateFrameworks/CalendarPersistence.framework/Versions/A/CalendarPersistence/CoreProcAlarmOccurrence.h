@@ -1,0 +1,3 @@
+@interface CoreProcAlarmOccurrence : CoreAlarmOccurrence
+
+@end

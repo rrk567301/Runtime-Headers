@@ -1,0 +1,80 @@
+@class QCProxyPort, NSString;
+
+@interface QCPort : GFPort {
+    Class _baseClass;
+    QCPort *_connectedPort;
+    QCProxyPort *_proxyPort;
+    unsigned long long _timestamp;
+    unsigned long long _previousTimestamp;
+    unsigned long long _iteration;
+    unsigned long long _previousIteration;
+    BOOL _updated;
+    NSString *_keyCache;
+    int _direction;
+    unsigned long long _connectedPortTimestamp;
+    unsigned long long _kindAndUnits;
+    void *_observationInfo;
+    id _proExtension;
+    unsigned long long _observerCount;
+    void *_unused2[1];
+}
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)a0;
++ (BOOL)accessInstanceVariablesDirectly;
++ (Class)baseClass;
++ (id)findOriginalPort:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (void)setObservationInfo:(void *)a0;
+- (void)setValue:(id)a0 forKey:(id)a1;
+- (id)state;
+- (id)valueForKey:(id)a0;
+- (BOOL)setState:(id)a0;
+- (id)value;
+- (unsigned long long)_timestamp;
+- (id)key;
+- (BOOL)setValue:(id)a0;
+- (void)addObserver:(id)a0 forKeyPath:(id)a1 options:(unsigned long long)a2 context:(void *)a3;
+- (void *)observationInfo;
+- (void)removeObserver:(id)a0 forKeyPath:(id)a1;
+- (int)kind;
+- (int)direction;
+- (Class)valueClass;
+- (int)units;
+- (BOOL)wasUpdated;
+- (BOOL)setStateValue:(id)a0;
+- (id)stateValue;
+- (void)_setDirection:(int)a0;
+- (Class)baseClass;
+- (id)initWithNode:(id)a0 arguments:(id)a1;
+- (void)portWillDeleteFromNode;
+- (id)setupTooltipView;
+- (void)resetTooltipView;
+- (id)tooltipString;
+- (id)proxyPort;
+- (void)willChangeValue;
+- (void)didChangeValue;
+- (BOOL)canConnectToPort:(id)a0;
+- (BOOL)takeValue:(id)a0 fromPort:(id)a1;
+- (BOOL)acceptValuesOfClass:(Class)a0;
+- (id)setupParameterView;
+- (void)resetParameterView:(id)a0;
+- (void)editValueWithEvent:(id)a0 inView:(id)a1 atPoint:(struct CGPoint { double x0; double x1; })a2;
+- (id)tooltipExtensionView;
+- (struct CGSize { double x0; double x1; })tooltipExtensionViewSize:(id)a0;
+- (id)_argumentsFromAttributesKey:(id)a0 originalArguments:(id)a1;
+- (void)drawPortView:(id)a0;
+- (id)connectedPort;
+- (id)parentPatch;
+- (void)_clearCachedKey;
+- (void)_setBaseClass:(Class)a0;
+- (BOOL)_execute:(double)a0 arguments:(id)a1;
+- (void)_resetUpdate;
+- (void)_setProxyPort:(id)a0;
+- (void)_setConnectedPort:(id)a0;
+- (struct { unsigned char x0[16]; })md5WithTime:(double)a0 arguments:(id)a1;
+- (id)getConnectedOriginalPort;
+
+@end

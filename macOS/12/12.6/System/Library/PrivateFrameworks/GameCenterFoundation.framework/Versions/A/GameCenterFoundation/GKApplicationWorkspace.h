@@ -1,0 +1,14 @@
+@interface GKApplicationWorkspace : NSObject
+
++ (id)defaultWorkspace;
+
+- (void)openURL:(id)a0;
+- (BOOL)applicationIsInstalled:(id)a0;
+- (void)openGameCenterSettings;
+- (void)openSettings;
+- (void)openICloudSettings;
+- (id)applicationProxyForBundleID:(id)a0;
+- (id)gameDescriptorsWithInstalledBundleVersionsForBundleIDs:(id)a0;
+- (id)gameDescriptorsWithInstalledBundleVersionsForGameDescriptors:(id)a0;
+
+@end

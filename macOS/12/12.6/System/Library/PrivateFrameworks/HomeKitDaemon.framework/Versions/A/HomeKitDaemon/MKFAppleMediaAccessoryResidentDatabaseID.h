@@ -1,0 +1,3 @@
+@interface MKFAppleMediaAccessoryResidentDatabaseID : MKFResidentDatabaseID
+
+@end

@@ -1,0 +1,74 @@
+@class NSImageView, NSTextField, AXVSpeechMenuButton, NSImage, NSVisualEffectView, NSButton, NSString;
+@protocol AXVSpeechMenuWindowButtonEventDelegate;
+
+@interface AXVSpeechMenuWindow : AXVSpeechStyleWindow <AXVSpeechMenuWindowButtonEventDelegate>
+
+@property (retain, nonatomic) NSButton *_closeButton;
+@property (retain, nonatomic) NSButton *_placeholderButton;
+@property (retain, nonatomic) NSButton *_minimizeButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_slowerButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_previousButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_playPauseButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_nextButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_fasterButton;
+@property (retain, nonatomic) AXVSpeechMenuButton *_stopButton;
+@property (retain, nonatomic) NSVisualEffectView *_slowerButtonView;
+@property (retain, nonatomic) NSVisualEffectView *_previousButtonView;
+@property (retain, nonatomic) NSVisualEffectView *_playPauseButtonView;
+@property (retain, nonatomic) NSVisualEffectView *_nextButtonView;
+@property (retain, nonatomic) NSVisualEffectView *_fasterButtonView;
+@property (retain, nonatomic) NSVisualEffectView *_stopButtonView;
+@property (retain, nonatomic) NSImageView *_slowerButtonImageView;
+@property (retain, nonatomic) NSImageView *_fasterButtonImageView;
+@property (retain, nonatomic) NSImageView *_playPauseButtonImageView;
+@property (retain, nonatomic) NSImageView *_nextButtonImageView;
+@property (retain, nonatomic) NSImageView *_previousButtonImageView;
+@property (retain, nonatomic) NSImageView *_stopButtonImageView;
+@property (retain, nonatomic) NSImage *_turtleIcon;
+@property (retain, nonatomic) NSImage *_playIcon;
+@property (retain, nonatomic) NSImage *_pauseIcon;
+@property (retain, nonatomic) NSImage *_hareIcon;
+@property (retain, nonatomic) NSImage *_nextIcon;
+@property (retain, nonatomic) NSImage *_previousIcon;
+@property (retain, nonatomic) NSImage *_stopIcon;
+@property (retain, nonatomic) NSTextField *_titleField;
+@property (weak, nonatomic) id<AXVSpeechMenuWindowButtonEventDelegate> buttonEventDelegate;
+@property (nonatomic) unsigned long long currentSpeakingState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 backing:(unsigned long long)a2 defer:(BOOL)a3;
+- (BOOL)canBecomeVisibleWithoutLogin;
+- (BOOL)isFloatingPanel;
+- (BOOL)becomesKeyOnlyIfNeeded;
+- (BOOL)_preventsActivation;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_setupStackView;
+- (void)setCurrentSpeakingStateToPlaying;
+- (void)_setupCloseButton;
+- (void)_setupTitleField;
+- (void)_setupPlaceholderButton;
+- (void)_setupSpeechControlButtons;
+- (void)_setupVisualEffectViews;
+- (void)_constrainVisualEffectViews;
+- (void)_addButtonContraints;
+- (void)_setupVisualEffectView:(id)a0;
+- (void)_constrainVisualEffectView:(id)a0;
+- (void)_constraintTitleField;
+- (void)_handleCloseButtonPress;
+- (void)_handleSlowerButtonPress;
+- (void)_setupSpeechControlButton:(id)a0;
+- (void)_handlePlayPauseButtonPress;
+- (void)_handleFasterButtonPress;
+- (void)_handleNextButtonPress;
+- (void)_handlePreviousButtonPress;
+- (void)_handleStopButtonPress;
+- (void)_constrainButtonToSquare:(id)a0;
+- (void)setCurrentSpeakingStateToPaused;
+- (void)setSpeechMenuTitle:(id)a0;
+
+@end

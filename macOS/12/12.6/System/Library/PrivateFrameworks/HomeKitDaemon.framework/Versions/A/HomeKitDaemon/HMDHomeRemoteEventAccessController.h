@@ -1,0 +1,17 @@
+@class HMDAccessorySettingsEventHelper;
+@protocol HMDHomeRemoteEventAccessControllerDataSource;
+
+@interface HMDHomeRemoteEventAccessController : NSObject <HMDRemoteEventAccessControlProvider>
+
+@property (readonly, weak, nonatomic) id<HMDHomeRemoteEventAccessControllerDataSource> dataSource;
+@property (readonly, nonatomic) HMDAccessorySettingsEventHelper *settingsHelper;
+
+- (void).cxx_destruct;
+- (id)initWithDataSource:(id)a0;
+- (BOOL)remoteEventAllowedForTopic:(id)a0 deviceType:(unsigned long long)a1 userType:(unsigned long long)a2;
+- (BOOL)remoteEventAllowedForAccessoryEventTopic:(id)a0 parsedEventTopic:(id)a1 deviceType:(unsigned long long)a2 userType:(unsigned long long)a3;
+- (BOOL)remoteEventAllowedForHomeEventTopic:(id)a0 parsedEventTopic:(id)a1 deviceType:(unsigned long long)a2 userType:(unsigned long long)a3;
+- (BOOL)isAppleMediaAccessoryUUID:(id)a0 error:(id *)a1;
+- (BOOL)isSiriEndpointAccessoryUUID:(id)a0 error:(id *)a1;
+
+@end

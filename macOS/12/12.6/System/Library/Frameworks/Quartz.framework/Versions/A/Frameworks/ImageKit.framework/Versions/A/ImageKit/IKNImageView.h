@@ -1,0 +1,93 @@
+@class IKNImageViewHandler, NSString, IKNRootLayer, NSArray, NSColor, IKStatusLayer, IKNImageLayer;
+
+@interface IKNImageView : NSView {
+    double _rotation;
+    IKStatusLayer *_statusLayer;
+    BOOL _isDoubleClickEvent;
+    BOOL _wasAcceptingMouseEvents;
+    long long _trackingRectTag;
+    struct CGImage { } *_cgImage;
+}
+
+@property (copy) NSString *statusText;
+@property double progress;
+@property BOOL enabled;
+@property BOOL selectionsCanRotate;
+@property BOOL singleSelection;
+@property BOOL selectionsCanBeModified;
+@property BOOL forceSelectionInsideView;
+@property id delegate;
+@property (readonly) IKNImageViewHandler *imageViewHandler;
+@property (readonly) IKNRootLayer *rootLayer;
+@property (readonly) IKNImageLayer *imageLayer;
+@property double rotation;
+@property NSArray *selections;
+@property struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } selectionRect;
+@property (readonly) struct CGSize { double x0; double x1; } imageSize;
+@property NSColor *backgroundColor;
+@property long long resolution;
+
++ (struct CGImage { } *)copyImageFromURL:(id)a0 index:(long long)a1;
++ (struct CGImage { } *)copyImageFromURL:(id)a0 index:(long long)a1 orientation:(long long *)a2;
+
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)viewDidMoveToWindow;
+- (void)mouseDown:(id)a0;
+- (BOOL)acceptsFirstResponder;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)mouseMoved:(id)a0;
+- (void)setFrameOrigin:(struct CGPoint { double x0; double x1; })a0;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (void)keyDown:(id)a0;
+- (void)selectAll:(id)a0;
+- (id)menuForEvent:(id)a0;
+- (void)viewWillStartLiveResize;
+- (void)viewDidEndLiveResize;
+- (void)mouseDragged:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)flagsChanged:(id)a0;
+- (void)addSelection:(id)a0;
+- (void)setImageWithURL:(id)a0;
+- (void)setImage:(struct CGImage { } *)a0 imageProperties:(id)a1;
+- (void)dumpLayer:(id)a0 prefix:(id)a1 verbose:(BOOL)a2;
+- (void)dumpLayer:(id)a0 prefix:(id)a1;
+- (void)setOverlay:(id)a0 forType:(id)a1;
+- (void)debugLayerTree:(id)a0;
+- (void)setNoImageSize:(struct CGSize { double x0; double x1; })a0;
+- (void)installAlphaLayerWithGray:(double)a0 alpha:(double)a1;
+- (void)removeAlphaLayer;
+- (void)createRootLayer;
+- (void)createImageLayer;
+- (void)setCGImage:(struct CGImage { } *)a0 properties:(id)a1;
+- (void)adjustToViewFrame;
+- (void)deleteAllSelections;
+- (void)hideAllSelections;
+- (void)setImage:(struct CGImage { } *)a0 imageProperties:(id)a1 keepSelections:(BOOL)a2;
+- (void)setImageWithURL:(id)a0 index:(long long)a1;
+- (void)resizeStatusLayer;
+- (void)removeStatusLayer;
+- (void)installStatusLayer;
+- (void)showAllSelections;
+- (void)deleteSelection:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)getTemplateRects:(long long *)a0;
+- (void)doSelectAll;
+- (void)showSelectionWithOrientation:(long long)a0;
+- (void)resetSelectionWithOrientation;
+- (void)drawOrientationUI:(short)a0;
+- (void)hiliteSelection:(id)a0;
+- (void)unhiliteSelections;
+- (void)addScanArea:(id)a0 withOverlay:(BOOL)a1;
+- (void)removeTemplateRects;
+- (void)addAutoDetectedItem:(id)a0;
+- (void)removeAllAutoDetectedItems;
+- (id)autoDetectedItems;
+- (struct CGPoint { double x0; double x1; })convertEventLocationInWindow:(struct CGPoint { double x0; double x1; })a0 toLayer:(id)a1;
+- (void)installTemplateRects:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 count:(long long)a1;
+- (void)applyImageCorrection:(id)a0;
+- (double)userSpaceScalingFactor;
+
+@end

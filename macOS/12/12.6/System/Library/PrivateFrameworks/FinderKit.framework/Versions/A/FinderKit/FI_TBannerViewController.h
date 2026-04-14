@@ -1,0 +1,42 @@
+@class NSButton, NSString, NSObject, FI_TNotificationCenterObserverGlue;
+
+@interface FI_TBannerViewController : FI_TViewController <FPUIActionViewControllerDelegate, TCoalescingNodeObserverProtocol> {
+    struct shared_ptr<TCoalescingNodeObserverCocoaBridge> { struct TCoalescingNodeObserverCocoaBridge *__ptr_; struct __shared_weak_count *__cntrl_; } _nodeObserver;
+    struct TFENode { struct OpaqueNodeRef *fNodeRef; } _observedNode;
+    struct TNotificationCenterObserver { NSObject *fObservedObject; struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *fRef; } fString; } fNotificationName; FI_TNotificationCenterObserverGlue *fFunctorGlue; BOOL fIsDistributedObserving; struct function<NSNotificationCenter *()> { struct __value_func<NSNotificationCenter *()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } fCenterProvider; } _finderPrefsChangedObserver;
+    NSButton *_learnMoreButton;
+}
+
+@property (copy, nonatomic) NSString *text;
+@property (copy, nonatomic) NSString *buttonTitle;
+@property (nonatomic, getter=isButtonEnabled) BOOL buttonEnabled;
+@property (nonatomic) int type;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void)setRepresentedObject:(id)a0;
+- (void)buttonPressed:(id)a0;
+- (void)coalescingNodeObserver:(void *)a0 nodesAdded:(const void *)a1 toObservedNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a2;
+- (void)coalescingNodeObserver:(void *)a0 nodesChanged:(const void *)a1 inObservedNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a2;
+- (void)coalescingNodeObserver:(void *)a0 nodesDeleted:(const void *)a1 fromObservedNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a2;
+- (void)coalescingNodeObserver:(void *)a0 openSyncCompleted:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a1;
+- (void)configureView;
+- (void)actionControllerDidFinishAction:(id)a0 error:(id)a1;
+- (id)initWithBannerType:(int)a0;
+- (void)stopObservingTargetNode;
+- (void)startObservingTargetNode;
+- (void)updateBannerState;
+- (void)emptyTrash;
+- (void)upgradeToICloudDrive:(BOOL)a0;
+- (void)presentAuthenticationUI;
+- (void)restartFileProviderObservers;
+- (struct TFENode { struct OpaqueNodeRef *x0; })representedNode;
+- (void)populationChangedInContainerNode:(const struct TFENode { struct OpaqueNodeRef *x0; } *)a0;
+- (struct TString { struct TRef<const __CFString *, TRetainReleasePolicy<CFStringRef>> { struct __CFString *x0; } x0; })buttonTitleForTrashFolder;
+
+@end

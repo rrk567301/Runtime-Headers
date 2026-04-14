@@ -1,0 +1,30 @@
+@class NSData;
+
+@interface SISchemaIntercomMessageRecorded : SISchemaInstrumentationMessage {
+    struct { unsigned char durationInMs : 1; unsigned char isReply : 1; unsigned char disambiguationRequired : 1; unsigned char intercomTarget : 1; } _has;
+}
+
+@property (nonatomic) long long durationInMs;
+@property (nonatomic) BOOL hasDurationInMs;
+@property (nonatomic) BOOL isReply;
+@property (nonatomic) BOOL hasIsReply;
+@property (nonatomic) BOOL disambiguationRequired;
+@property (nonatomic) BOOL hasDisambiguationRequired;
+@property (nonatomic) int intercomTarget;
+@property (nonatomic) BOOL hasIntercomTarget;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteDurationInMs;
+- (void)deleteIsReply;
+- (void)deleteDisambiguationRequired;
+- (void)deleteIntercomTarget;
+- (id)suppressMessageUnderConditions;
+
+@end

@@ -1,0 +1,34 @@
+@class NSLock;
+
+@interface CPKFont : NSObject {
+    struct __CTFont { } *_privateCTFont;
+    NSLock *_privateFontLock;
+}
+
+@property (readonly) const struct __CTFont { } *ctFont;
+@property (nonatomic) double fontSize;
+@property (readonly) double ascent;
+@property (readonly) double descent;
+@property (readonly) BOOL isEmojiFont;
+
++ (id)defaultFontName;
++ (void)registerFontRef:(struct __CTFont { } *)a0;
++ (id)sharedFontWithName:(id)a0 size:(double)a1;
++ (id)glyphInfoArrayForAttributedString:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (id)initWithName:(id)a0 size:(double)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundingRectForGlyph:(unsigned short)a0;
+- (id)_privateInit;
+- (id)initWithFontRef:(struct __CTFont { } *)a0;
+- (void)_setFontRef:(struct __CTFont { } *)a0;
+- (unsigned short)_glyphForString:(id)a0 fallbackFontName:(id *)a1 fallbackFontRef:(const struct __CTFont **)a2;
+- (const struct __CTFont { } *)copyFontRef;
+- (double)_fontSizeForFittingGlyph:(unsigned short)a0 orCharacter:(id)a1 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 preferredFontSize:(double)a3 outDrawingPos:(struct CGPoint { double x0; double x1; } *)a4 outLayoutBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a5;
+- (unsigned short)glyphForString:(id)a0 fallbackFontName:(id *)a1;
+- (unsigned short)glyphForString:(id)a0 fallbackFontRef:(const struct __CTFont **)a1;
+- (double)fontSizeForFittingGlyph:(unsigned short)a0 orCharacter:(id)a1 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 outDrawingPos:(struct CGPoint { double x0; double x1; } *)a3 outLayoutBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a4;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })layoutBoundsForGlyph:(unsigned short)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+
+@end

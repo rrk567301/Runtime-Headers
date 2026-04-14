@@ -1,0 +1,57 @@
+@class WFDialogAttributions, NSDate, NSArray, NSString, WFUIPresenter, WFAction, WFSequentialParameterInputProvider, WFWorkflow, WFWorkflowController;
+
+@interface WFDialogTransformer : NSObject <WFSequentialParameterInputProviderDelegate, WFUserInterfaceHost, WFActionParameterInputProvider>
+
+@property (retain, nonatomic) WFWorkflow *workflow;
+@property (retain, nonatomic) WFSequentialParameterInputProvider *parameterInputProvider;
+@property (copy, nonatomic) id /* block */ parameterInputCompletionHandler;
+@property (retain, nonatomic) NSDate *workflowStartTime;
+@property (retain, nonatomic) WFAction *currentAction;
+@property (weak, nonatomic) WFWorkflowController *workflowController;
+@property (retain, nonatomic) WFUIPresenter *userInterfacePresenter;
+@property (readonly, nonatomic) WFDialogAttributions *attributions;
+@property (retain, nonatomic) NSArray *allowedParameterClasses;
+@property (nonatomic) long long numberOfDialogsPresented;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSString *userInterfaceType;
+
+- (void).cxx_destruct;
+- (void)cancel;
+- (id)associatedAppBundleIdentifier;
+- (BOOL)openURL:(id)a0 withBundleIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (id)attributionIcon;
+- (void)presentAlert:(id)a0;
+- (void)showConfirmInteraction:(id)a0 prompt:(id)a1 requireAuthentication:(BOOL)a2 completionHandler:(id /* block */)a3;
+- (void)showHandleInteraction:(id)a0 prompt:(id)a1 completionHandler:(id /* block */)a2;
+- (void)showPreviewForContentCollection:(id)a0 completionHandler:(id /* block */)a1;
+- (void)dismissPresentedContentWithCompletionHandler:(id /* block */)a0;
+- (void)requestActionInterfacePresentationForActionClassName:(id)a0 classNamesByType:(id)a1 completionHandler:(id /* block */)a2;
+- (void)requestAuthorizationWithConfiguration:(id)a0 completionHandler:(id /* block */)a1;
+- (void)requestFileAccessForURLs:(id)a0 workflowName:(id)a1 workflowID:(id)a2 completionHandler:(id /* block */)a3;
+- (BOOL)shouldNotHandoff;
+- (id)dialogTransformer;
+- (void)resolveDescriptor:(id)a0 completionHandler:(id /* block */)a1;
+- (id)attributionTitle;
+- (void)showDialogRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)action:(id)a0 canProvideInputForParameter:(id)a1;
+- (void)action:(id)a0 provideInputForParameters:(id)a1 withDefaultStates:(id)a2 prompts:(id)a3 completionHandler:(id /* block */)a4;
+- (void)sequentialParameterInputProviderDidCancel:(id)a0;
+- (void)sequentialParameterInputProvider:(id)a0 didAdvanceToParameter:(id)a1 action:(id)a2 defaultState:(id)a3 prompt:(id)a4 completion:(id /* block */)a5;
+- (void)sequentialParameterInputProvider:(id)a0 didFinishWithInputtedStates:(id)a1;
+- (id)workflowName;
+- (id)initWithWorkflow:(id)a0 userInterfacePresenter:(id)a1 userInterfaceType:(id)a2;
+- (id)attributionForMode:(unsigned long long)a0;
+- (id)actionForAttribution;
+- (void)handleAlertWithTextField:(id)a0;
+- (void)handleAlertWithDatePicker:(id)a0;
+- (void)handleAlertWithMultipleButtons:(id)a0;
+- (void)handleSimpleAlert:(id)a0;
+- (void)showAskParameterDialogForParameter:(id)a0 action:(id)a1 defaultState:(id)a2 prompt:(id)a3 completion:(id /* block */)a4;
+- (BOOL)usesModalComponentStyleWhenAskingForParameter:(id)a0;
+- (id)initWithWorkflow:(id)a0 userInterfacePresenter:(id)a1;
+- (void)workflowWillBegin;
+
+@end

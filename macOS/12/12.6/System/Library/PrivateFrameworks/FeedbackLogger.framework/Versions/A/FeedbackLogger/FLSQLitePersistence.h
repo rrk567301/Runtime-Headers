@@ -1,0 +1,88 @@
+@class NSString, FLLoggingContext, NSDate, NSObject;
+@protocol OS_os_log;
+
+@interface FLSQLitePersistence : NSObject
+
+@property (readonly, copy, nonatomic) NSString *databasePath;
+@property (nonatomic) struct sqlite3 { } *db;
+@property (retain, nonatomic) NSObject<OS_os_log> *log;
+@property (retain, nonatomic) FLLoggingContext *context;
+@property (nonatomic) struct sqlite3_stmt { } *insertRecordsStatement;
+@property (nonatomic) struct sqlite3_stmt { } *iteratePayloadStatement;
+@property (readonly, copy, nonatomic) NSString *storeIdentifier;
+@property (nonatomic) _Atomic BOOL configured;
+@property (nonatomic) unsigned long long maxBatchPayloadInBytes;
+@property (nonatomic) unsigned long long maxAllowedDatabaseSizeInBytes;
+@property (copy, nonatomic) NSString *currentBatchIdentifier;
+@property (copy, nonatomic) NSDate *currentBatchCreationDate;
+@property (nonatomic) unsigned long long currentBatchPayloadSize;
+@property (nonatomic) double batchMaximumDuration;
+
++ (id)uploadStatusDescription:(int)a0;
++ (id)batchStatusDescription:(int)a0;
+
+- (void)dealloc;
+- (BOOL)open;
+- (void).cxx_destruct;
+- (BOOL)deleteDatabase;
+- (BOOL)createDatabase;
+- (id)_getUploadIdsHelper:(struct sqlite3_stmt { } *)a0;
+- (BOOL)_updateMetadataHelperForUpload:(id)a0 query:(const char *)a1;
+- (BOOL)_updateStatusHelperForUpload:(id)a0 toStatus:(int)a1;
+- (id)getPurgableUploadIds;
+- (BOOL)markUploadsForPurge;
+- (id)getUploadRecordWithId:(id)a0;
+- (long long)cleanupPurgableUploads;
+- (BOOL)__deleteStatementHelper:(const char *)a0 forUploadId:(id)a1;
+- (id)getUploadIdsWithStatus:(int)a0;
+- (id)getUploadIdsWithAllStatuses;
+- (id)getUploadsRangeStart:(long long)a0 end:(long long)a1;
+- (BOOL)updateStatusForUpload:(id)a0 toStatus:(int)a1;
+- (BOOL)recoverOrphanedProcessingUploads;
+- (long long)doUploadHousekeeping;
+- (id)persistUploadPayload:(id)a0;
+- (BOOL)iterateUploadsWithCodeblock:(id /* block */)a0;
+- (BOOL)deleteUploadWithIdentifier:(id)a0;
+- (BOOL)deleteAllUploads;
+- (id)_getBatchIdsHelper:(struct sqlite3_stmt { } *)a0;
+- (BOOL)_updateMetadataHelperForBatch:(id)a0 query:(const char *)a1;
+- (BOOL)_updateStatusHelperForBatch:(id)a0 toStatus:(int)a1;
+- (BOOL)closeOpenBatch;
+- (BOOL)closeOrphanedBatches;
+- (BOOL)__purgeStatementHelper:(const char *)a0 forBatchId:(id)a1;
+- (id)getBatchIdsWithStatus:(int)a0;
+- (id)getBatchIdsWithAllStatuses;
+- (id)getPurgableBatchIds;
+- (id)getRecordsRangeStart:(long long)a0 end:(long long)a1;
+- (BOOL)getBatchMetadata:(id)a0 batchMetadata:(inout id *)a1;
+- (BOOL)updateStatusForBatch:(id)a0 toStatus:(int)a1;
+- (int)getDataVersion;
+- (BOOL)initializeNewBatch;
+- (BOOL)closeAllBatches;
+- (BOOL)forceCloseOpenBatches;
+- (BOOL)recoverOrphanedProcessingBatches;
+- (BOOL)markBatchesforPurge;
+- (long long)doBatchesHousekeeping;
+- (BOOL)purgeBatch:(id)a0;
+- (BOOL)purgeAllBatches;
+- (BOOL)isSchemaReady;
+- (BOOL)updateSchema;
+- (int)getSchemaVersion;
+- (BOOL)prepareSchema;
+- (unsigned long long)getCurrentDatabaseSize;
+- (BOOL)setDatabaseSizeLimit;
+- (BOOL)tryPrepare:(const char *)a0 preparedStatement:(inout struct sqlite3_stmt **)a1;
+- (BOOL)initializeConnectionForUseBy:(int)a0;
+- (BOOL)tryRolloverBatchIfNecessary:(unsigned long long)a0;
+- (BOOL)executeSQLStatement:(const char *)a0 usingTransaction:(BOOL)a1;
+- (id)initWithStoreId:(id)a0 loggingContext:(id)a1;
+- (id)persist:(id)a0;
+- (BOOL)executeSQLStatement:(const char *)a0;
+- (BOOL)executeInTransactionMultipleSQLStatements:(id)a0;
+- (BOOL)iteratePayloadForBatch:(id)a0 codeblock:(id /* block */)a1;
+- (BOOL)getIntValueForPragma:(id)a0 into:(inout int *)a1;
+- (long long)maxRowId;
+- (void)observeInsertionAtRow:(long long)a0 observer:(id /* block */)a1;
+- (id)registerInsertionObserver:(id /* block */)a0;
+
+@end

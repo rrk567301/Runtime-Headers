@@ -1,0 +1,3 @@
+@interface PRSTestRosterResult : PRSParsecGenericResult
+
+@end

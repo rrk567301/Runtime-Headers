@@ -1,0 +1,72 @@
+@interface DMFilesystem : NSObject {
+    id _instPriv;
+}
+
++ (id)filesystemForType:(id)a0 considerDisk:(struct __DADisk { } *)a1;
++ (id)filesystemForPersonality:(id)a0;
++ (id)filesystemForIOContent:(id)a0;
++ (void)ensureDatabaseAndForceRebuild:(BOOL)a0;
++ (BOOL)isCanonicalPersonalityNameEqual:(id)a0 withInformalName:(id)a1;
++ (id)filesystems;
++ (id)bootableFilesystems;
++ (id)filesystemForLocalizedName:(id)a0;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (id)bundlePath;
+- (id)minimumSize;
+- (id)maximumSize;
+- (id)formatArguments;
+- (id)verifyExecutable;
+- (id)verifyArguments;
+- (id)repairExecutable;
+- (id)repairArguments;
+- (BOOL)shouldBeUserFormattable;
+- (void)hardcodedAttribute:(const char *)a0 available:(BOOL *)a1 datum:(unsigned long long *)a2;
+- (id)initWithPersonality:(id)a0 majorType:(id)a1 locUsrVisName:(id)a2 locUsrVisCrpName:(id)a3 personalityDict:(id)a4 bundlePath:(id)a5;
+- (BOOL)bootable;
+- (id)userVisibleName;
+- (id)encryptedUserVisibleName;
+- (id)filesystemType;
+- (id)unlocalizedUserVisibleName;
+- (id)unlocalizedEncryptedUserVisibleName;
+- (id)filesystemPersonality;
+- (id)contentMask;
+- (BOOL)nameSanitizer:(id)a0 correctedName:(id *)a1 doToUpper:(BOOL)a2 illegalChars:(id)a3 replacementChar:(id)a4 leadingDotOK:(BOOL)a5 controlCharsOK:(BOOL)a6 minChars:(unsigned int)a7 maxChars:(unsigned int)a8 maxBytes:(unsigned int)a9 limitEncoding:(unsigned long long)a10;
+- (void)awareNameSanitizer:(id)a0 allowToUpper:(BOOL)a1 allowReplace:(BOOL)a2 isValid:(BOOL *)a3 correctedName:(id *)a4;
+- (BOOL)serverOnly;
+- (id)userVisibleNameForLanguage:(id)a0;
+- (id)filesystemDictionary;
+- (BOOL)isValidName:(id)a0;
+- (BOOL)isValidName:(id)a0 correctedName:(id *)a1;
+- (id)correctedVolumeNameForName:(id)a0;
+- (BOOL)volumeNameIsCasePreserving;
+- (BOOL)volumeNameIsCaseSensitive;
+- (BOOL)fileObjectsAreCasePreserving;
+- (BOOL)fileObjectsAreCaseSensitive;
+- (id)liveVerifyArguments;
+- (id)percentageVerifyArguments;
+- (id)verifyRepairOutputXMLArguments;
+- (BOOL)supportsPercentageVerifies;
+- (BOOL)supportsXMLVerifies;
+- (BOOL)canBeVerified;
+- (BOOL)canBeRepaired;
+- (id)formatExecutable;
+- (BOOL)canBeFormatted;
+- (BOOL)canFormatWholeDisk;
+- (BOOL)requiresBooterToBoot;
+- (BOOL)requiresWholeDiskFormat;
+- (BOOL)canHavePermissionsOff;
+- (BOOL)supportsJournaling;
+- (BOOL)supportsLiveVerify;
+- (BOOL)supportsResize;
+- (BOOL)supportedByWindows;
+- (BOOL)supportedAsFullyFeaturedMacOS;
+- (BOOL)supportedAsFullyFeaturedMacOSHFS;
+- (BOOL)supportedByCoreStorage;
+- (BOOL)supportedByAPFS;
+- (void)setVerifyRepairStringLocale:(id)a0;
+- (id)localizedVerifyRepairString:(id)a0 found:(BOOL *)a1;
+
+@end
