@@ -1,0 +1,3 @@
+@interface MTRTimeSynchronizationClusterTimeZoneType : MTRTimeSynchronizationClusterTimeZoneStruct
+
+@end

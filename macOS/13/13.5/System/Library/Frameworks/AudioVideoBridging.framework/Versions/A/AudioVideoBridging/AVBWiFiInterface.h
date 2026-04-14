@@ -1,0 +1,18 @@
+@class IOKService, IOKInterestNotification;
+
+@interface AVBWiFiInterface : AVBInterface {
+    IOKService *_wifiController;
+    IOKInterestNotification *_interestNotification;
+}
+
++ (id)supportedInterfaces;
++ (id)allInterfaces;
++ (id)iokitMatchingDictionaryForInterfaceName:(id)a0;
++ (id)iokitMatchingDictionaryForNetworkController;
++ (id)macAddressForInterfaceNamed:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithInterfaceName:(id)a0;
+- (unsigned long long)linkSpeed;
+
+@end

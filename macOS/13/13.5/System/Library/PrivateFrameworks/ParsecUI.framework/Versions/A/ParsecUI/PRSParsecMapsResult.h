@@ -1,0 +1,82 @@
+@class SFPunchout, NSString, NSDictionary, NSURL, SFSearchResult, MKMapItem, NSImage;
+
+@interface PRSParsecMapsResult : PRSParsecResult <PRSBaseResult>
+
+@property (retain, nonatomic) MKMapItem *location;
+@property (nonatomic) unsigned long long score;
+@property (nonatomic) unsigned long long rank;
+@property BOOL isQuickGlance;
+@property long long topHitScore;
+@property (readonly, nonatomic) NSString *displayName;
+@property (retain, nonatomic) NSString *resultBundleID;
+@property (retain, nonatomic) NSDictionary *featuresSet;
+@property (nonatomic) long long placement;
+@property (retain, nonatomic) NSString *resultIdentifier;
+@property (nonatomic) long long media_kind;
+@property (nonatomic) long long adam_id;
+@property (readonly) NSURL *URL;
+@property (nonatomic) BOOL isStreaming;
+@property (nonatomic) BOOL playable;
+@property (retain, nonatomic) NSString *geoUserSessionIDString;
+@property (nonatomic) double geoUserSessionStartTime;
+@property (retain, nonatomic) NSString *title;
+@property (nonatomic) float resultScore;
+@property (retain, nonatomic) NSURL *resultURL;
+@property (nonatomic) long long max_age;
+@property (retain, nonatomic) NSString *bundle_id;
+@property (retain, nonatomic) SFPunchout *punchout;
+@property (retain, nonatomic) SFSearchResult *sfSearchResult;
+@property (retain, nonatomic) NSString *templateName;
+@property (retain, nonatomic) NSString *section_header;
+@property (retain, nonatomic) NSImage *icon;
+@property (retain, nonatomic) NSString *completion;
+@property (retain, nonatomic) NSImage *completion_icon;
+@property (retain, nonatomic) NSString *title_note;
+@property int title_note_size;
+@property (retain, nonatomic) NSString *section_header_more;
+@property (retain, nonatomic) NSURL *section_header_more_url;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) NSString *type;
+@property (retain, nonatomic) NSString *categoryForCP;
+@property (retain, nonatomic) NSString *groupName;
+@property (retain, nonatomic) NSString *bundleID;
+@property (nonatomic) double lastUsedTime;
+@property (nonatomic) unsigned long long engagementScore;
+@property (nonatomic) unsigned long long queryIndependentScore;
+@property (nonatomic) int topHit;
+@property (nonatomic) unsigned long long usedCount;
+@property (nonatomic) unsigned long long predicted;
+@property (nonatomic) unsigned long long displayNameMatchScore;
+@property (nonatomic) unsigned long long alternateNameMatchScore;
+@property (nonatomic) unsigned long long resultEngagementScore;
+@property (nonatomic) unsigned long long contentMatchScore;
+@property (nonatomic) unsigned long long interestingTimeScore;
+@property (nonatomic) BOOL isPremium;
+@property (nonatomic) BOOL keyWordMatch;
+@property (nonatomic) BOOL doesContentMatch;
+@property (nonatomic) BOOL resultLocationInteresting;
+@property (nonatomic) BOOL isPredictedTopHit;
+@property (nonatomic) BOOL isStaticTopHit;
+@property (nonatomic) BOOL queryLastLaunched;
+@property (nonatomic) BOOL queryEverLaunched;
+@property (nonatomic) BOOL isAlternateNameMatch;
+@property (nonatomic) BOOL isDisplayNameMatch;
+@property (nonatomic) BOOL isParsec;
+@property (nonatomic) BOOL isUsed;
+@property (nonatomic) BOOL isParsecTopHit;
+@property (nonatomic) BOOL isMostRecentlyUsed;
+@property (nonatomic) BOOL isEngagedWith;
+
++ (BOOL)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithResult:(id)a0;
+- (BOOL)isEqualToResult:(id)a0;
+- (BOOL)isMaps;
+
+@end

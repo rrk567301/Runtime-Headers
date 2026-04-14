@@ -1,0 +1,18 @@
+@class NSObject;
+@protocol OS_dispatch_data;
+
+@interface NWOSCustomEndpoint : NWConcrete_nw_endpoint {
+    NSObject<OS_dispatch_data> *data;
+    id /* block */ resolver_block;
+    unsigned int type;
+}
+
+- (void).cxx_destruct;
+- (id)copyDictionary;
+- (unsigned int)type;
+- (unsigned long long)getHash;
+- (id)copyEndpoint;
+- (char *)createDescription:(BOOL)a0;
+- (BOOL)isEqualToEndpoint:(id)a0 matchFlags:(unsigned char)a1;
+
+@end

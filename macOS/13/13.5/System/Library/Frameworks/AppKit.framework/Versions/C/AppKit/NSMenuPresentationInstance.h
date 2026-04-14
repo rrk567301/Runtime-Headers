@@ -1,0 +1,95 @@
+@class NSViewController, NSView, NSEvent, NSTimer;
+@protocol NSSubmenuPresenting;
+
+@interface NSMenuPresentationInstance : NSObject {
+    NSViewController<NSSubmenuPresenting> *_rootImpl;
+    NSViewController<NSSubmenuPresenting> *_trackedImpl;
+    NSViewController<NSSubmenuPresenting> *_keyboardTrackedImpl;
+    NSViewController<NSSubmenuPresenting> *_lastPresentedSubmenu;
+    NSViewController<NSSubmenuPresenting> *_cachedImpl;
+    NSView *_menuViewOnEntry;
+    NSView *_previousMenuView;
+    NSEvent *_cachedMouseExitedEvent;
+    NSTimer *_mouseTimer;
+    NSTimer *_timeoutTimer;
+    NSTimer *_autodismissalTimer;
+    long long _activeMenuTrackingMode;
+    unsigned int _oldEventMask;
+    unsigned int _focusTheftID;
+    unsigned int _typingFocusTheftID;
+    struct CGPoint { double x; double y; } _mousePointOnEntry;
+    struct CGPoint { double x; double y; } _previousPoint;
+    double _previousTime;
+    BOOL _isPrecededByMouseDown;
+    BOOL _ignoresMouseEvents;
+    BOOL _isTrackingActive;
+    BOOL _didLeaveOriginalItemSinceTrackingStarted;
+    BOOL _isMonitoringEvents;
+    BOOL _isPredictiveTrackingActive;
+    BOOL _isRunningEventLoop;
+    BOOL _isEventLoopCanceled;
+    BOOL _needsRestoreEventMask;
+    BOOL _needsRestoreFocus;
+}
+
+@property (class, weak, nonatomic) NSMenuPresentationInstance *activeMenuPresentationInstance;
+
++ (void)disableAutoDismissal;
++ (void)enableAutoDismissal:(double)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)dismiss;
+- (void)_appDidDeactivate:(id)a0;
+- (BOOL)_arrowDownKeyEventHandler;
+- (BOOL)_arrowLeftKeyEventHandler;
+- (BOOL)_arrowLeftTabEventHandler;
+- (BOOL)_arrowRightKeyEventHandler;
+- (BOOL)_arrowRightTabEventHandler;
+- (BOOL)_arrowUpKeyEventHandler;
+- (void)_autoDismissalTimerCallback:(id)a0;
+- (BOOL)_autodismissalAllowed;
+- (BOOL)_beginPredictiveTrackingAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_cancelPredictiveTracking:(id)a0;
+- (BOOL)_cancelPredictiveTrackingWithEvent:(id)a0;
+- (void)_cleanupBackgroundEvents;
+- (void)_closeRootImplAnimated:(BOOL)a0;
+- (void)_disableAutoDismissal;
+- (void)_doMenuEventLoop:(BOOL)a0 inMode:(id)a1;
+- (void)_enableAutoDismissal:(double)a0;
+- (BOOL)_keyDownEventHandler:(id)a0;
+- (BOOL)_keyUpEventHandler:(id)a0;
+- (BOOL)_modifierFlagsChanged:(id)a0;
+- (BOOL)_mouseDownEventHandler:(id)a0;
+- (BOOL)_mouseMovedEventHandler:(id)a0;
+- (BOOL)_mouseUpEventHandler:(id)a0;
+- (void)_performAdditionalKeyEventHandling:(id)a0;
+- (void)_prepareForTracking;
+- (void)_resetClassicTrackingTimer;
+- (void)_resetPredictiveTracking;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_screenRectForView:(id)a0;
+- (void)_sendBeginTrackingNotification;
+- (void)_sendEndTrackingNotification;
+- (void)_sendMouseMovedDragged:(id)a0;
+- (void)_setupBackgroundEvents;
+- (void)_setupKeyboardTracking;
+- (BOOL)_shouldCancelEventOnMouseDownDismissal;
+- (void)_startIntrusionDetection;
+- (void)_stopIntrusionDetection;
+- (void)_updateTrackedImplForKeyboardTracking;
+- (BOOL)_usesRightToLeftLayout;
+- (void)_windowDidBecomeKey:(id)a0;
+- (long long)activeMenuTrackingMode;
+- (void)classicTrackingThresholdReached:(id)a0;
+- (void)dismissAnimated:(BOOL)a0;
+- (BOOL)handleEvent:(id)a0;
+- (id)initWithImpl:(id)a0;
+- (BOOL)isActivelyHandlingEvents;
+- (BOOL)mouseEntered:(id)a0;
+- (BOOL)mouseExited:(id)a0;
+- (void)startMonitoringEvents;
+- (void)startRunningMenuEventLoop:(id)a0;
+- (void)stopMonitoringEvents;
+- (BOOL)wantsDPSEvents;
+
+@end

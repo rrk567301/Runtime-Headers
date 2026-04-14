@@ -1,0 +1,92 @@
+@class NSTextField, NSString, LAUIAuthenticationViewControllerUIDelegate, LAContext, NSColor, NSTextView, LAUIShakeAnimation, NSLayoutConstraint, NSImageView;
+@protocol _LAUIAuthenticationPasswordField, LAUIAuthenticationViewControllerDelegate;
+
+@interface LAUIAuthenticationViewController : NSViewController <LAUIUserPasswordFieldRemoteProtocol, LAUIPasswordFieldDelegate, LAUIDelegate> {
+    NSImageView *_lockImageView;
+    NSTextField *_titleLabel;
+    NSTextField *_subtitleLabel;
+    id<_LAUIAuthenticationPasswordField> _passwordField;
+    NSTextView *_hintTextView;
+    NSLayoutConstraint *_hintTextViewHeightConstraint;
+    NSLayoutConstraint *_lockImageCenterX;
+    LAUIAuthenticationViewControllerUIDelegate *_uiDelegate;
+    LAContext *_context;
+    LAUIShakeAnimation *_shakeAnimation;
+    LAContext *_lastAuthenticatedContext;
+}
+
+@property (nonatomic) unsigned long long enabledMechanisms;
+@property (nonatomic) unsigned long long activeMechanisms;
+@property (copy, nonatomic) id /* block */ resultHandler;
+@property (copy, nonatomic) id /* block */ appPasswordHandler;
+@property (retain, nonatomic) NSString *authTitle;
+@property (retain, nonatomic) NSString *authHint;
+@property (retain, nonatomic) NSString *authDFRPrompt;
+@property (retain, nonatomic) NSColor *authTitleColor;
+@property (retain, nonatomic) NSColor *authSubTitleColor;
+@property (copy, nonatomic) NSString *callerIconBundlePath;
+@property (copy, nonatomic) NSString *localizedCallerName;
+@property (readonly, nonatomic) LAContext *context;
+@property (nonatomic) BOOL shouldAutoFocusPasswordField;
+@property (weak, nonatomic) id<LAUIAuthenticationViewControllerDelegate> delegate;
+@property (readonly, nonatomic, getter=isTouchIDAvailable) BOOL touchIDAvailable;
+@property (readonly, nonatomic, getter=isTouchIDActive) BOOL touchIDActive;
+@property (nonatomic, getter=isTouchIDInhibited) BOOL touchIDInhibited;
+@property (retain, nonatomic) NSString *authSubTitle;
+@property (retain, nonatomic) NSString *authSubTitleNoTouchID;
+@property (readonly, nonatomic) unsigned long long mode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_legacyModeMapping;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)applicationDidBecomeActive:(id)a0;
+- (void)applicationDidFinishLaunching:(id)a0;
+- (void)applicationDidResignActive:(id)a0;
+- (id)initWithMode:(unsigned long long)a0;
+- (id)nibBundle;
+- (void)viewDidLayout;
+- (void)windowDidBecomeKey:(id)a0;
+- (void)windowDidResignKey:(id)a0;
+- (void)event:(long long)a0 params:(id)a1 reply:(id /* block */)a2;
+- (BOOL)isMechanismEnabled:(unsigned long long)a0;
+- (void)cancelAuthentication;
+- (void)_setupUI:(BOOL)a0;
+- (void)_updateUI;
+- (void)clearPasswordField;
+- (void)_setupObservers;
+- (void)setAuthenticationResultHandler:(id /* block */)a0;
+- (id)_attributedPasswordPlaceholderString;
+- (void)_mechanism:(unsigned long long)a0 enable:(BOOL)a1 reply:(id /* block */)a2;
+- (long long)_policyForBackgroundMechanisms;
+- (void)_saveLastAuthenticatedContext:(id)a0;
+- (void)_setupMechanisms:(unsigned long long)a0;
+- (void)_shakeUI:(id)a0;
+- (void)_startBackgroundMechanisms;
+- (void)_startOrStopBackgroundMechanisms;
+- (void)_stopBackgroundMechanisms;
+- (BOOL)cmdEnterOrReturnPressed;
+- (void)didSubmitWrongPassword:(BOOL)a0;
+- (void)didVerifyPassword;
+- (void)disableMechanism:(unsigned long long)a0 reply:(id /* block */)a1;
+- (void)enableMechanism:(unsigned long long)a0 reply:(id /* block */)a1;
+- (void)externalizedContextInReply:(id /* block */)a0;
+- (void)focusPasswordField;
+- (id)initWithMechanisms:(unsigned long long)a0;
+- (BOOL)isMechanismActive:(unsigned long long)a0;
+- (BOOL)isMechanismAvailable:(unsigned long long)a0;
+- (BOOL)isPasswordFieldFocused;
+- (void)requestCancelAuthentication;
+- (void)setAppPasswordAuthenticationHandler:(id /* block */)a0;
+- (void)setTouchIDActive:(BOOL)a0;
+- (void)startBackgroundMechanisms;
+- (void)submitPasswordField;
+
+@end

@@ -1,0 +1,3 @@
+@interface DDDictionaryError : DDErrorRegexp
+
+@end
