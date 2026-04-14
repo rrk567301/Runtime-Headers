@@ -1,0 +1,14 @@
+@class PGGraph;
+
+@interface PGSearchMetadataComputer : NSObject
+
+@property (readonly) PGGraph *graph;
+
+- (void).cxx_destruct;
+- (id)initWithGraph:(id)a0;
+- (id)searchMetadataWithOptions:(id)a0;
+- (id)_mePersonUUID;
+- (id)_suggestableLocalizedSceneNames;
+- (id)_blockedMeaningsByMeaning;
+
+@end

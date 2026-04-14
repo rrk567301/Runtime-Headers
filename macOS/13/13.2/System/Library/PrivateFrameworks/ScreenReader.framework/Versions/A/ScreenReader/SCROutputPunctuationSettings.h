@@ -1,0 +1,22 @@
+@class NSString;
+
+@interface SCROutputPunctuationSettings : NSObject <NSCopying>
+
+@property (retain, nonatomic) NSString *category;
+@property (nonatomic) long long punctuationVerbosityLevel;
+@property (retain, nonatomic) NSString *punctuationRepeatMode;
+@property (nonatomic) unsigned long long punctuationRepeatLimit;
+@property (retain, nonatomic) NSString *spaceRepeatMode;
+@property (retain, nonatomic) NSString *spaceIndentationMode;
+@property (nonatomic) unsigned long long spaceIndentationWidth;
+
++ (id)defaultsForCategory:(id)a0;
++ (id)settingsWithHighestVerbosity;
++ (id)settingsWithLowestVerbosity;
+
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)updateSettingsWithCategory:(id)a0;
+
+@end

@@ -1,0 +1,20 @@
+@class NSArray;
+
+@interface ACSHResizeHandlesView : ACSHView
+
+@property (retain, nonatomic) NSArray *_resizeHandles;
+
++ (void)initialize;
++ (double)handleSize;
+
+- (void).cxx_destruct;
+- (BOOL)wantsUpdateLayer;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isFlipped;
+- (void)initView;
+- (void)resumeTracking;
+- (long long)resizeTypeForView:(id)a0;
+- (void)suspendTracking;
+
+@end

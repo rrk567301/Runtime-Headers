@@ -1,0 +1,31 @@
+@class NSAlert, NSScrollView, NSView, NSArrayController, NSTableView, NSButton, NSLayoutConstraint;
+
+@interface ExtensionsAlertController : NSObject {
+    NSAlert *_alert;
+}
+
+@property (retain, nonatomic) NSArrayController *alertHighLevelDomainsArrayController;
+@property (retain, nonatomic) NSView *alertAccessoryView;
+@property (weak) NSScrollView *alertScrollView;
+@property (weak) NSTableView *alertTableView;
+@property (weak) NSButton *alertDisclosureTriangle;
+@property (weak) NSLayoutConstraint *alertTableViewHeightConstraint;
+
++ (void)reportBlocklistedExtension:(id)a0 withIcon:(id)a1;
++ (void)_handleExtensionTurnedOffAlertResponse:(long long)a0 responseBlock:(id /* block */)a1;
++ (void)showPromptForExtensionDisabledBecauseItHasRequestedAdditionalPermissions:(id)a0 responseBlock:(id /* block */)a1;
++ (void)showPromptForExtensionDisabledBecauseBecauseItDoesNotSupportThisVersionOfSafariWithMessage:(id)a0 responseBlock:(id /* block */)a1;
++ (void)showGrantAllWebsitesConfirmationForExtension:(id)a0 fromWindow:(id)a1 responseBlock:(id /* block */)a2;
++ (void)showAccessRequestPromptForExtension:(id)a0 forPatterns:(id)a1 callingAPIName:(id)a2 showsSuppressionButton:(BOOL)a3 responseBlock:(id /* block */)a4;
++ (void)showAccessRequestPromptForExtension:(id)a0 forURLs:(id)a1 callingAPIName:(id)a2 showsSuppressionButton:(BOOL)a3 responseBlock:(id /* block */)a4;
++ (void)showAccessRequestPromptForExtension:(id)a0 forDomains:(id)a1 callingAPIName:(id)a2 showsSuppressionButton:(BOOL)a3 responseBlock:(id /* block */)a4;
++ (void)showPromptForOverridingNewTabWindowPagesWithExtensionOverridePage:(id)a0 responseBlock:(id /* block */)a1;
++ (void)showPromptForExtensionBeingTurnedOnWithInvasivePermissions:(id)a0 accessLevel:(long long)a1 responseBlock:(id /* block */)a2;
++ (void)reportRefusalToInstallLegacyExtension;
++ (void)showPromptWhenUnableToBypassExtensionPaneOcclusion;
++ (void)showPromptForManagingExtensionStorage:(id)a0 numberOfDataBytes:(long long)a1 responseBlock:(id /* block */)a2;
+
+- (void).cxx_destruct;
+- (void)toggleScrollViewContents:(id)a0;
+
+@end

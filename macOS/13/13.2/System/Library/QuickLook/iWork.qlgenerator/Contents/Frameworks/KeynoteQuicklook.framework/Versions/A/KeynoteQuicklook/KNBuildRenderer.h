@@ -1,0 +1,86 @@
+@class NSMapTable, TSDTextureSet, TSDTextureDescription, TSDDrawableInfo, KNAnimationInfo, NSMutableArray, CALayer, NSString, KNAnimatedBuild, NSMutableSet, KNBuildChunk, TSDRep, TSDFPSCounter;
+
+@interface KNBuildRenderer : KNAnimationRenderer <CAAnimationDelegate> {
+    long long _numberOfAnimationsStarted;
+    NSMapTable *_animatedLayers;
+    id _buildEndCallbackTarget;
+    SEL _buildEndCallbackSelector;
+    TSDTextureSet *_endOfBuildTextureSet;
+    TSDTextureSet *_textureSet;
+    TSDTextureSet *_finalAttributesTextureSet;
+    KNAnimationInfo *_animationInfo;
+    BOOL _isPreview;
+    BOOL _interrupted;
+    BOOL _isAnimationForPlayback;
+    BOOL _areAnimationsReadyToStart;
+    BOOL _usingFinalTexture;
+    BOOL _isTextureCachedAtEndOfBuild;
+    BOOL _shouldUseMagicMoveTextures;
+    BOOL _isNonCachedTextureValid;
+    BOOL _animationWillBeginPerformed;
+    TSDFPSCounter *_FPSCounter;
+    NSMutableSet *_texturesToTeardown;
+}
+
+@property (readonly, nonatomic) KNAnimatedBuild *animatedBuild;
+@property (readonly, nonatomic) NSMutableArray *animatedBuildsToStartAtEnd;
+@property (readonly, nonatomic) KNBuildChunk *buildStage;
+@property (readonly, nonatomic) TSDDrawableInfo *info;
+@property (retain, nonatomic) CALayer *parentLayer;
+@property (readonly, nonatomic) TSDRep *rep;
+@property (retain, nonatomic) TSDTextureDescription *textureDescription;
+@property (readonly, nonatomic) unsigned long long textureDeliveryStyle;
+@property (readonly, nonatomic) TSDTextureSet *textureSet;
+@property (readonly, nonatomic) long long textureStageIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)teardown;
+- (void)stopAnimations;
+- (void)animate;
+- (void)animationDidEnd;
+- (void)setupPluginContext;
+- (void)generateTextures;
+- (void)renderTextures;
+- (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(BOOL)a0;
+- (void)updateAnimationsForLayerTime:(double)a0;
+- (void)removeAnimationsAndFinish:(BOOL)a0;
+- (void)forceRemoveAnimations;
+- (void)pauseAnimationsAtTime:(double)a0;
+- (void)resumeAnimationsIfPausedAtTime:(double)a0;
+- (void)updateAnimationTestingLog;
+- (id)initWithAnimatedBuild:(id)a0 info:(id)a1 buildStage:(id)a2 animatedSlideView:(id)a3;
+- (id)loadPluginIfNeeded;
+- (BOOL)p_isMovieInfo;
+- (id)p_filterForTextDelivery:(long long)a0 childRepTextDeliveryFilter:(id *)a1;
+- (BOOL)shouldPreGenerateTextures;
+- (id)textureSetWithoutRenderedContents;
+- (id)textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(BOOL)a2 shouldForceRebuild:(BOOL)a3 shouldRender:(BOOL)a4;
+- (id)textureDescriptionForStage:(long long)a0 isAtEndOfBuild:(BOOL)a1;
+- (void)setEndOfBuildTextureSet:(id)a0;
+- (id)p_textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(BOOL)a2 shouldForceRebuild:(BOOL)a3 shouldRender:(BOOL)a4;
+- (void)p_updateTextureDescription:(id)a0 forStage:(long long)a1 isAtEndOfBuild:(BOOL)a2;
+- (BOOL)p_isTextDrawable;
+- (void)setLayerVisibility:(id)a0 isAtEndOfBuild:(BOOL)a1;
+- (void)setGeometryAndActionAttributesOnTextureSet:(id)a0 isAtEndOfBuild:(BOOL)a1 isAtEndOfSlide:(BOOL)a2 isRenderingToContext:(BOOL)a3;
+- (id)initializeTextureSetForEndOfBuild:(BOOL)a0 endOfSlide:(BOOL)a1 description:(id)a2 isRenderingToContext:(BOOL)a3;
+- (id)p_initializeTextureSetForEndOfBuild:(BOOL)a0 endOfSlide:(BOOL)a1 description:(id)a2 isRenderingToContext:(BOOL)a3;
+- (id)animationWillBegin;
+- (void)resetHighlightsBeforeAnimationOnTextureSet:(id)a0;
+- (BOOL)addAnimationsAtLayerTime:(double)a0;
+- (void)registerForBuildEndCallback:(SEL)a0 target:(id)a1;
+- (void)addBuildToStartAtEnd:(id)a0;
+- (void)removeBuildToStartAtEnd:(id)a0;
+- (void)fadeOutPreviousStageOn:(id)a0 atLayerTime:(double)a1;
+- (BOOL)p_isDriftAnimation;
+- (id)setupFinalTextureGivenCurrentTextureSet:(id)a0 isRenderingToContext:(BOOL)a1;
+- (id)p_keyForAnimation;
+- (void)resetPreviousStageToUnhighlightOnTextureSet:(id)a0;
+- (void)p_removeAnimations;
+- (void)p_resetAnimations;
+
+@end

@@ -1,0 +1,20 @@
+@class NSArray;
+
+@interface SKGroup : SKAction {
+    void *_mycaction;
+    NSArray *_actions;
+}
+
++ (BOOL)supportsSecureCoding;
++ (id)groupWithActions:(id)a0;
+
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)finished;
+- (id)subactions;
+- (id)reversedAction;
+
+@end

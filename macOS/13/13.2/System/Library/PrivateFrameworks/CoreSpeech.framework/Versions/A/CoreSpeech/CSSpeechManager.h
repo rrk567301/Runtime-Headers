@@ -1,0 +1,86 @@
+@class CSVoiceProfileRetrainManager, CSMyriadPHash, CSVoiceTriggerFidesClient, CSPostBuildInstallService, CSVoiceTriggerFirstPassHearst, NSString, CSSmartSiriVolumeManager, NSMutableDictionary, CSVoiceTriggerEventsCoordinator, CSBuiltInVoiceTrigger, CSVoiceTriggerFirstPassHearstAP, CSPreMyriadCoordinator, NSObject, CSFallbackAudioSessionReleaseProvider, CSVoiceTriggerFirstPassRemora, CSSelfTriggerDetector, CSVoiceTriggerFirstPassJarvis, CSAudioRecorder, CSMyriadSelfTriggerCoordinator, CSKeywordDetector, CSVoiceTriggerFileLogger, CSOpportuneSpeakListnerTestService;
+@protocol OS_dispatch_queue, CSSpeechManagerDelegate, OS_dispatch_source;
+
+@interface CSSpeechManager : NSObject <CSAudioServerCrashMonitorDelegate, CSVoiceTriggerAssetHandlerDelegate, CSActivationEventNotificationHandlerDelegate, CSAudioRecorderDelegate, CSAudioProviderDelegate, CSOpportuneSpeakEventMonitorDelegate>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *assetQueryQueue;
+@property (retain, nonatomic) CSAudioRecorder *audioRecorder;
+@property (retain, nonatomic) NSMutableDictionary *audioProviders;
+@property (retain, nonatomic) CSFallbackAudioSessionReleaseProvider *fallbackAudioSessionReleaseProvider;
+@property (weak, nonatomic) id<CSSpeechManagerDelegate> clientController;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *voiceTriggerQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *remoraTargetQueue;
+@property (retain, nonatomic) CSBuiltInVoiceTrigger *voiceTrigger;
+@property (retain, nonatomic) CSVoiceTriggerEventsCoordinator *voiceTriggerEventsCoordinator;
+@property (retain, nonatomic) CSPreMyriadCoordinator *preMyriadCoordinator;
+@property (retain, nonatomic) CSVoiceTriggerFileLogger *voiceTriggerFileLogger;
+@property (retain, nonatomic) CSSelfTriggerDetector *selfTriggerDetector;
+@property (retain, nonatomic) CSKeywordDetector *keywordDetector;
+@property (retain, nonatomic) CSMyriadPHash *myriad;
+@property (retain, nonatomic) CSMyriadSelfTriggerCoordinator *myriadSelfTriggerCoordinator;
+@property (retain, nonatomic) CSVoiceTriggerFidesClient *voiceTriggerFidesClient;
+@property (retain, nonatomic) CSVoiceTriggerFirstPassJarvis *voiceTriggerFirstPassJarvis;
+@property (retain, nonatomic) CSVoiceTriggerFirstPassHearst *voiceTriggerFirstPassHearst;
+@property (retain, nonatomic) CSVoiceTriggerFirstPassHearstAP *voiceTriggerFirstPassHearstAP;
+@property (retain, nonatomic) CSVoiceTriggerFirstPassRemora *voiceTriggerFirstPassRemora;
+@property (retain, nonatomic) CSVoiceProfileRetrainManager *voiceTriggerRetrainer;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *clearLoggingFileTimer;
+@property (nonatomic) long long clearLoggingFileTimerCount;
+@property (retain, nonatomic) CSOpportuneSpeakListnerTestService *opportuneSpeakListnerTestService;
+@property (retain, nonatomic) CSPostBuildInstallService *postBuildInstallService;
+@property (retain, nonatomic) CSSmartSiriVolumeManager *ssvManager;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
++ (id)sharedManagerForCoreSpeechDaemon;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)startManager;
+- (void)CSAudioServerCrashMonitorDidReceiveServerRestart:(id)a0;
+- (void)voiceTriggerAssetHandler:(id)a0 endpointId:(id)a1 didChangeCachedAsset:(id)a2;
+- (void)activationEventNotificationHandler:(id)a0 event:(id)a1 completion:(id /* block */)a2;
+- (void)audioRecorderWillBeDestroyed:(id)a0;
+- (void)audioRecorderBufferAvailable:(id)a0 audioStreamHandleId:(unsigned long long)a1 buffer:(id)a2 remoteVAD:(id)a3 atTime:(unsigned long long)a4 arrivalTimestampToAudioRecorder:(unsigned long long)a5 numberOfChannels:(int)a6;
+- (void)audioRecorderBufferAvailable:(id)a0 audioStreamHandleId:(unsigned long long)a1 buffer:(id)a2;
+- (void)audioProviderInvalidated:(id)a0 streamHandleId:(unsigned long long)a1;
+- (void)opportuneSpeakEventMonitor:(id)a0 didStreamStateChanged:(BOOL)a1;
+- (id)audioFingerprintProvider;
+- (void)_getVoiceTriggerAssetIfNeeded:(id /* block */)a0;
+- (id)_voiceTriggerEventNotifierCreateIfNeeded:(BOOL)a0;
+- (id)_preMyriadCoordinatorCreateIfNeeded:(BOOL)a0;
+- (id)_voiceTriggerFileLoggerCreateIfNeeded:(BOOL)a0;
+- (id)_myriadSelfTriggerCoordinatorIfNeeded:(BOOL)a0;
+- (void)_setupSpeakerRecognitionWithVTAsset:(id)a0;
+- (void)_setupVoiceTriggerWithCompletion:(id /* block */)a0;
+- (void)_startVoiceTrigger;
+- (void)_startAllClients;
+- (void)registerSpeechController:(id)a0;
+- (void)registerSiriClientProxy:(id)a0;
+- (id)audioProviderWithUUID:(id)a0;
+- (id)audioProviderWithContext:(id)a0 error:(id *)a1;
+- (id)audioProviderWithStreamID:(unsigned long long)a0;
+- (id)fetchFallbackAudioSessionReleaseProvider;
+- (id)_getAudioRecorderWithError:(id *)a0;
+- (void)_reinitializeVoiceTriggerIfNeeded;
+- (void)_reinitializeVoiceTriggerWithAsset:(id)a0;
+- (void)_reinitializeSmartSiriVolumeWithAsset:(id)a0;
+- (void)_handleClearLoggingFileTimer;
+- (void)_createClearLoggingFileTimer;
+- (void)_startClearLoggingFilesTimer;
+- (void)_setupForHearstIfNeededWithPrepareCompletion:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)_setupForJarvisIfNeededWithPrepareCompletion:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)_setupForRemoraIfNeededWithCompletion:(id /* block */)a0;
+- (void)_updateBuiltInTriggerForPreMyriadIfNeeded:(id)a0;
+- (void)_setupForBluetoothDeviceIfNeededWithDeviceType:(unsigned long long)a0 prepareCompletion:(id /* block */)a1 completion:(id /* block */)a2;
+- (BOOL)_prepareForBluetoothDeviceWithDeviceType:(unsigned long long)a0;
+- (void)_startForBluetoothDeviceWithDeviceType:(unsigned long long)a0 asset:(id)a1;
+- (void)_prepareRemoraDeviceWithConnectedDeviceIds:(id)a0;
+- (void)_teardownForBluetoothDevice;
+
+@end

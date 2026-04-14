@@ -1,0 +1,23 @@
+@class NSString, NSDictionary, NSMutableArray, AMSMetricsEvent;
+
+@interface AMSCardAuthorizationTask : AMSTask
+
+@property BOOL didBiometricsLockout;
+@property BOOL didCancelHomeButton;
+@property (retain) NSMutableArray *userActions;
+@property long long confirmationStyle;
+@property (retain) NSString *countryCode;
+@property (retain) NSString *currencyCode;
+@property (copy) AMSMetricsEvent *metricsEvent;
+@property (retain) NSString *passSerialNumber;
+@property (retain) NSString *passTypeIdentifier;
+@property (readonly) NSDictionary *paymentSession;
+
+- (void).cxx_destruct;
+- (id)initWithPaymentSession:(id)a0;
+- (id)performCardAuthorization;
+- (void)_metricsPost;
+- (id)_metricsTimestamp;
+- (id)_metricsUserActionDictionary;
+
+@end

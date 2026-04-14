@@ -1,0 +1,93 @@
+@class NSString, NSMutableDictionary, NSDictionary, NSSet, NSObject;
+@protocol OS_os_log;
+
+@interface OSASystemConfiguration : OSAProxyConfiguration {
+    BOOL _appleInternal;
+    BOOL _carrierInstall;
+    BOOL _multiUserMode;
+    NSMutableDictionary *_submissionMetadata;
+    NSString *_pairedWatchOS;
+    NSDictionary *_logConfig;
+    NSSet *_logBlacklist;
+    NSDictionary *_submissionParams;
+    NSDictionary *_whitelistedDomains;
+    NSString *_pathRoot;
+    NSString *_pathContainerRoot;
+    NSString *_pathPreferences;
+    NSString *_pathDiagnostics;
+    NSString *_pathCATasking;
+    NSString *_pathAWDTasking;
+    struct { NSObject<OS_os_log> *daFlow; } _logDomain;
+}
+
+@property (readonly) BOOL optInApple;
+@property (readonly) BOOL optIn3rdParty;
+@property (retain) NSString *automatedDeviceGroup;
+@property (readonly) BOOL appleInternal;
+@property (readonly) BOOL carrierInstall;
+@property (readonly) BOOL multiUserMode;
+@property (readonly) NSMutableDictionary *submissionMetadata;
+@property (copy) NSString *pathRoot;
+@property (readonly) NSString *pathContainerRoot;
+@property (readonly) NSString *pathPreferences;
+@property (readonly) NSString *pathDiagnostics;
+@property (readonly) NSString *pathCATasking;
+@property (readonly) NSString *pathAWDTasking;
+@property (readonly) struct { id x0; } logDomain;
+
++ (id)sharedInstance;
++ (id)automatedDeviceGroup;
++ (void)setAutomatedDeviceGroup:(id)a0;
++ (id)uidForUser:(id)a0;
++ (id)ensureUsablePath:(id)a0 component:(id)a1 options:(id)a2;
++ (void)ensureConformanceOfFile:(int)a0 options:(id)a1;
+
+- (BOOL)isProxy;
+- (void).cxx_destruct;
+- (id)identifier;
+- (id)productName;
+- (id)serialNumber;
+- (id)productVersion;
+- (id)releaseType;
+- (id)buildVersion;
+- (id)logPath;
+- (id)systemId;
+- (id)crashReporterKey;
+- (id)pathSubmissionWithHomeDirectory:(id)a0;
+- (id)internalKey;
+- (id)pathSubmission;
+- (id)assembleMetadataAt:(double)a0 withOptions:(unsigned int)a1;
+- (BOOL)usesLegacySubmission:(id)a0;
+- (BOOL)isConfigEnabled:(id)a0;
+- (id)modelCode;
+- (id)osTrain;
+- (id)productNameVersionBuildString;
+- (id)targetAudience;
+- (id)uiCountryCode;
+- (id)awdReporterKey;
+- (id)seedGroup;
+- (id)experimentGroup;
+- (id)automatedContextURL;
+- (id)currentTaskingIDByRouting;
+- (id)pairedWatchOS;
+- (void)sysVersionData;
+- (id)productBuildString;
+- (id)productReleaseString;
+- (BOOL)setPrefsKey:(id)a0 value:(id)a1 forDomain:(id)a2 withSync:(BOOL)a3;
+- (id)getPrefsKey:(id)a0 forDomain:(id)a1 withOptions:(id)a2;
+- (id)getTaskingKey:(id)a0;
+- (void)plumbEmail:(id)a0;
+- (void)saveToPath:(id)a0;
+- (void)onceConfig;
+- (id)getLogBlacklist;
+- (id)getPropsForLogType:(id)a0;
+- (id)pathSubmissionForOwner:(id)a0;
+- (id)submissionParam:(id)a0;
+- (BOOL)isWhitelisted:(id)a0 forDomain:(id)a1;
+- (BOOL)isAllowed:(id)a0 forDomain:(id)a1;
+- (id)createReportMetadata:(id)a0 with:(id)a1 at:(double)a2 usingOptions:(id)a3;
+- (id)logPrefix:(id)a0;
+- (id)logExt:(id)a0;
+- (id)logPathForType:(id)a0 at:(double)a1 options:(id)a2;
+
+@end

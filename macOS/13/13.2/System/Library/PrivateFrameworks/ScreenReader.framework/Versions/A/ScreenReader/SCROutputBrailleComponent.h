@@ -1,0 +1,83 @@
+@class NSMutableAttributedString, NSMutableArray, SCRCProcessIdentifier, NSMutableSet, SCROBrailleDisplayInputManager, SCROBrailleClient;
+
+@interface SCROutputBrailleComponent : SCROutputTextDisplayComponent {
+    SCROBrailleClient *_brailleClient;
+    SCROBrailleDisplayInputManager *_inputManager;
+    NSMutableAttributedString *_elementLineString;
+    NSMutableAttributedString *_textLineString;
+    NSMutableAttributedString *_announcementString;
+    int _alertPriority;
+    BOOL _hasElementLine;
+    BOOL _hasAlert;
+    double _alertTimeout;
+    BOOL _alertHasTimeout;
+    BOOL _ignoreAlertTimeoutPref;
+    BOOL _hasAnnouncement;
+    BOOL _forceAnnouncement;
+    BOOL _excludeFromAnnouncments;
+    BOOL _needsCleanupWhenNonBlockingActionsAreComplete;
+    struct _NSRange { unsigned long long location; unsigned long long length; } _elementLineStringCurrentElementRange;
+    BOOL _showsDotsSevenAndEight;
+    NSMutableArray *_lineCache;
+    SCRCProcessIdentifier *_currentApplicationPSN;
+    NSMutableSet *_currentElementIDSet;
+    unsigned long long _activeDisplayCount;
+    int _primaryDisplayToken;
+    int _inputAccessMode;
+    int _lineFocus;
+    unsigned char _generalStatusCell;
+    unsigned char _extendedGeneralStatusCell;
+    unsigned char _textStatusCell;
+    unsigned char _extendedTextStatusCell;
+}
+
+@property (nonatomic) BOOL _showGeneralStatus;
+@property (nonatomic) BOOL _showExtendedGeneralStatus;
+@property (nonatomic) BOOL _showTextStatus;
+@property (nonatomic) BOOL _showExtendedTextStatus;
+@property (nonatomic) unsigned int toggledSCROModifierKeys;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)handleEvent:(id)a0;
+- (void)_flushCache;
+- (void)setupObservers;
+- (void)handleBrailleDidDisconnect:(id)a0;
+- (void)handleBrailleDidReconnect:(id)a0;
+- (void)handleBrailleConfigurationChanged:(id)a0;
+- (void)handleBrailleKeypress:(id)a0;
+- (void)handleBrailleReplaceTextRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 withString:(id)a1 cursor:(unsigned long long)a2;
+- (void)handleBrailleStartEditing;
+- (void)handleBrailleInsertedUntranslatedText:(id)a0 speakLiterally:(BOOL)a1;
+- (void)handleBrailleDeletedUntranslatedText:(id)a0 speakLiterally:(BOOL)a1;
+- (void)handleBrailleDidDisplay:(id)a0;
+- (void)handleBrailleDidPanLeft:(id)a0 elementToken:(id)a1 appToken:(id)a2 lineOffset:(id)a3;
+- (void)handleBrailleDidPanRight:(id)a0 elementToken:(id)a1 appToken:(id)a2 lineOffset:(id)a3;
+- (void)handleBraillePlayDisplayConnectionSound:(id)a0;
+- (void)handleBraillePlayBorderHitSound;
+- (void)handleBraillePlayCommandNotSupportedSound;
+- (void)_cacheLineWithApplicationPSN:(id)a0 elementIDs:(id)a1;
+- (void)_releaseLineWithApplicationPSN:(id)a0 elementID:(id)a1;
+- (void)_releaseLineWithApplicationPSN:(id)a0 elementIDs:(id)a1;
+- (void)_updateStatusCellPrefs;
+- (void)_updateStatusCells;
+- (void)_setTextStatusCellsWithTextAttributes:(id)a0;
+- (void)_showExpandedStatusForStatusCellIndex:(long long)a0;
+- (int)preflightSequentialSteps:(id)a0 runnerName:(id)a1;
+- (void)_filterUnacceptableBrailleStrings:(id)a0;
+- (void)nonBlockingActionsAreComplete;
+- (BOOL)_isAnnouncementForCategory:(id)a0 variants:(id)a1 isAlert:(BOOL *)a2 alertHasTimeout:(BOOL *)a3 ignoreTimeoutPrefs:(BOOL *)a4 force:(BOOL *)a5;
+- (void)_handleBrailleKeyboardHelp:(id)a0;
+- (unsigned long long)toggledBrailleModifierKeys;
+- (BOOL)handleBrailleModifierCommand:(id)a0 modifier:(unsigned long long *)a1 persistent:(BOOL *)a2;
+- (BOOL)handleBrailleInputCommand:(id)a0 withInfo:(id)a1;
+- (void)_handleBrailleDisplayKeypress:(id)a0;
+- (void)setKeyboardHelpIsOn:(BOOL)a0;
+- (void)_updateBrailleTranslationModeFromSetting:(id)a0;
+- (BOOL)_switchBrailleModeForSetting:(id)a0;
+- (BOOL)_switchActiveBrailleTable:(long long)a0;
+- (BOOL)_dismissBrailleAlert;
+- (void)_speakUntranslatedText:(id)a0 speakLiterally:(BOOL)a1;
+- (void)_dispatchBrailleDidPanWithSuccess:(id)a0 token:(id)a1 appToken:(id)a2 direction:(int)a3;
+
+@end

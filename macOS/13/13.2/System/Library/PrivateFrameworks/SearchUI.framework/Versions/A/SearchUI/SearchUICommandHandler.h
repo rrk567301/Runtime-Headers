@@ -1,0 +1,53 @@
+@class SearchUIRowModel, SFButtonItem, NSViewController, SFCommand, NSString, SearchUICommandEnvironment, SFPunchout;
+@protocol QLPreviewItem;
+
+@interface SearchUICommandHandler : NSObject <NSPasteboardWriting>
+
+@property (retain) SearchUIRowModel *rowModel;
+@property (retain) SFButtonItem *button;
+@property (retain) SFCommand *command;
+@property (retain) SearchUICommandEnvironment *environment;
+@property (retain, nonatomic) NSViewController *viewController;
+@property (readonly) BOOL prefersModalPresentation;
+@property (readonly) BOOL supportsShare;
+@property (readonly) id<QLPreviewItem> previewItem;
+@property (readonly) NSString *defaultTitle;
+@property (readonly) NSString *defaultSymbolName;
+@property (readonly) unsigned long long destination;
+@property (readonly) SFPunchout *destinationPunchout;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)fallbackCommandForRowModel:(id)a0 environment:(id)a1;
++ (BOOL)hasValidHandlerForRowModel:(id)a0 environment:(id)a1;
++ (BOOL)hasValidHandlerForCommand:(id)a0 rowModel:(id)a1 environment:(id)a2;
++ (BOOL)hasCustomViewControllerForRowModel:(id)a0 environment:(id)a1;
++ (id)tapCommandForRowModel:(id)a0 environment:(id)a1;
++ (id)handlerForRowModel:(id)a0 environment:(id)a1;
++ (id)previewHandlerForRowModel:(id)a0 environment:(id)a1;
++ (id)revealHandlerForRowModel:(id)a0 environment:(id)a1;
++ (id)handlerForButton:(id)a0 rowModel:(id)a1 environment:(id)a2;
++ (id)handlerForCommand:(id)a0 environment:(id)a1;
++ (id)handlerForCommand:(id)a0 rowModel:(id)a1 button:(id)a2 environment:(id)a3;
++ (id)pasteboardObjectForRowModel:(id)a0 environment:(id)a1 isDragging:(BOOL)a2;
+
+- (void).cxx_destruct;
+- (id)writableTypesForPasteboard:(id)a0;
+- (id)pasteboardPropertyListForType:(id)a0;
+- (id)initWithCommand:(id)a0 rowModel:(id)a1 button:(id)a2 environment:(id)a3;
+- (id)createViewControllerForCommand:(id)a0 environment:(id)a1;
+- (id)filePromiseProvider;
+- (void)performCommand:(id)a0 triggerEvent:(unsigned long long)a1 environment:(id)a2;
+- (BOOL)shouldDeselectAfterExecution;
+- (void)executeWithTriggerEvent:(unsigned long long)a0;
+- (id)sendFeedbackWithTriggerEvent:(unsigned long long)a0 destination:(unsigned long long)a1 punchout:(id)a2;
+- (void)prepareViewController:(id)a0 forTriggerEvent:(unsigned long long)a1;
+- (void)wasPerformedWithTriggerEvent:(unsigned long long)a0;
+- (void)wasPerformedWithTriggerEvent:(unsigned long long)a0 punchout:(id)a1;
+- (void)wasPerformedWithTriggerEvent:(unsigned long long)a0 punchout:(id)a1 destination:(unsigned long long)a2;
+- (id)menuForRowModel:(id)a0 buttonItem:(id)a1 commandEnvironment:(id)a2;
+- (void)fetchShareableURLWithCompletionHandler:(id /* block */)a0;
+
+@end

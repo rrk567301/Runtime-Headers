@@ -1,0 +1,15 @@
+@interface _TtC6ktraceP33_CB982EDEF6E0B9FAFF66E9A63322C7439Recording : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ planPath;
+    void /* unknown type, empty encoding */ plan;
+    void /* unknown type, empty encoding */ recording;
+    void /* unknown type, empty encoding */ toolName;
+    void /* unknown type, empty encoding */ waitQueue;
+    void /* unknown type, empty encoding */ options;
+    void /* unknown type, empty encoding */ subclassBitmap;
+    void /* unknown type, empty encoding */ session;
+    void /* unknown type, empty encoding */ endReason;
+    void /* unknown type, empty encoding */ waitComplete;
+    void /* unknown type, empty encoding */ reporter;
+}
+
+@end

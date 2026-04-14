@@ -1,0 +1,3 @@
+@interface CloudSubscriptionFeatures : CSFFeatureManager
+
+@end

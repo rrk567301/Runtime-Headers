@@ -1,0 +1,97 @@
+@class BiometricKitXPCClientConnection;
+@protocol BiometricKitXPCClientDelegate, BiometricKitDelegateXpcProtocol;
+
+@interface BiometricKitXPCClient : NSObject {
+    unsigned long long _clientID;
+    unsigned long long _connectionID;
+    long long _clientType;
+    BiometricKitXPCClientConnection *_connection;
+    BOOL _connectionInitialized;
+    BOOL _connectionInvalidated;
+    BOOL _connectionInterrupted;
+}
+
+@property (weak, nonatomic) id<BiometricKitXPCClientDelegate, BiometricKitDelegateXpcProtocol> delegate;
+@property (readonly, nonatomic) unsigned long long clientID;
+@property (readonly, nonatomic) unsigned long long connectionId;
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)cancel;
+- (void)disconnect;
+- (int)connect;
+- (int)initializeConnection;
+- (void)invalidateConnection;
+- (id)getProtectedConfigurationForUser:(unsigned int)a0;
+- (void)registerDelegate:(BOOL)a0;
+- (id)identities:(id)a0;
+- (void)logEventOrCode:(unsigned long long)a0;
+- (id)initWithDeviceType:(long long)a0 clientType:(long long)a1;
+- (void)interruptConnection;
+- (void)registerDelegateCall:(BOOL)a0;
+- (void)notifyAppIsBackground:(BOOL)a0;
+- (void)notifyAppIsInactive:(BOOL)a0;
+- (void)enroll:(int)a0 forUser:(unsigned int)a1 withOptions:(id)a2 async:(BOOL)a3 withReply:(id /* block */)a4;
+- (void)match:(id)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (void)detectPresenceWithOptions:(id)a0 async:(BOOL)a1 withReply:(id /* block */)a2;
+- (void)updateIdentity:(id)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (void)removeIdentity:(id)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (void)removeAllIdentitiesForUser:(unsigned int)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (id)getIdentityFromUUID:(id)a0;
+- (long long)getMaxIdentityCount:(int)a0;
+- (long long)getFreeIdentityCount:(int)a0 forUser:(unsigned int)a1;
+- (int)enrollContinue;
+- (id)pullAlignmentData;
+- (id)pullMatchPolicyInfoData;
+- (id)getNodeTopologyForIdentity:(id)a0;
+- (id)getSystemProtectedConfiguration;
+- (void)setProtectedConfiguration:(id)a0 forUser:(unsigned int)a1 withOptions:(id)a2 async:(BOOL)a3 withReply:(id /* block */)a4;
+- (void)setSystemProtectedConfiguration:(id)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (int)getBioLockoutState:(long long *)a0 forUser:(unsigned int)a1;
+- (int)getExpressModeState:(long long *)a0 forUser:(unsigned int)a1;
+- (long long)getProvisioningState;
+- (int)dropUnlockToken;
+- (int)forceBioLockoutForUser:(unsigned int)a0 withOptions:(id)a1;
+- (int)registerDSID:(unsigned long long)a0 withOptions:(id)a1;
+- (int)resetAppleConnectCounter;
+- (int)registerStoreToken:(id)a0;
+- (int)getCountersignedStoreToken:(id *)a0;
+- (id)getIdentitiesDatabaseUUIDForUser:(unsigned int)a0;
+- (id)getIdentitiesDatabaseHashForUser:(unsigned int)a0;
+- (int)diagnostics:(int)a0 withOptions:(id)a1 passed:(BOOL *)a2 withDetails:(id *)a3;
+- (void)timestampEvent:(unsigned long long)a0 absoluteTime:(unsigned long long)a1;
+- (int)setUserDSID:(unsigned long long)a0 withOptions:(id)a1;
+- (long long)getSensorCalibrationStatus;
+- (id)getCalibrationDataInfo;
+- (id)getSensorInfo;
+- (id)pullCalibrationData;
+- (id)pullCaptureBuffer;
+- (id)pullDebugImageData:(BOOL)a0 rotated:(BOOL)a1 imageWidth:(unsigned int *)a2 imageHeight:(unsigned int *)a3;
+- (void)setDebugImages:(BOOL)a0;
+- (id)getLogs:(BOOL)a0 withDetails:(id *)a1;
+- (BOOL)fileRadarWithLogs:(id)a0 withDescription:(id)a1;
+- (BOOL)isFingerOn;
+- (int)enableBackgroundFdet:(BOOL)a0;
+- (BOOL)isAriadneSignpostsEnabled;
+- (BOOL)isXARTAvailable;
+- (long long)getDeviceState;
+- (int)startNewMatchAttempt;
+- (int)getBiometryAvailability:(long long *)a0 forUser:(unsigned int)a1;
+- (int)completeEnrollment;
+- (int)suspendEnrollment:(BOOL)a0;
+- (int)setTemplate:(id)a0 forIdentity:(id)a1;
+- (int)isPeriocularEnrollmentSupported:(BOOL *)a0;
+- (int)getPeriocularMatchState:(unsigned int)a0 state:(long long *)a1;
+- (void)removePeriocularTemplatesWithOptions:(id)a0 async:(BOOL)a1 withReply:(id /* block */)a2;
+- (int)queryIdentityMigrationFailureForUser:(unsigned int)a0 failed:(BOOL *)a1 clear:(BOOL)a2;
+- (int)enableMatchAutoRetry:(BOOL)a0;
+- (int)pauseFaceDetectTimer:(BOOL)a0;
+- (int)getLastMatchEvent:(id *)a0;
+- (int)getDeviceHardwareState:(unsigned int *)a0;
+- (int)listAccessories:(id *)a0;
+- (int)getFreeIdentityCount:(unsigned long long *)a0 forUser:(unsigned int)a1 accessoryGroup:(id)a2;
+
+@end

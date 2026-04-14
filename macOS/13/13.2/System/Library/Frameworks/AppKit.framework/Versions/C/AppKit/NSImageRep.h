@@ -1,0 +1,102 @@
+@class NSArray, NSString, NSMutableArray;
+
+@interface NSImageRep : NSObject <NSSecureCoding, NSCopying, NSCoding> {
+    NSString *_colorSpaceName;
+    struct __repFlags { unsigned char hasAlpha : 1; unsigned char isOpaque : 1; unsigned char  : 2; unsigned char loadState : 2; unsigned char  : 2; unsigned char bitsPerSample : 8; unsigned char internalLayoutDirection : 2; unsigned short gsaved : 14; } _repFlags;
+    int _pixelsWide;
+    struct CGSize { double width; double height; } _size;
+    int _pixelsHigh;
+    NSMutableArray *_bitmapCache;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _bitmapCacheLock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+@property (class, readonly, copy) NSArray *registeredImageRepClasses;
+@property (class, readonly, copy) NSArray *imageUnfilteredTypes;
+@property (class, readonly, copy) NSArray *imageTypes;
+
+@property (readonly) BOOL _incorporatesContentStyling;
+@property (copy, setter=_setAppearanceName:) NSString *_appearanceName;
+@property (readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentRect;
+@property (readonly) struct NSEdgeInsets { double x0; double x1; double x2; double x3; } capInsets;
+@property (readonly) long long resizingMode;
+@property (readonly, getter=isTemplate) BOOL template;
+@property (readonly) BOOL inheritsGeometryFromImage;
+@property struct CGSize { double x0; double x1; } size;
+@property (getter=hasAlpha) BOOL alpha;
+@property (getter=isOpaque) BOOL opaque;
+@property (copy) NSString *colorSpaceName;
+@property long long bitsPerSample;
+@property long long pixelsWide;
+@property long long pixelsHigh;
+@property long long layoutDirection;
+
++ (void)initialize;
++ (id)imageUnfilteredFileTypes;
++ (id)imageUnfilteredPasteboardTypes;
++ (id)imageRepWithData:(id)a0;
++ (BOOL)canInitWithData:(id)a0;
++ (id)imageFileTypes;
++ (id)imagePasteboardTypes;
++ (BOOL)canInitWithPasteboard:(id)a0;
++ (id)_imageTypesNoCaching;
++ (id)_imagePasteboardTypesNoCaching;
++ (id)_imageFileTypesNoCaching;
++ (id)imageRepsWithContentsOfFile:(id)a0;
++ (id)_imageRepsWithContentsOfURL:(id)a0 expandImageContentNow:(BOOL)a1;
++ (id)_imageRepsWithContentsOfURL:(id)a0 expandImageContentNow:(BOOL)a1 giveUpOnNetworkURLsWithoutGoodExtensions:(BOOL)a2;
++ (id)_imageRepsWithContentsOfFile:(id)a0 expandImageContentNow:(BOOL)a1;
++ (id)imageRepWithContentsOfFile:(id)a0;
++ (id)imageRepsWithPasteboard:(id)a0;
++ (id)imageRepWithPasteboard:(id)a0;
++ (id)imageRepsWithContentsOfURL:(id)a0;
++ (id)imageRepWithContentsOfURL:(id)a0;
++ (id)_imageRepsWithData:(id)a0 fileType:(id)a1 hfsType:(id)a2 expandImageContentNow:(BOOL)a3;
++ (void)registerImageRepClass:(Class)a0;
++ (void)unregisterImageRepClass:(Class)a0;
++ (Class)imageRepClassForType:(id)a0;
++ (Class)_imageRepClassForFileNameExtension:(id)a0 andHFSFileType:(id)a1;
++ (Class)imageRepClassForFileType:(id)a0;
++ (Class)imageRepClassForPasteboardType:(id)a0;
++ (Class)imageRepClassForData:(id)a0;
++ (BOOL)_preferFilter;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithData:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)replacementObjectForCoder:(id)a0;
+- (struct CGImage { } *)CGImageForProposedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 context:(id)a1 hints:(id)a2;
+- (id)colorSpace;
+- (void)setColorSpace:(id)a0;
+- (BOOL)draw;
+- (long long)_numberOfColorComponentsNotIncludingAlpha;
+- (BOOL)_wantsToBeCached;
+- (long long)_uncachedSize;
+- (BOOL)_isValid;
+- (id)_bitmapImageReps;
+- (struct CGImage { } *)_CGImageRef;
+- (void)_setCGImageRef:(struct CGImage { } *)a0;
+- (BOOL)drawAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)drawInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)drawInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 operation:(unsigned long long)a2 fraction:(double)a3 respectFlipped:(BOOL)a4 hints:(id)a5;
+- (id)_imageRepsForEncodingWithCoder:(id)a0;
+- (BOOL)_drawFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 operation:(unsigned long long)a2 alpha:(double)a3 compositing:(BOOL)a4 flipped:(BOOL)a5 ignoreContext:(BOOL)a6;
+- (struct CGPattern { } *)_createPatternForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 context:(id)a1;
+- (id)_imageRep_colorSpaceName;
+- (void)_imageRep_setColorSpaceName:(id)a0;
+- (long long)_pixelsWideOrResolutionIndependent;
+- (long long)_pixelsHighOrResolutionIndependent;
+- (long long)_internalLayoutDirection;
+- (BOOL)_drawOnlyUsesOneDrawingOperation;
+- (BOOL)_loadDataIfNotYetLoaded;
+- (struct CGImage { } *)_newCGImageForProposedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 context:(id)a1 hints:(id)a2 flipped:(BOOL)a3;
+- (void)_recache;
+- (struct CGImage { } *)CGImageForProposedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 context:(id)a1 hints:(id)a2 flipped:(BOOL)a3;
+- (id)_bitmapImageRepsForTIFFRepresentation;
+- (id)repWithGeometryInheritedFromImage:(id)a0;
+
+@end

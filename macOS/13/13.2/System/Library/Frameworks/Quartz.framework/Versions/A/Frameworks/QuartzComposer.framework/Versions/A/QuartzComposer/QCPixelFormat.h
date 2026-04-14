@@ -1,0 +1,78 @@
+@interface QCPixelFormat : NSObject {
+    void *_unused[4];
+}
+
++ (void)initialize;
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (id)defaultClosestPixelFormat:(id)a0 withColorSpace:(struct CGColorSpace { } *)a1;
++ (void)registerPixelFormat:(id)a0;
++ (id)allPixelFormats;
++ (id)pixelFormatsWithCompatibility:(unsigned long long)a0;
++ (id)pixelFormatsWithCompatibilities:(unsigned long long)a0 pixelColorModel:(int)a1 pixelAlpha:(int)a2 pixelType:(int)a3;
++ (id)findPixelFormat:(id)a0 withColorSpace:(struct CGColorSpace { } *)a1 closestToFormats:(id)a2;
++ (id)pixelFormatWithName:(id)a0;
++ (id)pixelFormatRGB8;
++ (id)pixelFormatRGB16;
++ (id)pixelFormatRGBh;
++ (id)pixelFormatRGBf;
++ (id)pixelFormatXRGB8;
++ (id)pixelFormatBGRX8;
++ (id)pixelFormatRGBX8;
++ (id)pixelFormatARGB8;
++ (id)pixelFormatBGRA8;
++ (id)pixelFormatRGBA8;
++ (id)pixelFormatRGBA16;
++ (id)pixelFormatRGBAh;
++ (id)pixelFormatRGBAf;
++ (id)pixelFormatI8;
++ (id)pixelFormatI16;
++ (id)pixelFormatIh;
++ (id)pixelFormatIf;
++ (id)pixelFormatCMYK8;
++ (id)pixelFormatKYMC8;
++ (id)pixelFormatCMYK16;
++ (id)pixelFormatCMYKf;
++ (id)pixelFormat422YpCbCr8_601;
++ (id)pixelFormat422YpCbCr8_709;
++ (id)pixelFormatYUVS;
++ (id)pixelFormatM_I8;
++ (id)pixelFormatM_I16;
++ (id)pixelFormatM_Ih;
++ (id)pixelFormatM_If;
++ (id)pixelFormatsForElementSize:(unsigned long long)a0 type:(int)a1;
+
+- (id)name;
+- (id)description;
+- (int)type;
+- (struct CGColorSpace { } *)defaultColorSpace;
+- (unsigned int)openGLPixelFormat;
+- (unsigned long long)elementSize;
+- (int)pixelType;
+- (unsigned long long)compatibilities;
+- (int)pixelColorModel;
+- (int)pixelAlpha;
+- (unsigned long long)pixelBlockWidth;
+- (unsigned long long)pixelBlockHeight;
+- (unsigned long long)bitsPerBlock;
+- (unsigned int)QTPixelFormat;
+- (unsigned int)openGLInternalFormat;
+- (unsigned int)openGLPixelType;
+- (int)CIFormat;
+- (struct _cl_image_format { unsigned int x0; unsigned int x1; })CLFormat;
+- (unsigned long long)CGBitsPerComponent;
+- (unsigned long long)CGBitsPerPixel;
+- (unsigned int)CGBitmapInfo;
+- (BOOL)isValidColorSpace:(struct CGColorSpace { } *)a0;
+- (BOOL)isSupportedOnContext:(id)a0;
+- (BOOL)hasCompatibility:(unsigned long long)a0;
+- (BOOL)isValidWidth:(unsigned long long)a0;
+- (BOOL)isValidHeight:(unsigned long long)a0;
+- (BOOL)areValidBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })validateBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (unsigned long long)packedBytesPerRowForWidth:(unsigned long long)a0;
+- (unsigned long long)optimalBytesPerRowForWidth:(unsigned long long)a0;
+- (double)compareWithPixelFormat:(id)a0;
+- (id)closestPixelFormat:(id)a0 outDifference:(double *)a1;
+- (unsigned long long)pixelSamples;
+
+@end

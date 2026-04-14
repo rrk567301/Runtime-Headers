@@ -1,0 +1,12 @@
+@class NSNumber;
+
+@interface MTRDoorLockClusterDoorLockAlarmEvent : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *alarmCode;
+
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+
+@end

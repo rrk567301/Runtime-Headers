@@ -1,0 +1,50 @@
+@class PBDataReader, NSString, NSMutableArray, PBUnknownFields;
+
+@interface GEOPDCategory : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    NSString *_eventCategoryId;
+    NSMutableArray *_localizedNames;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _level;
+    struct { unsigned char has_level : 1; unsigned char read_unknownFields : 1; unsigned char read_eventCategoryId : 1; unsigned char read_localizedNames : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasLevel;
+@property (nonatomic) int level;
+@property (retain, nonatomic) NSMutableArray *localizedNames;
+@property (readonly, nonatomic) BOOL hasEventCategoryId;
+@property (retain, nonatomic) NSString *eventCategoryId;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
++ (id)_allCategoriesForPlaceData:(id)a0 type:(unsigned int)a1;
++ (id)categoryNamesForPlaceData:(id)a0 type:(unsigned int)a1;
++ (BOOL)hasCategoryNamesForPlaceData:(id)a0 type:(unsigned int)a1;
++ (Class)localizedNameType;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithData:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)jsonRepresentation;
+- (id)initWithJSON:(id)a0;
+- (void)readAll:(BOOL)a0;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void)clearLocalizedNames;
+- (void)addLocalizedName:(id)a0;
+- (unsigned long long)localizedNamesCount;
+- (id)localizedNameAtIndex:(unsigned long long)a0;
+
+@end

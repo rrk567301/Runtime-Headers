@@ -1,0 +1,32 @@
+@class NFApplet, NSSet, NSDictionary;
+@protocol NFUnifiedAccessSessionDelegate;
+
+@interface NFUnifiedAccessSession : NFSession {
+    id<NFUnifiedAccessSessionDelegate> _delegate;
+    BOOL _emulationActive;
+    NSDictionary *_appletsById;
+    unsigned long long _numActiveSEs;
+    BOOL _fieldNotificationSent;
+}
+
+@property id<NFUnifiedAccessSessionDelegate> delegate;
+@property (readonly, retain) NFApplet *activeApplet;
+@property (readonly, retain) NSSet *activeKeys;
+
+- (void).cxx_destruct;
+- (void)endSession;
+- (id)allApplets;
+- (BOOL)stopCardEmulation:(id *)a0;
+- (BOOL)setActivePaymentApplet:(id)a0 keys:(id)a1 error:(id *)a2;
+- (id)appletWithIdentifier:(id)a0;
+- (void)endSessionWithCompletion:(id /* block */)a0;
+- (void)didEndUnexpectedly;
+- (void)didStartSession:(id)a0;
+- (unsigned long long)numberOfActiveSecureElements;
+- (BOOL)startCardEmulationWithAuthorization:(id)a0 error:(id *)a1;
+- (BOOL)startDeferredCardEmulationWithAuthorization:(id)a0 error:(id *)a1;
+- (BOOL)_startCardEmulationWithAuthorization:(id)a0 error:(id *)a1;
+- (BOOL)_startDeferredCardEmulationWithAuthorization:(id)a0 error:(id *)a1;
+- (BOOL)startExpressMode:(id *)a0;
+
+@end

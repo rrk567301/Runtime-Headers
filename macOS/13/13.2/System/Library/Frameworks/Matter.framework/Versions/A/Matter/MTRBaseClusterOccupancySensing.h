@@ -1,0 +1,81 @@
+@class MTRBaseDevice;
+
+@interface MTRBaseClusterOccupancySensing : MTRCluster
+
+@property (readonly, nonatomic) MTRBaseDevice *device;
+@property (readonly, nonatomic) unsigned short endpoint;
+
++ (void)readAttributeGeneratedCommandListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeAcceptedCommandListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeAttributeListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeFeatureMapWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeClusterRevisionWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeOccupancyWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeOccupancySensorTypeWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeOccupancySensorTypeBitmapWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePirOccupiedToUnoccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePirUnoccupiedToOccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePirUnoccupiedToOccupiedThresholdWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeUltrasonicOccupiedToUnoccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeUltrasonicUnoccupiedToOccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeUltrasonicUnoccupiedToOccupiedThresholdWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePhysicalContactOccupiedToUnoccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePhysicalContactUnoccupiedToOccupiedDelayWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePhysicalContactUnoccupiedToOccupiedThresholdWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
+
+- (void).cxx_destruct;
+- (id)initWithDevice:(id)a0 endpoint:(unsigned short)a1 queue:(id)a2;
+- (void)readAttributeGeneratedCommandListWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeGeneratedCommandListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeAcceptedCommandListWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAcceptedCommandListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeAttributeListWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAttributeListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeFeatureMapWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeFeatureMapWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeClusterRevisionWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeClusterRevisionWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeOccupancyWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeOccupancyWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeOccupancySensorTypeWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeOccupancySensorTypeWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeOccupancySensorTypeBitmapWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeOccupancySensorTypeBitmapWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePirOccupiedToUnoccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePirOccupiedToUnoccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePirOccupiedToUnoccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePirOccupiedToUnoccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePirUnoccupiedToOccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePirUnoccupiedToOccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePirUnoccupiedToOccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePirUnoccupiedToOccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePirUnoccupiedToOccupiedThresholdWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePirUnoccupiedToOccupiedThresholdWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePirUnoccupiedToOccupiedThresholdWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePirUnoccupiedToOccupiedThresholdWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeUltrasonicOccupiedToUnoccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeUltrasonicOccupiedToUnoccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributeUltrasonicOccupiedToUnoccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributeUltrasonicOccupiedToUnoccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeUltrasonicUnoccupiedToOccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeUltrasonicUnoccupiedToOccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributeUltrasonicUnoccupiedToOccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributeUltrasonicUnoccupiedToOccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributeUltrasonicUnoccupiedToOccupiedThresholdWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributeUltrasonicUnoccupiedToOccupiedThresholdWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributeUltrasonicUnoccupiedToOccupiedThresholdWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributeUltrasonicUnoccupiedToOccupiedThresholdWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePhysicalContactOccupiedToUnoccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePhysicalContactOccupiedToUnoccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePhysicalContactOccupiedToUnoccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePhysicalContactOccupiedToUnoccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePhysicalContactUnoccupiedToOccupiedDelayWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePhysicalContactUnoccupiedToOccupiedDelayWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePhysicalContactUnoccupiedToOccupiedDelayWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePhysicalContactUnoccupiedToOccupiedDelayWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)readAttributePhysicalContactUnoccupiedToOccupiedThresholdWithCompletionHandler:(id /* block */)a0;
+- (void)writeAttributePhysicalContactUnoccupiedToOccupiedThresholdWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributePhysicalContactUnoccupiedToOccupiedThresholdWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+- (void)subscribeAttributePhysicalContactUnoccupiedToOccupiedThresholdWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+
+@end

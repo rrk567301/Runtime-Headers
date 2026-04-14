@@ -1,0 +1,19 @@
+@interface NSTouchBarColorPickerSliderCMYKArtworkProvider : NSTouchBarColorPickerSliderArtworkProvider {
+    long long _cmykComponent;
+}
+
++ (id)cyanArtworkProvider;
++ (id)magentaArtworkProvider;
++ (id)yellowArtworkProvider;
++ (id)blackArtworkProvider;
+
+- (BOOL)isEqual:(id)a0;
+- (id)initWithComponent:(long long)a0;
+- (void)updateRootTrackLayer:(id)a0 color:(id)a1 horizontallyFlipped:(BOOL)a2 allowedColorSpaces:(id)a3;
+- (double)valueFromAccessibilityValueString:(id)a0;
+- (id)accessibilityValueStringForValue:(double)a0;
+- (id)formattedValue:(double)a0;
+- (id)sliderLabel;
+- (double)lightnessForValue:(double)a0 baseColor:(id)a1 horizontallyFlipped:(BOOL)a2 allowedColorSpaces:(id)a3;
+
+@end

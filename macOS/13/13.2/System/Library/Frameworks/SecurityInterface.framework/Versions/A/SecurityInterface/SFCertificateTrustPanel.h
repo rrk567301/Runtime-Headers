@@ -1,0 +1,71 @@
+@interface SFCertificateTrustPanel : SFCertificatePanel {
+    id _reserved_SFCertificateTrustPanel;
+}
+
++ (id)sharedCertificateTrustPanel;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (void)unlock;
+- (id)informativeText;
+- (void)setInformativeText:(id)a0;
+- (void)setShowsHelp:(BOOL)a0;
+- (id)_messageField;
+- (id)_informationField;
+- (void)windowDidResize:(id)a0;
+- (void)tableViewSelectionDidChange:(id)a0;
+- (id)_splitView;
+- (id)_iconView;
+- (id)_stackView;
+- (void)setEditableTrust:(BOOL)a0;
+- (BOOL)editableTrust;
+- (void)setRef:(id *)a0 toObj:(id)a1;
+- (void)set_splitView:(id)a0;
+- (id)_defaultHelpAnchor;
+- (void)_okClicked:(id)a0;
+- (void)_cancelClicked:(id)a0;
+- (id)_showCertButton;
+- (id)_trustButton;
+- (id)_aboveContentBox;
+- (id)_discloseContentBox;
+- (id)_belowContentBox;
+- (id)_discloseContentHeightConstraint;
+- (id)_defaultMessage;
+- (id)_defaultInformation;
+- (long long)runModalForTrust:(struct __SecTrust { } *)a0 message:(id)a1;
+- (void)beginSheetForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3 trust:(struct __SecTrust { } *)a4 message:(id)a5;
+- (void)setCertificatesDisclosed:(BOOL)a0;
+- (BOOL)certificatesDisclosed;
+- (void)setShowsCertButton:(BOOL)a0;
+- (BOOL)showsCertButton;
+- (void)setShowsTrustButton:(BOOL)a0;
+- (BOOL)showsTrustButton;
+- (void)setTrustButtonState:(long long)a0;
+- (id)_reserved_SFCertificateTrustPanel;
+- (void)set_iconView:(id)a0;
+- (void)set_stackView:(id)a0;
+- (void)set_messageField:(id)a0;
+- (void)set_informationField:(id)a0;
+- (void)set_showCertButton:(id)a0;
+- (void)set_trustButton:(id)a0;
+- (void)set_aboveContentBox:(id)a0;
+- (void)set_discloseContentBox:(id)a0;
+- (void)set_belowContentBox:(id)a0;
+- (void)set_discloseContentHeightConstraint:(id)a0;
+- (void)setDefaultMessage:(id)a0;
+- (void)setDefaultInformation:(id)a0;
+- (void)_dismissModalLoop:(id)a0;
+- (void)_SFCertificateTrustPanel_disclosureStateChanged:(id)a0;
+- (void)_constructDefaultMessage:(struct __SecTrust { } *)a0;
+- (void)_forceAdminTrust:(BOOL)a0;
+- (void)_saveTrustValues;
+- (void)_trustClicked:(id)a0;
+- (void)_discloseClicked:(id)a0;
+- (void)_discloseCertificates:(BOOL)a0;
+- (id)loadTrustNibFile;
+- (long long)_prepPanel:(struct __SecTrust { } *)a0 message:(id)a1 showGroup:(BOOL)a2;
+- (void)_certTrustSheetDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (id)_truncatedAlwaysTrustCertString:(id)a0 forHostOrEmail:(id)a1;
+
+@end

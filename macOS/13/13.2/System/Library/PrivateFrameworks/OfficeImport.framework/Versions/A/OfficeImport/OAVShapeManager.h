@@ -1,0 +1,72 @@
+@class NSDictionary, OAVReadState, OCPPackagePart;
+
+@interface OAVShapeManager : NSObject {
+    struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *mShape;
+    unsigned short mType;
+    OCPPackagePart *mPackagePart;
+    NSDictionary *mShapeStyle;
+    NSDictionary *mTextBoxStyle;
+    OAVReadState *mOAVState;
+}
+
+- (void).cxx_destruct;
+- (unsigned short)type;
+- (id)path;
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)shape;
+- (id)shadowColor;
+- (float)strokeWidth;
+- (id)points;
+- (id)fillType;
+- (float)shadowAlpha;
+- (BOOL)isImage;
+- (BOOL)isFilled;
+- (BOOL)isStroked;
+- (BOOL)isShadowed;
+- (id)fillFgColor;
+- (id)fillBgColor;
+- (id)strokeFgColor;
+- (id)strokeBgColor;
+- (float)fillFgAlpha;
+- (float)fillBgAlpha;
+- (float)fillAngle;
+- (float)fillFocus;
+- (id)fillGradientColors;
+- (id)strokeFillType;
+- (float)strokeFgAlpha;
+- (float)strokeMiterLimit;
+- (id)strokeCompoundType;
+- (id)strokeCapStyle;
+- (id)strokeJoinStyle;
+- (id)strokeStartArrowType;
+- (id)strokeStartArrowWidth;
+- (id)strokeStartArrowLength;
+- (id)strokeEndArrowType;
+- (id)strokeEndArrowWidth;
+- (id)strokeEndArrowLength;
+- (id)shadowType;
+- (BOOL)isFillOK;
+- (BOOL)isStrokeOK;
+- (BOOL)isShadowOK;
+- (id)textAnchor;
+- (id)initWithShape:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0 type:(unsigned short)a1 packagePart:(id)a2 state:(id)a3;
+- (id)packagePart;
+- (id)oavState;
+- (id)limo;
+- (id)textBodyRects;
+- (BOOL)isPolyline;
+- (id)imageRelId;
+- (id)movieRelId;
+- (BOOL)isWordArt;
+- (id)imageFillId;
+- (id)imageFillTitle;
+- (id)strokeDashStyle;
+- (struct CGPoint { double x0; double x1; })shadowOffsets;
+- (id)textWrapStyle;
+- (BOOL)autoInsets;
+- (id)textLayoutFlow;
+- (id)textAltLayoutFlow;
+- (id)textRotation;
+- (BOOL)fitShapeToText;
+- (struct OAVTextBoxInsets { float x0; float x1; float x2; float x3; })textInsets;
+
+@end

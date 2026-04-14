@@ -1,0 +1,15 @@
+@class NSString;
+
+@interface HMDAccessoryMetricTransportDetails : HMFObject
+
+@property (copy, nonatomic) NSString *accessoryProtocol;
+@property (copy, nonatomic) NSString *accessoryTransport;
+@property (nonatomic) BOOL isAccessoryBatteryPowered;
+@property (nonatomic) BOOL isAccessoryBridged;
+@property (nonatomic) BOOL isHH2Enabled;
+
+- (void).cxx_destruct;
+- (id)attributeDescriptions;
+- (id)initWithAccessory:(id)a0;
+
+@end

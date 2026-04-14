@@ -1,0 +1,10 @@
+@class PKPayLaterDynamicContent;
+
+@interface PKAccountWebServicePayLaterContentResponse : PKAccountWebServiceResponse
+
+@property (readonly, nonatomic) PKPayLaterDynamicContent *dynamicContent;
+
+- (id)initWithData:(id)a0;
+- (void).cxx_destruct;
+
+@end

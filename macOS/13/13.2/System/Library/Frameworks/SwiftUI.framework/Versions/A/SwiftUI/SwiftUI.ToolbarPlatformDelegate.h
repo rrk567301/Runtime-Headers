@@ -1,0 +1,16 @@
+@interface SwiftUI.ToolbarPlatformDelegate : NSObject <NSToolbarDelegate, NSTouchBarDelegate, NSLocalTitlebarToolbarRenameSessionDelegate> {
+    void /* unknown type, empty encoding */ provider;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)toolbar:(id)a0 itemForItemIdentifier:(id)a1 willBeInsertedIntoToolbar:(BOOL)a2;
+- (id)toolbarDefaultItemIdentifiers:(id)a0;
+- (id)toolbarAllowedItemIdentifiers:(id)a0;
+- (id)toolbarSelectableItemIdentifiers:(id)a0;
+- (id)toolbarImmovableItemIdentifiers:(id)a0;
+- (BOOL)toolbar:(id)a0 itemIdentifier:(id)a1 canBeInsertedAtIndex:(long long)a2;
+- (id)touchBar:(id)a0 makeItemForIdentifier:(id)a1;
+- (void)updateSelection:(id)a0;
+
+@end

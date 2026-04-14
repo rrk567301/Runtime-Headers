@@ -1,0 +1,87 @@
+@class EDResources, NSString, EDCollection, EDReference;
+
+@interface EDTable : NSObject {
+    EDResources *mResources;
+    unsigned long long mStyleIndex;
+    unsigned long long mHeaderRowDxfIndex;
+    unsigned long long mTotalsRowDxfIndex;
+    unsigned long long mDataAreaDxfIndex;
+    unsigned long long mHeaderRowBorderDxfIndex;
+    unsigned long long mTotalsRowBorderDxfIndex;
+    unsigned long long mDataAreaBorderDxfIndex;
+    unsigned long long mTableBorderDxfIndex;
+    NSString *mName;
+    NSString *mDisplayName;
+    EDReference *mTableRange;
+    NSString *mStyleName;
+    unsigned long long mHeaderRowCount;
+    unsigned long long mTotalsRowCount;
+    BOOL mShowFirstColumn;
+    BOOL mShowLastColumn;
+    BOOL mShowRowStripes;
+    BOOL mShowColumnStripes;
+    EDCollection *mTableColumns;
+    EDCollection *mColumnFilters;
+}
+
++ (id)tableWithResources:(id)a0;
+
+- (id)name;
+- (id)description;
+- (void).cxx_destruct;
+- (void)setName:(id)a0;
+- (id)displayName;
+- (id)style;
+- (void)setStyle:(id)a0;
+- (void)setDisplayName:(id)a0;
+- (id)tableColumns;
+- (id)initWithResources:(id)a0;
+- (id)styleName;
+- (unsigned long long)styleIndex;
+- (void)setStyleIndex:(unsigned long long)a0;
+- (void)setStyleName:(id)a0;
+- (BOOL)showLastColumn;
+- (void)setShowLastColumn:(BOOL)a0;
+- (BOOL)showRowStripes;
+- (void)setShowRowStripes:(BOOL)a0;
+- (BOOL)showColumnStripes;
+- (void)setShowColumnStripes:(BOOL)a0;
+- (id)headerRowDxf;
+- (void)setHeaderRowDxf:(id)a0;
+- (id)totalsRowDxf;
+- (void)setTotalsRowDxf:(id)a0;
+- (id)dataAreaDxf;
+- (void)setDataAreaDxf:(id)a0;
+- (id)headerRowBorderDxf;
+- (void)setHeaderRowBorderDxf:(id)a0;
+- (id)totalsRowBorderDxf;
+- (void)setTotalsRowBorderDxf:(id)a0;
+- (id)dataAreaBorderDxf;
+- (void)setDataAreaBorderDxf:(id)a0;
+- (id)tableBorderDxf;
+- (void)setTableBorderDxf:(id)a0;
+- (id)tableRange;
+- (unsigned long long)headerRowCount;
+- (void)setHeaderRowCount:(unsigned long long)a0;
+- (unsigned long long)totalsRowCount;
+- (void)setTotalsRowCount:(unsigned long long)a0;
+- (id)columnFilters;
+- (BOOL)showFirstColumn;
+- (void)setShowFirstColumn:(BOOL)a0;
+- (void)setTableRange:(id)a0;
+- (unsigned long long)headerRowDxfIndex;
+- (void)setHeaderRowDxfIndex:(unsigned long long)a0;
+- (unsigned long long)totalsRowDxfIndex;
+- (void)setTotalsRowDxfIndex:(unsigned long long)a0;
+- (unsigned long long)dataAreaDxfIndex;
+- (void)setDataAreaDxfIndex:(unsigned long long)a0;
+- (unsigned long long)headerRowBorderDxfIndex;
+- (void)setHeaderRowBorderDxfIndex:(unsigned long long)a0;
+- (unsigned long long)totalsRowBorderDxfIndex;
+- (void)setTotalsRowBorderDxfIndex:(unsigned long long)a0;
+- (unsigned long long)dataAreaBorderDxfIndex;
+- (void)setDataAreaBorderDxfIndex:(unsigned long long)a0;
+- (unsigned long long)tableBorderDxfIndex;
+- (void)setTableBorderDxfIndex:(unsigned long long)a0;
+
+@end

@@ -1,0 +1,91 @@
+@class NSString, UMUser, UMUserPersona, NSArray;
+@protocol UMUserListUpdateObserver, UMUserPersonaUpdateObserver;
+
+@interface UMUserManager : NSObject <UMUserManagement, UMUserSwitchManagement, UMUserPersonaManagement, UMUserPersonaAttributesList, UMUserPersonaLoginSessionManagement, UMUserSessionProvisioning, UMUserVolumeMigration> {
+    NSArray *_allUsers;
+}
+
+@property (weak, nonatomic) id<UMUserListUpdateObserver> userListUpdateObserver;
+@property (nonatomic) BOOL switchIsOccurring;
+@property (weak, nonatomic) id<UMUserPersonaUpdateObserver> userPersonaUpdateObserver;
+@property (readonly, nonatomic) BOOL isMultiUser;
+@property (readonly, nonatomic) BOOL isSharedIPad;
+@property (readonly, copy, nonatomic) UMUser *currentUser;
+@property (readonly, copy, nonatomic) UMUser *loginUser;
+@property (readonly, nonatomic) BOOL isLoginSession;
+@property (readonly, nonatomic) unsigned long long maxNumberOfUsers;
+@property (readonly, nonatomic) unsigned long long userQuotaSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) UMUserPersona *currentPersona;
+
++ (id)sharedManager;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)listAllPersonaWithAttributes;
+- (unsigned long long)personaGenerationIdentifierWithError:(id *)a0;
+- (id)listAllPersonaAttributesWithError:(id *)a0;
+- (id)currentUserSwitchContext;
+- (void)currentUserSwitchContextHasBeenUsed;
+- (void)userListDidUpdate;
+- (BOOL)canAccessUserProperties;
+- (void)createUser:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)loadUser:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)deleteUser:(id)a0 completionHandler:(id /* block */)a1;
+- (void)disableUser:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerUserListUpdateObserver:(id)a0;
+- (void)switchToLoginUserWithCompletionHandler:(id /* block */)a0;
+- (void)switchToLoginUserWithError:(id)a0 completionHandler:(id /* block */)a1;
+- (void)logoutToLoginSessionWithCompletionHandler:(id /* block */)a0;
+- (void)switchToUser:(id)a0 passcodeData:(id)a1 context:(id)a2 completionHandler:(id /* block */)a3;
+- (void)directSwitchToUser:(id)a0 passcodeData:(id)a1 context:(id)a2 preferences:(id)a3 completionHandler:(id /* block */)a4;
+- (void)loginUICheckInWithCompletionHandler:(id /* block */)a0;
+- (void)registerUserSwitchStakeHolder:(id)a0;
+- (void)registerUserSwitchStakeHolder:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerUserSyncStakeholder:(id)a0 withMachServiceName:(id)a1;
+- (void)unregisterStakeHolder:(id)a0 status:(unsigned long long)a1 reason:(id)a2;
+- (void)terminateSyncWithCompletionHandler:(id /* block */)a0;
+- (void)resumeSync;
+- (void)createUserPersona:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)createUserPersona:(id)a0 passcodeData:(id)a1 passcodeDataType:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)deleteUserPersonaWithIDString:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)deleteUserPersonaWithPersonaUniqueString:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)deleteUserPersonaWithProfileInfo:(id)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)deleteUserPersonaWithType:(int)a0 passcodeData:(id)a1 completionHandler:(id /* block */)a2;
+- (void)disableUserPersonaWithProfileInfo:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchAllPersonasWithCompletionHandler:(id /* block */)a0;
+- (void)fetchAllPersonasForAllUsersWithCompletionHandler:(id /* block */)a0;
+- (void)fetchPersonaWithIDString:(id)a0 CompletionHandler:(id /* block */)a1;
+- (void)fetchPersonaWithPersonaUniqueString:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchPersonaWithType:(int)a0 CompletionHandler:(id /* block */)a1;
+- (void)fetchAsidMapOfAllUsersWithCompletionHandler:(id /* block */)a0;
+- (void)setBundlesIdentifiers:(id)a0 forUniquePersonaWithIDString:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setBundlesIdentifiers:(id)a0 forPersonaWithPersonaUniqueString:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setBundlesIdentifiers:(id)a0 forUniquePersonaType:(int)a1 completionHandler:(id /* block */)a2;
+- (void)setMultiPersonaBundleIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchBundleIdentifierForPersonaWithIDString:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchBundleIdentifierForPersonaWithPersonaUniqueString:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchBundleIdentifierForType:(int)a0 completionHandler:(id /* block */)a1;
+- (void)fetchMultiPersonaBundleIdentifierWithcompletionHandler:(id /* block */)a0;
+- (BOOL)haveValidPersonaContextForIDString:(id)a0;
+- (BOOL)haveValidPersonaContextForPersonaUniqueString:(id)a0;
+- (void)registerPersonaListUpdateObserver:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerPersonaListUpdateObserver:(id)a0 withMachService:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)personaLoginWithUserODuuid:(id)a0 withUid:(unsigned int)a1 WithError:(id *)a2;
+- (BOOL)personaLogoutWithUserODuuid:(id)a0 withUid:(unsigned int)a1 WithError:(id *)a2;
+- (void)setupUMUserSessionProvisioning:(id)a0 WithCompletionHandler:(id /* block */)a1;
+- (BOOL)migrateSharedAndPrimaryUserVolumeWithError:(id *)a0;
+- (void)_allUsersDidChange;
+- (id)allUsers;
+- (id)allUsersUnfiltered;
+- (BOOL)userExists:(id)a0;
+- (void)suspendQuotasWithCompletionHandler:(id /* block */)a0;
+- (void)resumeQuotas;
+- (void)switchToUser:(id)a0 passcodeData:(id)a1 context:(id)a2 preferences:(id)a3 completionHandler:(id /* block */)a4;
+- (void)registerCriticalUserSwitchStakeHolder:(id)a0;
+- (void)userInteractionIsEnabled;
+
+@end

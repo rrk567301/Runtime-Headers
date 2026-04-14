@@ -1,0 +1,12 @@
+@interface HDClinicalAccountEntity : HDHealthEntity
+
++ (id)foreignKeys;
++ (long long)protectionClass;
++ (id)databaseTable;
++ (id)joinClausesForProperty:(id)a0;
++ (id)checkConstraints;
++ (const struct { id x0; id x1; unsigned char x2; } *)columnDefinitionsWithCount:(unsigned long long *)a0;
++ (id)propertyForSyncProvenance;
++ (id)propertyForSyncAnchor;
+
+@end

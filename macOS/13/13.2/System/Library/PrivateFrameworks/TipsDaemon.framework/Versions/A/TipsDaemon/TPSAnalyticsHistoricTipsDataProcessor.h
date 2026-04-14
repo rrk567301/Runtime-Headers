@@ -1,0 +1,16 @@
+@class NSDate;
+
+@interface TPSAnalyticsHistoricTipsDataProcessor : TPSAnalyticsProcessor {
+    NSDate *_currentDate;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)resetAnalytics;
+- (void)processAnalytics:(id /* block */)a0;
+- (void)updateDisplayedCount:(long long *)a0 andFrequencyControlCount:(long long *)a1 forTipStatus:(id)a2 andLookbackDate:(id)a3;
+- (unsigned long long)_daysBetweenDate:(id)a0 andOtherDate:(id)a1;
+- (BOOL)_shouldProceedWithCrunching;
+- (id)_furthestLookbackDate;
+
+@end

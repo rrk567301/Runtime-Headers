@@ -1,0 +1,96 @@
+@class NSString, NSDictionary;
+
+@interface ZMWEventManager : NSObject <AXEEventTapListener> {
+    BOOL _arePoroKeysDown;
+    unsigned int _cgsConnection;
+    BOOL _eventHandlerInstalled;
+    BOOL _registeredHotKeys;
+    BOOL _registeredUAHotKeys;
+    struct __CFMachPort { } *_eventTap;
+    struct __CGEventTapProxy { } *_eventTapProxy;
+    unsigned long long _eventTapReconnectCount;
+    double _eventTapLastReconnect;
+    struct __CFMachPort { } *_eventTapListenOnly;
+    struct __CGEventTapProxy { } *_eventTapListenOnlyProxy;
+    unsigned long long _eventTapListenOnlyReconnectCount;
+    double _eventTapListenOnlyLastReconnect;
+    BOOL _shouldHideCursor;
+    BOOL _canHideCursor;
+    double _lastUAFocusTime;
+    NSDictionary *_lastUAFocusInformation;
+    double _lastPotentialFocusTrigger;
+    double _onlyControlIsDownTime;
+    unsigned long long _lastSeenFlags;
+    struct __CGEventSource { } *_eventSource;
+}
+
+@property (nonatomic) struct CGPoint { double x; double y; } currentMouseLocation;
+@property (nonatomic) BOOL isMouseDetached;
+@property (nonatomic, setter=_setTemporaryDetachKeysDown:) BOOL _temporaryDetachKeysDown;
+@property (nonatomic) struct CGPoint { double x; double y; } _mouseDetachStartMouseLocation;
+@property (nonatomic) struct CGPoint { double x; double y; } _mouseDetachStartZoomOriginLocation;
+@property (nonatomic) BOOL _mouseEventTapRegistered;
+@property (nonatomic) BOOL shouldHideCursor;
+@property (nonatomic) BOOL canHideCursor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (struct __CGEvent { } *)eventTapManager:(id)a0 activelyTappedMouseEvent:(id)a1 cgEvent:(struct __CGEvent { } *)a2 withProxy:(struct __CGEventTapProxy { } *)a3;
+- (void)_initializeModifierState;
+- (void)handlePossibleFocusTrigger;
+- (void)_moveZoomToFocusRect;
+- (void)_repeatZoomInHotKey:(id)a0;
+- (void)_updateEventTapRegistrationPrefsZoomFactor:(double)a0 nonSystemZoomFactor:(double)a1;
+- (void)updateUserSettings;
+- (void)listenForMouseMovementEvents:(BOOL)a0;
+- (void)listenForKeyboardEvents:(BOOL)a0;
+- (void)setShouldHideCursor:(BOOL)a0;
+- (BOOL)shouldHideCursor;
+- (void)setCanHideCursor:(BOOL)a0;
+- (BOOL)canHideCursor;
+- (void)updateCursorVisibility;
+- (BOOL)_isZoomedIn;
+- (void)_respondToFocusChangeOrFocusTrigger;
+- (void)focusOnRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)handleUAFocusChange:(id)a0;
+- (void)_setPoroKeysDown:(BOOL)a0;
+- (void)_adjustPoroZoomLevelByDelta:(double)a0;
+- (void)_adjustZoomLevelByDelta:(double)a0;
+- (BOOL)_handleZoomLevelToggleHotKey;
+- (BOOL)_handleZoomInHotKey:(BOOL)a0;
+- (BOOL)_handleMouseMoved:(struct __CGEvent { } *)a0;
+- (BOOL)_handleCGZoomEvent:(struct __CGEvent { } *)a0;
+- (void)_setOnlyControlIsDownTime:(double)a0;
+- (void)_setDesiredZoomFactor:(double)a0;
+- (BOOL)_handleCGFlagsChanged:(struct __CGEvent { } *)a0;
+- (void)_handlePossibleFocusTrigger;
+- (void)_stopAllSpeakingJobs;
+- (BOOL)_handleCGEvent:(struct __CGEvent { } *)a0;
+- (BOOL)_cgRegisterForEvents;
+- (void)_cgListenForEventMask:(unsigned int)a0 enable:(BOOL)a1;
+- (void)enableEventTap:(BOOL)a0;
+- (void)installEventTapListenOnly;
+- (void)installEventTap;
+- (void)removeEventTap;
+- (void)removeEventTapListenOnly;
+- (BOOL)_handleCGTapEventWithZoomKeys:(struct __CGEvent { } *)a0;
+- (void)_handleCGTapListenOnlyEvent:(struct __CGEvent { } *)a0 type:(unsigned int)a1 withProxy:(struct __CGEventTapProxy { } *)a2;
+- (struct __CGEvent { } *)_handleCGTapEvent:(struct __CGEvent { } *)a0 type:(unsigned int)a1 withProxy:(struct __CGEventTapProxy { } *)a2;
+- (struct __CGEvent { } *)_handleCGTap:(struct __CFMachPort { } *)a0 reconnectCount:(unsigned long long *)a1 lastReconnect:(double *)a2 event:(struct __CGEvent { } *)a3 type:(unsigned int)a4;
+- (void)_removeHotKey:(unsigned long long)a0;
+- (void)_addHotKey:(unsigned long long)a0 symbolicKey:(unsigned int)a1;
+- (void)_enableHotKey:(unsigned int)a0 enable:(BOOL)a1;
+- (void)unregisterHotKeys;
+- (void)unregisterUAHotKeys;
+- (void)registerHotKeys;
+- (void)registerUAHotKeys;
+
+@end

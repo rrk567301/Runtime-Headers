@@ -1,0 +1,88 @@
+@class CNContactPicker, NSTextField, NSButton, NSString, IMHeaderView, SOProgressBarViewController, SOChatDetailsPopoverController, NSLayoutConstraint, NSImageView, SORecipientBarView, SOTokenFieldController;
+
+@interface SORecipientBarViewController : SOChatViewController <NSMenuDelegate, CNContactPickerDelegate> {
+    NSButton *_layoutTestDetailsButton;
+    double _initialButtonWidth;
+}
+
+@property (retain) SOChatDetailsPopoverController *detailsPopoverController;
+@property (retain) NSImageView *businessHeaderImageView;
+@property (retain) NSLayoutConstraint *maximumRecipientScrollViewHeightConstraint;
+@property (retain) NSLayoutConstraint *maximumRecipientScrollViewContentsHeightConstraint;
+@property (retain) NSLayoutConstraint *recipientTokenFieldWidth;
+@property (nonatomic) BOOL allowsTokenFieldScrolling;
+@property (retain) NSLayoutConstraint *toLabelLeadingMarginConstraint;
+@property (retain) NSLayoutConstraint *toLabelTopMarginConstraint;
+@property (retain) NSLayoutConstraint *recipientTokenFieldTopMarginConstraint;
+@property (retain) NSLayoutConstraint *recipientTokenFieldBottomMarginConstraint;
+@property (retain) NSLayoutConstraint *recipientActionsViewBottomMarginConstraint;
+@property (retain) NSLayoutConstraint *recipientActionsViewTrailingMarginConstraint;
+@property (retain) CNContactPicker *contactPicker;
+@property BOOL reloadContactPicker;
+@property (readonly) SORecipientBarView *recipientBarView;
+@property (retain) SOProgressBarViewController *progressBarViewController;
+@property (retain) NSTextField *toLabel;
+@property (retain) SOTokenFieldController *recipientTokenFieldController;
+@property (retain) IMHeaderView *recipientScrollViewContentView;
+@property (retain) NSButton *addRecipientButton;
+@property (retain) NSButton *detailsButton;
+@property double maximumRecipientScrollViewHeight;
+@property double maximumStaticRecipientViewHeight;
+@property double toLabelLeadingMargin;
+@property double toLabelTopMargin;
+@property double tokenFieldTopMargin;
+@property double recipientActionsViewBottomMargin;
+@property double recipientActionsViewTrailingMargin;
+@property double tokenFieldBottomMargin;
+@property double defaultFontSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)windowDidResize:(id)a0;
+- (void)viewDidLoad;
+- (void)viewDidAppear;
+- (void)_updateColors;
+- (void)contactPicker:(id)a0 didSelectContactProperty:(id)a1;
+- (void)_updateBanner;
+- (void)chatDisplayControllerWillChange:(id)a0;
+- (void)chatDisplayControllerDidChange:(id)a0;
+- (void)recipientsSelected:(id)a0;
+- (void)_chatDisplayControllerRecipientHandlesDidChange:(id)a0;
+- (void)_chatStatusDidChange:(id)a0;
+- (void)_handleInfoDidChange:(id)a0;
+- (void)_tokenFieldDidChange:(id)a0;
+- (void)accountLoginStatusChanged:(id)a0;
+- (id)recipientBarView;
+- (double)maximumRecipientScrollViewHeight;
+- (void)setMaximumRecipientScrollViewHeight:(double)a0;
+- (double)maximumStaticRecipientViewHeight;
+- (void)setMaximumStaticRecipientViewHeight:(double)a0;
+- (double)toLabelLeadingMargin;
+- (void)setToLabelLeadingMargin:(double)a0;
+- (double)toLabelTopMargin;
+- (void)setToLabelTopMargin:(double)a0;
+- (double)tokenFieldTopMargin;
+- (void)setTokenFieldTopMargin:(double)a0;
+- (double)recipientActionsViewBottomMargin;
+- (void)setRecipientActionsViewBottomMargin:(double)a0;
+- (double)recipientActionsViewTrailingMargin;
+- (void)setRecipientActionsViewTrailingMargin:(double)a0;
+- (double)tokenFieldBottomMargin;
+- (void)setTokenFieldBottomMargin:(double)a0;
+- (BOOL)allowsTokenFieldScrolling;
+- (void)setAllowsTokenFieldScrolling:(BOOL)a0;
+- (void)showDetails:(id)a0;
+- (id)_detailsButtonTitleAttributes;
+- (void)addRecipientActionView:(id)a0 verticalOffset:(double)a1;
+- (void)_stopObservingRecipientHandles:(id)a0;
+- (void)_startObservingRecipientHandles:(id)a0;
+- (void)showContacts:(id)a0;
+- (void)_updateRecipientBarView;
+- (void)_setupRecipientActionsView;
+- (id)_redrawImage:(id)a0 toSize:(struct CGSize { double x0; double x1; })a1;
+
+@end

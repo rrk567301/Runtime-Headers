@@ -1,0 +1,33 @@
+@class NSTextField, NSView, GKButton, GKDashboardPlayerPhotoView, GKChallenge;
+
+@interface GKChallengeDetailViewController : GKDashboardCollectionViewController
+
+@property (retain, nonatomic) GKChallenge *challenge;
+@property NSView *containerView;
+@property (retain, nonatomic) NSView *iconView;
+@property (retain, nonatomic) NSTextField *categoryLabel;
+@property (retain, nonatomic) NSTextField *titleLabel;
+@property (retain, nonatomic) NSTextField *descriptionLabel;
+@property (retain, nonatomic) GKDashboardPlayerPhotoView *playerAvatarView;
+@property (retain, nonatomic) NSTextField *challengeByNameLabel;
+@property (retain, nonatomic) GKButton *playNowButton;
+@property (retain, nonatomic) GKButton *declineButton;
+@property (weak, nonatomic) id delegate;
+@property (nonatomic) BOOL shouldShowPlay;
+
+- (void).cxx_destruct;
+- (id)title;
+- (void)viewDidLoad;
+- (void)donePressed:(id)a0;
+- (id)backButtonImage;
+- (id)initWithChallenge:(id)a0;
+- (void)configureForChallenge;
+- (void)updateLeaderboardImage;
+- (void)challengeOK:(id)a0;
+- (void)configureCollectionView;
+- (void)configureButtons;
+- (void)playNowPressed:(id)a0;
+- (void)declinePressed:(id)a0;
+- (void)updateIconViewWithSubView:(id)a0;
+
+@end

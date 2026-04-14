@@ -1,0 +1,43 @@
+@interface TSCHChartPieBendedLineLabelPlacement : TSCHChartPieLabelPlacement
+
+- (id)updateLabelTransformsToPreventOverlap;
+- (void)preventOverlapsWithinWedges;
+- (void)fixOverlapsOutsideWedges;
+- (void)fixOverlapsWithWedgeLayoutInfos:(id)a0 inVerticalHalfDisk:(unsigned long long)a1;
+- (void)fixOverlapsOnOneVerticalSideWithConflictingLabelsArray:(id)a0;
+- (void)fixConflictsInOneQuadrantOfPieChartWithArray:(id)a0 quadrantInHorizontalHalfDisk:(unsigned long long)a1;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transformToShiftWedgeLayoutInfoAwayFromAdjacentWedgeLayoutInfo:(id)a0 adjacentWedgeLayoutInfo:(id)a1 adjacentShouldBeAbove:(BOOL)a2 totalHeightOverlap:(double)a3;
+- (double)totalHeightOverlapWithArray:(id)a0;
+- (double)shiftAmountForWedgeLayoutInfo:(id)a0 adjacentWedgeLayoutInfo:(id)a1 adjacentShouldBeAbove:(BOOL)a2;
+- (void)shiftLabelsVerticallyToCleanUpPlacement;
+- (void)shiftLabelsVerticallyToCleanUpPlacementWithCleanUpOption:(unsigned long long)a0;
+- (void)shiftLabelsVerticallyInQuadrantIfNecessary:(id)a0 withCleanUpOption:(unsigned long long)a1;
+- (double)amountLabelsInQuadrantNeedToShift:(id)a0 cleanUpOption:(unsigned long long)a1;
+- (double)amountWedgeLayoutInfoShouldShiftForCleanUp:(id)a0 withCleanUpOption:(unsigned long long)a1;
+- (double)amountWedgeLayoutInfoShouldShiftToPreventShortFirstHalf:(id)a0;
+- (double)amountWedgeLayoutInfoShouldShiftToPreventBendPointOnCircumference:(id)a0;
+- (id)wedgeLayoutInfosThatNeedShiftingToCleanUpQuadrant:(id)a0 cleanUpOption:(unsigned long long)a1;
+- (void)shiftLabelsVerticallyInOneQuadrantWithWedgeLayoutInfos:(id)a0 shiftAmount:(double)a1 quadrantInHorizontalHalfDisk:(unsigned long long)a2;
+- (BOOL)wedgeLayoutInfoShouldShiftForCleanUp:(id)a0 withCleanUpOption:(unsigned long long)a1;
+- (BOOL)wedgeLayoutInfoShouldShiftToPreventBendPointOnCircumference:(id)a0;
+- (BOOL)wedgeLayoutInfoShouldShiftToPreventTooShortCalloutLineFirstHalf:(id)a0;
+- (id)arrayOfConflictingLabelsWithWedgeLayoutInfosOnOneSide:(id)a0;
+- (BOOL)conflictBetweenWedgeLayoutInfo:(id)a0 nextWedgeLayoutInfo:(id)a1;
+- (id)topLeftQuadrant;
+- (id)topRightQuadrant;
+- (id)bottomLeftQuadrant;
+- (id)bottomRightQuadrant;
+- (id)wedgeLayoutInfosInOneQuadrant:(id)a0 verticalHalfDisk:(unsigned long long)a1 horizontalHalfDisk:(unsigned long long)a2;
+- (id)wedgeLayoutInfosInHorizontalHalfDiskWithWedgeLayoutInfos:(id)a0 horizontalHalfDisk:(unsigned long long)a1;
+- (id)wedgeLayoutInfosInVerticalHalfDiskWithWedgeLayoutInfos:(id)a0 verticalHalfDisk:(unsigned long long)a1;
+- (id)newCalloutLinePaths:(id)a0 startLineEnd:(id)a1 outStartLineEndPath:(id *)a2 endLineEnd:(id)a3 outEndLineEndPath:(id *)a4 stroke:(id)a5 outStroke:(id *)a6 context:(struct CGContext { } *)a7 contextScale:(float)a8;
+- (struct CGPoint { double x0; double x1; })calloutLineStartpointForWedgeLayoutInfo:(id)a0;
+- (struct CGPoint { double x0; double x1; })calloutLineEndpointForWedgeLayoutInfo:(id)a0;
+- (struct CGPoint { double x0; double x1; })calloutLineMidPointForWedgeLayoutInfo:(id)a0 startPoint:(struct CGPoint { double x0; double x1; })a1 endPoint:(struct CGPoint { double x0; double x1; })a2;
+- (struct CGPoint { double x0; double x1; })defaultCalloutLineMidPointForWedgeLayoutInfo:(id)a0 startPoint:(struct CGPoint { double x0; double x1; })a1 endPoint:(struct CGPoint { double x0; double x1; })a2;
+- (BOOL)wedgeLayoutInfoShouldUsePerpendicularAngle:(id)a0 defaultMidpoint:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)innermostWedgeLayoutInfoWillUsePerpendicularAngle:(id)a0;
+- (id)innermostWedgeLayoutInfo:(id)a0;
+- (struct CGPoint { double x0; double x1; })firstHalfOfBendedLineVectorNormalizedWithWedgeLayoutInfo:(id)a0 shouldBeUpwards:(BOOL)a1;
+
+@end

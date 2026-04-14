@@ -1,0 +1,81 @@
+@class NSString, NSArray, NSData, SISchemaVoiceSettings, SISchemaISOLocale, DIMSchemaDIMWatchDeviceAttributes;
+
+@interface DIMSchemaDIMDeviceFixedContext : SISchemaInstrumentationMessage {
+    struct { unsigned char systemLocale : 1; unsigned char siriInputLocale : 1; unsigned char dataSharingOptInState : 1; unsigned char countryCode : 1; unsigned char isStoreDemoMode : 1; unsigned char timeIntervalSince1970 : 1; unsigned char isLowPowerModeEnabled : 1; unsigned char programCode : 1; unsigned char homeKitConfiguration : 1; } _has;
+}
+
+@property (nonatomic) int systemLocale;
+@property (nonatomic) BOOL hasSystemLocale;
+@property (nonatomic) int siriInputLocale;
+@property (nonatomic) BOOL hasSiriInputLocale;
+@property (retain, nonatomic) SISchemaVoiceSettings *siriVoiceSettings;
+@property (nonatomic) BOOL hasSiriVoiceSettings;
+@property (nonatomic) int dataSharingOptInState;
+@property (nonatomic) BOOL hasDataSharingOptInState;
+@property (copy, nonatomic) NSString *timezoneOffset;
+@property (nonatomic) BOOL hasTimezoneOffset;
+@property (nonatomic) int countryCode;
+@property (nonatomic) BOOL hasCountryCode;
+@property (copy, nonatomic) NSString *deviceType;
+@property (nonatomic) BOOL hasDeviceType;
+@property (copy, nonatomic) NSString *systemBuild;
+@property (nonatomic) BOOL hasSystemBuild;
+@property (nonatomic) BOOL isStoreDemoMode;
+@property (nonatomic) BOOL hasIsStoreDemoMode;
+@property (nonatomic) double timeIntervalSince1970;
+@property (nonatomic) BOOL hasTimeIntervalSince1970;
+@property (retain, nonatomic) DIMSchemaDIMWatchDeviceAttributes *watchDeviceAttributes;
+@property (nonatomic) BOOL hasWatchDeviceAttributes;
+@property (nonatomic) BOOL isLowPowerModeEnabled;
+@property (nonatomic) BOOL hasIsLowPowerModeEnabled;
+@property (retain, nonatomic) SISchemaISOLocale *systemLocaleV2;
+@property (nonatomic) BOOL hasSystemLocaleV2;
+@property (retain, nonatomic) SISchemaISOLocale *siriInputLocaleV2;
+@property (nonatomic) BOOL hasSiriInputLocaleV2;
+@property (nonatomic) int programCode;
+@property (nonatomic) BOOL hasProgramCode;
+@property (copy, nonatomic) NSString *dataCollectionId;
+@property (nonatomic) BOOL hasDataCollectionId;
+@property (copy, nonatomic) NSString *effectiveSystemLanguage;
+@property (nonatomic) BOOL hasEffectiveSystemLanguage;
+@property (copy, nonatomic) NSArray *preferredLanguages;
+@property (nonatomic) int homeKitConfiguration;
+@property (nonatomic) BOOL hasHomeKitConfiguration;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichDeviceattributes;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)suppressMessageUnderConditions;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteSystemLocale;
+- (void)deleteSiriInputLocale;
+- (void)deleteSiriVoiceSettings;
+- (void)deleteDataSharingOptInState;
+- (void)deleteTimezoneOffset;
+- (void)deleteCountryCode;
+- (void)deleteDeviceType;
+- (void)deleteSystemBuild;
+- (void)deleteIsStoreDemoMode;
+- (void)deleteTimeIntervalSince1970;
+- (void)deleteWatchDeviceAttributes;
+- (void)deleteIsLowPowerModeEnabled;
+- (void)deleteSystemLocaleV2;
+- (void)deleteSiriInputLocaleV2;
+- (void)deleteProgramCode;
+- (void)deleteDataCollectionId;
+- (void)deleteEffectiveSystemLanguage;
+- (void)clearPreferredLanguages;
+- (void)deletePreferredLanguages;
+- (void)addPreferredLanguages:(id)a0;
+- (unsigned long long)preferredLanguagesCount;
+- (id)preferredLanguagesAtIndex:(unsigned long long)a0;
+- (void)deleteHomeKitConfiguration;
+
+@end

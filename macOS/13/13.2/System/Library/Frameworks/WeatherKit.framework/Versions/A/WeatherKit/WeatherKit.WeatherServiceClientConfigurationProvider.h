@@ -1,0 +1,5 @@
+@interface WeatherKit.WeatherServiceClientConfigurationProvider : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ networkConfigurationProvider;
+}
+
+@end

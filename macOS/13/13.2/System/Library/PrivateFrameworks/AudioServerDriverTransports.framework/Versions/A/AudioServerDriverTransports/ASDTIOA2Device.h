@@ -1,0 +1,97 @@
+@class NSMapTable;
+
+@interface ASDTIOA2Device : ASDTAudioDevice {
+    struct unique_ptr<ASDT::IOA2UCDevice, std::default_delete<ASDT::IOA2UCDevice>> { struct __compressed_pair<ASDT::IOA2UCDevice *, std::default_delete<ASDT::IOA2UCDevice>> { struct IOA2UCDevice *__value_; } __ptr_; } _ucDevice;
+    struct IOAudio2EngineStatus { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; } *_engineStatus;
+    struct unique_ptr<ASDT::MachPort, std::default_delete<ASDT::MachPort>> { struct __compressed_pair<ASDT::MachPort *, std::default_delete<ASDT::MachPort>> { struct MachPort *__value_; } __ptr_; } _ucDeviceNotificationPort;
+    struct unique_ptr<CADeprecated::CADispatchQueue, std::default_delete<CADeprecated::CADispatchQueue>> { struct __compressed_pair<CADeprecated::CADispatchQueue *, std::default_delete<CADeprecated::CADispatchQueue>> { struct CADispatchQueue *__value_; } __ptr_; } _machDispatchQueue;
+    struct recursive_mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _deviceLock;
+    struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _configChangeMutex;
+    struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _configChangeCV;
+    struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _ioRequestMutex;
+    struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _ioRequestCV;
+    int _ioRequestCount;
+}
+
+@property (retain, nonatomic) NSMapTable *customPropertySelectorMap;
+
++ (id)matcherWithDelegate:(id)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)manufacturerName;
+- (id)deviceName;
+- (unsigned int)transportType;
+- (unsigned int)clockDomain;
+- (unsigned int)inputLatency;
+- (unsigned int)outputLatency;
+- (id)modelUID;
+- (unsigned int)inputSafetyOffset;
+- (unsigned int)outputSafetyOffset;
+- (double)samplingRate;
+- (void)setSamplingRate:(double)a0;
+- (id)samplingRates;
+- (BOOL)_openConnection;
+- (void)_closeConnection;
+- (id)initWithDeviceUID:(id)a0 withPlugin:(id)a1;
+- (int)performStartIO;
+- (int)performStopIO;
+- (unsigned int)timestampPeriod;
+- (id /* block */)getZeroTimestampBlock;
+- (id)initWithConfig:(id)a0 withPlugin:(id)a1;
+- (id)initWithIOA2Device:(unsigned int)a0 plugin:(id)a1;
+- (void)handleMachPortMessage;
+- (void)blockIORequests;
+- (void)releaseIORequests;
+- (void)startIORequest;
+- (void)stopIORequest;
+- (void)handleConfigChange:(struct IOAudio2Notification { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (void)doConfigChange:(struct IOAudio2Notification { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (void)handleControlChange:(struct IOAudio2Notification { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (void)handleTransportChanged:(struct IOAudio2Notification { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (void)handleIOA2PropertyChanged:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 forObject:(id)a1;
+- (void)handlePropertyChanged:(struct IOAudio2Notification { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (struct array<std::vector<unsigned int>, 2UL> { struct vector<unsigned int, std::allocator<unsigned int>> { unsigned int *x0; unsigned int *x1; struct __compressed_pair<unsigned int *, std::allocator<unsigned int>> { unsigned int *x0; } x2; } x0[2]; })_getStreamListUCIDLists;
+- (id)_getStreamByUCID:(unsigned int)a0;
+- (id)_getControlByUCID:(unsigned int)a0;
+- (id)createStreamForUserClientID:(unsigned int)a0 direction:(unsigned int)a1;
+- (id)_markOrCreateStreamsWithIDs:(struct vector<unsigned int, std::allocator<unsigned int>> { unsigned int *x0; unsigned int *x1; struct __compressed_pair<unsigned int *, std::allocator<unsigned int>> { unsigned int *x0; } x2; })a0 direction:(unsigned int)a1;
+- (id)_synchronizeStreamsOrReturnForRemoval:(id)a0;
+- (BOOL)_updateStreams;
+- (id)_markOrCreateControlsWithDictionaries:(id)a0;
+- (BOOL)subclassUpdateControls;
+- (BOOL)_updateControls:(void *)a0;
+- (void)_pushStreamActiveStates;
+- (void)_mapIOBuffers;
+- (void)_releaseIOBuffers;
+- (void)_addInputStreams:(id)a0;
+- (void)_removeInputStreams:(id)a0;
+- (void)_addOutputStreams:(id)a0;
+- (void)_removeOutputStreams:(id)a0;
+- (void)_addControls:(id)a0;
+- (void)_removeControls:(id)a0;
+- (struct IOA2UCDevice { void /* function */ **x0; unsigned int x1; unsigned int x2; struct CACFDictionary { struct __CFDictionary *x0; BOOL x1; BOOL x2; } x3; BOOL x4; BOOL x5; BOOL x6; BOOL x7; } *)ioa2Device;
+- (void)setupCustomPropertySelectorMap;
+- (id)getKeyForCustomPropertyWithSelector:(unsigned int)a0;
+- (id)customPropertyWithKey:(id)a0;
+- (unsigned int)customUInt32WithKey:(id)a0 defaultValue:(unsigned int)a1;
+- (id)customDataPropertyWithKey:(id)a0;
+- (void)setMuteAllOutputs:(BOOL)a0;
+- (void)setOutputVolumesToNominal;
+- (id /* block */)updateClientOutputPositionBlock;
+- (id /* block */)updateClientInputPositionBlock;
+- (void)_setStreamActive:(BOOL)a0 streamUCID:(unsigned int)a1;
+- (void)_mapIOBuffer:(char **)a0 ofSize:(unsigned int *)a1 forStream:(unsigned int)a2;
+- (void)_releaseIOBuffer:(char *)a0 forStream:(unsigned int)a1;
+- (id)_availableFormatsForStream:(unsigned int)a0;
+- (struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; })_currentFormatForStream:(unsigned int)a0;
+- (void)_setCurrentFormat:(struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; })a0 forStream:(unsigned int)a1;
+- (id)_controlDictionaryForControl:(unsigned int)a0;
+- (void)_setControlValue:(unsigned int)a0 forControl:(unsigned int)a1;
+- (struct unique_lock<std::recursive_mutex> { struct recursive_mutex *x0; BOOL x1; })scopedLock;
+- (void)clearOutputBuffers;
+- (void)clearInputBuffers;
+- (void)writeZerosToMixMilliseconds:(unsigned int)a0;
+
+@end

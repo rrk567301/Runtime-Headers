@@ -1,0 +1,74 @@
+@class NSIndexSet, IKScanUIViewSimple;
+
+@interface IKScanUIControllerSimple : IKScanUIController
+
+@property IKScanUIViewSimple *scanUIViewSimple;
+@property (copy) NSIndexSet *supportedDocumentTypes;
+@property (nonatomic) unsigned long long documentType;
+@property BOOL hasOverviewScanResult;
+
+- (void)cleanup;
+- (void)setStatusText:(id)a0;
+- (void)setup;
+- (void)restoreDefaultSettings;
+- (void)addTroubleShootingInfo:(id)a0;
+- (void)saveDefaultSettings;
+- (void)progressCancelButtonPressed;
+- (void)functionalUnitWillSwitchAway:(id)a0;
+- (void)updateScannerDeviceUI;
+- (void)userPressedDoneButton:(id)a0;
+- (BOOL)setupScanRectAtIndex:(unsigned long long)a0 ikScan:(id)a1;
+- (void)didCompleteScansToURLs:(id)a0;
+- (void)didCompleteScanToURL:(id)a0;
+- (void)didCompleteOverviewScanWithError:(id)a0;
+- (void)scanFailed:(id)a0 error:(id)a1;
+- (void)setScanPercentDone:(double)a0;
+- (unsigned long long)userSpecifedOverviewResolution;
+- (void)setTempStatusText:(id)a0 duration:(long long)a1;
+- (void)downloadsDirectoryChanged:(id)a0;
+- (void)postProcessApplicationChanged:(id)a0;
+- (void)didReceiveButtonPress:(id)a0;
+- (void)finishedScanSelectionAtIndex:(long long)a0;
+- (void)setScanUIEnabled:(BOOL)a0;
+- (void)userPressedScanButton:(id)a0;
+- (void)ignoreButtonPress:(id)a0;
+- (void)handleAutoDetectionResults:(id)a0;
+- (id)initWithScannerDeviceViewHandler:(id)a0;
+- (void)initialSetup;
+- (void)scannerDeviceChanged:(id)a0;
+- (void)functionalUnitDidChange:(id)a0;
+- (void)copySettingsFromFunctionalUnit:(id)a0;
+- (void)setScanAreaPreviewMode;
+- (void)setScanAreaDocumentViewMode;
+- (void)switchToDocumentFeederView:(id)a0;
+- (void)updateNoImageSize;
+- (void)updateOverviewResolution:(unsigned long long)a0;
+- (void)setDocumentLoaded:(BOOL)a0;
+- (void)overviewScanDidStart;
+- (void)overviewScanDidFinish:(id)a0;
+- (void)handleOverviewDoneNoAutoDetection;
+- (void)handleOverviewDoneDetectSeparateItems;
+- (void)handleOverviewDoneDetectEnclosingBox;
+- (void)detectSeparateItems;
+- (void)scanDidStart;
+- (void)scanDidFinish;
+- (void)handleUserPressedScanButton;
+- (void)logUsage;
+- (void)userSelectedScannerDevice:(id)a0;
+- (BOOL)sendDelegateWantsToUseScannedItemsMessage;
+- (void)layoutSubviewsAndRedraw;
+- (void)switchToFlatbedView:(id)a0;
+- (void)cleanupFlatbedView;
+- (void)cleanupDocumentFeederView;
+- (void)scanSizePopupDetectModeChanged:(id)a0;
+- (void)scanSizePopupChanged:(id)a0;
+- (void)useDocumentFeederCheckboxChanged:(id)a0;
+- (void)userPressedAddToDocumentButton:(id)a0;
+- (void)userCancelsScan;
+- (void)userResquestsDocumentFeederScan;
+- (void)userResquestsOverviewScan;
+- (void)userResquestsFixedSizeAutoScan;
+- (void)scanAutoDetectedAreas;
+- (void)userResquestsAutoScanWithAutoDetection;
+
+@end

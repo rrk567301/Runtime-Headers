@@ -1,0 +1,33 @@
+@class SearchUICollectionViewController;
+@protocol SearchUICollectionViewInteractionDelegate;
+
+@interface SearchUICollectionView : NSCollectionView
+
+@property (weak) SearchUICollectionViewController *controller;
+@property (weak) id<SearchUICollectionViewInteractionDelegate> interactionDelegate;
+
+- (void)dealloc;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (void).cxx_destruct;
+- (void)layout;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)viewDidMoveToWindow;
+- (void)mouseDown:(id)a0;
+- (void)keyDown:(id)a0;
+- (id)menuForEvent:(id)a0;
+- (void)insertNewline:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)willOpenMenu:(id)a0 withEvent:(id)a1;
+- (void)didAddSubview:(id)a0;
+- (id)_scrollViewForOrthogonalScrollingSection:(long long)a0;
+- (void)updateSelectionAppearance;
+- (void)tlk_updateForAppearance:(id)a0;
+- (void)updateKeyboardFocus;
+- (id)selectIndexPathForEvent:(id)a0;
+- (id)indexPathForEvent:(id)a0;
+
+@end

@@ -1,0 +1,83 @@
+@class NSString, NSDictionary, NSArray, NSObject, BWLimitedGMErrorLogger;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface BWVideoCompressorNode : BWNode {
+    NSDictionary *_compressionSettings;
+    NSDictionary *_compressionSettingsPreparedFor;
+    BOOL _nextFrameEncodeAsKeyFrame;
+    BOOL _prioritizeEncodingSpeedOverQuality;
+    int _pipelineTraceID;
+    struct OpaqueVTCompressionSession { } *_compressionSession;
+    NSDictionary *_compressionSessionSupportedProperties;
+    BOOL _didPrepareToEncode;
+    BOOL _sourceIsHDResolution;
+    unsigned int _sourcePixelFormatType;
+    NSObject<OS_dispatch_queue> *_emitterQueue;
+    NSObject<OS_dispatch_queue> *_compressionSessionStateQueue;
+    NSObject<OS_dispatch_source> *_reapCompressionSessionTimer;
+    double _reapCompressionSessionTimerDurationInSeconds;
+    BOOL _compressionSessionReuseEnabled;
+    BOOL _compressionSessionCanBeReused;
+    BOOL _resetCodec;
+    int _numberOfFramesDroppedBecauseTooManyCompressedBytesInFlight;
+    long long _inFlightCompressedBytesWarningThreshold;
+    BOOL _inFlightCompressedBytesOverWarningThreshold;
+    BOOL _encodedFirstVideoBuffer;
+    BOOL _emittedFirstVideoBuffer;
+    NSObject<OS_dispatch_queue> *_thermalAndPowerNotificationQueue;
+    double _bFrameEncodingAllowedAtHigherPressureTimeLimit;
+    double _bFrameEncodingAllowedAtHigherPressureStopTime;
+    int _nonBFrameAverageBitRate;
+    int _thermalPressureNotificationToken;
+    int _thermalPressureLevel;
+    int _powerPressureNotificationToken;
+    int _powerPressureLevel;
+    BOOL _bFrameEncodingRequested;
+    BOOL _bFrameEncodingAllowed;
+    BOOL _propagateStabilizedFacesToAVE;
+    BOOL _overCaptureEnabled;
+    BOOL _shouldAttachDebugSEI;
+    BOOL _shouldPassSerializedDepthImageBuffers;
+    BOOL _flushRequestReceived;
+    float _maxVideoFrameRate;
+    BOOL _attachThumbnailSourcePixelBuffer;
+    struct __CVBuffer { } *_thumbnailSourcePixelBuffer;
+    BWLimitedGMErrorLogger *_limitedGMErrorLogger;
+    BOOL _compressionDimensionsFromInputEnabled;
+    NSString *_codecNameString;
+    struct __CFString { } *_alternateCompressionSettingsKey;
+    long long _maximumAllowedInFlightCompressedBytes;
+    BOOL _delayedCompressorCleanupEnabled;
+    NSArray *_smuggledSampleBufferAttachments;
+}
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)nodeType;
+- (void)prepareForCurrentConfigurationToBecomeLive;
+- (void)didReachEndOfDataForInput:(id)a0;
+- (id)nodeSubType;
+- (void)didSelectFormat:(id)a0 forInput:(id)a1;
+- (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 forInput:(id)a1;
+- (void)configurationWithID:(long long)a0 updatedFormat:(id)a1 didBecomeLiveForInput:(id)a2;
+- (void)handleDroppedSample:(id)a0 forInput:(id)a1;
+- (void)setPipelineTraceID:(int)a0;
+- (int)pipelineTraceID;
+- (void)makeCurrentConfigurationLive;
+- (void)suspendResources;
+- (id)initWithCompressionSettings:(id)a0 overCaptureEnabled:(BOOL)a1 maxVideoFrameRate:(float)a2 delayedCompressorCleanupEnabled:(BOOL)a3 maxLossyCompressionLevel:(int)a4;
+- (void)insertKeyFrame;
+- (void)setPrioritizeEncodingSpeedOverQuality:(BOOL)a0;
+- (BOOL)prioritizeEncodingSpeedOverQuality;
+- (void)setCompressionDimensionsFromInputEnabled:(BOOL)a0;
+- (BOOL)compressionDimensionsFromInputEnabled;
+- (void)setAlternateCompressionSettingsKey:(struct __CFString { } *)a0;
+- (struct __CFString { } *)alternateCompressionSettingsKey;
+- (void)setMaximumAllowedInFlightCompressedBytes:(long long)a0;
+- (long long)maximumAllowedInFlightCompressedBytes;
+- (struct OpaqueVTCompressionSession { } *)_compresessionSession;
+- (void)_releaseCompressionSession;
+- (void)setReapCompressionSessionTimerDurationInSeconds:(double)a0;
+
+@end

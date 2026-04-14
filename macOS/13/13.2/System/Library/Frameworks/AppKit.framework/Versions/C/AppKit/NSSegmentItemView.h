@@ -1,0 +1,94 @@
+@class NSFont, NSString, NSUserInterfaceCompressionOptions, NSSegmentedCell, NSSegmentItem, NSColor, NSSegmentItemImageView, NSImage, NSSegmentItemLabelView, NSSegmentItemBezelView;
+
+@interface NSSegmentItemView : NSView {
+    NSSegmentItemBezelView *_bezelView;
+    NSSegmentItemLabelView *_labelView;
+    NSSegmentItemImageView *_imageView;
+    NSSegmentItemImageView *_menuIndicatorView;
+    struct CGSize { double width; double height; } _labelSize;
+    unsigned long long _imageScaling;
+    BOOL _isObserving;
+}
+
+@property (weak) NSSegmentedCell *parentCell;
+@property (weak) NSSegmentItem *segmentItemData;
+@property (copy) NSString *label;
+@property (retain) NSImage *image;
+@property unsigned long long imageScaling;
+@property double segmentWidth;
+@property (readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } labelRect;
+@property (readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } imageRect;
+@property long long segmentStyle;
+@property unsigned long long controlSize;
+@property BOOL drawsBezel;
+@property (retain) NSFont *font;
+@property BOOL enabled;
+@property BOOL highlighted;
+@property BOOL emphasized;
+@property BOOL rollover;
+@property BOOL active;
+@property BOOL selected;
+@property BOOL leadingCap;
+@property BOOL trailingCap;
+@property BOOL leadingSeparator;
+@property BOOL trailingSeparator;
+@property long long leadingSegmentHighlightState;
+@property long long trailingSegmentHighlightState;
+@property BOOL showMenuIndicator;
+@property (copy) NSColor *bezelTintColor;
+@property long long alignment;
+@property NSUserInterfaceCompressionOptions *compressibleOptions;
+@property BOOL useSlidingSegmentStyle;
+@property BOOL useTextToolbarStyle;
+
++ (BOOL)automaticallyNotifiesObserversOfImage;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)layout;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)lastBaselineOffsetFromBottom;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)viewDidMoveToWindow;
+- (BOOL)isAccessibilityElement;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)accessibilityChildrenAttribute;
+- (void)viewDidMoveToSuperview;
+- (int)_vibrancyBlendMode;
+- (void)_windowDidOrderOnScreen;
+- (void)_setupObserving;
+- (void)_stopObserving;
+- (void)_updateContentState;
+- (id)_coreUIState;
+- (id)_coreUISegmentPosition;
+- (id)_coreUIOptions;
+- (BOOL)_showsDisabledStateInBezel;
+- (BOOL)_useLegacyContentInsets;
+- (id)_requestMetrics:(id)a0;
+- (double)contentSpacing;
+- (double)minimumLabelWidth;
+- (struct { struct CGSize { double x0; double x1; } x0; struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; } x1; struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; } x2; })_segmentMetricsWithCompressionOptions:(id)a0;
+- (struct CGSize { double x0; double x1; })_preferredImageAlignmentSize;
+- (double)_contentWidthWithOptions:(id)a0;
+- (double)_minimumContentWidthWithOptions:(id)a0;
+- (struct CGSize { double x0; double x1; })_minimumSegmentSizeWithOptions:(id)a0;
+- (struct CGSize { double x0; double x1; })_minimumSegmentSize;
+- (struct CGSize { double x0; double x1; })_preferredSegmentSizeWithOptions:(id)a0;
+- (struct CGSize { double x0; double x1; })_preferredSegmentSize;
+- (double)_availableTruncationWidth;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })_segmentAlignmentRectInsets;
+- (void)_updateCachedLabelSize;
+- (void)setImageRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)labelView;
+- (void)setLabelView:(id)a0;
+- (struct CGSize { double x0; double x1; })_labelSize;
+- (void)_updateBezelView;
+- (void)_updateBezelAndContentsAnimated;
+- (int)_vibrancyBlendModeForSegmentBezelView:(id)a0 proposedBlendMode:(int)a1;
+- (int)_vibrancyBlendModeForSegmentImageView:(id)a0 proposedBlendMode:(int)a1;
+- (int)_vibrancyBlendModeForSegmentLabelView:(id)a0 proposedBlendMode:(int)a1;
+- (id)_preferredAppearanceForSegmentImageView:(id)a0;
+- (id)_preferredAppearanceForSegmentLabelView:(id)a0;
+
+@end

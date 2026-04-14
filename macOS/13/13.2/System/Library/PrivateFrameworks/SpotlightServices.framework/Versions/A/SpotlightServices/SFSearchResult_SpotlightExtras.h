@@ -1,0 +1,97 @@
+@class NSDate, NSString, NSArray, NSURL, LSApplicationProxy, NSMutableDictionary, PRSRankingItem, NSData, NSImage, NSNumber;
+@protocol NSPasteboardWriting;
+
+@interface SFSearchResult_SpotlightExtras : SFSearchResult <QLSeamlessOpenerDelegate> {
+    unsigned long long _matchBits;
+    BOOL _lastRestrictionStatus;
+    BOOL _needsPreviewUpdate;
+}
+
+@property (nonatomic) BOOL hasTextContentMatch;
+@property (retain, nonatomic) NSMutableDictionary *backendData;
+@property (retain, nonatomic) PRSRankingItem *rankingItem;
+@property (readonly) LSApplicationProxy *appProxy;
+@property (readonly) NSString *relatedIdentifier;
+@property (readonly) NSString *relatedAppIdentifier;
+@property (readonly) NSString *uniqueIdentifier;
+@property (readonly) NSNumber *documentIdentifier;
+@property (retain, nonatomic) NSString *displayName;
+@property (readonly) NSString *category;
+@property (readonly) NSURL *fastLaunchURL;
+@property (readonly) NSString *contentDescription;
+@property (retain, nonatomic) NSString *personIdentifier;
+@property (retain, nonatomic) NSString *personQueryIdentifier;
+@property (retain, nonatomic) NSNumber *displayOrder;
+@property (getter=isAutoLaunch) BOOL autoLaunch;
+@property (nonatomic) BOOL isFirstTopHit;
+@property (nonatomic) BOOL isAnyTopHit;
+@property (nonatomic) BOOL isShowAllInFinder;
+@property (nonatomic) BOOL isTTR;
+@property (nonatomic) BOOL isSynthetic;
+@property (nonatomic) BOOL forceNoTopHit;
+@property (readonly) NSArray *otherTypes;
+@property (readonly) NSArray *otherNames;
+@property (readonly) NSDate *lastUsedDate;
+@property BOOL isFolderQuery;
+@property (retain) NSString *distinguishPathString;
+@property (nonatomic) unsigned __int128 rank;
+@property (nonatomic) unsigned __int128 score;
+@property (nonatomic) float l2score;
+@property (readonly) BOOL allowsCPRecording;
+@property BOOL supportsSubView;
+@property (retain) NSURL *altPath;
+@property (nonatomic) long long dpos;
+@property (readonly, nonatomic) id<NSPasteboardWriting> pasteboardObject;
+@property BOOL needsShortcut;
+@property (retain) NSString *NLPConfidence;
+@property (retain) NSString *NLPCategory;
+@property (readonly) NSString *filePath;
+@property (nonatomic) double cep;
+@property (readonly, nonatomic) NSURL *URL;
+@property BOOL isUsed;
+@property (retain, nonatomic) NSString *groupName;
+@property (retain, nonatomic) NSNumber *groupId;
+@property (nonatomic) long long feedbackBlockId;
+@property (retain, nonatomic) NSString *customOpenSearchString;
+@property (retain, nonatomic) NSData *suggestionsFeedbackData;
+@property BOOL hasUsage;
+@property (readonly) BOOL isPrefixMatch;
+@property (readonly) BOOL isExactMatch;
+@property (readonly) BOOL isLocalResult;
+@property (readonly) BOOL isDir;
+@property (readonly) BOOL isMetadataResult;
+@property (readonly) NSImage *iconImageForSuggestion;
+@property (nonatomic) BOOL isSafariTopHit;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
+
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)setCategory:(id)a0;
+- (id)valueForAttribute:(id)a0;
+- (void)prepare;
+- (id)initWithResult:(id)a0;
+- (unsigned long long)matchQuality;
+- (BOOL)isSafariTopHitForQuery:(id)a0;
+- (void)clearBackendData;
+- (void)setObject:(id)a0 forAttribute:(id)a1;
+- (id)valueForAttribute:(id)a0 withType:(Class)a1;
+- (id)initWithContentType:(id)a0 displayName:(id)a1;
+- (id)fastURL;
+- (void)prepareIcons;
+- (void)updateRenderOrEngagementCountsForKey:(id)a0 date:(id)a1;
+- (id)initWithFastLaunchURL:(id)a0 contentType:(id)a1 displayName:(id)a2;
+- (BOOL)isEqualToResult:(id)a0;
+- (id)initWithResult:(id)a0 groupId:(id)a1;
+- (id)ttrDescription;
+- (id)initWithContentType:(id)a0 displayName:(id)a1 groupId:(id)a2;
+- (id)initWithFastLaunchURL:(id)a0 contentType:(id)a1 displayName:(id)a2 groupId:(id)a3;
+- (id)cachedImageForKey:(id)a0;
+- (void)cacheImage:(id)a0 forKey:(id)a1;
+
+@end

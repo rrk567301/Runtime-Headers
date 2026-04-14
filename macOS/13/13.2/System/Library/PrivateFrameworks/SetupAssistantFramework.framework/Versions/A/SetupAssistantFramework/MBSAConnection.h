@@ -1,0 +1,77 @@
+@class NSString, NSMutableDictionary, NSXPCConnection;
+@protocol MBAppConnectionProtocol;
+
+@interface MBSAConnection : NSObject <MBSAProtocol, MBAppConnectionProtocol>
+
+@property (retain) NSXPCConnection *connection;
+@property (retain) NSMutableDictionary *progressBlocks;
+@property (weak) id<MBAppConnectionProtocol> hostingApp;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedConnection;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)establishConnection:(id /* block */)a0;
+- (void)shutdown:(id /* block */)a0;
+- (id)connectionWithErrorHandler:(id /* block */)a0;
+- (void)preMacBuddyTasks:(id /* block */)a0;
+- (void)postMacBuddyTasks:(id /* block */)a0;
+- (void)setTimeServer:(id /* block */)a0;
+- (void)establishMacBuddyUserWithPrimaryType:(unsigned long long)a0 secondaryType:(unsigned long long)a1 additionalInfo:(id)a2 fromUID:(unsigned int)a3 withCompletionBlock:(id /* block */)a4;
+- (void)getBuddyUser:(id /* block */)a0;
+- (void)buddyUserIsLoggedIn:(id /* block */)a0;
+- (void)switchToBuddySession:(id /* block */)a0;
+- (void)getBuddyWindowRepresentation:(id /* block */)a0;
+- (void)terminateBuddySessionTransitioningToUID:(unsigned int)a0 withCompletionBlock:(id /* block */)a1;
+- (void)tellBuddyAppToQuit:(id /* block */)a0;
+- (void)removeBuddyUserHome:(id /* block */)a0;
+- (void)setPasswordPolicy:(long long)a0 withCompletion:(id /* block */)a1;
+- (void)passwordPolicyWithCompletion:(id /* block */)a0;
+- (void)setPasswordPolicyDictionary:(id)a0 withCompletion:(id /* block */)a1;
+- (void)writeMachineDefaults:(id)a0 toApplicationID:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)createUserWithInfo:(id)a0 completionBlock:(id /* block */)a1;
+- (void)createTeslaUsersWithInfo:(id)a0 completionBlock:(id /* block */)a1;
+- (void)getFacelessConfigurationDictionary:(id /* block */)a0;
+- (void)facelessConfigureFromInstallerCookie:(id /* block */)a0;
+- (void)restart:(id /* block */)a0;
+- (void)removeIncompatibleApplicationDataFileAtRoot:(id)a0 reply:(id /* block */)a1;
+- (void)saveDocumentationData:(id)a0 withLocalizedName:(id)a1 forLocale:(id)a2 toFileNamed:(id)a3 completionBlock:(id /* block */)a4;
+- (void)setOSVersioniCloudCreatedForUser:(id)a0 withCompletionBlock:(id /* block */)a1;
+- (void)fmmIsEnabled:(id /* block */)a0;
+- (void)setAutoTimeZoneEnabled:(id /* block */)a0;
+- (void)setDekotaComputerName;
+- (void)healEOSHandlingProgressForUUID:(id)a0 withCompletionBlock:(id /* block */)a1;
+- (void)setMacBuddyDoneCookie:(id /* block */)a0;
+- (void)setMigrationCookie:(id /* block */)a0;
+- (void)removeMigrationCookie:(id /* block */)a0;
+- (void)setResumeBuddyCookieForReason:(id)a0 withCompletionBlock:(id /* block */)a1;
+- (void)getResumeBuddyCookieReason:(id /* block */)a0;
+- (void)setResumeBuddyAccentColor:(long long)a0 withCompletionBlock:(id /* block */)a1;
+- (void)getResumeBuddyCookieAccentColor:(id /* block */)a0;
+- (void)removeResumeBuddyCookie:(id /* block */)a0;
+- (void)removeLanguageChooserCookie:(id /* block */)a0;
+- (void)setSendDiagnosticsToApple:(BOOL)a0 sendThirdPartyDiagnostics:(BOOL)a1 withCompletionBlock:(id /* block */)a2;
+- (void)setDiagnosticsCookie:(id /* block */)a0;
+- (void)setDidRunFLOCookie:(id /* block */)a0;
+- (void)removeHardwareWarrantyCookie:(id /* block */)a0;
+- (void)removeInstallUserAndPlist;
+- (void)setHardwareWarrantyCookie:(id /* block */)a0;
+- (void)setNeedsPostMigrationAppStoreCookie:(id /* block */)a0;
+- (void)removeNeedsPostMigrationAppStoreCookie:(id /* block */)a0;
+- (void)switchServerOfType:(id)a0 toEnvironment:(id)a1 withCompletionBlock:(id /* block */)a2;
+- (void)readInitialSwitchedServerState:(id /* block */)a0;
+- (void)writePreviousSystemCleanupService:(id /* block */)a0;
+- (void)getMAAdminCredentials:(id /* block */)a0;
+- (void)captureSysdiagnose:(id /* block */)a0;
+- (void)getProgressPercentForInProgressSysdiagnoseCapture:(id /* block */)a0;
+- (void)fixUpSeedingSettingsPostMigration:(id /* block */)a0;
+- (void)getBuddyWindowRepresentationFromApp:(id /* block */)a0;
+- (void)exitBuddyApp:(id /* block */)a0;
+- (void)progressUpdate:(float)a0 status:(id)a1 forUUID:(id)a2;
+- (void)healEOSHandlingProgress:(id /* block */)a0 withCompletionBlock:(id /* block */)a1;
+
+@end

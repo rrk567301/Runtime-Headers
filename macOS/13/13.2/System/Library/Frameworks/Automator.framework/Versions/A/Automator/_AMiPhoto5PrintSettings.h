@@ -1,0 +1,41 @@
+@interface _AMiPhoto5PrintSettings : SBObject
+
+- (void)select;
+- (void)delete;
+- (BOOL)exists;
+- (void)removeFrom:(id)a0;
+- (void)addTo:(id)a0;
+- (void)emptyTrash;
+- (void)closeSaving:(int)a0 savingIn:(id)a1;
+- (void)duplicateTo:(id)a0 withProperties:(id)a1;
+- (void)moveTo:(id)a0;
+- (void)quitSaving:(int)a0;
+- (void)saveAs:(id)a0 in_:(id)a1;
+- (void)assignKeywordString:(id)a0;
+- (void)duplicateTo:(id)a0;
+- (void)importFrom:(id)a0 to:(id)a1;
+- (void)newAlbumName:(id)a0;
+- (void)startSlideshowUsingAlbum:(id)a0;
+- (void)stopSlideshow;
+- (int)copies;
+- (void)setCopies:(int)a0;
+- (BOOL)collating;
+- (void)setCollating:(BOOL)a0;
+- (int)startingPage;
+- (void)setStartingPage:(int)a0;
+- (int)endingPage;
+- (void)setEndingPage:(int)a0;
+- (int)pagesAcross;
+- (void)setPagesAcross:(int)a0;
+- (int)pagesDown;
+- (void)setPagesDown:(int)a0;
+- (id)requestedPrintTime;
+- (void)setRequestedPrintTime:(id)a0;
+- (int)errorHandling;
+- (void)setErrorHandling:(int)a0;
+- (id)faxNumber;
+- (void)setFaxNumber:(id)a0;
+- (id)targetPrinter;
+- (void)setTargetPrinter:(id)a0;
+
+@end

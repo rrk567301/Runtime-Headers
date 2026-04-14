@@ -1,0 +1,68 @@
+@class NSMutableOrderedSet;
+
+@interface IMDCoreSpotlightManager : NSObject
+
+@property (retain, nonatomic) NSMutableOrderedSet *blocklistMessageGUIDs;
+
++ (id)sharedInstance;
++ (Class)__SLCollaborationHandshakeController;
++ (id)resolvedURLCustomKey;
++ (id)chatAutoDonatingCutomKey;
++ (id)chatAutoDonatingServerDateCustomKey;
++ (id)chatStyleCustomKey;
++ (id)localIdentityProofKey;
++ (id)localIdentityKey;
++ (id)handleToIdentityMapKey;
++ (BOOL)_isTapbackMessage:(long long)a0;
++ (BOOL)_isMacSupportedBalloonBundleID:(id)a0;
++ (void)_indexItemsForMetadata:(id)a0 withItem:(id)a1 withChat:(id)a2;
+
+- (void).cxx_destruct;
+- (id)searchableIndex;
+- (id)_donationManager;
+- (long long)maxRowID;
+- (id)_personIdentityQueue;
+- (void)setMessageGUIDUnderScrutiny:(id)a0;
+- (void)clearMessageGUIDFromScrutiny:(id)a0;
+- (id)newSearchableItemsForMessageGUID:(id)a0 reindexing:(BOOL)a1;
+- (id)newSearchableItemsForMessage:(id)a0 reindexing:(BOOL)a1;
+- (void)_postProcessIndexingForItem:(id)a0 chatDictionary:(id)a1 isReindexing:(BOOL)a2;
+- (void)_geocodeItems:(id)a0;
+- (void)_updateItem:(id)a0 withGeoMapItem:(id)a1;
+- (void)_updateItem:(id)a0 withResolvedURL:(id)a1;
+- (void)_updateItem:(id)a0 withFPProviderID:(id)a1;
+- (void)_updateItem:(id)a0 withIdentityMap:(id)a1 localIdentity:(id)a2 localIdentityProof:(id)a3;
+- (void)_resolvedURLForItems:(id)a0;
+- (void)_FPProviderIDForItems:(id)a0;
+- (void)reIndexWithLocalProofOfInclusionForItemsAsync:(id)a0;
+- (id)newChatSearchableItemForChatDictionary:(id)a0 optionalLastMessageDate:(id)a1;
+- (void)addChatSearchableItemForChatGUID:(id)a0;
+- (void)deleteChatSearchableItemForChatGUID:(id)a0;
+- (id)_chatDictionaryForChatGUID:(id)a0;
+- (void)setNeedsMessageReindexingWithCompletion:(id /* block */)a0;
+- (void)_sanitizeIndexesForCurrentVersionIfNeeded:(id /* block */)a0;
+- (void)indexChats;
+- (id)_newSearchableChatItemsForChats:(id)a0;
+- (long long)_chatCountForChats:(id)a0;
+- (id)_chatDictionaryForChatAtIndex:(unsigned long long)a0 withChats:(id)a1;
+- (void)_indexSearchableChatItems:(id)a0 withIndex:(id)a1;
+- (void)indexNextMessageBatchIfNeeded:(unsigned long long)a0 completion:(id /* block */)a1;
+- (id)_copyMessagesForIndexingWithLastRowID:(unsigned long long)a0 batchSize:(unsigned long long)a1;
+- (id)_newSearchableIndexesForMessages:(id)a0;
+- (id)_newLegacySearchableIndexesForMessages:(id)a0;
+- (void)_indexSearchableItems:(id)a0 lastIndexedRowID:(unsigned long long)a1 batchSize:(unsigned long long)a2 lastBatch:(BOOL)a3 withIndex:(id)a4 completion:(id /* block */)a5;
+- (BOOL)_shouldBypassForTesting;
+- (void)_setNeedsIndexing:(BOOL)a0;
+- (void)_setNeedsDeferredIndexing:(BOOL)a0;
+- (void)_setMaxIndexRowID:(unsigned long long)a0;
+- (void)_setLastIndexedRowID:(unsigned long long)a0;
+- (unsigned long long)_expectedIndexVersion;
+- (unsigned long long)_currentIndexVersion;
+- (BOOL)_bypassIndexVersionCheck;
+- (void)_setCurrentIndexVersion:(unsigned long long)a0;
+- (void)_setBypassIndexVersionCheck;
+- (BOOL)_shouldIndexNextBatchForBatchSize:(unsigned long long)a0;
+- (unsigned long long)_lastIndexedRowID;
+- (unsigned long long)_batchSizeForTargetBatchSize:(unsigned long long)a0 lastIndexedRowID:(unsigned long long)a1 lastBatch:(BOOL *)a2;
+
+@end

@@ -1,0 +1,72 @@
+@class SCRScrollBar, NSArray, NSMutableSet;
+
+@interface SCRScrollArea : SCRMapElement {
+    SCRScrollBar *_vScrollbar;
+    SCRScrollBar *_hScrollbar;
+    double _previousEventTime;
+    unsigned long long _contentChildrenCount;
+    NSArray *_contentChildren;
+    NSMutableSet *_childrenUIElementsCheckedForScrollbars;
+}
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)setChildren:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })contentBounds;
+- (BOOL)hasKeyboardFocus;
+- (id)statusDescription;
+- (BOOL)isInteractive;
+- (void)setKeyboardFocus:(BOOL)a0;
+- (id)onlyChild;
+- (id)initWithUIElement:(id)a0 parent:(id)a1;
+- (BOOL)chainEvent:(id)a0 request:(id)a1;
+- (BOOL)handleEvent:(id)a0 request:(id)a1;
+- (BOOL)handleTaggedOperationWithEvent:(id)a0 request:(id)a1;
+- (void)addItemDescriptionToRequest:(id)a0;
+- (void)addItemDescriptionForCommand:(id)a0 toRequest:(id)a1 event:(id)a2;
+- (BOOL)allowBuildChildren;
+- (BOOL)showRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isSectionView;
+- (BOOL)addSelectionDescriptionToRequest:(id)a0;
+- (BOOL)addKeyboardSelectionSummaryToRequest:(id)a0;
+- (BOOL)childrenShouldAddIndexToDescription;
+- (BOOL)isContainerElement;
+- (void)prepareGestureTrackingChildren;
+- (BOOL)trackElementWithGestureEvent:(id)a0 request:(id)a1;
+- (void)setIsEventHandler:(BOOL)a0 isKeyboardHandler:(BOOL)a1;
+- (BOOL)needToRebuildChildren;
+- (void)addItemDescriptionForBrailleToRequest:(id)a0;
+- (BOOL)handleUntaggedOperationWithEvent:(id)a0 request:(id)a1;
+- (BOOL)shouldPromoteUIElement:(id)a0;
+- (void)handleInteractionOutput:(id)a0 forCommand:(id)a1 withStatus:(BOOL)a2;
+- (void)beginFocusFromElement:(id)a0 withEvent:(id)a1;
+- (void)endFocus;
+- (id)focusedChildForChaining;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })droppableBounds;
+- (id)_defaultLocalizedStringForCommandKey:(id)a0;
+- (id)highlightTarget;
+- (void)addContentToRequest:(id)a0 visibleOnly:(BOOL)a1;
+- (void)addElementSummaryToRequest:(id)a0;
+- (BOOL)_handleScrollByPageInDirection:(long long)a0 event:(id)a1 request:(id)a2;
+- (BOOL)handleSpeakScrollPageWithEvent:(id)a0 request:(id)a1;
+- (BOOL)isChildScrollable:(id)a0;
+- (void)_handleWindowResized:(id)a0;
+- (void)_updateCachedScrollBars;
+- (id)_copyScrollBarOfOrientation:(long long)a0;
+- (id)hScrollbar;
+- (id)vScrollbar;
+- (BOOL)scrollToShowDescendant:(id)a0;
+- (id)contentChildren;
+- (id)_derivedFocusedChildWithEvent:(id)a0;
+- (id)deepestPotentialChild;
+- (BOOL)_enableScrollModeWithRequest:(id)a0;
+- (BOOL)_handleScrollWithEvent:(id)a0 request:(id)a1;
+- (BOOL)_scrollUpWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollDownWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollLeftWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollRightWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollHomeWithRequest:(id)a0;
+- (BOOL)_scrollEndWithRequest:(id)a0;
+- (void)incrementReadContentsElementIndex:(BOOL)a0;
+
+@end

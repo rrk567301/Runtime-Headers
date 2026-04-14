@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_appleArithmetic_ArithmeticAttribute : SiriOntology.UsoEntityBuilder
+
+@end

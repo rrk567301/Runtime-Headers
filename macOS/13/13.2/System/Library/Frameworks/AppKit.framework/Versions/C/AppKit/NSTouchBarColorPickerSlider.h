@@ -1,0 +1,97 @@
+@class NSTextField, NSString, NSArray, NSAttributedString, _NSTouchBarColorPickerSliderKnob, _NSTouchBarColorPickerSliderTrack, NSColor, NSPanGestureRecognizer, NSTouchBarColorPickerSliderArtworkProvider;
+@protocol NSTouchBarColorPickerSliderMinimizationDelegate;
+
+@interface NSTouchBarColorPickerSlider : NSControl <NSGestureRecognizerDelegate> {
+    NSTextField *_label;
+    _NSTouchBarColorPickerSliderTrack *_sliderTrack;
+    _NSTouchBarColorPickerSliderKnob *_sliderKnob;
+    double _doubleValue;
+    NSPanGestureRecognizer *_panRecognizer;
+    id _autounbinder;
+    BOOL _highlighted;
+    BOOL _labelIsVisible;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSAttributedString *valueLabel;
+@property BOOL labelIsOnLeadingSideOfKnob;
+@property (readonly) double labelAlphaValue;
+@property (readonly) BOOL knobIsPressed;
+@property BOOL relativeTracking;
+@property long long labelTextEffect;
+@property (copy) NSColor *displayedColor;
+@property (copy) NSArray *allowedColorSpaces;
+@property BOOL valueIsFlipped;
+@property (getter=isMinimized) BOOL minimized;
+@property (getter=isActive) BOOL active;
+@property id<NSTouchBarColorPickerSliderMinimizationDelegate> minimizationDelegate;
+@property (copy) NSTouchBarColorPickerSliderArtworkProvider *artworkProvider;
+
++ (id)keyPathsForValuesAffectingValueLabel;
++ (id)keyPathsForValuesAffectingLabelAlphaValue;
++ (id)keyPathsForValuesAffectingKnobIsPressed;
++ (BOOL)requiresConstraintBasedLayout;
++ (id)keyPathsForValuesInvalidatingConstraints;
++ (BOOL)accessibilityIsSingleCelled;
+
+- (oneway void)release;
+- (void)dealloc;
+- (float)floatValue;
+- (double)doubleValue;
+- (int)intValue;
+- (long long)integerValue;
+- (void)layout;
+- (void)setObjectValue:(id)a0;
+- (id)objectValue;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)declaredLayoutConstraints;
+- (void)viewDidMoveToWindow;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilitySubroleAttribute;
+- (id)accessibilityActionNames;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)accessibilityPerformAction:(id)a0;
+- (id)accessibilityChildrenAttribute;
+- (BOOL)accessibilityIsChildrenAttributeSettable;
+- (id)_autounbinder;
+- (void)_handlePress:(id)a0;
+- (void)_handlePan:(id)a0;
+- (void)hideLabelAnimated;
+- (void)hideLabel;
+- (void)setDoubleValue:(double)a0;
+- (void)flashLabel;
+- (void)showLabel;
+- (void)setHideLabelTimer;
+- (void)setIntValue:(int)a0;
+- (void)setIntegerValue:(long long)a0;
+- (void)setFloatValue:(float)a0;
+- (double)_valueAtLocation:(double)a0;
+- (BOOL)isHighlighted;
+- (void)setHighlighted:(BOOL)a0;
+- (void)_beginUnminimizeGesture;
+- (void)_endUnminimizeGesture;
+- (id)accessibilityValueAttribute;
+- (BOOL)accessibilityIsValueAttributeSettable;
+- (void)accessibilitySetValueAttribute:(id)a0;
+- (id)accessibilityValueIndicatorAttribute;
+- (BOOL)accessibilityIsValueIndicatorAttributeSettable;
+- (id)accessibilityMinValueAttribute;
+- (BOOL)accessibilityIsMinValueAttributeSettable;
+- (id)accessibilityMaxValueAttribute;
+- (BOOL)accessibilityIsMaxValueAttributeSettable;
+- (BOOL)accessibilityIsAllowedValuesAttributeSettable;
+- (id)accessibilityOrientationAttribute;
+- (BOOL)accessibilityIsOrientationAttributeSettable;
+- (id)accessibilityActivationPointAttribute;
+- (BOOL)accessibilityIsActivationPointAttributeSettable;
+- (id)accessibilityExpandedAttribute;
+- (id)accessibilityHelpStringForChild:(id)a0;
+- (BOOL)accessibilityIsChildFocusable:(id)a0;
+- (void)accessibilitySetFocus:(id)a0 forChild:(id)a1;
+
+@end

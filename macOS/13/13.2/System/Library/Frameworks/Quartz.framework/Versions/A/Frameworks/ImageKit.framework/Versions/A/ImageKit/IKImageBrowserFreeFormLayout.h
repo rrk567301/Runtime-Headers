@@ -1,0 +1,70 @@
+@class NSMutableArray;
+
+@interface IKImageBrowserFreeFormLayout : IKImageBrowserSubsetLayoutManager {
+    struct { double x0; double x1; } *_cellsPosition;
+    double *_cellsScale;
+    long long *_cellsZValue;
+    int _cellsCount;
+    long long _maxZValue;
+    struct CGPoint { double x; double y; } _anchorPoint;
+    struct CGSize { double width; double height; } _scaleFactor;
+    struct CGPoint { double x; double y; } _documentTranslation;
+    struct CGPoint { double x; double y; } _offset;
+    struct CGPoint { double x; double y; } _totalOffset;
+    NSMutableArray *_ordering;
+    struct __CFDictionary { } *_indexToOrderedIndex;
+    struct __CFDictionary { } *_zToIndex;
+    void *_bsp;
+    unsigned long long _rightIndex;
+    unsigned long long _bottomIndex;
+    unsigned long long _leftIndex;
+    unsigned long long _topIndex;
+    BOOL _edgeIndexesValid;
+}
+
+- (void)dealloc;
+- (void)finalize;
+- (void)clear;
+- (id)initWithParameters:(struct __IKImageBrowserLayoutParameter { id x0; struct CGSize { double x0; double x1; } x1; unsigned int x2; struct CGSize { double x0; double x1; } x3; struct CGSize { double x0; double x1; } x4; struct CGSize { double x0; double x1; } x5; int x6; unsigned int x7; BOOL x8; BOOL x9; BOOL x10; int x11; float x12; struct CGSize { double x0; double x1; } x13; struct CGSize { double x0; double x1; } x14; } *)a0 parent:(id)a1;
+- (BOOL)isGridBased;
+- (struct { double x0; double x1; })computeContentSize;
+- (struct { struct { double x0; double x1; } x0; struct { double x0; double x1; } x1; })cellFrameAtIndex:(unsigned long long)a0;
+- (id)cellIndexesInRect:(struct { struct { double x0; double x1; } x0; struct { double x0; double x1; } x1; })a0;
+- (id)cellIndexesAtLocation:(struct { double x0; double x1; })a0;
+- (long long)nearestCellOfPosition:(struct { double x0; double x1; })a0;
+- (unsigned long long)indexToRenderForNonOrderedIndex:(unsigned long long)a0;
+- (void)prepareRenderingOrderingWithIndexes:(id)a0;
+- (struct CGSize { double x0; double x1; })freeFormScaleFactor;
+- (struct CGPoint { double x0; double x1; })topLeftItemPosition;
+- (double)zAtIndex:(unsigned long long)a0;
+- (void)zSortWithZValues:(double *)a0;
+- (void)setAnchorPointTranslation:(struct CGPoint { double x0; double x1; })a0;
+- (void)setFreeFormScaleFactor:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })freeFormTotalDocumentOffset;
+- (struct CGSize { double x0; double x1; })freeFormDocumentTranslation;
+- (void)setFreeFormDocumentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (void)translateAllBy:(struct CGSize { double x0; double x1; })a0;
+- (unsigned long long)topIndex;
+- (unsigned long long)bottomIndex;
+- (unsigned long long)rightIndex;
+- (unsigned long long)leftIndex;
+- (void)setPosition:(struct CGPoint { double x0; double x1; })a0 atIndex:(long long)a1;
+- (void)setScaleFactor:(double)a0 atIndex:(long long)a1;
+- (double)scaleFactorAtIndex:(int)a0;
+- (struct CGPoint { double x0; double x1; })positionAtIndex:(long long)a0;
+- (struct CGPoint { double x0; double x1; })normalizedPositionAtIndex:(long long)a0;
+- (void)moveIndexOnTop:(int)a0;
+- (void)invalidateBSP;
+- (void)checkAllocZValues;
+- (void)_checkCellCount;
+- (unsigned long long)orderedIndexAtIndex:(unsigned long long)a0;
+- (void)resetOrderingWithCount:(int)a0;
+- (struct { double x0; double x1; })normalizedPointFromPoint:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGPoint { double x0; double x1; })pointFromNormalizedPoint:(struct { double x0; double x1; })a0;
+- (void)validateBSP;
+- (void)validateEdgeIndexesIfNeeded;
+- (struct { struct { double x0; double x1; } x0; struct { double x0; double x1; } x1; })bspDocumentRect;
+- (struct CGPoint { double x0; double x1; })_positionAtIndex:(long long)a0;
+- (void)_updateTotalOffset;
+
+@end

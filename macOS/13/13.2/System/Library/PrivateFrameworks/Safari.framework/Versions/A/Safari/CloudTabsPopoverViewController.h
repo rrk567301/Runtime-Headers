@@ -1,0 +1,59 @@
+@class NSTextField, NSOutlineView, NSScrollView, NSString, NSArray, WBSFaviconRequestsController, NSLayoutConstraint, NSImageView, BrowserWindowController;
+
+@interface CloudTabsPopoverViewController : NSViewController <NSOutlineViewDataSource, NSPopoverDelegate, CloudTabsPopoverOutlineViewDelegate, AccessibleRolloverActionButtonTableCellViewDelegate, RolloverActionButtonTableCellViewDelegate> {
+    NSLayoutConstraint *_rootViewHeightConstraint;
+    NSArray *_cloudTabDevices;
+    BOOL _shouldReloadCloudTabDevicesAndTable;
+    WBSFaviconRequestsController *_requestsController;
+}
+
+@property (class, readonly) CloudTabsPopoverViewController *sharedCloudTabsPopoverViewController;
+
+@property (weak) NSTextField *titleLabel;
+@property (weak) NSImageView *iCloudImageView;
+@property (weak) NSLayoutConstraint *iCloudImageToTextVerticalConstraint;
+@property (weak) NSTextField *emptyTabsLabel;
+@property (weak) NSScrollView *scrollView;
+@property (weak) NSOutlineView *outlineView;
+@property (weak) NSLayoutConstraint *scrollViewHeightConstraint;
+@property (weak) NSLayoutConstraint *scrollViewMinimumHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *scrollViewBottomSpaceConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *emptyTabLabelBottomSpaceConstraint;
+@property (retain, nonatomic) BrowserWindowController *controller;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)tableViewAction:(id)a0;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)viewDidDisappear;
+- (long long)outlineView:(id)a0 numberOfChildrenOfItem:(id)a1;
+- (id)outlineView:(id)a0 child:(long long)a1 ofItem:(id)a2;
+- (BOOL)outlineView:(id)a0 isItemExpandable:(id)a1;
+- (id)outlineView:(id)a0 objectValueForTableColumn:(id)a1 byItem:(id)a2;
+- (BOOL)outlineView:(id)a0 shouldSelectItem:(id)a1;
+- (double)outlineView:(id)a0 heightOfRowByItem:(id)a1;
+- (BOOL)outlineView:(id)a0 isGroupItem:(id)a1;
+- (id)outlineView:(id)a0 viewForTableColumn:(id)a1 item:(id)a2;
+- (id)outlineView:(id)a0 rowViewForItem:(id)a1;
+- (BOOL)outlineView:(id)a0 shouldCollapseItem:(id)a1;
+- (BOOL)outlineView:(id)a0 shouldShowOutlineCellForItem:(id)a1;
+- (id)accessibilityGetDescriptionForAccessibleRolloverActionButtonTableCellView:(id)a0;
+- (void)accessibilityPerformPressActionForAccessibleRolloverActionButtonTableCellView:(id)a0;
+- (BOOL)cloudTabsPopoverOutlineView:(id)a0 handleKeyDown:(id)a1;
+- (void)_syncedCloudTabDevicesDidChange:(id)a0;
+- (void)actionButtonClickedInTableCellView:(id)a0;
+- (double)_maxHeightForPopover;
+- (double)_minimumScrollViewHeight;
+- (void)_updatePopoverViewsVisibility;
+- (void)_loadCloudTabDevices;
+- (void)_reloadCloudTabDevicesAndTable;
+- (void)_reloadCloudTabDevicesAndTableSoon;
+- (BOOL)goToCloudTabAtRow:(long long)a0;
+
+@end

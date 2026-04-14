@@ -1,0 +1,71 @@
+@interface AVB17221AECPAEMGetPTPPortOverridesResponse : AVB17221AECPAEMDescriptorMessage
+
+@property (nonatomic) BOOL useAnnounceInterval;
+@property (nonatomic) BOOL useSyncInterval;
+@property (nonatomic) BOOL usepDelayRequestInterval;
+@property (nonatomic) BOOL usegPTPCapableInterval;
+@property (nonatomic) BOOL useComputeNeighborRateRatio;
+@property (nonatomic) BOOL useComputeMeanDelay;
+@property (nonatomic) BOOL useOnestepTransmitOperational;
+@property (nonatomic) BOOL useDesiredState;
+@property (nonatomic) BOOL computeNeighborRateRatio;
+@property (nonatomic) BOOL computeMeanLinkDelay;
+@property (nonatomic) BOOL onestepTransmitOperational;
+@property (nonatomic) char logAnnounceInterval;
+@property (nonatomic) char logSyncInterval;
+@property (nonatomic) char logpDelayRequestInterval;
+@property (nonatomic) char loggPTPCapableInterval;
+@property (nonatomic) unsigned char desiredState;
+
++ (id)keyPathsForValuesAffectingLogAnnounceInterval;
++ (id)keyPathsForValuesAffectingLogSyncInterval;
++ (id)keyPathsForValuesAffectingLogpDelayRequestInterval;
++ (id)keyPathsForValuesAffectingLoggPTPCapableInterval;
++ (id)keyPathsForValuesAffectingOnestepTransmitOperational;
++ (id)keyPathsForValuesAffectingUseAnnounceInterval;
++ (id)keyPathsForValuesAffectingUseSyncInterval;
++ (id)keyPathsForValuesAffectingUsepDelayRequestInterval;
++ (id)keyPathsForValuesAffectingUsegPTPCapableInterval;
++ (id)keyPathsForValuesAffectingUseComputeNeighborRateRatio;
++ (id)keyPathsForValuesAffectingUseComputeMeanDelay;
++ (id)keyPathsForValuesAffectingUseOnestepTransmitOperational;
++ (id)keyPathsForValuesAffectingUseDesiredState;
++ (id)keyPathsForValuesAffectingComputeNeighborRateRatio;
++ (id)keyPathsForValuesAffectingComputeMeanLinkDelay;
++ (id)keyPathsForValuesAffectingDesiredState;
+
+- (id)init;
+- (char)logSyncInterval;
+- (void)setLogSyncInterval:(char)a0;
+- (char)logAnnounceInterval;
+- (void)setLogAnnounceInterval:(char)a0;
+- (void)setLogpDelayRequestInterval:(char)a0;
+- (char)logpDelayRequestInterval;
+- (void)setLoggPTPCapableInterval:(char)a0;
+- (char)loggPTPCapableInterval;
+- (void)setOnestepTransmitOperational:(BOOL)a0;
+- (BOOL)onestepTransmitOperational;
+- (void)setUseAnnounceInterval:(BOOL)a0;
+- (BOOL)useAnnounceInterval;
+- (void)setUseSyncInterval:(BOOL)a0;
+- (BOOL)useSyncInterval;
+- (void)setUsepDelayRequestInterval:(BOOL)a0;
+- (BOOL)usepDelayRequestInterval;
+- (void)setUsegPTPCapableInterval:(BOOL)a0;
+- (BOOL)usegPTPCapableInterval;
+- (void)setUseComputeNeighborRateRatio:(BOOL)a0;
+- (BOOL)useComputeNeighborRateRatio;
+- (void)setUseComputeMeanDelay:(BOOL)a0;
+- (BOOL)useComputeMeanDelay;
+- (void)setUseOnestepTransmitOperational:(BOOL)a0;
+- (BOOL)useOnestepTransmitOperational;
+- (void)setUseDesiredState:(BOOL)a0;
+- (BOOL)useDesiredState;
+- (void)setComputeNeighborRateRatio:(BOOL)a0;
+- (BOOL)computeNeighborRateRatio;
+- (void)setComputeMeanLinkDelay:(BOOL)a0;
+- (BOOL)computeMeanLinkDelay;
+- (void)setDesiredState:(unsigned char)a0;
+- (unsigned char)desiredState;
+
+@end

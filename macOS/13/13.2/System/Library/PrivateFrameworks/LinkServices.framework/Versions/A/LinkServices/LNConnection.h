@@ -1,0 +1,88 @@
+@class NSXPCConnection, NSHashTable, LNConnectionOptions, LNWatchdogTimer, NSSet, LNConnectionManager, NSString, NSMutableSet, NSObject, NSMapTable;
+@protocol OS_os_activity, LNConnectionDelegate, OS_dispatch_queue, LNConnectionHostInterface;
+
+@interface LNConnection : NSObject <LNConnectionOperationDelegate>
+
+@property (readonly, nonatomic) long long metadataVersion;
+@property (readonly, nonatomic) NSMutableSet *connectionOperations;
+@property (readonly, nonatomic) NSHashTable *completionHandlers;
+@property (nonatomic) long long state;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *timerQueue;
+@property (readonly, nonatomic) LNWatchdogTimer *idleTimer;
+@property (retain, nonatomic, setter=setXPCConnection:) NSXPCConnection *xpcConnection;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSSet *currentConnectionOperations;
+@property (readonly, nonatomic) LNConnectionOptions *defaultOptions;
+@property (nonatomic) struct { unsigned int val[8]; } auditToken;
+@property (retain, nonatomic) LNConnectionManager<LNConnectionDelegate> *manager;
+@property (readonly, copy, nonatomic) NSString *appBundleIdentifier;
+@property (retain, nonatomic) NSString *logPrefix;
+@property (readonly, nonatomic) id<LNConnectionHostInterface> connectionInterface;
+@property (readonly, nonatomic) NSMapTable *executors;
+@property (readonly, nonatomic) NSObject<OS_os_activity> *activity;
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)optionsForAction:(id)a0 interactionMode:(long long)a1;
++ (void)invalidateAllConnections;
++ (void)fetchEntitiesFromActiveApplicationsWithInteractionIDs:(id)a0 completionHandler:(id /* block */)a1;
++ (void)fetchEntitiesFromActiveApplicationsWithInteractionIDs:(id)a0 bundleIdentifiers:(id)a1 completionHandler:(id /* block */)a2;
+
+- (void)dealloc;
+- (void)close;
+- (void).cxx_destruct;
+- (id)initWithBundleIdentifier:(id)a0;
+- (void)closeWithError:(id)a0;
+- (void)completeWithError:(id)a0;
+- (void)connectWithOptions:(id)a0;
+- (void)performQuery:(id)a0 completionHandler:(id /* block */)a1;
+- (id)operationWithIdentifier:(id)a0;
+- (id)executorForAction:(id)a0 metadata:(id)a1 options:(id)a2 delegate:(id)a3;
+- (void)fetchMetadataWithCompletionHandler:(id /* block */)a0;
+- (void)fetchViewEntitiesWithInteractionIDs:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchViewActionsWithCompletionHandler:(id /* block */)a0;
+- (void)fetchStructuredDataWithTypeIdentifier:(long long)a0 forEntityIdentifiers:(id)a1 completionHandler:(id /* block */)a2;
+- (void)fetchSuggestedActionsWithSiriLanguageCode:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchSuggestedActionsForStartWorkoutAction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchActionForAutoShortcutPhrase:(id)a0 completionHandler:(id /* block */)a1;
+- (void)performPropertyQuery:(id)a0 completionHandler:(id /* block */)a1;
+- (void)performSuggestedResultsQueryWithEntityType:(id)a0 completionHandler:(id /* block */)a1;
+- (void)performSuggestedEntitiesQueryWithEntityMangledTypeName:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchSuggestedFocusActionsForActionMetadata:(id)a0 suggestionContext:(id)a1 completionHandler:(id /* block */)a2;
+- (void)fetchDestinationMDMAccountIdentifierForAction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchDisplayRepresentationForActions:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchActionAppContextForAction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchOptionsForActionMetadata:(id)a0 parameterMetadata:(id)a1 searchTerm:(id)a2 localeIdentifier:(id)a3 completionHandler:(id /* block */)a4;
+- (id)executorForAction:(id)a0 options:(id)a1 delegate:(id)a2;
+- (void)fetchActionOutputValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchOptionsForActionMetadata:(id)a0 parameterMetadata:(id)a1 completionHandler:(id /* block */)a2;
+- (void)fetchOptionsForActionMetadata:(id)a0 parameterMetadata:(id)a1 localeIdentifier:(id)a2 completionHandler:(id /* block */)a3;
+- (void)fetchExtensionsMetadataWithCompletionHandler:(id /* block */)a0;
+- (void)refreshWithOptions:(id)a0;
+- (void)fetchOptionsDefaultValueForAction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchDefaultValueForActionMetadata:(id)a0 parameterIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (void)connectionOperationWillStart:(id)a0;
+- (void)connectionOperation:(id)a0 didFinishWithError:(id)a1;
+- (id)initWithBundleIdentifier:(id)a0 appBundleIdentifier:(id)a1 error:(id *)a2;
+- (void)fetchViewEntitiesWithOptions:(id)a0 interactionIDs:(id)a1 completionHandler:(id /* block */)a2;
+- (void)enqueueConnectionOperation:(id)a0;
+- (void)removeConnectionOperation:(id)a0;
+- (void)getConnectionInterfaceWithOptions:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setConnected;
+- (void)setDisconnectedWithError:(id)a0;
+- (void)cancelTimeoutForOperationWithIdentifier:(id)a0;
+- (void)extendTimeoutForOperationWithIdentifier:(id)a0;
+- (BOOL)targetIsBeingDebugged;
+- (void)setIdleTimer;
+- (void)extendIdleTimeout;
+- (void)cancelIdleTimeout;
+- (id)initWithBundleIdentifier:(id)a0 metadataVersion:(long long)a1 error:(id *)a2;
+- (id)executorForAction:(id)a0 metadata:(id)a1 appBundleIdentifier:(id)a2 options:(id)a3 delegate:(id)a4;
+- (id)executorForAction:(id)a0 label:(id)a1 delegate:(id)a2;
+- (id)executorForAction:(id)a0 interactionMode:(long long)a1 label:(id)a2 delegate:(id)a3;
+- (id)executorForAction:(id)a0 interactionMode:(long long)a1 label:(id)a2 source:(unsigned short)a3 delegate:(id)a4;
+
+@end
