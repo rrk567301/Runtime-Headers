@@ -1,0 +1,14 @@
+@interface libfssync.PeriodicFPCK : _TtCs12_SwiftObject <FPCKPauseChecking> {
+    void /* unknown type, empty encoding */ providerDomainID;
+    void /* unknown type, empty encoding */ domainUserInfo;
+    void /* unknown type, empty encoding */ usingFPFS;
+    void /* unknown type, empty encoding */ captureDB;
+    void /* unknown type, empty encoding */ state;
+    void /* unknown type, empty encoding */ runnable;
+    void /* unknown type, empty encoding */ launchMode;
+    void /* unknown type, empty encoding */ shouldPause;
+}
+
+- (void)shouldPauseWithCompletion:(id /* block */)a0;
+
+@end

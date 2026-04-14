@@ -1,0 +1,6 @@
+@interface VideosUI.LeagueStandingsCardSharedModel : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ objectDidChange;
+    void /* unknown type, empty encoding */ _containerSize;
+}
+
+@end

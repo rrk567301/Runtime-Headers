@@ -1,0 +1,3 @@
+@interface ABFeatureFlags : NSObject
+
+@end

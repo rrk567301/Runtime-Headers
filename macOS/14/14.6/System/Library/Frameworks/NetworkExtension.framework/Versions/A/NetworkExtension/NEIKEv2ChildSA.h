@@ -1,0 +1,40 @@
+@class NSError, NSData, NEIKEv2CryptoKitECDH, NSArray, NEIKEv2IKESA, NEIKEv2DHProtocol, NEIKEv2ESPSPI, NEIKEv2ChildSAProposal, NEIKEv2ChildSAConfiguration;
+
+@interface NEIKEv2ChildSA : NSObject {
+    BOOL _shouldSendStateUpdate;
+    BOOL _isFirstChild;
+    BOOL _isInitiator;
+    BOOL _sequencePerTrafficClassSupported;
+    unsigned short _incomingDatabaseReqID;
+    unsigned short _outgoingDatabaseReqID;
+    unsigned int _childID;
+    NEIKEv2IKESA *_ikeSA;
+    unsigned long long _state;
+    NSError *_error;
+    NEIKEv2ChildSAConfiguration *_configuration;
+    NEIKEv2ChildSAProposal *_chosenProposal;
+    NSArray *_localTrafficSelectors;
+    NSArray *_remoteTrafficSelectors;
+    NSData *_localNonce;
+    NSData *_remoteNonce;
+    NSData *_dhPublicKey;
+    NSData *_dhRemotePublicKey;
+    NEIKEv2CryptoKitECDH *_ecdhContext;
+    struct OpaqueSecDHContext { } *_dhContext;
+    NEIKEv2DHProtocol *_remotePreferredDHProtocol;
+    NSData *_incomingEncryptionKey;
+    NSData *_incomingIntegrityKey;
+    NSData *_outgoingEncryptionKey;
+    NSData *_outgoingIntegrityKey;
+    NSArray *_rekeyRequestProposals;
+    NEIKEv2ChildSAProposal *_rekeyResponseProposal;
+    NEIKEv2ESPSPI *_rekeyedSPI;
+    NEIKEv2ESPSPI *_rekeyedRemoteSPI;
+    NSArray *_internalProposalsWithoutDH;
+}
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

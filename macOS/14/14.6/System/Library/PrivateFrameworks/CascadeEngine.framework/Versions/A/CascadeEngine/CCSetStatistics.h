@@ -1,0 +1,25 @@
+@class CCSet;
+
+@interface CCSetStatistics : NSObject
+
+@property (readonly, nonatomic) CCSet *set;
+@property (readonly, nonatomic) unsigned long long count;
+@property (readonly, nonatomic) unsigned long long minLength;
+@property (readonly, nonatomic) unsigned long long maxLength;
+@property (readonly, nonatomic) unsigned long long sumLength;
+@property (readonly, nonatomic) unsigned long long sumQLength;
+@property (readonly, nonatomic) double meanLength;
+@property (readonly, nonatomic) double stdevLength;
+
++ (id)computeAllSetStatistics:(id)a0;
++ (void)sendAllSetStatistics:(id)a0;
+
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithSet:(id)a0 count:(unsigned long long)a1 minLength:(unsigned long long)a2 maxLength:(unsigned long long)a3 sumLength:(unsigned long long)a4 sumQLength:(unsigned long long)a5 meanLength:(double)a6 stdevLength:(double)a7;
+- (BOOL)isEqualToSetStatistics:(id)a0;
+
+@end

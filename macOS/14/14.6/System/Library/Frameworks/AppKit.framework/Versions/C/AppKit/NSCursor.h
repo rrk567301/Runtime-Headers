@@ -1,0 +1,107 @@
+@class NSImage;
+
+@interface NSCursor : NSObject <NSSecureCoding> {
+    struct CGPoint { double x; double y; } _hotSpot;
+    struct _cursorFlags { unsigned char onMouseExited : 1; unsigned char onMouseEntered : 1; unsigned char cursorType : 8; unsigned int  : 22; } _flags;
+    id _image;
+    NSImage *_imageToDisplay;
+}
+
+@property (class, readonly) NSCursor *currentCursor;
+@property (class, readonly) NSCursor *currentSystemCursor;
+@property (class, readonly) NSCursor *arrowCursor;
+@property (class, readonly) NSCursor *IBeamCursor;
+@property (class, readonly) NSCursor *pointingHandCursor;
+@property (class, readonly) NSCursor *closedHandCursor;
+@property (class, readonly) NSCursor *openHandCursor;
+@property (class, readonly) NSCursor *resizeLeftCursor;
+@property (class, readonly) NSCursor *resizeRightCursor;
+@property (class, readonly) NSCursor *resizeLeftRightCursor;
+@property (class, readonly) NSCursor *resizeUpCursor;
+@property (class, readonly) NSCursor *resizeDownCursor;
+@property (class, readonly) NSCursor *resizeUpDownCursor;
+@property (class, readonly) NSCursor *crosshairCursor;
+@property (class, readonly) NSCursor *disappearingItemCursor;
+@property (class, readonly) NSCursor *operationNotAllowedCursor;
+@property (class, readonly) NSCursor *dragLinkCursor;
+@property (class, readonly) NSCursor *dragCopyCursor;
+@property (class, readonly) NSCursor *contextualMenuCursor;
+@property (class, readonly) NSCursor *IBeamCursorForVerticalLayout;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSImage *image;
+@property (readonly) struct CGPoint { double x0; double x1; } hotSpot;
+
++ (void)initialize;
++ (id)_copyDragCursor;
++ (BOOL)helpCursorShown;
++ (void)_clearOverrideCursorAndSetArrow;
++ (void)_setHelpCursor:(BOOL)a0;
++ (void)pop;
++ (id)_bottomLeftResizeCursor;
++ (id)_bottomRightResizeCursor;
++ (id)_closedHandCursor;
++ (id)_crosshairCursor;
++ (id)_cursorWithImage:(id)a0 hotSpot:(struct CGPoint { double x0; double x1; })a1;
++ (id)_genericDragCursor;
++ (id)_handCursor;
++ (id)_helpCursor;
++ (id)_horizontalResizeCursor;
++ (void)_makeCursors;
++ (id)_moveCursor;
++ (id)_overrideHelpCursor;
++ (id)_resizeLeftCursor;
++ (id)_resizeLeftRightCursor;
++ (id)_resizeRightCursor;
++ (void)_setOverrideCursor:(id)a0;
++ (void)_setOverrideCursor:(id)a0 type:(long long)a1;
++ (id)_topLeftResizeCursor;
++ (id)_topRightResizeCursor;
++ (id)_verticalResizeCursor;
++ (id)_windowResizeEastCursor;
++ (id)_windowResizeEastWestCursor;
++ (id)_windowResizeNorthCursor;
++ (id)_windowResizeNorthEastCursor;
++ (id)_windowResizeNorthEastSouthWestCursor;
++ (id)_windowResizeNorthSouthCursor;
++ (id)_windowResizeNorthWestCursor;
++ (id)_windowResizeNorthWestSouthEastCursor;
++ (id)_windowResizeSouthCursor;
++ (id)_windowResizeSouthEastCursor;
++ (id)_windowResizeSouthWestCursor;
++ (id)_windowResizeWestCursor;
++ (id)_zoomInCursor;
++ (id)_zoomOutCursor;
++ (id)busyButClickableCursor;
++ (void)hide;
++ (void)hideUntilChanged;
++ (void)setHiddenUntilMouseMoves:(BOOL)a0;
++ (void)unhide;
+
+- (void)dealloc;
+- (id)debugDescription;
+- (id)init;
+- (void)set;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)awakeAfterUsingCoder:(id)a0;
+- (long long)_coreCursorType;
+- (id)_imageToDisplay;
+- (void)pop;
+- (id)_cgImageRefs;
+- (id)_initWithHotSpot:(struct CGPoint { double x0; double x1; })a0;
+- (void)_loadImageAndHotSpotFromCoreCursorIfNecessary;
+- (void)_reallySet;
+- (void)_setImage:(id)a0;
+- (id)forceSet;
+- (id)initWithImage:(id)a0 foregroundColorHint:(id)a1 backgroundColorHint:(id)a2 hotSpot:(struct CGPoint { double x0; double x1; })a3;
+- (id)initWithImage:(id)a0 hotSpot:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)isSetOnMouseEntered;
+- (BOOL)isSetOnMouseExited;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)push;
+- (void)setOnMouseEntered:(BOOL)a0;
+- (void)setOnMouseExited:(BOOL)a0;
+
+@end

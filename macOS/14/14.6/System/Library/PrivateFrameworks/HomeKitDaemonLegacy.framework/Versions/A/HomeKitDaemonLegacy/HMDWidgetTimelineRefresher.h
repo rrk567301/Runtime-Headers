@@ -1,0 +1,98 @@
+@class NSUUID, NSString, HMDHomeManager, HMDWidgetConfigurationReader, NSSet, HMDWidgetTimelineController, NSMutableDictionary, NSObject, NSNotificationCenter, NSMapTable;
+@protocol HMFTimerManager, OS_dispatch_source, HMFTimerManagerTimerContext, HMDarwinNotificationProvider, OS_dispatch_queue, HMMLogEventSubmitting;
+
+@interface HMDWidgetTimelineRefresher : HMFObject <HMFTimerManagerDelegate, HMFMessageReceiver, HMFLogging> {
+    int _homeSensingChangedNotificationToken;
+    int _selectedHomeChangedNotificationToken;
+}
+
+@property (weak) HMDHomeManager *homeManager;
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly, copy) NSString *clientIdentifier;
+@property (readonly) NSNotificationCenter *notificationCenter;
+@property (readonly) id<HMDarwinNotificationProvider> darwinNotificationProvider;
+@property (readonly) HMDWidgetConfigurationReader *widgetConfigurationReader;
+@property (readonly) HMDWidgetTimelineController *timelineController;
+@property (readonly) id<HMMLogEventSubmitting> logEventSubmitter;
+@property (readonly, nonatomic) id<HMFTimerManager> timerManager;
+@property (copy) NSUUID *currentHomeUUID;
+@property (copy) NSSet *widgetKindsToUpdate;
+@property (readonly) NSMutableDictionary *accessoryIsReachableByUUID;
+@property (readonly) NSObject<OS_dispatch_source> *widgetRefreshDispatchTimer;
+@property (readonly, copy, nonatomic) NSString *clientIdentifierForExplicitlyMonitoredCharacteristics;
+@property (readonly, nonatomic) NSMutableDictionary *monitoredCharacteristicsMapByWidget;
+@property (readonly, nonatomic) NSMutableDictionary *monitoredActionSetsMapByWidget;
+@property (readonly, nonatomic) NSMapTable *cachedValueByCharacteristic;
+@property (readonly, nonatomic) NSMapTable *cachedIsOnStateByActionSet;
+@property (readonly, nonatomic) NSMapTable *pendingRequestValueByUUID;
+@property (readonly, nonatomic) NSMutableDictionary *cachedActionSetExecuteErrorByUUID;
+@property (readonly, nonatomic) NSMutableDictionary *cachedActionSetExecuteErrorTimerContextByUUID;
+@property (retain, nonatomic) id<HMFTimerManagerTimerContext> widgetRefreshCoalesceTimerContext;
+@property (copy, nonatomic) NSString *widgetRefreshCoalesceReason;
+@property (retain, nonatomic) NSSet *widgetRefreshCoalesceKinds;
+@property (readonly) NSMutableDictionary *characteristicsToPreviouslySeenValues;
+@property (copy, nonatomic) id /* block */ forceUpdateWidgetTimelineHandler;
+@property (copy, nonatomic) id /* block */ fetchAndStoreActiveWidgetKindsHandler;
+@property (readonly, copy, nonatomic) NSSet *interactiveWidgetKinds;
+@property (copy) NSSet *monitoredCharacteristics;
+@property (retain) NSSet *activeWidgetKinds;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+
++ (id)logCategory;
++ (id)fetchSpecificationsForWidgetKinds:(id)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)configure;
+- (void)timerManager:(id)a0 didFireForTimerContext:(id)a1;
+- (id)initWithHomeManager:(id)a0;
+- (id)internalMonitorCharacteristicsForCurrentHome:(id)a0 activeWidgetKinds:(id)a1;
+- (id)_firstErrorFromCharacteristicWriteResponsePayload:(id)a0;
+- (id)_getPendingWriteValueForUUID:(id)a0;
+- (BOOL)_getRequestsFromMessage:(id)a0 outCharacteristicWriteValueByUUUIDs:(id *)a1 outExecuteActionSetUUUIDs:(id *)a2 outExecuteTurnOffActionSetUUIDs:(id *)a3;
+- (void)_removePendingRequestValueForUUID:(id)a0 messageIdentifier:(id)a1;
+- (void)_setPendingRequestValue:(id)a0 forUUID:(id)a1 messageIdentifier:(id)a2;
+- (BOOL)actionSetIsOn:(id)a0;
+- (void)fetchAndStoreActiveWidgetKinds;
+- (void)forceUpdateTimelineForWidgetKinds:(id)a0;
+- (void)handleAccessoryAddedNotification:(id)a0;
+- (void)handleAccessoryCharacteristicsChangedNotification:(id)a0;
+- (void)handleAccessoryReachabilityChangedNotification:(id)a0;
+- (void)handleAccessoryRemoteReachabilityChangedNotification:(id)a0;
+- (void)handleAccessoryRemovedNotification:(id)a0;
+- (void)handleCurrentHomeChangeNotification:(id)a0;
+- (void)handleCurrentOrPrimaryHomeChangedNotification:(id)a0;
+- (void)handleFetchState:(id)a0;
+- (void)handleFetchStateForActionSets:(id)a0;
+- (void)handleHomeAddedNotification:(id)a0;
+- (void)handleHomeRemovedNotification:(id)a0;
+- (void)handleHomeSensingChangedNotification;
+- (void)handleMonitorActionSetsForWidget:(id)a0;
+- (void)handleMonitorCharacteristicsForWidget:(id)a0;
+- (void)handleNotificationOfPossibleNewWidget:(id)a0;
+- (void)handleNotifiedXPCClientsOfHomeConfigurationChangeNotification:(id)a0;
+- (void)handlePerformRequests:(id)a0;
+- (void)handleResidentDeviceAddedOrRemovedNotification:(id)a0;
+- (void)handleResidentDeviceChangedNotification:(id)a0;
+- (void)handleSelectedHomeChangedNotification;
+- (void)handleTimerFiredForActionSet:(id)a0;
+- (id)initWithHomeManager:(id)a0 queue:(id)a1 notificationCenter:(id)a2 darwinNotificationProvider:(id)a3 widgetConfigurationReader:(id)a4 interactiveWidgetKinds:(id)a5 timelineController:(id)a6 logEventSubmitter:(id)a7 timerManager:(id)a8;
+- (void)internalProcessChangedCharacteristics:(id)a0 activeWidgetKinds:(id)a1;
+- (id)monitorCharacteristicsForHome:(id)a0 fetchSpecifications:(id)a1;
+- (void)processCharacteristicsChangedNotification:(id)a0;
+- (id)reachabilityByAccessorySPIClientIdentifierForCharacteristics:(id)a0;
+- (void)registerForDarwinNotifications;
+- (void)registerForMessagesWithMessageDispatcher:(id)a0;
+- (void)stopMonitoringOldCharacteristics;
+- (void)updateMonitoredCharacteristicsAndRefreshWidgetTimelines;
+- (id)valueByCharacteristicSPIClientIdentifierForCharacteristics:(id)a0;
+- (id)widgetKindsToUpdateFromFetchSpecifications:(id)a0 assumingChangedCharacteristic:(id)a1;
+- (id)widgetKindsToUpdateFromFetchSpecifications:(id)a0 changedCharacteristics:(id)a1;
+- (void)writeCharacteristicsWithWriteValueBySPIClientIdentifier:(id)a0 widgetKind:(id)a1 message:(id)a2 completionGroup:(id)a3 completion:(id /* block */)a4;
+
+@end

@@ -1,0 +1,29 @@
+@class NSString;
+@protocol MTLHeap, MTLBuffer, MTLDevice;
+
+@interface AGXG15GFamilyBuffer : AGXBuffer <MTLBuffer>
+
+@property (readonly) unsigned long long length;
+@property (readonly) id<MTLBuffer> remoteStorageBuffer;
+@property (readonly) unsigned long long gpuAddress;
+@property (copy) NSString *label;
+@property (readonly) id<MTLDevice> device;
+@property (readonly) unsigned long long cpuCacheMode;
+@property (readonly) unsigned long long storageMode;
+@property (readonly) unsigned long long hazardTrackingMode;
+@property (readonly) unsigned long long resourceOptions;
+@property (readonly) id<MTLHeap> heap;
+@property (readonly) unsigned long long heapOffset;
+@property (readonly) unsigned long long allocatedSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)addDebugMarker:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (id)newTextureWithDescriptor:(id)a0 offset:(unsigned long long)a1 bytesPerRow:(unsigned long long)a2;
+- (void)removeAllDebugMarkers;
+- (void)initResourceGroupUsage;
+
+@end

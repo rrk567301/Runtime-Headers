@@ -1,0 +1,52 @@
+@class NSMutableDictionary, CKSyncEngineSendChangesOptions, NSOperationQueue, NSError, NSString, CKDatabase;
+
+@interface CKSyncEngineSendChangesOperation : NSOperation <CKPropertiesDescription> {
+    int _executionState;
+}
+
+@property (retain, nonatomic) NSError *error;
+@property (retain, nonatomic) NSMutableDictionary *errorsByRecordID;
+@property (retain, nonatomic) NSOperationQueue *operationQueue;
+@property (readonly, nonatomic) CKDatabase *database;
+@property (readonly, nonatomic) CKSyncEngineSendChangesOptions *options;
+@property (nonatomic) unsigned long long maxZoneCountPerBatch;
+@property (nonatomic) BOOL continueSendingChangesAfterFailure;
+@property (nonatomic) BOOL repeatZoneModificationsUntilNoneLeft;
+@property (copy, nonatomic) id /* block */ networkAttributionBundleIDOverrideBlock;
+@property (copy, nonatomic) id /* block */ populateNextBatchBlock;
+@property (copy, nonatomic) id /* block */ pendingDatabaseChangesBlock;
+@property (copy, nonatomic) id /* block */ modifyRecordZonesCompletionBlock;
+@property (copy, nonatomic) id /* block */ perRecordProgressBlock;
+@property (copy, nonatomic) id /* block */ perRecordSaveBlock;
+@property (copy, nonatomic) id /* block */ perRecordDeleteBlock;
+@property (copy, nonatomic) id /* block */ batchCompletionBlock;
+@property (copy, nonatomic) id /* block */ modifyPendingChangesCompletionBlock;
+@property (copy, nonatomic) id /* block */ willEnqueueOperationBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_removesDependenciesAfterFinish;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)redactedDescription;
+- (void)start;
+- (void)cancel;
+- (BOOL)isAsynchronous;
+- (BOOL)isExecuting;
+- (BOOL)isFinished;
+- (id)initWithDatabase:(id)a0 options:(id)a1;
+- (void)CKDescribePropertiesUsing:(id)a0;
+- (id)CKDescriptionClassName;
+- (void)addNextModifyOperationOrFinishIfNoRemainingWorkIncludingZoneChanges:(BOOL)a0;
+- (BOOL)addNextModifyRecordZonesBatch;
+- (void)addNextModifyRecordsBatchWithCompletionHandler:(id /* block */)a0;
+- (id)cancelledError;
+- (void)finishWithError:(id)a0;
+- (id)operationToModifyBatch:(id)a0;
+- (void)transitionToExecuting;
+- (void)transitionToFinished;
+
+@end
