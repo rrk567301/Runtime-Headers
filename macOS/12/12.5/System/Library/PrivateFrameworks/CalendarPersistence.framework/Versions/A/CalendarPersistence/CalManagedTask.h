@@ -1,0 +1,87 @@
+@class NSDate, NSString, NSURL, NSData, NSManagedObjectID, NSDictionary, NSTimeZone, NSNumber;
+@protocol EKProtocolStructuredLocation, EKProtocolParticipant, CalendarModelProtocol;
+
+@interface CalManagedTask : CalManagedCalendarItem <EKProtocolReminderOccurrence>
+
+@property unsigned long long order;
+@property (retain) NSDate *completedDate;
+@property (retain) NSDate *dueDate;
+@property (retain) NSNumber *priority;
+@property (retain) NSNumber *percentComplete;
+@property (retain) NSURL *activity;
+@property (retain) NSData *appLinkData;
+@property BOOL hasLocationAlarm;
+@property (readonly, copy, nonatomic) NSDate *dueDateUnadjustedFromUTC;
+@property (readonly, copy, nonatomic) NSDate *completionDate;
+@property (readonly, copy, nonatomic) NSNumber *orderNumber;
+@property (readonly, nonatomic) BOOL statusCompleteNotByDate;
+@property (readonly, nonatomic) BOOL canEditRecurrence;
+@property (readonly, copy, nonatomic) NSURL *action;
+@property (readonly, copy, nonatomic) NSData *appLink;
+@property (readonly, nonatomic) BOOL cachedHasLocationAlarm;
+@property (readonly, retain, nonatomic) NSDate *recurrenceDateUnadjustedFromUTC;
+@property (readonly, nonatomic) NSNumber *calendarItemPermissionNumber;
+@property (readonly, retain, nonatomic) id<CalendarModelProtocol> container;
+@property (readonly, copy, nonatomic) id<EKProtocolStructuredLocation> ekStructuredLocation;
+@property (readonly, copy, nonatomic) NSString *recurrenceRuleString;
+@property (readonly, nonatomic) BOOL cachedHasAttendee;
+@property (readonly, nonatomic) BOOL cachedHasAttachment;
+@property (readonly, nonatomic) BOOL cachedHasAlarm;
+@property (readonly, nonatomic) BOOL cachedIsCalendarOwnerInvitedAttendee;
+@property (readonly, nonatomic) BOOL cachedIsCurrentUserInvitedAttendee;
+@property (readonly, copy, nonatomic) id<EKProtocolParticipant> participantForMe;
+@property (readonly, copy, nonatomic) NSString *organizerName;
+@property (readonly, copy, nonatomic) NSURL *organizerURL;
+@property (readonly, copy, nonatomic) NSString *organizerEmail;
+@property (readonly, copy, nonatomic) NSString *organizerPhoneNumber;
+@property (readonly, copy, nonatomic) NSString *organizerEncodedLikenessData;
+@property (readonly, nonatomic) BOOL organizedByMe;
+@property (readonly, copy, nonatomic) NSString *scheduleAgentString;
+@property (readonly, copy, nonatomic) NSTimeZone *timeZoneObject;
+@property (readonly, copy, nonatomic) NSDate *startDateUnadjustedFromUTC;
+@property (readonly, nonatomic) BOOL defaultAlarmWasDeleted;
+@property (readonly, copy, nonatomic) NSString *recurrenceSetID;
+@property (readonly, copy, nonatomic) NSString *contactIdentifiersString;
+@property (readonly, copy, nonatomic) NSString *relatedExternalID;
+@property (readonly, copy, nonatomic) NSData *structuredData;
+@property (readonly, copy, nonatomic) NSData *localStructuredData;
+@property (readonly, nonatomic) BOOL canBeConvertedToFullObject;
+@property (readonly, nonatomic) BOOL isPartialObject;
+@property (readonly, nonatomic) NSDictionary *preFrozenRelationshipObjects;
+@property (readonly, nonatomic) NSManagedObjectID *managedObjectID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)entityName;
++ (id)fetchRequestWithPredicate:(id)a0 inManagedObjectContext:(id)a1;
++ (id)recognizedICSProperties;
+
+- (void)setAction:(id)a0;
+- (id)activity;
+- (void)setActivity:(id)a0;
+- (void)setCompletionDate:(id)a0;
+- (void)setCompletedDate:(id)a0;
+- (id)priorityNumber;
+- (BOOL)isReminder;
+- (void)setPriorityNumber:(id)a0;
+- (void)setAppLink:(id)a0;
+- (void)setOrderNumber:(id)a0;
+- (void)setDueDateUnadjustedFromUTC:(id)a0;
+- (void)updateAlarmDerivedProperties;
+- (void)importiCalendarComponent:(id)a0 occurrences:(id)a1 fromDocument:(id)a2 inCalendar:(id)a3 options:(unsigned long long)a4;
+- (void)updateWithEntity:(id)a0 inCalendar:(id)a1;
+- (BOOL)isExchangeCompatible;
+- (id)_makeExchangeCompatible;
+- (id)_iCalendarElementWithOptions:(unsigned long long)a0;
+- (id)attributesToCompareForMerge;
+- (id)defaultAlarmsBasedOnItemAndPreferences;
+- (id)defaultAlarmsBasedOnItemAndPreferencesFromServer:(BOOL)a0;
+- (BOOL)hasOccurrenceInRangeFromDate:(id)a0 toDate:(id)a1;
+- (id)earliestOccurrenceDateBetweenStartDate:(id)a0 endDate:(id)a1 withOffSet:(long long)a2;
+- (Class)entityClass;
+- (id)importantDate;
+- (id)dueDateAdjustedFromUTC;
+
+@end

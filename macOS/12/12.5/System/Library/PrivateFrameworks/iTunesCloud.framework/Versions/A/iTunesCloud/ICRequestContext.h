@@ -1,0 +1,32 @@
+@class ICNetworkConstraints, NSString, ICURLResponseAuthenticationProvider, ICDeviceInfo, ICClientInfo;
+
+@interface ICRequestContext : NSObject <NSCopying, NSSecureCoding> {
+    unsigned char _allowsMutation : 1;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) ICClientInfo *clientInfo;
+@property (readonly, nonatomic) ICDeviceInfo *deviceInfo;
+@property (readonly, copy, nonatomic) NSString *userAgent;
+@property (readonly, nonatomic) ICURLResponseAuthenticationProvider *authenticationProvider;
+@property (readonly, copy, nonatomic) ICNetworkConstraints *networkConstraints;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithBlock:(id /* block */)a0;
+- (void)setDeviceInfo:(id)a0;
+- (void)setClientInfo:(id)a0;
+- (id)copyWithBlock:(id /* block */)a0;
+- (void)setAuthenticationProvider:(id)a0;
+- (BOOL)_allowsMutation;
+- (id)initWithClientInfo:(id)a0 authenticationProvider:(id)a1;
+- (id)initWithClientInfo:(id)a0;
+- (void)setNetworkConstraints:(id)a0;
+
+@end

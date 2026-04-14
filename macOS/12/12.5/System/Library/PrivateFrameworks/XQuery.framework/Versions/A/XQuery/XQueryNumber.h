@@ -1,0 +1,97 @@
+@class NSString, NSNumber;
+
+@interface XQueryNumber : NSNumber <XQueryAtomicType> {
+    NSNumber *_number;
+    long long _type;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)numberWithUnsignedLongLong:(unsigned long long)a0;
++ (id)numberWithBool:(BOOL)a0;
++ (id)numberWithUnsignedInt:(unsigned long long)a0;
++ (id)numberWithInt:(long long)a0;
++ (id)numberWithUnsignedChar:(unsigned char)a0;
++ (id)numberWithLong:(long long)a0;
++ (id)numberWithUnsignedLong:(unsigned long long)a0;
++ (id)numberWithLongLong:(long long)a0;
++ (id)numberWithUnsignedShort:(unsigned short)a0;
++ (id)numberWithFloat:(float)a0;
++ (id)numberWithDouble:(double)a0;
++ (id)numberWithShort:(short)a0;
++ (id)zero;
++ (id)one;
++ (id)numberWithChar:(char)a0;
++ (id)nan;
++ (id)floatWithNumber:(id)a0;
++ (id)doubleWithNumber:(id)a0;
++ (id)decimalWithNumber:(id)a0;
++ (id)integerWithNumber:(id)a0;
++ (id)negInf;
++ (id)posInf;
++ (id)dayTimeDurationWithSeconds:(double)a0;
++ (id)implicitTimeZone;
++ (BOOL)isSpecial:(id)a0;
++ (id)numberWithDecimal:(struct { unsigned char x0 : 8; unsigned char x1 : 4; unsigned char x2 : 1; unsigned char x3 : 1; unsigned int x4 : 18; unsigned short x5[8]; })a0;
++ (id)yearMonthDurationWithMonths:(long long)a0;
++ (id)yearMonthDurationWithString:(id)a0;
++ (id)dayTimeDurationWithString:(id)a0;
++ (id)nonPositiveIntegerWithNumber:(id)a0;
++ (id)negativeIntegerWithNumber:(id)a0;
++ (id)longWithNumber:(id)a0;
++ (id)intWithNumber:(id)a0;
++ (id)shortWithNumber:(id)a0;
++ (id)byteWithNumber:(id)a0;
++ (id)nonNegativeIntegerWithNumber:(id)a0;
++ (id)unsignedLongWithNumber:(id)a0;
++ (id)unsignedIntWithNumber:(id)a0;
++ (id)unsignedShortWithNumber:(id)a0;
++ (id)unsignedByteWithNumber:(id)a0;
++ (id)positiveIntegerWithNumber:(id)a0;
+
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithChar:(char)a0;
+- (id)initWithUnsignedChar:(unsigned char)a0;
+- (id)initWithShort:(short)a0;
+- (id)initWithUnsignedShort:(unsigned short)a0;
+- (id)initWithLong:(long long)a0;
+- (id)initWithLongLong:(long long)a0;
+- (id)initWithUnsignedLongLong:(unsigned long long)a0;
+- (id)initWithDouble:(double)a0;
+- (const char *)objCType;
+- (char)charValue;
+- (unsigned char)unsignedCharValue;
+- (short)shortValue;
+- (unsigned short)unsignedShortValue;
+- (int)intValue;
+- (unsigned int)unsignedIntValue;
+- (long long)longValue;
+- (unsigned long long)unsignedLongValue;
+- (float)floatValue;
+- (double)doubleValue;
+- (long long)longLongValue;
+- (unsigned long long)unsignedLongLongValue;
+- (BOOL)boolValue;
+- (long long)compare:(id)a0;
+- (BOOL)isEqualToNumber:(id)a0;
+- (id)descriptionWithLocale:(id)a0;
+- (id)stringValue;
+- (void)getValue:(void *)a0;
+- (void)setType:(long long)a0;
+- (struct { unsigned char x0 : 8; unsigned char x1 : 4; unsigned char x2 : 1; unsigned char x3 : 1; unsigned int x4 : 18; unsigned short x5[8]; })decimalValue;
+- (id)initWithBool:(BOOL)a0;
+- (id)initWithInteger:(long long)a0;
+- (id)initWithUnsignedInteger:(unsigned long long)a0;
+- (id)initWithUnsignedLong:(unsigned long long)a0;
+- (id)initWithFloat:(float)a0;
+- (id)XQueryStringValue;
+- (id)XQueryCastAs:(long long)a0 forContext:(id)a1;
+- (long long)XQueryTypeID;
+- (id)initWithNumber:(id)a0 type:(long long)a1;
+
+@end

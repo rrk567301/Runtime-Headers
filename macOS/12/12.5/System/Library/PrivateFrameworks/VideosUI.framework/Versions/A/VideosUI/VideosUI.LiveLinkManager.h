@@ -1,0 +1,13 @@
+@interface VideosUI.LiveLinkManager : NSObject <ICLiveLinkDelegate> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ liveLink;
+    void /* unknown type, empty encoding */ liveLinkTimeoutWorkItem;
+}
+
+- (void)didStopLiveLink:(id)a0;
+- (void)liveLink:(id)a0 didEncounterError:(id)a1 willRetry:(BOOL)a2;
+- (void)didStartLiveLink:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

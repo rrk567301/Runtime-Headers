@@ -1,0 +1,13 @@
+@class NSString;
+
+@interface CHIPQRCodeSetupPayloadParser : NSObject {
+    NSString *_base38Representation;
+    void *_chipQRCodeSetupPayloadParser;
+}
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithBase38Representation:(id)a0;
+- (id)populatePayload:(id *)a0;
+
+@end

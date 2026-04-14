@@ -1,0 +1,50 @@
+@class NSObject, NSError, NSXPCConnection;
+@protocol OS_dispatch_queue;
+
+@interface MIInstallerClient : NSObject <MobileInstallerDelegateProtocol> {
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _delegatesCompleteCondMutex;
+    struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } _delegatesCompleteCond;
+}
+
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (copy, nonatomic) id /* block */ progressBlock;
+@property (copy, nonatomic) id /* block */ appDictionaryEnumBlock;
+@property (nonatomic) BOOL delegatesComplete;
+@property (retain, nonatomic) NSError *delegatesCompleteError;
+
++ (id)installerWithProgressBlock:(id /* block */)a0;
++ (id)installerWithAppDictionaryEnumerator:(id /* block */)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)setTestMode:(id *)a0;
+- (void)_invalidateObject;
+- (void)reportProgress:(id)a0;
+- (void)fetchInfoForAppWithBundleID:(id)a0 wrapperURL:(id)a1 completion:(id /* block */)a2;
+- (void)dieForTesting;
+- (void)delegateMessageDeliveryCompleteWithError:(id)a0;
+- (id)_waitForPendingDelegateMessages;
+- (void)installURL:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)uninstallIdentifiers:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)lookupUninstalledWithOptions:(id)a0 completion:(id /* block */)a1;
+- (void)clearUninstalledIdentifiers:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)fetchInstalledDeveloperAppsWithMountPath:(id)a0 completion:(id /* block */)a1;
+- (void)enumerateInstalledAppsWithOptions:(id)a0 completion:(id /* block */)a1;
+- (void)fetchInfoForFrameworkAtURL:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)fetchInfoForContainerizedAppWithBundleID:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)updateSinfForLSWithIdentifier:(id)a0 wrapperURL:(id)a1 sinfData:(id)a2 completion:(id /* block */)a3;
+- (void)updateiTunesMetadataForLSWithIdentifier:(id)a0 wrapperURL:(id)a1 plistData:(id)a2 completion:(id /* block */)a3;
+- (void)fetchDiskUsageForIdentifiers:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)checkCapabilities:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)updatePlaceholderMetadataForApp:(id)a0 installType:(unsigned long long)a1 failureReason:(unsigned long long)a2 underlyingError:(id)a3 failureSource:(unsigned long long)a4 completion:(id /* block */)a5;
+- (void)getAppMetadataForApp:(id)a0 completion:(id /* block */)a1;
+- (void)enumerateAppDictionary:(id)a0 error:(id)a1;
+- (int)pidForTesting;
+- (BOOL)endTestMode:(id *)a0;
+- (BOOL)getTestModeEnabled:(BOOL *)a0 outError:(id *)a1;
+- (BOOL)setTestFlags:(unsigned long long)a0 withError:(id *)a1;
+- (BOOL)clearTestFlags:(unsigned long long)a0 withError:(id *)a1;
+
+@end

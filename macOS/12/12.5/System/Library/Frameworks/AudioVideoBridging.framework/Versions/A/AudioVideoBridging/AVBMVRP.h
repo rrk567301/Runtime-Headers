@@ -1,0 +1,18 @@
+@class NSMutableArray;
+
+@interface AVBMVRP : AVBMRP {
+    NSMutableArray *clients;
+}
+
++ (id)diagnosticDescriptionForService:(id)a0 withIndent:(id)a1;
++ (id)IOClassName;
+
+- (void).cxx_destruct;
+- (void)addClient:(id)a0;
+- (void)removeClient:(id)a0;
+- (void)serviceTerminated;
+- (void)callbackWithArgs:(unsigned long long *)a0 argCount:(unsigned int)a1;
+- (BOOL)registerVLANID:(unsigned short)a0;
+- (BOOL)deregisterVLANID:(unsigned short)a0;
+
+@end

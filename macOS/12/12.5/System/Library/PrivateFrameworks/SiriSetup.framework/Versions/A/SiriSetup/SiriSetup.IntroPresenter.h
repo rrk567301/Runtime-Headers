@@ -1,0 +1,13 @@
+@interface SiriSetup.IntroPresenter : NSObject {
+    void /* unknown type, empty encoding */ dataSource;
+    void /* unknown type, empty encoding */ viewModel;
+    void /* unknown type, empty encoding */ viewStyle;
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ presentingViewController;
+    void /* unknown type, empty encoding */ checkboxCheckedMac;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+
+@end

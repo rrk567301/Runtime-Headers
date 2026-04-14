@@ -1,0 +1,35 @@
+@class NSString, AFSettingsConnection, AFInstanceContext, AFMyriadInstrumentation, NSObject, AFPreferences;
+@protocol OS_dispatch_queue;
+
+@interface AFMyriadGoodnessScoreEvaluator : NSObject <AFSettingsDelegate> {
+    NSObject<OS_dispatch_queue> *_queue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _scoreEvaluationLock;
+    unsigned char _myriadPlatformBias;
+    AFInstanceContext *_deviceInstanceContext;
+    unsigned long long _platformBiasAcquisitionState;
+    AFPreferences *_pref;
+    AFSettingsConnection *_settingsConnection;
+    AFMyriadInstrumentation *_myriadInstrumentation;
+}
+
+@property (readonly, nonatomic) BOOL evaluateForAudioAccessory;
+@property (nonatomic) double lastActivationTime;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)preheat;
+- (void)_settingsConnectionDidDisconnect;
+- (id)initWithDeviceInstanceContext:(id)a0 preferences:(id)a1 queue:(id)a2 instrumentation:(id)a3;
+- (void)_fetchDevicePlatformBiasIfRequired;
+- (unsigned char)getRecentBump:(double)a0 ignoreAdjustedBoost:(BOOL)a1;
+- (void)_updatePlatformBias:(unsigned char)a0;
+- (unsigned char)getPlatformBias;
+- (unsigned char)bumpGoodnessScore:(id)a0 lastActivationTime:(double)a1 mediaPlaybackInterruptedTime:(double)a2 ignoreAdjustedBoost:(BOOL)a3;
+- (id)initWithDeviceInstanceContext:(id)a0 queue:(id)a1;
+- (id)initWithDeviceInstanceContext:(id)a0 preferences:(id)a1 queue:(id)a2;
+- (unsigned char)getMyriadAdjustedBoostForGoodnessScoreContext:(id)a0;
+
+@end

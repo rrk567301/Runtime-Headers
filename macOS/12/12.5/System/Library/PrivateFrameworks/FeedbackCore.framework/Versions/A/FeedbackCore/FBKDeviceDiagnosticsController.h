@@ -1,0 +1,93 @@
+@class NSArray, NSSet, FBKDeviceManager, NSMutableDictionary, FBKAttachmentManager, NSString;
+@protocol FBKDeviceDiagnosticsDelegate, FBKFilerForm;
+
+@interface FBKDeviceDiagnosticsController : NSObject <FBKAttachmentManagerDelegate, FBKFilerArchiving>
+
+@property (class, nonatomic, readonly) BOOL AttachmentCollectionLoggingEnabled;
+
+@property (nonatomic, readonly) NSArray *devicesInPlay;
+@property (nonatomic, readonly) NSArray *devicesForSubmission;
+@property (nonatomic, readonly) NSArray *sortedDevicesInPlay;
+@property (nonatomic, readonly) NSSet *currentMatcherPredicates;
+@property (nonatomic, readonly) NSSet *additionalMatcherPredicates;
+@property (nonatomic, readonly) NSSet *availableDevices;
+@property (nonatomic, readonly) NSSet *availableDevicesNotInPlay;
+@property (nonatomic, readonly) BOOL isCurrentDeviceReady;
+@property (nonatomic, readonly) long long removeDeviceMaxRetry;
+@property (nonatomic, readonly) BOOL hasAttachmentsForUpload;
+@property (nonatomic, readonly) NSArray *devicesStillStarting;
+@property (nonatomic, readonly) FBKAttachmentManager *currentDeviceAttachmentManager;
+@property (weak, nonatomic) id<FBKDeviceDiagnosticsDelegate> delegate;
+@property (nonatomic) long long state;
+@property (retain, nonatomic) FBKDeviceManager *deviceManager;
+@property (retain, nonatomic) id<FBKFilerForm> filerForm;
+@property (retain, nonatomic) NSMutableDictionary *cachedDiffableIdentifiersTable;
+@property (retain, nonatomic) NSSet *previousMatcherPredicates;
+@property (readonly, nonatomic) NSSet *currentMatcherPredicates;
+@property (readonly, nonatomic) NSString *formPlatform;
+@property (retain, nonatomic) NSSet *removedDevices;
+@property (retain, nonatomic) NSSet *ignoredMatchers;
+@property (nonatomic) BOOL addedCurrentDeviceNeedsMatcherPredicateEvaluation;
+@property (retain, nonatomic) NSArray *attachmentCollections;
+@property (retain, nonatomic) id deviceDiagnosticsCombineObject;
+@property (retain, nonatomic) id filesBeingCopiedCount;
+
++ (id)filteredMatcherPredicatesForMatchers:(id)a0 ignoredMatcherPredicates:(id)a1;
++ (id)matchersForDevice:(id)a0 withGivenMatchers:(id)a1 canMatchVisibleDevices:(BOOL)a2 formPlatform:(id)a3;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)removeAllAttachments;
+- (void)addDevice:(id)a0;
+- (void)removeDevice:(id)a0;
+- (BOOL)removeAttachment:(id)a0;
+- (void)gatherAllMissingRequirementsWithAnswers:(id)a0;
+- (BOOL)hasUnmetRequirementAttachments;
+- (void)abortAllSessions;
+- (id)initWithDeviceManager:(id)a0 delegate:(id)a1 filerForm:(id)a2 pendingFileUrls:(id)a3 pendingURLExtensions:(id)a4 draftDeviceIds:(id)a5;
+- (BOOL)hasFilePromises;
+- (void)copyFileFrom:(id)a0;
+- (BOOL)deviceHasAnyAttachmentsWithDevice:(id)a0;
+- (void)gatherAttachment:(id)a0 answers:(id)a1;
+- (void)reevaluateMatcherPredicates;
+- (void)addAttachmentWithItemProvider:(id)a0;
+- (id)generateSnapshotIdentifiersTrackingLastDevice:(BOOL)a0;
+- (id)maybeDeviceWithIdentifier:(id)a0;
+- (id)maybeAttachmentWithIdentifier:(id)a0;
+- (void)updateFilesBeingCopiedCountCancellable;
+- (id)devicesMatching:(id)a0 withConfiguredDevices:(id)a1;
+- (void)finishInitializationWithChosenDevices:(id)a0 matcherPredicates:(id)a1 pendingFileUrls:(id)a2 pendingURLExtensions:(id)a3;
+- (void)requestDeviceChoiceButDontBeAnnoyingWithGivenDeviceChoices:(id)a0 matcherPredicates:(id)a1 needsChoices:(id /* block */)a2;
+- (void)updateAttachmentCollectionObserver:(id)a0 formResponse:(id)a1;
+- (void)commitAllFilesForForm:(id)a0 withCompletion:(id /* block */)a1;
+- (id)deviceDataForSubmission;
+- (void)updateIgnoredMatchers;
+- (void)logAttachmentCollections;
+- (void)finishUpReevaluationWithRemainingMatcherPredicates:(id)a0;
+- (void)addFileFrom:(id)a0 moveFile:(BOOL)a1;
+- (void)removeDevice:(id)a0 retryCount:(long long)a1;
+- (id)managerForAttachment:(id)a0;
+- (BOOL)canCancelAttachmentCollection:(id)a0;
+- (id)attachmentsForDevice:(id)a0;
+- (id)deviceForAttachment:(id)a0;
+- (id)matcherPredicateToDeviceMapWithMatcherPredicates:(id)a0 devices:(id)a1;
+- (id)devicesUniquelyMatchedWithMatcherPredicates:(id)a0 devices:(id)a1;
+- (BOOL)hasAttachmentsCollecting;
+- (id)deviceForIndexPath:(id)a0;
+- (id)attachmentForIndexPath:(id)a0;
+- (void)moveFileFrom:(id)a0;
+- (void)postLaunchAttachLocalFiles:(id)a0;
+- (BOOL)hasAnyAttachments;
+- (BOOL)canDeleteAttachment:(id)a0;
+- (id)unreachableDevicesInPlay;
+- (BOOL)canRemoveDevice:(id)a0;
+- (id)additionalDeviceCandidates;
+- (void)attachmentManager:(id)a0 didStartAttaching:(id)a1;
+- (void)attachmentManager:(id)a0 didFinishAttaching:(id)a1 error:(id)a2;
+- (void)attachmentManager:(id)a0 didFailToAttach:(id)a1 withError:(id)a2;
+- (void)attachmentManager:(id)a0 didRemoveAttachment:(id)a1 atIndex:(long long)a2;
+- (void)attachmentManager:(id)a0 didAddAttachment:(id)a1 atIndex:(long long)a2;
+- (void)attachmentManager:(id)a0 didUpdateAttachment:(id)a1 atIndex:(long long)a2;
+- (void)attachmentManager:(id)a0 didStartBugSessionsForDevice:(id)a1 success:(BOOL)a2;
+
+@end

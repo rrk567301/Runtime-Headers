@@ -1,0 +1,87 @@
+@class NSArray, NSString, NSMutableSet, NSMenu, NSMenuItem, BrowserDiagnosticLoggingDelegate;
+
+@interface DevelopMenuController : NSObject <RWITargetDelegate, NSMenuDelegate> {
+    NSMenuItem *_developMenuItem;
+    NSMenuItem *_highlightedRemoteWebInspectorMenuItem;
+    NSMenu *_userAgentMenu;
+    NSMenu *_openWithMenu;
+    NSMenu *_experimentalFeaturesMenu;
+    NSMenu *_serviceWorkersMenu;
+    NSMenu *_webExtensionBackgroundPagesMenu;
+    NSMenuItem *_getSafariTechnologyPreviewMenuItem;
+    BOOL _developMenuOpen;
+    NSArray *_userAgents;
+    struct optional<unsigned long long> { union { char __null_state_; unsigned long long __val_; } ; BOOL __engaged_; } _notificationHandlerID;
+    BrowserDiagnosticLoggingDelegate *_sharedInspectorDiagnosticLoggingDelegate;
+    NSMutableSet *_uuidsOfWebExtensionBackgroundPagesToInspect;
+}
+
+@property (readonly, nonatomic, getter=isMenuInstalled) BOOL menuInstalled;
+@property (readonly) NSArray *userAgents;
+@property (readonly) NSString *iPhoneUserAgent;
+@property (readonly) NSString *iPadUserAgent;
+@property (readonly) NSString *iPadMiniUserAgent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedController;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (BOOL)menuHasKeyEquivalent:(id)a0 forEvent:(id)a1 target:(id *)a2 action:(SEL *)a3;
+- (void)menuWillOpen:(id)a0;
+- (void)menuDidClose:(id)a0;
+- (void)menu:(id)a0 willHighlightItem:(id)a1;
+- (BOOL)updateMenu:(id)a0 withEvent:(id)a1 withFlags:(unsigned long long)a2;
+- (void)pairWithDevice:(id)a0;
+- (void)_setDeveloperExtrasEnabled:(BOOL)a0;
+- (void)installMenuWithCompletionHandler:(id /* block */)a0;
+- (void)removeMenu;
+- (id)_noWebExtensionBackgroundPagesMenuItem;
+- (void)_handleRWINotification:(id)a0;
+- (void)_updateMenuForTarget:(id)a0;
+- (void)_configureAutomaticInspectionForTarget:(id)a0;
+- (void)_removeMenuForTarget:(id)a0;
+- (id)_titleForWebExtensionDebuggable:(id)a0 webExtension:(id)a1;
+- (void)_inspectDebuggable:(id)a0;
+- (BOOL)_autoPauseSettingForTarget:(id)a0;
+- (id)_autoAttachPreferenceKeyForTarget:(id)a0;
+- (id)_autoPausePreferenceKeyForTarget:(id)a0;
+- (BOOL)_autoAttachSettingForTarget:(id)a0;
+- (BOOL)_toggleAttachSettingForTarget:(id)a0;
+- (BOOL)_togglePauseSettingForTarget:(id)a0;
+- (void)_actuallyInstallMenu;
+- (void)_requestAllDeveloperModeExtensions:(id /* block */)a0;
+- (void)showSnippetEditor:(id)a0;
+- (void)_registerForRWINotifications;
+- (void)_invalidateAllDeveloperModeExtensions;
+- (void)_unregisterForRWINotifications;
+- (void)_updateServiceWorkerMenuItems;
+- (void)_updateWebExtensionBackgroundPagesMenuMenuItems;
+- (id)_generateRemoteInspectorTargetMenuItems;
+- (id)_menuItemForTarget:(id)a0;
+- (void)_updateMenuItem:(id)a0 forTarget:(id)a1;
+- (id)_createMenuItemForTarget:(id)a0;
+- (void)_insertMenuItem:(id)a0 forTarget:(id)a1;
+- (void)_updateMenuItem:(id)a0 forDevice:(id)a1;
+- (void)_updateMenuItem:(id)a0 forSimulator:(id)a1;
+- (void)_updateMenuItem:(id)a0 forMachine:(id)a1;
+- (void)_updateSubmenu:(id)a0 forTarget:(id)a1;
+- (id)_menuItemForDebuggable:(id)a0 title:(id)a1;
+- (void)_toggleAutoAttach:(id)a0;
+- (void)_toggleAutoPause:(id)a0;
+- (void)_toggleWirelessDebugging:(id)a0;
+- (void)inspectDebuggable:(id)a0;
+- (void)inspectUnloadedBackgroundPage:(id)a0;
+- (id)_noServiceWorkersMenuItem;
+- (id)_menuItemForWebExtensionWithUnloadedBackgroundPage:(id)a0;
+- (void)_indicate:(id)a0 enabled:(BOOL)a1;
+- (BOOL)_isRemoteWebInspectorMenuItem:(id)a0;
+- (void)target:(id)a0 decidePolicyForAutomaticInspectionCandidate:(id)a1 decisionHandler:(id /* block */)a2;
+- (void)application:(id)a0 didAddDebuggable:(id)a1;
+- (void)application:(id)a0 didRemoveDebuggable:(id)a1;
+
+@end

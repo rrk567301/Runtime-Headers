@@ -1,0 +1,21 @@
+@class NSString, NSData, VCPPhotosFace;
+
+@interface VCPFaceCrop : NSObject {
+    NSData *_faceCropData;
+    VCPPhotosFace *_originatingFace;
+    struct CGSize { double width; double height; } _cachedImageDimensions;
+}
+
+@property (readonly, copy, nonatomic) NSString *localIdentifier;
+@property (nonatomic) short state;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (struct CGSize { double x0; double x1; })imageDimensions;
+- (id)faceCropData;
+- (id)initWithLocalIdentifier:(id)a0 faceCropData:(id)a1;
+- (id)initWithFaceCropData:(id)a0 originatingFace:(id)a1;
+- (id)originatingFace;
+
+@end

@@ -1,0 +1,94 @@
+@class NSTouch, NSWidgetView, NSString;
+
+@interface NSSwitch : NSControl <NSAccessibilitySwitch> {
+    NSWidgetView *_trackView;
+    NSWidgetView *_shadowView;
+    NSWidgetView *_knobView;
+    NSWidgetView *_axIndicatorView;
+    NSWidgetView *_knobMaskView;
+    struct { double scaleFactor; unsigned long long controlSize; BOOL isActive; BOOL isEnabled; BOOL isHighlighted; BOOL isOn; BOOL isRTL; } _lastDrawnState;
+    struct { long long startModelState; struct CGPoint { double x; double y; } startPointInTrackCoordinates; BOOL everDraggedToDifferentState; BOOL mustToggleByDistance; } _currentTrackingState;
+}
+
+@property (readonly) NSWidgetView *_trackView;
+@property (readonly) NSWidgetView *_shadowView;
+@property (readonly) NSWidgetView *_knobView;
+@property (readonly) NSWidgetView *_axIndicatorView;
+@property (readonly) NSWidgetView *_knobMaskView;
+@property (setter=_setPresentationStateOverride:) long long _presentationStateOverride;
+@property (readonly) long long _presentationState;
+@property (readonly) struct { double x0; unsigned long long x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; } _currentDrawingState;
+@property (retain) NSTouch *_trackingTouch;
+@property long long state;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)cellClass;
++ (BOOL)accessibilityIsSingleCelled;
++ (Class)_controlClassSupportingNoCell;
++ (Class)_defaultCellClass;
++ (BOOL)_controlClassSupportsNoCell;
++ (id)keyPathsForValuesInvalidatingLayout;
++ (id)keyPathsForValuesAffectingState;
+
+- (void)dealloc;
+- (void)setEnabled:(BOOL)a0;
+- (void)layout;
+- (void)setControlSize:(unsigned long long)a0;
+- (BOOL)wantsUpdateLayer;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (void)setHighlighted:(BOOL)a0;
+- (id)accessibilitySubrole;
+- (Class)_animatorClass;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (id)accessibilityLabel;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilityActionNames;
+- (id)accessibilityActionDescription:(id)a0;
+- (void)accessibilityPerformAction:(id)a0;
+- (void)performClick:(id)a0;
+- (void)sizeToFit;
+- (BOOL)accessibilityPerformDecrement;
+- (BOOL)accessibilityPerformIncrement;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityValue;
+- (id)designatedFocusRingView;
+- (id)accessibilityValueAttribute;
+- (void)setCell:(id)a0;
+- (void)_windowChangedKeyState;
+- (void)moveRight:(id)a0;
+- (void)moveLeft:(id)a0;
+- (struct { double x0; double x1; })_baselineOffsetsAtSize:(struct CGSize { double x0; double x1; })a0;
+- (double)firstBaselineOffsetFromTop;
+- (double)baselineOffsetFromBottom;
+- (void)_commonAwake;
+- (unsigned long long)sendActionOnMask;
+- (BOOL)_hitTestForTrackMouseEvent:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2;
+- (void)touchesBeganWithEvent:(id)a0;
+- (void)touchesMovedWithEvent:(id)a0;
+- (void)touchesEndedWithEvent:(id)a0;
+- (void)touchesCancelledWithEvent:(id)a0;
+- (BOOL)_startTrackingAt:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)_continueTrackingFromPoint:(struct CGPoint { double x0; double x1; })a0 toPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)_stopTrackingFromPoint:(struct CGPoint { double x0; double x1; })a0 endingAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)_isRTL;
+- (void)_axDifferentiateWithoutColorDidChange:(id)a0;
+- (BOOL)_drawAsOn;
+- (void)_updateSubviewsForStateChange;
+- (void)_layoutSubviews;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_trackFrameInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_knobFrameInTrackFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 thumbIsOnRight:(BOOL)a1;
+- (void)_toggle;
+- (void)_initializeTrackingStateForInitialPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_updateStateForDragAtPoint:(struct CGPoint { double x0; double x1; })a0 isFinished:(BOOL)a1 isDirectTouch:(BOOL)a2;
+- (BOOL)_hitTestForTouch:(id)a0;
+- (long long)_stateForDragAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_performHapticFeedbackIfEligible;
+- (BOOL)_shouldToggleForEndTrackingAtPoint:(struct CGPoint { double x0; double x1; })a0;
+
+@end

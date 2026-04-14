@@ -1,0 +1,9 @@
+@interface SNLPPommesServerClassifier : SNLPITFMClassifier
+
+@property (nonatomic) float confidenceThreshold;
+
++ (id)classifierWithPathURL:(id)a0 error:(id *)a1;
+
+- (id)responseForRequest:(id)a0 error:(id *)a1;
+
+@end

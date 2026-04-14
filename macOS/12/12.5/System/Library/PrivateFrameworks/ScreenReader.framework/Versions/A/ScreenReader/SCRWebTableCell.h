@@ -1,0 +1,75 @@
+@class NSArray, SCRElement;
+
+@interface SCRWebTableCell : SCRMapElement <SCRCellElementProtocol> {
+    unsigned long long _childIndex;
+    NSArray *_stitchedTextElements;
+    long long _childrenCount;
+    SCRElement *_readContentsElement;
+    long long _cachedChildIndex;
+}
+
+- (void).cxx_destruct;
+- (id)typeDescription;
+- (unsigned long long)columnIndex;
+- (BOOL)isSelected;
+- (unsigned long long)rowIndex;
+- (BOOL)hasChildren;
+- (BOOL)requiresInteraction;
+- (id)spanInfo;
+- (long long)_childIndex;
+- (id)onlyChild;
+- (void)addItemNameToRequest:(id)a0;
+- (id)firstChildForFocusing;
+- (BOOL)shouldIncludeInItemChooser;
+- (BOOL)focusInto:(id)a0 event:(id)a1;
+- (id)initWithUIElement:(id)a0 parent:(id)a1;
+- (id)prepareArrayToFocusInto;
+- (BOOL)defersKeyboardHelpCommandsToParent;
+- (id)titleDescription;
+- (BOOL)allowFocusThroughSingleChild;
+- (BOOL)handleEvent:(id)a0 request:(id)a1;
+- (void)beginFocusFromElement:(id)a0 withEvent:(id)a1;
+- (void)endFocus;
+- (BOOL)performDefaultActionWithRequest:(id)a0 allowClick:(BOOL)a1;
+- (Class)classForChildUIElement:(id)a0 parent:(id)a1;
+- (id)readContentsElement;
+- (long long)groupBehavior;
+- (BOOL)interactUpShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)interactDownShiftWithEvent:(id)a0 request:(id)a1;
+- (BOOL)moveToFirstElementWithEvent:(id)a0 request:(id)a1;
+- (BOOL)moveToLastElementWithEvent:(id)a0 request:(id)a1;
+- (id)focusOntoUIElement:(id)a0 withScrolling:(BOOL)a1 withSelection:(BOOL)a2;
+- (unsigned long long)readContentsElementCount;
+- (void)prepareReadContentsElementVisibleOnly:(BOOL)a0;
+- (void)forgetReadContentsElement;
+- (id)childrenInReadContentsOrder;
+- (id)itemDescriptionForEcho;
+- (id)parentTable;
+- (BOOL)shouldInterceptUpShiftEvent;
+- (BOOL)needToRebuildChildren;
+- (void)addItemDescriptionForInteractionToRequest:(id)a0;
+- (id)coordinatesInfo;
+- (unsigned long long)rowSpanCount;
+- (unsigned long long)columnSpanCount;
+- (BOOL)allowMappingIfZeroSize;
+- (void)addItemDescriptionForEndInteractionToRequest:(id)a0;
+- (id)lastChildForFocusing;
+- (long long)brailleLineType;
+- (void)addItemDescriptionForBrailleToRequest:(id)a0;
+- (BOOL)shouldPromoteUIElement:(id)a0;
+- (void)addContentToRequest:(id)a0 visibleOnly:(BOOL)a1;
+- (void)_setChildIndex:(long long)a0;
+- (id)onlyChildForFocusingIntoInArray:(id)a0;
+- (void)recordStateDueToInvalidFocusedChild;
+- (void)restoreStateDueToInvalidFocusedChild:(id)a0;
+- (BOOL)canWrapWhileNavigating;
+- (id)childInAXOrderForward:(BOOL)a0 horizontal:(BOOL)a1 visibleOnly:(BOOL)a2 wrapped:(BOOL *)a3 didHitBoundary:(BOOL *)a4 startElement:(id)a5;
+- (id)highlightTarget;
+- (BOOL)containsStitchedText;
+- (id)stitchedTextElements;
+- (void)appendSortOrderStatusDescription:(id)a0;
+- (BOOL)allowInteractableElementFeedback;
+- (id)emptyCellDescription;
+- (BOOL)_isInTable;
+
+@end

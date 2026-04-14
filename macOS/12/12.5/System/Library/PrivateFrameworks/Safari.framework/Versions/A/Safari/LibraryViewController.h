@@ -1,0 +1,96 @@
+@class NSString, WBTabGroupManager, LibraryOutlineView, LibraryTableCellView, NSMutableDictionary, LibraryItemTabGroup, LibraryItemHeader, NSMutableArray;
+@protocol LibraryViewControllerDelegate;
+
+@interface LibraryViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, LibraryOutlineViewDelegate, LibraryTableCellViewDelegate, WBTabGroupManagerObserver, CustomKeyViewLoop, SidebarContentViewController> {
+    NSMutableArray *_libraryItems;
+    WBTabGroupManager *_tabGroupManager;
+    NSMutableDictionary *_tabGroupToLibraryItemDictionary;
+    NSMutableArray *_libraryTabGroupItems;
+    LibraryItemHeader *_tabGroupsHeaderItem;
+    unsigned long long _numberOfTabGroupItems;
+    LibraryItemTabGroup *_localTabGroupItem;
+    BOOL _ignoreSelectionDidChangeNotification;
+    BOOL _shouldStartEditingOnCellViewCreation;
+    BOOL _delayUpdatingTabGroups;
+    BOOL _pauseTabGroupUpdates;
+    LibraryTableCellView *_fromFriendsLibraryTableCellView;
+    BOOL _highlightCenterIsEnabled;
+}
+
+@property (weak) LibraryOutlineView *outlineView;
+@property (readonly, nonatomic) BOOL isEditingSelectedGroupTitle;
+@property (nonatomic) double topMargin;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } bookmarksTargetFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } readingListTargetFrame;
+@property (weak, nonatomic) id<LibraryViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)saveSidebarWidth:(double)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)viewDidLoad;
+- (void)viewDidAppear;
+- (long long)outlineView:(id)a0 numberOfChildrenOfItem:(id)a1;
+- (id)outlineView:(id)a0 child:(long long)a1 ofItem:(id)a2;
+- (BOOL)outlineView:(id)a0 isItemExpandable:(id)a1;
+- (id)outlineView:(id)a0 objectValueForTableColumn:(id)a1 byItem:(id)a2;
+- (void)outlineViewSelectionDidChange:(id)a0;
+- (void)outlineViewItemDidExpand:(id)a0;
+- (BOOL)outlineView:(id)a0 shouldSelectItem:(id)a1;
+- (BOOL)outlineView:(id)a0 isGroupItem:(id)a1;
+- (id)outlineView:(id)a0 viewForTableColumn:(id)a1 item:(id)a2;
+- (id)outlineView:(id)a0 rowViewForItem:(id)a1;
+- (BOOL)outlineView:(id)a0 shouldShowOutlineCellForItem:(id)a1;
+- (unsigned long long)outlineView:(id)a0 validateDrop:(id)a1 proposedItem:(id)a2 proposedChildIndex:(long long)a3;
+- (id)outlineView:(id)a0 pasteboardWriterForItem:(id)a1;
+- (BOOL)outlineView:(id)a0 acceptDrop:(id)a1 item:(id)a2 childIndex:(long long)a3;
+- (id)_browserWindowController;
+- (id)_contextMenuBuilderForRow:(long long)a0;
+- (id)safari_keyViews;
+- (void)wasInstalledBySidebarViewController:(id)a0;
+- (id)tabGroups;
+- (void)updateTabGroups;
+- (void)selectTabGroup:(id)a0;
+- (void)startEditingSelectedGroupTitle;
+- (void)updateLocalTabGroupTitle;
+- (void)outlineView:(id)a0 didPressAndHoldToEditRowAtIndex:(long long)a1;
+- (BOOL)outlineView:(id)a0 shouldEditOnDoubleClick:(id)a1 inRow:(long long)a2 tableColumn:(id)a3;
+- (BOOL)outlineView:(id)a0 shouldEditOnSingleClick:(id)a1 inRow:(long long)a2 tableColumn:(id)a3;
+- (id)outlineView:(id)a0 menuForEvent:(id)a1 inRow:(long long)a2 tableColumn:(id)a3;
+- (BOOL)outlineViewShouldChangeSelectionWhenContextMenuAppears:(id)a0;
+- (void)tabGroupManagerDidFinishSetup:(id)a0;
+- (void)tabGroupManagerDidUpdateTabGroups:(id)a0;
+- (void)tabGroupManager:(id)a0 didUpdateTabGroup:(id)a1;
+- (BOOL)outlineView:(id)a0 shouldClickTableColumn:(id)a1 row:(long long)a2 event:(id)a3;
+- (void)outlineView:(id)a0 didClickTableColumn:(id)a1 row:(long long)a2 event:(id)a3;
+- (void)_rowClicked:(id)a0;
+- (void)_highlightCenterEnablementDidChange:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_targetFrameForItemType:(long long)a0;
+- (id)_selectedTabGroupLibraryCellView;
+- (void)_showTabOverview:(id)a0;
+- (id /* block */)_createTabGroupFromThisWindowHandler:(id)a0;
+- (id /* block */)_renameHandlerForRow:(unsigned long long)a0;
+- (id /* block */)_deleteHandlerForTabGroup:(id)a0;
+- (id /* block */)_tabOverviewHandlerForTabGroup:(id)a0;
+- (id /* block */)_copyLinksHandlerForTabGroup:(id)a0;
+- (unsigned long long)_dragOperationWithInfo:(id)a0 item:(id)a1 childIndex:(long long)a2;
+- (id)_tabGroupForDraggingInfo:(id)a0;
+- (BOOL)_isLibraryItem:(id)a0 draggableAtIndex:(long long)a1;
+- (id)_selectedLibraryItemTabGroup;
+- (void)_buildLibraryItems;
+- (void)_reselectTabGroup:(id)a0;
+- (id)_receivedLinksLibraryItem;
+- (BOOL)_libraryItemsContainsReceivedLinks;
+- (unsigned long long)_bestIndexToShowReceivedLinks;
+- (unsigned long long)_indexOfReceivedLinks;
+- (unsigned long long)_indexOfHeaderItemOfType:(long long)a0;
+- (void)pauseTabGroupUpdatesForEditingLibraryTableCellView:(id)a0;
+- (void)resumeTabGroupUpdatesForEditingLibraryTableCellView:(id)a0;
+- (void)libraryTableCellViewTitleDidChange:(id)a0;
+
+@end

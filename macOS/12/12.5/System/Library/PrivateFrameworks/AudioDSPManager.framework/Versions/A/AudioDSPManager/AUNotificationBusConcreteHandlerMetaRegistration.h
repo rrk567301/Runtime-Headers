@@ -1,0 +1,3 @@
+@interface AUNotificationBusConcreteHandlerMetaRegistration : AUNotificationBusConcreteHandlerRegistration
+
+@end

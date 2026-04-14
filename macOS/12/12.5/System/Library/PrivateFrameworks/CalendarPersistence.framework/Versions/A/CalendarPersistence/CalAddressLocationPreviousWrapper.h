@@ -1,0 +1,3 @@
+@interface CalAddressLocationPreviousWrapper : CalAddressPreviousWrapper
+
+@end

@@ -1,0 +1,41 @@
+@class PLPhotoLibraryBundleController, NSString, PLTCCObserver, NSXPCInterface, PLCacheDeleteRegistration, PLBackgroundJobService, NSMutableSet, PLDistributedNotificationHandler, NSXPCListener, PLXPCMessageLogger;
+@protocol PLPhotoLibraryDaemonService;
+
+@interface PLAssetsdServer : NSObject <NSXPCListenerDelegate> {
+    NSXPCListener *_listener;
+    PLXPCMessageLogger *_connectionLogger;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _servicesLock;
+    NSMutableSet *_services;
+    PLPhotoLibraryBundleController *_libraryBundleController;
+    PLBackgroundJobService *_backgroundJobService;
+    PLDistributedNotificationHandler *_distributedNotificationHandler;
+    PLTCCObserver *_tccObserver;
+    NSXPCInterface *_assetsdInterface;
+    PLCacheDeleteRegistration *_cacheDeleteRegistration;
+}
+
+@property (nonatomic) struct { _Atomic unsigned int imageCacheHitCount; _Atomic unsigned int imageCacheMissCount; _Atomic unsigned int videoComplementCacheHitCount; _Atomic unsigned int videoComplementCacheMissCount; } resourceCacheMetrics;
+@property (retain, nonatomic) id<PLPhotoLibraryDaemonService> syndicationSpotlightReceiver;
+@property (retain, nonatomic) id<PLPhotoLibraryDaemonService> syndicationPreferencesListener;
+@property (retain, nonatomic) id<PLPhotoLibraryDaemonService> searchSpotlightReciever;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedServer;
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)start;
+- (void)handleInterruption:(id)a0;
+- (void)addService:(id)a0;
+- (void)removeService:(id)a0;
+- (void)logStatus;
+- (void)_checkInWithLaunchd;
+- (void)_registerSyndicationXPCActivity;
+- (void)_collectCacheMetricsDataFromService:(id)a0;
+- (void)handleInvalidation:(id)a0;
+
+@end

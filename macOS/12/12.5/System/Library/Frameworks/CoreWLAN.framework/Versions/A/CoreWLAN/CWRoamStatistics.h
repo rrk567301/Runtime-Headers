@@ -1,0 +1,30 @@
+@class CWChannel, NSString, NSData, NSDate;
+
+@interface CWRoamStatistics : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long active2GHzProfile;
+@property long long active5GHzProfile;
+@property (copy) NSDate *startedAt;
+@property (copy) NSDate *endedAt;
+@property (copy) NSString *fromBSSID;
+@property (copy) NSString *toBSSID;
+@property (copy) CWChannel *fromChannel;
+@property (copy) CWChannel *toChannel;
+@property long long fromRSSI;
+@property long long toRSSI;
+@property (copy) NSData *ssid;
+@property long long reason;
+@property long long status;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)conformsToProtocol:(id)a0;
+- (unsigned long long)hash;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqualToRoamStatistics:(id)a0;
+
+@end

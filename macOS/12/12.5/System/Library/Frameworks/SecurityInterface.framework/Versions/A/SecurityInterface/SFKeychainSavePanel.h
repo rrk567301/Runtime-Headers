@@ -1,0 +1,39 @@
+@class NSString;
+
+@interface SFKeychainSavePanel : NSSavePanel <NSOpenSavePanelDelegate> {
+    id _reserved_SFKeychainSavePanel;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedKeychainSavePanel;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (id)error;
+- (void)unlock;
+- (int)_result;
+- (void)setPassword:(id)a0;
+- (void)_setDidEndSelector:(SEL)a0;
+- (SEL)_didEndSelector;
+- (long long)runModalForDirectory:(id)a0 file:(id)a1;
+- (void *)_contextInfo;
+- (BOOL)panel:(id)a0 isValidFilename:(id)a1;
+- (void)beginSheetForDirectory:(id)a0 file:(id)a1 modalForWindow:(id)a2 modalDelegate:(id)a3 didEndSelector:(SEL)a4 contextInfo:(void *)a5;
+- (id)_ivars;
+- (struct __SecKeychain { } *)keychain;
+- (void)_setSavedDelegate:(id)a0;
+- (void)_setContextInfo:(void *)a0;
+- (void)_setKeychainFullPathName:(id)a0;
+- (id)_appendSuffixIfNeeded:(id)a0;
+- (id)_savedDelegate;
+- (void)_setStartPath:(id)a0;
+- (void)_setFileName:(id)a0;
+- (void)_saveSheetDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (void)_openDialog:(id)a0 file:(id)a1;
+
+@end

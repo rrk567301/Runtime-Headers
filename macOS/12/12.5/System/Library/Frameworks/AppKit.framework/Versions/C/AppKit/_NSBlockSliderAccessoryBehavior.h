@@ -1,0 +1,12 @@
+@interface _NSBlockSliderAccessoryBehavior : NSSliderAccessoryBehavior
+
+@property (readonly, copy) id /* block */ handler;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithHandler:(id /* block */)a0;
+- (void)handleAction:(id)a0;
+
+@end

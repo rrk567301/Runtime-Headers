@@ -1,0 +1,16 @@
+@class EDSearchableIndexScheduler, EDSearchableIndexPersistence, EDSearchableIndex;
+
+@interface MFSearchableIndexManager_macOS : EDSearchableIndexManager {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _indexLock;
+}
+
+@property (retain, nonatomic) EDSearchableIndex *index;
+@property (retain, nonatomic) EDSearchableIndexPersistence *persistence;
+@property (retain, nonatomic) EDSearchableIndexScheduler *scheduler;
+
+- (void).cxx_destruct;
+- (void)enableIndexingAndBeginScheduling:(BOOL)a0;
+- (void)enableIndexingAndBeginScheduling:(BOOL)a0 budgetConfiguration:(id)a1;
+- (id)initWithDatabase:(id)a0 hookResponder:(id)a1;
+
+@end

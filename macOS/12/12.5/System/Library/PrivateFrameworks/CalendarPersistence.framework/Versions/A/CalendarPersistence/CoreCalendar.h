@@ -1,0 +1,80 @@
+@class NSMutableDictionary, NSMutableArray;
+
+@interface CoreCalendar : CALAbstractEntity {
+    NSMutableDictionary *_uidstorage;
+    NSMutableArray *_orderedstorage;
+    NSMutableDictionary *_shared2local;
+}
+
++ (id)calendar;
++ (id)calendarFromDictionary:(id)a0;
++ (id)calendarWithEntitiesIncludingChildren:(id)a0;
++ (id)calendarWithEntities:(id)a0;
++ (id)calendarWithEntity:(id)a0;
++ (id)calendarWithCalendar:(id)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (id)name;
+- (void).cxx_destruct;
+- (id)setName:(id)a0;
+- (id)version;
+- (int)method;
+- (id)setVersion:(id)a0;
+- (id)color;
+- (id)setColor:(id)a0;
+- (id)events;
+- (id)setMethod:(int)a0;
+- (id)entities;
+- (id)expiration;
+- (id)setDesc:(id)a0;
+- (id)desc;
+- (id)initFromDictionary:(id)a0;
+- (BOOL)hasDesc;
+- (id)calendarType;
+- (void)setCalendarType:(id)a0;
+- (void)addEntities:(id)a0;
+- (id)initWithEntities:(id)a0;
+- (id)setCalscale:(id)a0;
+- (id)calscale;
+- (id)initWithCalendar:(id)a0;
+- (void)markAsClean;
+- (void)addEntity:(id)a0;
+- (void)fixEntitiesRelationship;
+- (id)initWithEntities:(id)a0 copy:(BOOL)a1;
+- (id)initWithEntitiesIncludingChildren:(id)a0;
+- (id)initWithSingleEntity:(id)a0;
+- (void)fixUIDStorage;
+- (id)entityForPrivateID:(id)a0;
+- (id)setProdID:(id)a0;
+- (void)_timeZones:(id)a0 inEntity:(id)a1;
+- (id)timeZonesInCalendar;
+- (void)removeEntity:(id)a0;
+- (void)forceToGMT;
+- (void)generateIDsWithSuffix:(id)a0;
+- (void)generateNewIDs;
+- (id)generateDictionary;
+- (id)relcalid;
+- (id)setRelcalid:(id)a0;
+- (id)prodID;
+- (id)timeZoneHint;
+- (id)setTimeZoneHint:(id)a0;
+- (void)setExpiration:(id)a0;
+- (void)setupStandardProperties;
+- (id)timeZoneIdentifiersInCalendar;
+- (void)addEntityAtStart:(id)a0;
+- (void)replaceEntity:(id)a0 withEntity:(id)a1;
+- (void)removeEntities:(id)a0;
+- (void)removeEntityByPrivateID:(id)a0;
+- (BOOL)containsEntity:(id)a0 withRecurrenceID:(id)a1;
+- (BOOL)containsEntityWithPrivateID:(id)a0;
+- (id)entitiesStartingBefore:(id)a0 includingRecurringEvents:(BOOL)a1;
+- (id)topLevelEntities;
+- (id)initFromVCalData:(id)a0;
+- (int)decodeVCalLine:(id)a0 withParseState:(id)a1;
+- (int)beginVCalEntity:(id)a0 withParseState:(id)a1;
+- (int)endVCalEntity:(id)a0 withParseState:(id)a1;
+- (id)initFromVCalFile:(id)a0;
+
+@end

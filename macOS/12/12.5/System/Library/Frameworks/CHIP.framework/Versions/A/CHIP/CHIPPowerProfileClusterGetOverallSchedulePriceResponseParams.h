@@ -1,0 +1,12 @@
+@class NSNumber;
+
+@interface CHIPPowerProfileClusterGetOverallSchedulePriceResponseParams : NSObject
+
+@property (retain, nonatomic) NSNumber *currency;
+@property (retain, nonatomic) NSNumber *price;
+@property (retain, nonatomic) NSNumber *priceTrailingDigit;
+
+- (id)init;
+- (void).cxx_destruct;
+
+@end

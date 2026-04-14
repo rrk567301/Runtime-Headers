@@ -1,0 +1,96 @@
+@class NSString, NSMutableArray, NSMutableDictionary;
+
+@interface ISDConflictManager : NSObject <ISDChangeSource, NSKeyedUnarchiverDelegate, NSKeyedArchiverDelegate> {
+    NSMutableArray *_conflicts;
+    NSString *_directory;
+    NSMutableArray *_deltaFileNames;
+    unsigned int _lastSyncedGeneration;
+    unsigned long long _flushCount;
+    unsigned long long _nextDeltaNumber;
+    BOOL _validateConflictsOnWrite;
+    BOOL _validateConflictsOnRead;
+    NSMutableDictionary *_deletedRecordMap;
+    NSMutableArray *_addedChanges;
+    NSMutableDictionary *_recordIdDataReferenceMap;
+    NSMutableArray *_resolvedConflicts;
+    NSMutableArray *_conflictWrappers;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)postConflictsChangedDistributedNotification;
++ (id)unresolvedConflictsCountPathnameComponent;
++ (id)conflictsDirectoryPathnameComponent;
+
+- (void)dealloc;
+- (void)commit;
+- (id)archiver:(id)a0 willEncodeObject:(id)a1;
+- (id)unarchiver:(id)a0 didDecodeObject:(id)a1;
+- (void)compact;
+- (void)save;
+- (void)rollbackChanges;
+- (id)conflicts;
+- (void)fileLocker:(id)a0 lockWasStolen:(id)a1;
+- (void)disableFlush;
+- (void)enableFlush;
+- (id)initWithDataDirectory:(id)a0 lastSyncedGeneration:(unsigned int)a1;
+- (void)postConflictsChangedDistributedNotification;
+- (void)removeAllConflictsForEntityNames:(id)a0;
+- (void)releaseState;
+- (unsigned long long)resolvedConflictsForEntitiesCount:(id)a0;
+- (int)fileLocker:(id)a0 actionForApparentlyAbandonedLock:(id)a1 onAttempt:(int)a2;
+- (unsigned long long)unresolvedConflictCount;
+- (void)setDirtyCoderDelegate:(id)a0;
+- (void)replaceRecordId:(id)a0 withRecordId:(id)a1;
+- (void)isd_didDecodeDataWrapper:(id)a0 forRecordWithIdentifier:(id)a1 withPropertyName:(id)a2;
+- (void)replaceRelationshipTupleId:(id)a0 withRelationshipTupleId:(id)a1;
+- (id)dirtyCoderDelegate;
+- (void)enumerateAddsForEntityNames:(id)a0 asArgumentToFunction:(void /* function */ *)a1 context:(void *)a2;
+- (void)disableFlushAndLockImmediately;
+- (BOOL)enumerateAddsForEntityNames:(id)a0 state:(long long *)a1 maxToEnumerate:(long long)a2 asArgumentToFunction:(void /* function */ *)a3 context:(void *)a4;
+- (void)enumerateChangesForEntityNames:(id)a0 asArgumentToFunction:(void /* function */ *)a1 context:(void *)a2;
+- (unsigned long long)removeEnumeratedChanges;
+- (id)entityNamesOfAddedRecords;
+- (unsigned int)earliestFromGenerationOfAddedRecordsForEntityName:(id)a0;
+- (id)deletedRecordMap;
+- (void)noteAddedChange:(id)a0;
+- (void)noteConflictToRemove:(id)a0;
+- (void)_validateConflict:(id)a0;
+- (id)_sortDeltaFileNamesAndSetNextDeltaNumber:(id)a0;
+- (void)_clearDeltaFileNames;
+- (id)_validConflictsFromConflicts:(id)a0;
+- (void)_clearConflictState;
+- (id)_readConflictsFromFile:(id)a0;
+- (void)_buildDeltaFileNames;
+- (id)initWithDataDirectory:(id)a0 lastSyncedGeneration:(unsigned int)a1 validateConflictsOnRead:(BOOL)a2;
+- (BOOL)_readConflicts:(BOOL)a0;
+- (void)updateCountFile;
+- (BOOL)_writeConflicts:(id)a0 toFile:(id)a1 obtainLock:(BOOL)a2;
+- (BOOL)commitNewlyResolvedConflictsPostingNotification:(BOOL)a0;
+- (void)_clearBadConflictWithRecordId:(id)a0;
+- (void)associateDataReference:(id)a0 withRecordId:(id)a1 andPropertyName:(id)a2;
+- (id)commonClientId;
+- (BOOL)isConflictManager;
+- (BOOL)isUndoManager;
+- (id)unacceptedRecordIdsForEntityName:(id)a0;
+- (BOOL)enumerateChangesForEntityNames:(id)a0 changeType:(int *)a1 state:(long long *)a2 maxToEnumerate:(long long)a3 asArgumentToFunction:(void /* function */ *)a4 context:(void *)a5;
+- (void)updateChangePropertiesForChange:(id)a0;
+- (id)newSetOfDeletedRecordIdsForEntityNames:(id)a0;
+- (void)recycleDatabaseConnection;
+- (BOOL)commitNewlyResolvedConflicts;
+- (id)conflictForRecordWithId:(id)a0;
+- (id)freezeDriedRecordWithId:(id)a0;
+- (long long)conflictCount;
+- (void)addConflict:(id)a0;
+- (void)removeAllConflicts;
+- (void)removeConflict:(id)a0;
+- (id)reloadAndReturnConflictsInfo;
+- (void)addConflictWrappers:(id)a0;
+- (void)clearDataReferenceAssociationsForRecordIds:(id)a0;
+- (id)dataReferencesWithRecordId:(id)a0;
+- (id)recordIdsWithDataReferences;
+
+@end

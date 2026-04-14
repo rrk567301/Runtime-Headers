@@ -1,0 +1,72 @@
+@class NSString, NSMutableDictionary, NSOutlineView, NSMutableArray, NSLock;
+
+@interface ILMediaGroupsTreeController : NSObject {
+    NSOutlineView *_outlineView;
+    NSMutableArray *_content;
+    NSMutableArray *_selectedObjects;
+    NSString *_childrenKeyPath;
+    NSMutableArray *_observedPlugins;
+    NSLock *_reloadLock;
+    id _filterDelegate;
+    BOOL _inContentChange;
+    NSMutableDictionary *_groupToNodeDict;
+    BOOL _didFinishPluginLoading;
+    NSLock *_cachedNodesLock;
+    NSMutableArray *_audioTabRootNodes;
+    NSMutableArray *_imageTabRootNodes;
+    NSMutableArray *_movieTabRootNodes;
+}
+
+- (void)dealloc;
+- (id)init;
+- (void)reset;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)setContent:(id)a0;
+- (id)content;
+- (id)selectedObjects;
+- (void)setSelectedObjects:(id)a0;
+- (id)outlineView;
+- (void)setOutlineView:(id)a0;
+- (id)childrenKeyPath;
+- (void)setChildrenKeyPath:(id)a0;
+- (id)allGroups;
+- (void)addPlugin:(id)a0;
+- (id)filterDelegate;
+- (void)setFilterDelegate:(id)a0;
+- (id)selectionDidChange;
+- (id)selectedMediaGroups;
+- (id)displayedMediaGroups;
+- (id)mediaGroupNodeForMediaGroup:(id)a0;
+- (void)mediaObjectsNotification:(id)a0;
+- (void)mediaGroupLoadNotification:(id)a0;
+- (void)removeAllCachedRootNodesForPlugin:(id)a0 excludeCurrentNode:(BOOL)a1;
+- (void)removeAllPlugins;
+- (void)removeAllCachedRootNodes;
+- (id)currentRootNodes;
+- (id)expandAppDefFolderNodesForRootNodes:(id)a0;
+- (void)_recursiveGenerateGroupNodeMapForChildGroups:(id)a0;
+- (void)cacheRootNodes:(id)a0;
+- (void)_generateGroupToNodeMap;
+- (void)removePlugin:(id)a0;
+- (void)reloadForPlugin:(id)a0;
+- (void)updateMediaManagerIfSelected:(id)a0;
+- (void)sendDidLoadBrowserTypeIfNeeded;
+- (void)_createHierarchy:(id)a0;
+- (id)createChildGroupNodeForMediaGroup:(id)a0 parentNode:(id)a1 filterDelegate:(id)a2 plugin:(id)a3;
+- (BOOL)shouldFilterOutMediaGroupNode:(id)a0 forPlugin:(id)a1 parentNode:(id)a2;
+- (void)_reloadFinished:(id)a0;
+- (id)cachedRootNodeForRootMediaGroup:(id)a0;
+- (id)createHierarchyWithRootGroup:(id)a0 filterDelegate:(id)a1 plugin:(id)a2;
+- (id)filterAndSortRootNodes:(id)a0;
+- (void)setAllGroups:(id)a0;
+- (BOOL)_findParentsOfNode:(id)a0 currentNode:(id)a1 nodeArray:(id)a2;
+- (id)mediaGroupsForNodes:(id)a0;
+- (id)observedPlugins;
+- (id)filteredMediaObjectsForMediaGroup:(id)a0;
+- (BOOL)isInContentChange;
+- (void)reloadAllGroups;
+- (void)refilterForPlugin:(id)a0;
+- (void)_removeNodeObserversForRootGroupNodes:(id)a0;
+- (void)expandParentsOfNode:(id)a0;
+
+@end

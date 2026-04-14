@@ -1,0 +1,83 @@
+@class BookmarkAddressEditingPopoverViewController, NSString, SafariWebBookmarkList, NSArray, WBSPair, NSTimer;
+@protocol StartPageFavoritesSectionProviderDelegate;
+
+@interface StartPageFavoritesSectionProvider : StartPageTouchIconSectionProvider <SiriSuggestionsStartPageLinkRecommendationDelegate, StartPageCollectionSectionTitleViewDelegate> {
+    BookmarkAddressEditingPopoverViewController *_addressEditingController;
+    SafariWebBookmarkList *_favorites;
+    SafariWebBookmarkList *_currentFolder;
+    NSArray *_currentFolderContent;
+    WBSPair *_sourceIndexPathAndFolderUUID;
+    NSTimer *_hoverTimer;
+}
+
+@property (weak, nonatomic) id<StartPageFavoritesSectionProviderDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)reloadData;
+- (unsigned long long)draggingSourceOperationMaskForLocal:(BOOL)a0;
+- (void)viewDidLoad;
+- (void)viewDidAppear;
+- (long long)_numberOfItems;
+- (void)_updateTitle;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (id)collectionView:(id)a0 itemForRepresentedObjectAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 canDragItemsAtIndexPaths:(id)a1 withEvent:(id)a2;
+- (unsigned long long)collectionView:(id)a0 validateDrop:(id)a1 proposedIndexPath:(id *)a2 dropOperation:(long long *)a3;
+- (BOOL)collectionView:(id)a0 acceptDrop:(id)a1 indexPath:(id)a2 dropOperation:(long long)a3;
+- (id)collectionView:(id)a0 pasteboardWriterForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 draggingSession:(id)a1 willBeginAtPoint:(struct CGPoint { double x0; double x1; })a2 forItemsAtIndexPaths:(id)a3;
+- (void)collectionView:(id)a0 draggingSession:(id)a1 endedAtPoint:(struct CGPoint { double x0; double x1; })a2 dragOperation:(unsigned long long)a3;
+- (void)collectionView:(id)a0 didEndDisplayingItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (id)draggedTypes;
+- (id)_sectionTitle;
+- (BOOL)_canCollapse;
+- (BOOL)_canGoBack;
+- (void)resetContent;
+- (void)didPerformContextMenuShowingEventForItem:(id)a0 withEvent:(id)a1;
+- (void)didSelectItem:(id)a0 withEvent:(id)a1;
+- (id)_browserWindowController;
+- (void)goBackForStartPageCollectionSectionTitleView:(id)a0;
+- (void)collectionViewPlus:(id)a0 draggingSession:(id)a1 movedToPoint:(struct CGPoint { double x0; double x1; })a2;
+- (id)layoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (void)setUpReusableViewsUsingRegister:(id)a0;
+- (id)accessibilityTitleForSection:(long long)a0;
+- (id)accessibilityIdentifierForSection:(long long)a0;
+- (id)indexPathForDraggedItemWithRepresentedObject:(id)a0 firstSectionIndex:(long long)a1;
+- (struct TabPlacementHint { id x0; BOOL x1; })_tabPlacementHint;
+- (void)_removeBookmark:(id)a0;
+- (id)_bookmarksUndoController;
+- (id)initWithSiteMetadataManager:(id)a0 usesCompactAppearance:(BOOL)a1;
+- (void)_updateFavoritesWithNotification:(id)a0;
+- (void)_cancelHoverTimer;
+- (void)_reloadContent;
+- (BOOL)_isEmptyFolder;
+- (void)_retrieveLastUsedFolder;
+- (BOOL)_hasContentToDisplay;
+- (id)_sourceFolderUUIDForDrag;
+- (id)_sourceIndexPathForDrag;
+- (id)_contentItemAtIndex:(unsigned long long)a0;
+- (BOOL)_isInSameFolderAsSourceOfDragOperation;
+- (id)_bookmarkFolderForUUID:(id)a0;
+- (void)_openFolder:(id)a0;
+- (void)_hoverTimerFired:(id)a0;
+- (void)_navigateToBookmark:(id)a0;
+- (void)_openFolderHonoringKeyModifiers:(id)a0 withAnimation:(BOOL)a1;
+- (id)_contextMenuForBookmark:(id)a0;
+- (void)_openContentsOfFolderInNewTabs:(id)a0;
+- (void)_replaceTabsWithContentsOfFolder:(id)a0;
+- (void)_updateControlsForFolderChange;
+- (void)_updateBackButton;
+- (void)_beginRenamingBookmark:(id)a0;
+- (void)_beginEditingAddressOfBookmark:(id)a0;
+- (void)_reloadCellForBookmark:(id)a0 invalidatingIcon:(BOOL)a1;
+- (void)didRenameTitleOfItem:(id)a0;
+- (id)_metadataRequestForContentItem:(id)a0;
+- (long long)_numberOfRowsToShowWhenCollapsed;
+- (void)_goBack:(id)a0;
+
+@end

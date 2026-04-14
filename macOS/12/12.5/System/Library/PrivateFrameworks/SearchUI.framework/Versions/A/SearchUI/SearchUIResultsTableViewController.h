@@ -1,0 +1,70 @@
+@class NSTimer, NSDate, NSArray, SFSearchResult, NSString, NSMutableDictionary, NSMutableSet, NSObject, NSMutableOrderedSet;
+@protocol SearchUIDragAndDropDelegate, SearchUIInteractionDelegate;
+
+@interface SearchUIResultsTableViewController : SearchUITableViewController <NSGestureRecognizerDelegate, NSTableViewDelegate, SearchUITableHeaderViewDelegate>
+
+@property (retain) NSMutableDictionary *sectionForHeaderAtRowNumber;
+@property (retain) NSMutableDictionary *indexPathForRowNumber;
+@property (retain) NSMutableOrderedSet *latestVisibleResultsAccountedForInFeedback;
+@property double lastScrollLocation;
+@property (retain, nonatomic) id monitor;
+@property (retain, nonatomic) SFSearchResult *savedSelectedResult;
+@property (retain, nonatomic) NSTimer *alternateDetailsTimer;
+@property (retain, nonatomic) NSDate *alternateDetailsTimerFireDate;
+@property unsigned long long numRows;
+@property (retain, nonatomic) NSMutableSet *expandedSections;
+@property (retain, nonatomic) NSMutableSet *sectionsThatHaveBeenExpanded;
+@property (retain, nonatomic) NSArray *sections;
+@property (weak, nonatomic) id<SearchUIDragAndDropDelegate> dragAndDropDelegate;
+@property (weak, nonatomic) NSObject<SearchUIInteractionDelegate> *interactionDelegate;
+@property (nonatomic) BOOL presentsAlternateDetails;
+@property (nonatomic) BOOL selectAlternateResult;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) NSString *queryString;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewDidLayout;
+- (void)didScrollInScrollView:(id)a0;
+- (unsigned long long)numberOfRows;
+- (id)tableView:(id)a0 pasteboardWriterForRow:(long long)a1;
+- (BOOL)tableView:(id)a0 isGroupRow:(long long)a1;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
+- (void)keyUp:(id)a0;
+- (id)selectedResult;
+- (id)resultForRow:(unsigned long long)a0;
+- (id)selectedSection;
+- (void)mouseMoved;
+- (id)rowViewForRow:(unsigned long long)a0;
+- (id)cellViewForRow:(unsigned long long)a0;
+- (void)selectionDidChangeToRow:(long long)a0;
+- (void)setTableModel:(id)a0;
+- (void)toggleExpansionForSection:(id)a0;
+- (void)boundsDidChangeNotificationHandler:(id)a0;
+- (void)frameDidChangeNotificationHandler:(id)a0;
+- (void)setTableModel:(id)a0 reloadData:(BOOL)a1;
+- (BOOL)sectionShouldBeExpanded:(id)a0;
+- (void)performExpansion:(BOOL)a0 withSectionIndex:(unsigned long long)a1;
+- (id)sectionForRow:(unsigned long long)a0;
+- (id)tableModelIndexPathForRow:(unsigned long long)a0;
+- (void)sendResultEngagementFeedbackForResult:(id)a0 inSection:(id)a1 withEvent:(unsigned long long)a2 destination:(unsigned long long)a3;
+- (void)updateAlternateDetails;
+- (void)sendVisibleFeedbackIfNecessary;
+- (void)setupMonitor;
+- (void)clearMonitor;
+- (BOOL)selectAlternateResultTemporarily:(BOOL)a0;
+- (void)unselectAlternateResult;
+- (BOOL)isValidResultForFeedback:(id)a0;
+- (void)sendVisibleResultsFeedbackForOnlyNewResults:(BOOL)a0;
+- (id)visibleResults;
+- (void)sendVisibleResultsFeedbackWithVisibleResults:(id)a0 withTriggerEvent:(unsigned long long)a1;
+- (void)sendEngagmentFeedbackAfterActionPerformedForRowModel:(id)a0 inSection:(id)a1 destination:(id)a2;
+- (void)didEngageGroupRow:(long long)a0;
+- (BOOL)canSelectRowModel:(id)a0;
+
+@end

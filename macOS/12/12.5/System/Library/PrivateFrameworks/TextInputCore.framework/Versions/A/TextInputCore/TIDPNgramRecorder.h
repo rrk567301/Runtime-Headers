@@ -1,0 +1,16 @@
+@interface TIDPNgramRecorder : TIDPNgramRecorderCascading
+
+@property (nonatomic) BOOL shouldDonateNgramSampleRandomly;
+
++ (void)enumerateNgramsFromSession:(id)a0 n:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+
+- (id)delegate;
+- (BOOL)report;
+- (id)records;
+- (id)recordingKey;
+- (id)initWithTypingSession:(id)a0 aligned:(id)a1 n:(unsigned long long)a2 shouldDonateNgramSampleRandomly:(BOOL)a3;
+- (id)_normalizedWordEntryStringForWordEntry:(id)a0;
+- (id)randomRecordsLimitedByCount:(unsigned long long)a0;
+- (id)randomRecords;
+
+@end

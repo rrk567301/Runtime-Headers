@@ -1,0 +1,29 @@
+@class NSUserDefaults;
+
+@interface HVUserDefaults : NSObject {
+    NSUserDefaults *_defaults;
+}
+
++ (id)sharedInstance;
++ (id)defaults;
++ (long long)harvestBudgetNumberOfOperations;
++ (void)setHarvestBudgetNumberOfOperations:(long long)a0;
++ (double)harvestBudgetCPUTimeSeconds;
++ (void)setHarvestBudgetCPUTimeSeconds:(double)a0;
++ (BOOL)harvestBudgetDisabled;
++ (BOOL)harvestBudgetThrottleBudgetDisabled;
++ (BOOL)harvestBudgetRefillDisabled;
++ (void)resetHarvestBudgetNumberOfOperations;
++ (void)resetHarvestBudgetCPUTimeSeconds;
++ (void)setHarvestBudgetDisabled:(BOOL)a0;
++ (void)resetHarvestBudgetDisabled;
++ (void)setHarvestBudgetThrottleBudgetDisabled:(BOOL)a0;
++ (void)resetHarvestBudgetThrottleBudgetDisabled;
++ (void)setHarvestBudgetRefillDisabled:(BOOL)a0;
++ (void)resetHarvestBudgetRefillDisabled;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)defaults;
+
+@end

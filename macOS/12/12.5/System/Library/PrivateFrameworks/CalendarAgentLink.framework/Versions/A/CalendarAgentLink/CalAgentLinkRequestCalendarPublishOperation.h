@@ -1,0 +1,3 @@
+@interface CalAgentLinkRequestCalendarPublishOperation : CalAgentLinkOneWayOperation
+
+@end

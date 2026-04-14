@@ -1,0 +1,3 @@
+@interface _TtC13TeaFoundationP33_FB954AA17CB2E15CD2EA50B08F03512912DateProvider : _TtCs12_SwiftObject
+
+@end
