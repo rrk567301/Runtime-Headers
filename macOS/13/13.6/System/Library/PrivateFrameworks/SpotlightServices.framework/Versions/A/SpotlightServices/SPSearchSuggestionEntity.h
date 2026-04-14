@@ -1,0 +1,20 @@
+@class NSString;
+
+@interface SPSearchSuggestionEntity : SPSearchEntity {
+    NSString *_searchString;
+    NSString *_queryString;
+    NSString *_spotlightQueryString;
+}
+
++ (BOOL)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)searchString;
+- (id)queryString;
+- (id)spotlightQueryString;
+- (void)updateSearchString:(id)a0;
+- (id)initWithSearchString:(id)a0 spotlightQueryString:(id)a1 preferredBundleIDs:(id)a2;
+
+@end

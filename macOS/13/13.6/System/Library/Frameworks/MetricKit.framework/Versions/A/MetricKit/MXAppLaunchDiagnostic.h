@@ -1,0 +1,16 @@
+@class MXCallStackTree, NSMeasurement;
+
+@interface MXAppLaunchDiagnostic : MXDiagnostic
+
+@property (readonly) MXCallStackTree *callStackTree;
+@property (readonly) NSMeasurement *launchDuration;
+
++ (BOOL)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)toDictionary;
+- (id)initWithMetaData:(id)a0 applicationVersion:(id)a1 callStack:(id)a2 launchDuration:(id)a3;
+
+@end

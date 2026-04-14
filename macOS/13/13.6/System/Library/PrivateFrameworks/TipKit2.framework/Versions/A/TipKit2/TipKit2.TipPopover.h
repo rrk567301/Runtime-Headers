@@ -1,0 +1,14 @@
+@interface TipKit2.TipPopover : NSPopover <NSObject> {
+    void /* unknown type, empty encoding */ viewResponder;
+}
+
+@property (nonatomic) struct CGSize { double x0; double x1; } contentSize;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)popoverDidShow:(id)a0;
+- (void)popoverDidClose:(id)a0;
+- (void)popoverWillShow:(id)a0;
+
+@end

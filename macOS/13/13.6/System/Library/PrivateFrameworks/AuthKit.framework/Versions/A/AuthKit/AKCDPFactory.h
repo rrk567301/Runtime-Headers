@@ -1,0 +1,26 @@
+@interface AKCDPFactory : NSObject
+
++ (id)context;
++ (unsigned long long)walrusStatus;
++ (BOOL)cdpAccountIsICDPEnabledForDSID:(id)a0;
++ (unsigned long long)webAccessStatus;
++ (BOOL)isEligibleToArmDeviceForPCSAuth;
++ (BOOL)isWalrusEnabled;
++ (id)accountRecoveryControllerWithPresentingViewController:(id)a0;
++ (BOOL)cdpAccountIsOTEnabledForAltDSID:(id)a0;
++ (id)cdpErrorDomain;
++ (id)cdpIDMSRecordMIDKey;
++ (id)cdpIDMSRecordPRKKey;
++ (id)cdpStateUIController;
++ (id)cdpUIControllerWithPresentingViewController:(id)a0;
++ (id)contextWithAuthResults:(id)a0;
++ (id)followUpController;
++ (id)followUpRepairContext;
++ (BOOL)isWebAccessEnabled;
++ (id)recoveryControllerWithContext:(id)a0;
++ (id)stateControllerWithContext:(id)a0;
++ (id)walrusStatusLiveValue;
++ (id)webAccessChangeControllerForTargetStatus:(unsigned long long)a0;
++ (id)webAccessStatusLiveValue;
+
+@end

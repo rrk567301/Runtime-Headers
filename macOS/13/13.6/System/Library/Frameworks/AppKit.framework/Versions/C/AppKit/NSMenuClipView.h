@@ -1,0 +1,3 @@
+@interface NSMenuClipView : NSClipView
+
+@end

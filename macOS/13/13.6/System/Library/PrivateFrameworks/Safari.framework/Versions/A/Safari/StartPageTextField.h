@@ -1,0 +1,3 @@
+@interface StartPageTextField : NSTextField
+
+@end

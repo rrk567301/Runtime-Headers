@@ -1,0 +1,18 @@
+@class NSNumber;
+
+@interface MTRAttributePath : MTRClusterPath
+
+@property (readonly, copy, nonatomic) NSNumber *attribute;
+
++ (id)attributePathWithEndpointID:(id)a0 clusterID:(id)a1 attributeID:(id)a2;
++ (id)attributePathWithEndpointId:(id)a0 clusterId:(id)a1 attributeId:(id)a2;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithPath:(const void *)a0;
+- (BOOL)isEqualToAttributePath:(id)a0;
+
+@end

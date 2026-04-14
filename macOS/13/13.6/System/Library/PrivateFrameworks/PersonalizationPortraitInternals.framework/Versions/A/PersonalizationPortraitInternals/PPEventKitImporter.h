@@ -1,0 +1,26 @@
+@class PPLocalTopicStore, SGURLDissector, SGSqlEntityStore, PPLocalLocationStore, PPNamedEntityDissector, PPLocalNamedEntityStore, PPLocalEventStore;
+
+@interface PPEventKitImporter : NSObject {
+    PPLocalEventStore *_eventStore;
+    PPLocalNamedEntityStore *_namedEntityStore;
+    PPLocalLocationStore *_locationStore;
+    PPLocalTopicStore *_topicStore;
+    SGSqlEntityStore *_urlStore;
+    SGURLDissector *_urlDissector;
+    PPNamedEntityDissector *_neDissector;
+    Class _dataDetectorMatchClass;
+    struct atomic_flag { _Atomic BOOL _Value; } _fullImportInProgress;
+}
+
++ (id)defaultInstance;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)importEventData;
+- (id)initWithEventStore:(id)a0 namedEntityStore:(id)a1 locationStore:(id)a2 topicStore:(id)a3 urlStore:(id)a4 urlDissector:(id)a5 namedEntityDissector:(id)a6 dataDetectorMatchClass:(Class)a7;
+- (BOOL)deleteAndReimportAllData;
+- (void)importChangedEvents:(id)a0;
+- (void)importEvent:(id)a0;
+- (id)importEventDataWithShouldContinueBlock:(id /* block */)a0;
+
+@end
