@@ -1,0 +1,91 @@
+@class _MRAVOutputDeviceDescriptorProtobuf, MRAVOutputDeviceSourceInfo, NSDictionary, NSArray;
+
+@interface MRAVDistantOutputDevice : MRAVOutputDevice <NSSecureCoding> {
+    _MRAVOutputDeviceDescriptorProtobuf *_protobuf;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
+    NSDictionary *_modelSpecificInfo;
+    NSArray *_clusterComposition;
+    NSArray *_activatedClusterMemebers;
+    NSArray *_allClusterMembers;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *protobuf;
+@property (readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *generateDescriptor;
+
+- (id)description;
+- (id)name;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)uid;
+- (float)volume;
+- (id)descriptor;
+- (id)groupID;
+- (unsigned int)deviceType;
+- (long long)transportType;
+- (id)firmwareVersion;
+- (id)initWithDescriptor:(id)a0;
+- (float)distance;
+- (unsigned int)deviceSubtype;
+- (float)batteryLevel;
+- (id)bluetoothID;
+- (unsigned int)clusterType;
+- (id)primaryID;
+- (id)sourceInfo;
+- (BOOL)requiresAuthorization;
+- (BOOL)hasBatteryLevel;
+- (id)modelID;
+- (id)MACAddress;
+- (BOOL)isClusterLeader;
+- (id)logicalDeviceID;
+- (BOOL)presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+- (id)availableBluetoothListeningModes;
+- (BOOL)canAccessAppleMusic;
+- (BOOL)canAccessRemoteAssets;
+- (BOOL)canAccessiCloudMusicLibrary;
+- (BOOL)canFetchMediaDataFromSender;
+- (BOOL)canPlayEncryptedProgressiveDownloadAssets;
+- (BOOL)canRelayCommunicationChannel;
+- (id)clusterID;
+- (unsigned long long)configuredClusterSize;
+- (id)currentBluetoothListeningMode;
+- (BOOL)groupContainsGroupLeader;
+- (BOOL)isAppleAccessory;
+- (BOOL)isGroupLeader;
+- (BOOL)producesLowFidelityAudio;
+- (BOOL)supportsBufferedAirPlay;
+- (id)roomName;
+- (long long)hostDeviceClass;
+- (id)activatedClusterMembers;
+- (id)airPlayGroupID;
+- (id)allClusterMembers;
+- (id)clusterComposition;
+- (BOOL)discoveredOnSameInfra;
+- (id)initWithSkeleton:(id)a0;
+- (BOOL)isAddedToHomeKit;
+- (BOOL)isAirPlayReceiverSessionActive;
+- (BOOL)isDeviceGroupable;
+- (BOOL)isGroupable;
+- (BOOL)isLocalDevice;
+- (BOOL)isPickable;
+- (BOOL)isProxyGroupPlayer;
+- (BOOL)isRemoteControllable;
+- (BOOL)isUsingJSONProtocol;
+- (BOOL)isVolumeControlAvailable;
+- (id)modelSpecificInfo;
+- (BOOL)parentGroupContainsDiscoverableLeader;
+- (id)parentGroupIdentifier;
+- (id)parentUID;
+- (id)roomID;
+- (BOOL)supportsEngageOnClusterActivation;
+- (BOOL)supportsExternalScreen;
+- (BOOL)supportsHAP;
+- (BOOL)supportsMultiplayer;
+- (BOOL)supportsRapportRemoteControlTransport;
+- (BOOL)supportsSharePlayHandoff;
+- (id)tightSyncID;
+- (unsigned int)volumeCapabilities;
+
+@end

@@ -1,0 +1,82 @@
+@class NSObject, AVCMediaStreamNegotiator, CMContinuityCaptureDeviceCapabilities, AVCAudioStream, NSString, CMContinuityCaptureStateMachine, CMContinuityCaptureLocalFrameLatencyMetrics, CMContinuityCaptureCompositeDevice, CMContinuityCaptureClient, NSArray, NSData, AVCStreamOutput, CMContinuityCaptureConfiguration;
+@protocol OS_dispatch_queue, OS_dispatch_group;
+
+@interface CMContinuityCaptureAudioDevice : NSObject <CMContinuityCaptureDevice> {
+    CMContinuityCaptureClient *_client;
+    CMContinuityCaptureDeviceCapabilities *_capabilities;
+    NSObject<OS_dispatch_queue> *_queue;
+    long long _entity;
+    CMContinuityCaptureCompositeDevice *_compositeDevice;
+    AVCAudioStream *_avcAudioStream;
+    AVCStreamOutput *_avcStreamOutput;
+    NSObject<OS_dispatch_group> *_pendingAVCActivationGroup;
+    NSObject<OS_dispatch_group> *_pendingAVCTeardownGroup;
+    AVCMediaStreamNegotiator *_avcStreamNegotiator;
+    NSData *_currentOffer;
+    NSObject<OS_dispatch_group> *_pendingAVCNegotiationGroup;
+    NSString *_avcStreamCallID;
+    CMContinuityCaptureStateMachine *_stateMachine;
+    CMContinuityCaptureConfiguration *_configuration;
+    BOOL _isResetting;
+    BOOL _avcActive;
+    unsigned long long _lastStreamGenerationID;
+    CMContinuityCaptureLocalFrameLatencyMetrics *_sessionFrameLatencyMetrics;
+}
+
+@property (readonly, retain, nonatomic) NSString *audioDeviceUID;
+@property (readonly, retain) CMContinuityCaptureClient *client;
+@property (readonly, retain) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) long long entity;
+@property (readonly, retain) CMContinuityCaptureDeviceCapabilities *capabilities;
+@property (readonly, weak) CMContinuityCaptureCompositeDevice *compositeDevice;
+@property (readonly, retain) NSArray *controls;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)terminate;
+- (id)debugInfo;
+- (void)_observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)stream:(id)a0 didStart:(BOOL)a1 error:(id)a2;
+- (void)streamDidRTCPTimeOut:(id)a0;
+- (void)streamDidRTPTimeOut:(id)a0;
+- (void)streamDidServerDie:(id)a0;
+- (void)streamDidStop:(id)a0;
+- (void)streamOutput:(id)a0 didReceiveSampleBuffer:(struct opaqueCMSampleBuffer { } *)a1;
+- (void)streamOutputDidBecomeInvalid:(id)a0;
+- (void)streamOutputServerDidDie:(id)a0;
+- (void)_startStream:(id)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)_clearAVCArtifacts;
+- (void)_clearAVCArtifactsWithOption:(unsigned long long)a0;
+- (void)_postEvent:(id)a0 entity:(long long)a1 data:(id)a2;
+- (void)_startCollectingFrameLatencyMetrics;
+- (void)_stopStream:(long long)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)clearAVCArtifacts;
+- (void)clearAVCArtifactsWithOption:(unsigned long long)a0;
+- (id)createAVCAudioStreamForSidecarStream:(id)a0;
+- (void)handleAVCNegotiation:(long long)a0 data:(id)a1;
+- (id)initWithCompositeDevice:(id)a0 entity:(long long)a1 capabilities:(id)a2 client:(id)a3;
+- (id)newAudioStreamConfigWithIsWired:(BOOL)a0 key:(id)a1 networkClock:(id)a2;
+- (void)postAVCStreamInterruption;
+- (void)postActionCompletionForType:(unsigned long long)a0 error:(id)a1;
+- (void)postActionForType:(unsigned long long)a0 option:(unsigned long long)a1 data:(id)a2;
+- (BOOL)postActionGuardForType:(unsigned long long)a0;
+- (void)postDataEvent:(id)a0 entity:(long long)a1 data:(id)a2;
+- (void)postEvent:(id)a0 entity:(long long)a1;
+- (void)setValueForControl:(id)a0 completion:(id /* block */)a1;
+- (void)startAVCOutputForConfiguration:(id)a0 completion:(id /* block */)a1;
+- (void)startCollectingFrameLatencyMetrics;
+- (void)startStream:(id)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)stateMachineNotifyCompletion:(id)a0;
+- (void)stateMachineRestartStream:(unsigned long long)a0;
+- (void)stateMachineStartStream:(unsigned long long)a0;
+- (void)stateMachineStopStream:(unsigned long long)a0;
+- (void)stateMachineTerminate;
+- (void)stopAVCOutput:(id /* block */)a0 option:(unsigned long long)a1;
+- (void)stopStream:(long long)a0 option:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)synchronizeAudioClockWithSampleTime:(unsigned long long)a0 networkTime:(unsigned long long)a1 clockGrandMasterIdentifier:(unsigned long long)a2;
+
+@end
