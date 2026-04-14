@@ -1,0 +1,12 @@
+@interface LACMobileGestalt : NSObject
+
++ (id)serialNumber;
++ (int)_deviceClass;
++ (BOOL)isVirtualMachine;
++ (unsigned long long)currentDeviceScreenSize;
++ (unsigned long long)faceIDCameraOrientation;
++ (BOOL)isIdiomPad;
++ (BOOL)isIdiomPhone;
++ (id)marketingDeviceName;
+
+@end

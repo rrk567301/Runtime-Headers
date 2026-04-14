@@ -1,0 +1,3 @@
+@interface CSSecureSiriAudioProvidingProxy : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.UnsupportedWithLowQualityVoiceOnWatchStrategy : _TtCs12_SwiftObject
+
+@end

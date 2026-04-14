@@ -1,0 +1,3 @@
+@interface CLSMessageAttachment : NSObject
+
+@end
