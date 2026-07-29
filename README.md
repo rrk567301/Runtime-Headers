@@ -89,7 +89,7 @@ A collection of dumped runtime headers.
             <td width="70" align="center"><a href="https://github.com/camieeh/Runtime-Headers/raw/refs/heads/main/macOS/26/26.3.tar.gz">26.3</a></td>
             <td width="70" align="center"><a href="https://github.com/camieeh/Runtime-Headers/raw/refs/heads/main/macOS/26/26.4.tar.gz">26.4</a></td>
             <td width="70" align="center"><a href="https://github.com/camieeh/Runtime-Headers/raw/refs/heads/main/macOS/26/26.5.tar.gz">26.5</a></td>
-            <td width="70" align="center"></td>
+            <td width="70" align="center"><a href="https://github.com/camieeh/Runtime-Headers/raw/refs/heads/main/macOS/26/26.6.tar.gz">26.6</a></td>
         </tr>
     </tbody>
 </table>
